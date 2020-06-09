@@ -2,17 +2,17 @@
 title: Haveri beredskap för anpassade ämnen i Azure Event Grid
 description: I den här självstudien får du lära dig hur du konfigurerar din händelse arkitektur för att återställa om Event Grid tjänsten blir skadad i en region.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: femila
+ms.openlocfilehash: d2b6d8f8433d1eef34e554b0e0fccbf8b2cbab94
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76511526"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557784"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveri beredskap för anpassade ämnen i Event Grid
 Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. Den här självstudien vägleder dig genom hur du konfigurerar din händelsearkitektur för att återställa om Event Grid-tjänsten blir skadad i en viss region.

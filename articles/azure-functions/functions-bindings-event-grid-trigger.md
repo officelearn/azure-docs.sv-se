@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: af22d7a81d8a778c3df38f929bfbfb0a651cebc6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648360"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561829"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -309,7 +309,7 @@ I följande tabell förklaras de egenskaper för bindnings konfigurationen som d
 
 |function. JSON-egenskap |Description|
 |---------|---------|
-| **typ** | Required-måste anges till `eventGridTrigger` . |
+| **bastyp** | Required-måste anges till `eventGridTrigger` . |
 | **position** | Required-måste anges till `in` . |
 | **Namn** | Obligatoriskt – variabel namnet som används i funktions koden för den parameter som tar emot händelse data. |
 

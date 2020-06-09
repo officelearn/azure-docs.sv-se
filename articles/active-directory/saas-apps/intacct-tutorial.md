@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201406"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509380"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Självstudie: integrera Sage Intacct med Azure Active Directory
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig att integrera Sage-Intacct med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -88,13 +88,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![image](common/edit-attribute.png)
 
-1. Utöver ovan förväntar sig Sage Intacct-program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+1. Utöver ovan förväntar sig Sage Intacct-program att fler attribut skickas tillbaka i SAML-svar. I dialog rutan **användarattribut & anspråk** utför du följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan:
 
-    | Name  |  Källattribut|
+    | Attributnamn  |  Källattribut|
     | ---------------| --------------- |
     | Företagsnamn | **Sage Intacct företags-ID** |
     | name | Värdet ska vara detsamma som Sage Intacct **-användar-ID**, som du anger i **avsnittet Create Sage Intacct test User**, som beskrivs senare i självstudien |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | Värdet ska vara detsamma som Sage Intacct **FEDERERAD SSO-användar-ID**, som du anger i **avsnittet Create Sage Intacct test User**, som beskrivs senare i självstudien |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -104,7 +103,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     d. Välj Källa som **Attribut**.
 
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
+    e. I listan **källattribut** skriver eller väljer du det attributvärde som visas för den raden.
 
     f. Klicka på **OK**
 
@@ -126,7 +125,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -226,5 +225,5 @@ När du klickar på panelen Sage Intacct på åtkomst panelen, bör du loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

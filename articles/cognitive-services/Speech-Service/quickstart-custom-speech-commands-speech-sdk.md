@@ -3,19 +3,19 @@ title: 'Snabb start: ansluta till en app med anpassade kommandon med tal SDK –
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln ska du skapa ett program för tal-SDK-klient med anpassade kommandon.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: donkim
-ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.author: nitinme
+ms.openlocfilehash: f2e8292ccace38e1a167c3ecdfb924589e4ebf0e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872484"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508938"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)
 
@@ -26,7 +26,7 @@ I den här artikeln får du:
 - Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
 - Skapa en Universell Windows-plattform-klientsession (UWP) med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det krävs ett program med anpassade kommandon för att kunna slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon än kan du göra det i dessa tidigare snabb starter:
 > [!div class = "checklist"]
@@ -120,7 +120,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 Lägg till källa för bakomliggande kod så att programmet fungerar som förväntat. Källan för bakomliggande kod innehåller:
 
-- Obligatoriska `using` instruktioner för namn `Speech` områdena `Speech.Dialog` och
+- Obligatoriska `using` instruktioner för `Speech` `Speech.Dialog` namn områdena och
 - En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
 - Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
 - En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
@@ -129,7 +129,7 @@ Lägg till källa för bakomliggande kod så att programmet fungerar som förvä
 
 Lägg till koden bakom källan enligt följande:
 
-1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs` bakomliggande kod i Solution Explorer (grupperad under `MainPage.xaml`)
+1. Öppna käll filen bakomliggande kod i **Solution Explorer** `MainPage.xaml.cs` (grupperad under `MainPage.xaml` )
 
 1. Ersätt filens innehåll med följande kod: 
 
@@ -321,7 +321,7 @@ Lägg till koden bakom källan enligt följande:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Ersätt strängarna `YourApplicationId`, `YourSpeechSubscriptionKey`och `YourServiceRegion` med dina egna värden för din app, tal prenumeration och [region](regions.md)
+1. Ersätt strängarna `YourApplicationId` , `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din app, tal prenumeration och [region](regions.md)
 
 1. Lägg till följande kodfragment i slutet av metod texten i`InitializeDialogServiceConnector`
 
@@ -381,7 +381,7 @@ Lägg till koden bakom källan enligt följande:
    };
    ```
 
-1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i-klassen `MainPage`
+1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i- `MainPage` klassen
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -405,13 +405,13 @@ Lägg till koden bakom källan enligt följande:
    }
    ```
 
-1. Välj **Arkiv** > **Spara alla** på Meny raden för att spara ändringarna
+1. Välj **Arkiv**  >  **Spara alla** på Meny raden för att spara ändringarna
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 
-1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
+1. Starta programmet genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
    ![Exempel på UWP Virtual Assistant-program i C#-snabb start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
@@ -424,8 +424,8 @@ Lägg till koden bakom källan enligt följande:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Gör så här: utföra kommandon på klienten med talet SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> gör så[här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
+> Gör [så här: utföra kommandon på klienten med talet SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md) 
+>  Gör så [här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
 
 ## <a name="sample-source-code"></a>Exempel käll kod
 Kolla våra klient exempel koder på [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

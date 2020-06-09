@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 5889afa033b30606f8981ddb826aa192f24efa10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 12f5f8b1e1a20675fd08f753e515faef2f7a97ce
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81312918"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560039"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -28,7 +29,7 @@ I de här självstudierna får du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
@@ -65,7 +66,7 @@ I den här självstudien används flygdata från Bureau of Transportation Statis
 
 I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks på Azure Portal")
 

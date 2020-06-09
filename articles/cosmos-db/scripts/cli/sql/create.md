@@ -1,20 +1,20 @@
 ---
-title: Skapa en SQL-API-databas och behållare för Azure Cosmos DB
-description: Skapa en SQL-API-databas och behållare för Azure Cosmos DB
+title: Skapa en kärn (SQL) API-databas och behållare för Azure Cosmos DB
+description: Skapa en kärn (SQL) API-databas och behållare för Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ae958c7e48b1c4a93a09c607d5a2e51abf49a8ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/03/2020
+ms.openlocfilehash: 416da39df9bfb49d6323ee789d5e67b1743a1cd7
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275495"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509397"
 ---
-# <a name="create-an-azure-cosmos-sql-core-api-account-database-and-container-using-azure-cli"></a>Skapa ett Azure Cosmos SQL (Core) API-konto, en databas och en behållare med hjälp av Azure CLI
+# <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-using-azure-cli"></a>Skapa ett Azure Cosmos Core (SQL) API-konto, en databas och en behållare med hjälp av Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

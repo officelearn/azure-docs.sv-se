@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685065"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561033"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
 Använd Content Moderatorens text redigerings modeller för att analysera text innehåll.
 
-Du kan blockera, godkänna eller granska innehållet baserat på dina principer och tröskelvärden (se [granskningar, arbets flöden och jobb](./review-api.md) för att lära dig hur du ställer in mänsklig granskning). Använd text redigerings modeller för att förstärka mänsklig redaktör av miljöer där partner, anställda och konsumenter genererar text innehåll. Det kan vara chattrum, diskussionstavlor, chattrobotar, e-handelskataloger dokument. 
+Du kan blockera, godkänna eller granska innehållet baserat på dina principer och tröskelvärden (se [granskningar, arbets flöden och jobb](./review-api.md) för att lära dig hur du ställer in mänsklig granskning). Använd text redigerings modeller för att förstärka mänsklig redaktör av miljöer där partner, anställda och konsumenter genererar text innehåll. Det kan vara chattrum, diskussionstavlor, chattrobotar, e-handelskataloger dokument.
 
 Tjänstsvaret innehåller följande information:
 

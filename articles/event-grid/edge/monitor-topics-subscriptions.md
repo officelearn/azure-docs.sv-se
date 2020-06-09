@@ -1,19 +1,19 @@
 ---
 title: Övervaka ämnen och händelse prenumerationer – Azure Event Grid IoT Edge | Microsoft Docs
 description: Övervaka ämnen och händelse prenumerationer
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086671"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554360"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Övervaka ämnen och händelse prenumerationer
 
@@ -21,7 +21,7 @@ Event Grid på Edge exponerar ett antal mått för ämnen och händelse prenumer
 
 ## <a name="enable-metrics"></a>Aktivera mått
 
-Konfigurera modulen för att generera mått genom att ställa `metrics__reporterType` in miljövariabeln `prometheus` på i behållaren skapa alternativ:
+Konfigurera modulen för att generera mått genom att ställa in `metrics__reporterType` miljövariabeln på `prometheus` i behållaren skapa alternativ:
 
  ```json
         {
@@ -48,7 +48,7 @@ Både ämnen och händelse prenumerationer genererar mått för att ge dig insik
 
 ### <a name="topic-metrics"></a>Ämnes mått
 
-| Mått | Beskrivning |
+| Metric | Beskrivning |
 | ------ | ----------- |
 | EventsReceived | Antal händelser som publicerats till ämnet
 | UnmatchedEvents | Antal händelser som publicerats till ämnet som inte matchar en händelse prenumeration och som tas bort
@@ -60,7 +60,7 @@ Både ämnen och händelse prenumerationer genererar mått för att ge dig insik
 
 ### <a name="event-subscription-metrics"></a>Mått för händelse prenumeration
 
-| Mått | Beskrivning |
+| Metric | Beskrivning |
 | ------ | ----------- |
 | DeliverySuccessCounts | Antal händelser som har levererats till den konfigurerade slut punkten
 | DeliveryFailureCounts | Antal händelser som inte kunde levereras till den konfigurerade slut punkten

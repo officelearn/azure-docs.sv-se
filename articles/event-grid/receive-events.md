@@ -2,18 +2,18 @@
 title: Ta emot händelser från Azure Event Grid till en HTTP-slutpunkt
 description: Beskriver hur du verifierar en HTTP-slutpunkt och sedan tar emot och deserialiserar händelser från Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 manager: darosa
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
-ms.author: babanisa
-ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.author: femila
+ms.openlocfilehash: dd7535030ea4f6d6769630e463618faab62944a0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116976"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558474"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du [verifierar en HTTP-slutpunkt](webhook-event-
 > [!NOTE]
 > Vi rekommenderar **starkt** att du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) när du utlöser en Azure-funktion med event Grid. Användning av en allmän webhook-utlösare här är demonstrerad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Function-app med en HTTP-utlöst funktion.
 

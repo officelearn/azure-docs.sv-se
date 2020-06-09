@@ -1,19 +1,19 @@
 ---
 title: Händelse hanterare och destinationer – Azure Event Grid IoT Edge | Microsoft Docs
 description: Händelse hanterare och mål i Event Grid på kant
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849752"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557644"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Händelse hanterare och mål i Event Grid på kant
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller information om hur du konfigurerar var och en.
 
 ## <a name="webhook"></a>WebHook
 
-Om du vill publicera till en webhook-slutpunkt `endpointType` anger `WebHook` du till och anger:
+Om du vill publicera till en webhook-slutpunkt anger `endpointType` du till `WebHook` och anger:
 
 * endpointUrl: URL för webhook-slutpunkten
 
@@ -42,7 +42,7 @@ Om du vill publicera till en webhook-slutpunkt `endpointType` anger `WebHook` du
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Om du vill publicera till en Azure Event Grid moln slut punkt `endpointType` ställer `eventGrid` du in på och anger:
+Om du vill publicera till en Azure Event Grid moln slut punkt ställer `endpointType` du in på `eventGrid` och anger:
 
 * endpointUrl: URL för Event Grid avsnittet i molnet
 * sasKey: Event Grid ämnets SAS-nyckel
@@ -65,7 +65,7 @@ Om du vill publicera till en Azure Event Grid moln slut punkt `endpointType` st�
 
 ## <a name="iot-edge-hub"></a>IoT Edge hubb
 
-Om du vill publicera till en Edge Hub-modul `endpointType` ställer `edgeHub` du in på och anger:
+Om du vill publicera till en Edge Hub-modul ställer `endpointType` du in på `edgeHub` och anger:
 
 * outputName: utdata som Event Grid-modulen dirigerar händelser som matchar den här prenumerationen på edgeHub. Till exempel kommer händelser som matchar prenumerationen nedan att skrivas till/messages/modules/eventgridmodule/outputs/sampleSub4.
 
@@ -84,7 +84,7 @@ Om du vill publicera till en Edge Hub-modul `endpointType` ställer `edgeHub` du
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Om du vill publicera till en Event Hub ställer `endpointType` du `eventHub` in på och anger:
+Om du vill publicera till en Event Hub ställer `endpointType` du in på `eventHub` och anger:
 
 * connectionString: anslutnings sträng för den specifika Händelsehubben som du har genererat via en princip för delad åtkomst.
 
@@ -106,7 +106,7 @@ Om du vill publicera till en Event Hub ställer `endpointType` du `eventHub` in 
 
 ## <a name="service-bus-queues"></a>Service Bus-köer
 
-Om du vill publicera till en Service Bus kö anger `endpointType` du `serviceBusQueue` till och anger:
+Om du vill publicera till en Service Bus kö anger `endpointType` du till `serviceBusQueue` och anger:
 
 * connectionString: anslutnings sträng för den specifika Service Bus kön som du har genererat via en princip för delad åtkomst.
 
@@ -128,7 +128,7 @@ Om du vill publicera till en Service Bus kö anger `endpointType` du `serviceBus
 
 ## <a name="service-bus-topics"></a>Avsnitt om Service Bus
 
-Om du vill publicera till ett Service Bus ämne anger `endpointType` du `serviceBusTopic` till och anger:
+Om du vill publicera till ett Service Bus ämne anger `endpointType` du till `serviceBusTopic` och anger:
 
 * connectionString: anslutnings sträng för det specifika Service Bus ämne som du har genererat via en princip för delad åtkomst.
 
@@ -150,7 +150,7 @@ Om du vill publicera till ett Service Bus ämne anger `endpointType` du `service
 
 ## <a name="storage-queues"></a>Lagringsköer
 
-För att publicera till en lagrings kö, `endpointType` ange `storageQueue` till och ange:
+För att publicera till en lagrings kö, ange `endpointType` till `storageQueue` och ange:
 
 * queueName: namnet på lagrings kön som du publicerar till.
 * connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.

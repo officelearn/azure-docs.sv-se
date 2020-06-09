@@ -2,18 +2,18 @@
 title: Azure Event Grid händelse schema
 description: Beskriver de egenskaper och schema som finns för alla händelser.Händelser består av en uppsättning av fem obligatoriska sträng egenskaper och ett obligatoriskt data objekt.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114011"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559421"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
 
@@ -80,22 +80,22 @@ Till exempel är schemat som publicerats för en Azure Blob Storage-händelse:
 
 Alla händelser har samma följande toppnivå data:
 
-| Egenskap | Typ | Krävs | Beskrivning |
+| Egenskap | Typ | Obligatorisk | Beskrivning |
 | -------- | ---- | -------- | ----------- |
 | ämne | sträng | Nej, men om det ingår måste det matcha Event Grid avsnittet Azure Resource Manager ID exakt. Om den inte ingår stämplas Event Grid in på händelsen. | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | Ja | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Ja | Unikt ID för händelsen. |
-| data | objekt | Nej | Händelse data som är speciella för resurs leverantören. |
+| data | objekt | Inga | Händelse data som är speciella för resurs leverantören. |
 | Dataversion | sträng | Nej, men kommer att stämplas med ett tomt värde. | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| Metadataversion | sträng | Krävs inte, men om det ingår måste det matcha Event Grid schema `metadataVersion` exakt (endast `1`för närvarande). Om den inte ingår stämplas Event Grid in på händelsen. | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| Metadataversion | sträng | Krävs inte, men om det ingår måste det matcha Event Grid schema `metadataVersion` exakt (endast för närvarande `1` ). Om den inte ingår stämplas Event Grid in på händelsen. | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Information om egenskaperna i data-objektet finns i händelse källan:
 
 * [Azure-prenumerationer (hanterings åtgärder)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
-* [Blob Storage](event-schema-blob-storage.md)
+* [Blob-lagring](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
@@ -106,7 +106,7 @@ Information om egenskaperna i data-objektet finns i händelse källan:
 
 För anpassade ämnen bestämmer händelse utgivaren dataobjektet. Data på den översta nivån ska ha samma fält som standard resurs definierade händelser.
 
-När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder ämnet för att filtrera och dirigera händelser. Överväg att ange sökvägen till den plats där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du till exempel anger en tre segment Sök väg som `/A/B/C` i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen `/A/B/C` som `/A/D/E`eller. Andra prenumeranter kan filtrera `/A/B` efter för att få en smalare uppsättning händelser.
+När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder ämnet för att filtrera och dirigera händelser. Överväg att ange sökvägen till den plats där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du till exempel anger en tre segment Sök väg som `/A/B/C` i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E` . Andra prenumeranter kan filtrera efter `/A/B` för att få en smalare uppsättning händelser.
 
 Ibland behöver ditt ämne mer information om vad som hände. **Lagrings kontoren** tillhandahåller till exempel ämnet `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil läggs till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` för att hämta alla händelser för behållaren, men inte andra behållare i lagrings kontot. En prenumerant kan också filtrera eller dirigera efter suffixet `.txt` så att det bara fungerar med textfiler.
 

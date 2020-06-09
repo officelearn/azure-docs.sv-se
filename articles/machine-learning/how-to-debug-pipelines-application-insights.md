@@ -10,13 +10,13 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/16/2020
-ms.custom: seodec18
-ms.openlocfilehash: 3da1cea0b5e17f43d42ced4d1c4ca55d0d3050ad
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: faf83ad35e6aed191d07d7a297a547ec0d9921b2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433469"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555755"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Felsöka och felsöka maskin inlärnings pipeliner i Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Python-biblioteket för [openräkning](https://opencensus.io/quickstart/python/)
 
 Om du loggar in på samma plats får du en historik över undantag och fel meddelanden. Eftersom Application Insights integreras med Azure-aviseringar kan du även skapa aviseringar baserat på Application Insights frågor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ stegen för att skapa en [Azure Machine Learning](./how-to-manage-workspace.md) arbets yta och [skapa din första pipeline](./how-to-create-your-first-pipeline.md)
 * [Konfigurera utvecklings miljön](./how-to-configure-environment.md) för att installera Azure Machine Learning SDK.

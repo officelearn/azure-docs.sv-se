@@ -1,19 +1,19 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: include
 ms.date: 01/16/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: include file
-ms.openlocfilehash: cca628a54d9ac84fbb8a798168f72adbaa24aa48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16272ffceea6db5ced839d3ed957d11aec580a91
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844569"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84562134"
 ---
 >[!NOTE]
 > Kontrol lera alltid versionen av din avbildning för att se till att den har den feautures som du behöver. Om du redan har en tidigare version av behållar avbildningen som redan har hämtats på din dator måste du ange vilken versions tagg du vill ha eller ta bort den befintliga avbildningen innan du hämtar igen med- `:latest` taggen. Mer information om avbildnings versioner och-taggar finns i [versions anteckningar](../articles/event-grid/edge/release-notes.md).

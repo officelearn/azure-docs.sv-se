@@ -6,13 +6,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
-ms.custom: mvc
-ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773193"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555062"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudie: köra Python-skript via Azure Data Factory med Azure Batch
 
@@ -30,7 +30,7 @@ Exemplet nedan kör ett Python-skript som tar emot CSV-indata från en Blob Stor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En installerad [python](https://www.python.org/downloads/) -distribution för lokal testning.
 * [Azure](https://pypi.org/project/azure/) - `pip` paketet.

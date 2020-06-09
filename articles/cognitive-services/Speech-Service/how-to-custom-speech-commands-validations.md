@@ -3,19 +3,19 @@ title: Lägg till valideringar i förhands granskning av anpassade kommandon –
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du lägger till valideringar i en kommando parameter i en för hands version av anpassade kommandon.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: donkim
-ms.openlocfilehash: 6686016f109fad4ee8b7f4e494b1374a6003658c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.author: nitinme
+ms.openlocfilehash: eb011510a9f636aea9910a4be445cd094acf0c21
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310418"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509584"
 ---
 # <a name="add-validations-to-a-command-parameter-in-a-custom-commands-preview-application"></a>Lägga till valideringar i en kommando parameter i ett för hands versions program för anpassade kommandon
 
@@ -73,7 +73,7 @@ Skapa ett nytt kommando som gör det möjligt för användarna att ange temperat
 
 1. Lägg till en regel för slut för ande som har följande konfiguration. Den här regeln bekräftar resultatet.
 
-   | Inställning    | Föreslaget värde                                           |Description                                     |
+   | Inställningen    | Föreslaget värde                                           |Beskrivning                                     |
    | ---------- | --------------------------------------------------------- |-----|
    | Name       | Bekräftelse meddelande                                      |Ett namn som beskriver syftet med regeln |
    | **Villkor** | **Obligatoriska parametrar-temperatur**                       |Villkor som avgör när regeln kan köras    |   

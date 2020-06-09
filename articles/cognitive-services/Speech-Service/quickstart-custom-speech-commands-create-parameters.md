@@ -3,19 +3,19 @@ title: 'Snabb start: skapa en anpassad kommando förhands gransknings app med pa
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln lägger du till parametrar i ett program med anpassade kommandon så att du kan aktivera och inaktivera flera enheter.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 940b3604487fbef7736c0d8f4f9299563b0b86d5
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142290"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509312"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Snabb start: skapa ett anpassat kommando för hands versions program med parametrar
 

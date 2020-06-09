@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cd86aa647655f92f4ae1b5de50f506e9aad0f4e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74185452"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558146"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Självstudie: Använd dynamisk konfiguration i en Azure Functions app
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera din Azure Functions-app för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen till dina Azure Functions-anrop.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development**
@@ -41,14 +41,14 @@ I den här guiden får du lära dig att:
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
-1. Öppna *Function1.cs*. `static` Förutom `Configuration`egenskapen lägger du till en `static` ny egenskap `ConfigurationRefresher` för att hålla en singleton-instans av `IConfigurationRefresher` som ska användas för att signalera konfigurations uppdateringar under funktions anrop senare.
+1. Öppna *Function1.cs*. Förutom `static` egenskapen `Configuration` lägger du till en ny `static` egenskap `ConfigurationRefresher` för att hålla en singleton-instans av `IConfigurationRefresher` som ska användas för att signalera konfigurations uppdateringar under funktions anrop senare.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
     private static IConfigurationRefresher ConfigurationRefresher { set; get; }
     ```
 
-2. Uppdatera konstruktorn och Använd `ConfigureRefresh` metoden för att ange inställningen som ska uppdateras från appens konfigurations arkiv. En instans av `IConfigurationRefresher` hämtas med hjälp `GetRefresher` av metoden. Om du vill kan vi också ändra tids perioden för konfigurations-cachens förfallo tid till 1 minut från standard 30 sekunder.
+2. Uppdatera konstruktorn och Använd `ConfigureRefresh` metoden för att ange inställningen som ska uppdateras från appens konfigurations arkiv. En instans av `IConfigurationRefresher` hämtas med hjälp av `GetRefresher` metoden. Om du vill kan vi också ändra tids perioden för konfigurations-cachens förfallo tid till 1 minut från standard 30 sekunder.
 
     ```csharp
     static Function1()
@@ -67,7 +67,7 @@ I den här guiden får du lära dig att:
     }
     ```
 
-3. Uppdatera `Run` metoden och signalen för att uppdatera konfigurationen med `Refresh` metoden i början av funktions anropet. Detta är ingen-op om perioden för förfallo tid för cache inte har uppnåtts. Ta bort `await` operatorn om du vill att konfigurationen ska uppdateras utan att blockeras.
+3. Uppdatera `Run` metoden och signalen för att uppdatera konfigurationen med `TryRefreshAsync` metoden i början av funktions anropet. Detta är ingen-op om perioden för förfallo tid för cache inte har uppnåtts. Ta bort `await` operatorn om du vill att konfigurationen ska uppdateras utan att blockeras.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -75,7 +75,7 @@ I den här guiden får du lära dig att:
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
@@ -114,7 +114,7 @@ I den här guiden får du lära dig att:
 
 6. Välj **Configuration Explorer**och uppdatera värdena för följande nyckel:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2871c4c988675dd9a1a5749d908805994b6b309
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: tracking-python
+ms.openlocfilehash: f3ba52c1396928d8c76fb85fda3f29c625e60919
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835163"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561856"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera python 2-paket i Azure Automation
 
@@ -48,10 +49,10 @@ När paketen har hämtats kan du importera dem till ditt Automation-konto.
 
  Om du vill hämta en Runbook [importerar du python 2-paket från pypi till Azure Automation konto](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) från galleriet till ditt Automation-konto. Se till att körnings inställningarna är inställda på **Azure** och starta runbooken med parametrarna. Runbook kräver ett Kör som-konto för att Automation-kontot ska fungera. För varje parameter måste du starta den med växeln som visas i följande lista och bild:
 
-* -s \< subscriptionId\>
-* – g \< resourceGroup\>
-* – en \< automationAccount\>
-* -m \< modulePackage\>
+* -s\<subscriptionId\>
+* -g\<resourceGroup\>
+* – a\<automationAccount\>
+* -m\<modulePackage\>
 
 ![Paket lista](media/python-packages/import-python-runbook.png)
 

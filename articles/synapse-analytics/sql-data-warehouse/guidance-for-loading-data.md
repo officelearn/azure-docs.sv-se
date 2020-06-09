@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f04e5525610e86f460ab799bedf492381404c9e
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745506"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488655"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metod tips för att läsa in data med Synapse SQL-pool
 
@@ -28,8 +28,6 @@ Du kan minimera svars tiden genom att samplacera ditt lagrings lager och SQL-poo
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
-PolyBase kan inte läsa in rader som har mer än 1 000 000 byte data. När du placerar data i textfiler i Azure Blob Storage eller Azure Data Lake Store måste dessa data vara mindre än 1 000 000 byte. Den här begränsningen av byte gäller oavsett tabellschemat.
-
 Alla filformat har olika prestandaegenskaper. Den snabbaste inläsningen får du om du använder komprimerade avgränsade textfiler. Skillnaden i prestanda mellan UTF-8 och UTF-16 är minimal.
 
 Dela upp stora komprimerade filer i små komprimerade filer.
@@ -38,38 +36,47 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om det inte är möjligt kan du köra ett minimalt antal inläsningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  
-
-> [!NOTE]
-> Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Klassificera varje inläsnings användare till en speciell arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Belastningen körs med användarens arbets belastnings grupp.  
 
 ### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
 
-I det här exemplet skapas en inläsningsanvändare för resursklassen staticrc20. Det första steget är att **ansluta till huvudservern** och skapa en inloggning.
+I det här exemplet skapas en inläsnings användare som klassificeras till en speciell arbets belastnings grupp Det första steget är att **ansluta till huvudservern** och skapa en inloggning.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som heter mySampleDataWarehouse. Det visar hur du skapar en användare med namnet LoaderRC20 och ger användaren kontroll behörighet för en databas. Sedan lägger den till användaren som en medlem i staticrc20-databas rollen.  
+Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som heter mySampleDataWarehouse. Det visar hur du skapar en användare som kallas Loader och ger användaren behörighet att skapa tabeller och läsa in med hjälp av [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Sedan klassificerar den användaren till arbets belastnings gruppen DataLoads med maximalt antal resurser. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+      MIN_PERCENTAGE_RESOURCE = 100
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-Om du vill köra en belastning med resurser för resurs klasserna staticRC20 loggar du in som LoaderRC20 och kör belastningen.
+Om du vill köra en belastning med resurser för belastnings arbets belastnings gruppen loggar du in som inläsare och kör belastningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Att använda statiska resurs klasser garanterar samma resurser oavsett dina [informations lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå.
+## <a name="allowing-multiple-users-to-load-polybase"></a>Tillåta att flera användare läser in (PolyBase)
 
-För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
-
-## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
-
-Det finns ofta ett behov av att flera användare ska kunna läsa in data i en SQL-pool. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
+Det finns ofta ett behov av att flera användare ska kunna läsa in data i en SQL-pool. Om du läser in med [CREATE TABLE som Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) krävs kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
 
 Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
@@ -104,7 +111,7 @@ Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala ko
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SqLBulkCopy API eller BCP
 
-Om du läser in med PolyBase får du högsta data flöde med SQL-poolen. Om du inte kan använda PolyBase för att läsa in och måste använda [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), bör du fundera på att öka batchstorleken för bättre data flöde.
+Om du läser in med COPY-instruktionen får du högsta data flöde med SQL-poolen. Om du inte kan använda KOPIERINGen för att läsa in och måste använda [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)bör du fundera på att öka batchstorleken för bättre data flöde.
 
 > [!TIP]
 > En batchstorlek mellan 100 K och 1 miljon rader är den rekommenderade bas linjen för att fastställa den optimala storleken för batchstorlek.
@@ -142,7 +149,7 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="rotate-storage-keys"></a>Rotera lagringsnycklar
+## <a name="rotate-storage-keys-polybase"></a>Rotera lagrings nycklar (PolyBase)
 
 Det är en bra säkerhetsrutin att regelbundet ändra åtkomstnyckeln till din Blob Storage. Du har två lagringsnycklar för ditt blob storage-konto, som gör det möjligt att överföra nycklarna.
 
@@ -168,6 +175,6 @@ Det behövs inga andra ändringar i underliggande externa datakällor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
-- En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Mer information om KOPIERINGs instruktionen eller polybasen när du skapar en process för att extrahera, läsa in och transformera (ELT) finns i [design ELT for SQL Data Warehouse](design-elt-data-loading.md).
+- För en inläsnings kurs [använder du kopierings instruktionen för att läsa in data från Azure Blob Storage till SYNAPSE SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).

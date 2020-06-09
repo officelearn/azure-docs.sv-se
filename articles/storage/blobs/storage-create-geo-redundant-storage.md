@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ms.subservice: blobs
-ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856127"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553207"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
@@ -35,7 +35,7 @@ I del ett i den här serien lärde du dig att:
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -58,7 +58,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -70,7 +70,7 @@ Följ de här stegen om du vill skapa ett lagrings konto med Read-Access geo-Zon
 2. Välj **lagrings konto – BLOB, fil, tabell, kö** på den **nya** sidan.
 4. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
 
-   | Inställningen       | Exempelvärde | Beskrivning |
+   | Inställningen       | Exempelvärde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Prenumeration** | *Min prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    | **ResourceGroup** | *myResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
@@ -83,7 +83,7 @@ Följ de här stegen om du vill skapa ett lagrings konto med Read-Access geo-Zon
 
     ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -135,7 +135,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 I programmet måste du ange autentiseringsuppgifterna för ditt lagrings konto. Du kan lagra informationen i miljövariabler på den lokala datorn som kör programmet. Följ något av exemplen nedan, beroende på vilket operativ system som används för att skapa miljövariablerna.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagrings kontots namn** och **nyckel** värden i följande kommandon och Ersätt \<plats\> hållarna youraccountname och \<youraccountkey\> . Det här kommandot sparar miljövariablerna på den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagrings kontots namn** och **nyckel** värden i följande kommandon och Ersätt \<youraccountname\> \<youraccountkey\> plats hållarna och. Det här kommandot sparar miljövariablerna på den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
@@ -153,7 +153,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Om du vill köra det här exemplet måste du lägga till dina autentiseringsuppgifter för `.env.example` ditt lagrings konto i filen `.env`och sedan byta namn på den till.
+Om du vill köra det här exemplet måste du lägga till dina autentiseringsuppgifter för ditt lagrings konto i `.env.example` filen och sedan byta namn på den till `.env` .
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
@@ -162,7 +162,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Du kan hitta den här informationen i Azure Portal genom att gå till ditt lagrings konto och välja **åtkomst nycklar** i avsnittet **Inställningar** .
 
-Installera de nödvändiga beroendena. Det gör du genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `npm install`.
+Installera de nödvändiga beroendena. Det gör du genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `npm install` .
 
 ---
 
@@ -192,7 +192,7 @@ Innan nedladdningen definieras tjänst objekt [retry_callback](https://docs.micr
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Kör exemplet genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `node index.js`.
+Kör exemplet genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `node index.js` .
 
 Exemplet skapar en behållare i ditt Blob Storage-konto, överför **HelloWorld. png** till behållaren och kontrollerar sedan upprepade gånger om behållaren och avbildningen har repliker ATS till den sekundära regionen. Efter replikeringen tillfrågas du om du vill ange **D** eller **Q** (följt av retur) för att ladda ned eller avsluta. Dina utdata bör se ut ungefär som i följande exempel:
 

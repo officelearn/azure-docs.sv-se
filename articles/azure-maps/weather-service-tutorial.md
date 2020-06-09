@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc
-ms.openlocfilehash: e5292f5166e739264e9cf969480b70f415fcc75a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333485"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560382"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -31,7 +31,7 @@ I de här självstudierna får du:
 > * Rita prognos data i grafer.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du först:
 
@@ -180,7 +180,7 @@ Diagrammen nedan visualiserar prognos data. För att ändra vridnings hastighete
 
 <center>
 
-![Vridnings hastigheten](./media/weather-service-tutorial/speed-date-plot.png) ![Rita vridnings riktningen](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Vridnings hastigheten Rita ](./media/weather-service-tutorial/speed-date-plot.png) ![ vridnings riktningen](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>Nästa steg

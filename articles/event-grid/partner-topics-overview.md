@@ -2,17 +2,17 @@
 title: Avsnitt om Azure Event Grid-partner
 description: Skicka händelser från tredjeparts Event Grid SaaS-och PaaS-partner direkt till Azure-tjänster med Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: f47d63ce79846e94e992df93af1768aad3c17e67
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: femila
+ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170961"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560278"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Partner ämnen i Azure Event Grid (för hands version)
 Med hjälp av partner ämnen kan du ansluta tredjeparts händelse källor direkt till Azure Event Grid. Den här integrationen gör att du kan prenumerera på händelser från partner på samma sätt som du prenumererar på händelser från Azure-tjänster. 

@@ -1,19 +1,19 @@
 ---
 title: Viktig information – Azure Event Grid IoT Edge | Microsoft Docs
 description: Viktig information om Azure Event Grid i IoT Edge
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71c3df1f990f7cbe4cb4d7dda581f355ca0d518a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849713"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560424"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>Viktig information: Azure Event Grid på IoT Edge
 
@@ -47,4 +47,4 @@ För hands version 2 av Azure Event Grid på IoT Edge har lagts till:
 * Publicera till Service Bus ämnen som mål
 * Publicera till lagrings köer som mål
 
-Taggar: `1.0.0-preview2`, `1.0`,`latest`
+Taggar: `1.0.0-preview2` , `1.0` ,`latest`

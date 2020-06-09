@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 717db5ee9d14074b6bd2fdae78847e0ad0fa2255
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835469"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561408"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Begär ande kvot ökar och får support för Azure Synapse Analytics
 
@@ -59,53 +59,83 @@ Använd följande steg för att skapa en ny supportbegäran från Azure Portal f
 
 ## <a name="quota-request-types"></a>Typer av kvot förfrågningar
 
-Om du klickar på **Ange information** visas fönstret **kvot Detaljer** där du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika kvot begär Anden som är tillgängliga för Azure Synapse Analytics.
+Om du väljer **Ange information** visas fönstret med **kvot information** som gör att du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika kvot begär Anden som är tillgängliga för Azure Synapse Analytics.
 
-### <a name="data-warehouse-units-dwus-per-server"></a>Informations lager enheter (DWU: er) per server
+### <a name="synapse-sql-pool-data-warehouse-units-dwus-per-server"></a>Synapse SQL-pool, data lager enheter (DWU: er) per server
 
 Använd följande steg för att begära en ökning av DWU: er per server.
 
-1. Välj **data lager enheter (DTU: er) per server** kvot typ.
+1. Välj kvot typen **SYNAPSE SQL-poolens DWU: er per server** .
 
-1. I listan **resurs** väljer du den resurs som ska riktas mot målet.
+1. Välj den **resurs** som du vill tillämpa kvoten på genom att använda List rutan.
 
-1. I fältet **begär kvot** anger du den nya DWU-gränsen som du begär.
+1. Ange din nya kvot i avsnittet **kvot för begäran** .
+
+1. Välj **Spara och fortsätt**.
 
    ![Information om DWU-kvot](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
+
 ### <a name="servers-per-subscription"></a>Servrar per prenumeration
 
-Använd följande steg för att begära en ökning av antalet servrar per prenumeration.
+Om du vill begära en ökning av antalet servrar per prenumeration måste du utföra följande steg:
 
-1. Välj kvot typ för **servrar per prenumeration** .
+1. Välj **SQL-servrarna per prenumeration** som kvot typ.
 
 1. I listan **plats** väljer du den Azure-region som du vill använda. Kvoten är per prenumeration i varje region.
 
-1. I fältet **ny kvot** anger du din begäran om maximalt antal servrar i den regionen.
+1. I fältet **begär kvot** anger du din begäran om maximalt antal servrar i den regionen.
 
    ![Information om servrars kvot](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
+
+
+1. Välj **Spara och fortsätt**.
+
+Vissa erbjudande typer är inte tillgängliga i varje region. Följande fel kan visas:
+
+![Fel vid region åtkomst](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
+
 ### <a name="enable-subscription-access-to-a-region"></a>Aktivera prenumerations åtkomst till en region
 
-Vissa erbjudande typer är inte tillgängliga i varje region. Du kan se ett fel meddelande, till exempel följande:
+Om du vill aktivera regions åtkomst för en prenumeration måste du utföra följande steg:  
 
-`This location is not available for subscription`
+1. Välj den **SYNAPSE SQL-pool (Data Warehouse) åtkomst** kvot typ för region.
 
-Om din prenumeration behöver åtkomst i en viss region kan du använda alternativet **annan kvot förfrågan** för att begära åtkomst. I din begäran anger du det erbjudande och den SKU-information som du vill aktivera för regionen. Om du vill utforska erbjudande-och SKU-alternativen kan du läsa mer i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+1. Välj region genom att välja en **plats** i list rutan.
+
+1. Ange DWU prestanda krav i avsnittet **DWU krävs** .
+
+1. Ange din **Beskrivning av affärs krav**. 
+
+1. Välj **Spara och fortsätt**.
+
+![Regionåtkomst](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
+
+
+### <a name="for-other-quota-requests"></a>För andra kvot begär Anden
+
+Välj **annan kvot förfrågan** från den nedrullningsbara menyn kvot typ för andra typer av kvot begär Anden:
 
 ![Annan kvot information](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## <a name="submit-your-request"></a>Skicka din begäran
 
-Det sista steget är att fylla i återstående information om din SQL Database support förfrågan. Välj sedan **Nästa: Granska + skapa>>** . När du har gått igenom begärandeuppgifterna klickar du på **Skapa** för att skicka begäran.
+Det sista steget är att fylla i återstående information om din SQL Database support förfrågan. Välj sedan **Nästa: granska + skapa>>**.
+
+![Granska skapa information](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
+
+När du har granskat informationen om begäran väljer du **skapa** för att skicka begäran.
+
+![Skapa biljett](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## <a name="monitor-a-support-ticket"></a>Övervaka ett supportärende
 
-När du har skickat in support förfrågan kontaktar support teamet för Azure. Du kan kontrollera status och detaljer för din begäran genom att klicka på **Alla supportärenden** på instrumentpanelen.
+När du har skickat in support förfrågan kontaktar support teamet för Azure. Om du vill kontrol lera status och information för begäran väljer du **alla support förfrågningar** på instrument panelen.
 
 ![Kontrollera status](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Andra resurser
 
-Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via webbplatsen [Microsoft Q&en fråga för Azure SQL Data Warehouse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
+Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via webbplatsen [Microsoft Q&en fråga för Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

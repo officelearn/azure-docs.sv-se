@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 634c10771751522dba4093fe1c830820926fd621
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827303"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558569"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
@@ -243,7 +243,7 @@ Alla Azure AD-attribut importeras inte till det lokala AD Connector-utrymmet. S�
  5. Klicka på **OK** för att spara.
 ![Lägg till källattribut till det lokala AD Connector-schemat](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Steg 3: Lägg till UserType i Azure AD Connector-schemat
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>Steg 3: Lägg till attributet UserType i Azure AD Connector-schemat
 Som standard importeras inte attributet UserType till Azure AD Connect utrymmet. Så här lägger du till attributet UserType i listan över importerade attribut:
 
  1. Gå till fliken **anslutningar** i Synchronization Service Manager.
@@ -340,7 +340,7 @@ Du kan använda följande steg för att kontrol lera ändringarna samtidigt som 
 
 1. Kör en **fullständig import** på den **lokala AD-anslutningen**:
 
-   1. Gå till fliken **åtgärder** i Synchronization Service Manager.
+   1. Gå till fliken **anslutningar** i Synchronization Service Manager.
    2. Högerklicka på den **lokala AD-anslutningen** och välj **Kör**.
    3. I dialog rutan popup väljer du **fullständig import** och klickar sedan på **OK**.
    4. Vänta tills åtgärden har slutförts.

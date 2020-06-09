@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 244fe0d7be92cc2d8ce4c892d8f90b6b58b32408
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 188b8949d6cda12617433783a9d81eec6d8fce97
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484813"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488383"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen
 
@@ -143,7 +143,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Instans information** |  |
-    | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
@@ -171,7 +171,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     |||
 
     > [!Note] 
-    > Se konfigurationen av [DNS-zonen för Azure-tjänster](../private-link/private-endpoint-dns.md).
+    > Använd den fördefinierade privata DNS-zonen för din tjänst eller skapa en ny. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 

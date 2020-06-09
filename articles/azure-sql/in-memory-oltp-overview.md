@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 10f4a0012076deef0757743f206f937ab43dc8b8
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5208edc6038db0f9d45bb8fe10f3a96b5051b4c
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345299"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560556"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimera prestanda genom att använda minnes intern teknik i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ På grund av den effektivare frågan och transaktions bearbetningen hjälper int
 
 Här följer två exempel på hur minnes intern OLTP kan förbättra prestanda avsevärt:
 
-- Genom att använda minnes intern OLTP [kunde kvorum affärs lösningar ha dubbla sina arbets belastningar och förbättra DTU: er med 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Genom att använda minnes intern OLTP [kunde kvorum affärs lösningar ha dubbla sina arbets belastningar och förbättra DTU: er med 70%](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - Följande videoklipp visar betydande förbättringar i resursförbrukning med en exempel arbets belastning: [minnes intern OLTP-video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Mer information finns i blogg inlägget: [minnes intern OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -174,7 +174,7 @@ När du använder grupperade columnstore-index används kolumn komprimering för
 
 Om du till exempel har en databas med en maximal storlek på 1 terabyte (TB) och du uppnår 10 gånger komprimeringen med hjälp av columnstore-index, kan du anpassa totalt 10 TB användar data i databasen.
 
-När du använder icke-klustrade columnstore-index lagras bas tabellen fortfarande i det traditionella rowstore-formatet. Lagrings besparingarna är därför inte lika stora som med grupperade columnstore-index. Men om du ersätter ett antal traditionella icke-grupperade index med ett enda columnstore-index kan du fortfarande se en övergripande besparingar i lagrings utrymmet för tabellen.
+När du använder icke-klustrade columnstore-index lagras bas tabellen fortfarande i det traditionella rowstore-formatet. Lagrings besparingarna är därför inte lika viktiga som med grupperade columnstore-index. Men om du ersätter ett antal traditionella icke-grupperade index med ett enda columnstore-index kan du fortfarande se en övergripande besparingar i lagrings utrymmet för tabellen.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Ändra tjänst nivåer för databaser som innehåller columnstore-index
 
@@ -183,7 +183,7 @@ Det kanske inte är möjligt *att nedgradera enkla databaser till Basic eller st
 Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig efter nedgradering. Vi rekommenderar därför att du tar bort alla *klustrade* columnstore-index innan du nedgradera databasen till en nivå eller nivå som inte stöds.
 
 > [!Note]
-> SQL-hanterad instans stöder ColumnStore-index på alla nivåer.
+> SQL-hanterad instans stöder columnstore-index på alla nivåer.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -212,6 +212,6 @@ Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig e
 
 ### <a name="tools"></a>Verktyg
 
-- [Azure-portalen](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e93ffd448113b58589611389b71f5bcbfec7a2e4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77019289"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558545"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 
@@ -42,7 +42,7 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
 8. När databasen är bifogad, gå tillbaka till Azure AD Connect-servern och installera Azure AD Connect.
 9. När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
    ![Välkommen](./media/how-to-connect-install-move-db/db1.png)
-10. Starta en ny kommandotolk eller PowerShell-session. Gå till mappen \<het> \program files\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
+10. Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen \<drive>\Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
     ![Välkommen](./media/how-to-connect-install-move-db/db3.png)
@@ -55,19 +55,19 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
 14. På skärmen **Anslut dina kataloger** har den befintliga AD-skog som konfigurerats för katalogsynkronisering angetts med en röd kryssikon bredvid sig. Om du vill synkronisera ändringar från en lokal AD-skog krävs ett AD DS-konto. Azure AD Connect-guiden kan inte hämta autentiseringsuppgifter för det AD DS-konto som lagrats i ADSync-databasen eftersom autentiseringsuppgifterna krypterats och endast kan dekrypteras av den tidigare Azure AD Connect-servern. Klicka på **Ändra autentiseringsuppgifter** för att ange AD DS-kontot för AD-skogen.
     ![Kataloger](./media/how-to-connect-install-move-db/db6.png)
  
- 
+
 15. I popup-fönstret kan du antingen (i) ange autentiseringsuppgifter för en företagsadministratör och låta Azure AD Connect skapa AD DS-kontot åt dig, eller (ii) skapa AD DS-kontot och ange dess autentiseringsuppgifter till Azure AD Connect. När du har valt ett alternativ och angett nödvändiga autentiseringsuppgifter klickar du på **OK** för att stänga popup-fönstret.
     ![Välkommen](./media/how-to-connect-install-move-db/db7.png)
  
- 
+
 16. När autentiseringsuppgifterna har angetts ersätts den röda kryssikonen med en grön bockikon. Klicka på **Nästa**.
     ![Välkommen](./media/how-to-connect-install-move-db/db8.png)
  
- 
+
 17. På skärmen **redo att konfigurera** klickar du på **Installera**.
     ![Välkommen](./media/how-to-connect-install-move-db/db9.png)
  
- 
+
 18. När installationen är klar aktiveras automatiskt Azure AD Connect-servern för mellanlagringsläge. Vi rekommenderar att du läser igenom serverkonfigurationen och väntande exporter för oväntade ändringar innan du inaktiverar mellanlagringsläget. 
 
 ## <a name="next-steps"></a>Nästa steg

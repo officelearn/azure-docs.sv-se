@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f8bfc163fbf32a2083b6e9250daaf5ea2629d10a
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649608"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509244"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -88,7 +88,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Till exempel:
+Ett exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -211,3 +211,7 @@ En TCP-ping ansluter faktiskt till mål-FQDN. Detta inträffar eftersom Azure fi
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Finns det några begränsningar för hur många IP-adresser som stöds av IP-grupperna?
 
 Ja. Mer information finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Kan jag flytta en IP-grupp till en annan resurs grupp?
+
+Nej, det finns för närvarande inte stöd för att flytta en IP-grupp till en annan resurs grupp.

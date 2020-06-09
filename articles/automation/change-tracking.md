@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Ändringsspårning och inventering
 description: I den här artikeln beskrivs funktionen Ändringsspårning och inventering, som hjälper dig att identifiera program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342926"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555037"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -33,22 +33,23 @@ I den här artikeln beskrivs hur du Ändringsspårning och inventering i Azure A
 
 Ändringsspårning och lager stöder för närvarande inte följande objekt:
 
-* Rekursion för spårning av Windows-register
-* Nätverks fil system
-* Olika installations metoder
-* ***. exe** -filer för Windows
+- Rekursion för spårning av Windows-register
+- Nätverks fil system
+- Olika installations metoder
+- ***. exe** -filer för Windows
 
 Andra begränsningar:
 
-* Kolumnen **maximal fil storlek** och värden används inte i den aktuella implementeringen.
-* Om du samlar in fler än 2500 filer på en 30-minuters samlings cykel kan Ändringsspårning och inventerings prestanda försämras.
-* När nätverks trafiken är hög kan det ta upp till sex timmar att ändra poster.
-* Om du ändrar en konfiguration när en dator stängs av kan datorn Publicera ändringar som hör till den tidigare konfigurationen.
+- Kolumnen **maximal fil storlek** och värden används inte i den aktuella implementeringen.
+- Om du samlar in fler än 2500 filer på en 30-minuters samlings cykel kan Ändringsspårning och inventerings prestanda försämras.
+- När nätverks trafiken är hög kan det ta upp till sex timmar att ändra poster.
+- Om du ändrar en konfiguration när en dator stängs av kan datorn Publicera ändringar som hör till den tidigare konfigurationen.
 
 Följande problem har uppstått för Ändringsspårning och inventering:
 
-* Uppdateringar av snabb korrigeringar samlas inte in på Windows Server 2016 Core RS3-datorer.
-* Linux-demon kan visa ett ändrat tillstånd även om ingen ändring har skett. Det här problemet uppstår på grund av hur `SvcRunLevels` data i Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) -loggen fångas.
+- Uppdateringar av snabb korrigeringar samlas inte in på Windows Server 2016 Core RS3-datorer.
+
+- Linux-demon kan visa ett ändrat tillstånd även om ingen ändring har skett. Det här problemet uppstår på grund av hur `SvcRunLevels` data i Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) -loggen fångas.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -77,12 +78,12 @@ List rutor är tillgängliga överst i instrument panelen för att begränsa än
 
 Du kan klicka på en ändring eller händelse om du vill visa information om den. Tillgängliga ändrings typer är:
 
-* Händelser
-* Daemons
-* Filer
-* Register
-* Programvara
-* Microsoft-tjänster
+- Händelser
+- Daemons
+- Files
+- Register
+- Programvara
+- Microsoft-tjänster
 
 Du kan lägga till, ändra eller ta bort varje ändring. Exemplet nedan visar en ändring av start typen för en tjänst från manuell till automatisk.
 
@@ -137,10 +138,13 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 
 Ändringsspårning och inventering stöder rekursion, vilket gör att du kan ange jokertecken för att förenkla spårningen mellan kataloger. Rekursion tillhandahåller även miljövariabler som gör att du kan spåra filer i miljöer med flera eller dynamiska enhets namn. Följande lista innehåller allmän information som du bör känna till när du konfigurerar rekursion:
 
-* Jokertecken krävs för att spåra flera filer.
-* Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen*** eller **/etc/*. conf**.
-* Om en miljö variabel har en ogiltig sökväg, lyckas verifieringen men sökvägen Miss lyckas under körningen.
-* Du bör undvika allmänna Sök vägs namn när du anger sökvägen, eftersom den här typen av inställning kan orsaka att för många mappar passerar.
+- Jokertecken krävs för att spåra flera filer.
+
+- Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen*** eller **/etc/*. conf**.
+
+- Om en miljö variabel har en ogiltig sökväg, lyckas verifieringen men sökvägen Miss lyckas under körningen.
+
+- Du bör undvika allmänna Sök vägs namn när du anger sökvägen, eftersom den här typen av inställning kan orsaka att för många mappar passerar.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Ändringsspårning-och inventerings data insamling
 
@@ -167,7 +171,7 @@ I följande tabell visas gränserna för spårade objekt per dator för Ändring
 |Tjänster|250|
 |Daemons|250|
 
-Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 
@@ -182,13 +186,13 @@ För att optimera prestanda spårar Log Analytics-agenten bara ändringar. Om du
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Stöd för aviseringar i konfigurations tillstånd
 
-En viktig funktion i Ändringsspårning och inventering är aviseringar om ändringar i konfigurations läget för din hybrid miljö. Många användbara åtgärder är tillgängliga för att utlösa svar på aviseringar, till exempel åtgärder på Azure Functions, Automation-runbooks, Webhooks och liknande. Aviseringar om ändringar i **c:\Windows\System32\drivers\etc\hosts** -filen för en dator är en lämplig applikation av aviseringar för ändringsspårning-och inventerings data. Det finns många fler scenarier för aviseringar, inklusive de fråge scenarier som definierats i nästa tabell. 
+En viktig funktion i Ändringsspårning och inventering är aviseringar om ändringar i konfigurations läget för din hybrid miljö. Många användbara åtgärder är tillgängliga för att utlösa svar på aviseringar, till exempel åtgärder på Azure Functions, Automation-runbooks, Webhooks och liknande. Aviseringar om ändringar i **c:\Windows\System32\drivers\etc\hosts** -filen för en dator är en lämplig applikation av aviseringar för ändringsspårning-och inventerings data. Det finns många fler scenarier för aviseringar, inklusive de fråge scenarier som definierats i nästa tabell.
 
 |Söka i data  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\ Windows \\ system32- \\ drivrutiner \\ "|Användbart för att spåra ändringar i systemkritiska filer.|
 |ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\ Windows \\ system32- \\ drivrutiner \\ osv \\ "|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|
-|ConfigurationChange <br>&#124; där ConfigChangeType = = "Microsoft-tjänster" och SvcName innehåller "W3SVC" och SvcState = = "stoppad"|Användbart för att spåra ändringar i system kritiska tjänster.|
+|ConfigurationChange <br>&#124; där ConfigChangeType = = "WindowsServices" och SvcName innehåller "W3SVC" och SvcState = = "stoppad"|Användbart för att spåra ändringar i system kritiska tjänster.|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "daemons" och SvcName innehåller "SSH" och SvcState! = "kör"|Användbart för att spåra ändringar i system kritiska tjänster.|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Software" och ChangeCategory = = "Added"|Användbart för miljöer som behöver låsta program varu konfigurationer.|
 |ConfigurationData <br>&#124; där SoftwareName innehåller "övervaknings agent" och CurrentVersion! = "8.0.11081.0"|Användbart för att se vilka datorer som har inaktuella eller inkompatibla program varu versioner installerade. Den här frågan rapporterar det senaste rapporterade konfigurations läget, men rapporterar inte ändringar.|
@@ -197,7 +201,10 @@ En viktig funktion i Ändringsspårning och inventering är aviseringar om ändr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du aktiverar funktionen från ett Automation-konto finns i [aktivera ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md).
-* Om du vill aktivera funktionen genom att bläddra i Azure Portal, se [aktivera ändringsspårning och inventering från Azure Portal](automation-onboard-solutions-from-browse.md).
-* Information om hur du aktiverar funktionen från en Runbook finns i [aktivera ändringsspårning och inventering från en Runbook](automation-enable-changes-from-runbook.md).
-* Om du vill aktivera funktionen från en virtuell Azure-dator kan du läsa [aktivera ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md).
+- Information om hur du aktiverar funktionen från ett Automation-konto finns i [aktivera ändringsspårning och inventering från ett Automation-konto](automation-enable-changes-from-auto-acct.md).
+
+- Om du vill aktivera funktionen genom att bläddra i Azure Portal, se [aktivera ändringsspårning och inventering från Azure Portal](automation-onboard-solutions-from-browse.md).
+
+- Information om hur du aktiverar funktionen från en Runbook finns i [aktivera ändringsspårning och inventering från en Runbook](automation-enable-changes-from-runbook.md).
+
+- Om du vill aktivera funktionen från en virtuell Azure-dator kan du läsa [aktivera ändringsspårning och inventering från en virtuell Azure-dator](automation-enable-changes-from-vm.md).

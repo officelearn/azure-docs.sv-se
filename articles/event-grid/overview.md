@@ -2,19 +2,19 @@
 title: Vad är Azure Event Grid?
 description: Skicka händelsedata från en källa till hanterare med Azure Event Grid. Skapa händelsebaserade program och integrera med Azure-tjänster.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 02/20/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: seodec18
-ms.openlocfilehash: 75ee828c659aba895f65d0cf14070966428a1d19
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682503"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560310"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -35,7 +35,7 @@ Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och ä
 För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
 
 - [Azure App Configuration](event-schema-app-configuration.md)
-- [Azure-Blob Storage](event-schema-blob-storage.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)

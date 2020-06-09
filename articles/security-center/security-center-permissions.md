@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: a4ecc7f0e11712fa3d664d1227eacb39409bd184
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418219"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558860"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -40,15 +40,14 @@ Förutom dessa roller finns två specifika roller i Security Center:
 
 I följande tabell visas roller och tillåtna åtgärder i Security Center.
 
-| Roll | Redigera säkerhets princip | Tillämpa säkerhets rekommendationer för en resurs</br> (inklusive snabb korrigering!) | Ignorera aviseringar | Visa aviseringar och rekommendationer |
-|:--- |:---:|:---:|:---:|:---:|
-| Prenumerations ägare | ✔ | ✔ | ✔ | ✔ |
-| Prenumerations deltagare | -- | ✔ | ✔ | ✔ |
-| Resurs grupp ägare | -- | ✔ | -- | ✔ |
-| Resurs grupps deltagare | -- | ✔ | -- | ✔ |
-| Läsare | -- | -- | -- | ✔ |
-| Säkerhetsadministratör | ✔ | -- | ✔ | ✔ |
-| Säkerhetsläsare | -- | -- | -- | ✔ |
+|Åtgärd|Säkerhets läsare/ <br> Läsare |Säkerhetsadministratör  |Resurs grupps deltagare/ <br> Resurs grupp ägare  |Prenumerations deltagare  |Prenumerations ägare  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Redigera säkerhets princip|-|✔|-|-|✔|
+|Ändra pris nivå för prenumeration|-|✔|-|-|-|
+|Aktivera/inaktivera automatisk etablering|-|✔|-|-|-|
+|Tillämpa säkerhets rekommendationer för en resurs</br> (och Använd [snabb korrigering!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Ignorera aviseringar|-|✔|-|✔|✔|
+|Visa aviseringar och rekommendationer|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Vi rekommenderar att du ger användarna den roll som precis ger dem den behörighet de behöver för att kunna utföra sina arbetsuppgifter. Du kan till exempel tilldela rollen läsare till användare som bara behöver visa information om säkerhets hälso tillståndet för en resurs men inte vidta åtgärder, till exempel att tillämpa rekommendationer eller redigera principer.

@@ -8,13 +8,13 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159974"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559582"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
 
@@ -26,8 +26,8 @@ Den här artikeln innehåller svar på vanliga frågor och svar om problem med t
 
 Så här aktiverar du PHP-loggning:
 
-1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
-2. På den översta menyn väljer du **Felsök konsol** > **cmd**.
+1. Logga in på din **kudu-webbplats** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. På den översta menyn väljer du **Felsök konsol**  >  **cmd**.
 3. Välj mappen **plats** .
 4. Välj mappen **wwwroot** .
 5. Välj **+** ikonen och välj sedan **ny fil**.
@@ -56,7 +56,7 @@ Om du vill ändra versionen för Node. js-programmet kan du använda något av f
   1. I Azure Portal går du till din webbapp.
   2. Välj **program inställningar**på bladet **Inställningar** .
   3. I **appinställningar**kan du inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckel och den version av Node. js som du vill använda som värde.
-  4. Gå till **kudu-konsolen** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+  4. Gå till **kudu-konsolen** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
   5. Om du vill kontrol lera Node. js-versionen anger du följande kommando:  
      ```
      node -v
@@ -91,7 +91,7 @@ Om du ser det här felet i fel söknings. log-eller php_errors. log-filerna öve
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur gör jag för att felsöka en Node. js-app som finns i App Service?
 
-1.  Gå till **kudu-konsolen** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
+1.  Gå till **kudu-konsolen** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Gå till mappen program loggar (D:\home\LogFiles\Application).
 3.  I filen logging_errors. txt söker du efter innehåll.
 
@@ -138,7 +138,7 @@ Så här löser du felet:
 
 1. Ta bort filen sqljdbc*. jar från mappen app/lib.
 2. Om du använder den anpassade Tomcat eller Tomcat webb server för Azure Marketplace kopierar du den här jar-filen till mappen Tomcat lib.
-3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8** > **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
+3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8**  >  **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
 
     ```xml
     <httpPlatform>

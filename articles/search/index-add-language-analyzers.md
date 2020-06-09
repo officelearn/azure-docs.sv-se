@@ -2,37 +2,43 @@
 title: Lägga till språk analys verktyg i sträng fält
 titleSuffix: Azure Cognitive Search
 description: Flerspråkiga lexikala text analyser för icke-engelska frågor och index i Azure Kognitiv sökning.
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: 3bb8de76fbf425abc1643633393e5f296b50b386
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283152"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555196"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
-En *språk analys* är en specifik typ av [text analys](search-analyzers.md) som utför en lexikal analys med hjälp av språk reglerna för mål språket. Alla sökbara fält har en **analys** egenskap. Om indexet innehåller översatta strängar, t. ex. separata fält för engelsk och kinesisk text, kan du ange språk analys verktyg för varje fält för att få åtkomst till de omfattande språk funktionerna i dessa analys verktyg.  
+En *språk analys* är en specifik typ av [text analys](search-analyzers.md) som utför en lexikal analys med hjälp av språk reglerna för mål språket. Alla sökbara fält har en **analys** egenskap. Om ditt innehåll består av översatta strängar, t. ex. separata fält för engelsk och kinesisk text, kan du ange språk analys verktyg för varje fält för att få åtkomst till de omfattande språk funktionerna för dessa analyser.
 
-Azure Kognitiv sökning har stöd för 35 analys verktyg som backas upp av Lucene och 50-analyser som backas upp av patentskyddad Microsoft Natural Language Processing Technology som används i Office och Bing.
+## <a name="when-to-use-a-language-analyzer"></a>När du ska använda en språk analys
 
-## <a name="comparing-analyzers"></a>Jämföra analyserare
+Du bör tänka på en språk analys när medvetenheten om ord-eller menings strukturen lägger till värde i text tolkning. Ett vanligt exempel är associationen av oregelbundna verb ("placera" och "framställt) eller plural Substantiv (" möss "och" Mouse "). Utan språklig medvetenhet parsas dessa strängar enbart på fysiska egenskaper, vilket inte kan fånga anslutningen. Eftersom stora text segment är mer sannolika för det här innehållet, är fält som består av beskrivningar, granskningar eller sammanfattningar lämpliga kandidater för en språk analys.
+
+Du bör också överväga språk analyser när innehållet består av icke-västerländska språk strängar. [Standard analys](search-analyzers.md#default-analyzer) verktyget är språk-oberoende, men begreppet att använda blank steg och specialtecken (bindestreck och snedstreck) för att separera strängar är mer tillämpbart på västerländska språk än de som inte är västerländska. 
+
+Till exempel, på kinesiska, japanska, koreanska (CJK) och andra asiatiska språk, är ett blank steg inte nödvändigt vis en ord avgränsare. Överväg följande japanska sträng. Eftersom det inte finns några blank steg skulle en oberoende analys förmodligen analysera hela strängen som en token, när strängen i själva verket är en fras.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+I exemplet ovan måste en lyckad fråga innehålla hela token eller en partiell token med ett jokertecken, vilket resulterar i en naturlig och begränsad Sök upplevelse.
+
+En bättre upplevelse är att söka efter enskilda ord: 明るい (ljus), 私たちの (vår), 銀河系 (galax). Att använda en av de japanska analys verktyg som är tillgängliga i Kognitiv sökning är svårare att låsa upp det här beteendet eftersom dessa analyser är bättre utrustade vid delning av text segmentet till meningsfulla ord på mål språket.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Jämföra Lucene och Microsofts analys verktyg
+
+Azure Kognitiv sökning stöder 35-språkanalyser som backas upp av Lucene, och 50 språk analys verktyg som backas upp av den tillverkarspecifika Microsoft-tekniken för naturliga språk som används i Office och Bing.
 
 Vissa utvecklare kan föredra den mer välkända, enkla lösningen med öppen källkod för Lucene. Lucene-språkanalyser är snabbare, men Microsofts analys verktyg har avancerade funktioner, till exempel lemmatisering, ord desammansatt (på språk som tyska, danska, holländska, svenska, norska, estniska, finish, ungerska, slovakiska) och entitets igenkänning (URL: er, e-post, datum, siffror). Om möjligt bör du köra jämförelser av både Microsoft-och Lucene-analyserna för att avgöra vilken som passar bäst. 
 
@@ -76,7 +82,7 @@ Mer information om index egenskaper finns i [skapa index &#40;Azure Kognitiv sö
 |Tjeckiska|CS. Microsoft|CS. Lucene|  
 |Danska|da. Microsoft|da. Lucene|  
 |Nederländska|nl. Microsoft|nl. Lucene|  
-|Svenska|en. Microsoft|en. Lucene|  
+|Engelska|en. Microsoft|en. Lucene|  
 |Estniska|et. Microsoft||  
 |Finska|Fi. Microsoft|Fi. Lucene|  
 |Franska|fr. Microsoft|fr. Lucene|  
@@ -93,7 +99,7 @@ Mer information om index egenskaper finns i [skapa index &#40;Azure Kognitiv sö
 |Italienska|den. Microsoft|IT. Lucene|  
 |Japanska|Ja. Microsoft|Ja. Lucene|  
 |Kannada|KN. Microsoft||  
-|Koreansk|Ko. Microsoft|Ko. Lucene|  
+|Koreanska|Ko. Microsoft|Ko. Lucene|  
 |Lettiska|LV. Microsoft|LV. Lucene|  
 |Litauiska|lt. Microsoft||  
 |Malayalam|ml. Microsoft||  

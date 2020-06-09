@@ -10,12 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 97b129bfaa1a8612040e59c6378aa1965c5c49cd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: tracking-python
+ms.openlocfilehash: 440c2b0f0c9e89cff03e92fb650dabe1e2c88e1f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118879"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558357"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -894,7 +895,7 @@ För att träna en modell automatiskt gör du följande:
 
 Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-20 min, men om du vill ha en kortare körnings tid minskar du `experiment_timeout_minutes` parametern.
 
-|Egenskap| Värde i den här självstudien |Beskrivning|
+|Egenskap| Värde i den här självstudien |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
 |**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|

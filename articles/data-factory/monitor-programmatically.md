@@ -10,12 +10,13 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d416a4a2bace2aeced6961d4959b0478feb0e650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 983beb70ef1919dc3230d5daa6d29fb7209f69aa
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398797"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561224"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka en Azure-datafabrik via programmering
 
@@ -27,7 +28,7 @@ Den här artikeln beskriver hur du övervakar en pipeline i en data fabrik med h
 
 ## <a name="data-range"></a>Data intervall
 
-Data Factory lagrar endast pipeline-körnings data i 45 dagar. När du frågar program mässigt efter data om Data Factory pipelines körs, till exempel med PowerShell-kommandot `Get-AzDataFactoryV2PipelineRun` , finns det inga maximala datum för valfria `LastUpdatedAfter` -och `LastUpdatedBefore` -parametrarna. Men om du frågar efter data för det gångna året returnerar inte frågan ett fel, men returnerar bara pipelines kör data från de senaste 45 dagarna.
+Data Factory lagrar endast pipeline-körnings data i 45 dagar. När du frågar program mässigt efter data om Data Factory pipelines körs, till exempel med PowerShell-kommandot, `Get-AzDataFactoryV2PipelineRun` finns det inga maximala datum för valfria-och- `LastUpdatedAfter` `LastUpdatedBefore` parametrarna. Men om du frågar efter data för det gångna året returnerar inte frågan ett fel, men returnerar bara pipelines kör data från de senaste 45 dagarna.
 
 Om du vill spara pipelines körnings data i mer än 45 dagar konfigurerar du din egen diagnostiska loggning med [Azure Monitor](monitor-using-azure-monitor.md).
 

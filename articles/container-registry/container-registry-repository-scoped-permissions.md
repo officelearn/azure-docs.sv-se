@@ -1,14 +1,14 @@
 ---
 title: Behörigheter till databaser i Azure Container Registry
-description: Skapa en token med behörigheter som är begränsade till vissa databaser i ett register för att hämta eller push-överföra avbildningar eller utföra andra åtgärder
+description: Skapa en token med behörigheter som är begränsade till vissa databaser i ett Premium-register för att hämta eller skicka avbildningar eller utföra andra åtgärder
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8534c62db862f5c929d0145948fc4049c036d412
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142233"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509414"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Skapa en token med databasens begränsade behörigheter
 
@@ -20,7 +20,7 @@ Scenarier för att skapa en token är:
 * Ange en extern organisation med behörigheter till en speciell lagrings plats 
 * Begränsa databas åtkomsten till olika användar grupper i din organisation. Du kan till exempel ge Skriv-och Läs behörighet till utvecklare som skapar avbildningar som är riktade till specifika lagrings platser och Läs åtkomst till team som distribuerar från dessa databaser.
 
-Den här funktionen är tillgänglig i **bidrags** behållar register. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
+Den här funktionen är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).

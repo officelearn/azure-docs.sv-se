@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437528"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488043"
 ---
 # <a name="references"></a>Referenser
 
@@ -33,7 +33,7 @@ FarmBeats-API: erna innehåller teknisk dokumentation för Swagger. Information 
 
 I följande tabell sammanfattas alla objekt och resurser i FarmBeats Datahub:
 
-| Objekt och resurser | Beskrivning
+| Objekt och resurser | Description
 --- | ---|
 Anläggningen | Server gruppen motsvarar en fysisk placering av intresse i FarmBeats-systemet. Varje server grupp har ett Server grupps namn och ett unikt server grupps-ID. |
 Enhet  | Enheten motsvarar en fysisk enhet som finns i Server gruppen. Varje enhet har ett unikt enhets-ID. En enhet tillhandahålls vanligt vis till en Server grupp med ett Server grupp-ID.
@@ -74,7 +74,7 @@ Här är de vanligaste begärandehuvuden som du måste ange när du gör ett API
 
 **Sidfot** | **Beskrivning och exempel**
 --- | ---
-Content-Type  | Formatet för begäran (Content-Type: Application/<format>). För Azure FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
+Content-Type  | Formatet för begäran (Content-Type: Application/ <format> ). För Azure FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering  | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
 Acceptera | Svars formatet. För Azure FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
@@ -82,7 +82,7 @@ Acceptera | Svars formatet. För Azure FarmBeats Datahub-API: er är formatet JS
 
 Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST, tag eller DELETE), URL: en till API-tjänsten, URI: n till en resurs att fråga, skicka data till, uppdatera eller ta bort och lägger sedan till en eller flera HTTP-begärandehuvuden.
 
-URL: en till API-tjänsten är din Datahub-URL, till exempel\<https://yourdatahub-webbplats-Name>. azurewebsites.net.
+URL: en till API-tjänsten är din Datahub-URL, till exempel https:// \<yourdatahub-website-name> . azurewebsites.net.
 
 Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
 
@@ -111,7 +111,7 @@ När du till exempel frågar listan över enheter (GET Call på/Device) kan du a
 
 Azure FarmBeats Datahub-API: er returnerar standard-HTTP-fel. De vanligaste fel koderna är följande:
 
- |Felkod             | Beskrivning |
+ |Felkod             | Description |
  |---                    | --- |
  |200                    | Klart |
  |201                    | Create (post) lyckades |
@@ -147,7 +147,7 @@ I det här exemplet har det obligatoriska fältet "namn" inte angetts i nytto la
 
 Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Azure Active Directory. Följ dessa steg om du vill skapa en app-registrering i Azure Active Directory:
 
-1. Gå till [Azure Portal](https://portal.azure.com)och välj **Azure Active Directory** > **Appregistreringar** > **ny registrering**. Du kan också använda ett befintligt konto.
+1. Gå till [Azure Portal](https://portal.azure.com)och välj **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**. Du kan också använda ett befintligt konto.
 2. För ett nytt konto gör du följande:
 
     - Ange ett namn.
@@ -162,9 +162,18 @@ Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Az
     - Gå tillbaka till **Översikt**och välj länken bredvid **hantera program i den lokala katalogen**.
     - Gå till **Egenskaper** för att avbilda **objekt-ID: t**.
 
-4. Gå till din Datahub-Swagger (<yourdatahub>https://. azurewebsites.net/Swagger/index.html) och gör följande:
+4. Gå till din Datahub-Swagger (https:// <yourdatahub> . azurewebsites.net/Swagger/index.html) och gör följande:
     - Gå till **RoleAssignment-API: et**.
     - Utför ett inlägg för att skapa ett **RoleAssignment** -objekt för det **objekt-ID** som du nyss skapade.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Mer information om hur du lägger till användare och Active Directory registrering finns i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

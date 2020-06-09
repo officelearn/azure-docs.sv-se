@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277380"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559917"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue Storage-utlösare för Azure Functions
 
@@ -25,7 +25,7 @@ Functions förväntar sig en *base64* -kodad sträng. Eventuella justeringar av 
 
 Använd kön utlösare för att starta en funktion när ett nytt objekt tas emot i en kö. Kömeddelandet anges som indata till funktionen.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som söker efter `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
@@ -95,7 +95,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-I avsnittet [användning](#usage) beskrivs `myQueueItem`, som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
+I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -140,13 +140,13 @@ module.exports = async function (context, message) {
 };
 ```
 
-I avsnittet [användning](#usage) beskrivs `myQueueItem`, som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
+I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Följande exempel visar hur du läser ett Queue-meddelande som skickas till en funktion via en utlösare.
 
-En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har angetts till `queueTrigger`.
+En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har angetts till `queueTrigger` .
 
 ```json
 {
@@ -163,7 +163,7 @@ En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har an
 }
 ```
 
-Koden `func.ServiceBusMessage` * _ \_init_\_. py* deklarerar en parameter som, vilket gör att du kan läsa meddelandet i kön i din funktion.
+Koden * _ \_ init_ \_ . py* deklarerar en parameter som `func.ServiceBusMessage` , vilket gör att du kan läsa meddelandet i kön i din funktion.
 
 ```python
 import logging
@@ -192,7 +192,7 @@ def main(msg: func.QueueMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande Java-exempel visas en utlösnings funktion i Storage Queue, som loggar det Utlös ande `myqueuename`meddelandet som placeras i kön.
+I följande Java-exempel visas en utlösnings funktion i Storage Queue, som loggar det Utlös ande meddelandet som placeras i kön `myqueuename` .
 
  ```java
  @FunctionName("queueprocessor")
@@ -210,7 +210,7 @@ I följande Java-exempel visas en utlösnings funktion i Storage Queue, som logg
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library.md)för att konfigurera en Queue-utlösare:
 
@@ -260,10 +260,10 @@ Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library
 
 Lagrings kontot som ska användas fastställs i följande ordning:
 
-* `QueueTrigger` Attributets `Connection` egenskap.
-* `StorageAccount` Attributet som används för samma parameter som `QueueTrigger` attributet.
-* `StorageAccount` Attributet som används för funktionen.
-* `StorageAccount` Attributet som används för klassen.
+* `QueueTrigger`Attributets `Connection` egenskap.
+* `StorageAccount`Attributet som används för samma parameter som `QueueTrigger` attributet.
+* `StorageAccount`Attributet som används för funktionen.
+* `StorageAccount`Attributet som används för klassen.
 * App-inställningen "AzureWebJobsStorage".
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
@@ -280,7 +280,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`QueueTrigger` Anteckningen ger dig åtkomst till den kö som utlöser funktionen. I följande exempel blir Queue-meddelandet tillgängligt för funktionen via `message` parametern.
+`QueueTrigger`Anteckningen ger dig åtkomst till den kö som utlöser funktionen. I följande exempel blir Queue-meddelandet tillgängligt för funktionen via `message` parametern.
 
 ```java
 package com.function;
@@ -311,21 +311,21 @@ public class QueueTriggerDemo {
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `QueueTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
-|**bastyp** | saknas| Måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning**| saknas | Endast i *Function. JSON* -filen. Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**bastyp** | saknas| Måste anges till `queueTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**position**| saknas | Endast i *Function. JSON* -filen. Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas |Namnet på den variabel som innehåller köns objektets nytto Last i funktions koden.  |
 |**queueName** | **QueueName**| Namnet på kön som ska avsökas. |
-|**anslutningen** | **Anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` på "telestorage" söker Functions-körningen efter en app-inställning med namnet "Storage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|
+|**anslutningen** | **Anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` på "telestorage" söker Functions-körningen efter en app-inställning med namnet "Storage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Få åtkomst till meddelande data med hjälp av en metod parameter `string paramName`, till exempel. Du kan binda till någon av följande typer:
+Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel `string paramName` . Du kan binda till någon av följande typer:
 
 * Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
 * `string`
@@ -336,7 +336,7 @@ Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se t
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Få åtkomst till meddelande data med hjälp av en metod parameter `string paramName`, till exempel. `paramName` Är värdet som anges i `name` egenskapen för *Function. JSON*. Du kan binda till någon av följande typer:
+Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel `string paramName` . `paramName`Är värdet som anges i `name` egenskapen för *Function. JSON*. Du kan binda till någon av följande typer:
 
 * Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
 * `string`
@@ -363,9 +363,9 @@ Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](
 
 Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. Egenskaperna är medlemmar i klassen [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap|Typ|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om nytto lasten i kön är en sträng `QueueTrigger` , har samma värde som variabeln som namnges `name` av egenskapen i *Function. JSON*.|
+|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om nytto lasten i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av `name` egenskapen i *Function. JSON*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har tagits ur kö.|
 |`ExpirationTime`|`DateTimeOffset`|Tiden som meddelandet upphör att gälla.|
 |`Id`|`string`|Meddelande-ID för kö.|
@@ -375,7 +375,7 @@ Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bi
 
 ## <a name="poison-messages"></a>Poison-meddelanden
 
-Om en utlösare funktion Miss lyckas försöker Azure Functions utföra funktionen upp till fem gånger för ett angivet Queue-meddelande, inklusive det första försöket. Om alla fem försök Miss lyckas lägger Functions-körningen till ett meddelande i en kö med namnet * &lt;originalqueuename>-Poison*. Du kan skriva en funktion för att bearbeta meddelanden från den Poison-kön genom att logga dem eller skicka ett meddelande om att det krävs en manuell åtgärd.
+Om en utlösare funktion Miss lyckas försöker Azure Functions utföra funktionen upp till fem gånger för ett angivet Queue-meddelande, inklusive det första försöket. Om alla fem försök Miss lyckas lägger Functions-körningen till ett meddelande i en kö med namnet * &lt; originalqueuename>-Poison*. Du kan skriva en funktion för att bearbeta meddelanden från den Poison-kön genom att logga dem eller skicka ett meddelande om att det krävs en manuell åtgärd.
 
 Om du vill hantera Poison-meddelanden manuellt kontrollerar du [dequeueCount](#message-metadata) i Queue-meddelandet.
 

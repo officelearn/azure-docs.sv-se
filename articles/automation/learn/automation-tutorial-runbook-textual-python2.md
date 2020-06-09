@@ -5,13 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
-ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714482"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559562"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Självstudie: skapa en python-Runbook
 
@@ -26,7 +26,7 @@ Den här självstudien vägleder dig genom skapandet av en [python-Runbook](../a
 > [!NOTE]
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -244,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en PowerShell-runbook](automation-tutorial-runbook-textual-powershell.md)
-- [Skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md)
-- [Skapa en PowerShell-runbook för arbetsflöden](automation-tutorial-runbook-textual.md)
-- [Azure Automation Runbook-typer](../automation-runbook-types.md)
-- [Azure för Python-utvecklare](/azure/python/)
-- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-tutorial-runbook-textual-powershell.md).
+- Information om hur du kommer igång med grafiska runbooks finns i [skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md).
+- Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-tutorial-runbook-textual.md).
+- Om du vill veta mer om Runbook-typer, deras fördelar och begränsningar, se [Azure Automation Runbook-typer](../automation-runbook-types.md).
+- Mer information om hur du utvecklar för Azure med python finns i [Azure för python-utvecklare](/azure/python/).
+- För att se exempel på python 2-Runbooks, se [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

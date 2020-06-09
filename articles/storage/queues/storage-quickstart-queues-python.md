@@ -7,12 +7,13 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: d6ccd3cc61f9d8244874823be76496a4f4e1073c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 0ab8cb56b29460911f2cfe8b711a07329ee739d6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78199775"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553187"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för python
 
@@ -28,9 +29,9 @@ Använd klient biblioteket V12 i Azure Queue Storage för python för att:
 * Ta bort meddelanden från en kö
 * Ta bort en kö
 
-[API Reference dokumentation](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [paket (python-paket index)](https://pypi.org/project/azure-storage-queue/) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+[API-referens dokumentation](https://docs.microsoft.com/python/api/azure-storage-queue/index)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)  |  [Paket (python-paket index)](https://pypi.org/project/azure-storage-queue/)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -58,7 +59,7 @@ Skapa ett python-program med namnet *köer-snabb start-V12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Installera Azure Blob Storage-klient biblioteket för python-paketet med hjälp `pip install` av kommandot.
+Installera Azure Blob Storage-klient biblioteket för python-paketet med hjälp av `pip install` kommandot.
 
 ```console
 pip install azure-storage-queue
@@ -69,7 +70,7 @@ Det här kommandot installerar klient biblioteket för Azure Queue Storage för 
 ### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
 
 1. Öppna en ny textfil i kod redigeraren
-1. Lägg `import` till instruktioner
+1. Lägg till `import` instruktioner
 1. Skapa strukturen för programmet, inklusive mycket grundläggande undantags hantering
 
     Här är koden:
@@ -126,7 +127,7 @@ De här exempel kods tycken visar hur du utför följande åtgärder med klient 
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot. Anslutnings strängen lagras i den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `try` inuti blocket:
+Lägg till den här koden inuti `try` blocket:
 
 ```python
     # Retrieve the connection string for use with the application. The storage
@@ -165,7 +166,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
 
-Följande kodfragment lägger till meddelanden i kön genom att anropa metoden [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Det sparar också den [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) som returneras från det `send_message` tredje anropet. `saved_message` Används för att uppdatera meddelande innehållet senare i programmet.
+Följande kodfragment lägger till meddelanden i kön genom att anropa metoden [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Det sparar också den [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) som returneras från det tredje `send_message` anropet. `saved_message`Används för att uppdatera meddelande innehållet senare i programmet.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -180,7 +181,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Titta på meddelandena i kön genom att anropa metoden [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages` Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+Titta på meddelandena i kön genom att anropa metoden [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages`Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -197,7 +198,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Uppdatera innehållet i ett meddelande genom att anropa metoden [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message` Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Förutom det nya innehållet skickar du värden från meddelandet som sparades tidigare i koden. `saved_message` Värdena identifierar vilket meddelande som ska uppdateras.
+Uppdatera innehållet i ett meddelande genom att anropa metoden [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message`Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Förutom det nya innehållet skickar du värden från meddelandet som sparades tidigare i koden. `saved_message`Värdena identifierar vilket meddelande som ska uppdateras.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -224,7 +225,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 Ta bort meddelanden från kön när de har tagits emot och bearbetats. I det här fallet visar bearbetningen bara meddelandet i-konsolen.
 
-Appen pausar indata från användaren genom att `input` anropa innan den bearbetar och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
+Appen pausar indata från användaren genom att anropa `input` innan den bearbetar och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
 
 Lägg till den här koden i slutet av `try` blocket:
 

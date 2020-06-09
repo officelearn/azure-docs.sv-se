@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996507"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488944"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Aktivera zon haveri beredskap för virtuella Azure-datorer
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du replikerar, redundansväxlas och återställe
 
 >[!NOTE]
 >
->- Site Recovery stöder för närvarande inte återställnings planer för zon till haveri beredskap för zoner. 
+>- Site Recovery stöder för närvarande inte återställnings planer för zon till haveri beredskap för zoner via portalen. Använd PowerShell eller REST API för att utnyttja återställnings planer för zon till haveri beredskap för zoner. 
 >- Stöd för katastrof återställning för zoner till zoner är för närvarande begränsat till två regioner: Sydostasien och Storbritannien, södra.  
 
 Site Recovery Service bidrar till din strategi för affärs kontinuitet och haveri beredskap genom att hålla dina företags program igång, under planerade och oplanerade avbrott. Det är det rekommenderade alternativet för haveri beredskap för att hålla programmen igång om det finns regionala avbrott.

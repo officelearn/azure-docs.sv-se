@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 8605fb3c43e625d86fd4d4008ddc49b0e29c8d44
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169210"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509482"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
@@ -39,7 +39,7 @@ Du måste:
 
 Utför följande steg för att skapa ett export jobb i Azure Portal.
 
-1. Logga in på https://portal.azure.com/ .
+1. Logga in på <https://portal.azure.com/> .
 2. Gå till **alla tjänster > lagring > import/export-jobb**.
 
     ![Gå till import/export-jobb](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -129,7 +129,11 @@ Exporten är klar.
 
 Om du använder version 1.4.0.300 av WAImportExport-verktyget använder du följande kommando för att låsa upp enheten:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Här är ett exempel på inmatade exempel.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Om du använder tidigare versioner av verktyget använder du dialog rutan BitLocker för att låsa upp enheten.
 
@@ -140,14 +144,14 @@ För tillfället kan du ta bort jobbet eller lämna det. Jobb tas automatiskt bo
 Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs för export jobbet. Utför det här steget på ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Ladda ned WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet.
-2. Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
+2. Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
 3. Öppna ett PowerShell-eller kommando rads fönster med administratörs behörighet. Kör följande kommando för att ändra katalogen till den zippade mappen:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Kör följande kommando för att kontrol lera antalet diskar som krävs för de valda blobarna:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Parametrarna beskrivs i följande tabell:
 

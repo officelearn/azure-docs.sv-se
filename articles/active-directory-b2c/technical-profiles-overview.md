@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 504f8288ad6bf7565a0cae91c11a14ea65b6e160
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229943"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556456"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -49,7 +49,7 @@ En teknisk profil möjliggör följande typer av scenarier:
 Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspråk, köra anspråk och kommunicera med den konfigurerade parten, till exempel en identitetsprovider, REST API eller Azure AD Directory-tjänster. När processen har slutförts returnerar den tekniska profilen utgående anspråk och kan köra transformering av utgående anspråk. Följande diagram visar hur omvandlingar och mappningar som refereras i den tekniska profilen bearbetas. Oavsett vilken part den tekniska profilen interagerar med, efter det att en anspråks omvandling har körts, lagras de utgående anspråken från den tekniska profilen omedelbart i anspråks säcken.
 
 ![Diagram som illustrerar det tekniska profil flödet](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. **Hantering av enkel inloggning (SSO)** – återställer den tekniska profilens sessionstillstånd med hjälp av SSO- [sessionshantering](custom-policy-reference-sso.md).
 1. **Transformering** av inmatade anspråk-inloggade anspråk för varje inloggad [anspråks omvandling](claimstransformations.md) hämtas från anspråks säcken.  De utgående anspråken för en inmatnings anspråks omvandling kan vara inmatade anspråk för en efterföljande omvandling av anspråk.
 1. **Ingående anspråk** – anspråk hämtas från anspråks säcken och används för den tekniska profilen. En [självkontrollerad teknisk profil](self-asserted-technical-profile.md) använder till exempel indata-anspråk för att fylla i de utgående anspråk som användaren tillhandahåller. En REST API teknisk profil använder ingångs anspråk för att skicka indataparametrar till REST API-slutpunkten. Azure Active Directory använder ingångs anspråk som unik identifierare för att läsa, uppdatera eller ta bort ett konto.
@@ -66,9 +66,9 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
 
 ## <a name="technical-profile-inclusion"></a>Inkluderad teknik profil
 
-En teknisk profil kan innehålla en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  `IncludeTechnicalProfile` Elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från. Det finns ingen gräns för antalet nivåer.
+En teknisk profil kan innehålla en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  `IncludeTechnicalProfile`Elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från. Det finns ingen gräns för antalet nivåer.
 
-Till exempel innehåller den tekniska profilen **AAD-UserReadUsingAlternativeSecurityId-noerror** filen **AAD-UserReadUsingAlternativeSecurityId**. Den här tekniska profilen anger `RaiseErrorIfClaimsPrincipalDoesNotExist` metadataobjektet till `true`och genererar ett fel om ett socialt konto inte finns i katalogen. **AAD-UserReadUsingAlternativeSecurityId – noerror** åsidosätter detta beteende och inaktiverar det fel meddelandet.
+Till exempel innehåller den tekniska profilen **AAD-UserReadUsingAlternativeSecurityId-noerror** filen **AAD-UserReadUsingAlternativeSecurityId**. Den här tekniska profilen anger `RaiseErrorIfClaimsPrincipalDoesNotExist` metadataobjektet till `true` och genererar ett fel om ett socialt konto inte finns i katalogen. **AAD-UserReadUsingAlternativeSecurityId – noerror** åsidosätter detta beteende och inaktiverar det fel meddelandet.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">

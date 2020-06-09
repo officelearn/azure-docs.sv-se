@@ -10,19 +10,20 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 04/28/2020
-ms.openlocfilehash: 94e45e2c5aae1633ce206fe56fe94cb9d03f9f67
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: b9b4f505e7d3bdfec4bb689dcb8e08c82111ba1e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431427"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558447"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du upptäcka modeller med höga prestanda utan att du behöver implementera om varje möjlig metod. Tillsammans med Azure Machine Learning pipelines kan du skapa arbets flöden som kan användas för att snabbt identifiera algoritmen som fungerar bäst för dina data. I den här artikeln får du lära dig hur du effektivt ansluter ett steg för förberedelse av data till ett automatiserat ML-steg. Med automatisk ML kan du snabbt upptäcka vilken algoritm som passar bäst för dina data, samtidigt som du lägger på vägen till MLOps och modellens livs cykel driftsättning med pipelines.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 

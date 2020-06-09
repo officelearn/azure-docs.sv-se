@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c726b0d11759d30730046e635c701cf23d130dfc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77187295"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561571"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Snabb start: Event Hubs Infångnings genom gång: python (Azure-eventhub version 1)
 
@@ -38,7 +38,7 @@ I den här genom gången ska du:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Python 3,4 eller senare, med `pip` installerad och uppdaterad.
   
@@ -80,7 +80,7 @@ Det här skriptet skickar 200-händelser till händelsehubben. Händelserna är 
 
 1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code][Visual Studio Code].
 2. Skapa en ny fil med namnet *Sender.py*. 
-3. Klistra in följande kod i *Sender.py*. Ersätt dina \<egna värden för Event Hubs namn områdes> \<, AccessKeyName> \<, primär nyckel värde> och \<eventhub->.
+3. Klistra in följande kod i *Sender.py*. Ersätt dina egna värden för Event Hubs \<namespace> , \<AccessKeyName> , \<primary key value> , och \<eventhub> .
    
    ```python
    import uuid
@@ -108,7 +108,7 @@ Det här skriptet skickar 200-händelser till händelsehubben. Händelserna är 
 Det här skriptet läser de fångade filerna och skapar en fil för var och en av dina enheter för att skriva data enbart för den enheten.
 
 1. Skapa en ny fil med namnet *capturereader.py*i python-redigeraren. 
-2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade värden för din \<storageaccount>, \<lagrings kontots åtkomst nyckel> \<och storagecontainer>.
+2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade värden för din \<storageaccount> , \<storage account access key> och \<storagecontainer> .
    
    ```python
    import os
@@ -164,7 +164,7 @@ Det här skriptet läser de fångade filerna och skapar en fil för var och en a
    pip install avro-python3
    ```
    
-   Om du har en tidigare version av `azure-storage` eller `azure`kan du behöva använda `--upgrade` alternativet.
+   Om du har en tidigare version av `azure-storage` eller `azure` kan du behöva använda `--upgrade` alternativet.
    
    Du kan också behöva köra följande kommando. Du behöver inte köra det här kommandot på de flesta system. 
    

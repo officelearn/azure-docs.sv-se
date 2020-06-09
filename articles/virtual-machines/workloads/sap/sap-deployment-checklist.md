@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060070"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556665"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -86,7 +86,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
     - [SAP HANA installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definiera en vanlig gransknings takt för design och distribution mellan dig som kunden, system integrerare, Microsoft och andra berörda parter.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>Pilot fas (rekommenderas starkt)
  
 Du kan köra en pilot före eller under projekt planering och förberedelser. Du kan också använda pilot fasen för att testa metoder och design som görs under planerings-och förberedelse fasen. Och du kan expandera pilot fasen för att göra den till ett verkligt koncept bevis.
@@ -213,7 +213,7 @@ Under den här fasen distribuerar du vanligt vis utvecklings system, enhets test
 14. Optimera och finslipa din grupps Azure-rollbaserade åtkomst, behörigheter och processer för att se till att du har separering av uppgifter. Se till att alla team kan utföra sina uppgifter i Azure-infrastrukturen.
 15. Öva, testa och dokumentera metoder för hög tillgänglighet och haveri beredskap för att göra det möjligt för personalen att utföra dessa uppgifter. Identifiera brister och anpassa nya Azure-funktioner som du integrerar i dina distributioner.
 
- 
+
 ## <a name="production-preparation-phase"></a>Förberedelse fas för produktion 
 I den här fasen samlar du in vad du har lärt dig och lärt dig under dina distributioner utan produktion och tillämpar dem på framtida produktions distributioner. Du måste också förbereda arbetet med data överföringen mellan din aktuella värd plats och Azure.
 

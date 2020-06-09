@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758732"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509210"
 ---
 # <a name="entities"></a>Entiteter
 
@@ -25,6 +25,33 @@ Den viktigaste aspekten av själva entiteten är hierarkin och den resulterande 
 En entitet ägs unikt av dess överordnade, vilket innebär att när det överordnade objektet förstörs, `Entity.Destroy()` så är dess underordnade och alla anslutna [komponenter](components.md). Därför utförs borttagning av en modell från scenen genom att anropar `Destroy` rotnoden i en modell, som returneras av `AzureSession.Actions.LoadModelAsync()` eller dess SAS-variant `AzureSession.Actions.LoadModelFromSASAsync()` .
 
 Entiteter skapas när servern läser in innehåll eller när användaren vill lägga till ett objekt i scenen. Om en användare till exempel vill lägga till ett klipp plan för att visualisera insidan av ett nät, kan användaren skapa en entitet där planet ska finnas och sedan lägga till komponenten klipp ut plan till den.
+
+## <a name="create-an-entity"></a>Skapa en entitet
+
+Om du vill lägga till en ny entitet i scenen, till exempel för att skicka den som ett rot objekt för inläsning av modeller eller koppla komponenter till den, använder du följande kod:
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->Position(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
 
 ## <a name="query-functions"></a>Fråge funktioner
 

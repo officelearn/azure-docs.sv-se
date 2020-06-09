@@ -7,19 +7,19 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019
-ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: 513e3bc2e8625f8ce255f479301b2ed5115708bb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76906434"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561343"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Snabb start: hantera blobbar med python v 2.1 SDK
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av python. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -48,7 +48,7 @@ I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skap
 
 1. Öppna filen *example.py* från Solution Explorer i IDE.
 
-1. Ersätt värdena `accountname` och `accountkey` med ditt lagrings konto namn och nyckel:
+1. Ersätt `accountname` värdena och `accountkey` med ditt lagrings konto namn och nyckel:
 
     ```python
     block_blob_service = BlockBlobService(
@@ -94,8 +94,8 @@ Exempel programmet skapar en test fil i mappen *dokument* , laddar upp filen til
 
 1. Gå till mappen *dokument* och Sök efter de två filerna innan du fortsätter.
 
-    * *QuickStart_\<Universal-Unique-Identifier\>*
-    * *QuickStart_\<universellt unikt ID\>_DOWNLOADED*
+    * *QuickStart_\<universally-unique-identifier\>*
+    * *QuickStart_ \<universally-unique-identifier\> _DOWNLOADED*
 
 1. Du kan öppna dem och se att de är samma.
 
@@ -109,7 +109,7 @@ Nu när du vet vad exemplet gör kan du öppna *example.py* -filen och titta på
 
 ### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
 
-I det här avsnittet skapar du instanser av objekten, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Du anropar behållaren `quickstartblobs`. 
+I det här avsnittet skapar du instanser av objekten, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Du anropar behållaren `quickstartblobs` . 
 
 ```python
 # Create the BlockBlockService that the system uses to call the Blob service for the storage account.
@@ -142,7 +142,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar kan
 
 Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create_blob_from_path`. 
 
-Exempel koden skapar en lokal fil som systemet använder för att ladda upp och ladda ned, lagra filen som systemet laddar upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I det här exemplet överförs filen till din behållare med namnet `quickstartblobs`:
+Exempel koden skapar en lokal fil som systemet använder för att ladda upp och ladda ned, lagra filen som systemet laddar upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I det här exemplet överförs filen till din behållare med namnet `quickstartblobs` :
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -180,7 +180,7 @@ for blob in generator:
 ### <a name="download-the-blobs"></a>Ladda ned blobarna
 
 
-Ladda ned blobar till din lokala disk med `get_blob_to_path` hjälp av metoden.
+Ladda ned blobar till din lokala disk med hjälp av `get_blob_to_path` metoden.
 Följande kod laddar ned bloben som du laddade upp tidigare. Systemet lägger till *_DOWNLOADED* till BLOB-namnet så att du kan se båda filerna på den lokala disken.
 
 ```python

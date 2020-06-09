@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395261"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488638"
 ---
 # <a name="apply-transformation-module"></a>Använd omvandlings modul
 
@@ -32,13 +32,13 @@ Med designern kan du spara data transformationer som data **uppsättningar** så
 
 1. Välj fliken **utdata + loggar** .
 
-1. Spara **resultat omvandlingen**genom att välja **ikonen Spara** .
+1. Hitta transformeringens utdata och välj **register data uppsättningen** för att spara den som en modul under **data uppsättnings** kategorin i modulen modul.
 
 ## <a name="how-to-use-apply-transformation"></a>Använda tillämpa omvandling  
   
 1. Lägg till modulen **Använd omvandling** i din pipeline. Du hittar den här modulen i avsnittet **utvärdering av modell bedömnings &** i modulen modul. 
   
-1. Hitta den sparade omvandling som du vill använda under **data uppsättningar** > **mina data uppsättningar** i modulen modul.
+1. Hitta den sparade omvandling som du vill använda under **data uppsättningar** i modulen modul.
 
 1. Anslut utdata från den sparade omvandlingen till den vänstra Indataporten för modulen **Använd omvandling** .
 

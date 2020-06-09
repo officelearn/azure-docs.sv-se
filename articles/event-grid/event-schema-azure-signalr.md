@@ -2,17 +2,17 @@
 title: Azure-signaler som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Azure SignalR-händelser med Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: babanisa
-ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133723"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560633"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid händelse schema för signal tjänsten
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller egenskaper och schema för signalerar tjänst hän
 
 SignalR tjänsten avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. SignalRService. ClientConnectionConnected | Utlöses när en klient anslutning anslöts. |
 | Microsoft. SignalRService. ClientConnectionDisconnected | Utlöses när en klient anslutning kopplades från. |
@@ -76,7 +76,7 @@ Schemat för en frånkopplad klient anslutnings händelse är ungefär så här:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -89,7 +89,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | timestamp | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | hubName | sträng | Hubben som klient anslutningen tillhör. |

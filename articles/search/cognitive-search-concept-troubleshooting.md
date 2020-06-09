@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/08/2020
+ms.openlocfilehash: 25f0e0f15a299ef8b946b3d5fa0eb3eddc2272c2
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245491"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508628"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Tips för AI-anrikning i Azure Kognitiv sökning
 
@@ -58,7 +58,7 @@ Fältet ```enriched``` innehåller en sträng som är en logisk representation a
 
 Det omfattande fältet är avsett för fel sökning för att hjälpa dig att förstå den logiska formen på det innehåll som uttryck utvärderas mot. Du bör inte vara beroende av det här fältet för indexerings syfte.
 
-Lägg till ```enriched``` ett fält som en del av index definitionen för fel söknings syfte:
+Lägg till ett ```enriched``` fält som en del av index definitionen för fel söknings syfte:
 
 #### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json
@@ -77,11 +77,15 @@ Lägg till ```enriched``` ett fält som en del av index definitionen för fel s�
 }
 ```
 
+### <a name="debug-sessions"></a>Felsökningssessioner
+
+Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och skicka ändringar till en produktions-färdigheter i AI-pipeline för anrikning. Detta är en förhands gransknings funktion och åtkomst beviljas från fall till fall. [Läs dokumentationen](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) och ta reda på hur du kan använda för att få åtkomst.
+
 ## <a name="tip-5-expected-content-fails-to-appear"></a>Tips 5: förväntat innehåll visas inte
 
 Innehåll som saknas kan vara resultatet av dokument som tas bort under indexeringen. Kostnads fria och grundläggande nivåer har låg gräns för dokument storlek. Alla filer som överskrider gränsen bryts vid indexering. Du kan söka efter borttagna dokument i Azure Portal. I instrument panelen för Sök tjänsten dubbelklickar du på panelen indexerare. Granska förhållandet mellan lyckade dokument indexerade. Om den inte är 100% kan du klicka på kvoten för att få mer information. 
 
-Om problemet är relaterat till fil storlek kan du se ett fel meddelande som liknar detta: "BLOB \<-filens namn>" har storleken på \<fil storleken> byte, vilket överskrider den maximala storleken för dokument extrahering för den aktuella tjänst nivån. " Mer information om gränser för indexerare finns i [tjänst begränsningar](search-limits-quotas-capacity.md).
+Om problemet är relaterat till fil storlek kan du se ett fel som detta: "blobben \<file-name> " har storleken på \<file-size> byte, vilket överskrider den maximala storleken för dokument extrahering för den aktuella tjänst nivån. " Mer information om gränser för indexerare finns i [tjänst begränsningar](search-limits-quotas-capacity.md).
 
 En andra orsak till att innehållet som Miss söker visas kan vara relaterade till fel vid indata/utdata-mappning. Till exempel är ett utmatnings mål namn "personer", men index fält namnet är "människor". Systemet kan returnera 201 slutförda meddelanden för hela pipelinen så att du tror att indexeringen är klar, när fältet i själva verket är tomt. 
 
@@ -96,7 +100,7 @@ Indexering av schemalagda indexerare återupptas enligt schema vid det senast fu
 > [!NOTE]
 > Om en indexerare har angetts till ett visst schema men upprepade gånger Miss lyckas på samma dokument över och över igen varje gång den körs, kommer indexeraren att köras på ett mindre frekvent intervall (upp till max minst en gång var 24: e timme) tills den har lyckats med att göra ett nytt försök.  Om du tror att du har åtgärdat problemet som gjorde att indexeraren har fastnat vid en viss tidpunkt, kan du utföra en körning av indexeraren på begäran, och om detta sker fortsätter indexeraren med angivet schema intervall igen.
 
-För portalbaserade indexeringar (enligt beskrivningen i snabb starten) väljer du alternativet "kör en gång"-alternativ begränsar bearbetningen till 1 timme (`"maxRunTime": "PT1H"`). Du kanske vill utöka bearbetnings fönstret till något längre.
+För portalbaserade indexeringar (enligt beskrivningen i snabb starten) väljer du alternativet "kör en gång"-alternativ begränsar bearbetningen till 1 timme ( `"maxRunTime": "PT1H"` ). Du kanske vill utöka bearbetnings fönstret till något längre.
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Tips 7: öka indexerings data flödet
 

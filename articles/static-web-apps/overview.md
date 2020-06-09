@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure static Web Apps?
+title: Vad är Azure Static Web Apps?
 description: Viktiga funktioner och funktioner i Azures statiska Web Apps.
 services: static-web-apps
 author: craigshoemaker
@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: d416044599535e8acd363d09099e8667bba59a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599969"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488927"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Vad är Azures statiska Web Apps för hands version?
 
@@ -30,7 +30,7 @@ Med statiska Web Apps separeras statiska till gångar från en traditionell webb
 
 ## <a name="key-features"></a>Huvudfunktioner
 
-- **Gratis webbhotell** för statiskt innehåll som HTML, CSS, Java Script och avbildningar.
+- **Webb värd** för statiskt innehåll som HTML, CSS, Java Script och avbildningar.
 - **Inbyggt API** -stöd som tillhandahålls av Azure Functions.
 - **GitHub-integration från första part** där lagrings ändringar utlöser versioner och distributioner.
 - **Globalt distribuerat** statiskt innehåll, vilket ger innehållet närmare dina användare.

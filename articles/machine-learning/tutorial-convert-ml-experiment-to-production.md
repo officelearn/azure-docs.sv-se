@@ -7,12 +7,13 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.openlocfilehash: a0b66f233de9e1bfdc6d011b65489884a1049a12
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.custom: tracking-python
+ms.openlocfilehash: 25ff9bdb2c4ec1b3367c522c497fad9cfb0ba588
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559672"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558313"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Självstudie: konvertera ML experiment till produktion python-kod
 
@@ -28,14 +29,14 @@ I den här guiden får du lära dig att:
 > * Skapa Python-skript för relaterade aktiviteter
 > * Skapa enhetstester
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Generera [MLOpsPython-mallen](https://github.com/microsoft/MLOpsPython/generate) och Använd antecknings böckerna `experimentation/Diabetes Ridge Regression Training.ipynb` och. `experimentation/Diabetes Ridge Regression Scoring.ipynb` Dessa antecknings böcker används som exempel på konvertering från experiment till produktion. Du kan hitta de här antecknings böckerna på [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
+- Generera [MLOpsPython-mallen](https://github.com/microsoft/MLOpsPython/generate) och Använd `experimentation/Diabetes Ridge Regression Training.ipynb` `experimentation/Diabetes Ridge Regression Scoring.ipynb` antecknings böckerna och. Dessa antecknings böcker används som exempel på konvertering från experiment till produktion. Du kan hitta de här antecknings böckerna på [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation) .
 - Installera `nbconvert`. Följ bara installations anvisningarna under avsnittet __Installera nbconvert__ på [installations](https://nbconvert.readthedocs.io/en/latest/install.html) sidan.
 
 ## <a name="remove-all-nonessential-code"></a>Ta bort all kod som inte behövs
 
-Viss kod som skrivs under experimentet är endast avsedd för test ändamål. Det första steget för att konvertera experimentell kod till produktions koden är därför att ta bort den här icke-nödvändiga koden. Att ta bort icke-väsentlig kod gör också koden mer hanterbar. I det här avsnittet ska du ta bort kod från `experimentation/Diabetes Ridge Regression Training.ipynb` antecknings boken. Uttrycken som skriver ut `X` formen `y` på och och cell `features.describe` anropet är bara för data utforskning och kan tas bort. När du har tagit bort en `experimentation/Diabetes Ridge Regression Training.ipynb` kod som inte är viktig bör se ut som följande kod utan markdown:
+Viss kod som skrivs under experimentet är endast avsedd för test ändamål. Det första steget för att konvertera experimentell kod till produktions koden är därför att ta bort den här icke-nödvändiga koden. Att ta bort icke-väsentlig kod gör också koden mer hanterbar. I det här avsnittet ska du ta bort kod från `experimentation/Diabetes Ridge Regression Training.ipynb` antecknings boken. Uttrycken som skriver ut formen på `X` och `y` och cell anropet `features.describe` är bara för data utforskning och kan tas bort. När du har tagit bort en kod `experimentation/Diabetes Ridge Regression Training.ipynb` som inte är viktig bör se ut som följande kod utan markdown:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -80,22 +81,22 @@ joblib.dump(value=reg, filename=model_name)
 
 För det andra måste Jupyter-koden omstruktureras till functions. Omstrukturering av kod i funktioner gör enhets testningen enklare och gör koden mer hanterbar. I det här avsnittet kommer du att göra följande:
 
-- Diabetes Ridge regression Training Notebook (`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- Antecknings boken diabetes Ridge regression`experimentation/Diabetes Ridge Regression Scoring.ipynb`poängsättning ()
+- Diabetes Ridge regression Training Notebook ( `experimentation/Diabetes Ridge Regression Training.ipynb` )
+- Antecknings boken diabetes Ridge regression poängsättning ( `experimentation/Diabetes Ridge Regression Scoring.ipynb` )
 
 ### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Diabetes Ridge regression Training Notebook in Functions
 
-I `experimentation/Diabetes Ridge Regression Training.ipynb`utför du följande steg:
+I `experimentation/Diabetes Ridge Regression Training.ipynb` utför du följande steg:
 
-1. Skapa en funktion som `split_data` kallas för att dela data ramen i test-och träna data. Funktionen ska ta dataframe `df` som en parameter och returnera en ord lista som innehåller nycklarna `train` och. `test`
+1. Skapa en funktion `split_data` som kallas för att dela data ramen i test-och träna data. Funktionen ska ta dataframe `df` som en parameter och returnera en ord lista som innehåller nycklarna `train` och `test` .
 
     Flytta koden i rubriken *dela data till inlärnings-och validerings uppsättningar* till `split_data` funktionen och ändra den för att returnera `data` objektet.
 
-1. Skapa en funktion som `train_model`kallas, som tar parametrarna `data` och `args` returnerar en utbildad modell.
+1. Skapa en funktion `train_model` som kallas, som tar parametrarna `data` och `args` returnerar en utbildad modell.
 
     Flytta koden under rubriken rubrik *inlärnings modell för träning* till `train_model` funktionen och ändra den för att returnera `reg_model` objektet. Ta bort `args` ord listan, värdena kommer från `args` parametern.
 
-1. Skapa en funktion som `get_model_metrics`kallas, som tar `reg_model` parametrar `data`och och utvärderar modellen, returnerar sedan en ord lista med mått för den tränade modellen.
+1. Skapa en funktion `get_model_metrics` som kallas, som tar parametrar `reg_model` och `data` och utvärderar modellen, returnerar sedan en ord lista med mått för den tränade modellen.
 
     Flytta koden under rubriken *validera modell på validerings uppsättning* till `get_model_metrics` funktionen och ändra den för att returnera `metrics` objektet.
 
@@ -129,9 +130,9 @@ def get_model_metrics(reg_model, data):
     return metrics
 ```
 
-Utför följande `experimentation/Diabetes Ridge Regression Training.ipynb`steg fortfarande i:
+`experimentation/Diabetes Ridge Regression Training.ipynb`Utför följande steg fortfarande i:
 
-1. Skapa en ny funktion som `main`kallas, som inte tar några parametrar och som inte returnerar något.
+1. Skapa en ny funktion `main` som kallas, som inte tar några parametrar och som inte returnerar något.
 1. Flytta koden under rubriken "Läs in data" till `main` funktionen.
 1. Lägg till anrop för de nyligen skrivna funktionerna i `main` funktionen:
     ```python
@@ -153,7 +154,7 @@ Utför följande `experimentation/Diabetes Ridge Regression Training.ipynb`steg 
     ```
 1. Flytta koden under rubriken "Spara modell" till `main` funktionen.
 
-`main` Funktionen bör se ut som följande kod:
+`main`Funktionen bör se ut som följande kod:
 
 ```python
 def main():
@@ -260,12 +261,12 @@ main()
 
 ### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Diabetes Ridge Regressions-antecknings bok till Functions
 
-I `experimentation/Diabetes Ridge Regression Scoring.ipynb`utför du följande steg:
+I `experimentation/Diabetes Ridge Regression Scoring.ipynb` utför du följande steg:
 
-1. Skapa en ny funktion som `init`kallas, som inte tar några parametrar och returnerar ingenting.
+1. Skapa en ny funktion `init` som kallas, som inte tar några parametrar och returnerar ingenting.
 1. Kopiera koden under rubriken "läsa modell" till `init` funktionen.
 
-`init` Funktionen bör se ut som följande kod:
+`init`Funktionen bör se ut som följande kod:
 
 ```python
 def init():
@@ -280,9 +281,9 @@ När `init` funktionen har skapats ersätter du all kod under rubriken "belastni
 init()
 ```
 
-I `experimentation/Diabetes Ridge Regression Scoring.ipynb`utför du följande steg:
+I `experimentation/Diabetes Ridge Regression Scoring.ipynb` utför du följande steg:
 
-1. Skapa en ny funktion som `run`kallas, som `raw_data` tar `request_headers` och som parametrar och returnerar en ord lista med resultat enligt följande:
+1. Skapa en ny funktion `run` som kallas, som tar `raw_data` och `request_headers` som parametrar och returnerar en ord lista med resultat enligt följande:
 
     ```python
     {"result": result.tolist()}
@@ -290,7 +291,7 @@ I `experimentation/Diabetes Ridge Regression Scoring.ipynb`utför du följande s
 
 1. Kopiera koden under rubrikerna "Förbered data" och "Poäng data" i `run` funktionen.
 
-    `run` Funktionen bör se ut som följande kod (kom ihåg att ta bort de instruktioner som anger variablerna `raw_data` och `request_headers`som kommer att användas senare när `run` funktionen anropas):
+    `run`Funktionen bör se ut som följande kod (kom ihåg att ta bort de instruktioner som anger variablerna `raw_data` och `request_headers` som kommer att användas senare när `run` funktionen anropas):
 
     ```python
     def run(raw_data, request_headers):
@@ -310,7 +311,7 @@ prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
 
-Föregående kod `raw_data` anger variabler och `request_header`anropar `run` funktionen med `raw_data` och `request_header`och skriver ut förutsägelserna.
+Föregående kod anger variabler `raw_data` och `request_header` anropar `run` funktionen med och och `raw_data` `request_header` skriver ut förutsägelserna.
 
 Efter omstrukturering `experimentation/Diabetes Ridge Regression Scoring.ipynb` bör se ut som följande kod utan markdown:
 
@@ -343,25 +344,25 @@ print("Test result: ", prediction)
 
 Tredje, relaterade funktioner måste slås samman till python-filer för att bättre kunna använda kod åter användning. I det här avsnittet skapar du python-filer för följande antecknings böcker:
 
-- Diabetes Ridge regression Training Notebook (`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- Antecknings boken diabetes Ridge regression`experimentation/Diabetes Ridge Regression Scoring.ipynb`poängsättning ()
+- Diabetes Ridge regression Training Notebook ( `experimentation/Diabetes Ridge Regression Training.ipynb` )
+- Antecknings boken diabetes Ridge regression poängsättning ( `experimentation/Diabetes Ridge Regression Scoring.ipynb` )
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Skapa python-fil för notebook diabetes Ridge regression Training
 
-Konvertera antecknings boken till ett körbart skript genom att köra följande instruktion i en kommando tolk som `nbconvert` använder paketet och sökvägen till `experimentation/Diabetes Ridge Regression Training.ipynb`:
+Konvertera antecknings boken till ett körbart skript genom att köra följande instruktion i en kommando tolk som använder `nbconvert` paketet och sökvägen till `experimentation/Diabetes Ridge Regression Training.ipynb` :
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
 ```
 
-Ta bort eventuella oönskade kommentarer när antecknings boken har konverterats till `train.py`. Ersätt anropet till `main()` i slutet av filen med ett villkorsstyrt anrop som följande kod:
+Ta bort eventuella oönskade kommentarer när antecknings boken har konverterats till `train.py` . Ersätt anropet till `main()` i slutet av filen med ett villkorsstyrt anrop som följande kod:
 
 ```python
 if __name__ == '__main__':
     main()
 ```
 
-`train.py` Filen bör se ut som följande kod:
+`train.py`Filen bör se ut som följande kod:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -429,20 +430,20 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`kan nu anropas från en Terminal genom att köra `python train.py`.
+`train.py`kan nu anropas från en Terminal genom att köra `python train.py` .
 Funktionerna från `train.py` kan också anropas från andra filer.
 
-`train_aml.py` Filen som hittades i `diabetes_regression/training` katalogen i MLOpsPython-lagringsplatsen anropar de funktioner som definierats i `train.py` i kontexten för en Azure Machine Learning experiment körning. Funktionerna kan också anropas i enhets test, som beskrivs senare i den här hand boken.
+`train_aml.py`Filen som hittades i `diabetes_regression/training` katalogen i MLOpsPython-lagringsplatsen anropar de funktioner som definierats i `train.py` i kontexten för en Azure Machine Learning experiment körning. Funktionerna kan också anropas i enhets test, som beskrivs senare i den här hand boken.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Skapa python-fil för notebook diabetes Ridge regression Poängsättning
 
-Konvertera din bärbara dator till ett körbart skript genom att köra följande instruktion i en kommando tolk som använder `nbconvert` paketet och sökvägen till `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Konvertera din bärbara dator till ett körbart skript genom att köra följande instruktion i en kommando tolk som använder `nbconvert` paketet och sökvägen till `experimentation/Diabetes Ridge Regression Scoring.ipynb` :
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
 ```
 
-Ta bort eventuella oönskade kommentarer när antecknings boken har konverterats till `score.py`. `score.py` Filen bör se ut som följande kod:
+Ta bort eventuella oönskade kommentarer när antecknings boken har konverterats till `score.py` . `score.py`Filen bör se ut som följande kod:
 
 ```python
 import json
@@ -469,7 +470,7 @@ prediction = run(test_row, request_header)
 print("Test result: ", prediction)
 ```
 
-`model` Variabeln måste vara global så att den visas i hela skriptet. Lägg till följande-instruktion i början av `init` funktionen:
+`model`Variabeln måste vara global så att den visas i hela skriptet. Lägg till följande-instruktion i början av `init` funktionen:
 
 ```python
 global model
@@ -489,7 +490,7 @@ def init():
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Skapa enhets test för varje python-fil
 
-Fjärde, skapa enhets test för dina python-funktioner. Enhets test skyddar kod mot funktionella regressioner och gör det lättare att underhålla. I det här avsnittet ska du skapa enhets test för funktionerna i `train.py`.
+Fjärde, skapa enhets test för dina python-funktioner. Enhets test skyddar kod mot funktionella regressioner och gör det lättare att underhålla. I det här avsnittet ska du skapa enhets test för funktionerna i `train.py` .
 
 `train.py`innehåller flera funktioner, men vi skapar bara ett enda enhets test för `train_model` funktionen med Pytest-ramverket i den här självstudien. Pytest är inte det enda testnings ramverket python unit, men det är en av de som används oftast. Mer information finns på [Pytest](https://pytest.org).
 
@@ -499,7 +500,7 @@ Ett enhets test innehåller vanligt vis tre huvudsakliga åtgärder:
 - Agera på ett objekt
 - Assert förväntat
 
-Enhets testet anropar `train_model` med vissa hårdkodade data och argument och validerar att `train_model` de fungerar som förväntat genom att använda den resulterande tränade modellen för att göra en förutsägelse och jämföra denna förutsägelse till ett förväntat värde.
+Enhets testet anropar `train_model` med vissa hårdkodade data och argument och validerar att de fungerar `train_model` som förväntat genom att använda den resulterande tränade modellen för att göra en förutsägelse och jämföra denna förutsägelse till ett förväntat värde.
 
 ```python
 import numpy as np

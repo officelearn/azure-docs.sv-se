@@ -1,16 +1,16 @@
 ---
 title: GEO-replikera ett register
-description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar.
+description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar. Geo-replikering är en funktion i Premium tjänst-nivån.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711575"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508802"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 

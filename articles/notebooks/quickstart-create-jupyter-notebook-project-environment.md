@@ -3,12 +3,13 @@ title: Skapa ett Azure Notebooks för hands versions projekt med en anpassad mil
 description: Skapa ett nytt projekt i Azure Notebooks för hands versionen som är konfigurerad med en speciell uppsättning installerade paket och start skript.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78196849"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559738"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Snabb start: skapa ett projekt med en anpassad miljö i Azure Notebooks för hands version
 
@@ -35,7 +36,7 @@ Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datore
     - **Offentligt projekt**: (avmarkerat)
     - **Skapa en README.MD**: (avmarkerad)
 
-1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast **+** visas som) och sedan välja **antecknings bok**.
+1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast visas som **+** ) och sedan välja **antecknings bok**.
 
 1. Ge antecknings boken ett namn som *anpassad miljö. ipynb*, välj **python 3,6** för språket och välj **ny**.
 
@@ -51,20 +52,20 @@ Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datore
 
 1. Kommandot **+ Add** skapar ett steg som definieras av en åtgärd och en målfil som väljs från filerna i projektet. Följande åtgärder stöds:
 
-   | Åtgärd | Beskrivning |
+   | Åtgärd | Description |
    | --- | --- |
-   | Krav. txt | Python-projekt definierar deras beroenden i en Requirements. txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar** > **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt`pip install -r <file>` |
+   | Krav. txt | Python-projekt definierar deras beroenden i en Requirements. txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar**  >  **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt`pip install -r <file>` |
    | Gränssnitts skript | Används för att ange ett bash-gränssnitts skript (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön. |
    | Miljö. yml | Ett python-projekt som använder Conda för att hantera en miljö använder en miljö *. yml* -fil för att beskriva beroenden. Med det här alternativet väljer du lämplig fil i listan över projektets filer. |
 
    > [!WARNING]
-   > Eftersom det här är en för hands versions tjänst under utveckling finns det ett känt problem `Environment.yml` där inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsbokarna i läser inte in den angivna miljö filen för närvarande.
+   > Eftersom det här är en för hands versions tjänst under utveckling finns det ett känt problem där `Environment.yml` inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsbokarna i läser inte in den angivna miljö filen för närvarande.
 
 1. Om du vill ta bort ett installations steg väljer du **X** till höger om steget.
 
 1. När alla installations steg är på plats väljer du **Spara**. (Välj **Avbryt** om du vill ignorera ändringarna).
 
-1. Testa din miljö genom att skapa och köra en ny antecknings bok och sedan skapa en Code-cell med instruktioner som är beroende av ett paket i miljön, till `import` exempel att använda en python-instruktion. Om instruktionen lyckas har det nödvändiga paketet installerats i miljön.
+1. Testa din miljö genom att skapa och köra en ny antecknings bok och sedan skapa en Code-cell med instruktioner som är beroende av ett paket i miljön, till exempel att använda en python- `import` instruktion. Om instruktionen lyckas har det nödvändiga paketet installerats i miljön.
 
 ## <a name="next-steps"></a>Nästa steg
 

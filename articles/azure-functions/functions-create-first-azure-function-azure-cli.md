@@ -3,13 +3,14 @@ title: Skapa en funktion i Azure som svarar på HTTP-begäranden
 description: Lär dig hur du skapar en funktion från kommando raden och sedan publicerar det lokala projektet till Server lös värd i Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8098b675e7d0ab4267137521e29b9ca87dacf92c
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448927"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559880"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en färdigheter i Azure Portal'
+title: Skapa en färdigheter i Azure Portal
 titleSuffix: Azure Cognitive Search
 description: I den här snabb starten av portalen lär du dig hur du använder guiden Importera data för att lägga till kognitiva kunskaper i en indexerings pipeline i Azure Kognitiv sökning. I kunskaperna finns OCR (optisk tecken läsning) och bearbetning av naturligt språk.
 manager: nitinme
@@ -7,35 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77472425"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488961"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
-En färdigheter är en AI-funktion som extraherar information och struktur från stora, ej differentierade text-eller bildfiler och gör det lätt att indexera och söka efter fullständiga texts öknings frågor i Azure Kognitiv sökning. 
+En färdigheter är en AI-baserad funktion som extraherar information och struktur från stora, ej differentierade text-eller bildfiler och gör innehållet både indexerat och sökbart i Azure Kognitiv sökning. 
 
-I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa färdigheter. När allt är på plats kör du guiden **Importera data** i portalen för att hämta den tillsammans. Slut resultatet är ett sökbart index som är ifyllt med data som skapats av AI-bearbetning som du kan fråga i portalen ([Sök Utforskaren](search-explorer.md)).
+I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa färdigheter. När allt är på plats kör du guiden **Importera data** i Azure Portal för att hämta allt tillsammans. Slut resultatet är ett sökbart index som är ifyllt med data som skapats av AI-bearbetning som du kan fråga i portalen ([Sök Utforskaren](search-explorer.md)).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="create-services-and-load-data"></a>Skapa tjänster och läsa in data
+Innan du börjar måste du ha följande:
 
-I den här snabb starten används Azure Kognitiv sökning Azure [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)och [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
++ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 
-Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner. För en sådan liten data uppsättning kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
++ En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
+
++ Ett Azure Storage konto med [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/).
+
+> [!NOTE]
+> I den här snabb starten används även [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. Eftersom arbets belastningen är så liten, överCognitive Servicess i bakgrunden för kostnads fri bearbetning för upp till 20 transaktioner. Det innebär att du kan slutföra den här övningen utan att behöva skapa ytterligare Cognitive Services-resurser.
+
+## <a name="set-up-your-data"></a>Konfigurera dina data
+
+I följande steg konfigurerar du en BLOB-behållare i Azure Storage att lagra heterogena innehållsfiler.
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. Zippa upp filerna.
 
 1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   Välj samma region som Azure Kognitiv sökning för att undvika avgifter för bandbredd. 
-   
-   Välj konto typen StorageV2 (General Purpose v2) om du vill testa kunskaps lagrings funktionen senare i en annan genom gång. Annars väljer du vilken typ som helst.
+   + Välj samma region som Azure Kognitiv sökning för att undvika avgifter för bandbredd. 
+
+   + Välj konto typen StorageV2 (General Purpose v2) om du vill testa kunskaps lagrings funktionen senare i en annan genom gång. Annars väljer du vilken typ som helst.
 
 1. Öppna BLOB Services-sidorna och skapa en behållare. Du kan använda standard nivån för offentlig åtkomst. 
 
@@ -43,15 +52,15 @@ Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden f
 
    ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Du kan använda en kostnads fri tjänst för den här snabb starten.
-
 Nu kan du gå vidare till guiden Importera data.
 
 ## <a name="run-the-import-data-wizard"></a>Kör guiden Importera data
 
-På översikts sidan för Search-tjänsten klickar du på **Importera data** i kommando fältet för att ställa in kognitiv berikning i fyra steg.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
-  ![Kommandot Importera data](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [Leta reda på Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att ställa in kognitiv berikning i fyra steg på sidan Översikt.
+
+   ![Kommandot Importera data](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1---create-a-data-source"></a>Steg 1 – Skapa en data Källa
 
@@ -87,7 +96,7 @@ Ett index innehåller det sökbara innehållet och guiden **Importera data** kan
 
 I den här snabbstarten passar guidens standardinställningar bra:  
 
-+ Standard fält baseras på Egenskaper för befintliga blobbar och nya fält som ska innehålla anriknings utdata (till exempel `people` `organizations`,, `locations`). Data typer härleds från metadata och data sampling.
++ Standard fält baseras på Egenskaper för befintliga blobbar och nya fält som ska innehålla anriknings utdata (till exempel,, `people` `organizations` `locations` ). Data typer härleds från metadata och data sampling.
 
 + Standard dokument nyckeln är *metadata_storage_path* (markerad eftersom fältet innehåller unika värden).
 
@@ -97,7 +106,7 @@ I den här snabbstarten passar guidens standardinställningar bra:
 
 Observera genomstrykningen och frågetecknet i attributet **Hämtningsbart** i fältet `content`. I textbaserade blobbdokument innehåller fältet `content` den största delen av filen, som skulle kunna köras som tusentals rader. Ett fält som detta är svårhanterligt i Sök Resultat och du bör utesluta det för den här demon. 
 
-Men om du behöver överföra fil innehåll till klient koden kontrollerar du att **hämtningen** fortfarande är markerad. Annars kan du ta bort det här `content` attributet på om de extraherade elementen `organizations`( `locations`till exempel `people`,, och så vidare) är tillräckliga.
+Men om du behöver överföra fil innehåll till klient koden kontrollerar du att **hämtningen** fortfarande är markerad. Annars kan du ta bort det här attributet på `content` om de extraherade elementen (till exempel,, `people` `organizations` `locations` och så vidare) är tillräckliga.
 
 Att ett fält markeras som **Hämtningsbart** innebär inte att fältet *måste* finnas i sökresultaten. Du kan detaljstyra sammansättningen av sökresultat med hjälp av frågeparametern **$select** om du vill ange vilka fält som ska inkluderas. I textintensiva fält som `content`, är parametern **$select** din lösning för att dina programanvändare ska få hanterbara sökresultat, samtidigt som du säkerställer att klientkoden har åtkomst till all information som behövs via attributet **Hämtningsbart**.
   
@@ -119,7 +128,7 @@ Indexering av kognitiva kunskaper tar längre tid än vanlig text baserad indexe
 
   ![Meddelande om Azure-Kognitiv sökning](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Varningar är normala för många olika innehålls typer. Vissa innehålls typer är inte giltiga för vissa kunskaper och på lägre nivåer är det vanliga för att upptäcka [indexerare gränser](search-limits-quotas-capacity.md#indexer-limits). Trunking Notifications för 32 000-tecken är till exempel en indexerare-gräns på den kostnads fria nivån. Om du körde den här demon på en högre nivå skulle många trunkar-varningar att gå bort.
+Varningar är normala för många olika innehålls typer. Vissa innehålls typer är inte giltiga för vissa kunskaper och på lägre nivåer är det vanligt att du kan stöta på [indexerings gränser](search-limits-quotas-capacity.md#indexer-limits). Trunking Notifications för 32 000-tecken är till exempel en indexerare-gräns på den kostnads fria nivån. Om du körde den här demon på en högre nivå skulle många trunkar-varningar att gå bort.
 
 Om du vill kontrol lera varningar eller fel klickar du på varnings status i listan indexerare för att öppna sidan körnings historik.
 

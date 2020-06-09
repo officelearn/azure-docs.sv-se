@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: a9e34b63017eae61a886bcff8faffa2910783f3e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148131"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559141"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -76,7 +76,7 @@ Vi kommer att öka livs längden för åtkomsttoken till 24 timmar i CAE-session
 1. En åtkomsttoken visas för resurs leverantören. Resurs leverantören utvärderar giltigheten hos token och kontrollerar om det finns någon återkallnings händelse för användaren. Resurs leverantören använder den här informationen för att avgöra om du vill bevilja åtkomst till resursen eller inte.
 1. I det här fallet nekar resurs leverantören åtkomst och skickar en 401 + anspråks utmaning tillbaka till klienten
 1. Den CAE-kompatibla klienten förstår 401 +-anspråks utmaningen. Den kringgår cacheminnena och går tillbaka till steg 1 och skickar dess uppdateringstoken tillsammans med anspråks utmaningen tillbaka till Azure AD. Azure AD kommer sedan att utvärdera alla villkor och uppmana användaren att autentisera om i det här fallet.
- 
+
 ## <a name="faqs"></a>Vanliga frågor och svar
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Vad är livs längden för min åtkomsttoken?

@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2e870e6cbc16fd98d8fccb5bbe3ac5d8be634cf2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: tracking-python
+ms.openlocfilehash: ea34ec3bd601b784afd5bf0286768bbf5f92d040
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982317"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553032"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
-SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL API [.net](sql-api-sdk-dotnet.md), [.net Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [Java Script](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)eller [python](sql-api-sdk-python.md) SDK: er för att registrera och anropa de lagrade procedurerna. När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure-portalen](https://portal.azure.com/) med hjälp av datautforskaren.
+SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL API [.net](sql-api-sdk-dotnet.md), [.net Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [Java Script](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)eller [python](sql-api-sdk-python.md) SDK: er för att registrera och anropa de lagrade procedurerna. När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure Portal](https://portal.azure.com/) med hjälp av datautforskaren.
 
 ## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Köra lagrade procedurer
 

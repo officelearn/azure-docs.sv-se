@@ -9,19 +9,20 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
+- tracking-python
 ms.date: 11/05/2019
-ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 120708cc72117495e6200f41f13422e94a58c265
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010859"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556489"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Snabb start: skapa en python-app som använder Azure cache för Redis
 
 I den här artikeln införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Python 2 eller 3](https://www.python.org/downloads/)
@@ -41,7 +42,7 @@ I följande exempel användes *PIP3* för python 3 för att installera *Redis-py
 
 ## <a name="read-and-write-to-the-cache"></a>Läsa och skriva till cachen
 
-Kör python från kommando raden och testa cacheminnet med hjälp av följande kod. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet * \<DNS-namn>. Redis.cache.Windows.net*.
+Kör python från kommando raden och testa cacheminnet med hjälp av följande kod. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet form * \<DNS name> . Redis.cache.Windows.net*.
 
 ```python
 >>> import redis
@@ -58,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Skapa en python-exempel App
 
-Skapa en ny textfil, Lägg till följande skript och spara filen som *PythonApplication1.py*. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet * \<DNS-namn>. Redis.cache.Windows.net*.
+Skapa en ny textfil, Lägg till följande skript och spara filen som *PythonApplication1.py*. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet form * \<DNS name> . Redis.cache.Windows.net*.
 
 ```python
 import redis

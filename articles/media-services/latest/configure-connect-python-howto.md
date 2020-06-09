@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 98a8cdf4120cf56184eb5735249640e3423acdf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888469"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559627"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ansluta till Media Services v3 API – python
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 python SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Hämta python från [python.org](https://www.python.org/downloads/)
 - Se till att ställa in `PATH` miljövariabeln
@@ -38,8 +39,8 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 python SDK 
 
 Om du vill arbeta med Azure Media Services med hjälp av python måste du installera dessa moduler.
 
-* `azure-mgmt-resource` Modulen, som innehåller Azure-moduler för Active Directory.
-* `azure-mgmt-media` Modulen, som innehåller Media Services entiteter.
+* `azure-mgmt-resource`Modulen, som innehåller Azure-moduler för Active Directory.
+* `azure-mgmt-media`Modulen, som innehåller Media Services entiteter.
 
 Öppna ett kommando rads verktyg och Använd följande kommandon för att installera modulerna.
 

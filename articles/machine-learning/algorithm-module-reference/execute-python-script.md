@@ -6,15 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d25a738a76c955ee11f091bb0f8861bd21cc9f1d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983609"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555869"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -229,12 +230,12 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
     Text rutan **Python-skript** fylls i automatiskt med instruktioner i kommentarer och exempel kod för data åtkomst och utdata. Du måste redigera eller ersätta den här koden. Se till att följa python-konventioner om indrag och Skift läge.
 
     + Skriptet måste innehålla en funktion som heter `azureml_main` som start punkt för den här modulen.
-    + Start punkt funktionen måste ha två indataargument: `Param<dataframe1>` och `Param<dataframe2>`, även om dessa argument inte används i skriptet.
-    + Zippade filer som är anslutna till den tredje Indataporten är zippade och lagras `.\Script Bundle`i katalogen, som också läggs till i `sys.path`python. 
+    + Start punkt funktionen måste ha två indataargument: `Param<dataframe1>` och `Param<dataframe2>` , även om dessa argument inte används i skriptet.
+    + Zippade filer som är anslutna till den tredje Indataporten är zippade och lagras i katalogen, `.\Script Bundle` som också läggs till i python `sys.path` . 
 
-    Om din zip-fil innehåller `mymodule.py`kan du därför importera den `import mymodule`med hjälp av.
+    Om din zip-fil innehåller kan du därför `mymodule.py` Importera den med hjälp av `import mymodule` .
 
-    + Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame`. Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
+    + Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
 6. Skicka pipelinen eller Välj modulen och klicka på **Kör valt** för att bara köra python-skriptet.
 

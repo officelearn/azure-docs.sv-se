@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a881f1cbc93d4774e25833a5c57b4727cc2e4be
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594839"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557321"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
 
@@ -188,7 +188,7 @@ De här artiklarna avser SAP-distributioner i Azure:
 
 Dessa SAP-anteckningar är relaterade till ämnet i SAP i Azure:
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -238,7 +238,7 @@ Du kan välja mellan fyra olika lägen när du använder Windows Server-redundan
 * **Node och disk majoritet**. Varje nod och en angiven disk (ett disk vittne) i kluster lagringen kan rösta när de är tillgängliga och under kommunikation. Klustret fungerar bara med en majoritet av rösterna, det vill säga med fler än hälften av rösterna. Det här läget är meningsfullt i en kluster miljö med ett jämnt antal noder. Om hälften av noderna och disken är online förblir klustret i felfritt tillstånd.
 * **Node-och fil resurs majoritet**. Varje nod plus en angiven fil resurs (ett fil resurs vittne) som administratören skapar kan rösta, oavsett om noderna och fil resursen är tillgängliga och vid kommunikation. Klustret fungerar bara med en majoritet av rösterna, det vill säga med fler än hälften av rösterna. Det här läget är meningsfullt i en kluster miljö med ett jämnt antal noder. Det liknar läget Node och disk majoritet, men använder en vittnes fil resurs i stället för en vittnes disk. Det här läget är enkelt att implementera, men om själva fil resursen inte är hög tillgänglig kan det bli en enskild felpunkt.
 * **Ingen majoritet: endast disk**. Klustret har ett kvorum om en nod är tillgänglig och kommunicerar med en speciell disk i kluster lagringen. Endast noder som också är i kommunikation med den disken kan ansluta till klustret. Vi rekommenderar att du inte använder det här läget.
- 
+
 
 ## <a name="windows-server-failover-clustering-on-premises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a>Windows Server-redundanskluster lokalt
 Bild 1 visar ett kluster med två noder. Om nätverks anslutningen mellan noderna Miss lyckas och båda noderna är igång, avgör en kvorumdisk eller fil resursen vilken nod som fortsätter att tillhandahålla klustrets program och tjänster. Noden som har åtkomst till kvorumdisken eller fil resursen är den nod som säkerställer att tjänsterna fortsätter.
@@ -377,7 +377,7 @@ _**Bild 9:** SAP-mall för hög tillgänglighet 2, med ett dedikerat kluster fö
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>Distributions scenario med arkitektur mal len 3
 
-Bild 10 visar ett exempel på en arkitektur med hög tillgänglighet för SAP NetWeaver i Azure för **två** SAP-system &lt;,&gt; med &lt;SID1&gt;och SID2. Det här scenariot konfigureras enligt följande:
+Bild 10 visar ett exempel på en arkitektur med hög tillgänglighet för SAP NetWeaver i Azure för **två** SAP-system, med &lt; SID1 &gt; och &lt; SID2 &gt; . Det här scenariot konfigureras enligt följande:
 
 - Ett dedikerat kluster används för **både** SAP ASCS/SCS SID1-instansen *och* SAP ASCS/SCS SID2-instansen (ett kluster).
 - Ett dedikerat kluster används för DBMS-SID1 och ett annat dedikerat kluster används för DBMS-SID2 (två kluster).
@@ -626,7 +626,7 @@ Du kan skapa de andra två virtuella värd namnen manuellt, **PR1-ASCs-SAP** och
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ange statiska IP-adresser för virtuella SAP-datorer
 När du har distribuerat de virtuella datorerna som ska användas i klustret måste du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gäst operativ systemet.
 
-1. I Azure Portal väljer du**IP-adress**för **resurs gruppens** > **nätverks kort** > **Inställningar** > .
+1. I Azure Portal väljer du IP-adress för **resurs gruppens**  >  **nätverks kort**  >  **Inställningar**  >  **IP Address**.
 2. Välj **statisk**i bladet **IP-adresser** under **tilldelning**. I rutan **IP-adress** anger du den IP-adress som du vill använda.
 
    > [!NOTE]
@@ -737,7 +737,7 @@ Ange IP-adressen för belastningsutjämnaren **PR1 – lb-DBMS** till IP-adresse
 
 Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du ändra namn och värden för deras portar från standardvärdena.
 
-1. I Azure Portal väljer ** <du *sid*>-lb-ASCs** > belastnings**Utjämnings regler**.
+1. I Azure Portal väljer du ** < *sid*>-lb-ASCs**belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
    * Name
@@ -940,7 +940,7 @@ Att konfigurera ett kluster fil resurs vittne omfattar följande uppgifter:
 
    _**Bild 36:** Välj fil resurs vittnet_
 
-4. Ange UNC-sökvägen till fil resursen (i vårt exempel \\domcontr-0\FSW). Om du vill se en lista över de ändringar som du kan göra väljer du **Nästa**.
+4. Ange UNC-sökvägen till fil resursen (i vårt exempel \\ domcontr-0\FSW). Om du vill se en lista över de ändringar som du kan göra väljer du **Nästa**.
 
    ![Bild 37: definiera fil resurs platsen för vittnes resursen][sap-ha-guide-figure-3026]
 
@@ -952,7 +952,7 @@ Att konfigurera ett kluster fil resurs vittne omfattar följande uppgifter:
 
    _**Bild 38:** Bekräfta att du har konfigurerat om klustret_
 
-När Windows-redundansklustret har installerats måste ändringar göras i vissa tröskelvärden för att anpassa identifieringen av redundans till villkor i Azure. De parametrar som ska ändras dokumenteras i den här bloggen https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ :. Förutsatt att de två virtuella datorerna som bygger Windows-klustrets konfiguration för ASCS/SCS finns i samma undernät, måste följande parametrar ändras till dessa värden:
+När Windows-redundansklustret har installerats måste ändringar göras i vissa tröskelvärden för att anpassa identifieringen av redundans till villkor i Azure. De parametrar som ska ändras dokumenteras i den här bloggen: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Förutsatt att de två virtuella datorerna som bygger Windows-klustrets konfiguration för ASCS/SCS finns i samma undernät, måste följande parametrar ändras till dessa värden:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1132,7 +1132,7 @@ Att installera SAP med en ASCS/SCS-instans med hög tillgänglighet omfattar fö
 1. I Windows DNS Manager skapar du en DNS-post för det virtuella värd namnet för ASCS/SCS-instansen.
 
    > [!IMPORTANT]
-   > Den IP-adress som du tilldelar det virtuella värd namnet för ASCS/SCS-instansen måste vara samma som den IP-adress som du tilldelade till Azure Load Balancer (**<*sid*>-lb-ASCS**).  
+   > Den IP-adress som du tilldelar det virtuella värd namnet för ASCS/SCS-instansen måste vara samma som den IP-adress som du tilldelade till Azure Load Balancer (** < *sid*>-lb-ASCS**).  
    >
    >
 
@@ -1142,7 +1142,7 @@ Att installera SAP med en ASCS/SCS-instans med hög tillgänglighet omfattar fö
 
    _**Bild 56:** Definiera DNS-posten för SAP ASCS/SCS-klustrets virtuella namn och TCP/IP-adress_
 
-2. Om du vill definiera IP-adressen som tilldelats det virtuella värd namnet väljer du **DNS Manager** > -**domän**.
+2. Om du vill definiera IP-adressen som tilldelats det virtuella värd namnet väljer du **DNS Manager-**  >  **domän**.
 
    ![Bild 57: nytt virtuellt namn och TCP/IP-adress för SAP ASCS/SCS kluster konfiguration][sap-ha-guide-figure-3047]
 
@@ -1292,7 +1292,7 @@ Du måste öppna en avsöknings port för Windows-brandväggen på båda kluster
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** har angetts till **62000**. Nu kan du komma åt fil resursen ** \\\ascsha-clsap\sapmnt** från andra värdar, t. ex. från **ascsha-databas administratörer**.
+**ProbePort** har angetts till **62000**. Nu kan du komma åt fil resursen ** \\ \ascsha-clsap\sapmnt** från andra värdar, t. ex. från **ascsha-databas administratörer**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Installera databas instansen
 
@@ -1316,7 +1316,7 @@ Installera den primära Application Server-instansen (PAS) <*SID*>-di-0 på den 
 
 ### <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Installera den ytterligare SAP-programservern
 
-Installera en SAP-ytterligare program Server (AAS) på alla virtuella datorer som du har angivit för att vara värd för en SAP Application Server-instans. Till exempel på <*sid*>-di-1 till <*sid*>-di-&lt;n.&gt;
+Installera en SAP-ytterligare program Server (AAS) på alla virtuella datorer som du har angivit för att vara värd för en SAP Application Server-instans. Till exempel på <*sid*>-di-1 till <*sid*>-di- &lt; n &gt; .
 
 > [!NOTE]
 > Detta avslutar installationen av ett SAP NetWeaver-system med hög tillgänglighet. Fortsätt sedan med testning av redundans.

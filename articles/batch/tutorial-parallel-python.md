@@ -4,13 +4,13 @@ description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.custom: mvc
-ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117123"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561281"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -28,7 +28,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 2.7 eller 3.3 eller senare](https://www.python.org/downloads/)
 
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="download-and-run-the-sample"></a>Ladda ned och kör exemplet
 
-### <a name="download-the-sample"></a>Hämta exemplet
+### <a name="download-the-sample"></a>Ladda ned exemplet
 
 [Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
@@ -102,7 +102,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler** > *LinuxFFmpegPool*.
+Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler**  >  *LinuxFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 

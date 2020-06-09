@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: bb1fc927b52f9b59c1a71cdc4369bdea428f4586
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871001"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561140"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiera unika nycklar för en Azure Cosmos-behållare
 
@@ -43,7 +44,7 @@ Om du vill skapa en behållare med unika nycklar går du till [skapa en Azure Co
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-När du skapar en ny behållare med hjälp av [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)kan du använda ett `UniqueKeyPolicy` objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med hjälp av [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `UniqueKeyPolicy` kan du använda ett objekt för att definiera unika nyckel begränsningar.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -81,7 +82,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Använda Java SDK
 
-När du skapar en ny behållare med [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)kan du `UniqueKeyPolicy` använda ett-objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) `UniqueKeyPolicy` kan du använda ett-objekt för att definiera unika nyckel begränsningar.
 
 ```java
 // create a new DocumentCollection object
@@ -118,7 +119,7 @@ client.createCollection(String.format("/dbs/%s", "database"), container, null);
 
 ## <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
 
-När du skapar en ny behållare med hjälp av [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos)kan du använda ett `UniqueKeyPolicy` objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med hjälp av [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) `UniqueKeyPolicy` kan du använda ett objekt för att definiera unika nyckel begränsningar.
 
 ```javascript
 client.database('database').containers.create({

@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a65143394d8e6ee8a385cc5d1737cc976aae47b2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418549"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558485"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
 I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
@@ -43,17 +43,17 @@ NYC taxi-resan består av cirka 20 GB komprimerade CSV-filer (~ 48 GB okomprimer
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den **unika nyckel** som används för att\_ansluta rese data\_och rese pris består av följande tre fält:
+Den **unika nyckel** som används för att ansluta rese \_ data och rese \_ pris består av följande tre fält:
 
 * medallion,
-* hacka\_licens och
-* upphämtnings\_-DateTime.
+* hacka \_ licens och
+* upphämtnings- \_ DateTime.
 
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Adressera tre typer av förutsägelse aktiviteter
-Vi formulerar tre förutsägelse problem baserat på *tips\_mängden* för att illustrera tre typer av modellerings aktiviteter:
+Vi formulerar tre förutsägelse problem baserat på *tips \_ mängden* för att illustrera tre typer av modellerings aktiviteter:
 
-1. **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa, det vill säga *ett\_Tip-belopp* som är större än $0 är ett positivt exempel, medan ett *Tip\_-värde* på $0 är ett negativt exempel.
-2. **Klassificering**av flera klasser: för att förutsäga det tips som du betalar för resan. Vi delar upp *Tip\_-beloppet* i fem lager platser eller klasser:
+1. **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa, det vill säga ett *Tip- \_ belopp* som är större än $0 är ett positivt exempel, medan ett *Tip- \_ värde* på $0 är ett negativt exempel.
+2. **Klassificering**av flera klasser: för att förutsäga det tips som du betalar för resan. Vi delar upp *Tip- \_ beloppet* i fem lager platser eller klasser:
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -70,14 +70,14 @@ Följ dessa steg om du vill konfigurera din Azure Data Science-miljö.
 * När du etablerar en egen Azure Blob-lagring väljer du en Geo-plats för Azure Blob Storage i eller så nära Central USA som möjligt till **södra centrala USA**, som är den plats där NYC taxi-data lagras. Data kommer att kopieras med AzCopy från den offentliga Blob storage-behållaren till en behållare i ditt eget lagrings konto. Ju närmare din Azure Blob-lagring är till södra centrala USA, desto snabbare kommer uppgiften (steg 4) att utföras.
 * Om du vill skapa ett eget Azure Storage konto följer du stegen som beskrivs i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). Se till att anteckna värdena för följande autentiseringsuppgifter för lagrings kontot eftersom de kommer att behövas senare i den här genom gången.
 
-  * **Lagringskontonamn**
+  * **Lagrings konto namn**
   * **Lagrings konto nyckel**
   * **Behållar namn** (som du vill att data ska lagras i Azure Blob Storage)
 
 **Etablera Azure Synapse Analytics-instansen.**
 Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure Portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör ett format på följande autentiseringsuppgifter för Azure Synapse Analytics som ska användas i senare steg.
 
-* **Server namn**: \<Server namn>. Database.Windows.net
+* **Server namn**: \<server Name> . Database.Windows.net
 * **Namn på SQLDW (databas)**
 * **Användar**
 * **Lösenord**
@@ -323,7 +323,7 @@ Du måste bestämma vad du ska göra om du har dubbla käll-och målfiler.
 
 ![Utdata från AzCopy][21]
 
-Du kan använda dina egna data. Om dina data finns på din lokala dator i ditt riktiga liv program kan du fortfarande använda AzCopy för att överföra lokala data till din privata Azure Blob Storage. Du behöver bara ändra **käll** platsen, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`i AzCopy-kommandot för PowerShell-skriptfilen till den lokala katalog som innehåller dina data.
+Du kan använda dina egna data. Om dina data finns på din lokala dator i ditt riktiga liv program kan du fortfarande använda AzCopy för att överföra lokala data till din privata Azure Blob Storage. Du behöver bara ändra **käll** platsen, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` i AzCopy-kommandot för PowerShell-skriptfilen till den lokala katalog som innehåller dina data.
 
 > [!TIP]
 > Om dina data redan finns i din privata Azure Blob-lagring i ditt riktiga liv program, kan du hoppa över AzCopy-steget i PowerShell-skriptet och överföra data direkt till Azure Azure Synapse Analytics. Detta kräver ytterligare redigeringar av skriptet för att skräddarsy det till formatet på dina data.
@@ -350,7 +350,7 @@ Här är de typer av data utforsknings-och funktions skapande uppgifter som utf�
 
 * Utforska data distributioner av några fält i varierande tidsfönster.
 * Undersök data kvaliteten på fälten longitud och Latitude.
-* Generera binära och multiklassens klassificerings etiketter baserat på **tips\_mängden**.
+* Generera binära och multiklassens klassificerings etiketter baserat på **tips \_ mängden**.
 * Generera funktioner och beräkna/jämför rese avstånd.
 * Gå med i de två tabellerna och extrahera ett slumpmässigt exempel som ska användas för att bygga modeller.
 
@@ -366,7 +366,7 @@ De här frågorna ger en snabb kontroll av antalet rader och kolumner i tabeller
 **Utdata:** Du bör få 173 179 759 rader och 14 kolumner.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Undersökning: rese distribution per Medallion
-I den här exempel frågan identifieras de medallions (taxi nummer) som genomförde mer än 100 resor inom en angiven tids period. Frågan skulle dra nytta av den partitionerade tabell åtkomsten eftersom den har ett villkor för det partition schema som användes vid **upphämtnings\_datum**. Vid frågor till den fullständiga data uppsättningen används även den partitionerade tabellen och/eller index genomsökningen.
+I den här exempel frågan identifieras de medallions (taxi nummer) som genomförde mer än 100 resor inom en angiven tids period. Frågan skulle dra nytta av den partitionerade tabell åtkomsten eftersom den har ett villkor för det partition schema som användes vid **upphämtnings \_ datum**. Vid frågor till den fullständiga data uppsättningen används även den partitionerade tabellen och/eller index genomsökningen.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -540,7 +540,7 @@ Här är ett exempel på hur du anropar funktionen för att generera funktioner 
 | 3 |40,761456 |– 73,999886 |40,766544 |– 73,988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Förbereda data för modell utveckling
-Följande fråga ansluter tabellerna **nyctaxi\_rese** -och **\_nyctaxi-pris** , genererar en binära klassificerings **etikett, en** **\_klass**för klassificerings etiketter i flera klasser och extraherar ett exempel från den fullständiga sammanfogade data uppsättningen. Samplingen görs genom att en delmängd av resan hämtas baserat på hämtnings tiden.  Den här frågan kan kopieras och klistras in direkt i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [Importera data][import-] datamodul för direkt data inmatning från SQL Database-instansen i Azure. Frågan utesluter poster med felaktiga koordinater (0, 0).
+Följande fråga ansluter tabellerna **nyctaxi \_ rese** -och **nyctaxi- \_ pris** , genererar en binära klassificerings **etikett, en** ** \_ klass**för klassificerings etiketter i flera klasser och extraherar ett exempel från den fullständiga sammanfogade data uppsättningen. Samplingen görs genom att en delmängd av resan hämtas baserat på hämtnings tiden.  Den här frågan kan kopieras och klistras in direkt i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [Importera data][import-] datamodul för direkt data inmatning från SQL Database-instansen i Azure. Frågan utesluter poster med felaktiga koordinater (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -675,7 +675,7 @@ Tiden för att läsa exempel tabellen är 14,096495 sekunder.
 Antal rader och kolumner som hämtats = (1000, 21).
 
 ### <a name="descriptive-statistics"></a>Beskrivande statistik
-Nu är du redo att utforska exempel data. Vi börjar med att titta på viss beskrivande statistik för **rese\_avståndet** (eller andra fält som du väljer att ange).
+Nu är du redo att utforska exempel data. Vi börjar med att titta på viss beskrivande statistik för **rese \_ avståndet** (eller andra fält som du väljer att ange).
 
     df1['trip_distance'].describe()
 
@@ -718,13 +718,13 @@ och
 ![Linje ritning, utdata][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualisering: scatterplot-exempel
-Vi visar punkt diagram mellan **rese\_tiden\_i\_sekunder** och **rese\_avstånd** för att se om det finns någon korrelation
+Vi visar punkt diagram mellan **rese \_ tiden \_ i \_ sekunder** och **rese \_ avstånd** för att se om det finns någon korrelation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Scatterplot utdata från relationen mellan tid och avstånd][6]
 
-På samma sätt kan vi kontrol lera förhållandet **mellan\_pris kod** och **rese\_avstånd**.
+På samma sätt kan vi kontrol lera förhållandet mellan **pris \_ kod** och **rese \_ avstånd**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -844,7 +844,7 @@ Ett exempel på ett binära klassificerings experiment som läser data direkt fr
 ![Azure ML-tåg][10]
 
 > [!IMPORTANT]
-> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binär klassificering använder du etiketten **lutad** och utelämnar **fält\_Tip-klassen**, **Tip\_-beloppet**och **total\_beloppet**. De sistnämnda är mål läckor eftersom de innebär att tipset betalas.
+> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binär klassificering använder du etiketten **lutad** och utelämnar fält **Tip- \_ klassen**, **Tip- \_ beloppet**och **total \_ beloppet**. De sistnämnda är mål läckor eftersom de innebär att tipset betalas.
 >
 > Om du vill undanta onödiga kolumner eller mål läckor kan du använda modulen [Välj kolumner i data uppsättning][select-columns] eller [Redigera metadata][edit-metadata]. Mer information finns i avsnittet [Välj kolumner i data uppsättning][select-columns] och [Redigera metadata][edit-metadata] referens sidor.
 >

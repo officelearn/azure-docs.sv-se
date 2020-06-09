@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec6e0f7405d29cb89fd8ba701b52678ca939596
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481491"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558701"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -24,13 +24,13 @@ I en mobil-och mellanliggande värld, kan Azure Active Directory (Azure AD) anv�
 
 Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som kräver att hanterade enheter får åtkomst till vissa molnappar i din miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav på hanterade enheter för åtkomst till molnbaserad **Azure AD-villkorlig åtkomst** och **Azure AD-enhets hantering** . Om du inte är bekant med något av dessa områden än bör du läsa följande avsnitt, först:
 
 - **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** – den här artikeln ger en konceptuell översikt över villkorlig åtkomst och den relaterade terminologin.
 - **[Introduktion till enhets hantering i Azure Active Directory](../devices/overview.md)** – den här artikeln ger dig en översikt över de olika alternativen för att hämta enheter under organisations kontroll. 
-- För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare installerar du [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst kräver enhets information.
+- För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare installerar du [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst kräver enhetsspecifika uppgifter.
 
 >[!NOTE] 
 > Vi rekommenderar att du använder Azure AD Device-baserad princip för villkorlig åtkomst för att få bästa möjliga tillämpning efter den första autentiseringen av enheten. Detta inkluderar sessioner som stänger om enheten faller utanför efterlevnad och enhets kod flödet.
@@ -97,6 +97,8 @@ För en enhet som har marker ATS som kompatibel kan du anta att:
 - Enheten och dess appar är kompatibla med företagets säkerhets krav
 
 ### <a name="known-behavior"></a>Känt beteende
+
+När du använder [enhets kod OAuth-flödet](../develop/v2-oauth2-device-code.md), så stöds inte kontrollen Kräv hanterad enhets beviljande kontroll eller enhets tillstånd. Detta beror på att enheten som utför autentisering inte kan ge enhets status till enheten som tillhandahåller en kod och enhetens tillstånd i token är låst till enheten som utför autentiseringen. Använd kontrollen Kräv Multi-Factor Authentication i stället.
 
 På Windows 7, iOS, Android, macOS och vissa tredjeparts webbläsare i Azure AD identifierar enheten med ett klient certifikat som är etablerad när enheten har registrerats med Azure AD. När en användare först loggar in via webbläsaren uppmanas användaren att välja certifikatet. Slutanvändaren måste välja det här certifikatet innan de kan fortsätta att använda webbläsaren.
 

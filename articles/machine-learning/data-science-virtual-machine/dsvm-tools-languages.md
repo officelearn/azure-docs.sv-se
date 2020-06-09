@@ -6,16 +6,17 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283659"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557473"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på Data Science Virtual Machine 
 
@@ -55,7 +56,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
   Använd Python Tools for Visual Studio (PTVS), som installeras i Visual Studio Community Edition. Som standard är den enda miljö som ställs in automatiskt i PTVS python 3,6. 
 
     > [!NOTE]
-    > För att peka PTVS på python 2,7 måste du skapa en anpassad miljö i PTVS. Om du vill ange den här miljöns sökväg i Visual Studio Community Edition går du till **verktyg** -> **python tools** -> **python-miljöer** och väljer **+ anpassad**. Ange sedan platsen till **c:\anaconda\envs\python2** och välj **Automatisk identifiering**.
+    > För att peka PTVS på python 2,7 måste du skapa en anpassad miljö i PTVS. Om du vill ange den här miljöns sökväg i Visual Studio Community Edition går du till **verktyg**  ->  **python tools**  ->  **python-miljöer** och väljer **+ anpassad**. Ange sedan platsen till **c:\anaconda\envs\python2** och välj **Automatisk identifiering**.
 
 * Använd i Jupyter:
 
@@ -63,7 +64,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 * Installera python-paket:
 
-  Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller python2-miljön `activate` med hjälp av kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
+  Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller python2-miljön med hjälp av `activate` kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
 ## <a name="python-linux-edition"></a>Python (Linux-utgåva)
 
@@ -71,7 +72,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 | ------------- | ------------- |
 | Språk versioner som stöds | Python 2,7 och 3,5 |
 | DSVM-versioner som stöds      | Linux   |
-| Hur konfigureras den/installeras på DSVM?  | Två globala `conda` miljöer skapas: <br /> * `root`miljön finns på `/anaconda/` python 2,7. <br/> * `py35`miljön finns på `/anaconda/envs/py35`python 3,5.       |
+| Hur konfigureras den/installeras på DSVM?  | Två globala `conda` miljöer skapas: <br /> * `root`miljön finns på `/anaconda/` Python 2,7. <br/> * `py35`miljön finns på `/anaconda/envs/py35` Python 3,5.       |
 | Länkar till exempel      | Exempel på Jupyter-anteckningsböcker för python ingår.     |
 | Relaterade verktyg på DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    
@@ -100,7 +101,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 * Installera python-paket:
 
-  De förvalda python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du den i rot-eller py35- `source activate` miljön genom att använda kommandot som administratör eller som en användare med sudo-behörigheter. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
+  De förvalda python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du den i rot-eller py35-miljön genom att använda `source activate` kommandot som administratör eller som en användare med sudo-behörigheter. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
 
 ## <a name="r"></a>R
@@ -136,7 +137,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 * Kör i terminaler:
 
-  Öppna en Terminal och kör `R`.  
+  Öppna en Terminal och kör `R` .  
 
 * Använd i en IDE:
 
@@ -155,7 +156,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 |    |           |
 | ------------- | ------------- |
-| Språk versioner som stöds | 0.6 |
+| Språk versioner som stöds | 0,6 |
 | DSVM-versioner som stöds      | Linux, Windows     |
 | Hur konfigureras den/installeras på DSVM?  | Windows: installerat kl.`C:\JuliaPro-VERSION`<br /> Linux: installeras kl.`/opt/JuliaPro-VERSION`    |
 | Länkar till exempel      | Exempel på Jupyter-anteckningsböcker för Julia ingår.     |
@@ -166,7 +167,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 * Kör i kommando tolken
 
-  Öppna en kommando tolk och kör `julia`.
+  Öppna en kommando tolk och kör `julia` .
 * Använd i en IDE:
 
   Använd `Juno` med Julia IDE installerat på DSVM och tillgänglig som en genväg på Skriv bordet.
@@ -183,10 +184,10 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 **Linux**:
 * Kör i en Terminal:
 
-  Öppna en Terminal och kör `julia`.
+  Öppna en Terminal och kör `julia` .
 * Använd i en IDE:
 
-  Använd `Juno`, med Julia IDE installerat på DSVM och tillgängligt som en genväg till en **program** meny.
+  Använd `Juno` , med Julia IDE installerat på DSVM och tillgängligt som en genväg till en **program** meny.
 
 * Använd i Jupyter:
 
@@ -198,10 +199,10 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 ## <a name="other-languages"></a>Andra språk
 
-**C#**: tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller vid `Developer Command Prompt for Visual Studio`, där du kan köra `csc` kommandot.
+**C#**: tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller vid `Developer Command Prompt for Visual Studio` , där du kan köra `csc` kommandot.
 
 **Java**: openjdk finns på både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill använda Java skriver `javac` du `java` kommandot eller i en kommando tolk i Windows eller i bash-gränssnittet i Linux.
 
-**Node. js**: Node. js finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill ha åtkomst till Node. `node` JS `npm` skriver du kommandot eller i en kommando tolk i Windows eller i bash-gränssnittet i Linux. I Windows är Visual Studio-tillägget för Node. js-verktygen installerat för att tillhandahålla en grafisk IDE för att utveckla Node. js-programmet.
+**Node. js**: Node. js finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill ha åtkomst till Node. js skriver du `node` kommandot eller i `npm` en kommando tolk i Windows eller i bash-gränssnittet i Linux. I Windows är Visual Studio-tillägget för Node. js-verktygen installerat för att tillhandahålla en grafisk IDE för att utveckla Node. js-programmet.
 
-**F #**: tillgängligt i Windows och kan nås via Visual Studio Community Edition eller vid en `Developer Command Prompt for Visual Studio`, där du kan köra `fsc` kommandot.
+**F #**: tillgängligt i Windows och kan nås via Visual Studio Community Edition eller vid en `Developer Command Prompt for Visual Studio` , där du kan köra `fsc` kommandot.

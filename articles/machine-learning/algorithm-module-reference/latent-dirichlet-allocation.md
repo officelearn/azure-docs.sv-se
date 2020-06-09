@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/11/2020
-ms.openlocfilehash: 1384491489c175ffc338f80a99aa8d5050f835d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: a75bf458a1c6735de42349de5d5cb6845e9ae464
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80109230"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487975"
 ---
 # <a name="latent-dirichlet-allocation"></a>Latent Dirichlet-allokering
 
@@ -68,9 +68,9 @@ Den här modulen kräver en data uppsättning som innehåller en kolumn med text
 
 6. Välj alternativet **normalisera** för att konvertera utdata till sannolikhets värde. Därför, i stället för att representera transformerade värden som heltal, omvandlas värdena i data uppsättningen för utdata och funktionen enligt följande:
 
-    + Värden i data uppsättningen visas som en sannolikhet var `P(topic|document)`.
+    + Värden i data uppsättningen visas som en sannolikhet var `P(topic|document)` .
 
-    + Värdena i matrisen för funktions ämnen visas som en sannolikhet var `P(word|topic)`.
+    + Värdena i matrisen för funktions ämnen visas som en sannolikhet var `P(word|topic)` .
 
     > [!NOTE] 
     > I Azure Machine Learning designer (förhands granskning), eftersom det bibliotek som vi baserade, scikit--lär sig, inte längre stöder avnormaliserade *doc_topic_distr* utdata från version 0,19, så kan **normaliserings** parametern endast tillämpas på **funktions ämnet mat ris** utdata, och transformering av **data uppsättningar** är alltid normaliserad i den här modulen.
@@ -83,15 +83,15 @@ Den här modulen kräver en data uppsättning som innehåller en kolumn med text
 
     + **Alpha-parameter**. Ange en tidigare sannolikhet för den gleshet av ämnes vikter per dokument.  Motsvarar sklearn- `doc_topic_prior` parametern.
 
-    + **Uppskattat antal dokument**. Skriv ett tal som representerar din bästa uppskattning av antalet dokument (rader) som ska bearbetas. Detta gör att modulen kan allokera en hash-tabell av tillräckligt stor storlek.  Motsvarar- `total_samples` parametern i scikit-lär.
+    + **Uppskattat antal dokument**. Skriv ett tal som representerar din bästa uppskattning av antalet dokument (rader) som ska bearbetas. Detta gör att modulen kan allokera en hash-tabell av tillräckligt stor storlek.  Motsvarar `total_samples` -parametern i scikit-lär.
 
-    + **Storlek på batchen**. Skriv ett tal som anger hur många rader som ska tas med i varje sats med text som skickas till LDA-modellen. Motsvarar- `batch_size` parametern i scikit-lär.
+    + **Storlek på batchen**. Skriv ett tal som anger hur många rader som ska tas med i varje sats med text som skickas till LDA-modellen. Motsvarar `batch_size` -parametern i scikit-lär.
 
-    + **Initialt värde för iteration som används i utbildnings uppdaterings schema**. Ange start värde som downweights inlärnings pris för tidiga iterationer i online Learning. Motsvarar- `learning_offset` parametern i scikit-lär.
+    + **Initialt värde för iteration som används i utbildnings uppdaterings schema**. Ange start värde som downweights inlärnings pris för tidiga iterationer i online Learning. Motsvarar `learning_offset` -parametern i scikit-lär.
 
-    + **Effekt som tillämpas på iterationen under uppdateringar**. Ange den energi nivå som tillämpas på antalet iterationer för att kontrol lera inlärnings hastigheten under online-uppdateringar. Motsvarar- `learning_decay` parametern i scikit-lär.
+    + **Effekt som tillämpas på iterationen under uppdateringar**. Ange den energi nivå som tillämpas på antalet iterationer för att kontrol lera inlärnings hastigheten under online-uppdateringar. Motsvarar `learning_decay` -parametern i scikit-lär.
 
-    + **Antal pass över data**. Ange det maximala antalet gånger som algoritmen ska gå över data. Motsvarar- `max_iter` parametern i scikit-lär.
+    + **Antal pass över data**. Ange det maximala antalet gånger som algoritmen ska gå över data. Motsvarar `max_iter` -parametern i scikit-lär.
 
 8. Välj alternativet, **skapa ord lista med ngrams** eller **build-ordlista för ngrams före LDA**, om du vill skapa en n-gram-lista i ett första pass innan du klassificerar text.
 
@@ -116,7 +116,8 @@ Modulen har två utdata:
 
 I den här modulen matas även *LDA-omvandlingen* som använder LDA till data uppsättningen.
 
-Du kan spara den här omvandlingen genom att registrera data uppsättning under fliken **utdata + loggar** i den högra rutan i modulen och återanvända den för andra data uppsättningar. Detta kan vara användbart om du har tränat på en stor sökkorpus och vill återanvända koefficienterna eller kategorierna.
+Du kan spara den här omvandlingen Återanvänd den för andra data uppsättningar. Detta kan vara användbart om du har tränat på en stor sökkorpus och vill återanvända koefficienterna eller kategorierna.
+Om du vill använda den här omvandlingen klickar du på ikonen **registrera data uppsättning** i den högra panelen i LDA-modulen för att behålla den som en modul under **data uppsättnings** kategori i listan modul. Sedan kan du ansluta den här modulen för att [använda Transformation](apply-transformation.md) -modulen för att återanvända denna omvandling.
 
 ### <a name="refining-an-lda-model-or-results"></a>Förfina en LDA modell eller resultat
 
@@ -177,26 +178,26 @@ När termen index har beräknats jämförs enskilda rader med text med hjälp av
 
 ###  <a name="module-parameters"></a>Parametrar för modul
 
-|Name|Typ|Intervall|Valfri|Standardvärde|Beskrivning|  
+|Name|Typ|Intervall|Valfritt|Default|Description|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|Mål kolumn (er)|Kolumn val||Krävs|StringFeature|Mål kolumn namn eller index|  
-|Antal ämnen som ska modelleras|Integer|[1; 1000]|Krävs|5|Modellera dokument distribution mot N ämnen|  
-|N-gram|Integer|[1; 10]|Krävs|2|Ordning för N-gram som genereras under hashing|  
-|Normalisera|Boolesk|Sant eller falskt|Krävs|true|Normalisera utdata till sannolikhet.  Den transformerade data uppsättningen kommer att vara P (avsnitt&#124;-dokument) och matrisen för funktions ämnen kommer att vara P (Word&#124;-avsnittet)|  
-|Visa alla alternativ|Boolesk|Sant eller falskt|Krävs|Falskt|Visar ytterligare parametrar som är speciella för scikit – lära online-LDA|  
-|Rho-parameter|Float (Flyttal)|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Avsnitt Word, föregående distribution|  
-|Alpha-parameter|Float (Flyttal)|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Dokument ämne, föregående distribution|  
-|Uppskattat antal dokument|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument (motsvarar total_samples parameter)|  
-|Storlek på batchen|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|32|Storlek på batchen|  
-|Initialt värde för iteration som används i uppdaterings schema för inlärnings takt|Integer|[0; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|0|Det första värdet som downweights inlärnings pris för tidiga iterationer. Motsvarar learning_offset parameter|  
-|Effekt som tillämpas på iterationen under uppdateringar|Float (Flyttal)|[0.0; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,5|Effekt som tillämpas på antalet iterationer för att kontrol lera inlärnings takten. Motsvarar learning_decay parameter |  
-|Antal upprepningar av utbildning|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|25|Antal upprepningar av utbildning|  
+|Mål kolumn (er)|Kolumn val||Obligatorisk|StringFeature|Mål kolumn namn eller index|  
+|Antal ämnen som ska modelleras|Heltal|[1; 1000]|Obligatorisk|5|Modellera dokument distribution mot N ämnen|  
+|N-gram|Heltal|[1; 10]|Obligatorisk|2|Ordning för N-gram som genereras under hashing|  
+|Normalisera|Boolesk|Sant eller falskt|Obligatorisk|true|Normalisera utdata till sannolikhet.  Den transformerade data uppsättningen kommer att vara P (avsnitt&#124;-dokument) och matrisen för funktions ämnen kommer att vara P (Word&#124;-avsnittet)|  
+|Visa alla alternativ|Boolesk|Sant eller falskt|Obligatorisk|Falskt|Visar ytterligare parametrar som är speciella för scikit – lära online-LDA|  
+|Rho-parameter|Float|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Avsnitt Word, föregående distribution|  
+|Alpha-parameter|Float|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Dokument ämne, föregående distribution|  
+|Uppskattat antal dokument|Heltal|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument (motsvarar total_samples parameter)|  
+|Storlek på batchen|Heltal|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|32|Storlek på batchen|  
+|Initialt värde för iteration som används i uppdaterings schema för inlärnings takt|Heltal|[0; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|0|Det första värdet som downweights inlärnings pris för tidiga iterationer. Motsvarar learning_offset parameter|  
+|Effekt som tillämpas på iterationen under uppdateringar|Float|[0.0; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,5|Effekt som tillämpas på antalet iterationer för att kontrol lera inlärnings takten. Motsvarar learning_decay parameter |  
+|Antal upprepningar av utbildning|Heltal|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|25|Antal upprepningar av utbildning|  
 |Versions ord lista för ngrams|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad|Sant|Skapar en ord lista med ngrams innan du beräknar LDA. Användbart för modell besiktning och tolkning|  
-|Maximal storlek för ngram-ordlista|Integer|[1; int. MaxValue|Gäller när alternativet **build-ordlistan för ngrams** är sant|20000|Maximal storlek för ngrams-ordlistan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
-|Antal bitar som ska användas för hashing av funktioner|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad och **build-ordlistan för ngrams** är falskt|12|Antal bitar som ska användas för hashing av funktioner| 
+|Maximal storlek för ngram-ordlista|Heltal|[1; int. MaxValue|Gäller när alternativet **build-ordlistan för ngrams** är sant|20000|Maximal storlek för ngrams-ordlistan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
+|Antal bitar som ska användas för hashing av funktioner|Heltal|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad och **build-ordlistan för ngrams** är falskt|12|Antal bitar som ska användas för hashing av funktioner| 
 |Build-ordlista av ngrams före LDA|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** är markerad|Sant|Skapar en ord lista med ngrams före LDA. Användbart för modell besiktning och tolkning|  
-|Maximalt antal ngrams i ord listan|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är sant|20000|Maximal storlek för ord listan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
-|Antal hash-bitar|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är falskt|12|Antal bitar som ska användas vid hashing av funktioner|   
+|Maximalt antal ngrams i ord listan|Heltal|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är sant|20000|Maximal storlek för ord listan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
+|Antal hash-bitar|Heltal|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är falskt|12|Antal bitar som ska användas vid hashing av funktioner|   
 
 
 ## <a name="next-steps"></a>Nästa steg

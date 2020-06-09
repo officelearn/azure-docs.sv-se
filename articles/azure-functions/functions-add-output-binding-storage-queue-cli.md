@@ -3,13 +3,14 @@ title: Ansluta Azure Functions till Azure Storage med hjälp av kommando rads ve
 description: Lär dig hur du ansluter Azure Functions till en Azure Storage kö genom att lägga till en utgående bindning till ditt kommando rads projekt.
 ms.date: 02/07/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: f9d9573523083b6355f423b7b3db94b795d8657f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a5f9cd42d13b7cfb4bc6e95809112a3b7045fe4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673336"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560106"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
 
@@ -79,7 +80,7 @@ Observera att du *inte* behöver skriva någon kod för autentisering, få en Qu
 Nu när du har verifierat lokalt att funktionen skrev ett meddelande till Azure Storage kön kan du distribuera om projektet för att uppdatera slut punkten som körs på Azure.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
-I mappen *LocalFunctionsProj* använder du [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) kommandot för att distribuera om projektet och ersätter`<APP_NAME>` det med namnet på din app.
+I mappen *LocalFunctionsProj* använder du [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) kommandot för att distribuera om projektet och ersätter `<APP_NAME>` det med namnet på din app.
 
 ```
 func azure functionapp publish <APP_NAME>
@@ -100,13 +101,13 @@ mvn azure-functions:deploy
 
     # <a name="browser"></a>[Webbläsare](#tab/browser)
     
-    Kopiera den fullständiga **anrops-URL: en** som visas i utdata från kommandot Publicera till ett webbläsarens Adress fält, som `&name=Functions`lägger till Frågeparametern. Webbläsaren bör visa liknande utdata som när du körde funktionen lokalt.
+    Kopiera den fullständiga **anrops-URL: en** som visas i utdata från kommandot Publicera till ett webbläsarens Adress fält, som lägger till Frågeparametern `&name=Functions` . Webbläsaren bör visa liknande utdata som när du körde funktionen lokalt.
 
     ![Resultatet av funktionen körs på Azure i en webbläsare](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
     # <a name="curl"></a>[klammerparentes](#tab/curl)
     
-    Kör [`curl`](https://curl.haxx.se/) med **ANROPs-URL: en**och Lägg `&name=Functions`till parametern. Kommandots utdata ska vara texten, "Hello Functions".
+    Kör [`curl`](https://curl.haxx.se/) med **anrops-URL: en**och Lägg till parametern `&name=Functions` . Kommandots utdata ska vara texten, "Hello Functions".
     
     ![Resultatet av funktionen körs på Azure med hjälp av sväng](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 

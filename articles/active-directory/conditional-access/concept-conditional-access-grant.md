@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: c1dcc91c6a7b823cd89b3ce4bf4d611b9923f87d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583210"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558718"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -28,7 +28,7 @@ I en princip för villkorlig åtkomst kan en administratör använda åtkomst ko
 
 Block tar hänsyn till eventuella tilldelningar och förhindrar åtkomst baserat på konfiguration av villkorlig åtkomst princip.
 
-Block är en kraftfull kontroll som bör vara wielded med lämplig kunskap. Det är något som administratörer kan [använda för](concept-conditional-access-report-only.md) att testa innan de aktive ras.
+Block är en kraftfull kontroll som bör vara wielded med lämplig kunskap. Principer med block-instruktioner kan ha oönskade sid effekter. Korrekt testning och validering är avgörande innan du aktiverar dem i stor skala. Administratörer bör använda verktyg som t. ex. [endast rapport läge för villkorlig åtkomst](concept-conditional-access-report-only.md) och [What If verktyget i villkorlig åtkomst när du](what-if-tool.md) gör ändringar.
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
@@ -62,6 +62,8 @@ Enheter måste vara registrerade i Azure AD innan de kan markeras som kompatibla
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Kräv hybrid Azure AD-ansluten enhet
 
 Organisationer kan välja att använda enhets identiteten som en del av den villkorliga åtkomst principen. Organisationer kan kräva att enheterna är hybrid Azure AD-anslutna med den här kryss rutan. Mer information om enhets identiteter finns i artikeln [Vad är en enhets identitet?](../devices/overview.md).
+
+När du använder [enhets kod OAuth-flödet](../develop/v2-oauth2-device-code.md), så stöds inte kontrollen Kräv hanterad enhets beviljande kontroll eller enhets tillstånd. Detta beror på att enheten som utför autentisering inte kan ge enhets status till enheten som tillhandahåller en kod och enhetens tillstånd i token är låst till enheten som utför autentiseringen. Använd kontrollen Kräv Multi-Factor Authentication i stället.
 
 ### <a name="require-approved-client-app"></a>Kräv godkänd klientapp
 
@@ -101,7 +103,7 @@ Den här inställningen gäller för följande iOS-och Android-appar:
 - Microsoft Yammer
 - Microsoft Whiteboard
 
-**!**
+**Kommentarer**
 
 - Godkända klient program har stöd för funktionen för hantering av mobil program i Intune.
 - **Kräv godkänd klient program** krav:
@@ -124,7 +126,7 @@ Den här inställningen gäller för följande klient program:
 - Microsoft Outlook
 - Microsoft Planner
 
-**!**
+**Kommentarer**
 
 - Appar för skydds principer för appar stöder funktionen för hantering av mobil program i Intune med princip skydd.
 - **Kräv skydds princip** krav för appar:

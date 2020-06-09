@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084888"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558678"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -87,9 +87,9 @@ class Program
 Aktivera loggning när appen skapas genom att skapa en loggning för motringning. Återanropet använder följande parametrar:
 
 - `tag`är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
-- `logLevel`gör att du kan bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är `Error`: `Warning`, `Info`, och `Verbose`.
+- `logLevel`gör att du kan bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` .
 - `message`är innehållet i logg posten.
-- `containsPII`Anger om meddelanden som innehåller personliga data eller organisations data loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true`, kommer den här metoden att ta emot meddelanden två gånger: `containsPII` när parametern har `false` angetts till `message` och utan personliga data, och en andra gång med `containsPii` parametern inställt på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `containsPII`Anger om meddelanden som innehåller personliga data eller organisations data loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true` , kommer den här metoden att ta emot meddelanden två gånger: När `containsPII` parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii` parametern inställt på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
 
 ```java
 private StringBuilder mLogs;
@@ -126,10 +126,10 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Aktivera loggning i MSAL. js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för `UserAgentApplication` att skapa en instans. Detta loggnings objekt har följande egenskaper:
+ Aktivera loggning i MSAL. js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
-- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är `Error`: `Warning`, `Info`, och `Verbose`. Standardvärdet är `Info`.
+- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` . Standardvärdet är `Info`.
 - `piiLoggingEnabled`(valfritt): om värdet är sant loggas personliga och organisatoriska data. Som standard är detta falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog.
 - `correlationId`(valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
 
@@ -194,7 +194,7 @@ Ett exempel:
 
 ### <a name="personal-data"></a>Personuppgifter
 
-Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler för krav.
+Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled` , tar appen ansvar för säker hantering av mycket känsliga data och följande regler för krav.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -210,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Använd något av följande värden om du vill ange loggnings nivå när du loggar med MSAL för iOS och macOS:
 
-|Nivå  |Beskrivning |
+|Nivå  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
@@ -271,7 +271,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 ### <a name="personal-data"></a>Personuppgifter
 
-Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler för krav.
+Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled` , tar appen ansvar för säker hantering av mycket känsliga data och följande regler för krav.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -287,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Använd något av följande värden om du vill ange loggnings nivå när du loggar med MSAL för iOS och macOS:
 
-|Nivå  |Beskrivning |
+|Nivå  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
@@ -365,7 +365,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="msal-for-python-logging"></a>MSAL för python-loggning
 
-Loggning i MSAL python använder standard funktionen för python-loggning, till `logging.info("msg")` exempel kan du konfigurera MSAL-loggning på följande sätt (och se hur det fungerar i [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+Loggning i MSAL python använder standard funktionen för python-loggning, till exempel `logging.info("msg")` kan du konfigurera MSAL-loggning på följande sätt (och se hur det fungerar i [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Aktivera fel söknings loggning för alla moduler
 

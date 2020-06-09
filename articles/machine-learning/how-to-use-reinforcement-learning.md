@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: ffd121c61456c1b8898433362c46b99685820818
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434472"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556948"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -35,7 +36,7 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 

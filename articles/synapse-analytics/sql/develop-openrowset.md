@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702029"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560859"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -107,19 +107,19 @@ Det finns två alternativ för indatafiler som innehåller mål data för frågo
 **unstructured_data_path**
 
 Unstructured_data_path som upprättar en sökväg till data kan vara en absolut eller relativ sökväg:
-- Absolut sökväg i formatet \< prefix>:// \< storage_account_path>/ \< storage_path> ' gör att en användare kan läsa filerna direkt.
+- Absoluta sökvägar i formatet " \<prefix> :// \<storage_account_path> / \<storage_path> " gör att en användare kan läsa filerna direkt.
 - Relativ sökväg i formatet <storage_path> som måste användas med `DATA_SOURCE` parametern och beskriver fil mönstret i <storage_account_path> plats som definierats i `EXTERNAL DATA SOURCE` . 
 
  Nedan hittar du relevanta <storage account path> värden som länkar till din specifika externa data källa. 
 
 | Extern data Källa       | Prefix | Sökväg till lagrings konto                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>. blob.core.windows.net             |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
 | Azure Data Lake Store gen1 | https  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | https  | \<storage_account>. dfs.core.windows.net              |
 ||||
 
-\<storage_path>
+'\<storage_path>'
 
  Anger en sökväg i lagrings utrymmet som pekar på den mapp eller fil som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från den aktuella behållaren eller mappen. Filer i undermappar tas inte med. 
 
@@ -130,7 +130,7 @@ Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning*
 Om du anger att unstructured_data_path ska vara en mapp, kommer en fråga om SQL på begäran att hämta filer från den mappen. 
 
 > [!NOTE]
-> Till skillnad från Hadoop och PolyBase returnerar SQL on-demand inte undermappar. Till skillnad från Hadoop och PloyBase returnerar till exempel SQL on-demand filer för vilka fil namnet börjar med en understrykning (_) eller en punkt (.).
+> Till skillnad från Hadoop och PolyBase returnerar SQL on-demand inte undermappar. Till skillnad från Hadoop och PolyBase returnerar till exempel SQL på begäran filer för vilka fil namnet börjar med en understrykning (_) eller en punkt (.).
 
 I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en SQL på begäran-fråga att returnera rader från data. txt och _hidden. txt. Den returnerar inte mydata2. txt och mydata3. txt eftersom de finns i en undermapp.
 

@@ -1,14 +1,14 @@
 ---
 title: Konfigurera privat länk
-description: Konfigurera en privat slut punkt i ett behållar register och aktivera åtkomst över en privat länk i ett lokalt virtuellt nätverk
+description: Konfigurera en privat slut punkt i ett behållar register och aktivera åtkomst över en privat länk i ett lokalt virtuellt nätverk. Åtkomst till privata länkar är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850053"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509346"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurera en privat Azure-länk för ett Azure Container Registry 
 
@@ -22,7 +22,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 * För närvarande är bild skanning som använder Azure Security Center inte tillgänglig i ett register som kon figurer ATS med en privat slut punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * För att kunna använda Azure CLI-stegen i den här artikeln rekommenderas Azure CLI version 2.6.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli]. Eller kör i [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Om du inte redan har ett behållar register skapar du ett (Premium-nivå krävs) och [importerar](container-registry-import-images.md) en exempel avbildning, till exempel `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register.

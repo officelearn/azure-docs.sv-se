@@ -7,39 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369715"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488179"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en Sök-app i portalen (Azure Kognitiv sökning)
 
-Använd portalens guide för att **Skapa sökning** för att generera en nedladdnings bar, "localhost"-webbapp som körs i en webbläsare. Beroende på dess konfiguration fungerar den genererade appen vid första användningen, med en Live-anslutning till ett fjärrindex. En standard-app kan innehålla ett sökfält, ett resultatområde, ett sid reglerings filter och typeahead-stöd.
+Använd guiden **Skapa sökning** i Azure Portal för att generera en nedladdnings bar, "localhost"-webbapp som körs i en webbläsare. Beroende på dess konfiguration fungerar den genererade appen vid första användningen, med en Live-anslutning till ett fjärrindex. En standard-app kan innehålla ett sökfält, ett resultatområde, ett sid reglerings filter och typeahead-stöd.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+Innan du börjar måste du ha följande:
 
-Uppgradera till den [senaste versionen av Microsoft Edge](https://www.microsoft.com/edge) eller Använd Googles Chrome-webbläsare för den här snabb starten.
++ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 
-[Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
++ En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
-[Skapa ett index](search-create-index-portal.md) som ska användas som grund för ditt program. 
++ [Microsoft Edge (senaste versionen)](https://www.microsoft.com/edge) eller Google Chrome.
 
-I den här snabb starten används inbyggda exempel data och index för fastighets data, eftersom det innehåller miniatyr bilder (guiden har stöd för att lägga till bilder på resultat sidan). Om du vill skapa ett index som används i den här övningen kör du guiden **Importera data** och väljer *realestate-US-Sample-* data källan.
++ Ett [sökindex](search-create-index-portal.md) som ska användas som grund för det genererade programmet. 
 
-![data källans sida för exempel data](media/search-create-app-portal/import-data-realestate.png)
+  I den här snabb starten används inbyggda exempel data och index för fastighets data, eftersom det innehåller miniatyr bilder (guiden har stöd för att lägga till bilder på resultat sidan). Om du vill skapa ett index som används i den här övningen kör du guiden **Importera data** och väljer *realestate-US-Sample-* data källan.
+
+  ![data källans sida för exempel data](media/search-create-app-portal/import-data-realestate.png)
 
 När indexet är klart att använda går du vidare till nästa steg.
 
 ## <a name="start-the-wizard"></a>Starta guiden
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och [hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
-1. På sidan Översikt, från länkarna i mitten av sidan, väljer du **index**. 
+1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och välj **index**på sidan Översikt från länkarna i mitten av sidan. 
 
 1. Välj *realestate-US-Sample-index* i listan över befintliga index.
 
@@ -57,7 +59,7 @@ Guiden innehåller en grundläggande layout för åter givning av Sök resultat 
 
 1. I Beskrivning väljer du ett fält som innehåller information som kan hjälpa någon att avgöra om du vill klicka till det specifika dokumentet.
 
-![data källans sida för exempel data](media/search-create-app-portal/configure-results.png)
+   ![data källans sida för exempel data](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Lägg till en marginal List
 

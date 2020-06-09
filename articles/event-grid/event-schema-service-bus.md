@@ -2,17 +2,17 @@
 title: Azure Service Bus som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Service Bus händelser med Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393243"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559484"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus som en Event Grid källa
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller egenskaper och schema för Service Bus händelser.
 
 Service Bus avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Service Bus. ActiveMessagesAvailableWithNoListeners | Utlöses när det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar. |
 | Microsoft. Service Bus. DeadletterMessagesAvailableWithNoListener | Utlöses när det finns aktiva meddelanden i en kö för obeställbara meddelanden och inga aktiva lyssnare. |
@@ -79,7 +79,7 @@ Schemat för en händelse av obeställbara meddelanden liknar följande:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -92,7 +92,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | namespaceName | sträng | Service Bus namn området som resursen finns i. |
 | requestUri | sträng | URI: n till den angivna kön eller prenumerationen som avger händelsen. |

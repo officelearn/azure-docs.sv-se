@@ -6,12 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.custom: tracking-python
+ms.openlocfilehash: 3be41014c315a5820add3407ca0e4cbdb5a5e23e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258474"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559700"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -311,7 +312,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 **IDENTITY_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
-> | Parameternamn    | I     | Beskrivning                                                                                                                                                                                                                                                                                                                                |
+> | Parameternamn    | I     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare.                                                                                                                                                                                                                                                                 |
@@ -325,7 +326,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 
-> | Egenskapsnamn | Beskrivning                                                                                                                                                                                                                                        |
+> | Egenskapsnamn | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.                                                                                                                               |
 > | client_id     | Klient-ID för den identitet som användes.                                                                                                                                                                                                       |

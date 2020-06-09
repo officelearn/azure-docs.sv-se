@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: ''
-ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 07c9c683ebc66070e3b280b3e4fc0af65db0ad54
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80056414"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559899"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -34,9 +34,9 @@ Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nug
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som körs varje gången minuterna har ett värde delbart med fem (om funktionen startar vid 18:57:00 är nästa prestanda på 19:00:00). [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) Objektet skickas till funktionen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som körs varje gången minuterna har ett värde delbart med fem (om funktionen startar vid 18:57:00 är nästa prestanda på 19:00:00). [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)Objektet skickas till funktionen.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -52,7 +52,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) Objektet skickas till funktionen.
+I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)Objektet skickas till funktionen.
 
 Här är bindnings data i *Function. JSON* -filen:
 
@@ -145,7 +145,7 @@ def main(mytimer: func.TimerRequest) -> None:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Följande exempel funktion utlöses och körs var femte minut. Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck.](https://en.wikipedia.org/wiki/Cron#CRON_expression) `@TimerTrigger`
+Följande exempel funktion utlöses och körs var femte minut. `@TimerTrigger`Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")
@@ -162,11 +162,11 @@ public void keepAlive(
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktor tar ett CRON-uttryck eller en `TimeSpan`. Du kan bara `TimeSpan` använda om Function-appen körs på en app service plan. `TimeSpan`stöds inte för konsumtions-eller elastiska Premium-funktioner.
+Attributets konstruktor tar ett CRON-uttryck eller en `TimeSpan` . Du kan `TimeSpan` bara använda om Function-appen körs på en app service plan. `TimeSpan`stöds inte för konsumtions-eller elastiska Premium-funktioner.
 
 I följande exempel visas ett CRON-uttryck:
 
@@ -196,7 +196,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck.](https://en.wikipedia.org/wiki/Cron#CRON_expression) `@TimerTrigger`
+`@TimerTrigger`Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")
@@ -215,19 +215,19 @@ public void keepAlive(
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `TimerTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**position** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas | Namnet på variabeln som representerar timer-objektet i funktions koden. | 
-|**Ange**|**ScheduleExpression**|Ett [cron-uttryck](#ncrontab-expressions) eller ett [TimeSpan](#timespan) -värde. En `TimeSpan` kan endast användas för en Function-app som körs i en app service-plan. Du kan lägga till schema uttrycket i en app-inställning och ange den här egenskapen till appens inställnings **%** namn omslutna i tecken, som i det här exemplet: "% ScheduleAppSetting%". |
-|**runOnStartup**|**RunOnStartup**|Om `true`anropas funktionen när körningen startar. Till exempel startar körningen när funktions programmet aktive ras efter inaktivitet på grund av inaktivitet. När Function-appen startas om på grund av funktions ändringar och när funktions programmet skalas ut. Så **runOnStartup** bör sällan om det skulle vara inställt på `true`, särskilt i produktion. |
-|**useMonitor**|**UseMonitor**|Ange till `true` eller `false` ange om schemat ska övervakas. Schema övervakningen har kvar schema förekomster för att se till att schemat upprätthålls korrekt även när Function App-instanser startas om. Om detta inte anges uttryckligen är standardvärdet för scheman som har ett upprepnings intervall som är `true` större än eller lika med 1 minut. För scheman som utlöses mer än en gång per minut är `false`standardvärdet.
+|**Ange**|**ScheduleExpression**|Ett [cron-uttryck](#ncrontab-expressions) eller ett [TimeSpan](#timespan) -värde. En `TimeSpan` kan endast användas för en Function-app som körs i en app service-plan. Du kan lägga till schema uttrycket i en app-inställning och ange den här egenskapen till appens inställnings namn omslutna i **%** tecken, som i det här exemplet: "% ScheduleAppSetting%". |
+|**runOnStartup**|**RunOnStartup**|Om `true` anropas funktionen när körningen startar. Till exempel startar körningen när funktions programmet aktive ras efter inaktivitet på grund av inaktivitet. När Function-appen startas om på grund av funktions ändringar och när funktions programmet skalas ut. Så **runOnStartup** bör sällan om det skulle vara inställt på `true` , särskilt i produktion. |
+|**useMonitor**|**UseMonitor**|Ange till `true` eller `false` Ange om schemat ska övervakas. Schema övervakningen har kvar schema förekomster för att se till att schemat upprätthålls korrekt även när Function App-instanser startas om. Om detta inte anges uttryckligen är standardvärdet `true` för scheman som har ett upprepnings intervall som är större än eller lika med 1 minut. För scheman som utlöses mer än en gång per minut är standardvärdet `false` .
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Vi rekommenderar att du **runOnStartup** ställer in `true` runOnStartup på i produktion. Med den här inställningen kan kod köras vid mycket oförutsägbara tidpunkter. I vissa produktions inställningar kan de här extra körningarna leda till betydligt högre kostnader för appar som hanteras av förbruknings planer. Med **runOnStartup** aktive ras till exempel utlösaren när din Function-app skalas. Se till att du är helt medveten om produktions beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.   
+> Vi rekommenderar att du ställer in **runOnStartup** på `true` i produktion. Med den här inställningen kan kod köras vid mycket oförutsägbara tidpunkter. I vissa produktions inställningar kan de här extra körningarna leda till betydligt högre kostnader för appar som hanteras av förbruknings planer. Med **runOnStartup** aktive ras till exempel utlösaren när din Function-app skalas. Se till att du är helt medveten om produktions beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.   
 
 ## <a name="usage"></a>Användning
 
@@ -246,7 +246,7 @@ När en timer-utlösare anropas, skickas ett Timer-objekt till funktionen. Följ
 }
 ```
 
-`IsPastDue` Egenskapen är `true` när den aktuella funktions anropet är senare än schemalagt. Till exempel kan en omstart av en funktion orsaka att ett anrop saknas.
+`IsPastDue`Egenskapen är `true` när den aktuella funktions anropet är senare än schemalagt. Till exempel kan en omstart av en funktion orsaka att ett anrop saknas.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB-uttryck 
 
@@ -259,10 +259,10 @@ Varje fält kan ha en av följande typer av värden:
 |Typ  |Exempel  |Utlöses av  |
 |---------|---------|---------|
 |Ett speciellt värde |<nobr>"0 5 * * * *"</nobr>|i hh: 05:00 där HH är varje timme (en gång i timmen)|
-|Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|5: mm: 00 varje dag, där mm är varje minut i timmen (60 gånger per dag)|
-|Ett intervall (`-` operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|
-|En uppsättning värden (`,` operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
-|Ett intervall värde (`/` operator)|<nobr>"0 */5 * * *"</nobr>|i hh: 00:00, hh: 05:00, hh: 10:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
+|Alla värden ( `*` )|<nobr>"0 * 5 * * *"</nobr>|5: mm: 00 varje dag, där mm är varje minut i timmen (60 gånger per dag)|
+|Ett intervall ( `-` operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|
+|En uppsättning värden ( `,` operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
+|Ett intervall värde ( `/` operator)|<nobr>"0 */5 * * *"</nobr>|i hh: 00:00, hh: 05:00, hh: 10:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -285,7 +285,7 @@ Här följer några exempel på NCRONTAB-uttryck som du kan använda för timer-
 
 Talen i ett CRON-uttryck refererar till en tid och ett datum, inte ett tidsintervall. Till exempel refererar en 5 i `hour` fältet till 5:00 am, inte var 5: e timme.
 
-Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att ditt CRON-uttryck ska baseras på en annan tidszon skapar du en app-inställning `WEBSITE_TIME_ZONE`för din Function-app med namnet. Ange värdet till namnet på den önskade tids zonen som visas i [Microsoft Time Zone-indexet](https://technet.microsoft.com/library/cc749073).
+Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att ditt CRON-uttryck ska baseras på en annan tidszon skapar du en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE` . Ange värdet till namnet på den önskade tids zonen som visas i [Microsoft Time Zone-indexet](https://technet.microsoft.com/library/cc749073).
 
   > [!NOTE]
   > `WEBSITE_TIME_ZONE`stöds för närvarande inte i Linux-förbruknings planen.
@@ -296,13 +296,13 @@ Till exempel är *Eastern Standard Time* UTC-05:00. Använd följande NCRONTAB-u
 "0 0 15 * * *"
 ``` 
 
-Eller skapa en app-inställning för din Function- `WEBSITE_TIME_ZONE` app med namnet och Ställ in värdet på **Eastern, normal tid**.  Använder sedan följande NCRONTAB-uttryck: 
+Eller skapa en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE` och Ställ in värdet på **Eastern, normal tid**.  Använder sedan följande NCRONTAB-uttryck: 
 
 ```
 "0 0 10 * * *"
 ``` 
 
-När du använder `WEBSITE_TIME_ZONE`, justeras tiden för tid ändringar i den angivna tids zonen, t. ex. sommar tid. 
+När du använder `WEBSITE_TIME_ZONE` , justeras tiden för tid ändringar i den angivna tids zonen, t. ex. sommar tid. 
 
 ## <a name="timespan"></a>TimeSpan
 
@@ -310,7 +310,7 @@ När du använder `WEBSITE_TIME_ZONE`, justeras tiden för tid ändringar i den 
 
 Till skillnad från ett CRON-uttryck `TimeSpan` anger ett värde tidsintervall mellan varje funktions anrop. När en funktion slutförs efter att ha kört längre än det angivna intervallet anropar timern omedelbart funktionen igen.
 
-Anges som en sträng är `TimeSpan` `hh:mm:ss` formatet när `hh` det är mindre än 24. När de två första siffrorna är 24 eller större är `dd:hh:mm`formatet. Här följer några exempel:
+Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här följer några exempel:
 
 |Exempel |Utlöses av  |
 |---------|---------|

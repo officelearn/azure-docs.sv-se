@@ -8,12 +8,13 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 6b16398c7c1fd53562df7e4ac8e801a8c97162f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 7550ba3883503c5991cd14e80354b187116a3b51
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159445"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560281"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Skicka händelser till eller ta emot händelser från Event Hub med python (Azure-eventhub version 5)
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med **Azure-eventhub version 5 python-** paketet.
@@ -21,7 +22,7 @@ Den här snabb starten visar hur du skickar händelser till och tar emot händel
 > [!IMPORTANT]
 > Den här snabb starten använder det senaste Azure-eventhub version 5-paketet. En snabb start som använder det gamla Azure-eventhub version 1-paketet finns i [skicka och ta emot händelser med Azure-eventhub version 1](event-hubs-python-get-started-send.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte har använt Azure Event Hubs tidigare, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:

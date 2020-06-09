@@ -2,17 +2,17 @@
 title: Händelse domäner i Azure Event Grid
 description: Den här artikeln beskriver hur du använder händelse domäner för att hantera flödet av anpassade händelser till olika affärs organisationer, kunder eller program.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898869"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559514"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid ämnen
 
@@ -65,7 +65,7 @@ När du skapar en händelse domän får du en publicerings slut punkt som liknar
 
 Om du vill publicera händelser till ett ämne i en händelse domän, pusha händelserna till domänens slut punkt på [samma sätt som du skulle göra för ett anpassat ämne](./post-to-custom-topic.md). Den enda skillnaden är att du måste ange det ämne som du vill att händelsen ska leverera till.
 
-Exempel: `"id": "1111"` om du publicerar följande händelse mat ris skickas händelse med till ämne `foo` medan händelsen med `"id": "2222"` skulle skickas till ämnet: `bar`
+Exempel: om du publicerar följande händelse mat ris skickas händelse med `"id": "1111"` till ämne `foo` medan händelsen med `"id": "2222"` skulle skickas till ämnet `bar` :
 
 ```json
 [{
@@ -105,7 +105,7 @@ Här följer de gränser och kvoter som rör händelse domäner:
 - 50 domän omfångs prenumerationer 
 - antal 5 000 händelser per sekund (till en domän)
 
-Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e [askgrid@microsoft.com](mailto:askgrid@microsoft.com)-postmeddelande till. 
+Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e-postmeddelande till [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
 ## <a name="pricing"></a>Prissättning
 Händelse domäner använder samma [Operations-prissättning](https://azure.microsoft.com/pricing/details/event-grid/) som alla andra funktioner i Event Grid använda.

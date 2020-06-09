@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868978"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558553"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -26,7 +26,7 @@ Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: 
 
 Dessa Microsoft-bibliotek stöder daemon-appar:
 
-  MSAL-bibliotek | Beskrivning
+  MSAL-bibliotek | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework-och .NET Core-plattformarna stöds för att skapa daemon-program. (UWP, Xamarin. iOS och Xamarin. Android stöds inte eftersom dessa plattformar används för att bygga offentliga klient program.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python.
@@ -38,7 +38,7 @@ Daemon-program använder program behörigheter i stället för delegerade behör
 
 Den auktoritet som anges i program konfigurationen ska därför vara klient organisation (som anger ett klient-ID eller ett domän namn som är kopplat till din organisation).
 
-Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Det finns också en begränsning i MSAL: `organizations` tillåts bara när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
+Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations` . Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Det finns också en begränsning i MSAL: `organizations` tillåts bara när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
 
 ## <a name="configure-and-instantiate-the-application"></a>Konfigurera och instansiera programmet
 
@@ -69,7 +69,7 @@ Konfigurations filen definierar:
 }
 ```
 
-Du anger antingen en `ClientSecret` eller en `CertificateName`. De här inställningarna är exklusiva.
+Du anger antingen en `ClientSecret` eller en `CertificateName` . De här inställningarna är exklusiva.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -267,7 +267,7 @@ MSAL.NET har två metoder för att tillhandahålla signerade kontroller till app
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md).
+När du använder `WithClientAssertion` måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -276,7 +276,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-När du använder `WithClientClaims`kommer MSAL.net att skapa en signerad kontroll som innehåller de anspråk som förväntas av Azure AD, plus ytterligare klient anspråk som du vill skicka.
+När du använder `WithClientClaims` kommer MSAL.net att skapa en signerad kontroll som innehåller de anspråk som förväntas av Azure AD, plus ytterligare klient anspråk som du vill skicka.
 Den här koden visar hur du gör:
 
 ```csharp
@@ -293,7 +293,7 @@ Mer information finns i [klient kontroll](msal-net-client-assertions.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
-I MSAL python kan du ange klient anspråk genom att använda anspråken som ska signeras av `ConfidentialClientApplication`den privata nyckeln.
+I MSAL python kan du ange klient anspråk genom att använda anspråken som ska signeras av den `ConfidentialClientApplication` privata nyckeln.
 
 ```Python
 config = json.load(open(sys.argv[1]))

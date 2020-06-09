@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265966"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559341"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
 
@@ -30,7 +31,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 -   [Åtgärd](#Product)  
 -   [Kodexempel](#CodeSamples)  
     -   [Klammerparentes](#Curl)  
-    -   [C #](#CSharp)  
+    -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
     -   [Mål C](#ObjectiveC)  
@@ -81,7 +82,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `API list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
+ `API list`Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
 -   [sid kontroll](api-management-page-controls.md#paging-control)  
   
@@ -89,7 +90,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`apis`|Samling av [API-Sammanfattning](api-management-template-data-model-reference.md#APISummary) av entiteter.|De API: er som är synliga för den aktuella användaren.|  
   
@@ -340,11 +341,11 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `Operation` Mallen tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
+ `Operation`Mallen tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`apiId`|sträng|ID för aktuellt API.|  
 |`apiName`|sträng|Namnet på API: et.|  
@@ -650,7 +651,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
   
 -   [Klammerparentes](#Curl)  
   
--   [C #](#CSharp)  
+-   [C#](#CSharp)  
   
 -   [Java](#Stub)  
   

@@ -3,17 +3,17 @@ title: Använd skapare för att skapa inliggande kartor
 description: Använd Azure Maps Creator för att skapa inomhus Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c27752d7a4b8e99dd70563cece02a4fd4e67bdc1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745927"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560351"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa inomhus Maps:
 
@@ -38,6 +38,9 @@ Skapa inomhus Maps:
 4. Ladda ned [exempel ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 I den här självstudien används [Postman](https://www.postman.com/) -programmet, men du kan välja en annan API utvecklings miljö.
+
+>[!IMPORTANT]
+> API-URL: er i det här dokumentet kan behöva justeras enligt platsen för din skapare-resurs. Mer information finns i [åtkomst till Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 ## <a name="upload-a-drawing-package"></a>Ladda upp ett ritnings paket
 

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118014"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488706"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -56,7 +56,7 @@ Du kan ha upp till 200 ögonblicksbilder för en filresurs vid varje tidpunkt. G
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Kan jag återställa från en borttagen Azure-filresurs?
 
-När en Azure-filresurs tas bort visas en lista över säkerhets kopior som tas bort och en bekräftelse begärs. För närvarande går det inte att återställa en borttagen Azure-filresurs.
+Om fil resursen är i läget tyst Borttagning måste du först ta bort fil resursen för att utföra återställnings åtgärden. Åtgärden ta bort tar fil resursen i det aktiva läge där du kan återställa till en viss tidpunkt. Om du vill veta hur du tar bort en fil resurs kan du gå till [den här länken](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) eller Visa [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md). Om fil resursen tas bort permanent kan du inte återställa innehållet och ögonblicks bilderna.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Kan jag återställa från säkerhetskopior om jag har stoppat skyddet på en Azure-filresurs?
 
@@ -105,7 +105,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ------------------------------ | --------- |
 | Varje dag          | Varje dag kl. 9 PM              | 50 dagar   |
 | Varje vecka         | På söndag till 9 PM              | 3 veckor   |
-| Månadsvis        | Den senaste måndagen vid 9 PM         | 1 månad   |
+| Varje månad        | Den senaste måndagen vid 9 PM         | 1 månad   |
 | Varje år         | I Jan den tredje söndagen med 9 PM | 4 år   |
 
 #### <a name="impact"></a>Påverkan
@@ -140,7 +140,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ---------------------- | --------- |
 | Varje dag          | Varje dag kl. 9 PM     | 10 dagar   |
 | Varje vecka         | På måndag till 9 PM      | 2 veckor   |
-| Månadsvis        | Den senaste måndagen vid 9 PM | 2 månader  |
+| Varje månad        | Den senaste måndagen vid 9 PM | 2 månader  |
 
 #### <a name="impact-of-change"></a>Effekt av ändring
 

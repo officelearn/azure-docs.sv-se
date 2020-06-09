@@ -3,12 +3,13 @@ title: Konfigurera och hantera Azure Notebooks för hands version
 description: Lär dig hur du hanterar projekt-metadata, projektfiler, projektets miljö och installations steg via både Azure Notebooks användar gränssnitt och direkt åtkomst till terminalen.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: df64c9d90252c31118b66943b6a182319e3f1cc2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280604"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554307"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Hantera och konfigurera projekt i Azure Notebooks för hands version
 
@@ -56,7 +57,7 @@ Instrument panelen för projektet visar innehållet i projektets mapp system. Du
 
 Kommandot **+ New** (kortkommando: n) skapar nya filer eller mappar. När du använder kommandot väljer du först den typ av objekt som ska skapas:
 
-| Objekt typ | Beskrivning | Kommando beteende |
+| Objekt typ | Description | Kommando beteende |
 | --- | --- | --- |
 | **Notebook-fil** | En Jupyter Notebook | Visar ett popup-fönster där du kan ange antecknings bokens fil namn och språk. |
 | **Mapp** | En undermapp | Skapar ett redigerings fält i projektets fillista där du anger mappnamnet. |
@@ -73,30 +74,30 @@ Varje objekt i projektets fil lista innehåller kommandon via en snabb meny för
 
 ![Kommandon på en fil snabb meny](media/project-file-commands.png)
 
-| Kommando | Kortkommando | Action |
+| Kommando | Kortkommando | Åtgärd |
 | --- | --- | --- |
 | Kör | r (eller klicka) | Kör en Notebook-fil. Andra filtyper öppnas för visning.  |
 | Kopiera länk | y | Kopierar en länk till filen till Urklipp. |
 | Kör i Jupyter Lab | j | Kör en antecknings bok i JupyterLab, som är ett mer utvecklare-orienterat gränssnitt än Jupyter vanligt vis tillhandahåller. |
-| Förhandsversion | P | Öppnar en HTML-förhandsgranskning av filen. för antecknings böcker är förhands granskningen en skrivskyddad åter givning av antecknings boken. Mer information finns i avsnittet för [hands version](#preview) . |
+| Förhandsgranskning | P | Öppnar en HTML-förhandsgranskning av filen. för antecknings böcker är förhands granskningen en skrivskyddad åter givning av antecknings boken. Mer information finns i avsnittet för [hands version](#preview) . |
 | Redigera fil | i | Öppnar filen för redigering. |
-| Hämta | d | Laddar ned en zip-fil som innehåller filen eller innehållet i en mapp. |
+| Ladda ned | d | Laddar ned en zip-fil som innehåller filen eller innehållet i en mapp. |
 | Byt namn | a | Efterfrågar ett nytt namn för filen eller mappen. |
 | Ta bort | x | Du uppmanas att bekräfta och sedan ta bort filen från projektet permanent. Det går inte att återställa borttagningar. |
 | Flytta | m | Flyttar en fil till en annan mapp i samma projekt. |
 
-#### <a name="preview"></a>Förhandsversion
+#### <a name="preview"></a>Förhandsgranskning
 
 En för hands version av en fil eller antecknings bok är en skrivskyddad vy av innehållet. att köra antecknings böcker är inaktiverat. En för hands version visas för alla som har en länk till filen eller antecknings boken, men som inte har loggat in på Azure Notebooks. När du har loggat in kan en användare klona antecknings boken till sitt eget konto, eller så kan de Ladda ned antecknings boken till den lokala datorn.
 
 Förhands gransknings sidan stöder flera verktygsfälts kommandon med kortkommandon:
 
-| Kommando | Kortkommando | Action |
+| Kommando | Kortkommando | Åtgärd |
 | --- | --- | --- |
 | Dela | s | Visar popup-fönstret för delning som du kan använda för att få en länk, dela till sociala medier, Hämta HTML för inbäddning och skicka ett e-postmeddelande. |
 | Klona | c  | Klona antecknings boken till ditt konto. |
 | Kör | r | Kör antecknings boken om du har behörighet att göra det. |
-| Hämta | d | Laddar ned en kopia av antecknings boken. |
+| Ladda ned | d | Laddar ned en kopia av antecknings boken. |
 
 ## <a name="configure-the-project-environment"></a>Konfigurera projekt miljön
 
@@ -126,14 +127,14 @@ Om du vill lägga till ett steg väljer du **+ Lägg till**och väljer sedan en 
 
 Den information som du sedan projektet beror på vilken typ av åtgärd du har valt:
 
-- **Krav. txt**: i den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en python-version från den tredje List rutan som visas. Genom att använda en *Requirements. txt* -fil körs `pip install -r` Azure Notebooks med filen *Requirements. txt* när du startar en Notebook-Server. Du behöver inte uttryckligen installera paket inifrån själva antecknings boken.
+- **Krav. txt**: i den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en python-version från den tredje List rutan som visas. Genom att använda en *Requirements. txt* -fil körs Azure Notebooks `pip install -r` med filen *Requirements. txt* när du startar en Notebook-Server. Du behöver inte uttryckligen installera paket inifrån själva antecknings boken.
 
 - **Gränssnitts skript**: i den andra List rutan väljer du ett bash-gränssnitts skript i projektet (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön.
 
 - **Miljö. yml**: i den andra List rutan väljer du en *miljö. yml* -fil för python-projekt med hjälp av en Conda-miljö.
 
    > [!WARNING]
-   > Eftersom det här är en för hands versions tjänst under utveckling finns det ett känt problem `Environment.yml` där inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsbokarna i läser inte in den angivna miljö filen för närvarande.
+   > Eftersom det här är en för hands versions tjänst under utveckling finns det ett känt problem där `Environment.yml` inställningen inte tillämpas på projektet som förväntat. Projektet och Jupyter-anteckningsbokarna i läser inte in den angivna miljö filen för närvarande.
 
 När du är klar med att lägga till steg väljer du **Spara**.
 
@@ -166,7 +167,7 @@ python36 -m pip install <package>
 Ändringar som görs på servern gäller endast för den aktuella sessionen, förutom filer och mappar som du skapar i själva *projektmappen* . Till exempel är redigering av en fil i projektmappen beständig mellan sessioner, men paket med `pip install` är inte.
 
 > [!Note]
-> Om du använder `python` eller `python3`, anropar du de systeminstallerade versionerna av python, som inte används för antecknings böcker. Du har inte behörighet för åtgärder som `pip install` antingen, så se till att använda de versions bara aliasen.
+> Om du använder `python` eller `python3` , anropar du de systeminstallerade versionerna av python, som inte används för antecknings böcker. Du har inte behörighet för åtgärder som `pip install` antingen, så se till att använda de versions bara aliasen.
 
 ## <a name="access-notebook-logs"></a>Komma åt Notebook-loggar
 

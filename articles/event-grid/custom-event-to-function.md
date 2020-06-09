@@ -3,17 +3,17 @@ title: 'Snabb start: skicka anpassade händelser till Azure Function-Event Grid'
 description: 'Snabb start: Använd Azure Event Grid och Azure CLI eller portal för att publicera ett ämne och prenumerera på händelsen. En Azure-funktion används för slut punkten.'
 services: event-grid
 keywords: ''
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cc429fd38fc3322887affb72e71e0f583823c297
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292158"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557864"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Snabb start: dirigera anpassade händelser till en Azure-funktion med Event Grid
 
@@ -124,7 +124,7 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 ### <a name="azure-powershell"></a>Azure PowerShell
 I det andra exemplet används PowerShell för att utföra liknande steg.
 
-1. I Azure Portal väljer du **Cloud Shell** (du kan också gå `https://shell.azure.com/`till). Välj **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
+1. I Azure Portal väljer du **Cloud Shell** (du kan också gå till `https://shell.azure.com/` ). Välj **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
 2. Ange följande variabler. När du har kopierat och klistrat in varje kommando uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot:
 
     ```powershell

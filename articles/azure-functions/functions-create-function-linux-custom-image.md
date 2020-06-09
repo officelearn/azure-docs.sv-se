@@ -3,14 +3,14 @@ title: Skapa Azure Functions på Linux med en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 65fa62e0e21eea44ebd1d0948e71ad1d552d4d68
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345163"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560921"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
 
@@ -18,7 +18,7 @@ I den här självstudien skapar du och distribuerar din kod till Azure Functions
 
 Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](functions-create-first-azure-function-azure-cli-linux.md). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.

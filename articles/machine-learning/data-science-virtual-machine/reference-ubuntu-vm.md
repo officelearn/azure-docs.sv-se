@@ -5,15 +5,16 @@ description: Information om verktyg som ingår i Ubuntu-Data Science Virtual Mac
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 4c4ac1d332c4348941963b90d25aefb4fdf30ce4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161289"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560228"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -52,7 +53,7 @@ Några exempel på antecknings böcker finns i JupyterHub.
 
 H2O är en snabb, intern, distribuerad maskin inlärnings plattform och en förutsägelse analys plattform. Ett python-paket är installerat i både rot-och py35 Anaconda-miljöerna. Ett R-paket installeras också. 
 
-Öppna H2O från kommando raden genom att köra `java -jar /dsvm/tools/h2o/current/h2o.jar`. Det finns olika [kommando rads alternativ](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) som du kanske vill konfigurera. Du kan komma åt Flow-webbgränssnittet genom `http://localhost:54321` att bläddra till för att komma igång. Exempel på antecknings böcker finns också i JupyterHub.
+Öppna H2O från kommando raden genom att köra `java -jar /dsvm/tools/h2o/current/h2o.jar` . Det finns olika [kommando rads alternativ](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) som du kanske vill konfigurera. Du kan komma åt Flow-webbgränssnittet genom att bläddra till `http://localhost:54321` för att komma igång. Exempel på antecknings böcker finns också i JupyterHub.
 
 ### <a name="keras"></a>Keras
 
@@ -137,12 +138,12 @@ Om du har ett grafiskt gränssnitt eller har konfigurerat begäran om x11-vidare
 
 Anaconda-distributionen levereras också med en Jupyter Notebook, en miljö för att dela kod och analys. Jupyter Notebook nås via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord.
 
-Jupyter Notebook-servern har förkonfigurerats med python 2, python 3 och R-kernel. Använd ikonen **Jupyter Notebook** skriv bord för att öppna webbläsaren och få åtkomst till Notebook-servern. Om du befinner dig på den virtuella datorn via SSH eller X2Go-klienten, kan du också komma åt Jupyter `https://localhost:8000/`Notebook-servern på.
+Jupyter Notebook-servern har förkonfigurerats med python 2, python 3 och R-kernel. Använd ikonen **Jupyter Notebook** skriv bord för att öppna webbläsaren och få åtkomst till Notebook-servern. Om du befinner dig på den virtuella datorn via SSH eller X2Go-klienten, kan du också komma åt Jupyter Notebook-servern på `https://localhost:8000/` .
 
 > [!NOTE]
 > Fortsätt om du får några certifikat varningar.
 
-Du kan komma åt Jupyter Notebook-servern från vilken värd som helst. Ange **https://\<VM DNS-namn eller IP\>-adress: 8000/**.
+Du kan komma åt Jupyter Notebook-servern från vilken värd som helst. Ange **https:// \<VM DNS name or IP address\> : 8000/**.
 
 > [!NOTE]
 > Port 8000 öppnas i brand väggen som standard när den virtuella datorn är etablerad. 
@@ -173,7 +174,7 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-Du kan stoppa de Hadoop-relaterade tjänsterna när du inte behöver dem genom att ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```köra.
+Du kan stoppa de Hadoop-relaterade tjänsterna när du inte behöver dem genom att köra ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` .
 
 /Dsvm/samples/MRS-katalogen innehåller ett exempel som visar hur du utvecklar och testar Microsoft Machine Learning Server i en fjärr Spark-kontext (den fristående Spark-instansen på DSVM).
 
@@ -254,7 +255,7 @@ Information om hur du distribuerar modeller i R och python till Azure Machine Le
 
 ## <a name="machine-learning-tools"></a>Machine Learning-verktyg
 
-Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Exempel på dessa är:
+Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Dessa omfattar:
 
 * **Vowpal Wabbit**: en snabb onlineutbildning för inlärning.
 * **xgboost**: ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.

@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369671"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488213"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Snabb start: Använd Sök Utforskaren för att köra frågor i portalen
 
-**Sök Utforskaren** är ett inbyggt frågespråk som används för att köra frågor mot ett Sök index i Azure kognitiv sökning. Det här verktyget gör det enkelt att lära sig frågesyntaxen, testa ett fråge-eller filter uttryck eller bekräfta resultatet av en index uppdatering genom att verifiera att det finns ett nytt innehåll.
+**Sök Utforskaren** är ett inbyggt frågespråk som används för att köra frågor mot ett Sök index i Azure kognitiv sökning. Det här verktyget gör det enkelt att lära sig frågesyntaxen, testa ett fråge-eller filter uttryck eller bekräfta data uppdatering genom att kontrol lera om nytt innehåll finns i indexet.
 
-I den här snabb starten används **realestate-US-Sample-index** för att demonstrera Sök Utforskaren. Begär Anden formuleras med hjälp av [sök REST API](https://docs.microsoft.com/rest/api/searchservice/), med svar som returneras som JSON-dokument.
+I den här snabb starten används ett befintligt index för att demonstrera Sök Utforskaren. Begär Anden formuleras med hjälp av [sök REST API](https://docs.microsoft.com/rest/api/searchservice/), med svar som returneras som JSON-dokument.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-+ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
+Innan du börjar måste du ha följande:
 
-+ **realestate – US-Sample-index** används för den här snabb starten. Gå igenom guiden [**Importera data**](search-import-data-portal.md) för att generera indexet från den inbyggda exempel data källan.
++ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
+
++ En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
+
++ *Realestate-US-Sample-indexet* används för den här snabb starten. Använd guiden [**Importera data**](search-import-data-portal.md) för att skapa indexet. I det första steget när du uppmanas till data källan väljer du **exempel** och väljer sedan data källan **realestate-US-Sample** . Godkänn alla standardinställningar i guiden för att skapa indexet.
 
 ## <a name="start-search-explorer"></a>Starta Sök Utforskaren
 
@@ -41,9 +45,9 @@ I den här snabb starten används **realestate-US-Sample-index** för att demons
 
 ## <a name="unspecified-query"></a>Ospecificerad fråga
 
-För en första titt på innehåll kör du en tom sökning genom att klicka på **Sök** utan att ange några villkor. En tom sökning är användbar som första fråga eftersom den returnerar hela dokument så att du kan granska dokument kompositionen. I en tom sökning finns det ingen Sök rang och dokument returneras i valfri ordning (`"@search.score": 1` för alla dokument). Som standard returneras 50-dokument i en Sök förfrågan.
+För en första titt på innehåll kör du en tom sökning genom att klicka på **Sök** utan att ange några villkor. En tom sökning är användbar som första fråga eftersom den returnerar hela dokument så att du kan granska dokument kompositionen. I en tom sökning finns det ingen Sök rang och dokument returneras i valfri ordning ( `"@search.score": 1` för alla dokument). Som standard returneras 50-dokument i en Sök förfrågan.
 
-Motsvarande syntax för en tom sökning är `*` eller `search=*`.
+Motsvarande syntax för en tom sökning är `*` eller `search=*` .
    
    ```http
    search=*
@@ -83,7 +87,7 @@ Lägg till **$Count = sant** om du vill hämta antalet matchningar som finns i e
 
 ## <a name="limit-fields-in-search-results"></a>Begränsa fält i Sök Resultat
 
-Lägg till [**$Select**](search-query-odata-select.md) för att begränsa resultaten till de uttryckligen namngivna fälten för mer läsbara utdata i **Sök Utforskaren**. Om du vill behålla Sök strängen och **$Count = True**, prefix argument **&** med. 
+Lägg till [**$Select**](search-query-odata-select.md) för att begränsa resultaten till de uttryckligen namngivna fälten för mer läsbara utdata i **Sök Utforskaren**. Om du vill behålla Sök strängen och **$Count = True**, prefix argument med **&** . 
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

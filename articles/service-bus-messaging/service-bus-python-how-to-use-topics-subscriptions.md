@@ -13,12 +13,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ed2bf757762beafda3d4b2958438672c03d8d234
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478070"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560050"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Snabb start: använda Service Bus ämnen och prenumerationer med python
 
@@ -32,7 +33,7 @@ Den här artikeln beskriver hur du använder python med Azure Service Bus ämnen
 - Ta emot meddelanden från prenumerationer
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera namn områdets namn, namnet på den delade åtkomst nyckeln och värdet för primär nyckel från skärmen **principer för delad åtkomst** för senare användning i den här snabb starten. 
 - Python 3.4 x eller senare, med [Azure python SDK][Azure Python package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/developer/python/azure-sdk-install).
@@ -45,7 +46,7 @@ Med ett **ServiceBusService** -objekt kan du arbeta med ämnen och prenumeration
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Lägg till följande kod för att skapa ett **ServiceBusService** -objekt. Ersätt `<namespace>`, `<sharedaccesskeyname>`, och `<sharedaccesskeyvalue>` med namnet på Service Bus namn området, signaturen för signatur för delad åtkomst (SAS) och primär nyckel värde. Du hittar de här värdena under **principer för delad åtkomst** i Service Bus namn området i [Azure Portal][Azure portal].
+Lägg till följande kod för att skapa ett **ServiceBusService** -objekt. Ersätt `<namespace>` , `<sharedaccesskeyname>` , och `<sharedaccesskeyvalue>` med namnet på Service Bus namn området, signaturen för signatur för delad åtkomst (SAS) och primär nyckel värde. Du hittar de här värdena under **principer för delad åtkomst** i Service Bus namn området i [Azure Portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
@@ -56,13 +57,13 @@ bus_service = ServiceBusService(
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 
-I följande kod används `create_topic` metoden för att skapa ett Service Bus avsnitt som `mytopic`heter, med standardinställningar:
+I följande kod används `create_topic` metoden för att skapa ett Service Bus avsnitt `mytopic` som heter, med standardinställningar:
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-Du kan använda ämnes alternativ om du vill åsidosätta standard ämnes inställningarna, till exempel Time to Live (TTL) eller maximal ämnes storlek. I följande exempel skapas ett ämne med `mytopic` namnet med en maximal ämnes storlek på 5 GB och standard-TTL för meddelande i en minut:
+Du kan använda ämnes alternativ om du vill åsidosätta standard ämnes inställningarna, till exempel Time to Live (TTL) eller maximal ämnes storlek. I följande exempel skapas ett ämne `mytopic` med namnet med en maximal ämnes storlek på 5 GB och standard-TTL för meddelande i en minut:
 
 ```python
 topic_options = Topic()
@@ -88,7 +89,7 @@ Den mest flexibla typen av filter är en **SqlFilter**, som använder en delmän
 
 Eftersom standard filtret för **MatchAll** automatiskt används för alla nya prenumerationer måste du ta bort det från prenumerationer som du vill filtrera eller så åsidosätter **MatchAll** alla andra filter som du anger. Du kan ta bort standard regeln med hjälp av `delete_rule` metoden för **ServiceBusService** -objektet.
 
-I följande exempel skapas en prenumeration med `mytopic` namnet `HighMessages`med en **SqlFilter** -regel med `HighMessageFilter`namnet. `HighMessageFilter` Regeln väljer endast meddelanden med en anpassad `messageposition` egenskap som är större än 3:
+I följande exempel skapas en prenumeration med `mytopic` namnet `HighMessages` med en **SqlFilter** -regel med namnet `HighMessageFilter` . `HighMessageFilter`Regeln väljer endast meddelanden med en anpassad egenskap som är `messageposition` större än 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -101,7 +102,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-I följande exempel skapas en prenumeration med `mytopic` namnet `LowMessages`med en **SqlFilter** -regel med `LowMessageFilter`namnet. `LowMessageFilter` Regeln väljer endast meddelanden med en `messageposition` egenskap som är mindre än eller lika med 3:
+I följande exempel skapas en prenumeration med `mytopic` namnet `LowMessages` med en **SqlFilter** -regel med namnet `LowMessageFilter` . `LowMessageFilter`Regeln väljer endast meddelanden med en `messageposition` egenskap som är mindre än eller lika med 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -114,13 +115,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Med `AllMessages`, `HighMessages`och `LowMessages` allt i praktiken, levereras alltid meddelanden som `mytopic` skickas till till mottagare av `AllMessages` prenumerationen. Meddelanden levereras också selektivt till- `HighMessages` eller `LowMessages` -prenumerationen, beroende på meddelandets `messageposition` egenskaps värde. 
+Med `AllMessages` , `HighMessages` och `LowMessages` allt i praktiken, levereras alltid meddelanden som skickas till `mytopic` till mottagare av `AllMessages` prenumerationen. Meddelanden levereras också selektivt till `HighMessages` -eller `LowMessages` -prenumerationen, beroende på meddelandets `messageposition` egenskaps värde. 
 
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
 
 Program använder `send_topic_message` metoden för **ServiceBusService** -objektet för att skicka meddelanden till ett Service Bus ämne.
 
-I följande exempel skickas fem test meddelanden till `mytopic` ämnet. Värdet för `messageposition` den anpassade egenskapen beror på loopens iteration och avgör vilka prenumerationer som tar emot meddelandena. 
+I följande exempel skickas fem test meddelanden till `mytopic` ämnet. Värdet för den anpassade `messageposition` egenskapen beror på loopens iteration och avgör vilka prenumerationer som tar emot meddelandena. 
 
 ```python
 for i in range(5):
@@ -144,11 +145,11 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-Den valfria `peek_lock` parametern för `receive_subscription_message` avgör om Service Bus tar bort meddelanden från prenumerationen när de läses. Standard läget för att ta emot meddelanden är *PeekLock*, `peek_lock` eller anges till **True**, som läser (tittar) och låser meddelanden utan att ta bort dem från prenumerationen. Varje meddelande måste slutföras explicit för att ta bort det från prenumerationen.
+Den valfria `peek_lock` parametern för `receive_subscription_message` avgör om Service Bus tar bort meddelanden från prenumerationen när de läses. Standard läget för att ta emot meddelanden är *PeekLock*, eller `peek_lock` anges till **True**, som läser (tittar) och låser meddelanden utan att ta bort dem från prenumerationen. Varje meddelande måste slutföras explicit för att ta bort det från prenumerationen.
 
-Om du vill ta bort meddelanden från prenumerationen när de är lästa kan `peek_lock` du ange parametern till **false**, som i föregående exempel. Att ta bort meddelanden som en del av Receive-åtgärden är den enklaste modellen och fungerar bra om programmet kan tolerera saknade meddelanden om det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där programmet utfärdar en Receive-begäran och sedan kraschar innan det bearbetas. Om meddelandet togs bort när det togs emot när programmet startas om och börjar förbruka meddelanden igen, har det missa det meddelande som togs emot före kraschen.
+Om du vill ta bort meddelanden från prenumerationen när de är lästa kan du ange `peek_lock` parametern till **false**, som i föregående exempel. Att ta bort meddelanden som en del av Receive-åtgärden är den enklaste modellen och fungerar bra om programmet kan tolerera saknade meddelanden om det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där programmet utfärdar en Receive-begäran och sedan kraschar innan det bearbetas. Om meddelandet togs bort när det togs emot när programmet startas om och börjar förbruka meddelanden igen, har det missa det meddelande som togs emot före kraschen.
 
-Om ditt program inte kan tolerera missade meddelanden blir mottagningen en åtgärd i två steg. PeekLock söker efter nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det till programmet. När du har bearbetat eller lagrat meddelandet Slutför programmet det andra steget i Receive-processen genom `complete` att anropa metoden i objektet **Message** .  `complete` Metoden markerar meddelandet som förbrukat och tar bort det från prenumerationen.
+Om ditt program inte kan tolerera missade meddelanden blir mottagningen en åtgärd i två steg. PeekLock söker efter nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det till programmet. När du har bearbetat eller lagrat meddelandet Slutför programmet det andra steget i Receive-processen genom att anropa `complete` metoden i objektet **Message** .  `complete`Metoden markerar meddelandet som förbrukat och tar bort det från prenumerationen.
 
 I följande exempel visas ett scenario för att granska låset:
 
@@ -161,21 +162,21 @@ if msg.body is not None:
 
 ## <a name="handle-application-crashes-and-unreadable-messages"></a>Hantera program krascher och oläsbara meddelanden
 
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta ett meddelande av någon anledning, kan det `unlock` anropa metoden i objektet **Message** . Service Bus låser upp meddelandet i prenumerationen och gör det tillgängligt att tas emot igen, antingen av samma eller ett annat användnings program.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta ett meddelande av någon anledning, kan det anropa `unlock` metoden i objektet **Message** . Service Bus låser upp meddelandet i prenumerationen och gör det tillgängligt att tas emot igen, antingen av samma eller ett annat användnings program.
 
 Det finns också en tids gräns för meddelanden som är låsta i prenumerationen. Om ett program inte kan bearbeta ett meddelande innan låsnings tids gränsen går ut, till exempel om programmet kraschar, Service Bus låser upp meddelandet automatiskt och gör det tillgängligt för att tas emot igen.
 
-Om ett program kraschar efter att ett meddelande har bearbetats `complete` men innan du anropar-metoden, kommer meddelandet att skickas vidare till programmet när det startas om. Det här beteendet kallas ofta *för bearbetning med minst en gång*. Varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om ditt scenario inte kan tolerera dubbla bearbetningar kan du använda meddelandets **messageid** -egenskap, som förblir konstant över leverans försök, för att hantera dubbla meddelande leveranser. 
+Om ett program kraschar efter att ett meddelande har bearbetats men innan du anropar `complete` -metoden, kommer meddelandet att skickas vidare till programmet när det startas om. Det här beteendet kallas ofta *för bearbetning med minst en gång*. Varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om ditt scenario inte kan tolerera dubbla bearbetningar kan du använda meddelandets **messageid** -egenskap, som förblir konstant över leverans försök, för att hantera dubbla meddelande leveranser. 
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
 
-Använd [Azure Portal][Azure portal] eller `delete_topic` metoden för att ta bort ämnen och prenumerationer. Följande kod tar bort ämnet med namnet `mytopic`:
+Använd [Azure Portal][Azure portal] eller metoden för att ta bort ämnen och prenumerationer `delete_topic` . Följande kod tar bort ämnet med namnet `mytopic` :
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-Om du tar bort ett ämne tas alla prenumerationer på ämnet bort. Du kan också ta bort prenumerationer oberoende av varandra. Följande kod tar bort prenumerationen som `HighMessages` heter från `mytopic` avsnittet:
+Om du tar bort ett ämne tas alla prenumerationer på ämnet bort. Du kan också ta bort prenumerationer oberoende av varandra. Följande kod tar bort prenumerationen som heter `HighMessages` från `mytopic` avsnittet:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')

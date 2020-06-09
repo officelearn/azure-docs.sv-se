@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: fb2031072ce93fcacdf52f8f0fad68f836049b22
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799865"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560895"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -22,16 +22,7 @@ Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Följande tabell sammanfattar de här alternativen:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Målgrupp      |IT-proffs och moln utvecklare|Företags användare och affärs besluts fattare|
-|Relevans för lösning      |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som använder eller utökar Dynamics 365, Power BI, Office 365, Azure (tillägg-eller tilläggs färdiga appar)|
-|Publicerings alternativ      |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
-|Produkt upplevelse      |Azure Portal|Dynamics 365, Office 365, Office-klientprogram| 
-|Övrigt      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics 365 och Power BI|
-||
+Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två butiker finns i [jämföra Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
 
@@ -79,7 +70,7 @@ Ytterligare resurser och support:
 
 Mer information om kompetenser finns på sidan [Microsoft Partner Network kompetenser](https://partner.microsoft.com/membership/competencies) .
 
-System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 21 länder/regioner:
+System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 20 länder/regioner:
 
 |   |   |   |   |
 |---------|----------|----------|----------|
@@ -87,8 +78,7 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 | Finland  | Frankrike | Tyskland  | Indien   |
 | Italien    | Japan  |  Mexico  |  Nederländerna  |
 |  Nya Zeeland  |  Norge  |  Polen  | Sydafrika |
-|  Spanien  | Sverige  | Schweiz  |  USA  |
-| Storbritannien  |
+|  Sverige  | Schweiz  |  USA  | Storbritannien  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrera dig för konsult tjänster på den kommersiella marknaden

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: f5c93e35b2a9124ac6d480b3719608ee3b4484a5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871226"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554832"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar dirigerar autentiseringsbegäranden, så de måste vara medvetna om de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 NPS-tillägget är avsett att fungera med din befintliga infrastruktur. Kontrol lera att du har följande krav innan du börjar.
 
@@ -64,6 +64,10 @@ Dessa bibliotek installeras automatiskt med tillägget.
 - [Microsoft Azure Active Directory-modul för Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Microsoft Azure Active Directory-modul för Windows PowerShell installeras, om den inte redan finns, via ett konfigurations skript som du kör som en del av installations processen. Du behöver inte installera den här modulen i förväg om den inte redan är installerad.
+
+Du måste installera följande bibliotek manuellt:
+
+- [Visual C++ Redistributable för Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -98,7 +102,7 @@ NPS-servern ansluter till Azure Active Directory och autentiserar MFA-begärande
 1. På din server öppnar du **guiden Lägg till roller och funktioner** från snabb starts menyn för Serverhanteraren.
 2. Välj **rollbaserad eller funktions baserad installation** av installations typen.
 3. Välj Server rollen **nätverks policy och åtkomst tjänster** . Ett fönster kan visas för att informera dig om vilka funktioner som krävs för att köra den här rollen.
-4. Fortsätt med guiden tills bekräftelse sidan. Välj **Installera**.
+4. Fortsätt med guiden tills bekräftelse sidan. Välj **installera**.
 
 Nu när du har en server som är avsedd för NPS bör du även konfigurera den här servern så att den hanterar inkommande RADIUS-begäranden från VPN-lösningen.
 
@@ -201,7 +205,7 @@ Upprepa de här stegen på eventuella ytterligare NPS-servrar som du vill konfig
 Om ditt tidigare dator certifikat har upphört att gälla och ett nytt certifikat har skapats, bör du ta bort eventuella utgångna certifikat. Certifikat som har upphört att gälla kan orsaka problem med att NPS-tillägget startar.
 
 > [!NOTE]
-> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN = \< TenantID \> , OU = Microsoft NPS-tillägg**. 
+> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN = \<TenantID\> , OU = Microsoft NPS-tillägg**. 
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government ytterligare steg
 
@@ -251,7 +255,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Standard |
+| Tangent | Värde | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -271,7 +275,7 @@ Följande skript är tillgängligt för att utföra grundläggande hälso kontro
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hur gör jag för att verifiera att klient certifikatet är installerat som det ska?
 
-Leta efter det självsignerade certifikatet som skapats av installations programmet i certifikat arkivet och kontrol lera att den privata nyckeln har behörighet för användar **nätverks tjänsten**. Certifikatet har ämnes namnet **CN \< tenantid \> , OU = Microsoft NPS-tillägg**
+Leta efter det självsignerade certifikatet som skapats av installations programmet i certifikat arkivet och kontrol lera att den privata nyckeln har behörighet för användar **nätverks tjänsten**. Certifikatet har ämnes namnet **CN \<tenantid\> , OU = Microsoft NPS-tillägg**
 
 Självsignerade certifikat som genereras av *AzureMfaNpsExtnConfigSetup. ps1* -skriptet har också en giltighets tid på två år. När du verifierar att certifikatet har installerats bör du också kontrol lera att certifikatet inte har upphört att gälla.
 

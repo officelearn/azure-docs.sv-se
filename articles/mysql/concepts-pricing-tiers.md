@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: f633c33d0d90715a940129d62cee6472d33d2106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3af5a716bc5e211a7fd3263f57f5b5e62af628ef
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100965"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488366"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
@@ -51,7 +51,7 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!NOTE]
-> Det finns stöd för lagring upp till 16TB och 20 000 IOPS i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, östra Australien.
+> Det finns stöd för lagring på upp till 16TB och 20 000 IOPS i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, östra Australien, västra USA 2 och västra centrala USA.
 >
 > Alla andra regioner stöder upp till 4 TB lagring och upp till 6000 IOPS.
 >

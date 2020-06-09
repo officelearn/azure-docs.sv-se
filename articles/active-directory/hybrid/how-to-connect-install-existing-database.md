@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7eaeece4b44c0804774a15194e19c34ce200bc80
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60245193"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558513"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server databas för att lagra data. Du kan antingen använda standard SQL Server 2012 Express-LocalDB som installerats med Azure AD Connect eller använda din egen fullständiga version av SQL. Tidigare skapades en ny databas med namnet ADSync alltid när du installerade Azure AD Connect. Med Azure AD Connect version 1.1.613.0 (eller senare) har du möjlighet att installera Azure AD Connect genom att peka den på en befintlig ADSync-databas.
@@ -76,19 +76,15 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
 1. På skärmen **Anslut dina kataloger** har den befintliga AD-skog som konfigurerats för katalogsynkronisering angetts med en röd kryssikon bredvid sig. Om du vill synkronisera ändringar från en lokal AD-skog krävs ett AD DS-konto. Azure AD Connect-guiden kan inte hämta autentiseringsuppgifter för det AD DS-konto som lagrats i ADSync-databasen eftersom autentiseringsuppgifterna krypterats och endast kan dekrypteras av den tidigare Azure AD Connect-servern. Klicka på **Ändra autentiseringsuppgifter** för att ange AD DS-kontot för AD-skogen.
    ![Kataloger](./media/how-to-connect-install-existing-database/db6.png)
  
- 
 1. I popup-fönstret kan du antingen (i) ange autentiseringsuppgifter för en företagsadministratör och låta Azure AD Connect skapa AD DS-kontot åt dig, eller (ii) skapa AD DS-kontot och ange dess autentiseringsuppgifter till Azure AD Connect. När du har valt ett alternativ och angett nödvändiga autentiseringsuppgifter klickar du på **OK** för att stänga popup-fönstret.
    ![Välkommen](./media/how-to-connect-install-existing-database/db7.png)
  
- 
 1. När autentiseringsuppgifterna har angetts ersätts den röda kryssikonen med en grön bockikon. Klicka på **Nästa**.
    ![Välkommen](./media/how-to-connect-install-existing-database/db8.png)
  
- 
 1. På skärmen **redo att konfigurera** klickar du på **Installera**.
    ![Välkommen](./media/how-to-connect-install-existing-database/db9.png)
  
- 
 1. När installationen är klar aktiveras automatiskt Azure AD Connect-servern för mellanlagringsläge. Vi rekommenderar att du läser igenom serverkonfigurationen och väntande exporter för oväntade ändringar innan du inaktiverar mellanlagringsläget. 
 
 ## <a name="post-installation-tasks"></a>Uppgifter efter installation

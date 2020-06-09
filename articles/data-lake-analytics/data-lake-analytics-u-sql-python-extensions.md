@@ -9,16 +9,17 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: d047fd62e897163bf4ab6bf7e085462b136bf8fe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60813415"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553329"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Utöka U-SQL-skript med python-kod i Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att python-tilläggen är installerade i ditt Azure Data Lake Analytics-konto.
 
@@ -32,7 +33,7 @@ Python-tillägg för U-SQL gör det möjligt för utvecklare att utföra massivt
 
 * Använd `REFERENCE ASSEMBLY` instruktionen för att aktivera python-tillägg för U-SQL-skriptet
 * Använda `REDUCE` åtgärden för att partitionera indata på en nyckel
-* Python-tilläggen för U-SQL innehåller en inbyggd minskning (`Extension.Python.Reducer`) som kör python-kod på varje hörn som har tilldelats till minskningen
+* Python-tilläggen för U-SQL innehåller en inbyggd minskning ( `Extension.Python.Reducer` ) som kör python-kod på varje hörn som har tilldelats till minskningen
 * U-SQL-skriptet innehåller den inbäddade python-kod som har en funktion `usqlml_main` som kallas för att acceptera en Pandas-DataFrame som indata och returnerar en Pandas DataFrame som utdata.
 
 --
@@ -73,7 +74,7 @@ Python-tillägg för U-SQL gör det möjligt för utvecklare att utföra massivt
 ### <a name="datatypes"></a>Data typer
 
 * Sträng och numeriska kolumner från U-SQL konverteras som-är mellan Pandas och U-SQL
-* U-SQL-nullvärden konverteras till och från Pandas `NA` -värden
+* U-SQL-nullvärden konverteras till och från Pandas- `NA` värden
 
 ### <a name="schemas"></a>Scheman
 

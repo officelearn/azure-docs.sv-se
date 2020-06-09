@@ -2,17 +2,17 @@
 title: Azure Maps som Event Grid källa
 description: Beskriver de egenskaper och schema som anges för Azure Maps händelser med Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393409"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560681"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps som en Event Grid källa
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. 
 
 Ett Azure Maps konto avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Maps. GeofenceEntered | Utlöses när de mottagna koordinaterna har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
 | Microsoft. Maps. GeofenceExited | Utlöses när de mottagna koordinaterna har flyttats från ett angivet geografiskt avgränsnings tecken till utsidan |
@@ -104,7 +104,7 @@ I följande exempel visas schema för **GeofenceResult**
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -117,7 +117,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | apiCategory | sträng | Händelsens API-kategori. |
 | apiName | sträng | Händelsens API-namn. |
@@ -127,13 +127,13 @@ Data-objektet har följande egenskaper:
 
 Objektet Error returneras när ett fel uppstår i Maps-API: et. Objektet Error har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | fel | ErrorDetails |Det här objektet returneras när ett fel uppstår i Maps-API: et  |
 
 ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDetails eller-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | kod | sträng | HTTP-statuskod. |
 | meddelande | sträng | Om det är tillgängligt kan en läslig Beskrivning av felet. |
@@ -141,13 +141,13 @@ ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDeta
 
 InnerError är ett objekt som innehåller tjänstspecifik information om felet. InnerError-objektet har följande egenskaper: 
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | kod | sträng | Fel meddelandet. |
 
 Geometries-objektet, listar geometri-ID: n för de avgränsningar som har upphört att gälla i förhållande till användar tiden i begäran. Geometries-objektet har geometri objekt med följande egenskaper: 
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |:-------- |:---- |:----------- |
 | DeviceID | sträng | ID för enhet. |
 | avstånd | sträng | <p>Avståndet från koordinaten till den närmaste kanten på den närmaste gränsen. Positivt innebär att koordinaten ligger utanför den yttre gränsen. Om koordinaten ligger utanför den yttre gränsen, men mer än värdet för searchBuffer bort från närmaste yttre gräns, är värdet 999. Negativt innebär att koordinaten ligger innanför det inre avgränsnings gränsen. Om koordinaten är inuti polygonen, men mer än värdet för searchBuffer bort från den närmaste inre gränsen, är värdet-999. Värdet 999 innebär att koordinaten är mycket stor och är väl utanför den yttre gränsen. Värdet-999 innebär att det är mycket bra förtroende att koordinaten är väl inom den andra gränsen.<p> |
@@ -158,7 +158,7 @@ Geometries-objektet, listar geometri-ID: n för de avgränsningar som har upphö
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | sträng [] | Visar en lista med geometri-ID för den avgränsning som har förfallit i förhållande till användar tiden i begäran. |
 | geometries | geometries[] |Visar en lista över avgränsnings Geometries som innehåller koordinatens placering eller överlappar searchBuffer omkring positionen. |

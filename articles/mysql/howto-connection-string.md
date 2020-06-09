@@ -6,18 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062399"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559201"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Så ansluter du program till Azure Database for MySQL
 I det här avsnittet visas de typer av anslutnings strängar som stöds av Azure Database for MySQL, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutnings strängen.
 
 - Information om hur du skaffar certifikatet finns i [så här konfigurerar du SSL](./howto-configure-ssl.md).
-- {your_host} = \<servername>. mysql.Database.Azure.com
+- {your_host} = \<servername> . mysql.Database.Azure.com
 - {your_user} @ {servername} = userID-format för autentisering på rätt sätt.  Autentiseringen fungerar inte om du bara använder userID.
 
 ## <a name="adonet"></a>ADO.NET
@@ -25,7 +26,7 @@ I det här avsnittet visas de typer av anslutnings strängar som stöds av Azure
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-I det `mydemoserver`här exemplet är Server namnet, databas namnet `wpdb`, användar namnet `WPAdmin`och lösen ordet. `mypassword!2` Därför bör anslutnings strängen vara:
+I det här exemplet är Server namnet `mydemoserver` , databas namnet `wpdb` , användar namnet `WPAdmin` och lösen ordet `mypassword!2` . Därför bör anslutnings strängen vara:
 
 ```ado.net
 Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -62,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutnings strängen från Azure Portal
-Gå till Azure Database for MySQL-servern i [Azure Portal](https://portal.azure.com)och klicka sedan på **anslutnings strängar** för att hämta sträng listan för din instans: ![fönstret anslutnings strängar i Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+Gå till Azure Database for MySQL-servern i [Azure Portal](https://portal.azure.com)och klicka sedan på **anslutnings strängar** för att hämta sträng listan för din instans: ![ fönstret anslutnings strängar i Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 Strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar. Ändra de här exemplen om du vill använda egna parametrar, till exempel databas namn, lösen ord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
 

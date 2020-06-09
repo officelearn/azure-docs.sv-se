@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9a42148bb9610b27f2c0874ffa74d9e517c2063a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84482605"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509329"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Privat länk för Azure Database for MySQL
 
@@ -115,7 +115,7 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 Om du bara vill använda privata slut punkter för att komma åt sina Azure Database for MySQL, kan du inaktivera inställningen alla offentliga slut punkter (t. ex. [brand Väggs regler](concepts-firewall-rules.md) och [VNet-slutpunkter](concepts-data-access-and-security-vnet.md)) genom att ange den **nekade konfigurationen för offentlig nätverks åtkomst** på databas servern. 
 
-När den här inställningen är inställd på *Ja*, tillåts bara anslutningar via privata slut punkter till din Azure Database for MySQL. När den här inställningen är inställd på *Nej*kan klienter ansluta till din Azure Database for MySQL baserat på inställningarna för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan du dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler för brand vägg och VNet-tjänst.
+När den här inställningen är inställd på *Ja*, tillåts bara anslutningar via privata slut punkter till din Azure Database for MySQL. När den här inställningen är inställd på *Nej*kan klienter ansluta till din Azure Database for MySQL baserat på inställningarna för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan kunder dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler och VNet-tjänstens slut punkts regler.
 
 > [!Note]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL-enskild server stöder Generell användning och minnesoptimerade pris nivåer.

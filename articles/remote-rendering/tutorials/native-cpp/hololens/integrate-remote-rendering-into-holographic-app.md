@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: e68cbe664facbd63153171b7d9be2cbf4850b56f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 75f041d8ec149c67c82744a87e0812b19a22bcb1
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434407"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508530"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Självstudie: integrera fjärrrendering i en HoloLens Holographic-app
 
@@ -26,7 +26,7 @@ Den här självstudien fokuserar på att lägga till nödvändiga bitar i ett in
 > [!TIP]
 > [Databasen arr samples](https://github.com/Azure/azure-remote-rendering) innehåller resultatet av den här självstudien som ett Visual Studio-projekt som är klart att använda. Det är också berikat med korrekt fel-och status rapportering via användar gränssnitts klass `StatusDisplay` . I självstudien är alla arr-speciella tillägg begränsade `#ifdef USE_REMOTE_RENDERING`  /  `#endif` till, så det är enkelt att identifiera tillägg för fjärrrendering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudien behöver du:
 
@@ -490,16 +490,22 @@ HolographicFrame HolographicAppMain::Update()
 
 ### <a name="rendering"></a>Rendering
 
-Det sista du gör är att anropa åter givningen av fjärrinnehållet. Vi måste göra detta samtal i den exakta högra positionen i åter givnings pipelinen när åter givnings målet är klart. Infoga följande kodfragment i `UseHolographicCameraResources` funktionen lock inuti `HolographicAppMain::Render` :
+Det sista du gör är att anropa åter givningen av fjärrinnehållet. Vi måste göra det här anropet i den exakta högra positionen i åter givnings pipelinen, efter att åter givnings målet är klart och anger visnings området. Infoga följande kodfragment i `UseHolographicCameraResources` funktionen lock inuti `HolographicAppMain::Render` :
 
 ```cpp
         ...
         // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+        
+        // ...
+
+        // Exiting check to test for valid camera:
+        bool cameraActive = pCameraResources->AttachViewProjectionBuffer(m_deviceResources);
+
 
         // Inject remote rendering: as soon as we are connected, start blitting the remote frame.
         // We do the blitting after the Clear, and before cube rendering.
-        if (m_isConnected)
+        if (m_isConnected && cameraActive)
         {
             m_graphicsBinding->BlitRemoteFrame();
         }

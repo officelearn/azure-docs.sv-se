@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655519"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555130"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -31,21 +31,25 @@ För att tillhandahålla program, tjänster eller enheter åtkomst till en centr
     * Mer information om Azure AD finns i [Vad är Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** – tillhandahåller hanterade domän tjänster med en del av fullständigt kompatibla, vanliga AD DS-funktioner som domän anslutning, grup princip, LDAP och KERBEROS/NTLM-autentisering.
     * Azure AD DS integreras med Azure AD, som i sig kan synkroniseras med en lokal AD DS-miljö. Den här möjligheten utökar centrala identitets användnings fall till traditionella webb program som körs i Azure som en del av en lyft-och-Shift-strategi.
+    * Om du vill veta mer om synkronisering med Azure AD och lokalt, se [hur objekt och autentiseringsuppgifter synkroniseras i en hanterad domän][synchronization].
 
 I den här översikts artikeln jämförs och kontrasterar vi hur dessa identitets lösningar kan fungera tillsammans eller används oberoende av varandra, beroende på organisationens behov.
 
-Kom igång genom att [skapa en Azure AD DS-hanterad domän med hjälp av Azure Portal][tutorial-create].
+> [!div class="nextstepaction"]
+> [Kom igång genom att skapa en Azure AD DS-hanterad domän med hjälp av Azure Portal][tutorial-create]
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS och själv hanterad AD DS
 
 Om du har program och tjänster som behöver åtkomst till traditionella autentiseringsmekanismer, till exempel Kerberos eller NTLM, finns det två sätt att tillhandahålla Active Directory Domain Services i molnet:
 
-* En *hanterad* domän som du skapar med hjälp av Azure Active Directory Domain Services (Azure AD DS). Microsoft skapar och hanterar de resurser som krävs.
+* En *hanterad domän* som du skapar med hjälp av Azure Active Directory Domain Services (Azure AD DS). Microsoft skapar och hanterar de resurser som krävs.
 * En *egen hanterad* domän som du skapar och konfigurerar med hjälp av traditionella resurser, till exempel virtuella datorer, Windows Server gäst operativ system och Active Directory Domain Services (AD DS). Sedan fortsätter du att administrera resurserna.
 
 Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en *hanterad* domän upplevelse. Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs).
 
-Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader.
+Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. Du kan fortfarande [skapa skogs förtroenden mellan Azure AD DS och lokala miljöer (för närvarande i för hands version)][create-forest-trust].
+
+För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader. Mer information finns i [hanterings begrepp för användar konton, lösen ord och administration i Azure AD DS][administration-concepts].
 
 När du distribuerar och kör en självhanterad AD DS-miljö måste du upprätthålla alla associerade infrastruktur-och katalog komponenter. Det finns ytterligare underhålls kostnader med en självhanterad AD DS-miljö, men du kan sedan utföra ytterligare åtgärder, till exempel utöka schemat eller skapa skogs förtroenden.
 
@@ -94,7 +98,7 @@ Enheter kan anslutas till Azure AD med eller utan en hybrid distribution som inn
 
 | **Typ av enhet**                                        | **Enhetsplattformar**             | **Tillhandahållande**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| Personliga enheter                                          | Windows 10, iOS, Android, Mac OS | Azure AD-registrerad    |
+| Personliga enheter                                          | Windows 10, iOS, Android, macOS | Azure AD-registrerad    |
 | Den företagsägda enheten är inte ansluten till en lokal AD DS | Windows 10                       | Azure AD-ansluten        |
 | Företagsägda enheter som är anslutna till en lokal AD DS  | Windows 10                       | Hybrid Azure AD-ansluten |
 
@@ -115,6 +119,8 @@ Med Azure AD DS-anslutna enheter kan program använda Kerberos-och NTLM-protokol
 
 Kom igång med att använda Azure AD DS genom att [skapa en Azure AD DS-hanterad domän med hjälp av Azure Portal][tutorial-create].
 
+Du kan också lära dig mer om [hanterings koncept för användar konton, lösen ord och administration i Azure AD DS][administration-concepts] och [hur objekt och autentiseringsuppgifter synkroniseras i en hanterad domän][synchronization].
+
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
 [deploy-kcd]: deploy-kcd.md
@@ -124,3 +130,6 @@ Kom igång med att använda Azure AD DS genom att [skapa en Azure AD DS-hanterad
 [tutorial-create]: tutorial-create-instance.md
 [whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[create-forest-trust]: tutorial-create-forest-trust.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

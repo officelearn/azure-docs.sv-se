@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ad9c0f29ee10197c4dafe6ca24ee4df7b7afdb88
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: fec11b930be0487a7fbc0968c3c8a8003a2fb911
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485366"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559267"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
 Den här självstudien innehåller instruktioner om hur du använder Azure Cosmos DBs utförar Java-bibliotek för att importera och uppdatera Azure Cosmos DB dokument. Om du vill lära dig mer om bulk utförar Library och hur det hjälper dig att använda massivt data flöde och lagring, se [översikts](bulk-executor-overview.md) artikel för utförar-bibliotek. I den här självstudien skapar du ett Java-program som genererar slumpmässiga dokument och de har Mass importer ATS till en Azure Cosmos-behållare. När du har importerat kan du uppdatera vissa egenskaper för ett dokument. 
 
-För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Mer information om hur du använder bulk utförar .NET-bibliotek med Gremlin API finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md). Det bulk utförar-bibliotek som beskrivs är tillgängligt för program som använder Java SDK 2. x-versionen. Den är för närvarande inte tillgänglig för de 3. x, 4. x eller andra högre SDK-versionerna.
+För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Mer information om hur du använder bulk utförar .NET-bibliotek med Gremlin API finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md). Det samlings utförar-bibliotek som beskrivs är tillgängligt endast för [Azure Cosmos DB Java-synkronisering SDK v2](sql-api-sdk-java.md) och det är den aktuella rekommenderade lösningen för Java Mass stöd. Den är för närvarande inte tillgänglig för de 3. x, 4. x eller andra högre SDK-versionerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 

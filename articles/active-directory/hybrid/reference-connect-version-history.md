@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 53ac540950dc6f64107ee20448b2c24981837b05
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725303"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558511"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -1055,7 +1055,7 @@ Azure AD Connect-synkronisering
 
 Enkel inloggning på Skriv bordet
 
-* Azure AD Connect guiden kräver inte längre port 9090 för att kunna öppnas i nätverket när du konfigurerar direktautentisering och skriv bords inloggning. Endast port 443 krävs. 
+* Azure AD Connect guiden kräver inte längre port 9090 för att kunna öppnas i nätverket när du konfigurerar direktautentisering och skriv bords inloggning. Endast port 443 krävs.
 
 ## <a name="114430"></a>1.1.443.0
 Lanserad: mars 2017

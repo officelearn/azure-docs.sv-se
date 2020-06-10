@@ -10,12 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 1071f3dabf7148381edecedce495f645c52e748d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378559"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610261"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -64,13 +65,13 @@ I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
 
 ## <a name="detect-languages"></a>Identifiera språk
 
-Lägg `/text/analytics/v2.1/languages` till i textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+Lägg till i `/text/analytics/v2.1/languages` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
-Nytto lasten till API: et består av en `documents`lista över, som är tupler `id` som innehåller `text` ett och ett-attribut. `text` Attributet lagrar texten som ska analyseras och `id` kan vara vilket värde som helst. 
+Nytto lasten till API: et består av en lista över `documents` , som är tupler som innehåller ett `id` och ett- `text` attribut. `text`Attributet lagrar texten som ska analyseras och `id` kan vara vilket värde som helst. 
 
 ```python
 documents = {"documents": [
@@ -80,7 +81,7 @@ documents = {"documents": [
 ]}
 ```
 
-Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och skicka begäran med `requests.post()`. 
+Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och skicka begäran med `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -133,13 +134,13 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument `/text/analytics/v2.1/sentiment` lägger du till textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument lägger du till `/text/analytics/v2.1/sentiment` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
-Som med språk identifierings exemplet skapar du en ord lista med `documents` en nyckel som består av en lista med dokument. Varje dokument är en tuppel som består av `id`, `text` som ska analyseras och textens `language`. 
+Som med språk identifierings exemplet skapar du en ord lista med en `documents` nyckel som består av en lista med dokument. Varje dokument är en tuppel som består av `id`, `text` som ska analyseras och textens `language`. 
 
 ```python
 documents = {"documents": [
@@ -154,7 +155,7 @@ documents = {"documents": [
 ]}
 ```
 
-Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och skicka begäran med `requests.post()`. 
+Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och skicka begäran med `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -195,7 +196,7 @@ Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poän
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
  
-Extrahera nyckel fraserna från en uppsättning dokument genom att lägga `/text/analytics/v2.1/keyPhrases` till i textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
+Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v2.1/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
@@ -216,7 +217,7 @@ documents = {"documents": [
 ]}
 ```
 
-Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och skicka begäran med `requests.post()`. 
+Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och skicka begäran med `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -271,7 +272,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga `/text/analytics/v2.1/entities` till i textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga till i `/text/analytics/v2.1/entities` textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"
@@ -285,7 +286,7 @@ documents = {"documents": [
 ]}
 ```
 
-Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och skicka begäran med `requests.post()`.
+Använd begär ande biblioteket för att skicka dokumenten till API: et. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och skicka begäran med `requests.post()` .
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}

@@ -15,8 +15,6 @@
       href: provision-vm.md
     - name: Skapa en Data Science Virtual Machine med Ubuntu
       href: dsvm-ubuntu-intro.md
-- name: Självstudier
-  items:
     - name: Skapa en DSVM med en ARM-mall
       displayName: Resource Manager
       href: dsvm-tutorial-resource-manager.md

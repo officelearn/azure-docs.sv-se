@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Synapse
-description: Vanliga frågor och svar om Azure Synapse Analytics
+title: Vanliga frågor och svar om Azure Synapse Analytics (för hands versioner av arbets ytor)
+description: Vanliga frågor och svar om Azure Synapse Analytics (för hands versioner av arbets ytor)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118393"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609156"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics (förhandsgranska arbets yta)
+# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (för hands versioner av arbets ytor) vanliga frågor och svar
 
 I den här guiden hittar du de vanligaste frågorna för Synapse-analys.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 3af744c7ce73544fa35af79a7904701a74241aab
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555171"
+ms.locfileid: "84634941"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Snabb start: skapa ett Sök index i .NET
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du skapar programmet steg för steg. Du kan ocks
 > [!NOTE]
 > Demo koden i den här artikeln använder de synkrona metoderna i Azure Kognitiv sökning .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi dock att du använder de asynkrona metoderna i dina egna program för att hålla dem skalbara och tillgängliga. Du kan till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete` .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
@@ -72,7 +72,7 @@ För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet
 
 1. Klicka på **Browse** (Bläddra).
 
-1. Sök efter `Microsoft.Azure.Search` och välj version 9.0.1 eller senare.
+1. Sök efter `Microsoft.Azure.Search` och välj version 9.0.1 eller senare (den senaste stabila versionen är 10.1.0).
 
 1. Klicka på **Installera** till höger för att lägga till sammansättningen i projektet och lösningen.
 
@@ -89,26 +89,27 @@ För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet
 
 1. Lägg till filen i utmatnings katalogen. Högerklicka på appSettings. JSON och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
 
-1. Kopiera följande JSON till din nya JSON-fil. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. Om tjänstens slut punkt är är `https://mydemo.search.windows.net` tjänstens namn "demonstration".
+1. Kopiera följande JSON till din nya JSON-fil. 
 
-```json
-{
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchIndexName": "hotels-quickstart"
-}
-```
+    ```json
+    {
+      "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+      "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+      "SearchIndexName": "hotels-quickstart"
+    }
+    ```
+
+1. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. Om tjänstens slut punkt är är `https://mydemo.search.windows.net` tjänstens namn "demonstration".
 
 ### <a name="add-class-method-files-to-your-project"></a>Lägg till klass ". Metod "filer till projektet
 
-När du skriver ut resultat till konsol fönstret måste enskilda fält från hotell-objektet returneras som strängar. Du kan implementera [toString ()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) för att utföra den här uppgiften genom att kopiera den nödvändiga koden till två nya filer.
+Det här steget krävs för att skapa meningsfulla utdata i-konsolen. När du skriver ut resultat till konsol fönstret måste enskilda fält från hotell-objektet returneras som strängar. I det här steget implementeras [toString ()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) för att utföra den här uppgiften, vilket du gör genom att kopiera den nödvändiga koden till två nya filer.
 
 1. Lägg till två tomma klass definitioner i projektet: Address.Methods.cs, Hotel.Methods.cs
 
-1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
+1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
 
-1. Kopiera [raderna 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66)i Hotel.Methods.cs.
-
+1. Kopiera [raderna 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68)i Hotel.Methods.cs.
 
 ## <a name="1---create-index"></a>1 – Skapa index
 
@@ -273,7 +274,7 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
             // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
             private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
             {
-                var definition = new Index()
+                var definition = new Microsoft.Azure.Search.Models.Index()
                 {
                     Name = indexName,
                     Fields = FieldBuilder.BuildForType<Hotel>()

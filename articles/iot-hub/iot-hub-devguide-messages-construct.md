@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 77145c691f5b2b6364de64e491aac3c84495d464
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0fe167490cd466ca30857c2ed324846e80ab581d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726136"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635602"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -79,7 +79,6 @@ Systemets egenskaps namn varierar beroende på slut punkten som meddelandena dir
 |System egenskaps namn|Event Hubs|Azure Storage|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |Meddelande-ID|meddelande-ID|messageId|Meddelande|meddelande-ID|
-|IoT Hub, omplacerad tid|iothub – enqueuedtime|enqueuedTime|iothub – enqueuedtime|iothub – enqueuedtime|
 |Användar-id|användar-id|userId|UserId|användar-id|
 |Anslutnings enhets-ID|iothub-Connection-Device-ID| connectionDeviceId|iothub-Connection-Device-ID|iothub-Connection-Device-ID|
 |ID för anslutnings modul|iothub-Connection-module-ID|connectionModuleId|iothub-Connection-module-ID|iothub-Connection-module-ID|

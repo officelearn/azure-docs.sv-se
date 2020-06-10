@@ -3,13 +3,14 @@ title: 'Snabb start: skapa och använda inlärnings slinga med SDK – personanp
 description: Den här snabb starten visar hur du skapar och hanterar din kunskaps bas med hjälp av klient-SDK.
 ms.topic: quickstart
 ms.date: 04/27/2020
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4706e93470134751ade5f16e46a4323fd690f94
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188894"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608646"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Snabb start: klient bibliotek för Personanpassare
 
@@ -36,7 +37,7 @@ Kom igång med personanpassa klient biblioteket. Följ de här stegen för att i
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

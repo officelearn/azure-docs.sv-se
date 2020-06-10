@@ -3,17 +3,17 @@ title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997136"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554563"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -152,7 +152,7 @@ Vyer för amorterad och faktisk kostnad för reserverade instanser i RBAC-omfån
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnadsanalys
 
-Partner med åtkomst till faktureringsomfång i partnerns klientorganisation kan visa och analysera fakturerade kostnader i kostnadsanalys för alla kunder för en specifik kund eller för en faktura. I vyn [Kostnadsanalys](quick-acm-cost-analysis.md) kan du också [spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till [CSV- och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Partner med åtkomst till faktureringsomfång i partnerns klientorganisation kan visa och analysera fakturerade kostnader i kostnadsanalys för alla kunder för en specifik kund eller för en faktura. I vyn [Kostnadsanalys](quick-acm-cost-analysis.md) kan du också [spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till [CSV- och PNG-filer](quick-acm-cost-analysis.md#download-usage-data).
 
 RBAC-användare med åtkomst till prenumerationen i kundens klientorganisation kan också analysera återförsäljarkostnader för prenumerationer i kundens klientorganisation, spara vyer och exportera data till CSV- och PNG-filer.
 

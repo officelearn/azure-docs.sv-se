@@ -10,12 +10,13 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 1f004fe1dae58faaded0b872dcdebdb4e9af66aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 30897e1bdd5d139d3a11980430cbcc6b10052ecc
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193011"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608493"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 
@@ -82,7 +83,7 @@ Fil beskrivningar:
 
 I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. Dessa värden finns på **[konfigurations](how-to-settings.md#configure-service-settings-in-the-azure-portal)** sidan.
 
-|Inställning|Värde|
+|Inställningen|Värde|
 |--|--|
 |uppdaterings modell frekvens|15 sekunder|
 |vänte tid för belöning|15 sekunder|
@@ -91,12 +92,12 @@ Dessa värden har en mycket kort varaktighet för att kunna visa ändringar i de
 
 ## <a name="set-up-the-azure-notebook"></a>Konfigurera Azure Notebook
 
-1. Ändra kärnan till `Python 3.6`.
+1. Ändra kärnan till `Python 3.6` .
 1. Öppna filen `Personalizer.ipynb`.
 
 ## <a name="run-notebook-cells"></a>Kör Notebook-celler
 
-Kör varje körbar cell och vänta tills den returneras. Du vet att det är klart när hakparenteserna bredvid cellen visar ett tal i stället för en `*`. I följande avsnitt förklaras hur varje cell program mässigt och vad som är förväntat för utdata.
+Kör varje körbar cell och vänta tills den returneras. Du vet att det är klart när hakparenteserna bredvid cellen visar ett tal i stället för en `*` . I följande avsnitt förklaras hur varje cell program mässigt och vad som är förväntat för utdata.
 
 ### <a name="include-the-python-modules"></a>Ta med python-moduler
 
@@ -135,7 +136,7 @@ def currentDateTime():
 
 ### <a name="get-the-last-model-update-time"></a>Hämta den senaste uppdaterings tiden för modellen
 
-När funktionen, `get_last_updated`, anropas, skriver funktionen ut det senast ändrade datum och tidpunkt då modellen uppdaterades.
+När funktionen, `get_last_updated` , anropas, skriver funktionen ut det senast ändrade datum och tidpunkt då modellen uppdaterades.
 
 Dessa celler har inga utdata. Funktionen utvärderar den senaste modell inlärnings datumet när det anropades.
 
@@ -197,8 +198,8 @@ Den här cellen
 * ställer in säkerhets huvud med hjälp av din personanpassa resurs nyckel
 * anger det slumpmässiga Dirigerings-ID: t för rang händelse-ID
 * läser i JSON-datafilerna
-* anrops `get_last_updated` Metod – inlärnings principen har tagits bort i exempel på utdata
-* anrops `get_service_settings` Metod
+* anrops `get_last_updated` metod – inlärnings principen har tagits bort i exempel på utdata
+* anrops `get_service_settings` metod
 
 Cellen har utdata från anropet till `get_last_updated` och `get_service_settings` functions.
 
@@ -262,7 +263,7 @@ Coffee count 4
 
 ### <a name="troubleshooting-the-first-rest-call"></a>Felsöka det första REST-anropet
 
-Den här föregående cellen är den första cellen som anropar till Personanpassaren. Se till att REST-statuskoden i utdata är `<Response [200]>`. Om du får ett fel meddelande, till exempel 404, men du är säker på att resurs nyckeln och namnet är rätt, laddar du om antecknings boken.
+Den här föregående cellen är den första cellen som anropar till Personanpassaren. Se till att REST-statuskoden i utdata är `<Response [200]>` . Om du får ett fel meddelande, till exempel 404, men du är säker på att resurs nyckeln och namnet är rätt, laddar du om antecknings boken.
 
 Se till att antalet kaffe och användare är båda fyra. Om du får ett fel meddelande kontrollerar du att du har laddat upp alla tre JSON-filer.
 
@@ -348,7 +349,7 @@ def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, r
 
 Den här funktionen lägger till hela listan över kaffe till det JSON-objekt som ska skickas till ranknings förfrågan.
 
-Cellen har inga utdata. Funktionen ändrar när den `rankjsonobj` anropas.
+Cellen har inga utdata. Funktionen ändrar `rankjsonobj` när den anropas.
 
 
 Exemplet på en enskild kaffe funktion är:
@@ -391,7 +392,7 @@ Nästa cell är det _huvudsakliga_ arbetet i antecknings boken, en slumpmässig 
 
 Loopen körs för `num_requests` gånger. En personanpassare behöver några tusen anrop för att rangordna och belöna att skapa en modell.
 
-Ett exempel på JSON som skickas till ranknings-API: et följer. Listan över kaffe är inte fullständig, för det kortfattat. Du kan se hela JSON för kaffe i `coffee.json`.
+Ett exempel på JSON som skickas till ranknings-API: et följer. Listan över kaffe är inte fullständig, för det kortfattat. Du kan se hela JSON för kaffe i `coffee.json` .
 
 JSON skickas till ranknings-API: et:
 
@@ -548,7 +549,7 @@ jsonTemplate = rankactionsjsonobj
 
 ## <a name="chart-results-to-see-improvement"></a>Diagram resultat för att se förbättring
 
-Skapa ett diagram från `count` och. `rewards`
+Skapa ett diagram från `count` och `rewards` .
 
 ```python
 def createChart(x, y):
@@ -607,7 +608,7 @@ Läs mer om [belönings vänte tid](concept-rewards.md#reward-wait-time) och [mo
 get_service_settings()
 ```
 
-Kontrol lera att `rewardWaitTime` utmatningen `modelExportFrequency` och båda har värdet 5 minuter.
+Kontrol lera att utmatningen `rewardWaitTime` och `modelExportFrequency` båda har värdet 5 minuter.
 ```console
 -----checking model
 <Response [200]>

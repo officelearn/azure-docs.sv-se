@@ -10,12 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: ce0e72545c8ecd82b78d437f2c4939aff6930c3d
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: tracking-python
+ms.openlocfilehash: 65994313549c1744da58c5d63a70e803777f7f53
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993566"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611094"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och python
 
@@ -23,7 +24,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Python [3. x](https://www.python.org)
 

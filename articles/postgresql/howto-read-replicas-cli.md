@@ -5,17 +5,28 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: b10ac3b4bc9dacd723b8b1265911df721b781189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: e9be14548704557b4bdd39119294671852040348
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774808"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636588"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
 I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for PostgreSQL med hjälp av Azure CLI och REST API. Mer information om Läs repliker finns i [översikten](concepts-read-replicas.md).
+
+## <a name="azure-replication-support"></a>Stöd för Azure-replikering
+[Läsning av repliker](concepts-read-replicas.md) och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
+
+Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:
+
+* **Off** – lägger till minst information i Wal. Den här inställningen är inte tillgänglig på de flesta Azure Database for PostgreSQL-servrar.  
+* **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
+* **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
+
+Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
 
 ## <a name="azure-cli"></a>Azure CLI
 Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
@@ -27,22 +38,20 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 
 ### <a name="prepare-the-master-server"></a>Förbered huvud servern
-De här stegen måste användas för att förbereda en huvud server i Generell användning-eller minnesoptimerade nivåer.
 
-`azure.replication_support` Parametern måste anges till **replik** på huvud servern. När den här statiska parametern ändras krävs en omstart av servern för att ändringen ska börja gälla.
+1. Kontrol lera huvud serverns `azure.replication_support` värde. Det måste vara minst replik för att Läs repliker ska fungera.
 
-1. Ställ `azure.replication_support` in på replik.
+   ```azurecli-interactive
+   az postgres server configuration show --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support
+   ```
+
+2. Om `azure.replication_support` inte är minst replik anger du det. 
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
-> [!NOTE]
-> Om du får felet "ogiltigt värde angav" vid försök att ställa in Azure. replication_support från Azure CLI, är det sannolikt att servern redan har replik uppsättning som standard. En bugg förhindrar att den här inställningen visas korrekt på nyare servrar där REPLIKen är den interna standarden. <br><br>
-> Du kan hoppa över förbereda huvud stegen och gå till skapa repliken. <br><br>
-> Om du vill kontrol lera att servern finns i den här kategorin går du till sidan för serverns replikering i Azure Portal. "Inaktivera replikering" kommer att tonas ut och "Lägg till replik" kommer att aktive ras i verktygsfältet.
-
-2. Starta om servern för att tillämpa ändringen.
+3. Starta om servern för att tillämpa ändringen.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -56,7 +65,7 @@ Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Resurs gruppen där replik servern kommer att skapas.  |
 | name | mydemoserver-replik | Namnet på den nya replik servern som skapas. |
-| source-server | mydemoserver | Namnet eller resurs-ID: t för den befintliga huvud server som ska replikeras från. |
+| source-server | mydemoserver | Namnet eller resurs-ID: t för den befintliga huvud server som ska replikeras från. Använd resurs-ID om du vill att repliken och originalets resurs grupper ska vara olika. |
 
 I CLI-exemplet nedan skapas repliken i samma region som huvud servern.
 
@@ -64,7 +73,7 @@ I CLI-exemplet nedan skapas repliken i samma region som huvud servern.
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-Använd parametern om du vill skapa en skrivskyddad replik `--location` av en kors region. CLI-exemplet nedan skapar repliken i USA, västra.
+Använd parametern om du vill skapa en skrivskyddad replik av en kors region `--location` . CLI-exemplet nedan skapar repliken i USA, västra.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -109,11 +118,14 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/azure/).
 
 ### <a name="prepare-the-master-server"></a>Förbered huvud servern
-De här stegen måste användas för att förbereda en huvud server i Generell användning-eller minnesoptimerade nivåer.
 
-`azure.replication_support` Parametern måste anges till **replik** på huvud servern. När den här statiska parametern ändras krävs en omstart av servern för att ändringen ska börja gälla.
+1. Kontrol lera huvud serverns `azure.replication_support` värde. Det måste vara minst replik för att Läs repliker ska fungera.
 
-1. Ställ `azure.replication_support` in på replik.
+   ```http
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
+   ```
+
+2. Om `azure.replication_support` inte är minst replik anger du det.
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01

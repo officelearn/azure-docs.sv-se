@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257828"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629373"
 ---
 # <a name="service-updates-in-site-recovery"></a>Tjänst uppdateringar i Site Recovery
 
@@ -90,14 +90,13 @@ I det här scenariot rekommenderar vi starkt att du [aktiverar automatiska uppda
 - Under aktiveringen av replikering.
 - Genom att ange inställningar för tilläggs uppdatering i valvet.
 
-Om du vill hantera uppdateringar manuellt gör du följande:
+Om du vill hantera uppdateringar manuellt kan du välja något av följande alternativ:
 
-1. I valvet > **replikerade objekt**klickar du på det här meddelandet överst på skärmen: 
+1. När en ny agent uppdatering är tillgänglig tillhandahåller Site Recovery ett meddelande i valvet mot sidans överkant. I valvet > **replikerade objekt**klickar du på det här meddelandet överst på skärmen: 
     
-    **Det finns en ny Site Recovery uppdatering av replikeringsprincipen. Klicka om du vill installera >**
+    **Det finns en ny Site Recovery uppdatering av replikeringsprincipen. Klicka om du vill installera >** <br/><br/>Välj de virtuella datorer som du vill använda uppdateringen för och klicka sedan på **OK**.
 
-4. Välj de virtuella datorer som du vill använda uppdateringen för och klicka sedan på **OK**.
-
+2. På översikts sidan för översikt över virtuella datorer hittar du fältet "agent status" som kommer att säga "kritisk uppgradering" om agenten upphör att gälla. Klicka på den och följ de efterföljande anvisningarna för att uppgradera den virtuella datorn manuellt.
 
 ## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Katastrof återställning av VMware VM/fysisk server till Azure
 

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 14c5413939deeedfd7c4e894b1919031062bf13a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67148353"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610618"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Felsök problem med data kopiering i Azure Data Box Disk
 
@@ -36,7 +36,7 @@ Att montera om en enhet som lässkyddad fungerar inte med Data Box-enhet diskar.
 
 Även om ommonteringen lyckades behålls inte data.
 
-**Upplösning**
+**Lösning**
 
 Utför följande steg i Linux-systemet:
 
@@ -76,7 +76,7 @@ Utför följande steg i Linux-systemet:
 
 Om du ser att enheten inte har data när den har demonterats (även om data har kopierats till den) är det möjligt att du har monterat om en enhet som Läs-och Skriv behörighet när enheten monterats som skrivskyddad.
 
-**Upplösning**
+**Lösning**
  
 I så fall, se lösningarna för [enheter som är monterade i skrivskyddat läge](#issue-drive-getting-mounted-as-read-only).
 

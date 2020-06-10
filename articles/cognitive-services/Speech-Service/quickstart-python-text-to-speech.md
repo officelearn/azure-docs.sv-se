@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 525417bd83a1d30479fd3effbce690ed04d9af73
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400823"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608015"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Konvertera text till tal med python
 
@@ -26,7 +27,7 @@ Den här artikeln kräver ett [Azure Cognitive Services-konto](https://docs.micr
 ## <a name="prerequisites"></a>Krav
 
 * Python 2.7.x eller 3.x
-* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>eller din favorit text redigerare
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span> </a>eller din favorit text redigerare
 * En Azure-prenumerations nyckel för tal tjänsten
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
@@ -67,15 +68,15 @@ class TextToSpeech(object):
         self.access_token = None
 ```
 
-`subscription_key` Är din unika nyckel från Azure Portal. `tts`användaren uppmanas att ange text som ska konverteras till tal. Den här indatamängden är en tecken sträng, så tecknen behöver inte vara undantagna. Slutligen `timestr` hämtar den aktuella tiden som vi ska använda för att namnge din fil.
+`subscription_key`Är din unika nyckel från Azure Portal. `tts`användaren uppmanas att ange text som ska konverteras till tal. Den här indatamängden är en tecken sträng, så tecknen behöver inte vara undantagna. Slutligen `timestr` hämtar den aktuella tiden som vi ska använda för att namnge din fil.
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal-REST API kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Det här exemplet utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken `issueToken` med hjälp av slut punkten.
+Text till tal-REST API kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Det här exemplet utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken med hjälp av `issueToken` slut punkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Uppdatera värdet för `fetch_token_url`om du använder en annan region. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Uppdatera värdet för om du använder en annan region `fetch_token_url` . En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
-Kopiera den här koden till `TextToSpeech` -klassen:
+Kopiera den här koden till- `TextToSpeech` klassen:
 
 ```python
 def get_token(self):
@@ -92,19 +93,19 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran och sparar tal svaret. Först måste du ange `base_url` och. `path` I det här exemplet förutsätter vi att du använder slut punkten västra USA. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran och sparar tal svaret. Först måste du ange `base_url` och `path` . I det här exemplet förutsätter vi att du använder slut punkten västra USA. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url` . Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Därefter måste du lägga till nödvändiga rubriker för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure Portal) och Ställ in `X-Microsoft-OutputFormat` på önskad ljud uppspelning. En fullständig lista över utdataformat finns i [ljud utmatningar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Konstruera sedan begär ande texten med hjälp av tal syntes Markup Language (SSML). Det här exemplet definierar strukturen och använder `tts` indatamängden som du skapade tidigare.
 
 >[!NOTE]
-> I `Guy24kRUS` det här exemplet används röst teckensnittet. En fullständig lista över de röster/språk som tillhandahålls av Microsoft finns i [språk stöd](language-support.md).
+> I det här exemplet används `Guy24kRUS` röst teckensnittet. En fullständig lista över de röster/språk som tillhandahålls av Microsoft finns i [språk stöd](language-support.md).
 > Om du är intresse rad av att skapa en unik, identifierbar röst för ditt varumärke, se [skapa anpassade röst teckensnitt](how-to-customize-voice-font.md).
 
 Slutligen ska du skapa en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs tal svaret till en tidsstämplad fil.
 
-Kopiera den här koden till `TextToSpeech` -klassen:
+Kopiera den här koden till- `TextToSpeech` klassen:
 
 ```python
 def save_audio(self):

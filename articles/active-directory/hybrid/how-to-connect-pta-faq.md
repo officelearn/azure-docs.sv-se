@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0178d95072bec7af60fa500e662abdd9698c72d0
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406884"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635755"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -44,7 +44,7 @@ Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azur
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
-Inloggning med ett icke-UPN-värde, till exempel ett alternativt e-postmeddelande, testas för närvarande i privat för hands version för både direktautentisering (PTA) och PHS (Password hash Sync).
+Ja, inloggning med ett icke-UPN-värde, till exempel ett alternativt e-postmeddelande, stöds för både direktautentisering (PTA) och PHS (Password hash Sync). För ytterligare information om [alternativt inloggnings-ID](../authentication/howto-authentication-use-email-signin.md).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Fungerar hash-synkronisering av lösen ord som reserv för direktautentisering?
 
@@ -87,7 +87,7 @@ Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverat i din lokala miljö försö
 Om du inte har WPAD i din miljö kan du lägga till proxyinformation (enligt nedan) så att en direktautentisering kan kommunicera med Azure AD:
 - Konfigurera proxyinformation i Internet Explorer innan du installerar agenten för direkt autentisering på servern. Detta gör att du kan slutföra installationen av Autentiseringstjänsten, men den visas fortfarande som **inaktiv** på administrations portalen.
 - På-servern navigerar du till "C:\Program\Microsoft Azure AD Connect Authentication agent".
-- Redigera konfigurations filen "AzureADConnectAuthenticationAgentService" och Lägg till följande rader (Ersätt "http\://contosoproxy.com:8080" med din faktiska proxyadress):
+- Redigera konfigurations filen "AzureADConnectAuthenticationAgentService" och Lägg till följande rader (Ersätt "http \: //contosoproxy.com:8080" med din faktiska proxyadress):
 
 ```
    <system.net>

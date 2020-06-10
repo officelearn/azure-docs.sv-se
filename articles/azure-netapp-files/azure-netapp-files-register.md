@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64e47d9617e300ef114fb8d07517be46dbc859e3
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274065"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636231"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du registrerar dig för Azure NetApp F
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Skicka en Waitlist-begäran om åtkomst till tjänsten
 
-1. Skicka en Waitlist-begäran om att få åtkomst till Azure NetApp Files tjänsten via sidan för att [skicka Azure NetApp Files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Skicka en Waitlist-begäran om att få åtkomst till Azure NetApp Files tjänsten via sidan för att [skicka Azure NetApp Files Waitlist](https://aka.ms/azurenetappfiles). 
 
     Waitlist-registrering garanterar inte omedelbar åtkomst till tjänsten. 
 
@@ -65,7 +65,7 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
        
    `<SubID>` är ditt prenumerations-ID.
 
-    Om du inte ser funktions namnet `Microsoft.NetApp/ANFGA`har du inte åtkomst till tjänsten. Stoppa i det här steget. Följ anvisningarna i [skicka en Waitlist-begäran om åtkomst till tjänsten](#waitlist) för att begära åtkomst till tjänsten innan du fortsätter. 
+    Om du inte ser funktions namnet `Microsoft.NetApp/ANFGA` har du inte åtkomst till tjänsten. Stoppa i det här steget. Följ anvisningarna i [skicka en Waitlist-begäran om åtkomst till tjänsten](#waitlist) för att begära åtkomst till tjänsten innan du fortsätter. 
 
 4. I Azure Cloud Shell-konsolen anger du följande kommando för att registrera Azure-resursprovidern: 
     

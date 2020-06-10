@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71709e2f1dcbab188646241eaeb4809e168d5697
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77460032"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608782"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm topologier med python i HDInsight
 
@@ -36,7 +36,7 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi so
 
 ## <a name="storm-multi-language-support"></a>Storm stöd för flera språk
 
-Apache Storm har utformats för att fungera med komponenter som skrivits med valfritt programmeringsspråk. Komponenterna måste förstå hur man arbetar med Thrift-definitionen för storm. För python tillhandahålls en modul som en del av Apache Storm projektet som gör det enkelt att använda storm. Du hittar den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm har utformats för att fungera med komponenter som skrivits med valfritt programmeringsspråk. Komponenterna måste förstå hur man arbetar med Thrift-definitionen för storm. För python tillhandahålls en modul som en del av Apache Storm projektet som gör det enkelt att använda storm. Du hittar den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
 
 Storm är en Java-process som körs på Java Virtual Machine (JVM). Komponenter som skrivs på andra språk körs som under processer. Storm kommunicerar med dessa under processer med hjälp av JSON-meddelanden som skickats över STDIN/STDOUT. Mer information om kommunikation mellan komponenter finns i dokumentationen för [multi-lang-protokollet](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
@@ -60,7 +60,7 @@ spouts:
 
 Klassen `FluxShellSpout` används för att starta `sentencespout.py` skriptet som implementerar kanalen.
 
-Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` katalogen i JAR-filen som innehåller topologin. I det här exemplet lagras python-skripten `/multilang/resources` i katalogen. `pom.xml` Innehåller den här filen med följande XML:
+Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` katalogen i JAR-filen som innehåller topologin. I det här exemplet lagras python-skripten i `/multilang/resources` katalogen. `pom.xml`Innehåller den här filen med följande XML:
 
 ```xml
 <!-- include the Python components -->
@@ -70,23 +70,23 @@ Sänd flödet förväntar sig att python-skripten ska finnas i `/resources` kata
 </resource>
 ```
 
-Som tidigare nämnts finns det en `storm.py` fil som implementerar Thrift-definitionen för storm. Flödes ramverket `storm.py` innehåller automatiskt när projektet skapas, så du behöver inte oroa dig för att inkludera det.
+Som tidigare nämnts finns det en `storm.py` fil som implementerar Thrift-definitionen för storm. Flödes ramverket innehåller `storm.py` automatiskt när projektet skapas, så du behöver inte oroa dig för att inkludera det.
 
 ## <a name="build-the-project"></a>Bygga projektet
 
-1. Hämta projektet från [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Hämta projektet från [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) .
 
-1. Öppna en kommando tolk och navigera till projekt roten: `hdinsight-python-storm-wordcount-master`. Ange följande kommando:
+1. Öppna en kommando tolk och navigera till projekt roten: `hdinsight-python-storm-wordcount-master` . Ange följande kommando:
 
     ```cmd
     mvn clean compile package
     ```
 
-    Det här kommandot skapar `target/WordCount-1.0-SNAPSHOT.jar` en fil som innehåller den kompilerade topologin.
+    Det här kommandot skapar en `target/WordCount-1.0-SNAPSHOT.jar` fil som innehåller den kompilerade topologin.
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Kör Storm-topologin på HDInsight
 
-1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att `WordCount-1.0-SNAPSHOT.jar` kopiera filen till din storm på HDInsight-kluster. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att kopiera `WordCount-1.0-SNAPSHOT.jar` filen till din storm på HDInsight-kluster. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -106,7 +106,7 @@ Som tidigare nämnts finns det en `storm.py` fil som implementerar Thrift-defini
 
     När den har startats körs en Storm-topologi tills den har stoppats.
 
-1. Använd Storm-ANVÄNDARGRÄNSSNITTET för att Visa topologin i klustret. Storm-ANVÄNDARGRÄNSSNITTET finns på `https://CLUSTERNAME.azurehdinsight.net/stormui`. Ersätt `CLUSTERNAME` med ditt kluster namn.
+1. Använd Storm-ANVÄNDARGRÄNSSNITTET för att Visa topologin i klustret. Storm-ANVÄNDARGRÄNSSNITTET finns på `https://CLUSTERNAME.azurehdinsight.net/stormui` . Ersätt `CLUSTERNAME` med ditt kluster namn.
 
 1. Stoppa Storm-topologin. Använd följande kommando för att stoppa topologin i klustret:
 

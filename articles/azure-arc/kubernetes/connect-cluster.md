@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 85ef8bb9868784df66199a4aea261e6b752ae7f8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299651"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636265"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -24,10 +24,33 @@ Anslut ett Kubernetes-kluster till Azure-bågen.
 
 Kontrol lera att du har följande krav:
 
-* Ett Kubernetes-kluster som är igång
-* Du behöver åtkomst med kubeconfig och kluster administratörs åtkomst.
+* Ett Kubernetes-kluster som är igång. Om du inte har ett befintligt Kubernetes-kluster kan du använda någon av följande guider för att skapa ett test kluster:
+  * Skapa ett Kubernetes-kluster med [Kubernetes i Docker (Natura)](https://kind.sigs.k8s.io/)
+  * Skapa ett Kubernetes-kluster med Docker för [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) eller [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* Du behöver en kubeconfig-fil för att få åtkomst till klustret och kluster administratörs rollen i klustret för distribution av Arc-aktiverade Kubernetes-agenter.
 * Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Azure-båge för Kubernetes onboarding" som har dessa behörigheter kan användas för roll tilldelningar för användaren eller tjänstens huvud namn som används med Azure CLI för onboarding.
-* Senaste versionen av *connectedk8s* och *k8sconfiguration* -tillägg
+* Helm 3 krävs för onboarding av klustret med connectedk8s-tillägget. [Installera den senaste versionen av Helm 3](https://helm.sh/docs/intro/install) för att uppfylla det här kravet.
+* Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
+* Installera Arc-aktiverade Kubernetes CLI-tillägg:
+  
+  Installera `connectedk8s` tillägget, som hjälper dig att ansluta Kubernetes-kluster till Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Installera `k8sconfiguration` tillägget:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Om du vill uppdatera tilläggen senare kör du följande kommandon:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -41,7 +64,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 * TCP på port 443-->`https://:443`
 * TCP på port 9418-->`git://:9418`
 
-| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
+| Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
@@ -69,31 +92,6 @@ az provider show -n Microsoft.Kubernetes -o table
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
-
-## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Installera Azure CLI-och Arc-aktiverade Kubernetes-tillägg
-Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
-
-Installera `connectedk8s` tillägget, som hjälper dig att ansluta Kubernetes-kluster till Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Installera `k8sconfiguration` tillägget:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Kör följande kommandon för att uppdatera tilläggen till de senaste versionerna.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
-```
-
-## <a name="install-helm"></a>Installera Helm
-Helm 3 krävs för onboarding av klustret med connectedk8s-tillägget. [Installera den senaste versionen av Helm 3](https://helm.sh/docs/intro/install) för att uppfylla det här kravet.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -171,7 +169,7 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-Du kan också visa den här resursen på [Azure Preview Portal](https://preview.portal.azure.com/). När du har öppnat portalen i webbläsaren navigerar du till resurs gruppen och den Azure Arc-aktiverade Kubernetes-resursen baserat på de resurs namn och resurs grupp namn som användes tidigare i `az connectedk8s connect` kommandot.
+Du kan också visa den här resursen på [Azure Portal](https://portal.azure.com/). När du har öppnat portalen i webbläsaren navigerar du till resurs gruppen och den Azure Arc-aktiverade Kubernetes-resursen baserat på de resurs namn och resurs grupp namn som användes tidigare i `az connectedk8s connect` kommandot.
 
 Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
 

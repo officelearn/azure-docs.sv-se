@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure SQL Edge (för hands version)
-description: Läs om hur du konfigurerar Azure SQL Edge (för hands version)
+description: Läs mer om hur du konfigurerar Azure SQL Edge (för hands version).
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,54 +9,54 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a28724e00f59fe049d1d9d6dfbcbc5a3f9556124
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c38bb6100665cc9456b66608660bdca520b934c6
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235152"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636248"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Konfigurera Azure SQL Edge (för hands version)
 
 Azure SQL Edge stöder konfiguration via något av följande två alternativ:
 
-- Använda miljövariabler.
-- Använda MSSQL. conf-filen som placerats i mappen/var/opt/MSSQL
+- Miljövariabler
+- En MSSQL. conf-fil placerad i mappen/var/opt/MSSQL
 
 > [!NOTE]
 > Att ställa in miljövariabler åsidosätter inställningarna som anges i filen MSSQL. conf.
 
-## <a name="configure-using-environment-variables"></a>Konfigurera med miljövariabler
+## <a name="configure-by-using-environment-variables"></a>Konfigurera med hjälp av miljövariabler
 
-Azure SQL Edge visar flera olika miljövariabler som kan användas för att konfigurera SQL Edge-behållaren. Dessa miljövariabler är en delmängd av de miljövariabler som är tillgängliga för SQL Server på Linux. Mer information om SQL Server på Linux miljövariabler finns i [miljövariabler](/sql/linux/sql-server-linux-configure-environment-variables/).
+Azure SQL Edge visar flera olika miljövariabler som kan användas för att konfigurera SQL Edge-behållaren. Dessa miljövariabler är en delmängd av de som är tillgängliga för SQL Server på Linux. Mer information om SQL Server på Linux miljövariabler finns i [miljövariabler](/sql/linux/sql-server-linux-configure-environment-variables/).
 
-Följande SQL Server på Linux miljövariabler stöds inte för Azure SQL Edge. Om det här är definierat ignoreras dessa miljövariabler vid initiering av behållare.
+Följande SQL Server på Linux Environment-variabel stöds inte för Azure SQL Edge. Om det är definierat ignoreras den här miljövariabeln vid initiering av behållare.
 
-| Miljövariabel | Description |
+| Miljövariabel | Beskrivning |
 |-----|-----|
-| **MSSQL_ENABLE_HADR** | Aktivera tillgänglighets grupp. Till exempel är 1 "aktiverat" och "0" är inaktiverat |
+| **MSSQL_ENABLE_HADR** | Aktivera tillgänglighets grupp. Till exempel **1** är aktive rad och **0** är inaktiverat. |
 
 > [!IMPORTANT]
-> *MSSQL_PID* -miljövariabeln för SQL Edge accepterar bara **Premium** och **Developer** som giltiga värden. Azure SQL Edge stöder inte initiering med en produkt nyckel.
+> **MSSQL_PID** -miljövariabeln för SQL Edge accepterar bara **Premium** och **Developer** som giltiga värden. Azure SQL Edge stöder inte initiering med en produkt nyckel.
 
 > [!NOTE]
-> Om du vill ladda ned användar licens avtalet för Azure SQL Edge kan du läsa [licens avtalet för slutanvändare](https://go.microsoft.com/fwlink/?linkid=2128283).
+> Hämta [licens villkoren för program vara från Microsoft](https://go.microsoft.com/fwlink/?linkid=2128283) för Azure SQL Edge.
 
-### <a name="specifying-the-environment-variables"></a>Ange miljövariabler
+### <a name="specify-the-environment-variables"></a>Ange miljövariabler
 
-Miljövariabler för SQL Edge kan anges när du distribuerar Azure SQL Edge via [Azure Portal](deploy-portal.md). Detta kan läggas till antingen i avsnittet "miljövariabler" i modulen distribution eller som en del av alternativet för att skapa behållare enligt beskrivningen nedan.
+Ange miljövariabler för SQL Edge när du distribuerar tjänsten via [Azure Portal](deploy-portal.md). Du kan lägga till dem antingen i avsnittet **miljövariabler** i modulen distribution eller som en del av alternativen för att **skapa behållare**.
 
-*Ange alternativ för att använda miljövariabler*
+Lägg till värden i **miljövariabler**.
 
-![Ange med lista med miljövariabler](media/configure/set-environment-variables.png)
+![Ange med hjälp av listan miljövariabler](media/configure/set-environment-variables.png)
 
-*Ange användnings alternativ för behållare*
+Lägg till värden i **behållar skapande alternativ**.
 
-![Ange användnings alternativ för behållare](media/configure/set-environment-variables-using-create-options.png)
+![Ange med hjälp av alternativet för att skapa behållare](media/configure/set-environment-variables-using-create-options.png)
 
-## <a name="configure-using-mssqlconf-file"></a>Konfigurera med hjälp av MSSQL. conf-filen
+## <a name="configure-by-using-an-mssqlconf-file"></a>Konfigurera med hjälp av en MSSQL. conf-fil
 
-Azure SQL Edge inkluderar inte [konfigurations verktyget MSSQL-conf](/sql/linux/sql-server-linux-configure-mssql-conf/) som SQL Server på Linux gör, eftersom filen MSSQL. conf måste konfigureras manuellt och placeras i den permanenta lagrings enheten som är mappad till mappen/var/opt/MSSQL/i SQL Edge-modulen. När du distribuerar SQL Edge från Azure Marketplace anges den här mappningen som alternativet * * monteringar i alternativet container Create
+Azure SQL Edge innehåller inte det [konfigurations verktyg för MSSQL-conf](/sql/linux/sql-server-linux-configure-mssql-conf/) som SQL Server på Linux gör. Du måste konfigurera filen MSSQL. conf manuellt och placera den i den beständiga lagrings enhet som är mappad till mappen/var/opt/MSSQL/i SQL Edge-modulen. När du distribuerar SQL Edge från Azure Marketplace anges den här mappningen som alternativet **monteringar** i **behållaren skapa alternativ**.
 
 ```json
     {
@@ -73,16 +73,16 @@ Azure SQL Edge inkluderar inte [konfigurations verktyget MSSQL-conf](/sql/linux/
 
 Följande MSSQL. conf-alternativ gäller inte för SQL Edge:
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |:---|:---|
 |**Kundfeedback** | Välj om SQL Server skicka feedback till Microsoft. |
-|**Database Mail profil** | Ange e-postprofilen för standard databasen för SQL Server på Linux. |
+|**Database mail-profil** | Ange e-postprofilen för standard databasen för SQL Server på Linux. |
 |**Hög tillgänglighet** | Aktivera tillgänglighets grupper. |
-|**Microsoft koordinator för distribuerad transaktion** | Konfigurera och Felsök MSDTC i Linux. Ytterligare konfigurations alternativ för distribuerade transaktioner stöds inte heller för SQL Edge. Mer information om dessa ytterligare konfigurations alternativ finns i [Konfigurera MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc) |
-|**MLServices-licensavtalet** | Godkänn R-och python-licensavtalet för Machine Learning Services-paket. Gäller endast SQL Server 2019.|
+|**Microsoft koordinator för distribuerad transaktion** | Konfigurera och Felsök MSDTC i Linux. Ytterligare distribuerade transaktions-relaterade konfigurations alternativ stöds inte för SQL Edge. Mer information om dessa ytterligare konfigurations alternativ finns i [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**MLServices-licensavtalet** | Godkänn R-och python-licensavtalet för Azure Machine Learning-paket. Gäller endast SQL Server 2019.|
 |**outboundnetworkaccess** |Aktivera utgående nätverks åtkomst för [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R-, python-och Java-tillägg.|
 
-Ett exempel på en MSSQL. conf-fil som fungerar för SQL Edge finns nedan. Mer information om formatet för filen MSSQL. conf finns i [MSSQL. conf-format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+Följande exempel på MSSQL. conf-filen fungerar för SQL Edge. Mer information om formatet för en MSSQL. conf-fil finns i [MSSQL. conf-format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]
@@ -114,7 +114,7 @@ traceflag1 = 3605
 traceflag2 = 1204
 ```
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 - [Ansluta till Azure SQL Edge](connect.md)
-- [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge](tutorial-deploy-azure-resources.md)
+- [Skapa en IoT-lösning från slutpunkt till slutpunkt med SQL Edge](tutorial-deploy-azure-resources.md)

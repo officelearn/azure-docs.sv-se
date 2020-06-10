@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a386c7d44cf5ba7eda895006cda7ce1fa9b798ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664979"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610244"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Konsekvens kontroll av data i kopierings aktiviteten (förhands granskning)
 
@@ -85,17 +85,16 @@ I följande exempel visas en JSON-definition för att aktivera data konsekvens k
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | Om du anger sant för den här egenskapen kontrollerar kopierings aktiviteten fil storlek, lastModifiedDate och MD5-kontrollsumma för varje objekt som kopieras från käll platsen till mål lagret för att säkerställa data konsekvensen mellan käll-och mål arkivet. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | Inga
-dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data.<br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data.<br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true.  | Sant<br/>False (standard) | Inga
-logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade objekt. | | Inga
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Inga
-path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+validateDataConsistency | Om du anger sant för den här egenskapen kontrollerar kopierings aktiviteten fil storlek, lastModifiedDate och MD5-kontrollsumma för varje objekt som kopieras från käll platsen till mål lagret för att säkerställa data konsekvensen mellan käll-och mål arkivet. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | Nej
+dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data.<br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data.<br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true.  | Sant<br/>False (standard) | Nej
+logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade objekt. | | Nej
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Nej
+path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
 >[!NOTE]
 >- Data konsekvens stöds inte i utvecklings kopierings scenariot. 
->- När du kopierar binära filer från lagrings lager till Azure Blob Storage eller Azure Data Lake Storage Gen2, gör kopierings aktiviteten fil storlek och verifiering av MD5-kontroll för att säkerställa data konsekvensen mellan käll-och mål arkiv. 
->- När du kopierar binärfiler från lagrings lager till andra lagrings platser än Azure Blob Storage eller Azure Data Lake Storage Gen2, verifierar kopierings aktiviteten fil storleks verifieringen för att säkerställa data konsekvensen mellan käll-och mål arkivet.
-
+>- När du kopierar filer från, eller till Azure Blob eller Azure Data Lake Storage Gen2, sker verifiering av MD5-kontroll på Block nivå med hjälp av [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) och [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Om ContentMD5 på filer finns på Azure Blob eller Azure Data Lake Storage Gen2 som data källor, kontrollerar ADF fil nivåns MD5-kontroll för att kontrol lera filer även efter att filerna har lästs. När du har kopierat filer till Azure-blobben eller Azure Data Lake Storage Gen2 som data mål, skriver ADF ContentMD5 till Azure-blobben eller Azure Data Lake Storage Gen2 som kan förbrukas ytterligare av underordnade program för konsekvens kontroll av data.
+>- ADF verifierar fil storleken vid kopiering av filer mellan lagrings lager.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -137,7 +136,7 @@ Om du konfigurerar för att logga den inkonsekventa filen kan du hitta logg file
 
 Schemat för en loggfil är följande:
 
-Kolumn | Description 
+Kolumn | Beskrivning 
 -------- | -----------  
 Tidsstämpel | Tids stämplingen när ADF hoppar över inkonsekventa filer.
 Nivå | Logg nivån för det här objektet. Den kommer att vara i varnings nivån för objektet som visar att filen hoppas över.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806104"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629060"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Utvärdera noggrannhet i Custom Speech
 
@@ -52,7 +52,7 @@ Om du vill testa kvaliteten på Microsofts bas linje modell för tal till text e
 Utvärdera modeller sida vid sida:
 
 1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
-2. Navigera till **> för tal till text Custom Speech > testning**.
+2. Navigera till **> för tal till text Custom Speech > [namn på projektet] > testning**.
 3. Klicka på **Lägg till test**.
 4. Välj **utvärdera noggrannhet**. Ge testet ett namn, en beskrivning och välj din ljud-eller data uppsättning med mänskligt märkt skrift.
 5. Välj upp till två modeller som du vill testa.

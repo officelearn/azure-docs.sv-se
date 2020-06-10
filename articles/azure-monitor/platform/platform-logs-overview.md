@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c61a7b46a2f1cc6fa518e5001d5e1905946d5e8e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77659328"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610091"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Översikt över Azures plattforms loggar
 Plattforms loggar ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. De genereras automatiskt även om du behöver konfigurera vissa plattforms loggar som ska vidarebefordras till en eller flera mål som ska behållas. Den här artikeln innehåller en översikt över plattforms loggar, inklusive vilken information de ger och hur du kan konfigurera dem för insamling och analys.
@@ -46,9 +46,9 @@ Du kan skicka plattforms loggar till en eller flera av målen i följande tabell
 
 | Mål | Scenario | Referenser |
 |:---|:---|:---|:---|
-| Log Analytics-arbetsyta | Analysera loggarna med andra övervaknings data och utnyttja Azure Monitor funktioner som logg frågor och aviseringar. | [Aktivitets logg och resurs loggar](resource-logs-collect-workspace.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure-lagring | Arkivera loggarna för granskning, statisk analys eller säkerhets kopiering. |[Aktivitets logg och resurs loggar](archive-diagnostic-logs.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Händelsehubb | Strömma loggarna till loggnings-och telemetri system från tredje part.  |[Aktivitets logg och resurs loggar](resource-logs-stream-event-hubs.md)<br>[Azure aktivitets katalog loggar](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Log Analytics-arbetsyta | Analysera loggarna med andra övervaknings data och utnyttja Azure Monitor funktioner som logg frågor och aviseringar. | [Aktivitets logg och resurs loggar](resource-logs-collect-workspace.md)<br>[Azure Active Directory loggar](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure-lagring | Arkivera loggarna för granskning, statisk analys eller säkerhets kopiering. |[Aktivitets logg och resurs loggar](archive-diagnostic-logs.md)<br>[Azure Active Directory loggar](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Händelsehubb | Strömma loggarna till loggnings-och telemetri system från tredje part.  |[Aktivitets logg och resurs loggar](resource-logs-stream-event-hubs.md)<br>[Azure Active Directory loggar](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 

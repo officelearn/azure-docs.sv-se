@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 241e5baf7f00bc9897e84fb0c10ac7db605fb712
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169765"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628315"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhets identiteter med hjälp av Azure Portal
 
@@ -143,7 +143,7 @@ Om du vill ta bort en enhet har du två alternativ:
    - Tar bort alla uppgifter som är kopplade till enheten, till exempel BitLocker-nycklar för Windows-enheter.  
    - Representerar en icke-återställnings bar aktivitet och rekommenderas inte om det inte krävs.
 
-Om en enhet hanteras av en annan hanterings auktoritet (till exempel Microsoft Intune) ser du till att enheten har rensats/dragits tillbaka innan enheten tas bort i Azure AD. Granska hur du [hanterar inaktuella enheter](device-management-azure-portal.md) innan du tar bort några enheter.
+Om en enhet hanteras av en annan hanterings auktoritet (till exempel Microsoft Intune) ser du till att enheten har rensats/dragits tillbaka innan enheten tas bort i Azure AD. Granska hur du [hanterar inaktuella enheter](manage-stale-devices.md) innan du tar bort några enheter.
 
 ### <a name="view-or-copy-device-id"></a>Visa eller kopiera enhets-ID
 

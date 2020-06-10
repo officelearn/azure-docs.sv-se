@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
+ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2473d864e0ad0fca4a886a6135a9caac0742e3d7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 021d548c56810021af7257b25c40d7d4cc68ec12
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557080"
+ms.locfileid: "84629448"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 [Läs mer om Azure Application insikter](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
@@ -47,7 +47,9 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 >[!Important]
 > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås loggas bara de senaste utflödena av modellen. 
 
-Metadata och svar på tjänsten – som motsvarar metadata för webb tjänsten och modellens förutsägelser – loggas i Azure Application Insights-spår under meddelandet `"model_data_collection"` . Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
+Om du vill logga information om en begäran till webb tjänsten lägger du till `print` instruktioner till din score.py-fil. Varje `print` instruktion resulterar i en post i spårnings tabellen i Application Insights under meddelandet `STDOUT` . Innehållet i `print` instruktionen kommer att finnas under `customDimensions` och sedan `Contents` i spårnings tabellen. Om du skriver ut en JSON-sträng skapar den en hierarkisk data struktur i spårningens utdata under `Contents` .
+
+Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
 
 <a name="python"></a>
 
@@ -71,10 +73,48 @@ Metadata och svar på tjänsten – som motsvarar metadata för webb tjänsten o
 
 Om du vill logga anpassade spår följer du standard distributions processen för AKS eller ACI i avsnittet [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
 
-1. Uppdatera bedömnings filen genom att lägga till utskrifts uttryck
+1. Om du vill skicka data till Application Insights under härledningen uppdaterar du bedömnings filen genom att lägga till utskrifts instruktioner. Om du vill logga mer komplex information, till exempel begär ande data och svar, kan du se en JSON-struktur. I följande exempel score.py-fil loggar tiden som modellen initieras, indata och utdata under härledningen och hur lång tid det tar att utföra fel:
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Uppdatera tjänst konfigurationen
@@ -118,19 +158,19 @@ Så här visar du det:
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. Välj fliken **Översikt** om du vill se en grundläggande uppsättning mått för din tjänst
+1. Välj __loggar__på fliken **Översikt** eller i avsnittet __övervakning__ i listan till vänster.
 
-   [![Översikt](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Fliken Översikt för övervakning](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Om du vill titta på metadata och svar för webb tjänst begär Anden väljer du tabellen **förfrågningar** i avsnittet **loggar (analys)** och väljer **Kör** för att Visa begär Anden
+1. Om du vill visa information som loggats från score.py-filen tittar du på tabellen __spår__ . Följande fråga söker efter loggar där __indatavärdet__ loggades:
 
-   [![Modelldata](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. Om du vill titta på dina anpassade spår väljer du **analys**
-4. I avsnittet schema väljer du **spår**. Välj **Kör** för att köra frågan. Data ska visas i tabell format och bör mappas till dina anpassade anrop i din bedömnings fil
-
-   [![Anpassade spår](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![spårnings data](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 Mer information om hur du använder Azure Application Insights finns i [Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
@@ -139,7 +179,7 @@ Mer information om hur du använder Azure Application Insights finns i [Applicat
 >[!Important]
 > Azure Application Insights stöder endast export till Blob Storage. Ytterligare begränsningar för den här export funktionen visas i [Exportera telemetri från App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Du kan använda Azure Application insightss [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att skicka meddelanden till ett lagrings konto som stöds, där en längre kvarhållning kan ställas in. `"model_data_collection"`Meddelandena lagras i JSON-format och kan enkelt tolkas för att extrahera modell data. 
+Du kan använda Azure Application insightss [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att skicka meddelanden till ett lagrings konto som stöds, där en längre kvarhållning kan ställas in. Data lagras i JSON-format och kan enkelt analyseras för att extrahera modell data. 
 
 Azure Data Factory, Azure ML-pipeliner eller andra data bearbetnings verktyg kan användas för att transformera data vid behov. När du har transformerat data kan du registrera den med Azure Machine Learning arbets ytan som en data uppsättning. Det gör du i så [här skapar och registrerar du data uppsättningar](how-to-create-register-datasets.md).
 

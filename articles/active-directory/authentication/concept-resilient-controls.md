@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76908742"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634650"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -65,10 +65,11 @@ Om du vill låsa upp administratörs åtkomsten till din klient bör du skapa ko
 
 Inkludera följande åtkomst kontroller i dina befintliga principer för villkorlig åtkomst för organisationen:
 
-1. Etablera flera autentiseringsmetoder för varje användare som förlitar sig på olika kommunikations kanaler, till exempel Microsoft Authenticator app (Internet-baserad), OATH-token (genereras på enheten) och SMS (telefoni).
+1. Etablera flera autentiseringsmetoder för varje användare som förlitar sig på olika kommunikations kanaler, till exempel Microsoft Authenticator app (Internet-baserad), OATH-token (genereras på enheten) och SMS (telefoni). Följande PowerShell-skript hjälper dig att identifiera i förväg, vilka ytterligare metoder som dina användare bör registrera: [skript för Azure MFA-analys av autentiseringsmetod](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Distribuera Windows Hello för företag på Windows 10-enheter för att uppfylla MFA-krav direkt från enhets inloggning.
 3. Använd betrodda enheter via [Azure AD hybrid Join](https://docs.microsoft.com/azure/active-directory/devices/overview) eller [Microsoft Intune hanterade enheter](https://docs.microsoft.com/intune/planning-guide). Betrodda enheter förbättrar användar upplevelsen, eftersom den betrodda enheten kan uppfylla kraven för stark autentisering av principer utan MFA-utmaning för användaren. MFA kommer sedan att krävas när du registrerar en ny enhet och vid åtkomst till appar eller resurser från ej betrodda enheter.
 4. Använd Azure AD Identity Protection-riskfyllda principer som förhindrar åtkomst när användaren eller inloggningen är utsatt för risk i stället för fasta MFA-principer.
+5. Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) och fastställa kategorin app enligt rekommendationerna nedan. 
 
 >[!NOTE]
 > Riskfyllda principer kräver [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) -licenser.
@@ -91,8 +92,9 @@ Den här exempel princip uppsättningen beviljar valda användare i **AppUsers**
 
 ### <a name="contingencies-for-user-lockout"></a>Eventualförpliktelser/eventualtillgångar för användar utelåsning
 
-Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades.
-Att förstå exponeringen under ett avbrott bidrar till att minska risken och är en viktig del av planerings processen. För att skapa en katastrof plan måste du först fastställa följande affärs krav för din organisation:
+Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades. Microsoft rekommenderar att du aktiverar katastrof principer i [endast rapport läge](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) när de inte används så att administratörer kan övervaka den potentiella effekten av principerna om de måste vara påslagna.
+
+ Att förstå exponeringen under ett avbrott bidrar till att minska risken och är en viktig del av planerings processen. För att skapa en katastrof plan måste du först fastställa följande affärs krav för din organisation:
 
 1. Fastställ dina verksamhets kritiska appar i förväg: vilka appar måste du ge åtkomst till, till och med en lägre risk-/säkerhets position? Skapa en lista över de här apparna och se till att dina andra intressenter (företag, säkerhet, juridiskt, ledarskap) alla accepterar att om all åtkomst kontroll går bort måste dessa appar fortfarande fortsätta att köras. Du kommer troligen att bli klar med kategorier av:
    * **Kategori 1 verksamhets kritiska appar** som inte kan vara tillgängliga i mer än några minuter, till exempel appar som direkt påverkar organisationens intäkter.
@@ -110,15 +112,15 @@ Att förstå exponeringen under ett avbrott bidrar till att minska risken och ä
 
 #### <a name="microsoft-recommendations"></a>Microsoft-rekommendationer
 
-En princip för villkorlig åtkomst som är **inaktive rad är en inaktive rad princip** som inte utesluter Azure MFA, MFA, riskhantering eller enhets kontroller. När din organisation bestämmer sig för att aktivera din beredskaps plan kan administratörer aktivera principen och inaktivera de vanliga kontrollbaserade principerna.
+En princip för villkorlig åtkomst är en **säkerhets kopierings princip** som inte utesluter Azure MFA, MFA, riskhantering eller enhets kontroller. För att minimera oväntade avbrott när en katastrof princip aktive ras bör principen förbli i endast rapport läge när den inte används. Administratörer kan övervaka de potentiella effekterna av sina katastrof principer med hjälp av arbets boken för villkorlig åtkomst. När din organisation bestämmer sig för att aktivera din katastrof plan kan administratörer aktivera principen och inaktivera de vanliga kontrollbaserade principerna.
 
 >[!IMPORTANT]
 > Att inaktivera principer som upprätthåller säkerheten för dina användare, och som tillfälligt, minskar din säkerhets position medan beredskaps planen är på plats.
 
-* Konfigurera en uppsättning återställnings principer om ett avbrott i en typ av autentiseringsuppgift eller en mekanism för åtkomst kontroll påverkar åtkomsten till dina appar. Konfigurera en princip i inaktiverat tillstånd som kräver domän anslutning som en kontroll, som en säkerhets kopia för en aktiv princip som kräver en MFA-provider från tredje part.
+* Konfigurera en uppsättning återställnings principer om ett avbrott i en typ av autentiseringsuppgift eller en mekanism för åtkomst kontroll påverkar åtkomsten till dina appar. Konfigurera en princip i endast rapport tillstånd som kräver domän anslutning som en kontroll, som en säkerhets kopia för en aktiv princip som kräver en MFA-provider från tredje part.
 * Minska risken för dåliga aktörer som gissar lösen ord, om MFA inte krävs, genom att följa anvisningarna i guiden för [lösen Ords vägledning](https://aka.ms/passwordguidance) White Paper.
 * Distribuera [Azure AD-SSPR (Self-Service Password rereset)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) och [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
-* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Ett exempel:
+* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Till exempel:
   * Konfigurera en säkerhets kopierings princip som skickar anspråk för begränsad session till Exchange och SharePoint.
   * Om din organisation använder Microsoft Cloud App Security bör du överväga att återgå till en princip som samverkar med MCAS och sedan MCAS tillåter skrivskyddad åtkomst men inte uppladdning.
 * Namnge dina principer för att se till att det är enkelt att hitta dem under ett avbrott. Inkludera följande element i princip namnet:
@@ -146,28 +148,28 @@ Följande exempel: **exempel på en-katastrof princip för att återställa åtk
   * Molnappar: Exchange Online och SharePoint Online
   * Villkor: alla
   * Bevilja kontroll: Kräv domänanslutna
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 * Princip 2: blockera andra plattformar än Windows
   * Namn: EM002 – aktivera i nödfall: MFA-avbrott [2/4]-Exchange SharePoint-blockera åtkomst förutom Windows
   * Användare och grupper: inkludera alla användare. Uteslut CoreAdmins och EmergencyAccess
   * Molnappar: Exchange Online och SharePoint Online
   * Villkor: enhets plattformen omfattar alla plattformar, undanta Windows
   * Bevilja kontroll: blockera
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 * Princip 3: blockera nätverk förutom CorpNetwork
   * Namn: EM003 – aktivera i nödfall: MFA-avbrott [3/4]-Exchange SharePoint-blockera åtkomst förutom företags nätverk
   * Användare och grupper: inkludera alla användare. Uteslut CoreAdmins och EmergencyAccess
   * Molnappar: Exchange Online och SharePoint Online
   * Villkor: platser omfattar alla platser, exkludera CorpNetwork
   * Bevilja kontroll: blockera
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 * Princip 4: blockera EAS explicit
   * Namn: EM004 – aktivera i nödfall: MFA-avbrott [4/4]-Exchange-blockera EAS för alla användare
   * Användare och grupper: inkludera alla användare
   * Molnappar: inkludera Exchange Online
   * Villkor: klient program: Exchange Active Sync
   * Bevilja kontroll: blockera
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 
 Aktiverings ordning:
 
@@ -188,14 +190,14 @@ I det här exemplet i det här exemplet, till **exempel B-katastrof policys för
   * Molnappar: Salesforce.
   * Villkor: Inga
   * Bevilja kontroll: blockera
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 * Princip 2: blockera försäljnings teamet från vilken plattform som helst än mobil (för att minska angrepps området)
   * Namn: EM002 – aktivera i nödfall: störning av enhetskompatibilitet [2/2]-Salesforce-blockera alla plattformar utom iOS och Android
   * Användare och grupper: inkludera SalesforceContingency. Uteslut SalesAdmins
   * Molnappar: Salesforce
   * Villkor: enhets plattformen omfattar alla plattformar, undanta iOS och Android
   * Bevilja kontroll: blockera
-  * Tillstånd: inaktiverat
+  * Tillstånd: endast rapport
 
 Aktiverings ordning:
 
@@ -203,6 +205,26 @@ Aktiverings ordning:
 2. Aktivera princip 1: kontrol lera att användare utanför SalesContingency inte har åtkomst till Salesforce. Kontrol lera att användarna i SalesAdmins och SalesforceContingency har åtkomst till Salesforce.
 3. Aktivera princip 2: verifiera att användare i gruppen SalesContingency inte kan komma åt Salesforce från sina Windows/Mac-datorer, men kan fortfarande komma åt från sina mobila enheter. Kontrol lera att SalesAdmin fortfarande har åtkomst till Salesforce från vilken enhet som helst.
 4. Inaktivera den befintliga efterlevnadsprinciper för enheter för Salesforce.
+
+### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Katastrofer för användar utelåsning från lokal resurser (NPS-tillägg)
+
+Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) och fastställa kategorin app enligt rekommendationerna nedan. 
+
+Om du har distribuerat Azure AD MFA NPS-tillägget för att skydda lokal-resurser, t. ex. VPN och fjärr skrivbords-Gateway, med MFA, bör du överväga i förväg om du är redo att inaktivera MFA i ett fall av nödfall.
+
+I det här fallet kan du inaktivera NPS-tillägget, vilket innebär att NPS-servern endast verifierar den primära autentiseringen och kommer inte att tillämpa MFA på användarna.
+
+Inaktivera NPS-tillägg: 
+-   Exportera register nyckeln HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters som en säkerhets kopia. 
+-   Ta bort registervärdena för "AuthorizationDLLs" och "ExtensionDLLs", inte parametrar-nyckeln. 
+-   Starta om tjänsten Network Policy Service (IAS) för att ändringarna ska börja gälla 
+-   Ta reda på om den primära autentiseringen för VPN har slutförts.
+
+När tjänsten har återställts och du är redo att tillämpa MFA på dina användare igen, aktiverar du NPS-tillägget: 
+-   Viktigt register nyckeln från backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Starta om tjänsten Network Policy Service (IAS) för att ändringarna ska börja gälla 
+-   Kontrol lera om den primära autentiseringen och den sekundära autentiseringen för VPN har slutförts.
+-   Granska NPS-servern och VPN-loggen för att avgöra vilka användare som har loggat in i nödfalls fönstret.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Distribuera hash-synkronisering av lösen ord även om du är federerad eller använder direktautentisering
 
@@ -240,7 +262,7 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 Ångra de ändringar som du har gjort som en del av den aktiverade beredskaps planen när tjänsten har återställts som orsakade avbrott. 
 
 1. Aktivera vanliga principer
-2. Inaktivera dina katastrof principer. 
+2. Inaktivera dina katastrof principer tillbaka till endast rapport läge. 
 3. Återställa andra ändringar som du har gjort och dokumenterat under avbrott.
 4. Om du har använt ett konto för nödfalls åtkomst måste du komma ihåg att återskapa autentiseringsuppgifter och fysiskt skydda de nya autentiseringsuppgifterna som en del av dina konto procedurer för nöd åtkomst.
 5. Fortsätt att [prioritering alla risk identifieringar som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) efter avbrott för misstänkt aktivitet.
@@ -271,3 +293,4 @@ Om din organisation använder äldre MFA-principer per användare, kan du överv
   * [Vägledning för lösen ord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Vad är villkor i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Vad är läget endast i rapporten för villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)

@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en arbets yta
-description: Skapa en Azure Synapse Analytics-arbetsyta genom att följa stegen i den här hand boken.
+title: Snabb start – skapa en Synapse-arbetsyta
+description: Skapa en Synapse-arbetsyta genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112852"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609479"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
 
@@ -22,7 +22,7 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Azure Data Lake Storage Gen2 lagrings konto](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 

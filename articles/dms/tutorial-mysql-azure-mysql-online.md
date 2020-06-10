@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240743"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609241"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal MySQL-instans till [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) med minimal stillestånds tid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempel databasen **anställda** från en lokal instans av MySQL 5,7 till Azure Database for MySQL med hjälp av en online-migrering i Azure Database migration service.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 >
 > * Migrera exempelschemat med verktyget mysqldump.
@@ -37,6 +37,13 @@ I den här guiden får du lära dig att:
 
 > [!IMPORTANT]
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
+
+> [!NOTE]
+> Kompensations fri kommunikation
+>
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+>
+
 
 ## <a name="prerequisites"></a>Krav
 
@@ -71,7 +78,7 @@ För att slutföra den här kursen behöver du:
 * Aktivera binär loggning i filen my.ini (Windows) eller my.cnf (Unix) i källdatabasen med följande konfiguration:
 
   * **server_id** = 1 eller större (endast relevant för MySQL 5.6)
-  * sökväg till **logg lager** = \<> (gäller endast MySQL 5,6) till exempel: log-bin = e:\ MySQL_logs \binlog
+  * **logg-bin** = \<path> (gäller endast för MySQL 5,6)    Till exempel: log-bin = E:\ MySQL_logs \BinLog
   * **binlog_format** = rad
   * **Expire_logs_days** = 5 (vi rekommenderar att inte använda noll, gäller endast MySQL 5,6)
   * **Binlog_row_image** = fullständig (endast relevant för MySQL 5.6)
@@ -93,7 +100,7 @@ Förutsatt att du har MySQL- **anställda** exempel databas i det lokala systeme
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Ett exempel:
+Till exempel:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -105,7 +112,7 @@ Om du vill importera schemat till Azure Database for MySQL-mål kör du följand
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Ett exempel:
+Till exempel:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql

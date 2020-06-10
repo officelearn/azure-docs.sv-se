@@ -2,24 +2,24 @@
 title: SAML-program med enkel inloggning – Microsoft Identity Platform | Microsoft Docs
 description: Konfigurera enkel inloggning (SSO) till icke-Galleri program i Microsoft Identity Platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 8c828ab0a3d4f2aff6724967e1467b87df09d09b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758375"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606079"
 ---
-# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
+# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till icke-galleriappar
 
 När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiseras med ett av SAML-protokollen. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Du kan mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är en Galleri. 
 
@@ -122,9 +122,9 @@ Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-forma
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Steg 4. Konfigurera programmet för att använda Azure AD
 
-I avsnittet **Konfigurera \< applicationName>** visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Om du vill hitta dokumentationen går du till rubriken **Konfigurera \< program namn>** och väljer **Visa steg-för-steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning** . På den sidan får du hjälp att fylla i **inloggnings-URL**: en, **Azure AD-identifierare**och **Logga ut URL** -värden i rubriken **Konfigurera \< program namn>** .
+I avsnittet **Konfigurera \<applicationName> ** konfiguration visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. De värden som krävs varierar beroende på programmet. Mer information finns i programmets SAML-dokumentation. Du hittar dokumentationen genom att gå till sidan **Konfigurera \<application name> ** rubrik och välja **Visa steg-för-steg-instruktioner**. Dokumentationen visas på sidan **Konfigurera inloggning** . På den sidan får du hjälp att fylla i **inloggnings-URL**: en, **Azure AD-identifierare**och **Logga ut URL** - ** \<application name> värden i konfigurations** rubriken.
 
-1. Rulla ned till avsnittet **Konfigurera \< applicationName->** . 
+1. Rulla ned till **inställnings \<applicationName> ** avsnittet. 
    
    ![Steg 4 konfigurera programmet](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

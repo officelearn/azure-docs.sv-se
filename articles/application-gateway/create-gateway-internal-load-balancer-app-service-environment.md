@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 06/09/2020
 ms.author: genli
-ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8861e850e168169762d95c44a54b6a88a036f396
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668560"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628522"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat är inte vit listas för en Programgateway med en intern Load Balancer med ett App Service-miljön
+# <a name="back-end-server-certificate-is-not-allow-listed-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat tillåts inte i listan för en Programgateway med en intern Load Balancer med ett App Service-miljön
 
-Den här artikeln innehåller fel sökning av följande problem: ett certifikat är inte vit listas när du skapar en Programgateway genom att använda ett internt Load Balancer (ILB) tillsammans med en App Service-miljön (ASE) på Server sidan när du använder TLS från slut punkt till slut punkt i Azure.
+Den här artikeln innehåller fel sökning av följande problem: ett certifikat tillåts inte i listan när du skapar en Programgateway genom att använda en intern Load Balancer (ILB) tillsammans med en App Service-miljön (ASE) på Server sidan när du använder TLS från slut punkt till slut punkt i Azure.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -41,7 +41,7 @@ När du skapar en Programgateway med hjälp av en ILB med en ASE på Server sida
 - **Port:**: 443
 - **Anpassad avsökning:** Hostname – test.appgwtestase.com
 - **Autentiseringscertifikat:** . cer av test.appgwtestase.com
-- **Server dels hälsa:** Ej felfri – backend-servercertifikatet är inte vit listas med Application Gateway.
+- **Server dels hälsa:** Ej felfri – backend-servercertifikat tillåts inte i listan med Application Gateway.
 
 **ASE-konfiguration:**
 
@@ -68,7 +68,7 @@ När du använder ett fullständigt kvalificerat domän namn (FQDN) för att kom
 
 - Avmarkera alternativet **Använd för App Service** för Application Gateway om du använder IP-adressen för ILB.
 
-För att minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna för att göra avsöknings Sök vägen fungera. (Det här steget är bara för vit listning. Den används inte för TLS-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera TLS/SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
+För att minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna för att göra avsöknings Sök vägen fungera. (Det här steget är bara för att tillåta List. Den används inte för TLS-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera TLS/SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

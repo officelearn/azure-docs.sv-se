@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ec1b03bf0b3cf95f65013bddbc54e15ab985198e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401021"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608013"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Hämta listan med text till tal-röster med python
 
@@ -26,7 +27,7 @@ Den här artikeln kräver ett [Azure Cognitive Services-konto](https://docs.micr
 ## <a name="prerequisites"></a>Krav
 
 * Python 2.7.x eller 3.x
-* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>eller din favorit text redigerare
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span> </a>eller din favorit text redigerare
 * En Azure-prenumerations nyckel för tal tjänsten
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
@@ -53,15 +54,15 @@ class GetVoices(object):
         self.access_token = None
 ```
 
-`subscription_key` Är din unika nyckel från Azure Portal.
+`subscription_key`Är din unika nyckel från Azure Portal.
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Den här slut punkten kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Det här exemplet utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken `issueToken` med hjälp av slut punkten.
+Den här slut punkten kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Det här exemplet utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken med hjälp av `issueToken` slut punkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Uppdatera värdet för `fetch_token_url`om du använder en annan region. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Uppdatera värdet för om du använder en annan region `fetch_token_url` . En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
-Kopiera den här koden till `GetVoices` -klassen:
+Kopiera den här koden till- `GetVoices` klassen:
 
 ```python
 def get_token(self):
@@ -78,11 +79,11 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran och sparar listan med returnerade röster. Först måste du ange `base_url` och. `path` I det här exemplet förutsätter vi att du använder slut punkten västra USA. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran och sparar listan med returnerade röster. Först måste du ange `base_url` och `path` . I det här exemplet förutsätter vi att du använder slut punkten västra USA. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url` . Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Lägg sedan till de rubriker som krävs för begäran. Slutligen ska du skapa en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs svaret till filen.
 
-Kopiera den här koden till `GetVoices` -klassen:
+Kopiera den här koden till- `GetVoices` klassen:
 
 ```python
 def get_voices(self):

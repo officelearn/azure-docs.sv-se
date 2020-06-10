@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 6/8/2020
+ms.openlocfilehash: 3f0df02b58835ce4b43d6ba172e79f872a9fae1e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300843"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608391"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Anslutnings arkitektur i Azure Database for MariaDB
 Den här artikeln förklarar Azure Database for MariaDB anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MariaDB-instans från klienter både inom och utanför Azure.
@@ -71,6 +71,17 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | USA, västra | 104.42.238.205, 23.99.34.75  |
 | USA, västra 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>Omdirigering av anslutning
+
+Azure Database for MariaDB stöder ytterligare en anslutnings princip, **omdirigering**som hjälper till att minska nätverks fördröjningen mellan klient program och MariaDB-servrar. Med den här funktionen returnerar servern Server dels adressen för noden som är värd för MariaDB-servern till klienten när den första TCP-sessionen har upprättats till den Azure Database for MariaDB servern. Därefter flödar alla efterföljande paket direkt till servern, vilket kringgår gatewayen. När paket flödar direkt till servern har svars tiden och data flödet bättre prestanda.
+
+Den här funktionen stöds i Azure Database for MariaDB-servrar med motor versionerna 10,2 och 10,3.
+
+Stöd för omdirigering är tillgängligt i PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) -tillägget, som har utvecklats av Microsoft och finns på [PECL](https://pecl.php.net/package/mysqlnd_azure). I artikeln [Konfigurera omdirigering](./howto-redirection.md) finns mer information om hur du använder omdirigering i dina program.
+
+> [!IMPORTANT]
+> Stöd för omdirigering i PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) -tillägget är för närvarande en för hands version.
 
 ## <a name="next-steps"></a>Nästa steg
 

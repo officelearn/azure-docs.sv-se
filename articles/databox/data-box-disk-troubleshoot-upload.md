@@ -6,15 +6,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3633a648f551d33fb9cb12021c2c07bbf1a235dc
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260142"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610584"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Förstå loggar för att felsöka problem med data uppladdning i Azure Data Box Disk
 
@@ -91,7 +91,7 @@ Ett exempel på `_verbose.xml` visas nedan. I det här fallet har ordern slutfö
 </DriveLog>
 ```
 
-I samma ordning visas ett exempel på `_error.xml` som visas nedan.
+I samma ordning visas ett exempel på som `_error.xml` visas nedan.
 
 ```xml
 
@@ -114,7 +114,7 @@ Ett exempel på `_error.xml` visas nedan där ordningen har slutförts med fel.
 
 Fel filen i det här fallet har ett `Summary` avsnitt och ett annat avsnitt som innehåller alla fil nivå fel. 
 
-`Summary` Innehåller `ValidationErrors` och `CopyErrors`. I det här fallet överfördes 8 filer eller mappar till Azure och det fanns inga verifierings fel. När data kopierades till Azure Storage kontot har 5 filer eller mappar laddats upp. De återstående 3 filerna eller mapparna bytte namn enligt namngivnings konventionerna för Azure Container och laddades upp till Azure.
+`Summary`Innehåller `ValidationErrors` och `CopyErrors` . I det här fallet överfördes 8 filer eller mappar till Azure och det fanns inga verifierings fel. När data kopierades till Azure Storage kontot har 5 filer eller mappar laddats upp. De återstående 3 filerna eller mapparna bytte namn enligt namngivnings konventionerna för Azure Container och laddades upp till Azure.
 
 Fil nivåns status är i `BlobStatus` som beskriver alla åtgärder som vidtagits för att ladda upp blobarna. I det här fallet byter du namn på tre behållare eftersom mappar som data har kopierats till inte stämmer överens med namngivnings konventionerna i Azure för behållare. För blobbar som laddats upp i dessa behållare, det nya container namnet, sökvägen till blobben i Azure, den ursprungliga ogiltiga fil Sök vägen och blob-storleken ingår.
     
@@ -168,12 +168,12 @@ Felen som genereras när data laddas upp till Azure sammanfattas i följande tab
 |`ManagedDiskCreationTerminalFailure` | Det gick inte att ladda upp som hanterade diskar. Filerna är tillgängliga i mellanlagrings kontot som Page blobbar. Du kan manuellt konvertera Page blobbar till hanterade diskar.  |
 |`DiskConversionNotStartedTierInfoMissing` | Eftersom VHD-filen kopierades utanför mapparna för förskapad nivå skapades ingen hanterad disk. Filen laddas upp som Page blob till det mellanlagrings konto som anges när du skapar en order. Du kan konvertera den manuellt till en hanterad disk.|
 |`InvalidWorkitem` | Det gick inte att överföra data eftersom de inte följer konventionerna för namngivning och begränsning i Azure.|
-|`InvalidPageBlobUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-pb-`.|
-|`InvalidAzureFileUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-af`-.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-md`-.|
-|`InvalidManagedDiskUploadAsPageBlob` |Överfört som Page blobbar i en behållare med prefix `databoxdisk-invalid-md-`. |
-|`MovedToOverflowShare` |Överförda filer till en ny resurs eftersom den ursprungliga resurs storleken översteg Max gränsen för Azure-storlek. Det nya fil resurs namnet har det ursprungliga namnet med `-2`suffixet.   |
-|`MovedToDefaultAzureShare` |Överförda filer som inte tillhör någon mapp till en standard resurs. Resurs namnet börjar med `databox-`. |
+|`InvalidPageBlobUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-pb-` .|
+|`InvalidAzureFileUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-af` -.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-md` -.|
+|`InvalidManagedDiskUploadAsPageBlob` |Överfört som Page blobbar i en behållare med prefix `databoxdisk-invalid-md-` . |
+|`MovedToOverflowShare` |Överförda filer till en ny resurs eftersom den ursprungliga resurs storleken översteg Max gränsen för Azure-storlek. Det nya fil resurs namnet har det ursprungliga namnet med suffixet `-2` .   |
+|`MovedToDefaultAzureShare` |Överförda filer som inte tillhör någon mapp till en standard resurs. Resurs namnet börjar med `databox-` . |
 |`ContainerRenamed` |Behållaren för de här filerna stämmer inte överens med namngivnings konventionerna för Azure och får ett nytt namn. Det nya namnet börjar med `databox-` och suffixet används med SHA1-hashen för det ursprungliga namnet |
 |`ShareRenamed` |Resursen för de här filerna stämmer inte överens med namngivnings konventionerna för Azure och får ett nytt namn. Det nya namnet börjar med `databox-` och suffixet används med SHA1-hashen för det ursprungliga namnet. |
 |`BlobRenamed` |De här filerna stämmer inte överens med namngivnings konventionerna för Azure och bytte namn. Markera `BlobPath` fältet för det nya namnet. |

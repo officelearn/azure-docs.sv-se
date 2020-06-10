@@ -5,13 +5,13 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849033"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636571"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Få betalt i den kommersiella marknads platsen
 
@@ -27,21 +27,6 @@ När du [registrerar dig för ett Developer-konto](https://go.microsoft.com/fwli
 Avgifter definieras officiellt i [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560). Granska alltid dokumentet om du har några frågor.
 
 Butiks avgiften tillämpas på alla försäljnings erbjudanden som samlas in av den kommersiella Marketplace, inklusive tillägg.
-
-## <a name="price-tiers"></a>Pris nivåer
-
-Pris nivåerna som du väljer anger försäljnings priset i alla länder/regioner där du väljer att distribuera erbjudandet. Du kan också använda ytterligare prissättnings funktioner, till exempel välja olika priser för olika marknader.
-
-Du kan erbjuda din app kostnads fritt, eller så kan du välja ett pris som kunderna måste betala för att få ditt erbjudande. Pris nivåer börjar med. 99 USD, med ytterligare ökningar (1,09 USD, 1,19 USD och så vidare). Ökningarna mellan pris nivåerna ökar när priset blir högre.
-
-> [!NOTE] 
-> Dessa pris nivåer gäller även för alla tillägg som du erbjuder i erbjudandet.
-
-Varje pris nivå har ett motsvarande värde i varje valuta som erbjuds av butiken. Vi använder dessa värden för att hjälpa dig att sälja ditt erbjudande till en jämförbar pris punkt över hela världen. Men på grund av ändringar i utländska växelkurser kan det exakta försäljnings beloppet variera något från en valuta till en annan.
-
-Du kan också välja att ange ett kostnads fritt pris som du väljer på en bestämd marknads lokala valuta. När du gör detta kommer priset inte att justeras (även om konverterings takten ändras) om du inte skickar en uppdatering med ett nytt pris. 
-
-Tänk på att det pris du väljer kan omfatta försäljning eller mervärdes skatt som kunderna måste betala. Mer information finns i [skatte information för betalat erbjudande](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Utbetalningsrapporter
 

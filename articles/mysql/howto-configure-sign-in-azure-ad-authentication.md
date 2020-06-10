@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229867"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636690"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -57,7 +57,7 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 
@@ -123,6 +123,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Viktiga överväganden vid anslutning:
+
+* `user@tenant.onmicrosoft.com`är namnet på den Azure AD-användare eller-grupp som du försöker ansluta som
+* Lägg alltid till Server namnet efter namn på Azure AD-användare/grupp (t. ex. `@mydb` )
+* Se till att använda det exakta sättet som användar-eller grupp namnet i Azure AD är stavat
+* Användar-och grupp namn i Azure AD är Skift läges känsliga
+* Använd endast grupp namnet (t. ex.) när du ansluter som en grupp. `GroupName@mydb`
+* Om namnet innehåller blank steg ska du använda `\` före varje blank steg för att kringgå det
 
 Observera inställningen Aktivera-klartext-plugin-program – du måste använda en liknande konfiguration med andra klienter för att se till att token skickas till servern utan att hashas.
 

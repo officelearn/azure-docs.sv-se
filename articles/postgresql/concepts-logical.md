@@ -5,41 +5,57 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: ef7c5644ad8ec1e3816f20d4e5db9ad7d39a4609
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522152"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634595"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
 [Med logisk avkodning i postgresql](https://www.postgresql.org/docs/current/logicaldecoding.html) kan du strömma data ändringar till externa konsumenter. Logisk avkodning används ofta för händelse strömning och ändring av data insamlings scenarier.
 
 Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL innehåller två plugin-program för utdata: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och [wal2json](https://github.com/eulerto/wal2json).
- 
 
 > [!NOTE]
 > Logisk avkodning är i offentlig för hands version på Azure Database for PostgreSQL-enskild server.
 
 
-## <a name="set-up-your-server"></a>Konfigurera servern
-Om du vill börja använda logisk avkodning kan du aktivera servern för att spara och strömma WAL. 
+## <a name="set-up-your-server"></a>Konfigurera servern 
+Logiska avkodnings-och [Läs repliker](concepts-read-replicas.md) beror både på postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
 
-1. Ställ in Azure. replication_support `logical` att använda Azure CLI. 
+Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:
+
+* **Off** – lägger till minst information i Wal. Den här inställningen är inte tillgänglig på de flesta Azure Database for PostgreSQL-servrar.  
+* **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
+* **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
+
+Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
+
+### <a name="using-azure-cli"></a>Använda Azure CLI
+
+1. Ställ in Azure. replication_support till `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
+   ``` 
 
-   > [!NOTE]
-   > Om du använder Läs repliker kan Azure. replication_support inställd så `logical` att repliker kan köras. Om du slutar använda logisk avkodning ändrar du inställningen tillbaka till `replica`. 
-
-
-2. Starta om servern för att tillämpa ändringarna.
+2. Starta om servern för att tillämpa ändringen.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
+
+### <a name="using-azure-portal"></a>Använda Azure Portal
+
+1. Ange Azure Replication-stöd till **logiska**. Välj **Spara**.
+
+   ![Azure Database for PostgreSQL replikering – stöd för Azure-replikering](./media/concepts-logical/replication-support.png)
+
+2. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
+
+   ![Azure Database for PostgreSQL-replikering-bekräfta omstart](./media/concepts-logical/confirm-restart.png)
+
 
 ## <a name="start-logical-decoding"></a>Starta logisk avkodning
 
@@ -61,7 +77,7 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Utfärda SQL-kommandon. Ett exempel:
+2. Utfärda SQL-kommandon. Till exempel:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,
@@ -135,13 +151,13 @@ SELECT * FROM pg_replication_slots;
 ## <a name="how-to-drop-a-slot"></a>Så här släpper du en plats
 Om du inte aktivt konsumerar en replikerings plats bör du släppa den.
 
-Så här släpper du en replikerings-kortplats med namnet `test_slot` med hjälp av SQL:
+Så här släpper du en replikerings-kortplats `test_slot` med namnet med hjälp av SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Om du slutar använda logisk avkodning ändrar du Azure. replication_support tillbaka till `replica` eller `off`. WAL-informationen som behålls av `logical` är mer utförlig och bör inaktive ras när logisk avkodning inte används. 
+> Om du slutar använda logisk avkodning ändrar du Azure. replication_support tillbaka till `replica` eller `off` . WAL-informationen som behålls av `logical` är mer utförlig och bör inaktive ras när logisk avkodning inte används. 
 
  
 ## <a name="next-steps"></a>Nästa steg

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
+ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 317b3cd508ee1ab821838cae56cc5b5c9943ace0
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f1ed0ae33d1f83fd77adb337aded95605c17f38b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309891"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607320"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -23,7 +23,7 @@ ms.locfileid: "84309891"
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön. Som att installera externa python-paket eller en annan python-version. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Om du inte redan har ett Spark-kluster i HDInsight kan du köra skript åtgärder när klustret skapas. Gå till dokumentationen om [hur du använder anpassade skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -33,7 +33,7 @@ Microsoft Azure HDInsights tjänsten använder en miljö med tekniker med öppen
 
 Det finns två typer av komponenter med öppen källkod som är tillgängliga i HDInsight-tjänsten:
 
-|Komponent |Description |
+|Komponent |Beskrivning |
 |---|---|
 |Inbyggd|Dessa komponenter är förinstallerade i HDInsight-kluster och tillhandahåller kärn funktioner i klustret. Till exempel, Apache Hadoop garn Resource Manager, Apache Hive frågespråket (HiveQL) och Mahout-biblioteket tillhör den här kategorin. En fullständig lista över kluster komponenter finns i [Nyheter i Apache Hadoop kluster versioner från HDInsight](../hdinsight-component-versioning.md).|
 |Anpassad|Du, som användare av klustret, kan installera eller använda i din arbets belastning, vilken komponent som helst som är tillgänglig i communityn eller som du har skapat.|
@@ -50,8 +50,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Ej tillämpligt|
-|Livy|Standard är inställt på 2,7|Ej tillämpligt|
+|Spark|Standard är inställt på 2,7|Saknas|
+|Livy|Standard är inställt på 2,7|Saknas|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt

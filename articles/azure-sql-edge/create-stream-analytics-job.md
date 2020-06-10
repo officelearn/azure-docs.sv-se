@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4b09df3110907d58badda2c389b9ee39a9b02532
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233313"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636197"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du skapar ett T-SQL streaming-jobb i Azure SQL E
 2. Definiera frågan för strömnings jobb som en del av direkt uppspelnings jobbet.
 
 > [!NOTE]
-> Aktivera funktionen T-SQL-direktuppspelning i Azure SQL Edge genom att aktivera TF 11515 som ett start alternativ eller använda [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) -kommandot. Mer information om hur du aktiverar spårnings flaggor med hjälp av MSSQL. conf-filen finns i [Konfigurera med hjälp av MSSQL. conf-filen](configure.md#configure-using-mssqlconf-file). Detta krav kommer att tas bort i framtida uppdateringar av Azure SQL Edge (för hands version).
+> Aktivera funktionen T-SQL-direktuppspelning i Azure SQL Edge genom att aktivera TF 11515 som ett start alternativ eller använda [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) -kommandot. Mer information om hur du aktiverar spårnings flaggor med hjälp av MSSQL. conf-filen finns i [Konfigurera med hjälp av en MSSQL. conf-fil](configure.md#configure-by-using-an-mssqlconf-file). Detta krav kommer att tas bort i framtida uppdateringar av Azure SQL Edge (för hands version).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Konfigurera ett indata-och utgående objekt för extern ström
 
@@ -42,12 +42,12 @@ Om SQL Edge (eller SQL Server, Azure SQL) används som en utdataström, krävs T
 
 Azure SQL Edge stöder för närvarande endast följande data källor som indata och utdata.
 
-| Typ av datakälla | Indata | Resultat | Description |
+| Typ av datakälla | Indata | Resultat | Beskrivning |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hubb | Y | Y | Data källa för att läsa/skriva strömmande data till en Azure IoT Edge hubb. Mer information om Azure IoT Edge Hub finns [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | N | Y | Anslutning till data källa för att skriva strömmande data till SQL Database. SQL Database kan vara en lokal SQL Edge-databas eller en fjärran sluten SQL Server eller Azure SQL Database|
-| Azure Blob Storage | N | Y | Data källa för att skriva data till en BLOB på ett Azure Storage-konto. |
-| Kafka | Y | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel/AMD-versionen av Azure SQL Edge och är inte tillgänglig för ARM64-versionen av SQL Edge.|
+| Azure IoT Edge hubb | J | J | Data källa för att läsa/skriva strömmande data till en Azure IoT Edge hubb. Mer information om Azure IoT Edge Hub finns [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. SQL Database kan vara en lokal SQL Edge-databas eller en fjärran sluten SQL Server eller Azure SQL Database|
+| Azure Blob Storage | N | J | Data källa för att skriva data till en BLOB på ett Azure Storage-konto. |
+| Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel/AMD-versionen av Azure SQL Edge och är inte tillgänglig för ARM64-versionen av SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exempel: skapa ett externt Stream-indata/utdata-objekt för Azure IoT Edge hubb
 

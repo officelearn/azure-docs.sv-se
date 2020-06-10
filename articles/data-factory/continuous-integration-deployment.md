@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 74f89629c783a444633fe276d99dc75d6c7fc8d8
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 1b5d51eafc0cb21a02f8a750bd78b5be7aca734f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331975"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605518"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -108,7 +108,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
     f.  Välj **...** bredvid rutan **mallparametrar** för att välja parameter filen. Leta efter filen `ARMTemplateParametersForFactory.json` i <FactoryName> mappen i adf_publish grenen.
 
-    ex.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
+    g.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
 
     h. Välj **stegvis** för **distributions läget**.
 
@@ -361,6 +361,14 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +403,7 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +422,10 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b93f26a6799a50868feb1f3350a3dc4a73a0b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d53c21af77204a5e83687d3ce893f3f6f45101f2
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127847"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628996"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
@@ -38,7 +38,7 @@ Distributions verktyget för Office kräver en konfigurations-XML-fil. Informati
 
 Den här exempel konfigurations-XML: en som vi har angett kommer att göra följande:
 
-- Installera Office från den månatliga kanalen och leverera uppdateringar från den månatliga kanalen när de körs.
+- • Installera Office från den månatliga företags kanalen och leverera uppdateringar från den månatliga företags kanalen när de körs.
 - Använd x64-arkitekturen.
 - Inaktivera automatiska uppdateringar.
 - Ta bort alla befintliga installationer av Office och migrera sina inställningar.
@@ -53,7 +53,7 @@ Det här är den här exempel konfigurations-XML: en:
 - Installera OneDrive i per användare-läge. Läs mer i [Installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns på **dator konfigurations\\principer\\administrativa mallar\\Microsoft Office 2016 (dator)\\licens inställningar**
+>Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns på **dator konfigurations \\ principer \\ administrativa mallar \\ Microsoft Office 2016 (dator) \\ licens inställningar**
 
 Distributions verktyget för Office innehåller setup. exe. Installera Office genom att köra följande kommando på en kommando rad:
 
@@ -63,11 +63,11 @@ Setup.exe /configure configuration.xml
 
 #### <a name="sample-configurationxml"></a>Exempel på Configuration. XML
 
-Följande XML-exempel kommer att installera den månatliga versionen.
+Följande XML-exempel kommer att installera den månatliga Enterprise Channel-versionen.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -116,11 +116,11 @@ OneDrive installeras vanligt vis per användare. I den här miljön bör den ins
 
 Så här installerar du OneDrive i per dator läge:
 
-1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller\\\\[UNC]-plats (File://UNC) är felfri.
+1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [ \\ \\ UNC]-plats (File://UNC) är felfri.
 
 2. Hämta OneDriveSetup. exe till den mellanlagrade platsen med den här länken:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Om du har installerat Office med OneDrive genom att utesluta ** \<ExcludeApp ID = "OneDrive\>"/** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
+3. Om du har installerat Office med OneDrive genom att utesluta **\<ExcludeApp ID="OneDrive" /\>** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

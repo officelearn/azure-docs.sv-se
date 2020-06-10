@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/25/2020
-ms.openlocfilehash: 0689a7705e91b8fcaf9ca31887e6cefbf90f1e59
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 359f6673fd44ebb097fb39559dde6d0ae82d4a3b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021015"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608884"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera och transformera data i Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -413,7 +413,14 @@ När du kopierar filer från Azure Data Lake Storage Gen1-Gen2 till Gen2 kan du 
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-När du transformerar data i mappnings data flödet kan du läsa och skriva filer från Azure Data Lake Storage Gen2 i JSON, Avro, avgränsad text eller Parquet format. Mer information finns i omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i funktionen mappa data flöde.
+När du transformerar data i mappnings data flöden kan du läsa och skriva filer från Azure Data Lake Storage Gen2 i följande format:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Common data Model (för hands version)](format-common-data-model.md#mapping-data-flow-properties)
+
+Formatera vissa inställningar finns i dokumentationen för det formatet. Mer information finns i [käll omvandling i konvertering av data flöde](data-flow-source.md) och [omvandling av mottagare i data flödet](data-flow-sink.md).
 
 ### <a name="source-transformation"></a>Käll omvandling
 

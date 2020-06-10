@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/01/2019
-ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/09/2020
+ms.openlocfilehash: 1281f5c3355a09659f2f45c4cf944271936f50d8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75551666"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636379"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -25,12 +25,12 @@ I den här snabb starten ska du konfigurera följande objekt:
 - En kapacitets grupp
 - En NFS-volym för Azure NetApp Files
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
 > [!IMPORTANT] 
-> Du måste beviljas åtkomst till Azure NetApp Filess tjänsten.  Information om hur du begär åtkomst till tjänsten finns på sidan för att [skicka Azure NetApp Files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Du måste vänta en officiell bekräftelse via e-post från Azure NetApp Files-teamet innan du fortsätter. 
+> Du måste beviljas åtkomst till Azure NetApp Filess tjänsten.  Information om hur du begär åtkomst till tjänsten finns på sidan för att [skicka Azure NetApp Files Waitlist](https://aka.ms/azurenetappfiles).  Du måste vänta en officiell bekräftelse via e-post från Azure NetApp Files-teamet innan du fortsätter. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 > Registreringsprocessen kan ta lite tid att slutföra.
 >
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 För registrerings steg med portalen öppnar du en Cloud Shell-session som anges ovan och följer dessa Azure CLI-steg:
 
@@ -70,7 +70,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Skriv **Azure NetApp Files** i sökrutan Azure Portal och välj sedan **Azure NetApp Files** i listan som visas.
 
@@ -154,7 +154,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto (**myaccount1**).
 
@@ -217,7 +217,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
@@ -356,7 +356,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 

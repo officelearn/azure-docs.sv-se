@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 62236b472aa5c4812cd62af44a15b805b5326271
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: tracking-python
+ms.openlocfilehash: 95959ceceb9ebcc0b9ec2b4613e6ffd086f9c11e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592567"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609224"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
@@ -23,7 +24,7 @@ I den här snabb starten använder du den långa ljud-API: n för att konvertera
 
 Asynkron syntes för lång Forms ljud kan användas med [offentliga neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) och [anpassade neurala-röster](../../how-to-custom-voice.md#custom-neural-voices), som var och en har stöd för ett särskilt språk och dialekt. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 

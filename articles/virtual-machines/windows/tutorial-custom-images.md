@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791586"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636401"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Självstudie: skapa virtuella Windows-avbildningar med Azure PowerShell
 
@@ -50,11 +50,11 @@ Funktionen för delad bild galleri har flera resurs typer:
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="get-the-vm"></a>Hämta den virtuella datorn
 
-Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan `Get-AzVM` du använda igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$VM*. 
+Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$VM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -117,7 +117,7 @@ Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom i
 
 I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *östra USA* och *södra centrala USA* -datacenter. När du väljer mål regioner för replikering måste du inkludera *käll* regionen som mål för replikering.
 
-Om du vill skapa en avbildnings version från den `$vm.Id.ToString()` virtuella datorn `-Source`använder du för.
+Om du vill skapa en avbildnings version från den virtuella datorn använder du `$vm.Id.ToString()` för `-Source` .
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -140,7 +140,7 @@ Det kan ta en stund att replikera avbildningen till alla mål regioner.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator 
 
-När du har en specialiserad avbildning kan du skapa en eller flera nya virtuella datorer. Använda cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Använd avbildningen genom att använda set-AzVMSourceImage` and set the `-ID i bild Definitions-ID: t ($GalleryImage. ID i det här fallet) om du alltid vill använda den senaste avbildnings versionen. 
+När du har en specialiserad avbildning kan du skapa en eller flera nya virtuella datorer. Använda cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Om du vill använda avbildningen använder du `Set-AzVMSourceImage` och ställer in `-Id` till bild Definitions-ID: t ($GalleryImage. ID i det här fallet) så att den alltid använder den senaste avbildnings versionen. 
 
 Ersätt resurs namn efter behov i det här exemplet. 
 

@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665229"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609054"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
-Den här artikeln innehåller information om logg aviseringar är en av de typer av aviseringar som stöds i [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md) och låter användare använda Azures analys plattform som bas för aviseringar.
+Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md). Logg aviseringar gör att användarna kan använda Azure Analytics-plattformen som grund för aviseringar.
 
 Logg aviseringen består av loggs öknings regler som skapats för [Azure Monitor loggar](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Mer information om användningen finns i [Skapa logg aviseringar i Azure](../../azure-monitor/platform/alerts-log.md)
 
@@ -152,10 +152,10 @@ Prissättningen som gäller för logg aviseringar anges på sidan för [Azure Mo
 - Logg aviseringar på Application Insights visas med exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper
 - Logga aviseringar på Log Analytics visas med ett exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper. När du skapar med [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-Det [äldre Log Analytics API: t](../../azure-monitor/platform/api-alerts.md) har varnings åtgärder och scheman som en del av Log Analytics sparade sökningar och inte rätt [Azure-resurser](../../azure-resource-manager/management/overview.md). Det innebär att du kan aktivera fakturering för sådana äldre logg aviseringar som skapats för Log Analytics att använda Azure Portal **utan** [att växla till nytt API](../../azure-monitor/platform/alerts-log-api-switch.md) eller via [äldre Log Analytics API](../../azure-monitor/platform/api-alerts.md) – dolda pseudo `microsoft.insights/scheduledqueryrules` -aviserings regler skapas på för fakturering i Azure. De dolda egenskaperna för att skapa en dold pseudo- `microsoft.insights/scheduledqueryrules` avisering för fakturering `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` på som visas tillsammans med resurs gruppens och aviserings egenskaper.
+Det [äldre Log Analytics API: t](../../azure-monitor/platform/api-alerts.md) har varnings åtgärder och scheman som en del av Log Analytics sparade sökningar och inte rätt [Azure-resurser](../../azure-resource-manager/management/overview.md). Det innebär att du kan aktivera fakturering för sådana äldre logg aviseringar som skapats för Log Analytics att använda Azure Portal **utan** [att växla till nytt API](../../azure-monitor/platform/alerts-log-api-switch.md) eller via [äldre Log Analytics API](../../azure-monitor/platform/api-alerts.md) – dolda pseudo-aviserings regler skapas på `microsoft.insights/scheduledqueryrules` för fakturering i Azure. De dolda egenskaperna för att skapa en dold pseudo-avisering för fakturering på `microsoft.insights/scheduledqueryrules` som visas `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resurs gruppens och aviserings egenskaper.
 
 > [!NOTE]
-> Om ogiltiga tecken, t `<, >, %, &, \, ?, /` . ex. finns, ersätts de `_` med i namnet på den dolda pseudo-aviserings regeln och därför också på Azure-fakturan.
+> Om ogiltiga tecken, t. ex `<, >, %, &, \, ?, /` . finns, ersätts de med `_` i namnet på den dolda pseudo-aviserings regeln och därför också på Azure-fakturan.
 
 För att ta bort de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md)kan användaren göra något av följande:
 

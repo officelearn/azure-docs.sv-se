@@ -1,7 +1,7 @@
 ---
-title: Självstudie – Skapa en mall för Data Science VM-Resource Manager
+title: 'Snabb start: skapa en Data Science VM-Resource Manager-mall'
 titleSuffix: Azure Data Science Virtual Machine
-description: I den här självstudien använder du en Azure Resource Manager mall för att snabbt distribuera en Data Science Virtual Machine
+description: I den här snabb starten använder du en Azure Resource Manager-mall för att snabbt distribuera en Data Science Virtual Machine
 services: machine-learning
 author: lobrien
 ms.author: laobri
@@ -9,22 +9,22 @@ ms.custom: subject-armqs
 ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.topic: tutorial
-ms.openlocfilehash: a0bce8a3de7832b589646668b877ce8396d16bc8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.topic: quickstart
+ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84562052"
+ms.locfileid: "84636758"
 ---
 # <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Självstudie: skapa en Ubuntu Data Science Virtual Machine med en Resource Manager-mall
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här självstudien visas hur du skapar en Ubuntu 18,04-Data Science Virtual Machine med hjälp av en Azure Resource Manager mall. Data vetenskap Virtual Machines är molnbaserade virtuella datorer som är förinstallerade med en svit med data vetenskaps-och maskin inlärnings ramverk och verktyg. När du har distribuerat en GPU-baserad beräknings resurs konfigureras alla verktyg och bibliotek för att använda GPU: n. 
+I den här snabb starten visas hur du skapar en Ubuntu 18,04-Data Science Virtual Machine med hjälp av en Azure Resource Manager mall. Data vetenskap Virtual Machines är molnbaserade virtuella datorer som är förinstallerade med en svit med data vetenskaps-och maskin inlärnings ramverk och verktyg. När du har distribuerat en GPU-baserad beräknings resurs konfigureras alla verktyg och bibliotek för att använda GPU: n. 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree) innan du börjar
 
@@ -94,7 +94,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat en Data Science Virtual Machine från en Azure Resource Manager-mall. 
+I den här snabb starten skapade du en Data Science Virtual Machine från en Azure Resource Manager-mall. 
 
 > [!div class="nextstepaction"]
 > [Exempel program & ML-genom gångar](dsvm-samples-and-walkthroughs.md)

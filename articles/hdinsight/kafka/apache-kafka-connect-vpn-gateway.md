@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, tracking-python
 ms.date: 03/04/2020
-ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8bf80cad86f45c24a475799a840b861c23fc28a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272128"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610958"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure Virtual Network
 
@@ -254,7 +254,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
     ![Konfiguration av Apache Ambari Services](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
-4. Du hittar __Kafka-kuvert-__ konfigurationen genom att `kafka-env` ange i fältet __filter__ längst upp till höger.
+4. Du hittar __Kafka-kuvert-__ konfigurationen genom att ange `kafka-env` i fältet __filter__ längst upp till höger.
 
     ![Kafka-konfiguration, för Kafka-miljö](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
@@ -268,9 +268,9 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger `listeners` du i fältet __filter__ längst upp till höger.
+6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger du `listeners` i fältet __filter__ längst upp till höger.
 
-7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092`.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092` .
 
 8. Använd knappen __Spara__ om du vill spara konfigurations ändringarna. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
@@ -344,7 +344,7 @@ Om du vill verifiera anslutningen till Kafka kan du använda följande steg för
    * Om du har __aktiverat namn matchning via en anpassad DNS-Server__ersätter du `kafka_broker` posterna med det fullständiga domän namnet för arbetsnoderna.
 
      > [!NOTE]
-     > Den här koden skickar strängen `test message` till ämnet `testtopic`. Standard konfigurationen för Kafka i HDInsight är att skapa ämnet om det inte finns.
+     > Den här koden skickar strängen `test message` till ämnet `testtopic` . Standard konfigurationen för Kafka i HDInsight är att skapa ämnet om det inte finns.
 
 4. Om du vill hämta meddelandena från Kafka använder du följande python-kod:
 

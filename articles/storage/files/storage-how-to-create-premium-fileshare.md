@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 271acdb968bf5bbec3632bbc1f6def854196cd8e
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529115"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629339"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en Premium Azure-filresurs
 Premium-filresurser erbjuds på lagrings mediet SSD (solid-state disk) och är användbara för i/o-intensiva arbets belastningar, inklusive värd databaser och HPC (data behandling med höga prestanda). Premium-filresurser finns i en särskild typ av lagrings konto, vilket kallas ett FileStorage-konto. Premium-filresurser är utformade för högpresterande program och företags skalnings program, vilket ger konsekvent låg latens, höga IOPS och höga data flödes resurser.
@@ -46,6 +46,9 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 1. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
 1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
 1. För **prestanda** väljer du **Premium**.
+
+    Du måste välja **Premium** för att **FileStorage** ska vara ett tillgängligt alternativ i list rutan **typ av konto** .
+
 1. Välj **typ av konto** och välj **FileStorage**.
 1. Lämna **replikeringsuppsättningen** till standardvärdet för **lokalt REDUNDANT lagring (LRS)**.
 

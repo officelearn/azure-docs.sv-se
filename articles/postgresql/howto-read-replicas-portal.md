@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: c7d55a7b10f0c874fd84f32db1dcf21fb60c231f
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768948"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636667"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL-enskild server från Azure Portal
 
@@ -21,39 +21,43 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 ## <a name="prerequisites"></a>Krav
 En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) som ska vara huvud servern.
 
+## <a name="azure-replication-support"></a>Stöd för Azure-replikering
+
+[Läsning av repliker](concepts-read-replicas.md) och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
+
+Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:
+
+* **Off** – lägger till minst information i Wal. Den här inställningen är inte tillgänglig på de flesta Azure Database for PostgreSQL-servrar.  
+* **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
+* **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
+
+Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
+
 ## <a name="prepare-the-master-server"></a>Förbered huvud servern
-De här stegen måste användas för att förbereda en huvud server i Generell användning-eller minnesoptimerade nivåer. Huvud servern förbereds för replikering genom att ange Azure. replication_support-parametern. När parametern Replication ändras krävs en omstart av servern för att ändringen ska börja gälla. I Azure Portal kapslas de här två stegen av en enda knapp, vilket **aktiverar stöd för replikering**.
 
-1. I Azure Portal väljer du den befintliga Azure Database for PostgreSQL-servern som ska användas som huvud server.
+1. I Azure Portal väljer du en befintlig Azure Database for PostgreSQL server som ska användas som huvud server.
 
-2. Välj **replikering**under **Inställningar**på Server panelen.
+2. Från menyn på servern väljer du **replikering**. Om support för Azure Replication har angetts till minst **replik**kan du skapa Läs repliker. 
 
-> [!NOTE] 
-> Om du ser **Inaktivera stöd för replikering** nedtonad är replikeringsinställningarna redan inställda på servern som standard. Du kan hoppa över följande steg och gå till skapa en Läs replik. 
+3. Om stöd för Azure Replication inte är inställt på minst **replik**anger du det. Välj **Spara**.
 
-3. Välj **Aktivera stöd för replikering**. 
+   ![Azure Database for PostgreSQL-replikering-Ställ in replik och spara](./media/howto-read-replicas-portal/set-replica-save.png)
 
-   ![Aktivera stöd för replikering](./media/howto-read-replicas-portal/enable-replication-support.png)
+4. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
 
-4. Bekräfta att du vill aktivera stöd för replikering. Den här åtgärden startar om huvud servern. 
+   ![Azure Database for PostgreSQL-replikering-bekräfta omstart](./media/howto-read-replicas-portal/confirm-restart.png)
 
-   ![Bekräfta aktivera stöd för replikering](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
 5. Du får två Azure Portal-meddelanden när åtgärden har slutförts. Det finns ett meddelande om att uppdatera Server parametern. Det finns ett annat meddelande för omstart av servern som följer omedelbart.
 
-   ![Lyckade aviseringar – aktivera](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Lyckade aviseringar](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Uppdatera den Azure Portal sidan om du vill uppdatera verktygsfältet replikering. Nu kan du skapa Läs repliker för den här servern.
-
-   ![Uppdaterat verktygsfält](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Att aktivera stöd för replikering är en engångs åtgärd per huvud server. En knapp för att **Inaktivera stöd för replikering** tillhandahålls för din bekvämlighet. Vi rekommenderar inte att du inaktiverar stöd för replikering, såvida du inte är säker på att du aldrig kommer att skapa en replik på den här huvud servern. Du kan inte inaktivera stöd för replikering medan huvud servern har befintliga repliker.
-
 
 ## <a name="create-a-read-replica"></a>Skapa en Läs replik
 Följ dessa steg om du vill skapa en Läs replik:
 
-1. Välj den befintliga Azure Database for PostgreSQL-server som ska användas som huvud server. 
+1. Välj en befintlig Azure Database for PostgreSQL server som ska användas som huvud server. 
 
 2. Välj **replikering**under **Inställningar**på Server panelen.
 

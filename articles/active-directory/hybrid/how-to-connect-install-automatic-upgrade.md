@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 232a1b714802ce9531a9932bc2af4c6b6f35dffd
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: db7c0595d109efddb092f5e96babda17038e5e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324223"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635823"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md#111050).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md#115610) och stöder nu ytterligare scenarier som tidigare inte stöds.
@@ -57,6 +57,10 @@ Först bör du inte förvänta dig att den automatiska uppgraderingen ska förs�
 
 Om du tror att något inte är rätt kan du först köra `Get-ADSyncAutoUpgrade` för att säkerställa att automatisk uppgradering är aktiverat.
 
+Om tillståndet har pausats kan du använda `Get-ADSyncAutoUpgrade -Detail` för att Visa orsaken.  Stopp orsaken kan innehålla valfritt sträng värde, men innehåller vanligt vis strängvärdet för UpgradeResult, det vill säga `UpgradeNotSupportedNonLocalDbInstall` eller `UpgradeAbortedAdSyncExeInUse` .  Ett sammansatt värde kan också returneras, till exempel `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
+
+Det är också möjligt att få ett resultat som inte är en UpgradeResult, t. ex. "AADHealthEndpointNotDefined" eller "DirSyncInPlaceUpgradeNonLocalDb".
+
 Kontrol lera sedan att du har öppnat de nödvändiga URL: erna i proxyservern eller brand väggen. Automatisk uppdatering använder Azure AD Connect Health enligt beskrivningen i [översikten](#overview). Om du använder en proxyserver kontrollerar du att hälsan har kon figurer ATS för att använda en [proxyserver](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testa också [hälso anslutningen](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) till Azure AD.
 
 När anslutningen till Azure AD har verifierats är det dags att titta på händelse loggen. Starta logg boken och leta i **program** händelse loggen. Lägg till ett EventLog-filter för käll **Azure AD Connect uppgraderingen** och händelse-ID-intervallet **300-399**.  
@@ -75,7 +79,7 @@ Resultat koden har ett prefix med en översikt över statusen.
 
 Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista visas, men resultat meddelandet bör vara avmarkerat med det som problemet är.
 
-| Resultat meddelande | Description |
+| Resultat meddelande | Beskrivning |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Det gick inte att skriva till registret. |

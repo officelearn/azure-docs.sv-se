@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261790"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635177"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Vad är Azure Talarigenkänning-tjänsten?
 
@@ -27,7 +27,7 @@ Talarverifiering effektiviserar processen med att verifiera en registrerad högt
 
 ### <a name="how-does-speaker-verification-work"></a>Hur fungerar Talarverifiering?
 
-![Hur fungerar högtalar verifieringen?](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Talarverifiering flödes schema.":::
 
 En högtalar verifiering kan vara antingen text beroende eller text oberoende. **Text beroende** verifiering innebär att högtalare måste välja samma lösen fras som ska användas vid både registrerings-och verifierings faserna. **Text oberoende** verifiering innebär att talare kan tala på vardagligt språk i registrerings-och verifierings fraser.
 
@@ -59,4 +59,5 @@ Precis som med alla Cognitive Services-resurser måste utvecklare som använder 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
+> * I artikeln Talarigenkänning [grundläggande](speaker-recognition-basics.md) information hittar du en körning av vanliga design mönster som du kan använda i dina program.
 > * Se [video självstudien](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) för verifiering av text oberoende högtalare.

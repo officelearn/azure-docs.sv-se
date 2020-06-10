@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0d0e3220d38f9824b9504a0077d6742a62aeb9e8
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 81c14da762e0ff92305456aa89f06949c7039868
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204998"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629279"
 ---
 # <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Förbättrade säkra poäng (för hands version) i Azure Security Center
 
@@ -71,7 +71,7 @@ Den maximala poängen för den här kontrollen, tillämpa system uppdateringar, 
 
 ### <a name="calculations---understanding-your-score"></a>Beräkningar – förstå dina Poäng
 
-|Mått|Formel och exempel|
+|Metric|Formel och exempel|
 |-|-|
 |**Säkerhets kontrollens aktuella Poäng**|<br>![Formel för att beräkna en säkerhets kontrolls aktuella Poäng](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![Knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar det med antalet felfria resurser (4) resulterar det i den aktuella poängen:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Säkerhetspoäng**<br>Enstaka prenumeration|<br>![Ekvation för att beräkna nuvarande säkra Poäng](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Säker Poäng för enskild prenumeration med alla kontroller aktiverade](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>I det här exemplet finns det en enda prenumeration med alla säkerhets kontroller som är tillgängliga (en potentiell högsta poäng på 60 punkter). Poängen visar 28 punkter av en möjlig 60 och de återstående 32 punkterna visas i siffrorna "potentiella Poäng ökning" i säkerhets kontrollerna.<br>![Lista över kontroller och potentiella Poäng ökningar](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -106,7 +106,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Säkra hanterings portar (högst 8 Poäng)</p></strong>Brute force-attacker riktas mot mål hanterings portar för att få åtkomst till en virtuell dator. Eftersom portarna inte alltid måste vara öppna, är en minsknings strategi att minska exponeringen för portarna med just-in-Time-kontroller för nätverks åtkomst, nätverks säkerhets grupper och hantering av virtuella dator portar.<br>Eftersom många IT-organisationer inte blockerar SSH-kommunikation utgående från nätverket kan angripare skapa krypterade tunnlar som gör att RDP-portar på infekterade system kan kommunicera tillbaka till angripare kommandot för att kontrol lera servrar. Angripare kan använda under systemet Windows Remote Management för att gå vidare i din miljö och använda stulna autentiseringsuppgifter för att komma åt andra resurser i ett nätverk.</td>
-    <td class="tg-lboi"; width=55%>-Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer<br>-Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>-Hanterings portar bör stängas på dina virtuella datorer</td>
+    <td class="tg-lboi"; width=55%>-Hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst<br>-Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>-Hanterings portar bör stängas på dina virtuella datorer</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Tillämpa system uppdateringar (Max poäng 6)</p></strong>System uppdateringar ger organisationer möjlighet att underhålla drifts effektivitet, minska säkerhets risker och tillhandahålla en mer stabil miljö för slutanvändare. Att inte tillämpa uppdateringar lämnar uppdateringar som inte har uppdaterats och resulterar i miljöer som är mottagliga för attacker. Dessa sårbarheter kan utnyttjas och leda till data förlust, data exfiltrering, utpressnings tro och resurs missbruk. Om du vill distribuera system uppdateringar kan du använda <a href="https://docs.microsoft.com/azure/automation/automation-update-management">uppdateringshantering-lösningen för att hantera korrigeringar och uppdateringar</a> för dina virtuella datorer. Uppdaterings hantering är en process för att kontrol lera distribution och underhåll av program varu versioner.</td>

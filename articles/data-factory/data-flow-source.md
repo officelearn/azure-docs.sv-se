@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 6da0c56e11b8531192ba77d8f0c27fa16eea5de2
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/05/2020
+ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433301"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610200"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Käll omvandling i data flöde för mappning 
 
@@ -23,7 +23,7 @@ En käll omvandling konfigurerar data källan för data flödet. När du skapar 
 
 Varje data flöde kräver minst en käll omvandling, men du kan lägga till så många källor som behövs för att slutföra dina data transformationer. Du kan koppla ihop dessa källor med en JOIN-, lookup-eller union-omvandling.
 
-Varje käll omvandling är associerad med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till eller läsa från. Om du använder en filbaserad data uppsättning kan du använda jokertecken och fil listor i din källa för att arbeta med fler än en fil i taget.
+Varje käll omvandling är associerad med exakt en data uppsättning eller länkad tjänst. Data uppsättningen definierar formen och platsen för de data som du vill skriva till eller läsa från. Om du använder en filbaserad data uppsättning kan du använda jokertecken och fil listor i din källa för att arbeta med fler än en fil i taget.
 
 ## <a name="inline-datasets"></a>Infogade data uppsättningar
 
@@ -37,22 +37,20 @@ Om du vill använda en infogad data uppsättning väljer du det önskade formate
 
 ![Infogad data uppsättning](media/data-flow/inline-selector.png "Infogad data uppsättning")
 
-### <a name="supported-inline-dataset-formats"></a>Infogade data uppsättnings format som stöds
-
-För närvarande är den enda tillgängliga uppsättningen med data uppsättnings format den [gemensamma data modellen](format-common-data-model.md#source-properties) läst från [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
-
-## <a name="supported-source-datasets-in-mapping-data-flow"></a>Käll data uppsättningar som stöds i mappnings data flödet
+##  <a name="supported-source-types"></a><a name="supported-sources"></a>Käll typer som stöds
 
 Genom att mappa data flödet följer du metoden extrahera, läsa in, transformera (ELT) och arbetar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling:
-    
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure-CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Inställningar som är aktuella för dessa anslutningar finns på fliken **käll alternativ** . information om de här inställningarna finns i anslutnings dokumentationen. 
+| Anslutningsprogram | Format | Data uppsättning/intern |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common data Model (för hands version)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure-CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+Inställningar som är aktuella för dessa anslutningar finns på fliken **käll alternativ** . exempel på data flödes skript i dessa inställningar finns i anslutnings dokumentationen. 
 
 Azure Data Factory har åtkomst till över [90 inbyggda anslutningsprogram](connector-overview.md). Om du vill ta med data från de andra källorna i ditt data flöde använder du kopierings aktiviteten för att läsa in dessa data till något av de mellanliggande mellanlagrings områdena.
 
@@ -62,6 +60,10 @@ När du har lagt till en källa konfigurerar du via fliken **käll inställninga
 
 ![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
 
+**Namn på utdataström:** Namnet på käll omvandlingen.
+
+**Typ av källa:** Välj om du vill använda en infogad data uppsättning eller ett befintligt data uppsättnings objekt.
+ 
 **Testa anslutning:** Testa om data flödet Spark-tjänsten kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
 
 **Schema avvikelse:** [schema avvikelse](concepts-data-flow-schema-drift.md) är data fabriks möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
@@ -76,12 +78,14 @@ När du har lagt till en källa konfigurerar du via fliken **käll inställninga
 
 **Sampling:** Aktivera sampling för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
 
-**Flera rader:** Välj flera rader om käll text filen innehåller sträng värden som sträcker sig över flera rader, d.v.s. newlines inuti ett värde. Den här inställningen är endast tillgänglig i DelimitedText-datauppsättningar.
-
 Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings läge och hämta en data förhands granskning. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > När fel söknings läget är aktiverat skriver rad begränsnings konfigurationen i fel söknings inställningarna över insamlings inställningen i källan under för hands versionen av data.
+
+## <a name="source-options"></a>Käll alternativ
+
+Fliken käll alternativ innehåller inställningar som är aktuella för den koppling och det format som valts. Mer information och exempel finns i relevant Connector- [dokumentation](#supported-sources).
 
 ## <a name="projection"></a>Projektion
 
@@ -99,26 +103,18 @@ Du kan ändra kolumn data typerna i en nedströms härledd kolumn-omvandling. An
 
 Knappen **Importera schema** på fliken **projektion** gör att du kan använda ett aktivt fel söknings kluster för att skapa en schema projektion. När du importerar schemat i varje källtyp åsidosätts den projektion som definierats i data uppsättningen. Dataset-objektet kommer inte att ändras.
 
-Detta är användbart i data uppsättningar som Avro och CosmosDB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen.
+Detta är användbart i data uppsättningar som Avro och CosmosDB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen. För infogade data uppsättningar är det enda sättet att referera till kolumnens metadata utan schema avvikelser.
 
 ## <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
 
-På fliken **optimera** för käll omvandling kan du se en typ av **Källtyp** . Det här alternativet är bara tillgängligt när din källa är Azure SQL Database. Detta beror på att Data Factory försöker göra anslutningar parallella för att köra stora frågor mot din SQL Database källa.
+På fliken **optimera** kan du redigera partitionsinformation i varje omformnings steg. I de flesta fall optimeras **användningen av nuvarande partitionering** för den perfekta partitionerings strukturen för en källa.
+
+Om du läser från en Azure SQL Database källa kommer den anpassade **käll** partitionering sannolikt att läsa data som är snabbast. ADF kommer att läsa stora frågor genom att göra anslutningar till databasen parallellt. Den här käll partitionering kan göras i en kolumn eller med en fråga.
 
 ![Käll partitions inställningar](media/data-flow/sourcepart3.png "partitionering")
-
-Du behöver inte partitionera data på din SQL Database källa, men partitioner är användbara för stora frågor. Du kan basera partitionen på en kolumn eller en fråga.
-
-### <a name="use-a-column-to-partition-data"></a>Använda en kolumn för att partitionera data
-
-Välj en kolumn att partitionera på i käll tabellen. Ange också antalet partitioner.
-
-### <a name="use-a-query-to-partition-data"></a>Använd en fråga för att partitionera data
-
-Du kan välja att partitionera anslutningarna baserat på en fråga. Ange innehållet i ett WHERE-predikat. Ange till exempel Year > 1980.
 
 Mer information om optimering i data flödet för mappning finns på [fliken optimera](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja skapa en [omvandling med härledd kolumn](data-flow-derived-column.md) och en [Välj omvandling](data-flow-select.md).
+Börja bygga ditt data flöde med en [omvandling med härledd kolumn](data-flow-derived-column.md) och en [Välj omvandling](data-flow-select.md).

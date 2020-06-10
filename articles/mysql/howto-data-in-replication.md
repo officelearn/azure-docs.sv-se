@@ -6,16 +6,22 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4bc57bd896eb8d250975ec8e9300d0498d70835
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474036"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604163"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database for MySQL Datareplikering
 
 I den här artikeln beskrivs hur du konfigurerar Datareplikering i Azure Database for MySQL genom att konfigurera huvud-och replik servrar. Den här artikeln förutsätter att du har tidigare erfarenhet av MySQL-servrar och-databaser.
+
+> [!NOTE]
+> Kompensations fri kommunikation
+>
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+>
 
 För att skapa en replik i Azure Database for MySQL-tjänsten synkroniserar Datareplikering data från en lokal MySQL-server lokalt, i virtuella datorer (VM) eller i moln databas tjänster.
 
@@ -63,7 +69,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
 3. Huvud Server inställningar
 
-   Datareplikering kräver att `lower_case_table_names` parametern är konsekvent mellan huvud-och replik servrar. Den här parametern är 1 som standard i Azure Database for MySQL. 
+   Datareplikering kräver `lower_case_table_names` att parametern är konsekvent mellan huvud-och replik servrar. Den här parametern är 1 som standard i Azure Database for MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;

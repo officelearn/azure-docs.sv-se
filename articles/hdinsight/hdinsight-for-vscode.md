@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: d99b9103a597442a5a98fa842eef3e98b2aad086
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: tracking-python
+ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417396"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609105"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -114,8 +115,8 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
 3. Ange den allmänna livy-slutpunkten. Till exempel: http \: //10.172.41.42:18080.
 
 4. Välj typ av auktorisering **Basic** eller **none**.  Om du väljer **Basic**:  
-    &emsp;a. Ange ditt Ambari-användarnamn; Standardvärdet är **admin**.  
-    &emsp;b. Ange ditt Ambari-lösenord.
+    &emsp;en. Ange ditt Ambari-användarnamn; Standardvärdet är **admin**.  
+    &emsp;t. Ange ditt Ambari-lösenord.
 
 5. Granska vyn **utdata** för verifiering.
 

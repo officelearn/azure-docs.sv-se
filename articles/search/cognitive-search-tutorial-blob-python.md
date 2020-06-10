@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 350bc92193a27b595158f65b6ae54edc1c934e35
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78194062"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608799"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -110,9 +111,9 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts- `https://mydemo.search.windows.net`URL: en var, är `mydemo`tjänstens namn.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
-2. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -164,7 +165,7 @@ I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmat
 
 Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
 
-I följande skript ersätter du plats hållaren YOUR-BLOB-RESOURCE-STRING med anslutnings strängen för blobben som du skapade i föregående steg. Ersätt platshållartexten för behållaren. Kör sedan skriptet för att skapa en data källa med namnet `cogsrch-py-datasource`.
+I följande skript ersätter du plats hållaren YOUR-BLOB-RESOURCE-STRING med anslutnings strängen för blobben som du skapade i föregående steg. Ersätt platshållartexten för behållaren. Kör sedan skriptet för att skapa en data källa med namnet `cogsrch-py-datasource` .
 
 ```python
 # Create a data source
@@ -203,7 +204,7 @@ I det här steget ska du definiera en uppsättning med anriknings steg som ska t
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna. 
 
-Kör följande skript för att skapa en färdigheter som `cogsrch-py-skillset`heter.
+Kör följande skript för att skapa en färdigheter som heter `cogsrch-py-skillset` .
 
 ```python
 # Create a skillset
@@ -291,9 +292,9 @@ print(r.status_code)
 
 Begäran ska returnera status koden 201 som bekräftar att det lyckades.
 
-Extraherings kunskaper för nyckel fraser används för varje sida. Genom att ställa in kontexten för `"document/pages/*"`kör du den här berikaren för varje medlem i matrisen dokument/sidor (för varje sida i dokumentet).
+Extraherings kunskaper för nyckel fraser används för varje sida. Genom att ställa in kontexten för `"document/pages/*"` kör du den här berikaren för varje medlem i matrisen dokument/sidor (för varje sida i dokumentet).
 
-Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas i käll filen placeras i ett `content` fält, en för varje dokument. Ange därför inmatade som `"/document/content"`.
+Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas i käll filen placeras i ett `content` fält, en för varje dokument. Ange därför inmatade som `"/document/content"` .
 
 En grafisk representation av kunskapsuppsättningen visas nedan.
 
@@ -313,7 +314,7 @@ Den här övningen använder följande fält och fälttyp:
 |--------------|----------|-------|----------|--------------------|-------------------|
 | fält-typer: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Kör det här skriptet för att skapa indexet med namnet `cogsrch-py-index`.
+Kör det här skriptet för att skapa indexet med namnet `cogsrch-py-index` .
 
 ```python
 # Create an index
@@ -383,7 +384,7 @@ Om du vill koppla ihop dessa objekt i en indexerare måste du definiera fält ma
 
 Förutom att koppla in indata till utdata kan du också använda fält mappningar för att förenkla data strukturer. Mer information finns i [så här mappar du berikade fält till ett sökbart index](cognitive-search-output-field-mapping.md).
 
-Kör det här skriptet för att skapa en indexerare med namnet `cogsrch-py-indexer`.
+Kör det här skriptet för att skapa en indexerare med namnet `cogsrch-py-indexer` .
 
 ```python
 # Create an indexer
@@ -533,7 +534,7 @@ Statuskod 204 returneras vid borttagning.
 
 Den här självstudien visar de grundläggande stegen för att skapa en utökad indexeringspipeline genom att skapa komponentdelar: en datakälla, kunskapsuppsättning, index och indexerare.
 
-[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitioner och ett sätt att kedja samman färdigheter genom indata och utdata. Du har också lärt `outputFieldMappings` dig att i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
+[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitioner och ett sätt att kedja samman färdigheter genom indata och utdata. Du har också lärt dig att `outputFieldMappings` i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
 
 Slutligen har du lärt dig hur du testar resultaten och återställer systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. I den här versionen finns det en mekanism för att visa interna konstruktioner (berikade dokument som skapats av systemet). Du har också lärt dig hur du kontrollerar indexerings status och vilka objekt som måste tas bort innan du kör en pipeline igen.
 

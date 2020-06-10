@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 12/17/2019
 ms.custom: has-adal-ref
-ms.openlocfilehash: 57160088c283b1f2c686429168cc858fee58324a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e6fd2ba9210aa8f133ed08e850e4ded978682988
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433121"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629245"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,9 +71,14 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 
 Den här processen är nödvändig för att aktivera autentisering som är frikopplad från en speciell användar inloggning, vilket gör att du kan autentisera till Azure Machine Learning python SDK i automatiserade arbets flöden. Med autentisering av tjänstens huvud namn kan du också [autentisera till REST API](#azure-machine-learning-rest-api-auth).
 
-Om du vill konfigurera autentisering av tjänstens huvud namn skapar du först en app-registrering i Azure Active Directory och ger sedan din app-rollbaserad åtkomst till din ML-arbetsyta. Det enklaste sättet att slutföra installationen är genom [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i Azure Portal. När du har loggat in på portalen klickar du på `>_` ikonen längst upp till höger på sidan för att öppna gränssnittet.
+> [!TIP]
+> Tjänstens huvud namn måste ha åtkomst till din arbets yta via [rollbaserad åtkomst kontroll (RBAC) i Azure](../role-based-access-control/overview.md).
+>
+> Genom att använda de inbyggda rollerna för **ägare** eller **deltagare** på din arbets yta kan tjänstens huvud namn utföra alla aktiviteter, till exempel träna en modell, distribuera en modell osv. Mer information om hur du använder roller finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
-Om du inte har använt Cloud Shell tidigare på ditt Azure-konto måste du skapa en lagrings konto resurs för lagring av filer som skrivs. I allmänhet kommer det här lagrings kontot att innebära en försumbar månatlig kostnad. Installera dessutom Machine Learning-tillägget om du inte har använt det tidigare med följande kommando.
+Om du vill konfigurera autentisering av tjänstens huvud namn skapar du först en app-registrering i Azure Active Directory och tilldelar sedan en roll till din app. Det enklaste sättet att slutföra installationen är genom [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i Azure Portal. När du har loggat in på portalen klickar du på `>_` ikonen längst upp till höger på sidan för att öppna gränssnittet.
+
+Om du inte har använt Cloud Shell tidigare i ditt Azure-konto måste du skapa en lagrings konto resurs för lagring av filer som skrivs. I allmänhet kommer det här lagrings kontot att innebära en försumbar månatlig kostnad. Installera dessutom Machine Learning-tillägget om du inte har använt det tidigare med följande kommando.
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -307,6 +312,9 @@ Om du vill kontrol lera token-autentisering använder `token_auth_enabled` du pa
 
 Om token-autentisering har Aktiver ATS kan du använda `get_token` metoden för att hämta en JSON Web token (JWT) och den tokens förfallo tid:
 
+> [!TIP]
+> Om du använder ett huvud namn för tjänsten för att hämta token och vill att den ska ha den lägsta åtkomst som krävs för att hämta en token tilldelar du den till rollen **läsare** för arbets ytan.
+
 ```python
 token, refresh_by = service.get_token()
 print(token)
@@ -323,5 +331,6 @@ print(token)
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Hur du använder hemligheter i träning](how-to-use-secrets-in-runs.md).
 * [Träna och distribuera en bild klassificerings modell](tutorial-train-models-with-aml.md).
 * [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md).

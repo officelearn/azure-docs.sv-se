@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 06/09/2020
 ms.author: tisande
-ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869936"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636333"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -30,9 +30,9 @@ Azure Cosmos DB stöder två indexerings lägen:
 - **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
-> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering.
+> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Indexerings principen är som standard inställd på `automatic`. Den uppnås genom att ställa `automatic` in egenskapen i indexerings principen på `true`. Genom att `true` ange den här egenskapen kan Azure-CosmosDB automatiskt indexera dokument när de skrivs.
+Indexerings principen är som standard inställd på `automatic` . Den uppnås genom att ställa in `automatic` egenskapen i indexerings principen på `true` . Genom att ange den här egenskapen kan `true` Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inklusive och exklusive egenskaps Sök vägar
 
@@ -40,7 +40,7 @@ En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen 
 
 - en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med`/?`
 - element från en matris behandlas tillsammans genom `/[]` notationen (i stället för `/0` `/1` osv.)
-- `/*` jokertecknet kan användas för att matcha alla element under noden
+- `/*`jokertecknet kan användas för att matcha alla element under noden
 
 Ta samma exempel igen:
 
@@ -58,9 +58,9 @@ Ta samma exempel igen:
     }
 ```
 
-- `headquarters`sökvägen `employees` är`/headquarters/employees/?`
+- `headquarters` `employees` sökvägen är`/headquarters/employees/?`
 
-- `locations`sökvägen `country` är`/locations/[]/country/?`
+- `locations` `country` sökvägen är`/locations/[]/country/?`
 
 - sökvägen till något under `headquarters` är`/headquarters/*`
 
@@ -73,19 +73,19 @@ Alla indexerings principer måste innehålla rot Sök vägen `/*` antingen som e
 - Inkludera rot Sök vägen för att selektivt exkludera sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
 - Undanta rot Sök vägen för att selektivt inkludera sökvägar som behöver indexeras.
 
-- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undvika Sök vägs strängen runt dubbla citat tecken (till exempel "/\"Path-ABC\"/?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
+- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undvika Sök vägs strängen runt dubbla citat tecken (till exempel "/ \" Path-ABC \" /?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
 
 - System egenskapen `_etag` undantas från indexering som standard, om inte etag läggs till i den inkluderade sökvägen för indexering.
 
-- Om indexerings läget är inställt på **konsekvent**indexeras system `id` egenskaperna `_ts` och indexeras automatiskt.
+- Om indexerings läget är inställt på **konsekvent** `id` indexeras system egenskaperna och `_ts` indexeras automatiskt.
 
 När du inkluderar och exkluderar sökvägar kan du stöta på följande attribut:
 
-- `kind`kan vara antingen `range` eller `hash`. Funktionen Range index innehåller alla funktioner i ett hash-index, så vi rekommenderar att du använder ett intervall index.
+- `kind`kan vara antingen `range` eller `hash` . Funktionen Range index innehåller alla funktioner i ett hash-index, så vi rekommenderar att du använder ett intervall index.
 
-- `precision`är ett tal definierat på index nivå för inkluderade sökvägar. Värdet `-1` anger maximal precision. Vi rekommenderar att alltid ange det här `-1`värdet till.
+- `precision`är ett tal definierat på index nivå för inkluderade sökvägar. Värdet `-1` anger maximal precision. Vi rekommenderar att alltid ange det här värdet till `-1` .
 
-- `dataType`kan vara antingen `String` eller `Number`. Detta anger vilka typer av JSON-egenskaper som kommer att indexeras.
+- `dataType`kan vara antingen `String` eller `Number` . Detta anger vilka typer av JSON-egenskaper som kommer att indexeras.
 
 Om detta inte anges kommer dessa egenskaper att ha följande standardvärden:
 
@@ -107,19 +107,19 @@ Här är ett exempel:
 
 **Undantagen sökväg**:`/food/ingredients/*`
 
-I det här fallet har den medföljande sökvägen företräde framför den undantagna sökvägen eftersom den är mer exakt. Baserat på dessa sökvägar utesluts alla data `food/ingredients` i sökvägen eller kapslas in i indexet. Undantaget skulle vara data i den inkluderade sökvägen: `/food/ingredients/nutrition/*`, som skulle indexeras.
+I det här fallet har den medföljande sökvägen företräde framför den undantagna sökvägen eftersom den är mer exakt. Baserat på dessa sökvägar utesluts alla data i `food/ingredients` sökvägen eller kapslas in i indexet. Undantaget skulle vara data i den inkluderade sökvägen: `/food/ingredients/nutrition/*` , som skulle indexeras.
 
 Här följer några regler för inkluderade och undantagna Sök vägs prioriteter i Azure Cosmos DB:
 
-- Djupare sökvägar är mer exakta än smalare sökvägar. till exempel: `/a/b/?` är mer exakt än `/a/?`.
+- Djupare sökvägar är mer exakta än smalare sökvägar. till exempel: `/a/b/?` är mer exakt än `/a/?` .
 
-- `/?` Är mer exakt än `/*`. Till exempel `/a/?` är mer exakt än `/a/*` så `/a/?` prioriteras.
+- `/?`Är mer exakt än `/*` . Till exempel `/a/?` är mer exakt än `/a/*` så prioriteras `/a/?` .
 
 - Sökvägen `/*` måste antingen vara en inkluderad sökväg eller en undantagen sökväg.
 
 ## <a name="spatial-indexes"></a>Rums index
 
-När du definierar en spatial sökväg i indexerings principen bör du definiera vilket index ```type``` som ska användas för den sökvägen. Möjliga typer för rums index är:
+När du definierar en spatial sökväg i indexerings principen bör du definiera vilket index som ```type``` ska användas för den sökvägen. Möjliga typer för rums index är:
 
 * Pekaren
 
@@ -135,7 +135,7 @@ Azure Cosmos DB kommer som standard inte att skapa några rums index. Om du vill
 
 Frågor som har en `ORDER BY` sats med två eller flera egenskaper kräver ett sammansatt index. Du kan också definiera ett sammansatt index för att förbättra prestanda för många likhets-och intervall frågor. Som standard definieras inga sammansatta index så att du kan [lägga till sammansatta index](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) vid behov.
 
-Till skillnad från inkluderade eller exkluderade sökvägar kan du inte skapa en `/*` sökväg med jokertecken. Varje sammansatt sökväg har en implicit `/?` i slutet av den sökväg som du inte behöver ange. Sammansatta sökvägar leder till ett skalärt värde och det här är det enda värdet som ingår i det sammansatta indexet.
+Till skillnad från inkluderade eller exkluderade sökvägar kan du inte skapa en sökväg med `/*` jokertecken. Varje sammansatt sökväg har en implicit `/?` i slutet av den sökväg som du inte behöver ange. Sammansatta sökvägar leder till ett skalärt värde och det här är det enda värdet som ingår i det sammansatta indexet.
 
 När du definierar ett sammansatt index anger du:
 
@@ -148,13 +148,13 @@ När du definierar ett sammansatt index anger du:
 
 ### <a name="order-by-queries-on-multiple-properties"></a>Sortera efter frågor på flera egenskaper:
 
-Följande överväganden används när du använder sammansatta index för frågor med `ORDER BY` en sats med två eller fler egenskaper:
+Följande överväganden används när du använder sammansatta index för frågor med en `ORDER BY` sats med två eller fler egenskaper:
 
-- Om de sammansatta index Sök vägarna inte matchar ordningen på egenskaperna i- `ORDER BY` satsen kan inte det sammansatta indexet stödja frågan.
+- Om de sammansatta index Sök vägarna inte matchar ordningen på egenskaperna i `ORDER BY` -satsen kan inte det sammansatta indexet stödja frågan.
 
 - Ordningen för sammansatta index Sök vägar (stigande eller fallande) måste också matcha `order` i- `ORDER BY` satsen.
 
-- Det sammansatta indexet `ORDER BY` stöder också en sats med motsatt ordning på alla sökvägar.
+- Det sammansatta indexet stöder också en `ORDER BY` sats med motsatt ordning på alla sökvägar.
 
 Tänk på följande exempel där ett sammansatt index definieras för egenskaper, ålder och _ts:
 
@@ -181,7 +181,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 Den här frågan är mer effektiv, tar mindre tid och använder färre RU-objekt, om det går att använda ett sammansatt index på (namn ASC, ålder ASC).
 
-Frågor med intervall filter kan också optimeras med ett sammansatt index. Frågan kan dock bara ha ett enda intervall filter. Intervall filter är `>` `<` `<=` `>=`,,,, och `!=`. Range-filtret bör definieras sist i det sammansatta indexet.
+Frågor med intervall filter kan också optimeras med ett sammansatt index. Frågan kan dock bara ha ett enda intervall filter. Intervall filter är,,,, `>` `<` `<=` `>=` och `!=` . Range-filtret bör definieras sist i det sammansatta indexet.
 
 Tänk på följande fråga med både likhets-och intervall filter:
 
@@ -195,8 +195,8 @@ Följande överväganden används när du skapar sammansatta index för frågor 
 
 - Egenskaperna i frågans filter ska matcha dem i sammansatt index. Om en egenskap finns i det sammansatta indexet men inte ingår i frågan som ett filter, används inte det sammansatta indexet i frågan.
 - Om en fråga har ytterligare egenskaper i filtret som inte har definierats i ett sammansatt index, kommer en kombination av sammansatta och intervall index att användas för att utvärdera frågan. Detta kräver färre RU: s än uteslutande med intervall index.
-- Om en egenskap har ett intervall filter (`>`, `<` `<=` `>=`,, eller `!=`), ska den här egenskapen definieras sist i det sammansatta indexet. Om en fråga har fler än ett intervall filter, används inte det sammansatta indexet.
-- När du skapar ett sammansatt index för att optimera frågor med flera filter `ORDER` påverkas inte resultatet av det sammansatta indexet. Den här egenskapen är valfri.
+- Om en egenskap har ett intervall filter ( `>` ,,, `<` `<=` `>=` eller `!=` ), ska den här egenskapen definieras sist i det sammansatta indexet. Om en fråga har fler än ett intervall filter, används inte det sammansatta indexet.
+- När du skapar ett sammansatt index för att optimera frågor med flera filter påverkas `ORDER` inte resultatet av det sammansatta indexet. Den här egenskapen är valfri.
 - Om du inte definierar ett sammansatt index för en fråga med filter på flera egenskaper kommer frågan fortfarande att lyckas. RU-kostnaden för frågan kan dock minskas med ett sammansatt index.
 
 Tänk på följande exempel där ett sammansatt index definieras för egenskaper, ålder och tidsstämpel:
@@ -242,7 +242,7 @@ Fråga med sammansatt index:
 SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
 ```
 
-Följande överväganden används när du skapar sammansatta index för att optimera en fråga med en `ORDER BY` filter-och-sats:
+Följande överväganden används när du skapar sammansatta index för att optimera en fråga med en filter-och- `ORDER BY` sats:
 
 * Om frågan filtreras efter egenskaper bör dessa tas med först i- `ORDER BY` satsen.
 * Om du inte definierar ett sammansatt index för en fråga med ett filter på en egenskap och en separat `ORDER BY` sats med en annan egenskap, kommer frågan fortfarande att lyckas. RU-kostnaden för frågan kan dock minskas med ett sammansatt index, särskilt om egenskapen i- `ORDER BY` satsen har en hög kardinalitet.

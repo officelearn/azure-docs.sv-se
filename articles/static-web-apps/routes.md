@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4a9639343827ebc5bb17a6d62d9b65d0b561e932
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 84067917a43fc7c84770b8852f11622ffe2af930
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597746"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629309"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
@@ -26,13 +26,13 @@ Routning i Azures statiska Web Apps definierar regler för Routning och auktoris
 
 Ämnet i routningen överlappar avsevärt med autentiserings-och auktoriserings koncept. Se till att läsa guiden för [autentisering och auktorisering](authentication-authorization.md) tillsammans med den här artikeln.
 
-## <a name="location"></a>Plats
+## <a name="location"></a>Location
 
 _Routes. JSON_ -filen måste finnas i roten i appens build-artefakt mapp. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste filen _routes. JSON_ finnas i den specifika mappen.
 
 I följande tabell visas en lista över lämpliga platser för att lägga till din _routers. JSON_ -fil för ett antal frontend-ramverk och bibliotek i front-end.
 
-|Ramverk/bibliotek | Plats  |
+|Ramverk/bibliotek | Location  |
 |---------|----------|
 | Angular | _till gångar_   |
 | Reagera   | _folkhälsan_  |
@@ -46,9 +46,9 @@ Vägar definieras i _routes. JSON_ -filen som en matris med väg regler i `route
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index. html_.</ul>|
-| `serve`        | Inga       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde har definierats används den begärda sökvägen. |
-| `allowedRoles` | Inga       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | Inga       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `serve`        | Nej       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde har definierats används den begärda sökvägen. |
+| `allowedRoles` | Nej       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | Nej       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 
@@ -152,7 +152,7 @@ Användare kan stöta på ett antal olika situationer som kan resultera i ett fe
 
 I följande tabell visas de tillgängliga plattforms fel åsidosättningarna:
 
-| Typ av fel  | HTTP-statuskod | Description |
+| Typ av fel  | HTTP-statuskod | Beskrivning |
 |---------|---------|---------|
 | `NotFound` | 404  | Det gick inte att hitta en sida på servern. |
 | `Unauthenticated` | 401 | Användaren är inte inloggad med en [autentiseringsprovider](authentication-authorization.md). |
@@ -214,6 +214,7 @@ I följande exempel visas hur du skapar väg regler för statiskt innehåll och 
     },
     {
       "errorType": "Unauthenticated",
+      "statusCode": "301",
       "serve": "/login"
     }
   ]

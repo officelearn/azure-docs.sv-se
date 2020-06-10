@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57244c2022d06d8f1768dbe8bcc971aa59acd6a9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 04c31a12348fe0059bcfd417682647676dbc8948
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673143"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637503"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
 
@@ -58,7 +58,7 @@ Innan du börjar använda tal enheter SDK måste du:
    >
    > ![Filmapp för Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
+   > Välj **inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
    >
    > ![Vysor MAC-adress](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -96,7 +96,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
     Uppdatera **build. gradle (modulen: app)** genom att lägga till den här raden i avsnittet beroenden. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
     ```
     
 1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
@@ -143,7 +143,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    I den här tabellen visas de värden som stöds:
 
-   | Variabel | Betydelse | Tillgängliga värden |
+   | Variabel | Innebörd | Tillgängliga värden |
    | -------- | ------- | ---------------- |
    | `DeviceGeometry` | Konfiguration av fysisk mikrofon | För ett cirkulärt dev-paket:`Circular6+1` |
    |          |         | För en linjär dev-sats:`Linear4` |

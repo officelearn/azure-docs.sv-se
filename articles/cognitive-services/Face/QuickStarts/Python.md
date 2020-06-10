@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 90a404ca25d4b5512b508fe150ba4a2f6ec61139
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403220"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610951"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
 
@@ -23,7 +24,7 @@ I den här snabb starten använder du Azures ansikts REST API med python för at
 
 ![En man och en kvinna, med rektanglar ritade runt ansiktena och med information om ålder och kön på bilden](../images/labelled-faces-python.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 
 ## <a name="prerequisites"></a>Krav
@@ -43,7 +44,7 @@ Alternativt kan du köra den här snabb starten från kommando raden med följan
 1. Kopiera följande kod till en textredigerare.
 1. Gör följande ändringar i koden när så behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
-    1. Redigera värdet för `face_api_url` om du vill inkludera slut punkts-URL: en för din ansikts-API-resurs.
+    1. Redigera värdet för om `face_api_url` du vill inkludera slut punkts-URL: en för din ansikts-API-resurs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `detect-face.py`.
 1. Öppna ett kommandotolksfönster.

@@ -10,12 +10,13 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 684aba561dc50b64dd7cc564cff8e55229ce1429
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: fd632e267e087c6489567c51e731d81cf9511ccb
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239032"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606708"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och python
 
@@ -56,7 +57,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
-3. Läs i JSON-datafilen genom att öppna den och använda `json.load()`.
+3. Läs i JSON-datafilen genom att öppna den och använda `json.load()` .
 
     [!code-python[Open JSON file and read in the data](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=fileLoad)]
 
@@ -64,15 +65,15 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 1. Skapa en ny funktion `send_request()` som använder variablerna som skapats ovan. Utför sedan följande steg.
 
-2. Skapa en ord lista för begärandehuvuden. Ange `Content-Type` till `application/json`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
+2. Skapa en ord lista för begärandehuvuden. Ange `Content-Type` till `application/json` och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
-3. Skicka begäran med hjälp `requests.post()`av. Kombinera URL: en för slut punkt och avvikelse identifiering för URL: en för fullständig begäran och inkludera dina sidhuvud och data för JSON-begäran. Och returnerar sedan svaret.
+3. Skicka begäran med hjälp av `requests.post()` . Kombinera URL: en för slut punkt och avvikelse identifiering för URL: en för fullständig begäran och inkludera dina sidhuvud och data för JSON-begäran. Och returnerar sedan svaret.
 
     [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Identifiera avvikelser som en batch
 
-1. Skapa en metod som `detect_batch()` kallas för att identifiera avvikelser i alla data som en batch. Anropa `send_request()` metoden som skapades ovan med din slut punkt, URL, prenumerations nyckel och JSON-data.
+1. Skapa en metod `detect_batch()` som kallas för att identifiera avvikelser i alla data som en batch. Anropa `send_request()` metoden som skapades ovan med din slut punkt, URL, prenumerations nyckel och JSON-data.
 
 2. Anropa `json.dumps()` resultatet för att formatera det och skriva ut det till-konsolen.
 
@@ -84,7 +85,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-1. Skapa en metod som `detect_latest()` kallas för att avgöra om den senaste data punkten i tids serien är en avvikelse. Anropa `send_request()` metoden ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. 
+1. Skapa en metod `detect_latest()` som kallas för att avgöra om den senaste data punkten i tids serien är en avvikelse. Anropa `send_request()` metoden ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. 
 
 2. Anropa `json.dumps()` resultatet för att formatera det och skriva ut det till-konsolen.
 

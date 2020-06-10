@@ -10,23 +10,24 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
-ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844368"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609139"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudie: starta den fördjupade läsaren med python-exempelprojektet
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en python-webbapp med pip, kolv, Jinja och virtuell miljö med ett exempel projekt
 > * Hämta en åtkomsttoken
 > * Starta den fördjupade läsaren med exempel innehåll
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -81,7 +82,7 @@ Välj anpassad installation och ange installations Sök vägen som rotmapp, t. e
 
 ![Dialog rutan python Windows-installation steg 3](./media/pythoninstallthree.jpg)
 
-När python-installationen är klar öppnar du en kommando tolk `cd` och till mappen Python-skript.
+När python-installationen är klar öppnar du en kommando tolk och `cd` till mappen Python-skript.
 
 ```cmd
 cd C:\Python37-32\Scripts
@@ -155,9 +156,9 @@ Inaktivera miljön.
 deactivate
 ```
 
-`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
+`(advanced-python)`Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
+Så här återaktiverar du miljön `workon advanced-python` från rotmappen för exempelprojektet.
 
 ```cmd
 workon advanced-python
@@ -171,7 +172,7 @@ När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` 
 flask run
 ```
 
-Öppna webbläsaren och gå till _http://localhost:5000_.
+Öppna webbläsaren och gå till _http://localhost:5000_ .
 
 ## <a name="create-a-python-web-app-on-osx"></a>Skapa en python-webbapp på OSX
 
@@ -187,9 +188,9 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Installera [python](https://www.python.org/downloads/).
 
-Mappen python rotmapp t. ex `Python37-32` . bör nu finnas i mappen program.
+Mappen python rotmapp t. ex. `Python37-32` bör nu finnas i mappen program.
 
-När python-installationen är klar öppnar du Terminal `cd` och mappen Python-skript.
+När python-installationen är klar öppnar du Terminal och `cd` mappen Python-skript.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -213,10 +214,10 @@ sudo nano /etc/paths
 
 - Ange ditt lösen ord när du uppmanas till det.
 - Lägg till sökvägen till din pip-installation till din PATH-variabel.
-- Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, t. ex. `PATH=$PATH:/usr/local/bin`.
+- Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, `PATH=$PATH:/usr/local/bin` t. ex..
 - Tryck på CTRL-x för att avsluta.
 - Ange `Y` för att spara den ändrade bufferten.
-- Klart! Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH`.
+- Det är allt. Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH` .
 
 Installations flaska.
 
@@ -292,9 +293,9 @@ Inaktivera miljön.
 deactivate
 ```
 
-`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
+`(advanced-python)`Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
+Så här återaktiverar du miljön `workon advanced-python` från rotmappen för exempelprojektet.
 
 ```bash
 workon advanced-python
@@ -308,7 +309,7 @@ När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` 
 flask run
 ```
 
-Öppna webbläsaren och gå till _http://localhost:5000_.
+Öppna webbläsaren och gå till _http://localhost:5000_ .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/22/2020
-ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 06/09/2020
+ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837152"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661027"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
 
@@ -35,8 +35,8 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta | arbetsytor | 2017-03-15 – för hands version |
-| Automation-konto | automation | 2015-10-31 | 
+| Arbetsyta | arbetsytor | 2020-03-01 – för hands version |
+| Automation-konto | automation | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>Innan du använder mallen
 
@@ -48,14 +48,14 @@ JSON-mallen har kon figurer ATS för att uppmana dig att:
 
 * Namnet på arbets ytan.
 * Regionen som arbets ytan ska skapas i.
+* Aktivera resurs-eller arbets ytans behörigheter.
 * Namnet på Automation-kontot.
-* Regionen som kontot ska skapas i.
+* Regionen som du skapar Automation-kontot i.
 
 Följande parametrar i mallen anges med ett standardvärde för Log Analytics arbets ytan:
 
 * *SKU: n* är som standard den pris nivå per GB som lanserades i pris sättnings modellen april 2018.
 * *dataRetention* är som standard 30 dagar.
-* *capacityReservationLevel* är som standard 100 GB.
 
 >[!WARNING]
 >Om du vill skapa eller konfigurera en Log Analytics arbets yta i en prenumeration som har valt att använda pris sättnings modellen från april 2018 är den enda giltiga Log Analytics pris nivån *PerGB2018*.
@@ -63,7 +63,7 @@ Följande parametrar i mallen anges med ett standardvärde för Log Analytics ar
 
 JSON-mallen anger ett standardvärde för de andra parametrarna som sannolikt används som standard konfiguration i din miljö. Du kan lagra mallen i ett Azure Storage-konto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att du förstår följande konfigurations information. De kan hjälpa dig att undvika fel när du försöker skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot. 
+Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att du förstår följande konfigurations information. De kan hjälpa dig att undvika fel när du försöker skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot.
 
 * Granska [Ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att helt förstå konfigurations alternativ för arbets ytor, till exempel åtkomst kontrol läge, pris nivå, kvarhållning och kapacitets reservations nivå.
 
@@ -107,14 +107,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
-            }
-        },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
+                "description": "Number of days to retain data."
             }
         },
         "location": {
@@ -122,6 +115,12 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -176,13 +175,11 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -194,7 +191,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
         "resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [
@@ -209,7 +206,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
             "resources": [
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('sampleGraphicalRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -229,7 +226,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePowerShellRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -249,7 +246,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePython2RunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -270,10 +267,10 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
                 ]
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -290,7 +287,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
 
 2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [parameter fil i Resource Manager](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
 
-3. Spara filen som deployAzAutomationAccttemplate. json i en lokal mapp.
+3. Spara den här filen som deployAzAutomationAccttemplate.jspå en lokal mapp.
 
 4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett namn på en arbets yta och ett Automation-konto anger du ett namn som är globalt unikt för alla dina Azure-prenumerationer.
 

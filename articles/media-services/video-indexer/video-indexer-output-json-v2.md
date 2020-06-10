@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245933"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656573"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
@@ -28,7 +28,7 @@ När du anropar API: et för att **Hämta video index** och svars statusen är O
 
 Du kan också visuellt undersöka videoklippets sammanfattade insikter genom att trycka på **uppspelnings** knappen på videon på [video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [Visa och redigera video insikter](video-indexer-view-edit.md).
 
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Insikter](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 I den här artikeln granskas JSON-innehållet som returneras av API: t **Get video index** . 
 
@@ -38,7 +38,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 
 ## <a name="root-elements"></a>Rot element
 
-|Name|Beskrivning|
+|Name|Description|
 |---|---|
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
@@ -89,7 +89,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 |ytor|Kan innehålla noll eller flera ansikten. Mer detaljerad information finns i [ansikten](#faces).|
 |nyckelord|Kan innehålla noll eller flera nyckelord. Mer detaljerad information finns i [nyckelord](#keywords).|
 |sentiment|Kan innehålla noll eller flera sentiment. Mer detaljerad information finns i [sentiment](#sentiments).|
-|audioEffects| Kan innehålla noll eller flera audioEffects. Mer detaljerad information finns i [audioEffects](#audioEffects).|
+|audioEffects| Kan innehålla noll eller flera audioEffects. Mer detaljerad information finns i [audioEffects](#audioeffects).|
 |Etiketter| Får innehålla noll eller flera etiketter. Mer information finns i [Etiketter](#labels).|
 |varumärken| Kan innehålla noll eller flera varumärken. Mer detaljerad information finns i [varumärken](#brands).|
 |uppgifterna | Mer detaljerad information finns i [statistik](#statistics).|
@@ -98,7 +98,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 
 ## <a name="videos"></a>videor
 
-|Name|Beskrivning|
+|Name|Description|
 |---|---|
 |accountId|Videons konto-ID.|
 |id|Videons ID.|
@@ -166,7 +166,7 @@ En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en list
 |Etiketter|[Etiketterna](#labels) insikter.|
 |bilder|[Bilderna](#shots) insikter.|
 |varumärken|Insikter om [varumärken](#brands) .|
-|audioEffects|[AudioEffects](#audioEffects) Insight.|
+|audioEffects|[AudioEffects](#audioeffects) Insight.|
 |sentiment|[Sentiment](#sentiments) Insight.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) Insight.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) Insight.|
@@ -203,7 +203,7 @@ pipe|En lista över tidsintervallen för det här blocket.|
 
 #### <a name="transcript"></a>avskrifts
 
-|Name|Beskrivning|
+|Name|Description|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
@@ -317,7 +317,7 @@ Exempel:
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing-kändis, dess Bing-ID.|
 |referenceType|För närvarande, bara Bing.|
-|title|Om det är en kändis, dess titel (till exempel "Microsofts VD").|
+|rubrik|Om det är en kändis, dess titel (till exempel "Microsofts VD").|
 |imageUrl|Om det är en kändis, dess bild-URL.|
 |pipe|Detta är instanser av där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
@@ -498,8 +498,8 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |---|---|
 |id|Varumärkes-ID.|
 |name|Namn på varumärken.|
-|referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet till [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet till [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |description|Beskrivningen av varumärkena.|
 |tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
 |konfidensbedömning|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
@@ -561,7 +561,7 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |SpeakerLongestMonolog|Föredragets längsta monolog. Om högtalaren har tystnad i monolog är den inkluderad. Tystnad i början och slutet av monolog tas bort.| 
 |SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt högtalar monolog (utan tystnad mellan) dividerat med videons totala tid. Tiden avrundas till det tredje decimal tecknet.|
 
-#### <a name="audioeffects"></a><a id="audioEffects"/>audioEffects
+#### <a name="audioeffects"></a>audioEffects
 
 |Name|Beskrivning|
 |---|---|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2b49598d51fb785872fccec966ac11a95ef3cede
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267825"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657726"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -167,7 +167,7 @@ Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtk
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
 När du försöker ta bort en fil kan du få följande fel meddelande:
 
-Den angivna resursen har marker ATS för borttagning av en SMB-klient.
+Den angivna resursen har markerats för borttagning av en SMB-klient.
 
 ### <a name="cause"></a>Orsak
 Det här problemet uppstår vanligt vis om filen eller katalogen har en öppen referens. 
@@ -330,7 +330,7 @@ För närvarande kan du överväga att omdistribuera AAD DS med ett nytt domän-
 ### <a name="self-diagnostics-steps"></a>Själv diagnos steg
 Kontrol lera först att du har följt alla fyra stegen för att [aktivera Azure Files AD-autentisering](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics. ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration, vilket skulle leda till åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
+Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
 
 För det tredje kan du köra cmdleten debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller på din AD-konfiguration med den inloggade AD-användaren. Den här cmdleten stöds i [versionen AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra denna cmdlet med en AD-användare som har ägarbehörighet på mållagringskontot.  
 ```PowerShell
@@ -345,9 +345,9 @@ Cmdleten utför dessa kontroller nedan i följd och ger vägledning för felen:
 3. CheckADObject: bekräfta att den inloggade användaren har en giltig representation i den AD-domän som lagrings kontot är associerat med
 4. CheckGetKerberosTicket: försöker hämta en Kerberos-biljett för att ansluta till lagrings kontot 
 5. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb-nyckel
-6. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD
-
-Vi arbetar aktivt med att utöka denna diagnostik-cmdlet för att ge bättre fel söknings vägledning.
+6. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD. Om du vill se om en särskild AD-användare är synkroniserad med Azure AD kan du ange parametern-UserName och-Domain i indataparametrarna.
+7. CheckAadUserHasSid: kontrol lera om en Azure AD-användare har ett SID i AD, kräver användaren att ange objekt-ID: t för Azure AD-användaren med-ObjectId. 
+8. CheckStorageAccountDomainJoined: kontrol lera om du har registrerat en identitet i AD som representerar lagrings kontot. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Det gick inte att konfigurera katalog-/fil nivå behörigheter (Windows ACL: er) med Utforskaren i Windows
 

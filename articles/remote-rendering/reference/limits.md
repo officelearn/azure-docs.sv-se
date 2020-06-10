@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c35930a93751cc82c3145d414a2a09b3a1e90c53
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759055"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659833"
 ---
 # <a name="limitations"></a>Begränsningar
 
@@ -45,6 +45,7 @@ Det tillåtna antalet polygoner för alla laddade modeller beror på storleken p
 **Windows 10 Desktop**
 
 * UWP/x86 är den enda UWP-plattform som stöds. UWP/x64 stöds inte.
+* Win32/x64 är den enda Win32-plattform som stöds. Win32/x86 stöds inte.
 
 **HoloLens 2**
 

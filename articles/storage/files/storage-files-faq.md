@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ac9d9fddc45abbcbe4890d1060dcc2c931c72182
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3724392cc50e910c5caf4a3f6cba85070a6d107f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265173"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661097"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -109,7 +109,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
+    Den första CompanyReport.docx skulle till exempel bli CompanyReport-CentralServer.docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten får namnet CompanyReport-CentralServer-1.docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Stöds Geo-redundant lagring för Azure File Sync?**  
@@ -160,7 +160,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="afs-ntfs-acls"></a>
   **Ska Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**
 
-    Från och med februari 2020 24 sparas nya och befintliga ACL: er med Azure File Sync i NTFS-format och ACL-ändringar som görs direkt till Azure-filresursen synkroniseras till alla servrar i Sync-gruppen. Ändringar av ACL: er som görs i Azure Files kommer att synkroniseras via Azure File Sync. När du kopierar data till Azure Files ska du kontrol lera att du använder SMB för att få åtkomst till resursen och bevara dina ACL: er. Befintliga REST-baserade verktyg, till exempel AzCopy eller Storage Explorer, behåller inte ACL: er.
+    Från och med februari 2020 24 sparas nya och befintliga ACL: er med Azure File Sync i NTFS-format och ACL-ändringar som görs direkt till Azure-filresursen synkroniseras till alla servrar i Sync-gruppen. Ändringar av ACL: er som görs i Azure Files kommer att synkroniseras via Azure File Sync. När du kopierar data till Azure Files, se till att du använder ett kopierings verktyg som stöder den nödvändiga "åter givningen" för att kopiera attribut, tidsstämplar och ACL: er till en Azure-filresurs – antingen via SMB eller REST. När du använder Azure Copy-verktyg, till exempel AzCopy, är det viktigt att använda den senaste versionen. Se [tabellen fil kopierings verktyg](storage-files-migration-overview.md#file-copy-tools) för att få en översikt över Azure Copy-verktyg så att du kan kopiera alla viktiga metadata för en fil.
 
     Om du har aktiverat Azure Backup i hanterade fil resurser för filsynkronisering kan fil åtkomst kontrol listor fortsätta att återställas som en del av arbets flödet för säkerhets kopierings återställning. Detta fungerar antingen för hela resursen eller enskilda filer/kataloger.
 

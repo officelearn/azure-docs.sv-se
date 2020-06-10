@@ -8,23 +8,21 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
-ms.openlocfilehash: 23ab1bc5e3c9af59a6f1564a3c5f67a63f90baa1
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 8360d78c8c33f99fa34cfe78e8b9882ee55a5c48
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465396"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655614"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Använda Queue Storage från Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
-
 I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa** och **ta bort** köer. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
 
-> [!NOTE]
-> En SDK finns tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
+> [!IMPORTANT]
+> Den här artikeln hänvisar till den äldre versionen av Azure Storage-klient biblioteket för Java. För att komma igång med den senaste versionen kan du se [snabb start: Azure Queue Storage klient bibliotek för Java](storage-quickstart-queues-java.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -390,6 +388,11 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+
+[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+> [!NOTE]
+> En SDK finns tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.

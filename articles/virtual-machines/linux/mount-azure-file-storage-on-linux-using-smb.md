@@ -3,16 +3,16 @@ title: Montera Azure File Storage på virtuella Linux-datorer med SMB
 description: Montera Azure File Storage på virtuella Linux-datorer med SMB med Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066650"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658149"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File Storage på virtuella Linux-datorer med SMB
 
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT\<Random Number>* och namnet på det lagrings kontot anges i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, `$RANDOM` med Lägg till ett nummer i slutet för att göra det unikt.
+Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT \<random number> * och namnet på lagrings kontot läggs till i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` Lägg till ett nummer i slutet för att göra det unikt.
 
 ```azurecli
 STORAGEACCT=$(az storage account create \
@@ -93,7 +93,7 @@ Montera Azure-filresursen i den lokala katalogen.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Kommandot ovan använder [monterings](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt, alternativen file_mode och dir_mode anger filer och kataloger för behörighet `0777`. `0777` Behörigheten ger Läs-, skriv-och körnings behörighet för alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
+Kommandot ovan använder [monterings](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt, alternativen file_mode och dir_mode anger filer och kataloger för behörighet `0777` . `0777`Behörigheten ger Läs-, skriv-och körnings behörighet för alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
 
 
 ## <a name="persist-the-mount"></a>Behåll monteringen

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
-ms.openlocfilehash: 96674f059e9cbc21c5c8c64eff8c94c810c4aa32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/08/2020
+ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417784"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660409"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Läs in data i Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -42,95 +42,90 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
    
-   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. På sidan **ny data fabrik** anger du värden för de fält som visas i följande bild: 
-      
-   ![Sidan Ny datafabrik](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
+2. På sidan **ny data fabrik** anger du värden för följande fält:
  
-    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \"LoadADLSDemo\" är inte tillgängligt" anger du ett annat namn för data fabriken. Du kan till exempel använda namnet _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *YourDataFactoryName* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
     * **Version**: Välj **v2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. 
 
 3. Välj **Skapa**.
+
 4. När du har skapat filen går du till din data fabrik. Du ser **Data Factory** start sida så som visas i följande bild: 
    
-   ![Datafabrikens startsida](./media/load-azure-data-lake-storage-gen2/data-factory-home-page.png)
+   ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
 
    Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Läsa in data i Azure Data Lake Storage Gen2
 
-1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta kopiera data-verktyget: 
+1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget Kopiera data.
 
-   ![Panel för verktyget Kopiera data](./media/load-azure-data-lake-storage-gen2/copy-data-tool-tile.png)
-2. På sidan **Egenskaper** anger du **CopyFromAmazonS3ToADLS** för fältet **uppgifts namn** och väljer **Nästa**:
+2. På sidan **Egenskaper** anger du **CopyFromAmazonS3ToADLS** för fältet **uppgifts namn** och väljer **Nästa**.
 
     ![Sidan Egenskaper](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. På sidan **käll data lager** klickar du på **+ Skapa ny anslutning**:
-
-    ![Sidan Källdatalager](./media/load-azure-data-lake-storage-gen2/source-data-store-page.png)
-    
-    Välj **Amazon S3** i kopplings galleriet och välj **Fortsätt**
+3. På sidan **Källdatalager** klickar du på **+ Skapa ny anslutning**. Välj **Amazon S3** i kopplings galleriet och välj **Fortsätt**.
     
     ![Käll data lager S3-sida](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
-4. På sidan **Ange Amazon S3-anslutning** utför du följande steg:
+4. På sidan **ny länkad tjänst (Amazon S3)** gör du följande:
 
    1. Ange **åtkomst nyckelns ID-** värde.
    2. Ange nyckel värde för **hemlig åtkomst** .
-   3. Klicka på **Testa anslutning** för att verifiera inställningarna och välj sedan **Slutför**.
-   4. Du ser att en ny anslutning skapas. Välj **Nästa**.
-   
+   3. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **skapa**.
+
       ![Ange Amazon S3-konto](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-      
-5. På sidan **Välj indatafil eller mapp** bläddrar du till den mapp och fil du vill kopiera över. Välj mappen/filen **och välj sedan:**
+   4. Du ser att en ny AmazonS3-anslutning skapas. Välj **Nästa**. 
+
+5. På sidan **Välj indatafil eller mapp** bläddrar du till den mapp och fil du vill kopiera över. Markera mappen/filen och välj sedan **Välj**.
 
     ![Välj indatafil eller mapp](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
-6. Ange kopieringsbeteendet genom att markera alternativen **Kopiera filer rekursivt** och **Binär kopia**. Välj **Nästa**:
+6. Ange kopierings beteendet genom att markera alternativen **rekursivt** och **binär kopia** . Välj **Nästa**.
 
     ![Ange mapp för utdata](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. På sidan **mål data lager** klickar du på **+ Skapa ny anslutning**och välj sedan **Azure Data Lake Storage Gen2**och välj **Fortsätt**:
+7. På sidan **mål data lager** klickar du på **+ Skapa ny anslutning**och välj sedan **Azure Data Lake Storage Gen2**och välj **Fortsätt**.
 
     ![Sidan Måldatalager](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 
-8. Utför följande steg på sidan **ange Azure Data Lake Storage anslutning** :
+8. Utför följande steg på sidan **ny länkad tjänst (Azure Data Lake Storage Gen2)** :
 
-   1. Välj ditt Data Lake Storage Gen2-kapabla konto i list rutan "lagrings konto namn".
-   2. Välj **Slutför** för att skapa anslutningen. Välj **Nästa**.
-   
-   ![Ange Azure Data Lake Storage Gen2 konto](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
+   1. Välj ditt konto med funktioner för Data Lake Storage Gen2 i listrutan ”Namn på lagringskonto”.
+   2. Välj **skapa** för att skapa anslutningen. Välj **Nästa**.   
 
-9. På sidan **Välj utdatafil eller mapp** anger du **copyfroms3** som namn på utdata-mappen och väljer **Nästa**. ADF skapar motsvarande ADLS Gen2 fil system och undermappar under kopieringen om den inte finns.
+        ![Ange Azure Data Lake Storage Gen2 konto](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
+
+9. På sidan **Välj utdatafil eller mapp** anger du **copyfroms3** som namn på utdata-mappen och väljer **Nästa**. I ADF skapas motsvarande ADLS Gen2 fil system och undermappar under kopieringen om den inte finns.
 
     ![Ange mapp för utdata](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
-10. På sidan **Inställningar** väljer du **Nästa** för att använda standardinställningarna:
+10. På sidan **Inställningar** väljer du **Nästa** för att använda standardinställningarna.
 
     ![Sidan Inställningar](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
-11. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**:
+
+11. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**.
 
     ![Sammanfattningssida](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
-12. På **sidan distribution**väljer du **övervakare** för att övervaka pipelinen:
 
-    ![Distributionssida](./media/load-azure-data-lake-storage-gen2/deployment-page.png)
-13. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **åtgärder** finns länkar för att Visa aktivitets körnings information och köra pipelinen igen:
+12. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten). 
+ 
+13. När pipeline-körningen har slutförts visas en pipeline-körning som utlöses av en manuell utlösare. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
     ![Övervaka pipelinekörningar](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-14. Om du vill visa aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen **åtgärder** . Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Om du vill växla tillbaka till vyn pipeline-körningar väljer du länken **pipelines** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). 
-
+14. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken **CopyFromAmazonS3ToADLS** i kolumnen pipeline-namn. Om du vill ha mer information om kopierings åtgärden väljer du länken **information** (glasögon ikonen) under kolumnen aktivitets namn. Du kan övervaka information om data volymen som kopieras från källan till mottagaren, data genom strömning, körnings steg med motsvarande varaktighet och Använd konfiguration.
+ 
     ![Övervaka aktivitetskörningar](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
-
-15. Om du vill övervaka körnings informationen för varje kopierings aktivitet väljer du länken **information** (glasögon-avbildning) under **åtgärder** i vyn aktivitets övervakning. Du kan övervaka information om data volymen som kopieras från källan till mottagaren, data genom strömning, körnings steg med motsvarande varaktighet och använda konfigurationer:
-
+    
     ![Övervaka körnings information för aktivitet](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
+
+15. Välj Uppdatera för att uppdatera vyn. Välj **alla pipelines** längst upp för att gå tillbaka till vyn pipelines-körningar.
 
 16. Verifiera att data har kopierats till ditt Data Lake Storage Gen2-konto.
 

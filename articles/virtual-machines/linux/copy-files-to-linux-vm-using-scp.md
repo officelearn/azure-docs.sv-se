@@ -4,16 +4,16 @@ description: Flytta filer säkert till och från en virtuell Linux-dator i Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 531edf5bb857b570e595fc1a179a887013e094f3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969610"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659780"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Flytta filer till och från en virtuell Linux-dator med SCP
 
@@ -43,7 +43,7 @@ Som exempel flyttar vi en Azure-konfigurationsfil upp till en virtuell Linux-dat
 
 SCP använder SSH för transport lagret. SSH hanterar autentiseringen på mål värden och flyttar filen i en krypterad tunnel som tillhandahålls som standard med SSH. För SSH-autentisering kan du använda användar namn och lösen ord. Autentisering av offentliga och privata SSH-nycklar rekommenderas dock som en säkerhets rutin. När SSH har autentiserat anslutningen börjar SCP att kopiera filen. Med en korrekt konfigurerad `~/.ssh/config` och offentliga och privata offentliga och privata nycklar kan SCP-anslutningen upprättas genom att du bara använder ett server namn (eller en IP-adress). Om du bara har en SSH-nyckel söker SCP efter den i `~/.ssh/` katalogen och använder den som standard för att logga in på den virtuella datorn.
 
-Mer information om hur du konfigurerar `~/.ssh/config` dina offentliga och privata nycklar och privata nycklar finns i [skapa SSH-nycklar](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Mer information om hur du konfigurerar dina `~/.ssh/config` offentliga och privata nycklar och privata nycklar finns i [skapa SSH-nycklar](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP a-fil till en virtuell Linux-dator
 
@@ -65,7 +65,7 @@ Följande kommando kopierar filer i katalogen */Home/azureuser/logs/* på den vi
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-`-r` Flaggan instruerar SCP att rekursivt kopiera filer och kataloger från den plats i katalogen som anges i kommandot.  Observera också att kommando rads koden liknar kommandot `cp` kopiera.
+`-r`Flaggan instruerar SCP att rekursivt kopiera filer och kataloger från den plats i katalogen som anges i kommandot.  Observera också att kommando rads koden liknar kommandot `cp` Kopiera.
 
 ## <a name="next-steps"></a>Nästa steg
 

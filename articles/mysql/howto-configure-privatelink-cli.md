@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a9c9afc6e1730e2b370cf3b1ae32393250d83178
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: ec705a247dceeb06c1fc0a802a8a61d582fa43dc
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634820"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656775"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL med CLI
 
@@ -68,7 +68,7 @@ Observera den offentliga IP-adressen för den virtuella datorn. Du kommer att an
 Skapa en Azure Database for MySQL med kommandot AZ MySQL server Create. Kom ihåg att namnet på MySQL-servern måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -84,13 +84,20 @@ az mysql server create \
 
 ## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten 
 Skapa en privat slut punkt för MySQL-servern i Virtual Network: 
+
+Hämta resurs-ID för servern
 ```azurecli-interactive
+$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id")
+```
+
+```azurecli-interactive
+#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMySQL/servers/$Servername" \    
+    --private-connection-resource-id $resourceid \    
     --group-id mysqlServer \  
     --connection-name myConnection  
  ```

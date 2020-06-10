@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 13bff6006d38489d576a0cbefbf3e7bab8afab37
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 65bcedd534bffca3f69d8162a6d2a429d8d73863
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488910"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660857"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -150,7 +150,7 @@ Debian 8 | 9,28 | 3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd6
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32, [9,33](https://support.microsoft.com/help/4564347/) | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | korrigering 9,33 snabb korrigering | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure </br> 4.12.14-16.10 – Azure till 4.12.14-16,7-Azure: 5  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | korrigering 9,33 snabb korrigering | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure </br> 4.12.14-16.10 – Azure till 4.12.14-16,7-Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.29 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,30 | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.29 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Alla aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.23 – Azure  |

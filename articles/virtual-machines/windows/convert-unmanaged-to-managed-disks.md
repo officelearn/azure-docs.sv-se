@@ -4,15 +4,15 @@ description: Konvertera en virtuell Windows-dator från ohanterade diskar till h
 author: roygara
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6173f2f60f5dd0b2b06c415bbf55ed31bacbe8b7
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081956"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658191"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade diskar till Managed disks
 
@@ -35,7 +35,7 @@ Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar k
 ## <a name="convert-single-instance-vms"></a>Konvertera virtuella datorer med en instans
 Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en instans från ohanterade diskar till hanterade diskar. (Om dina virtuella datorer finns i en tillgänglighets uppsättning, se nästa avsnitt.) 
 
-1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn `myVM` som heter i resurs gruppen `myResourceGroup`med namnet: 
+1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn `myVM` som heter i resurs gruppen med namnet `myResourceGroup` : 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -55,7 +55,7 @@ Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en i
 
 Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i en tillgänglighets uppsättning måste du först konvertera tillgänglighets uppsättningen till en hanterad tillgänglighets uppsättning.
 
-1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen som `myAvailabilitySet` heter i resurs gruppen med `myResourceGroup`namnet:
+1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen `myAvailabilitySet` som heter i resurs gruppen med namnet `myResourceGroup` :
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -88,14 +88,14 @@ Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i e
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om det uppstår ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en tidigare konvertering `ConvertTo-AzVMManagedDisk` , kör du cmdleten igen. Ett enkelt återförsök blockerar ofta situationen.
+Om det uppstår ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en tidigare konvertering, kör du `ConvertTo-AzVMManagedDisk` cmdleten igen. Ett enkelt återförsök blockerar ofta situationen.
 Innan du konverterar kontrollerar du att alla VM-tillägg är i läget etablering lyckades eller att konverteringen Miss lyckas med felkoden 409.
 
 ## <a name="convert-using-the-azure-portal"></a>Konvertera med Azure Portal
 
 Du kan också konvertera ohanterade diskar till hanterade diskar med hjälp av Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över virtuella datorer i portalen.
 3. I bladet för den virtuella datorn väljer du **diskar** på menyn.
 4. Överst på bladet **diskar** väljer **du migrera till Managed disks**.

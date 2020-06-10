@@ -3,12 +3,12 @@ title: Förbättra tillgängligheten för ditt program med Azure Advisor
 description: Använd Azure Advisor för att förbättra hög tillgänglighet för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed092a51b5a4aba1dfa64c17f5ed3d6f72212da
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788033"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658477"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
@@ -93,6 +93,14 @@ Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner 
 
 Azure Advisor identifierar Azure Cosmos DB konton som använder tidigare versioner av Cosmos DB Spark-anslutningsprogrammet och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB Spark-anslutning](https://aka.ms/cosmosdb/spark-connector)
 
+## <a name="upgrade-recommendation-for-deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Uppgraderings rekommendation för utfasning av Kafka 1,1 i HDInsight 4,0 Kafka-kluster
+
+Från och med 1 juli 2020 kommer kunderna inte att kunna skapa nya Kafka-kluster med Kafka 1.1 på HDInsight 4.0. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. Överväg att flytta till Kafka 2.1 på HDInsight 4.0 den 30 juni 2020 för att undvika potentiella system-/supportavbrott.
+
+## <a name="upgrade-recommendation-for-deprecation-of-older-spark-versions-in-hdinsight-spark-cluster"></a>Uppgraderings rekommendation för utfasning av äldre Spark-versioner i HDInsight Spark-kluster
+
+Från och med 1 juli 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2.1 och 2.2 på HDInsight 3.6 och Spark 2.3 på HDInsight 4.0. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. ",
+
 ## <a name="enable-virtual-machine-replication"></a>Aktivera replikering av virtuell dator
 Virtuella datorer som inte har replikering aktive rad till en annan region är inte elastiska till regionala avbrott. Replikering av virtuella datorer minskar eventuell negativ inverkan på verksamheten under tiden för ett avbrott i Azure-regionen. Advisor identifierar virtuella datorer som inte har någon aktive rad replikering och rekommenderar att du aktiverar replikering, så om ett avbrott inträffar kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region. [Läs mer om replikering av virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
@@ -105,7 +113,7 @@ Virtuella datorer som inte har replikering aktive rad till en annan region är i
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Advisor-rekommendationer finns i:
-* [Introduktion till Azure Advisor](advisor-overview.md)
+* [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
 * [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)

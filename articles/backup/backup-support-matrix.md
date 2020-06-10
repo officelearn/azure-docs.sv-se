@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: faf7abf23d196b389531803c519368b5d474aeb3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659395"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655618"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -101,14 +101,14 @@ Azure Backup stöder kryptering för överförings-och rest-data.
 
 - Säkerhets kopierings trafik från servrar till Recovery Services-valvet krypteras med hjälp av Advanced Encryption Standard 256.
 - Säkerhetskopierade data skickas via en säker HTTPS-anslutning.
+
+### <a name="data-security"></a>Datasäkerhet
+
 - Säkerhetskopierade data lagras i Recovery Services valvet i krypterad form.
 - Endast du har tillgång till den lösenfras som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
 
     > [!WARNING]
     > När du har konfigurerat valvet har bara du åtkomst till krypteringsnyckeln. Microsoft sparar aldrig någon kopia och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa dina säkerhetskopierade data.
-
-### <a name="data-security"></a>Datasäkerhet
-
 - När du säkerhetskopierar virtuella Azure-datorer måste du konfigurera kryptering *i* den virtuella datorn.
 - Azure Backup stöder Azure Disk Encryption, som använder BitLocker på virtuella Windows-datorer och **dm-crypt** på virtuella Linux-datorer.
 - På Server sidan använder Azure Backup [Azure Storage tjänst kryptering](../storage/common/storage-service-encryption.md)som skyddar data i vila.
@@ -129,7 +129,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Ja][green]
+**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Yes][green]
 **Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
 **Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
@@ -152,9 +152,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Inga                                                           | Ej tillämpligt               |
-| SQL-/SAP HANA          | Inga                                                           | Ej tillämpligt               |
-| DATABASSERVER                    | Inga                                                           | Ej tillämpligt               |
+| MARS-agent/lokalt | No                                                           | Saknas               |
+| SQL-/SAP HANA          | No                                                           | Saknas               |
+| DATABASSERVER                    | No                                                           | Saknas               |
 
 ## <a name="next-steps"></a>Nästa steg
 

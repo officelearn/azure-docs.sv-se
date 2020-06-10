@@ -3,16 +3,16 @@ title: Hitta och ta bort icke anslutna Azure-hanterade diskar och ohanterade dis
 description: Hitta och ta bort frånkopplade Azure-hanterade och ohanterade (VHD/Page blobbar) diskar med hjälp av Azure CLI.
 author: roygara
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b4a46e79b3bb2feabe7af739086b8e0166c4ac55
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296297"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660163"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Hitta och ta bort frånkopplade Azure-hanterade och ohanterade diskar med hjälp av Azure CLI
 När du tar bort en virtuell dator (VM) i Azure tas som standard alla diskar som är kopplade till den virtuella datorn bort. Den här funktionen hjälper till att förhindra data förlust på grund av oavsiktlig borttagning av virtuella datorer. När en virtuell dator har tagits bort fortsätter du att betala för ej anslutna diskar. Den här artikeln visar hur du hittar och tar bort alla frånkopplade diskar och minskar onödiga kostnader. 

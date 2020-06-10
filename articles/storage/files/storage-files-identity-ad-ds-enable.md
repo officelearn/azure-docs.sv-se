@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: rogarana
-ms.openlocfilehash: 4423067fde70728a5449485434cc40c5c3d3ee8f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 759b80ff3cf20bee1dd909cba59e67f5d36023b2
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324104"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660792"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Del ett: Aktivera AD DS-autentisering för dina Azure-filresurser 
 
@@ -20,23 +20,21 @@ Innan du aktiverar autentisering med Active Directory Domain Services (AD DS) se
 
 Den här artikeln beskriver den process som krävs för att aktivera autentisering med Active Directory Domain Services (AD DS) på ditt lagrings konto. När du har aktiverat funktionen måste du konfigurera ditt lagrings konto och AD DS för att kunna använda AD DS-autentiseringsuppgifter för att autentisera till Azure-filresursen. Om du vill aktivera AD DS-autentisering över SMB för Azure-filresurser måste du registrera ditt lagrings konto med AD DS och sedan ange de domän egenskaper som krävs för lagrings kontot. När funktionen är aktive rad på lagrings kontot gäller den för alla nya och befintliga fil resurser i kontot.
 
-## <a name="option-one-recommended-use-the-script"></a>Alternativ ett (rekommenderas): Använd skriptet
+## <a name="option-one-recommended-use-azfileshybrid-powershell-module"></a>Alternativ ett (rekommenderas): Använd AzFilesHybrid PowerShell-modulen
 
-Skriptet i den här artikeln gör nödvändiga ändringar och aktiverar funktionen åt dig. Eftersom vissa delar av skriptet interagerar med din lokala AD DS förklarar vi vad skriptet gör, så att du kan avgöra om ändringarna överensstämmer med dina efterlevnads-och säkerhets principer och se till att du har rätt behörighet för att köra skriptet. Även om du inte kan använda skriptet rekommenderar vi stegen så att du kan utföra dem manuellt.
+Cmdletarna i AzFilesHybrid PowerShell-modulen gör nödvändiga ändringar och aktiverar funktionen åt dig. Eftersom vissa delar av cmdletarna interagerar med din lokala AD DS förklarar vi vad cmdleten gör, så att du kan avgöra om ändringarna överensstämmer med dina efterlevnads-och säkerhets principer och se till att du har rätt behörighet för att köra cmdletarna. Vi rekommenderar att du använder AzFilesHybrid-modulen, om du inte kan göra det, så att du kan utföra dem manuellt.
 
-### <a name="script-prerequisites"></a>Skript krav
+### <a name="download-azfileshybrid-module"></a>Hämta AzFilesHybrid-modul
 
-- [Ladda ned och zippa upp AzFilesHybrid-modulen](https://github.com/Azure-Samples/azure-files-samples/releases)
+- [Ladda ned och zippa upp AzFilesHybrid-modulen](https://github.com/Azure-Samples/azure-files-samples/releases) (ga-modulen: v 0.2.0 +)
 - Installera och kör modulen i en enhet som är domänansluten till lokala AD DS med AD DS-autentiseringsuppgifter som har behörighet att skapa ett tjänst inloggnings konto eller ett dator konto i mål AD.
 -  Kör skriptet med en lokal AD DS-autentiseringsuppgift som synkroniseras med din Azure AD. Den lokala AD DS-autentiseringsuppgiften måste ha antingen lagrings kontots ägare eller rollen som deltagares RBAC-roll.
 
-### <a name="offline-domain-join"></a>Domän anslutning offline
+### <a name="run-join-azstorageaccountforauth"></a>Kör Join-AzStorageAccountForAuth
 
 `Join-AzStorageAccountForAuth`Cmdleten utför motsvarigheten till en frånkopplad domän anslutning åt det angivna lagrings kontot. Skriptet använder cmdleten för att skapa ett konto i din AD-domän, antingen ett [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [inloggnings konto för tjänsten](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). Om du väljer att köra kommandot manuellt bör du välja det konto som passar bäst för din miljö.
 
 AD DS-kontot som skapas av cmdleten representerar lagrings kontot. Om AD DS-kontot skapas under en organisationsenhet (OU) som tillämpar lösen ordets giltighets tid måste du uppdatera lösen ordet innan du får högsta ålder för lösen ord. Det gick inte att uppdatera konto lösen ordet innan den gaten resulterar i autentiseringsfel vid åtkomst till Azure-filresurser. Information om hur du uppdaterar lösen ordet finns i [Uppdatera AD DS-kontots lösen ord](storage-files-identity-ad-ds-update-password.md).
-
-### <a name="use-the-script-to-enable-ad-ds-authentication"></a>Använd skriptet för att aktivera AD DS-autentisering
 
 Kom ihåg att ersätta plats hållarnas värden med dina egna i parametrarna nedan innan du kör det i PowerShell.
 > [!IMPORTANT]
@@ -66,20 +64,20 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
-# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account (default parameter value), depends on the AD permission you have and preference. 
 # Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount" if parameter is omitted
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" `
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## <a name="option-2-manually-perform-the-script-actions"></a>Alternativ 2: utför skript åtgärderna manuellt
+## <a name="option-2-manually-perform-the-enablement-actions"></a>Alternativ 2: utför aktiverings åtgärderna manuellt
 
 Om du redan har kört `Join-AzStorageAccountForAuth` skriptet ovan går du till avsnittet bekräfta att [funktionen är aktive rad](#confirm-the-feature-is-enabled) . Du behöver inte utföra följande manuella steg.
 

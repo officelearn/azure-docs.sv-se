@@ -4,16 +4,16 @@ description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-han
 author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 153bbc39ceba52548d667fa4c83d0edc867fcb93
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182522"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660600"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure PowerShell
 
@@ -42,11 +42,11 @@ Den här typen av hanterade diskar har två unika tillstånd:
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
 
-Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil storleken på den virtuella hård disk som du vill ladda upp, i byte. Exempel koden kommer att ge dig, men för att göra det själv kan du använda: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Det här värdet används när du anger parametern **-UploadSizeInBytes** .
+Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil storleken på den virtuella hård disk som du vill ladda upp, i byte. Exempel koden kommer att ge dig, men för att göra det själv kan du använda: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Det här värdet används när du anger parametern **-UploadSizeInBytes** .
 
 I det lokala gränssnittet skapar du en tom standard hård disk för uppladdning genom att ange **uppladdnings** inställningen i parametern **-CreateOption** och parametern **-UploadSizeInBytes** i cmdleten [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Anropa sedan [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) för att skapa disken.
 
-Ersätt `<yourdiskname>`, `<yourresourcegroupname>`och `<yourregion>` kör sedan följande kommandon:
+Ersätt `<yourdiskname>` , `<yourresourcegroupname>` och `<yourregion>` kör sedan följande kommandon:
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -60,7 +60,7 @@ Om du vill ladda upp antingen en Premium SSD eller en standard SSD ersätter du 
 
 Nu när du har skapat en tom hanterad disk som är konfigurerad för överförings processen kan du ladda upp en virtuell hård disk till den. Om du vill ladda upp en virtuell hård disk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för överföringen.
 
-Om du vill generera en skrivbar SAS av din tomma hanterade `<yourdiskname>`disk `<yourresourcegroupname>`ersätter du och och använder sedan följande kommandon:
+Om du vill generera en skrivbar SAS av din tomma hanterade disk ersätter du `<yourdiskname>` och och `<yourresourcegroupname>` använder sedan följande kommandon:
 
 ```powershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
@@ -82,7 +82,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlo
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 
-Ersätt `<yourdiskname>`och `<yourresourcegroupname>`och kör sedan följande kommando:
+Ersätt `<yourdiskname>` och och `<yourresourcegroupname>` kör sedan följande kommando:
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
@@ -97,7 +97,7 @@ Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, m
 > [!IMPORTANT]
 > Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
 
-`<sourceResourceGroupHere>`Ersätt `<sourceDiskNameHere>`,, `<targetDiskNameHere>` `<targetResourceGroupHere>`, `<yourOSTypeHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+Ersätt `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` ,, `<targetDiskNameHere>` `<targetResourceGroupHere>` `<yourOSTypeHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
 
 ```powershell
 

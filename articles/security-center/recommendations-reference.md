@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 90a058b7702dd51d3f93a83ae3e3d85f534808f3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6bf218f14b0fc783bead5183b22e4abcefe87b5a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552211"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660004"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -92,6 +92,9 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**Alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från Service Bus namnrymd**|Service Bus-klienter bör inte använda en åtkomst princip för namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med minsta behörighets säkerhets modell bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.<br>(Relaterad princip: alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från namn området Service Bus)|Låg|N|Beräknings resurser (Service Bus)|
 |**Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet**|Event Hub-klienter bör inte använda en åtkomst princip för namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med minsta behörighets säkerhets modell bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.<br>(Relaterad princip: alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från Event Hub-namnområdet)|Låg|N|Beräknings resurser (Event Hub)|
 |**Auktoriseringsregler i Event Hub-entiteten måste definieras**|Granska auktoriseringsregler i entiteten Event Hub för att bevilja åtkomst med lägsta privilegier.<br>(Relaterad princip: auktoriseringsregler i Event Hub-entiteten ska definieras)|Låg|N|Beräknings resurser (Event Hub)|
+|**Installera övervaknings agenten på dina virtuella datorer**|Installera övervaknings agenten för att aktivera data insamling, uppdaterings genomsökning, bas linje genomsökning och Endpoint Protection på varje dator.<br>(Ingen relaterad princip)|Hög|**J**|Dator|
+|**Gäst konfigurations tillägget bör installeras på virtuella Windows-datorer (för hands version)**|Installera gäst konfigurations agenten för att aktivera gransknings inställningar i en dator, till exempel: konfiguration av operativ system, program konfiguration eller närvaro, miljö inställningar. När du har installerat, kommer principer för gäst att vara tillgängliga, till exempel Windows sårbarhet Guard.<br>(Relaterad princip: Granska krav för att aktivera principer för gäst konfiguration på virtuella Windows-datorer)|Hög|**J**|Dator|
+|**Windows Defender sårbarhet Guard måste vara aktiverat på dina datorer (för hands version)**|Windows Defender sårbarhet Guard utnyttjar Azure Policy-konfigurations agenten för gäst. I sårbarhets Guard finns fyra komponenter som är utformade för att låsa enheter mot en mängd olika angrepps vektorer och blockera beteenden som ofta används i angrepp mot skadlig kod och som gör det möjligt för företag att balansera sina säkerhets risker och produktivitets krav (endast Windows).<br>(Relaterad princip: granska virtuella Windows-datorer där Windows Defender sårbarhet Guard inte är aktiverat)|Medium|N|Dator|
 |**Installera övervaknings agenten på dina virtuella datorer**|Installera övervaknings agenten för att aktivera data insamling, uppdaterings genomsökning, bas linje genomsökning och Endpoint Protection på varje dator.<br>(Ingen relaterad princip)|Hög|**J**|Dator|
 |**Övervaknings agentens hälso problem bör lösas på dina datorer**|Lös problem med övervaknings agenten på datorerna genom att följa anvisningarna i fel söknings guiden för fullständig Security Center skydd<br>(Ingen relaterad princip beroende på "installera övervaknings agent på dina virtuella datorer")|Medium|N|Dator|
 |**Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer**|Aktivera program kontroll för att styra vilka program som kan köras på dina virtuella datorer som finns i Azure. På så sätt kan dina virtuella datorer öka mot skadlig kod. Security Center använder Machine Learning för att analysera de program som körs på varje virtuell dator och hjälper dig att tillämpa Tillåt-regler med hjälp av den här intelligensen. Den här funktionen fören klar processen att konfigurera och underhålla regler för att tillåta program.<br>(Relaterad princip: adaptiva program kontroller ska aktive ras på virtuella datorer)|Hög|N|Dator|

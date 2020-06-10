@@ -1,5 +1,5 @@
 ---
-title: Etablerings guide för SQL Server virtuella datorer med Azure PowerShell | Microsoft Docs
+title: Guide för att använda Azure PowerShell för att etablera SQL Server på virtuell Azure-dator
 description: Innehåller steg-och PowerShell-kommandon för att skapa en virtuell Azure-dator med SQL Server Galleri avbildningar för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,14 +15,15 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 39289740bd1d00a5916db45178f1eb1ef9bc7b12
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: def998c018a90cc288204650ae8d713bf1b4b5bc
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046112"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656916"
 ---
-# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Så här etablerar du SQL Server virtuella datorer med Azure PowerShell
+# <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Använda Azure PowerShell för att etablera SQL Server på Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 I den här guiden beskrivs alternativen för att skapa Windows SQL Server virtuella datorer med Azure PowerShell. Ett strömlinjeformat Azure PowerShell exempel med fler standardvärden finns i snabb starten för [SQL VM Azure PowerShell](sql-vm-create-powershell-quickstart.md).

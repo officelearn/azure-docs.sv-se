@@ -9,18 +9,21 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019, tracking-python
-ms.openlocfilehash: 5c45cb765fec9f34e5db0e9bd66ef020499eadf1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 00eb7c1488c90add48e3b6755ca1835d2ce1ff2d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559168"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657706"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Så här använder du Azure Queue Storage v 2.1 från python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Den här artikeln visar vanliga scenarier med Azure Queue Storage-tjänsten. Scenarierna som beskrivs är att infoga, granska, hämta och ta bort Kömeddelanden, samt skapa och ta bort köer.
+
+> [!IMPORTANT]
+> Den här artikeln hänvisar till den äldre versionen av Azure Storage-klient biblioteket för python. För att komma igång med den senaste versionen kan du se [snabb start: Azure Queue Storage klient bibliotek för python](storage-quickstart-queues-python.md)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 

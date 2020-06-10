@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 7552cb3889b73604563758a97ae8a59960f6a906
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258580"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658018"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,9 +229,9 @@ Om programmet använder SQL-hanterad instans som datanivå, följer du dessa all
 För att säkerställa icke-avbruten anslutning till den primära SQL-hanterade instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär SQL-hanterad instans i en annan region och kontrollerar att den delar DNS-zonen med den primära SQL-hanterade instansen. Du kan göra det genom att ange den valfria `DNS Zone Partner` parametern med hjälp av Azure Portal, PowerShell eller REST API.
 
 > [!IMPORTANT]
-> Den första SQL-hanterade instans som skapades i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.
+> Den första hanterade instans som skapas i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.
 
-Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Aktivera replikeringstrafik mellan två instanser
 
@@ -404,7 +404,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort en failover-grupp från servern |
@@ -415,7 +415,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -425,7 +425,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Beskrivning |
+| API | Description |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
@@ -442,7 +442,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| Cmdlet | Beskrivning |
+| Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära instanser|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Ändrar konfigurationen för en failover-grupp|
@@ -453,7 +453,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -463,7 +463,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Beskrivning |
+| API | Description |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en konfiguration för redundans gruppen |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |

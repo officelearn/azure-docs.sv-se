@@ -4,12 +4,12 @@ description: Anpassade avbildningar är ett effektivt sätt att konfigurera dato
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: tracking-python
-ms.openlocfilehash: bd71983a5c932b515a7d41a680a55772567694ca
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8e81d0954d391210563641531b4c572325ae946f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561261"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656604"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
 
@@ -33,7 +33,7 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 - **Bättre prestanda än anpassad avbildning.** Med hjälp av delade avbildningar kan den tid det tar för poolen att uppnå stabilt tillstånd vara upp till 25% snabbare och svars tiden för den virtuella datorn är upp till 30% kortare.
 - **Avbildnings version och gruppering för enklare hantering.** Definitionen för avbildnings gruppering innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. Gruppering av avbildningar möjliggör enklare bild hantering. Mer information finns i [bild definitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]
 > Du måste autentisera med hjälp av Azure AD. Om du använder Shared Key auth får du ett autentiseringsfel.  
@@ -44,6 +44,8 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 
 > [!NOTE]
 > Din delade avbildning måste vara i samma prenumeration som batch-kontot. Avbildningen kan finnas i olika regioner så länge den innehåller repliker i samma region som batch-kontot.
+
+Om du använder ett Azure AD-program för att skapa en anpassad avbildning med en bild av en delad avbildning, måste programmet ha beviljats en [inbyggd Azure-roll](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) som ger åtkomst till den delade avbildningen. Du kan bevilja den här åtkomsten i Azure Portal genom att navigera till den delade avbildningen, välja **åtkomst kontroll (IAM)** och lägga till en roll tilldelning för programmet.
 
 ## <a name="prepare-a-custom-image"></a>Förbereda en anpassad avbildning
 

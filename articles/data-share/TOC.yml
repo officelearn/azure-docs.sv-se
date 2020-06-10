@@ -19,8 +19,6 @@
       href: terminology.md
     - name: Roller och krav
       href: concepts-roles-permissions.md
-    - name: Haveriberedskap
-      href: disaster-recovery.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -43,6 +41,10 @@
       href: how-to-delete-invitation.md
     - name: Återkalla en delad prenumeration
       href: how-to-revoke-share-subscription.md
+    - name: Säkerhet
+      href: security.md
+    - name: Haveriberedskap
+      href: disaster-recovery.md
 - name: Referens
   items:
     - name: .NET

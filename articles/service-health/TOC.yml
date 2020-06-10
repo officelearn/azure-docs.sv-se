@@ -8,7 +8,7 @@
   items:
     - name: Konfigurera aviseringar för Service Health-händelser
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Azure-statussida
       href: azure-status-overview.md
@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Skicka aviseringar till OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Hämta hälsohändelser med REST
-      href: service-health-rest.md
     - name: Konfigurera aviseringar för resurshälsotillståndshändelser
       href: resource-health-alert-arm-template-guide.md
 - name: Referens

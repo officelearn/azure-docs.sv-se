@@ -98,6 +98,8 @@
           href: concepts-query-performance-insight.md
         - name: Prestandarekommendationer
           href: concepts-performance-recommendations.md
+        - name: Serverparametrar
+          href: concepts-server-parameters.md
     - name: Utveckling
       items:
         - name: Kompatibilitet för drivrutiner och verktyg
@@ -144,6 +146,8 @@
           href: howto-configure-ssl.md
         - name: Konfigurera TLS
           href: howto-tls-configurations.md
+        - name: Ansluta med omdirigering
+          href: howto-redirection.md
     - name: Konfigurera serverparametrar
       items:
         - name: Azure Portal

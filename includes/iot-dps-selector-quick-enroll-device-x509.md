@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-dps
 author: msebolt
 ms.author: v-masebo
@@ -17,6 +17,6 @@ ms.locfileid: "67187463"
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/iot-dps/quick-enroll-device-x509-java.md)
-> * [C #](../articles/iot-dps/quick-enroll-device-x509-csharp.md)
+> * [C#](../articles/iot-dps/quick-enroll-device-x509-csharp.md)
 > * [Node.js](../articles/iot-dps/quick-enroll-device-x509-node.md)
 > * [Python](../articles/iot-dps/quick-enroll-device-x509-python.md)

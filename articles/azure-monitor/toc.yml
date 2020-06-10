@@ -155,6 +155,8 @@
           displayname: VM
     - name: Hantera och konfigurera
       items:
+        - name: Distribuera i stor skala
+          href: platform/deploy-scale.md
         - name: Rollbehörigheter och säkerhet
           href: platform/roles-permissions-security.md
         - name: IP-adresser

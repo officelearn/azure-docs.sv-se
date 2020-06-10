@@ -967,8 +967,6 @@
                   items:
                     - name: Azure SQL VM CLI
                       href: virtual-machines/windows/availability-group-az-cli-configure.md
-                    - name: Mall för Azure-portalen
-                      href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
                     - name: Azure-snabbstartsmallar
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Flera regioner

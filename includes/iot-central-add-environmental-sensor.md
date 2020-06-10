@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -84,7 +84,7 @@ I ditt Azure IoT Central-program lägger du till en riktig enhet i enhets mal le
 
 1. Välj **+ ny**.
 
-1. Se till att den **simulerade** är **avstängd**. Välj sedan **skapa**.
+1. Se till att den **simulerade** är **avstängd**. Välj sedan **Skapa**.
 
 Klicka på enhetens namn och välj sedan **Anslut**. Anteckna anslutnings informationen för enheten på sidan för **enhets anslutningens** ID- **omfång**, **enhets-ID**och **primär nyckel**. Du behöver dessa värden när du skapar din enhets kod:
 

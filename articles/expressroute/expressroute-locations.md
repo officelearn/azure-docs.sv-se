@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 06/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: b9ede5479a9b05355fe2d6d5e2f47c52a6fea2d3
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 26251742eb092508f2b2e18251dbddec17372848
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323917"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636350"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -141,6 +141,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Stöds | Stöds | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
 | **[PCCW globalt begränsad](https://consoleconnect.com/clouds/#azureRegions)** |Stöds |Stöds |Chicago, Hongkong, Hong Kong2, London, Singapore2 |
+| **[Retelit](https://www.retelit.it/en/services/enterprises-and-public-sector/data-center-e-cloud/cloud-services/direct-cloud-4-azure-expressroute.aspx)** | Stöds | Stöds | Milano | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Stöds |Stöds |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Stöds |Stöds | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai, Mumbai2 |

@@ -10,16 +10,17 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67341730"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607047"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Använd en Insights-token för att få insikter om en bild
 
-API för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Mer information om de här alternativen finns i [Vad är API för visuell sökning i Bing?](overview.md). Den här artikeln visar hur du använder en Insights-token. Exempel som visar hur du laddar upp en bild för att få insikter finns i snabb Starter ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [python](quickstarts/python.md)).
+API för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Mer information om de här alternativen finns i [Vad är API för visuell sökning i Bing?](overview.md). Den här artikeln visar hur du använder en Insights-token. Exempel som visar hur du laddar upp en bild för att få insikter finns i snabb Starter ([C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node. js](quickstarts/nodejs.md)  |  [python](quickstarts/python.md)).
 
 Om du skickar Visuell sökning i Bing en bildtoken eller URL, visar följande formulär data som du måste inkludera i POSTens brödtext. Formulär data måste innehålla `Content-Disposition` rubriken och du måste ange `name` parametern till "knowledgeRequest". Mer information om `imageInfo` objektet finns i begäran:
 
@@ -43,7 +44,7 @@ Om du skickar Visuell sökning i Bing en bildtoken eller URL, visar följande fo
 }
 ```
 
-I exemplen i den här artikeln visas hur du använder Insights-token. Du får insikts-token från `Image` ett objekt i ett/images/Search API-svar. Information om hur du hämtar Insights-token finns i [Vad är API för bildsökning i Bing?](../Bing-Image-Search/overview.md).
+I exemplen i den här artikeln visas hur du använder Insights-token. Du får insikts-token från ett `Image` objekt i ett/images/Search API-svar. Information om hur du hämtar Insights-token finns i [Vad är API för bildsökning i Bing?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -58,7 +59,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Exempel som använder Insights-token finns i [C#](#use-with-c) | [Java](#use-with-java) | [Node. js](#use-with-nodejs) | [python](#use-with-python).
+Exempel som använder Insights-token finns i [C#](#use-with-c)  |  [Java](#use-with-java)  |  [Node. js](#use-with-nodejs)  |  [python](#use-with-python).
 
 ## <a name="use-with-c"></a>Använd med C #
 
@@ -67,7 +68,7 @@ Exempel som använder Insights-token finns i [C#](#use-with-c) | [Java](#use-wit
 - En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/) för att hämta den här koden som körs i Windows.
 - En Azure-prenumeration. I den här snabb starten kan du använda en prenumerations nyckel för [kostnads fri utvärdering](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerations nyckel.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Följ dessa steg om du vill köra programmet:
 

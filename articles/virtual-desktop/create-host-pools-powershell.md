@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a4d0c22318399370b9ec11046c33a4eb5460eb3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 8c9c9a7d1845875fd80471ad2380a1ec7933cfb3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860128"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607677"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -114,7 +114,7 @@ Registrera Windows-agenter för virtuella skriv bord genom att göra följande p
 1. [Anslut till den virtuella datorn](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 2. Ladda ned och installera Windows-agenten för virtuella skriv bord.
    - Hämta [Windows-agenten för virtuella skriv bord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Kör installationsprogrammet. När du uppmanas att ange registrerings-token anger du det värde som du fick från cmdleten **export-AzWVDRegistrationInfo** .
+   - Kör installationsprogrammet. När du uppmanas att ange registrerings-token anger du det värde som du fick från cmdleten **Get-AzWvdRegistrationInfo** .
 3. Ladda ned och installera Windows Virtual Desktop agent start program.
    - Hämta [Start programmet för Windows Virtual Desktop agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Kör installationsprogrammet.

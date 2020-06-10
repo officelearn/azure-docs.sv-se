@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77621858"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636790"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
@@ -78,15 +78,6 @@ Azure Data Share gör det möjligt för data konsumenter att:
 * Prenumerera på en data resurs för att ta emot den senaste kopian av data via en stegvis ögonblicks bild
 
 Alla viktiga funktioner som anges ovan stöds via Azure Portal eller via REST-API: er. Mer information om hur du använder Azure Data Share via REST-API: er finns i vår referens dokumentation. 
-
-## <a name="security"></a>Säkerhet
-
-Azure Data Share utnyttjar den underliggande säkerhet som Azure erbjuder för att skydda data i vila och under överföring. Data krypteras i vila, där de stöds av det underliggande data lagret. Data krypteras också vid överföring. Metadata om en data resurs krypteras också i vila och under överföring. 
-
-Åtkomst kontroller kan ställas in på resurs nivån på Azure-dataresursen för att säkerställa att de kan nås av de som är auktoriserade. 
-
-Azure Data Share utnyttjar hanterade identiteter för Azure-resurser (kallades tidigare MSIs) för automatisk identitets hantering i Azure Active Directory. Hanterade identiteter för Azure-resurser utnyttjas för åtkomst till de data lager som används för data delning. Det finns inget utbyte av autentiseringsuppgifter mellan en data leverantör och en data konsument. Mer information finns på [sidan hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
-
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

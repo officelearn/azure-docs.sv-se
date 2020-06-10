@@ -13,12 +13,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220608"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605467"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
 
@@ -34,7 +34,7 @@ Organisationer kan använda den här nätverks platsen för vanliga uppgifter, t
 Nätverks platsen bestäms av den offentliga IP-adressen som en klient tillhandahåller för att Azure Active Directory. Principer för villkorlig åtkomst gäller som standard för alla IPv4-och IPv6-adresser. 
 
 > [!TIP]
-> IPV6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
+> IPv6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
 
 ## <a name="named-locations"></a>Namngivna platser
 
@@ -50,7 +50,7 @@ Antalet namngivna platser som du kan konfigurera begränsas av storleken på det
 - Högst 90 namngivna platser med ett IP-adressintervall tilldelat var och en av dem.
 
 > [!TIP]
-> IPV6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
+> IPv6-intervall stöds bara i gränssnittet för den **[namngivna platsen (för hands version)](#preview-features)** . 
 
 ### <a name="trusted-locations"></a>Betrodda platser
 
@@ -65,7 +65,7 @@ Det här alternativet kan användas för att räkna i principer för villkorlig 
 Vissa organisationer kan välja att definiera hela länder eller regioner IP-gränser som namngivna platser för principer för villkorlig åtkomst. De kan använda dessa platser när de blockerar onödig trafik när de vet att giltiga användare aldrig kommer från en plats som Nord Korea. Dessa mappningar av IP-adresser till land uppdateras regelbundet. 
 
 > [!NOTE]
-> Länderna inkluderar inte IPv6-adress intervall, endast kända IPv4-adressintervall.
+> Länderna inkluderar inte IPv6-adressintervall, endast kända IPv4-adressintervall och kan inte markeras som betrodda.
 
 ![Skapa en ny lands-eller regions-baserad plats i Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -92,7 +92,7 @@ För mobil-och skriv bords program, som har länge livs längd för sessionens l
 
 Om båda stegen inte fungerar, anses en användare inte längre på en betrodd IP-adress.
 
-## <a name="preview-features"></a>Förhandsgranskningsfunktioner
+## <a name="preview-features"></a>Förhandsversionsfunktioner
 
 Förutom den allmänt tillgängliga namngivna plats funktionen finns det också en namngiven plats (för hands version). Du kan komma åt för hands versionen av den namngivna platsen genom att använda banderollen längst upp på bladet aktuell namngiven plats.
 
@@ -102,7 +102,7 @@ Med den namngivna platsens för hands version kan du
 
 - Konfigurera upp till 195 namngivna platser
 - Konfigurera upp till 2000 IP-intervall per namngiven plats
-- Konfigurera upp till IPv6-adresser
+- Konfigurera IPv6-adresser tillsammans med IPv4-adresser
 
 Vi har också lagt till ytterligare kontroller för att minska ändringen av felaktig konfiguration.
 
@@ -115,7 +115,7 @@ I för hands versionen finns det nu två alternativ för att skapa:
 - **Plats för IP-intervall**
 
 > [!NOTE]
-> Länderna inkluderar inte IPv6-adress intervall, endast kända IPv4-adressintervall.
+> Länderna inkluderar inte IPv6-adressintervall, endast kända IPv4-adressintervall och kan inte markeras som betrodda.
 
 ![Namngivna platser för hands versions gränssnitt](./media/location-condition/named-location-preview.png)
 

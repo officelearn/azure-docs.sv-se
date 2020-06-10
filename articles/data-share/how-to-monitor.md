@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490505"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636282"
 ---
 # <a name="monitor-azure-data-share"></a>Övervaka Azure Data Share  
 
@@ -40,13 +40,17 @@ Visa statusen för dina resurs prenumerationer genom att navigera till skickade 
 
 ## <a name="snapshot-history"></a>Ögonblicks bilds historik 
 
-På fliken Historik kan du Visa ögonblicks bilderna som har kopierats till din data konsument klient. Du kan övervaka frekvens och varaktighet för varje ögonblicks bilds intervall. 
+På fliken **Historik** i en resurs kan du se när data kopieras från dataprovidern till data konsumentens data lager. Du kan övervaka frekvens, varaktighet och status för varje ögonblicks bild. 
 
 ![Ögonblicks bilds historik](./media/sent-shares.png "Ögonblicks bilds historik") 
 
-Du kan visa mer information om varje ögonblicks bild körning genom att klicka på start datum för körning. 
+Du kan visa mer information om varje ögonblicks bild körning genom att klicka på start datum för körning. Klicka sedan på status för varje data uppsättning för att visa mängden data som överförs, antalet filer/poster som har kopierats, varaktigheten för ögonblicks bilden, antalet virtuella kärnor som används och fel meddelandet om det finns några. 
 
-Upp till 30 dagar från ögonblicks bilds historik visas som standard. Om du behöver se historiken mer än 30 dagar går du till övervakning-> diagnostikinställningar och väljer **Lägg till diagnostisk inställning**. Du måste välja ett lagrings konto för att lagra loggarna i. 
+Upp till 30 dagar efter ögonblicks bilds historik visas. Om du behöver spara och se mer än 30 dagar i historiken kan du utnyttja den diagnostiska inställningen.
+
+## <a name="diagnostic-setting"></a>Diagnostisk inställning
+
+Du kan konfigurera diagnostikinställningar för att spara loggdata eller händelser. Navigera till övervakning – > diagnostikinställningar och välj **Lägg till diagnostisk inställning**. Välj de logg data eller händelser som du är intresse rad av och var du vill lagra eller skicka dem. 
 
 ![Ögonblicks bilds historik](./media/diagnostic-settings.png "Diagnostikinställningar") 
 

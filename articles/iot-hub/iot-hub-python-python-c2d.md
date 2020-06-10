@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: f0760f6e61904295771ba349f8101e2d6dc6afe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 12d25fd06ddfa8265dbf046093d3854f7fde4f33
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759741"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609564"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (python)
 
@@ -58,7 +58,7 @@ I det här avsnittet skapar du en python-konsol-app för att simulera enheten oc
 
 1. Skapa en fil med namnet **SimulatedDevice.py**med hjälp av en text redigerare.
 
-1. Lägg till följande `import` -instruktioner och variabler i början av **SimulatedDevice.py** -filen:
+1. Lägg till följande- `import` instruktioner och variabler i början av **SimulatedDevice.py** -filen:
 
     ```python
     import threading
@@ -140,7 +140,7 @@ I det här avsnittet skapar du en python-konsol-app som skickar meddelanden frå
 
 1. Skapa en fil med namnet **SendCloudToDeviceMessage.py**med hjälp av en text redigerare.
 
-1. Lägg till följande `import` -instruktioner och variabler i början av **SendCloudToDeviceMessage.py** -filen:
+1. Lägg till följande- `import` instruktioner och variabler i början av **SendCloudToDeviceMessage.py** -filen:
 
     ```python
     import random
@@ -152,7 +152,7 @@ I det här avsnittet skapar du en python-konsol-app som skickar meddelanden frå
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. Lägg till följande kod i **SendCloudToDeviceMessage.py** -filen. Ersätt värdena `{iot hub connection string}` och `{device id}` plats hållarna med IoT Hub-anslutningssträngen och enhets-ID: t som du antecknade tidigare:
+1. Lägg till följande kod i **SendCloudToDeviceMessage.py** -filen. Ersätt `{iot hub connection string}` värdena och `{device id}` plats hållarna med IoT Hub-anslutningssträngen och enhets-ID: t som du antecknade tidigare:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

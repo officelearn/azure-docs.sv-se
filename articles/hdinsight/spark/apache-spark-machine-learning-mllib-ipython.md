@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559948"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608425"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Apache Spark MLlib för att bygga ett Machine Learning-program och analysera en data uppsättning
 
@@ -174,7 +174,7 @@ Vi börjar med att få en uppfattning om vad data uppsättningen innehåller.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    `%%sql` Magic följt av `-o countResultsdf` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **countResultsdf**. Mer information om `%%sql` Magic och andra MAGICS som är tillgängliga med PySpark-kärnan finns i [kernels som är tillgängliga på Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    `%%sql`Magic följt av `-o countResultsdf` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **countResultsdf**. Mer information om `%%sql` Magic och andra MAGICS som är tillgängliga med PySpark-kärnan finns i [kernels som är tillgängliga på Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Utdata ser ut så här:
 
@@ -207,7 +207,7 @@ Vi börjar med att få en uppfattning om vad data uppsättningen innehåller.
 
      Data med de andra resultaten ("verksamhet saknas" eller "utanför verksamheten") är inte användbara och de utgör en liten del av resultaten ändå.
 
-4. Kör följande kod för att konvertera befintliga dataframe (`df`) till en ny dataframe där varje granskning representeras som ett par med etikett-överträdelser. I det här fallet representerar en etikett `0.0` för ett haveri, en etikett på `1.0` visar ett lyckat resultat och en etikett `-1.0` i representerar vissa resultat utöver dessa två resultat.
+4. Kör följande kod för att konvertera befintliga dataframe ( `df` ) till en ny dataframe där varje granskning representeras som ett par med etikett-överträdelser. I det här fallet representerar en etikett för ett `0.0` haveri, en etikett på `1.0` visar ett lyckat resultat och en etikett i `-1.0` representerar vissa resultat utöver dessa två resultat.
 
     ```PySpark
     def labelForResults(s):
@@ -288,7 +288,7 @@ Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resu
 
    Det finns en förutsägelse för den första posten i test data uppsättningen.
 
-1. `model.transform()` Metoden använder samma omvandling till alla nya data med samma schema och kommer till en förutsägelse av hur data klassificeras. Du kan använda viss statistik för att få en uppfattning om hur förutsägelserna var:
+1. `model.transform()`Metoden använder samma omvandling till alla nya data med samma schema och kommer till en förutsägelse av hur data klassificeras. Du kan använda viss statistik för att få en uppfattning om hur förutsägelserna var:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -313,7 +313,7 @@ Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resu
 
 Nu kan du skapa en slutgiltig visualisering som hjälper dig att få en anledning till resultatet av testet.
 
-1. Du börjar genom att extrahera olika förutsägelser och resultat från den temporära **förutsägelse** tabellen som skapades tidigare. I följande frågor separeras utdata som *true_positive*, *false_positive*, *true_negative*och *false_negative*. I frågorna nedan stänger du av visualiseringen genom att använda `-q` och sparar även utdata (med hjälp `-o`av) som dataframes som kan användas med `%%local` Magic.
+1. Du börjar genom att extrahera olika förutsägelser och resultat från den temporära **förutsägelse** tabellen som skapades tidigare. I följande frågor separeras utdata som *true_positive*, *false_positive*, *true_negative*och *false_negative*. I frågorna nedan stänger du av visualiseringen genom att använda `-q` och sparar även utdata (med hjälp av `-o` ) som dataframes som kan användas med `%%local` Magic.
 
     ```PySpark
     %%sql -q -o true_positive

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191931"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604243"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter Notebook på din dator och Anslut till Apache Spark på HDInsight
 
@@ -49,7 +49,7 @@ Ladda ned installations programmet för [Anaconda](https://www.anaconda.com/down
     |v 3.6 och v 3.5 |`pip install sparkmagic==0.13.1`|
     |v 3.4|`pip install sparkmagic==0.2.3`|
 
-1. Se `ipywidgets` till att det är korrekt installerat genom att köra följande kommando:
+1. Se till att `ipywidgets` det är korrekt installerat genom att köra följande kommando:
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -74,7 +74,7 @@ Ladda ned installations programmet för [Anaconda](https://www.anaconda.com/down
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. Valfri. Ange kommandot nedan för att aktivera server tillägget:
+1. Valfritt. Ange kommandot nedan för att aktivera server tillägget:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -90,7 +90,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     python
     ```
 
-2. Konfigurations informationen för Jupyter lagras vanligt vis i användarens arbets katalog. Ange följande kommando för att identifiera arbets katalogen och skapa en mapp med namnet ** \.sparkmagic**.  Den fullständiga sökvägen kommer att returneras.
+2. Konfigurations informationen för Jupyter lagras vanligt vis i användarens arbets katalog. Ange följande kommando för att identifiera arbets katalogen och skapa en mapp med namnet ** \. sparkmagic**.  Den fullständiga sökvägen kommer att returneras.
 
     ```python
     import os
@@ -100,7 +100,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     exit()
     ```
 
-3. I mappen `.sparkmagic`skapar du en fil med namnet **config. JSON** och lägger till följande JSON-kodfragment inuti den.  
+3. I mappen `.sparkmagic` skapar du en fil med namnet **config. JSON** och lägger till följande JSON-kodfragment inuti den.  
 
     ```json
     {
@@ -130,15 +130,15 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
     |Mall-värde | Nytt värde |
     |---|---|
-    |ANVÄNDAR|Kluster inloggning, standard är `admin`.|
+    |ANVÄNDAR|Kluster inloggning, standard är `admin` .|
     |CLUSTERDNSNAME|Klusternamn|
-    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)på.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du `sparkmagic 0.12.7` använder (kluster v 3.5 och v 3.6).  Om du `sparkmagic 0.2.3` använder (kluster v 3.4) ersätter du med `"should_heartbeat": true`.|
+    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord på [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du använder `sparkmagic 0.12.7` (kluster v 3.5 och v 3.6).  Om `sparkmagic 0.2.3` du använder (kluster v 3.4) ersätter du med `"should_heartbeat": true` .|
 
     Du kan se en fullständig exempel fil vid [exempel config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
-   > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurationen `livy.server.interactive.heartbeat.timeout` till `0` från Ambari-användargränssnittet. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
+   > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurationen `livy.server.interactive.heartbeat.timeout` till `0` från AMBARI-användargränssnittet. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
 
 5. Starta Jupyter. Använd följande kommando från kommando tolken.
 
@@ -153,7 +153,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     ![Tillgängliga kärnor i Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kärnor i Jupyter Notebook")
 
     > [!IMPORTANT]  
-    > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kan du råka ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3`.
+    > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kan du råka ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3` .
 
     b. Kör följande kodfragment.
 

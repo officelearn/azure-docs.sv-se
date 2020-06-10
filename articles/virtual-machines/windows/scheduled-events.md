@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 0d1aa15c572f8ddec38cef913b170ed795ba1505
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dda71869411cbb37a24c2d39ef1d78563cfe6cab
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297929"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604107"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -78,7 +78,7 @@ Användaren initierade underhåll av virtuella datorer via Azure Portal, API, CL
 
 När en virtuell dator startas om schemaläggs en händelse av typen `Reboot` . När du distribuerar en virtuell dator schemaläggs en händelse av typen `Redeploy` .
 
-## <a name="using-the-api"></a>Använda API: et
+## <a name="using-the-api"></a>Använda API:et
 
 ### <a name="headers"></a>Sidhuvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte har omdirigerats av misstag. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran får du ett felaktigt svar från begäran från Metadata Service.
@@ -121,7 +121,7 @@ DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrol lera om hä
 | Resurser| Lista över resurser som den här händelsen påverkar. Detta är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men de får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Händelse status | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Ingen `Completed` eller liknande status har tillhandahållits. händelsen kommer inte längre att returneras när händelsen har slutförts.
 | NotBefore| Tid när händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
-| Description | Beskrivning av den här händelsen. <br><br> Exempel: <br><ul><li> Underhåll pågår för värd servern. |
+| Beskrivning | Beskrivning av den här händelsen. <br><br> Exempel: <br><ul><li> Underhåll pågår för värd servern. |
 | EventSource | Händelsens initierare. <br><br> Exempel: <br><ul><li> `Platform`: Den här händelsen initieras av platfrom. <li>`User`: Den här händelsen initieras av användaren. |
 
 ### <a name="event-scheduling"></a>Händelse schemaläggning
@@ -142,10 +142,18 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 Schemalagda händelser levereras till:
  - Fristående Virtual Machines.
  - Alla Virtual Machines i en moln tjänst.     
- - Alla Virtual Machines i en tillgänglighets uppsättning.     
+ - Alla Virtual Machines i en tillgänglighets uppsättning. 
+ - Alla Virtual Machines i en tillgänglighets zon.
  - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar (inklusive batch).       
 
-Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som ska påverkas. 
+> [!NOTE]
+> I en tillgänglighets zon går schemalagda händelser endast till enstaka, berörda virtuella datorer i tillgänglighets zonen.
+> 
+> Om du till exempel har 100 virtuella datorer i uppsättningen och det finns en uppdatering för en av de virtuella datorerna, går den schemalagda händelsen till alla 100 virtuella datorer i tillgänglighets uppsättningen.
+>
+> Om du har 100 VM: ar i tillgänglighets zonen i en tillgänglighets zon går händelsen endast till den virtuella datorn som påverkas.
+>
+> Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som kommer att påverkas. 
 
 ### <a name="starting-an-event"></a>Starta en händelse 
 

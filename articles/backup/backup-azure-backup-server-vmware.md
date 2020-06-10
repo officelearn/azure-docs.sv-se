@@ -2,13 +2,13 @@
 title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: c4bf61e2a02200b2e6af814ef4509081649e202d
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 05/24/2020
+ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204726"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628452"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -279,7 +279,7 @@ Lägg till vCenter Server i Azure Backup Server.
 
     ![Ange autentiseringsuppgift](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Klicka på **Lägg** till för att lägga till VMware-servern i listan servrar. Klicka på **Nästa**.
+6. Klicka på **Lägg** till för att lägga till VMware-servern i listan servrar. Klicka sedan på **Nästa**.
 
     ![Lägg till VMWare-Server och autentiseringsuppgift](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -307,14 +307,14 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. På sidan **Välj typ av skydds grupp** väljer du **servrar** och klickar sedan på **Nästa**. Sidan **Välj grupp medlemmar** visas.
 
-1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Klicka på **Nästa**.
+1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Klicka sedan på **Nästa**.
 
     - När du väljer en mapp, eller virtuella datorer eller mappar i mappen, väljs även för säkerhets kopiering. Du kan avmarkera mappar och virtuella datorer som du inte vill säkerhetskopiera.
 1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator.
 
     ![Välj grupp medlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Klicka på **Nästa**.
+1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
 
     ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -345,17 +345,17 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
     ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Klicka på **Nästa**.
+1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Klicka sedan på **Nästa**.
       - Du kan köra konsekvens kontroller när replik data blir inkonsekventa eller enligt ett angivet schema.
       - Om du inte vill konfigurera automatiska konsekvens kontroller kan du köra en manuell kontroll. Det gör du genom att högerklicka på skydds gruppen > **utföra konsekvens kontroll**.
 
-1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt eller klicka på **Välj alla** för att välja alla medlemmar. Klicka på **Nästa**.
+1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt eller klicka på **Välj alla** för att välja alla medlemmar. Klicka sedan på **Nästa**.
 
     ![Ange skydds data online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
-    - Moln återställnings punkter för data kommer att genereras enligt schemat. Klicka på **Nästa**.
+    - Moln återställnings punkter för data kommer att genereras enligt schemat. Klicka sedan på **Nästa**.
     - När återställnings punkten har skapats överförs den till Recovery Services valvet i Azure.
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -370,6 +370,21 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 1. På sidan **Sammanfattning** granskar du inställningarna och klickar sedan på **Skapa grupp**.
 
     ![Skydds grupp medlem och inställnings Sammanfattning](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+
+## <a name="vmware-parallel-backups"></a>Parallella VMware-säkerhetskopieringar
+
+>[!NOTE]
+> Den här funktionen gäller för MABS v3-UR1.
+
+I tidigare versioner av MABS utfördes parallella säkerhets kopieringar endast över skydds grupper. Med MABS v3-UR1 är alla dina virtuella VMWare-VM: er i en enda skydds grupp parallella, vilket leder till snabbare VM-säkerhetskopieringar. Alla VMWare delta-migreringsjobb körs parallellt. Som standard är antalet jobb som ska köras parallellt inställt på 8.
+
+Du kan ändra antalet jobb genom att använda register nyckeln enligt nedan (visas inte som standard, du måste lägga till det):
+
+**Nyckel Sök väg**:`Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Nyckel typ**: DWORD-värde (32-bit).
+
+> [!NOTE]
+> Du kan ändra antalet jobb till ett högre värde. Om du ställer in jobb numret på 1 körs replikeringsdata seriellt. Om du vill öka antalet till ett högre värde måste du tänka på VMWare-prestandan. Överväg att använda det antal resurser som används och ytterligare användning som krävs på VMWare vSphere-servern och fastställa antalet delta-replikeringar som ska köras parallellt. Den här ändringen påverkar även de nyligen skapade skydds grupperna. För befintliga skydds grupper måste du tillfälligt lägga till en annan virtuell dator i skydds gruppen. Detta bör uppdatera skydds gruppens konfiguration enligt detta. Du kan ta bort den här virtuella datorn från skydds gruppen när proceduren har slutförts.
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
@@ -400,6 +415,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## <a name="exclude-disk-from-vmware-vm-backup"></a>Undanta disk från virtuell VMware-säkerhetskopiering
+
+> [!NOTE]
+> Den här funktionen gäller för MABS v3-UR1.
+
+Med MABS v3-UR1 kan du undanta den angivna disken från VMware VM backup. Konfigurations skriptet **ExcludeDisk. ps1** finns i `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+
+Följ stegen nedan om du vill konfigurera en disk undantags åtgärd:
+
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identifiera den virtuella VMWare-dator och disk information som ska uteslutas
+
+  1. I VMware-konsolen går du till VM-inställningar för vilka du vill undanta disken.
+  2. Välj den disk som du vill undanta och anteckna sökvägen till disken.
+
+        Om du till exempel vill utesluta hård disken 2 från TestVM4 är sökvägen till hård disk 2 **[datastore1] TestVM4/TestVM4 \_ 1. vmdk**.
+
+        ![Hård disk som ska uteslutas](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### <a name="configure-mabs-server"></a>Konfigurera MABS-Server
+
+Navigera till MABS-servern där den virtuella VMware-datorn har kon figurer ATS för skydd för att konfigurera disk undantag.
+
+  1. Hämta information om VMware-värden som är skyddad på MABS-servern.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. Välj VMware-värden och lista VM-skyddet för VMware-värden.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. Välj den virtuella dator som du vill undanta en disk för.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. Om du vill utesluta disken navigerar du till `Bin` mappen och kör skriptet *ExcludeDisk. ps1* med följande parametrar:
+
+        > [!NOTE]
+        > Stoppa DPMRA-tjänsten på MABS-servern innan du kör det här kommandot. Annars returnerar skriptet lyckades, men uppdaterar inte undantags listan. Se till att inga jobb pågår innan du stoppar tjänsten.
+
+     **Kör följande kommando för att lägga till/ta bort disken från undantag:**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **Exempel**:
+
+     Om du vill lägga till disk undantag för TestVM4 kör du följande kommando:
+
+       ```powershell
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
+
+      ```output
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+      ```
+
+  5. Kontrol lera att disken har lagts till för undantag.
+
+     **Om du vill visa befintliga undantag för vissa virtuella datorer kör du följande kommando:**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **Exempel**
+
+        ```powershell
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     När du har konfigurerat skyddet för den här virtuella datorn visas inte den uteslutna disken under skyddet.
+
+        > [!NOTE]
+        > Om du utför de här stegen för en redan skyddad virtuell dator måste du köra konsekvens kontrollen manuellt när du har lagt till disken för undantag.
+
+### <a name="remove-the-disk-from-exclusion"></a>Ta bort disken från undantag
+
+Om du vill ta bort disken från undantag kör du följande kommando:
+
+```powershell
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,16 +6,22 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 606279c0db92ad3aeb76d4f7a1a914f14348dd8f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81263479"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608476"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure Database for MySQL Server
 
 I den här artikeln beskrivs hur du kan skapa användare i en Azure Database for MySQL-server.
+
+> [!NOTE]
+> Kompensations fri kommunikation
+>
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+>
 
 När du först skapade din Azure Database for MySQL angav du ett användar namn och lösen ord för Server Administratörs inloggning. För mer information, kan du följa [snabb](quickstart-create-mysql-server-database-using-azure-portal.md)starten. Du kan hitta inloggnings användar namnet för Server administratören från Azure Portal.
 
@@ -34,7 +40,7 @@ När Azure Database for MySQL-servern har skapats kan du använda det första se
 2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel MySQL Workbench, MySQL. exe, HeidiSQL eller andra.
    Om du är osäker på hur du ansluter, se [Använd MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt det nya användar namnet med plats hållarens `new_master_user`värde. Den här syntaxen beviljar de angivna behörigheterna för alla databas scheman (*.*) till användar namnet (new_master_user i det här exemplet).
+3. Redigera och kör följande SQL-kod. Ersätt det nya användar namnet med plats hållarens värde `new_master_user` . Den här syntaxen beviljar de angivna behörigheterna för alla databas scheman (*.*) till användar namnet (new_master_user i det här exemplet).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -60,9 +66,9 @@ När Azure Database for MySQL-servern har skapats kan du använda det första se
 2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel MySQL Workbench, MySQL. exe, HeidiSQL eller andra.
    Om du är osäker på hur du ansluter, se [Använd MySQL Workbench för att ansluta och fråga efter data](./connect-workbench.md)
 
-3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `db_user` med ditt avsedda nya användar namn och plats hållarens `testdb` värde med ditt eget databas namn.
+3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `db_user` med ditt avsedda nya användar namn och plats hållarens värde `testdb` med ditt eget databas namn.
 
-   Den här SQL-koden skapar en ny databas med namnet testdb i exempel syfte. Sedan skapar den en ny användare i MySQL-tjänsten och beviljar alla behörigheter till det nya databasschemat (testdb\*) för den användaren.
+   Den här SQL-koden skapar en ny databas med namnet testdb i exempel syfte. Sedan skapar den en ny användare i MySQL-tjänsten och beviljar alla behörigheter till det nya databasschemat (testdb \* ) för den användaren.
 
    ```sql
    CREATE DATABASE testdb;

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: a457627497b9ec394c33fef213436f7a67387d43
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324121"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608697"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -58,7 +58,7 @@ Om du vill starta en virtuell dator måste du ha PA installerat på den virtuell
 Om du inte har agenterna installerade kan du inte använda vissa Azure-tjänster, till exempel Azure Backup eller Azure-säkerhet. Dessa tjänster kräver att ett tillägg installeras. Om du har distribuerat en virtuell dator utan att Vinga kan du installera den senaste versionen av agenten senare.
 
 ### <a name="manual-installation"></a>Manuell installation
-Windows VM-agenten kan installeras manuellt med ett Windows Installer-paket. Manuell installation kan vara nödvändigt när du skapar en anpassad VM-avbildning som distribueras till Azure. Om du vill installera den virtuella Windows-agenten manuellt [laddar du ned installations programmet för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789). VM-agenten stöds på Windows Server 2008 R2 och senare.
+Windows VM-agenten kan installeras manuellt med ett Windows Installer-paket. Manuell installation kan vara nödvändigt när du skapar en anpassad VM-avbildning som distribueras till Azure. Om du vill installera den virtuella Windows-agenten manuellt [laddar du ned installations programmet för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789). VM-agenten stöds på Windows Server 2008 (64 bitar) och senare.
 
 > [!NOTE]
 > Det är viktigt att uppdatera alternativet AllowExtensionOperations när du har installerat VMAgent manuellt på en virtuell dator som har distribuerats från avbildningen utan att ProvisionVMAgent aktivera.
@@ -68,7 +68,7 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 - Windows VM-agenten måste ha minst Windows Server 2008 (64-bitars) för att kunna köras med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).

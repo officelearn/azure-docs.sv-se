@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: 545d04bdede76a6ce25c9e4665f39c01ff6caa73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: be9e396a778b81e730906e4a6971505e164dfa43
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531991"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636724"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -142,12 +142,20 @@ När du har valt att du vill redundansväxla till en replik,
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
 ### <a name="prerequisites"></a>Krav
-Innan du skapar en Läs replik måste `azure.replication_support` parametern ställas in på **replik** på huvud servern. När den här parametern ändras krävs en omstart av servern för att ändringen ska börja gälla. `azure.replication_support` Parametern gäller endast för generell användning-och minnesoptimerade nivåer.
+Läsning av repliker och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
+
+Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:
+
+* **Off** – lägger till minst information i Wal. Den här inställningen är inte tillgänglig på de flesta Azure Database for PostgreSQL-servrar.  
+* **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
+* **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
+
+Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
 
 ### <a name="new-replicas"></a>Nya repliker
 En Läs replik skapas som en ny Azure Database for PostgreSQL Server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik.
@@ -158,14 +166,14 @@ En replik skapas med samma beräknings-och lagrings inställningar som huvud ser
 > [!IMPORTANT]
 > Innan en huvud inställning uppdateras till ett nytt värde uppdaterar du replik konfigurationen till ett lika eller högre värde. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
-PostgreSQL kräver att värdet för `max_connections` parametern på Läs repliken är större än eller lika med huvudets värde. annars startar inte repliken. I Azure Database for PostgreSQL baseras `max_connections` parametervärdet på SKU: n. Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
+PostgreSQL kräver att värdet för `max_connections` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. I Azure Database for PostgreSQL `max_connections` baseras parametervärdet på SKU: n. Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
 
 Om du försöker uppdatera de Server värden som beskrivs ovan, men inte följer gränserna, får du ett fel meddelande.
 
 Brand Väggs regler, regler för virtuella nätverk och parameter inställningar ärvs inte från huvud servern till repliken när repliken skapas eller efteråt.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[Postgresql kräver](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) att värdet för `max_prepared_transactions` parametern på Läs repliken är större än eller lika med huvudets värde. annars startar inte repliken. Om du vill ändra `max_prepared_transactions` i huvud repliken måste du först ändra den på replikerna.
+[Postgresql kräver](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) att värdet för `max_prepared_transactions` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. Om du vill ändra `max_prepared_transactions` i huvud repliken måste du först ändra den på replikerna.
 
 ### <a name="stopped-replicas"></a>Stoppade repliker
 Om du stoppar replikeringen mellan en huvud server och en Läs replik, startar repliken om för att tillämpa ändringen. Den stoppade repliken blir en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.

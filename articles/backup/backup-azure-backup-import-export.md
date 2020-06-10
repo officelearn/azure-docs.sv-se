@@ -4,12 +4,12 @@ description: Lär dig hur du kan använda Azure Backup för att skicka data frå
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d448687836842835259fcf7bbad41af815dfb58
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183899"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629287"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbets flöde för offline-säkerhetskopiering i Azure Backup
 
@@ -45,7 +45,7 @@ Följande Azure Backup funktioner eller arbets belastningar stöder användning 
 ## <a name="prerequisites"></a>Krav
 
   > [!NOTE]
-  > Följande nödvändiga komponenter och arbets flöde gäller endast offline-säkerhetskopiering av filer och mappar med hjälp av den [senaste Azure Recovery Services-agenten](https://aka.ms/azurebackup_agent). Om du vill utföra säkerhets kopiering offline för arbets belastningar med System Center DPM eller Azure Backup Server, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](backup-azure-backup-server-import-export-.md).
+  > Följande nödvändiga komponenter och arbets flöde gäller endast offline-säkerhetskopiering av filer och mappar med hjälp av den [senaste Azure Recovery Services-agenten](https://aka.ms/azurebackup_agent). Om du vill utföra säkerhets kopiering offline för arbets belastningar med System Center DPM eller Azure Backup Server, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](backup-azure-backup-server-import-export.md).
 
 Innan du startar arbets flödet offline måste du uppfylla följande krav:
 
@@ -135,8 +135,8 @@ I det här avsnittet beskrivs arbets flödet offline-säkerhetskopiering så att
 
     | Parameter | Beskrivning |
     | --- | --- |
-    | s:&lt;*sökväg för mellanlagringsplats*&gt; |Den här obligatoriska indatatypen används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
-    | p:&lt;*sökväg till PublishSettingsFile*&gt; |Den här alternativa indatan används för att ange sökvägen till filen för Azure Publish-inställningar som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
+    | s: &lt; *sökväg för mellanlagringsplats*&gt; |Den här obligatoriska indatatypen används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
+    | p: &lt; *sökväg till PublishSettingsFile*&gt; |Den här alternativa indatan används för att ange sökvägen till filen för Azure Publish-inställningar som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
 
     När du kör kommandot begär verktyget valet av Azure import-jobb som motsvarar de enheter som måste förberedas. Om bara ett enda import jobb är associerat med den angivna mellanlagringsplatsen visas en sida som den här.
 

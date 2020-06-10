@@ -3,18 +3,18 @@ title: Koncept – nätverks anslutning
 description: Lär dig mer om viktiga aspekter och användnings fall för nätverk och interanslutning i Azure VMware-lösning (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 1d869601110266f7ad16e23b66453c44793cdf31
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457090"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629215"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware-lösning (AVS) för hands version av nätverk och interanslutnings koncept
 
 Nätverks anslutning mellan dina privata moln i Azure VMware-lösningen (AVS) och lokala miljöer eller virtuella nätverk i Azure ger dig åtkomst till och användning av ditt privata moln. Några viktiga nätverks-och samanslutnings begrepp som upprättar grunden för en anslutning beskrivs i den här artikeln.
 
-Ett användbart perspektiv på samnätverket är att överväga de två typerna av moln implementeringar i molnet. Implementeringar med enbart grundläggande Azure-anslutningar och implementeringar med fullständig lokal till privat moln anslutning.
+Ett användbart perspektiv på interaktivitet är att ta hänsyn till de två typerna av molnets privata moln implementeringar: implementeringar med grundläggande Azure-endast anslutningar och implementeringar med fullständig lokal till privat moln anslutning.
 
 Användnings fallen för privata AVS-moln är:
 - nya virtuella VMware-arbetsbelastningar i molnet
@@ -25,7 +25,7 @@ Användnings fallen för privata AVS-moln är:
 
  Alla användnings fall för AVS-tjänsten är aktiverade med lokal anslutning till privat moln. Den grundläggande modellen för samanslutning passar bäst för AVS-utvärderingar eller implementeringar som inte kräver åtkomst från lokala miljöer.
 
-De två typerna av molnets privata moln anslutningar beskrivs i avsnitten nedan.  Den mest grundläggande anslutningen är "Azure Virtual Network-anslutning", och det gör att du kan hantera och använda ditt privata moln med bara ett enda virtuellt nätverk i Azure. Den interanslutning som beskrivs i "lokal anslutning" utökar den virtuella nätverks anslutningen för att även omfatta samanslutningar mellan lokala miljöer och AVS-privata moln.
+De två typerna av molnets privata moln anslutningar beskrivs i avsnitten nedan.  Den mest grundläggande anslutningen är "Azure Virtual Network-anslutning"; Det gör att du kan hantera och använda ditt privata moln med bara ett enda virtuellt nätverk i Azure. Den interanslutning som beskrivs i "lokal anslutning" utökar den virtuella nätverks anslutningen för att även omfatta samanslutningar mellan lokala miljöer och AVS-privata moln.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Anslutning mellan virtuella Azure-nätverk
 

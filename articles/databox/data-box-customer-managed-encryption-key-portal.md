@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 6f543b3f5c2bb7d4949c431580771c4b0d965e4d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4bcd8deef28f8e0123e6e2171b3ab24d6ac49292
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125485"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635007"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box
 
@@ -103,7 +103,7 @@ Det är valfritt att konfigurera kundhanterad nyckel för Azure Data Box. Som st
 
 Om du får fel som rör din Kundhanterade nyckel kan du använda följande tabell för att felsöka.
 
-| Felkod| Felmeddelande| Information|
+| Felkod| Felinformation| Återställnings bara?|
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Det gick inte att hämta nyckeln eftersom den hanterade nyckeln för kund är inaktive rad.| Ja, genom att aktivera nyckel versionen.|
 | SsemUserErrorEncryptionKeyExpired| Det gick inte att hämta nyckeln eftersom den hanterade nyckeln för kund har upphört att gälla.| Ja, genom att aktivera nyckel versionen.|

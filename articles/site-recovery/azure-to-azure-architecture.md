@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983337"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629703"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -34,7 +34,7 @@ De komponenter som ingår i haveri beredskap för virtuella Azure-datorer samman
 **Lagrings konto för cache** | Du behöver ett cache Storage-konto i käll nätverket. Under replikeringen lagras VM-ändringar i cachen innan de skickas till mål lagringen.  Cache Storage-konton måste vara standard.<br/><br/> Användningen av en cache garanterar minimal påverkan på produktions program som körs på en virtuell dator.<br/><br/> [Läs mer](azure-to-azure-support-matrix.md#cache-storage) om cache Storage-krav. 
 **Mål resurser** | Mål resurserna används vid replikering och när en redundansväxling sker. Site Recovery kan konfigurera mål resurs som standard, eller så kan du skapa/anpassa dem.<br/><br/> I mål regionen kontrollerar du att du kan skapa virtuella datorer och att din prenumeration har tillräckligt med resurser för att stödja VM-storlekar som kommer att behövas i mål regionen. 
 
-![Käll-och mål replik](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Käll-och mål replik](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Mål resurser
 
@@ -62,7 +62,7 @@ Du kan hantera mål resurser på följande sätt:
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Information** | **Standardvärde**
+**Principinställning** | **Information** | **Standard**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme
@@ -116,7 +116,7 @@ När du aktiverar replikering för en virtuell Azure-dator händer följande:
 4. Site Recovery bearbetar data i cachen och skickar dem till mål lagrings kontot, eller till replik Managed disks.
 5. När data har bearbetats genereras kraschbaserade återställnings punkter var femte minut. Programkonsekventa återställnings punkter genereras enligt den inställning som anges i replikeringsprincipen.
 
-![Aktivera replikeringsprincip, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Aktivera replikeringsprincip, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replikeringsprocessen**
 
@@ -146,9 +146,9 @@ Observera att information om nätverks anslutningens krav finns i [nätverks Whi
 
 **Regel** |  **Information** | **Tjänsttagg**
 --- | --- | --- 
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings. \<region namn>
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i mål regionen. | EventsHub. \<region namn>
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i mål regionen. | EventsHub.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Site Recovery  | AzureSiteRecovery
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Key Vault (detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen) | AzureKeyVault
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Automation Controller (detta krävs endast för att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen) | GuestAndHybridManagement
@@ -157,9 +157,9 @@ Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Automa
 
 **Regel** |  **Information** | **Tjänsttagg**
 --- | --- | --- 
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen | Lagrings. \<region namn>
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen | Lagrings.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure AD  | AzureActiveDirectory
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i käll regionen. | EventsHub. \<region namn>
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i käll regionen. | EventsHub.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Site Recovery  | AzureSiteRecovery
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Key Vault (detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen) | AzureKeyVault
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Automation Controller (detta krävs endast för att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen) | GuestAndHybridManagement
@@ -191,7 +191,7 @@ Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i r
 
 När du initierar en redundansväxling skapas de virtuella datorerna i mål resurs gruppen, målets virtuella nätverk, mål under nätet och målets tillgänglighets uppsättning. Under en redundansväxling kan du använda alla återställnings punkter.
 
-![Redundansväxling](./media/concepts-azure-to-azure-architecture/failover.png)
+![Redundansväxling](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 06/08/2020
 ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 5ccec4174020d8b6586384a71ffe84fccd753640
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593752"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605450"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -29,7 +29,7 @@ Omfångs filter kan användas på olika sätt beroende på typ av etablerings ko
 * **Utgående etablering från Azure AD till SaaS-program**. När Azure AD är käll systemet är [användar-och grupp tilldelningar](../manage-apps/assign-user-or-group-access-portal.md) den vanligaste metoden för att avgöra vilka användare som omfattas av etableringen. Dessa tilldelningar används också för att aktivera enkel inloggning och tillhandahålla en enda metod för att hantera åtkomst och etablering. Omfångs filter kan användas valfritt, förutom tilldelningar eller i stället för dem, för att filtrera användare baserat på attributvärden.
 
     >[!TIP]
-    > Du kan inaktivera etablering baserat på tilldelningar för ett företags program genom att ändra inställningarna i menyn [omfång](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) under etablerings inställningarna för att **synkronisera alla användare och grupper**. Med det här alternativet plus attributbaserade omfångs filter får du snabbare prestanda än att använda gruppbaserade tilldelningar.  
+    > Du kan inaktivera etablering baserat på tilldelningar för ett företags program genom att ändra inställningarna i menyn [omfång](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) under etablerings inställningarna för att **synkronisera alla användare och grupper**. 
 
 * **Inkommande etablering från HCM-program till Azure AD och Active Directory**. När ett [HCM-program som Workday](../saas-apps/workday-tutorial.md) är käll systemet är definitions områdes filter den primära metoden för att avgöra vilka användare som ska tillhandahållas från HCM-programmet till Active Directory eller Azure AD.
 
@@ -60,7 +60,7 @@ Enligt det här omfångs filtret måste användarna uppfylla följande kriterier
 Definitions områdes filter konfigureras som en del av mappningar av mappar för varje Azure AD-anslutning för användar etablering. Följande procedur förutsätter att du redan har konfigurerat automatisk etablering för [ett av de program som stöds](../saas-apps/tutorial-list.md) och lägger till ett omfångs filter till det.
 
 ### <a name="create-a-scoping-filter"></a>Skapa ett omfångs filter
-1. I [Azure Portal](https://portal.azure.com)går du**till avsnittet** **Azure Active Directory** > **program för företags program** > .
+1. I [Azure Portal](https://portal.azure.com)går du till avsnittet **Azure Active Directory**  >  **program för företags program**  >  **All applications** .
 
 2. Välj det program som du har konfigurerat automatisk etablering för: till exempel "ServiceNow".
 
@@ -118,7 +118,7 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 ## <a name="common-scoping-filters"></a>Vanliga omfångs filter
 | Target-attribut| Operator | Värde | Beskrivning|
 |----|----|----|----|
-|userPrincipalName|REGEX-MATCHNING|.\*@domain.com |Alla användare med userPrincipal som har domänen @domain.com är inom omfånget för etablering|
+|userPrincipalName|REGEX-MATCHNING|.\*@domain.com |Alla användare med userPrincipal som har domänen är @domain.com inom omfånget för etablering|
 |userPrincipalName|INGEN REGEX-MATCHNING|.\*@domain.com|Alla användare med userPrincipal som har domänen @domain.com kommer utanför omfånget för etablering|
 |avdelning|ÄR lika med|försäljning|Alla användare från försäljnings avdelningen är inom omfånget för etablering|
 |workerID|REGEX-MATCHNING|(1 [0-9] [0-9] [0-9] [0-9] [0-9] [0-9])| Alla anställda med workerIDs mellan 1000000 och 2000000 finns inom omfånget för etablering.|

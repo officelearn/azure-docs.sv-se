@@ -7,18 +7,16 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.author: rogarana
-ms.openlocfilehash: 436f0ae3e19b2a0591a2727bde48bae66b91a94e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: b8ff58e830d9ca992db4461ee5c75659120c89c1
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509261"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629590"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
 Innan du börjar den här artikeln ser du till att du har slutfört föregående artikel, [tilldelar behörigheter på resurs nivå till en identitet](storage-files-identity-ad-ds-assign-permissions.md). För att se till att dina behörigheter på resurs nivå är på plats.
-
-När du har tilldelat behörigheter på resurs nivå med RBAC måste du tilldela lämpliga Windows ACL: er (även kallade NTFS-behörigheter) på rot-, katalog-eller filnivå för att kunna dra nytta av detaljerad åtkomst kontroll. Tänk på RBAC-behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. Även om Windows ACL: er fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå.
 
 När du har tilldelat behörigheter på resurs nivå med RBAC måste du konfigurera lämpliga Windows-ACL: er på rot-, katalog-eller filnivå, så att du kan dra nytta av detaljerad åtkomst kontroll. Tänk på RBAC-behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. Även om Windows ACL: er använder en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå. Behörigheter för både delnings-och fil-/katalog nivå tillämpas när en användare försöker få åtkomst till en fil/katalog, så om det finns en skillnad mellan någon av dem kommer bara den mest restriktiva att tillämpas. Om en användare till exempel har Läs-/Skriv behörighet på filnivå, men bara läser på resurs nivå, kan de bara läsa filen. Samma sak gäller om den har återförts och en användare hade Läs-/Skriv behörighet på delnings nivå, men bara läst på filnivå, de kan fortfarande bara läsa filen.
 

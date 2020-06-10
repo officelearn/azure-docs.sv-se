@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/8/2020
+ms.openlocfilehash: 674ae5c60b7e897f43d28f5813641ddc833b3002
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81602393"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636078"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -29,42 +29,6 @@ Azure Database for MariaDB stöder konfiguration av vissa Server parametrar. I d
 5. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
 ![Återställ alla till standard](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista över konfigurerbara Server parametrar
-
-Listan över Server parametrar som stöds växer ständigt. Använd fliken Server parametrar i Azure Portal för att hämta definitionen och konfigurera server parametrarna utifrån dina program krav.
-
-## <a name="non-configurable-server-parameters"></a>Server parametrar som inte går att konfigurera
-
-InnoDB buffer och max anslutningar kan inte konfigureras och kopplas till din [pris nivå](concepts-pricing-tiers.md).
-
-|**Pris nivå**| **vCore (s)**|**InnoDB-buffert (MB)**|
-|---|---|---|
-|Basic| 1| 1024|
-|Basic| 2| 2560|
-|Generell användning| 2| 3584|
-|Generell användning| 4| 7680|
-|Generell användning| 8| 15360|
-|Generell användning| 16| 31232|
-|Generell användning| 32| 62976|
-|Generell användning| 64| 125952|
-|Minnesoptimerad| 2| 7168|
-|Minnesoptimerad| 4| 15360|
-|Minnesoptimerad| 8| 30720|
-|Minnesoptimerad| 16| 62464|
-|Minnesoptimerad| 32| 125952|
-
-Dessa ytterligare Server parametrar kan inte konfigureras i systemet:
-
-|**ProfileServiceApplicationProxy**|**Fast värde**|
-| :------------------------ | :-------- |
-|innodb_file_per_table på Basic-nivå|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256|
-|innodb_log_files_in_group|2|
-
-Andra server parametrar som inte listas här anges som standardvärden för MariaDB för [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
-
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 
 ### <a name="populating-the-time-zone-tables"></a>Fylla i tids zons tabellerna
@@ -72,7 +36,7 @@ Andra server parametrar som inte listas här anges som standardvärden för Mari
 Du kan fylla i tids zons tabellerna på servern genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som mysql-kommandoraden eller MySQL Workbench.
 
 > [!NOTE]
-> Om du kör `mysql.az_load_timezone` kommandot från MySQL Workbench kan du behöva inaktivera läget för säker uppdatering först med `SET SQL_SAFE_UPDATES=0;`.
+> Om du kör `mysql.az_load_timezone` kommandot från MySQL Workbench kan du behöva inaktivera läget för säker uppdatering först med `SET SQL_SAFE_UPDATES=0;` .
 
 ```sql
 CALL mysql.az_load_timezone();
@@ -94,7 +58,7 @@ Tids zonen på global nivå kan ställas in från sidan **Server parametrar** i 
 
 ### <a name="setting-the-session-level-time-zone"></a>Ange tids zonen för sessionen
 
-Tids zonen för tids zonen kan ställas in genom att `SET time_zone` köra kommandot från ett verktyg som mysql-kommandoraden eller MySQL Workbench. I exemplet nedan ställs tids zonen till i **USA/Stilla havs** området.
+Tids zonen för tids zonen kan ställas in genom att köra `SET time_zone` kommandot från ett verktyg som mysql-kommandoraden eller MySQL Workbench. I exemplet nedan ställs tids zonen till i **USA/Stilla havs** området.
 
 ```sql
 SET time_zone = 'US/Pacific';
@@ -102,8 +66,6 @@ SET time_zone = 'US/Pacific';
 
 I MariaDB-dokumentationen hittar du [datum-och tids funktioner](https://mariadb.com/kb/en/library/convert_tz/).
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-- [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md).
--->
+- Läs mer om [Server parametrar](concepts-server-parameters.md)

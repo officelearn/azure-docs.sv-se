@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140961"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637523"
 ---
 > [!NOTE]
 > `PHI`Använd `domain=phi` parametern och modell versionen eller senare för att identifiera `2020-04-01` .
@@ -22,32 +22,32 @@ ms.locfileid: "84140961"
  
 Följande enhets kategorier returneras när begär Anden skickas till `/v3.1-preview.1/entities/recognition/pii` slut punkten.
 
-| Kategori   | Underkategori | Description                          | Startar modell version | Anteckningar |
+| Kategori   | Underkategori | Beskrivning                          | Startar modell version | Anteckningar |
 |------------|-------------|--------------------------------------|------------------------|---|
-| Person     | Ej tillämpligt         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
-| PersonType | Ej tillämpligt         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
-| PhoneNumber | Ej tillämpligt | Telefonnummer (endast USA och EU-telefonnummer). | `2019-10-01` | Returneras också med`domain=phi` |
-|Organisation  | Ej tillämpligt | Företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer.  | `2019-10-01` | Nationella objekt och religions ingår inte i den här entitetstypen.  |
+| Person     | Saknas         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
+| PersonType | Saknas         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
+| PhoneNumber | Saknas | Telefonnummer (endast USA och EU-telefonnummer). | `2019-10-01` | Returneras också med`domain=phi` |
+|Organisation  | Saknas | Företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer.  | `2019-10-01` | Nationella objekt och religions ingår inte i den här entitetstypen.  |
 |Organisation | Sjukdom | Medicinska företag och grupper. | `2020-04-01` | Returneras också med `domain=phi` . |
 |Organisation | Börs kurs | Fond börs grupper. | `2020-04-01` | Returneras också med `domain=phi` . |
 | Organisation | Sport | Idrotts relaterade organisationer. | `2020-04-01` | Returneras också med `domain=phi` . |
-| Adress | Ej tillämpligt | Fullständiga post adresser.  | `2020-04-01` | Returneras också med `domain=phi` . |
-| EU GPS-koordinater | Ej tillämpligt | GPS-koordinater för platser inom Europeiska unionen.  | `2019-10-01` |  |
-| E-post | Ej tillämpligt | E-postadresser. | `2019-10-01` | Returneras också med `domain=phi` .   |
-| URL | Ej tillämpligt | URL: er till webbplatser. | `2019-10-01` | Returneras också med `domain=phi` . |
-| IP-adress | Ej tillämpligt | Nätverks-IP-adresser. | `2019-10-01` | |
-| DateTime | Ej tillämpligt | Datum och tidpunkter på dagen. | `2019-10-01` |  | 
+| Adress | Saknas | Fullständiga post adresser.  | `2020-04-01` | Returneras också med `domain=phi` . |
+| EU GPS-koordinater | Saknas | GPS-koordinater för platser inom Europeiska unionen.  | `2019-10-01` |  |
+| E-post | Saknas | E-postadresser. | `2019-10-01` | Returneras också med `domain=phi` .   |
+| URL | Saknas | URL: er till webbplatser. | `2019-10-01` | Returneras också med `domain=phi` . |
+| IP-adress | Saknas | Nätverks-IP-adresser. | `2019-10-01` | |
+| DateTime | Saknas | Datum och tidpunkter på dagen. | `2019-10-01` |  | 
 | DateTime | Datum | Kalender datum. | `2019-10-01` | Returneras också med `domain=phi` . |
-| Kvantitet | Ej tillämpligt | Siffror och numeriska kvantiteter. | `2019-10-01` |  |
+| Kvantitet | Saknas | Siffror och numeriska kvantiteter. | `2019-10-01` |  |
 | Kvantitet | Ålder | Personer. | `2019-10-01` | | |
-| Internationell klassificering av sjukdomar (ICD-10-CM) | Ej tillämpligt | Enheter som rör internationell klassificering av sjukdomar, nionde revidering.   | `2020-04-01` | Returneras också med `domain=phi` . |
-| Internationell klassificering av sjukdomar (ICD-10-CM) | Ej tillämpligt | Enheter som rör internationell klassificering av sjukdomar, tionde revidering.    | `2020-04-01` | Returneras också med `domain=phi` . |
+| Internationell klassificering av sjukdomar (ICD-10-CM) | Saknas | Enheter som rör internationell klassificering av sjukdomar, nionde revidering.   | `2020-04-01` | |
+| Internationell klassificering av sjukdomar (ICD-10-CM) | Saknas | Enheter som rör internationell klassificering av sjukdomar, tionde revidering.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Azure-information
 
 Den här enhets kategorin innehåller identifierbar Azure-information, inklusive autentiseringsinformation och anslutnings strängar. Tillgängligt från och med modell version `2019-10-01` . Returnerades inte med `domain=phi` parametern.
 
-| Underkategori                           | Description                                                                 |
+| Underkategori                           | Beskrivning                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB auth-nyckel             | Auktoriseringsregel för en Azure DocumentDB-Server.                           |
 | Anslutnings sträng för Azure IAAS Database och Azure SQL-anslutningssträng | Anslutnings sträng för en Azure Infrastructure as a service-databas (IaaS) och SQL-anslutningssträng. |

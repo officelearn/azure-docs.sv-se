@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171574"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629640"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -38,8 +38,7 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Förutsättningar
-
+## <a name="prerequisites"></a>Krav
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
@@ -67,6 +66,8 @@ Välj **Nästa** när du är redo att fortsätta.
 
 Om du redan har skapat en data uppsättning som innehåller dina data väljer du den från List rutan **Välj en befintlig data uppsättning** . Eller Välj **skapa en data uppsättning** för att använda ett befintligt Azure-datalager eller för att ladda upp lokala filer.
 
+> [!NOTE]
+> Ett projekt får inte innehålla fler än 500 000 bilder.  Om din data uppsättning har fler kommer endast de första 500 000 bilderna att läsas in.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Skapa en data uppsättning från ett Azure-datalager
 
@@ -85,8 +86,6 @@ Så här skapar du en data uppsättning från data som du redan har lagrat i Azu
 1. Välj **Nästa**.
 1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
 
-> [!NOTE]
-> De data du väljer läses in i projektet.  Att lägga till mer data i data lagret visas inte i det här projektet när projektet har skapats.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Skapa en data uppsättning från överförda data
 
@@ -102,6 +101,19 @@ Så här överför du dina data direkt:
 1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
 
 Data överförs till standard-BLOB-arkivet ("workspaceblobstore") på din Machine Learning-arbetsyta.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Konfigurera stegvis uppdatering
+
+Om du planerar att lägga till nya avbildningar i data uppsättningen använder du stegvis uppdatering för att lägga till dessa nya bilder i projektet.   När **stegvis uppdatering** har Aktiver ATS kontrol leras data uppsättningen regelbundet för nya avbildningar som ska läggas till i ett projekt, baserat på slut för ande frekvensen för etiketter.   Sök efter nya data stoppas när projektet innehåller maximalt 500 000 bilder.
+
+Om du vill lägga till fler avbildningar i projektet använder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp till lämplig mapp i blob-lagringen. 
+
+Markera kryss rutan om du vill **Aktivera stegvis uppdatering** när du vill att projektet ska övervakas kontinuerligt för nya data i data lagret.
+
+Avmarkera den här kryss rutan om du inte vill att nya avbildningar som visas i data lagret ska läggas till i projektet.
+
+Du kan hitta tidsstämpeln för den senaste uppdateringen i avsnittet **stegvis uppdatering** på fliken **information** för ditt projekt.
+
 
 ## <a name="specify-label-classes"></a>Ange etikett klasser
 

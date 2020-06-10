@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067710"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608033"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabb start: skapa en Azure Database for MySQL med ett enkelt Azure CLI-kommando – AZ MySQL up (för hands version)
 
 > [!IMPORTANT]
 > [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI-kommandot är i för hands version.
 
-Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommando raden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) för att skapa en Azure Database for MySQL-server med hjälp av Azure CLI. Förutom att skapa-servern skapar `az mysql up` kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Detta hjälper till att påskynda utvecklings processen.
+Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommando raden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) för att skapa en Azure Database for MySQL-server med hjälp av Azure CLI. Förutom att skapa-servern `az mysql up` skapar kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Detta hjälper till att påskynda utvecklings processen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -64,7 +64,7 @@ sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{ber�
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar.
 geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
 location | westus2 | Azure-platsen för servern.
-ssl-enforcement | Disabled | Om SSL ska vara aktiverat eller inte för den här servern.
+ssl-enforcement | Enabled | Om SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 5.7 | Huvudversion för MySQL.
 admin-user | Genereras av systemet | Användarnamnet för administratörsinloggning.
@@ -75,9 +75,9 @@ admin-password | Genereras av systemet | Lösenordet för administratörsanvänd
 
 När servern har skapats levereras den med följande inställningar:
 
-- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az mysql up` kommandot körs från och WHITELISTS den IP-adressen.
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az mysql up` kommandot körs från och whitelists den IP-adressen.
 - "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
-- `wait_timeout` Parametern har angetts till 8 timmar
+- `wait_timeout`Parametern har angetts till 8 timmar
 - En tom databas med namnet "sampledb" skapas
 - En ny användare med namnet "rot" med behörighet till "sampledb" skapas
 

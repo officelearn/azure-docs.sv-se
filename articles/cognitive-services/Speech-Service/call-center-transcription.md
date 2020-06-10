@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806328"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636134"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -40,7 +40,7 @@ Utöver den funktionella aspekten i tal tjänst funktionerna, är deras primära
 - Real tids analys, som bearbetar ljud signalen för att extrahera olika insikter när samtalet sker (med sentiment är ett framträdande användnings fall).
 - Röst assistenter (robotar), antingen genom att köra dialogen mellan kunden och roboten i ett försök att lösa kundens problem, eller att använda AI-protokoll (artificiell intelligens) för att hjälpa agenten.
 
-Ett typiskt arkitektur diagram över implementeringen av ett batch-scenario visas i bilden nedan under ![samtals Center avskrifts arkitektur](media/scenarios/call-center-transcription-architecture.png)
+Ett typiskt arkitektur diagram över implementeringen av ett batch-scenario visas i bilden nedan under ![ samtals Center avskrifts arkitektur](media/scenarios/call-center-transcription-architecture.png)
 
 ## <a name="speech-analytics-technology-components"></a>Teknik komponenter för tal analys
 
@@ -97,7 +97,7 @@ En typisk lösning använder dessa tjänster:
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) används för att skapa en URL för signaturer för delad åtkomst (SAS) för varje inspelning och utlöser HTTP POST-begäran för att starta en avskrift. Dessutom används Azure Functions för att skapa begär Anden för att hämta och ta bort avskrifter med batch-avskrifts-API: et.
 
 Internt använder vi tekniken ovan för att stödja Microsofts kund samtal i batch-läge.
-![Batch-arkitektur](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tekniker som används för att stödja Microsofts kund samtal i batch-läge.":::
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Real tids avskrift för Call Center-data
 
@@ -125,7 +125,7 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 | -------------- | ----- | ----------- |
 | Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
 |                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-|                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produkt namn eller akronymer. Allt du behöver för att komma igång är en uttal-fil som är en `.txt` enkel fil. |
+|                | [Uttalsmodell](how-to-customize-pronunciation.md) | Med en anpassad uttal-modell kan du definiera det fonetiska formuläret och visa det för ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produkt namn eller akronymer. Allt du behöver för att komma igång är en uttal-fil som är en enkel `.txt` fil. |
 | Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Med anpassade röst teckensnitt kan du skapa en igenkännings bara, en-av-en-röst för ditt varumärke. Det tar bara en liten mängd data att komma igång. Den mer information som du anger, desto mer naturlig och mänsklig som ditt röst teckensnitt kommer att ljud. |
 
 ## <a name="sample-code"></a>Exempelkod

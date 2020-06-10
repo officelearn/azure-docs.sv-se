@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 33075173385a6e36829199c5bda854c78a4424fc
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325124"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609543"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänst slut punkter via HTTP eller HTTPS från Azure Logic Apps
 
@@ -24,7 +24,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda ht
 
 Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i din Logic app-arbetsflöde.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -33,41 +33,6 @@ Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i d
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 * Den Logic-app från vilken du vill anropa mål slut punkten. Börja med HTTP-utlösaren genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda HTTP-åtgärden startar du din Logic-app med valfri utlösare som du vill använda. I det här exemplet används HTTP-utlösaren som det första steget.
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
-
-Baserat på mål slut punktens kapacitet, stöder utgående anrop Transport Layer Security (TLS), som tidigare Secure Sockets Layer (SSL), version 1,0, 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds.
-
-Om slut punkten till exempel stöder 1,2 använder HTTP-anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Självsignerade certifikat
-
-* För logi Kap par i den globala Azure-miljön för flera klienter tillåter HTTP-anslutaren inte självsignerade TLS/SSL-certifikat. Om din Logic app gör ett HTTP-anrop till en server och visar ett certifikat för TLS/SSL, kan HTTP-anropet Miss lyckas med ett `TrustFailure` fel.
-
-* För logi Kap par i en [integration service Environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)tillåts http-anslutningen självsignerade certifikat för TLS/SSL-handskakning. Du måste dock först [Aktivera stöd för självsignerade certifikat](../logic-apps/create-integration-service-environment-rest-api.md#request-body) för en befintlig ISE eller ny ISE med hjälp av Logic Apps REST API och installera det offentliga certifikatet på `TrustedRoot` platsen.
-
-## <a name="known-issues"></a>Kända problem
-
-### <a name="omitted-http-headers"></a>Utelämnade HTTP-huvuden
-
-Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
-
-* `Accept-*`
-* `Allow`
-* `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
-* `Cookie`
-* `Expires`
-* `Host`
-* `Last-Modified`
-* `Origin`
-* `Set-Cookie`
-* `Transfer-Encoding`
-
-Även om Logic Apps inte hindrar dig från att spara Logi Kap par som använder en HTTP-utlösare eller en åtgärd med dessa huvuden, Logic Apps ignorerar dessa huvuden.
 
 <a name="http-trigger"></a>
 
@@ -131,6 +96,22 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+Baserat på mål slut punktens kapacitet, stöder utgående anrop Transport Layer Security (TLS), som tidigare Secure Sockets Layer (SSL), version 1,0, 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds.
+
+Om slut punkten till exempel stöder 1,2 använder HTTP-anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
+
+<a name="self-signed"></a>
+
+## <a name="self-signed-certificates"></a>Självsignerade certifikat
+
+* För logi Kap par i den globala Azure-miljön för flera klienter tillåter HTTP-anslutaren inte självsignerade TLS/SSL-certifikat. Om din Logic app gör ett HTTP-anrop till en server och visar ett certifikat för TLS/SSL, kan HTTP-anropet Miss lyckas med ett `TrustFailure` fel.
+
+* För logi Kap par i en [integration service Environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)tillåts http-anslutningen självsignerade certifikat för TLS/SSL-handskakning. Du måste dock först [Aktivera stöd för självsignerade certifikat](../logic-apps/create-integration-service-environment-rest-api.md#request-body) för en befintlig ISE eller ny ISE med hjälp av Logic Apps REST API och installera det offentliga certifikatet på `TrustedRoot` platsen.
+
 ## <a name="content-with-multipartform-data-type"></a>Innehåll med multipart/form-datatyp
 
 Om du vill hantera innehåll som har en `multipart/form-data` typ i HTTP-begäranden kan du lägga till ett JSON-objekt som innehåller `$content-type` `$multipart` attributen och för HTTP-begärans text med det här formatet.
@@ -177,6 +158,90 @@ Här är samma exempel som visar HTTP-åtgärdens JSON-definition i den underlig
 }
 ```
 
+<a name="asynchronous-pattern"></a>
+
+## <a name="asynchronous-request-response-behavior"></a>Svars beteende för asynkron begäran
+
+Som standard följer alla HTTP-baserade åtgärder i Azure Logic Apps standard mönstret för [asynkron åtgärd](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Det här mönstret anger att efter att en HTTP-åtgärd anropar eller skickar en begäran till en slut punkt, tjänst, system eller API, returnerar mottagaren omedelbart ett ["202 godkänt"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) -svar. Den här koden bekräftar att mottagaren har accepterat begäran men inte avslutat bearbetning. Svaret kan innehålla ett `location` huvud som anger URL: en och ett uppdaterings-ID som anroparen kan använda för att avsöka eller kontrol lera status för den asynkrona begäran tills mottagaren slutar bearbeta och returnerar svaret ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) eller något annat icke-202-svar. Anroparen behöver dock inte vänta på begäran att slutföra bearbetningen och kan fortsätta att köra nästa åtgärd. Mer information finns i avsnittet om [asynkron mikrotjänst integrering framtvingar sig oberoende av mikrotjänster](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
+* I Logic Apps designer har HTTP-åtgärden, men inte utlösaren, en **asynkron mönster** inställning som är aktive rad som standard. Den här inställningen anger att anroparen inte väntar på att bearbetningen ska slutföras och kan gå vidare till nästa åtgärd, men fortsätter att kontrol lera statusen tills bearbetningen stoppas. Om inställningen är inaktive rad anger den här inställningen att anroparen väntar på att bearbetningen ska slutföras innan den går vidare till nästa åtgärd.
+
+  Du hittar den här inställningen genom att följa dessa steg:
+
+  1. I HTTP-åtgärdens namn List väljer du knappen med tre punkter (**...**), som öppnar åtgärdens inställningar.
+
+  1. Hitta inställningen för **asynkrona mönster** .
+
+     ![Inställningen "asynkront mönster"](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+* HTTP-åtgärdens underliggande JavaScript Object Notation-definition (JSON) följer implicit efter det asynkrona åtgärds mönstret.
+
+<a name="disable-asynchronous-operations"></a>
+
+## <a name="disable-asynchronous-operations"></a>Inaktivera asynkrona åtgärder
+
+Ibland kanske du vill använda HTTP-åtgärdens asynkrona beteende i vissa scenarier, till exempel när du vill:
+
+* [Undvik HTTP-tidsgräns för tids krävande uppgifter](#avoid-http-timeouts)
+* [Inaktivera kontroll av plats rubriker](#disable-location-header-check)
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+### <a name="turn-off-asynchronous-pattern-setting"></a>Inaktivera **asynkron mönster** inställning
+
+1. I Logic Apps designer, i HTTP-åtgärdens namn List, väljer du knappen med tre punkter (**...**), som öppnar åtgärdens inställningar.
+
+1. Hitta inställningen för **asynkront mönster** **, aktivera inställningen om den** är aktive rad och välj **färdig**.
+
+   ![Inaktivera inställningen "asynkront mönster"](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>Inaktivera asynkront mönster i åtgärdens JSON-definition
+
+I HTTP-åtgärdens underliggande JSON-definition [lägger du till `"DisableAsyncPattern"` alternativet åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) i åtgärdens definition så att åtgärden följer synkront åtgärds mönster i stället. Mer information finns även i [köra åtgärder i ett synkront åtgärds mönster](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+
+<a name="avoid-http-timeouts"></a>
+
+## <a name="avoid-http-timeouts-for-long-running-tasks"></a>Undvik HTTP-tidsgräns för tids krävande uppgifter
+
+HTTP-begäranden har en [tids](../logic-apps/logic-apps-limits-and-config.md#http-limits)gräns. Om du har en tids krävande HTTP-åtgärd som har nått tids gränsen på grund av den här gränsen har du följande alternativ:
+
+* [Inaktivera HTTP-åtgärdens asynkrona åtgärds mönster](#disable-asynchronous-operations) så att åtgärden inte avsöks kontinuerligt eller kontrol lera status för begäran. I stället väntar åtgärden på att mottagaren ska svara med status och resultat när begäran har slutfört bearbetningen.
+
+* Ersätt HTTP-åtgärden med [åtgärden http-webhook](../connectors/connectors-native-webhook.md), som väntar på att mottagaren ska svara med status och resultat när begäran har slutfört bearbetningen.
+
+<a name="disable-location-header-check"></a>
+
+## <a name="disable-checking-location-headers"></a>Inaktivera kontroll av plats rubriker
+
+Vissa slut punkter, tjänster, system eller API: er returnerar ett "202 ACCEPTERAt"-svar som inte har någon `location` rubrik. För att undvika att en HTTP-åtgärd kontinuerligt kontrollerar status för begäran när `location` rubriken inte finns kan du välja mellan följande alternativ:
+
+* [Inaktivera HTTP-åtgärdens asynkrona åtgärds mönster](#disable-asynchronous-operations) så att åtgärden inte avsöks kontinuerligt eller kontrol lera status för begäran. I stället väntar åtgärden på att mottagaren ska svara med status och resultat när begäran har slutfört bearbetningen.
+
+* Ersätt HTTP-åtgärden med [åtgärden http-webhook](../connectors/connectors-native-webhook.md), som väntar på att mottagaren ska svara med status och resultat när begäran har slutfört bearbetningen.
+
+## <a name="known-issues"></a>Kända problem
+
+<a name="omitted-headers"></a>
+
+### <a name="omitted-http-headers"></a>Utelämnade HTTP-huvuden
+
+Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
+
+* `Accept-*`
+* `Allow`
+* `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Även om Logic Apps inte hindrar dig från att spara Logi Kap par som använder en HTTP-utlösare eller en åtgärd med dessa huvuden, Logic Apps ignorerar dessa huvuden.
+
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
 Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
@@ -188,14 +253,14 @@ Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 
 Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
 
-| Egenskapsnamn | Typ | Description |
-|---------------|------|-------------|
-| sidhuvud | objekt | Huvudena från begäran |
-| body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| statuskod | int | Status koden från begäran |
+| Egenskap | Typ | Beskrivning |
+|----------|------|-------------|
+| `headers` | JSON-objekt | Huvudena från begäran |
+| `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| `status code` | Heltal | Status koden från begäran |
 |||
 
-| Statuskod | Description |
+| Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Har godkänts |

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248336"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605416"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Komma igång med Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ Det här dokumentet vägleder dig genom alla grundläggande steg som krävs för
 * Öppna [Azure Portal](https://portal.azure.com)
 * Skapa ett nytt lagrings konto med följande inställningar:
 
-    |Flik|Inställning | Föreslaget värde | Beskrivning |
+    |Flik|Inställningen | Föreslaget värde | Beskrivning |
     |---|---|---|---|
     |Grundläggande inställningar|**Lagrings konto namn**| Du kan ge den namnet.|I det här dokumentet kommer vi att se det som `contosolake` .|
     |Grundläggande inställningar|**Typ av konto**|Måste anges till`StorageV2`||
@@ -46,7 +46,7 @@ I följande steg ska du konfigurera din Synapse-arbetsyta att använda det här 
 * I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**
 * Välj **+ Lägg** till för att skapa en arbets yta med de här inställningarna
 
-    |Flik|Inställning | Föreslaget värde | Beskrivning |
+    |Flik|Inställningen | Föreslaget värde | Beskrivning |
     |---|---|---|---|
     |Grundläggande inställningar|**Namn på arbetsyta**|Du kan anropa det något.| I det här dokumentet kommer vi att använda`myworkspace`|
     |Grundläggande inställningar|**Region**|Matcha lagrings kontots region|
@@ -75,7 +75,7 @@ När din Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sä
 1. I Synapse Studio väljer du **hantera > SQL-pooler** på vänster sida.
 1. Välj **+ ny** och ange följande inställningar:
 
-    |Inställning | Föreslaget värde | 
+    |Inställningen | Föreslaget värde | 
     |---|---|
     |**SQL-poolnamn**| `SQLDB1`|
     |**Prestanda nivå**|`DW100C`|
@@ -90,7 +90,7 @@ En SQL-pool förbrukar fakturerbara resurser så länge den är aktiv. Du kan pa
 1. I Synapse Studio väljer du **hantera > Apache Spark pooler** på vänster sida
 1. Välj **+ ny** och ange följande inställningar:
 
-    |Inställning | Föreslaget värde | 
+    |Inställningen | Föreslaget värde | 
     |---|---|
     |**Namn på Apache Spark bassäng**|`Spark1`
     |**Node-storlek**| `Small`|
@@ -164,7 +164,7 @@ Det finns data som är tillgängliga i en tabell i `SQLDB1` . Nu läser vi in de
 
 1. Navigera till **data** hubben, högerklicka på **databaser** och välj **Uppdatera**.
 1. Nu bör du se dessa databaser:
-    - SQLDB (SQL-pool)
+    - SQLDB1 (SQL-pool)
     - nyctaxi (Spark)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analysera NYC taxi-data med Spark och Notebooks
@@ -190,10 +190,10 @@ Det finns data som är tillgängliga i en tabell i `SQLDB1` . Nu läser vi in de
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. I cell resultaten väljer du **diagram** för att se de visualiserade data
  
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Välj **användare (primär) "**
 1. Du bör se en mapp som heter `NYCTaxi` . Inuti bör du se två mappar `PassengerCountStats.csv` och `PassengerCountStats.parquet` .
 1. Navigera till `PassengerCountStats.parquet` mappen.
-1. Högerklicka på Parquet-filen i och välj **ny antecknings bok**så skapas en antecknings bok med en cell som detta:
+1. Högerklicka på `.parquet` filen i och välj **ny antecknings bok**så skapas en antecknings bok med en cell som detta:
 
     ```py
     %%pyspark
@@ -322,7 +322,7 @@ Du kan länka en Power BI arbets yta till din Synapse-arbetsyta. På så sätt k
 1. I Synapse Studio navigerar du till **hanterade > länkade tjänster**.
 1. Välj **+ nytt** och välj **Anslut till Power BI** och ange följande fält:
 
-    |Inställning | Föreslaget värde | 
+    |Inställningen | Föreslaget värde | 
     |---|---|
     |**Namn**|`NYCTaxiWorkspace1`|
     |**Namn på arbetsyta**|`NYCTaxiWorkspace1`|

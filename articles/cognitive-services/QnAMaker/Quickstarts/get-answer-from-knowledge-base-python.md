@@ -3,14 +3,14 @@ title: 'Snabbstart: Få svar från kunskapsbas – REST, Python – QnA Maker'
 description: Denna Python REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, tracking-python
 ms.topic: how-to
-ms.openlocfilehash: ead33b3602c75046a71f67c5b5a556b17ae8703d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342773"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610142"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Snabb start: få svar på en fråga från en kunskaps bas med python
 
@@ -18,7 +18,7 @@ Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar fr�
 
 [Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/get-answer/get-answer-3x.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python 3.6 eller senare](https://www.python.org/downloads/)
 * [Visual Studio-koden](https://code.visualstudio.com/)

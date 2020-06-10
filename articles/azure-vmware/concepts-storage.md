@@ -3,12 +3,12 @@ title: Koncept – lagring
 description: Lär dig mer om de viktigaste lagrings funktionerna i Azure VMware-lösningen (AVS) för hands versioner av privata moln.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740361"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604124"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (AVS)-förhands granskning av lagrings koncept
 
@@ -32,7 +32,7 @@ Virtuellt San-datalager använder kryptering av data i vila som standard. Krypte
 
 ## <a name="scaling"></a>Skalning
 
-Intern kluster lagrings kapacitet skalas genom att lägga till värdar i ett kluster. För kluster som använder våra värdar ökas kapaciteten för den obearbetade klustret med 15,4 TB med varje ytterligare värd. Kluster som har skapats med GP-värdar har sin RAW-kapacitet ökad med 7,7 TB med varje ytterligare värd. I båda typerna av kluster tar värdar cirka 10 minuter att lägga till i ett kluster. Mer information om hur du skalar kluster finns i själv studie kursen [skala privat moln] [självstudie-Scale-Private-Cloud].
+Intern kluster lagrings kapacitet skalas genom att lägga till värdar i ett kluster. För kluster som använder våra värdar ökas kapaciteten för den obearbetade klustret med 15,4 TB med varje ytterligare värd. Kluster som har skapats med GP-värdar har sin RAW-kapacitet ökad med 7,7 TB med varje ytterligare värd. I båda typerna av kluster tar värdar cirka 10 minuter att lägga till i ett kluster. Mer information om hur du skalar kluster finns i [själv studie kursen för skala privat moln][tutorial-scale-private-cloud] .
 
 ## <a name="azure-storage-integration"></a>Integrering av Azure Storage
 
@@ -45,5 +45,5 @@ Nästa steg är att lära dig om [identitets koncept för privata moln][concepts
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

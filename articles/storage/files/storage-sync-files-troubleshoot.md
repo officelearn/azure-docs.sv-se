@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c273feb8cf8f2e94a62dcf01b205df604e775e6
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a7d1fac4ff76b39cb2107a8839e8f8e63ff90fd5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449472"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635109"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -315,6 +315,7 @@ Om du vill se de här felen kör du PowerShell-skriptet **FileSyncErrorsReport. 
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | – 2147942467 | ERROR_BAD_NET_NAME | Det går inte att komma åt den skiktade filen på servern. Det här problemet uppstår om den nivåindelade filen inte återkallades innan du tog bort en serverslutpunkt. | Information om hur du löser det här problemet finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | – 2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Det går inte att synkronisera fil-eller katalog ändringen än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet kommer att synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. Om felet kvarstår under flera dagar kan du använda PowerShell-skriptet FileSyncErrorsReport. ps1 för att avgöra varför den beroende mappen inte har synkroniserats ännu. |
+| 0x80C8028A | – 2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | Det går inte att synkronisera fil-eller katalog ändringen än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet kommer att synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. Om felet kvarstår under flera dagar kan du använda PowerShell-skriptet FileSyncErrorsReport. ps1 för att avgöra varför den beroende mappen inte har synkroniserats ännu. |
 | 0x80c80284 | – 2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | Det går inte att synkronisera fil-eller katalog ändringen än eftersom en beroende mapp inte har synkroniserats ännu och synkroniseringen misslyckades. Det här objektet kommer att synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. Om felet kvarstår bör du undersöka synkroniseringsfel. |
 | 0x8007007b | – 2147024773 | ERROR_INVALID_NAME | Fil-eller katalog namnet är ogiltigt. | Byt namn på filen eller katalogen i fråga. Mer information finns i [hantera tecken som inte stöds](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) . |
 | 0x80c80255 | – 2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Fil-eller katalog namnet är ogiltigt. | Byt namn på filen eller katalogen i fråga. Mer information finns i [hantera tecken som inte stöds](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) . |

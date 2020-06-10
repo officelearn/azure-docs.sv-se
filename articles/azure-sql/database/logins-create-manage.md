@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220553"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605106"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ I det här läget konfigureras servern eller den hanterade instansen bara för �
 
   - Skapa ytterligare en SQL-inloggning i huvud databasen.
   - Lägg till inloggningen till den [fasta Server rollen sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) med hjälp av instruktionen [Alter Server Role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) . Den här inloggningen kommer att ha fullständig administratörs behörighet.
-  - Du kan också skapa en [Azure AD-inloggning](authentication-aad-configure.md)#provision-Azure-AD-admin-SQL-hanterad instans) med hjälp av syntaxen för att [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
+  - Du kan också skapa en [Azure AD-inloggning](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) med hjälp av syntaxen för att [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
 
 - **Skapa SQL-inloggningar med begränsade administrativa behörigheter i SQL Database**
 

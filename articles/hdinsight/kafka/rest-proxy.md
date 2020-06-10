@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 5e46e50da67559f69302357804f6f98fee70d4ad
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 5260da53ac7b65b68be58046ac6cb20e66c213c6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773312"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605501"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
@@ -86,7 +86,7 @@ Du kan använda python-koden nedan för att interagera med REST-proxyn på ditt 
     |Egenskap |Beskrivning |
     |---|---|
     |Klientorganisations-ID|Azure-klienten där din prenumeration är.|
-    |Klientorganisations-ID|ID för programmet som du registrerade i säkerhets gruppen.|
+    |Klient-ID|ID för programmet som du registrerade i säkerhets gruppen.|
     |Klienthemlighet|Hemligheten för det program som du registrerade i säkerhets gruppen.|
     |Kafkarest_endpoint|Hämta det här värdet från fliken **Egenskaper** i kluster översikten enligt beskrivningen i [avsnittet distribution](#create-a-kafka-cluster-with-rest-proxy-enabled). Det ska ha följande format –`https://<clustername>-kafkarest.azurehdinsight.net`|
 

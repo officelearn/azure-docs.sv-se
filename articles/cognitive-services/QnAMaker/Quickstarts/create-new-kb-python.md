@@ -3,14 +3,14 @@ title: 'Snabbstart: Skapa kunskapsbas – REST, Python – QnA Maker'
 description: I den här Python REST-baserade snabbstarten går vi igenom hur du skapar ett exempel på QnA Maker-kunskapsbas, programmatiskt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, tracking-python
 ms.topic: how-to
-ms.openlocfilehash: 31763a10ea365e9879557dcd6dcec65c9943f9db
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5facd58553a1a66d2c7986a0b7629f8a36b5c972
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343463"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608527"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Python
 
@@ -24,7 +24,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.

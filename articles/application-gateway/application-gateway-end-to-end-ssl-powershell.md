@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/8/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2b5d2687ce95ca7db139ae06ab83bc3ecee8cf8a
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648416"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628807"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurera end to end-TLS med hjälp av Application Gateway med PowerShell
 
@@ -167,7 +167,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    > [!NOTE]
    > Standard avsökningen hämtar den offentliga nyckeln från *standard* TLS-bindningen på backend-IP-adressen och jämför det offentliga nyckel värde som det tar emot till det offentliga nyckel värde du anger här. 
    > 
-   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ backend-servrarna för att bekräfta vilket certifikat som används för TLS-standardbindningen. *default* Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en manuell webb läsar förfrågan till https://127.0.0.1/ backend-servrarna måste du konfigurera en standard-TLS-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
+   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ backend-servrarna för att bekräfta vilket certifikat som används för TLS-standardbindningen. *default* Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en manuell webb läsar förfrågan till https://127.0.0.1/ backend-servrarna måste du konfigurera en standard-TLS-bindning. Om du inte gör det går det inte att utföra avsökningar och Server delen är inte tillåten.
    
    Mer information om SNI i Application Gateway finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md).
 
@@ -176,7 +176,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    ```
 
    > [!NOTE]
-   > Certifikatet i föregående steg bör vara den offentliga nyckeln för det. PFX-certifikat som finns på Server delen. Exportera certifikatet (inte rot certifikatet) som är installerat på backend-servern i formatet för anspråk, bevis och orsaker (CER) och Använd det i det här steget. Det här steget whitelists Server delen med programgatewayen.
+   > Certifikatet i föregående steg bör vara den offentliga nyckeln för det. PFX-certifikat som finns på Server delen. Exportera certifikatet (inte rot certifikatet) som är installerat på backend-servern i formatet för anspråk, bevis och orsaker (CER) och Använd det i det här steget. Det här steget gör det möjligt för Server delen med programgatewayen.
 
    Om du använder Application Gateway v2-SKU: n skapar du ett betrott rot certifikat i stället för ett autentiseringscertifikat. Mer information finns i [Översikt över end to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 

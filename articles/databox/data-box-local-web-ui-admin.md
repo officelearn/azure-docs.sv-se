@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560192"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608255"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -175,7 +175,7 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Inaktivera** validering av kontrollsummor
-3. Klicka på **Använd**.
+3. Klicka på **Godkänn**.
 
 ## <a name="next-steps"></a>Nästa steg
 

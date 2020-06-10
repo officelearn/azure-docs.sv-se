@@ -2,14 +2,14 @@
 title: Viktig information för Microsoft Azure Backup Server v3
 description: Den här artikeln innehåller information om kända problem och lösningar för Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 11/22/2018
+ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185633"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629188"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
 
@@ -71,6 +71,40 @@ Lösning **:** Utför följande steg för att uppgradera till MABS v3 med instal
 
 9. Starta MSDPM-tjänsten.
 
+## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>När du har installerat UR1 uppdateras MABS-rapporterna inte med nya RDL-filer
+
+**Beskrivning**: med UR1 åtgärdas problemet med Mabs rapport formatering med uppdaterade RDL-filer. De nya RDL-filerna ersätts inte automatiskt med befintliga filer.
+
+**Lösning**: om du vill ersätta RDL-filerna följer du stegen nedan:
+
+1. Öppna SQL Reporting Services-webbportalens URL på MABS-datorn.
+1. I webb portalens URL finns mappen katalogen DpmReports i formatet**`DPMReports_<GUID>`**
+
+    >[!NOTE]
+    >Det finns alltid en mapp med denna namngivnings konvention. Om MABS har uppgraderats från en tidigare version kan det också finnas en annan äldre mapp, men du kommer inte att kunna öppna den.
+
+    ![Katalogen DpmReports-mapp](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
+
+1. Välj och öppna **`DPMReports_<GUID>`** mappen. De enskilda uppdateringsfilerna visas på det sätt som visas nedan.
+
+    ![Lista med enskilda rapportmallar](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+
+1. Markera de uppdateringsfiler som inte slutar med **rapporten**, högerklicka på **alternativet** och välj **Hantera**.
+
+    ![Välj Hantera för rapportmapp](./media/backup-mabs-release-notes-v3/manage-files.png)
+
+1. På sidan ny väljer du alternativet **Ersätt** för att ersätta filerna med de senaste uppdateringsfilerna.
+
+    Du hittar de senaste uppdateringsfilerna i sökvägen`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    Exempelvis: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    ![Ersätt filerna med de senaste uppdateringsfilerna](./media/backup-mabs-release-notes-v3/replace-files.png)
+
+    När filerna har ersatts kontrollerar du att **namn** och **Beskrivning** är intakt och inte är tomt.
+
+1. När filerna har ersatts startar du om MABS-tjänsterna och använder dem.
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är nytt i MABS v3](backup-mabs-whats-new-mabs.md)
+[Nyheter i MABS](backup-mabs-whats-new-mabs.md)

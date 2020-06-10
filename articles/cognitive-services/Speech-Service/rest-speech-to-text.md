@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 7664ce89c01c543544bc576c5eee3fd288d323d5
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248523"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636095"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -113,6 +113,8 @@ var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"Grading
 var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
 var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+Vi rekommenderar starkt strömning (segmenterad) uppladdning när du skickar ljuddata, vilket kan minska svars tiden avsevärt. Se [exempel kod i olika programmeringsspråk](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) för att aktivera strömning.
 
 >[!NOTE]
 >Funktionen för ututtals bedömning är för närvarande bara tillgänglig i `westus` `eastasia` och `centralindia` regioner. Och den här funktionen är för närvarande bara tillgänglig på `en-US` språket.

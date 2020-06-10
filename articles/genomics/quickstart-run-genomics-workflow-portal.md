@@ -8,12 +8,13 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 05b94ca9bd14392bad5288882a80f5c75590ef7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76931832"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607133"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -37,7 +38,7 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
  |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](/azure/architecture/best-practices/resource-naming) |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](/azure/architecture/best-practices/resource-naming) för giltiga namn |
- |Plats                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
+ |Location                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
 Du kan välja **meddelanden** i det övre meny fältet för att övervaka distributions processen.
 
@@ -58,17 +59,17 @@ Microsoft Genomics python-klienten är kompatibel med python 2.7.12 eller en sen
 
 ### <a name="install-the-microsoft-genomics-client"></a>Installera Microsoft Genomics-klienten
 
-Använd python `pip` för att installera Microsoft Genomics- `msgen`klienten. I följande anvisningar förutsätts Python redan finnas i systemsökvägen. Om du har problem med `pip` att installera inte är känt måste du lägga till python och undermappen skript till din system Sök väg.
+Använd python `pip` för att installera Microsoft Genomics-klienten `msgen` . I följande anvisningar förutsätts Python redan finnas i systemsökvägen. Om du har problem med att `pip` Installera inte är känt måste du lägga till python och undermappen skript till din system Sök väg.
 
 ```
 pip install --upgrade --no-deps msgen
 pip install msgen
 ```
 
-Om du inte vill installera `msgen` som en systemomfattande binärfil och ändra systemomfattande python-paket, använder du `–-user` flaggan med. `pip`
-Om du använder den paketbaserade installationen eller setup.py installeras alla nödvändiga paket. Annars är de grundläggande nödvändiga paketen `msgen` för 
+Om du inte vill installera `msgen` som en systemomfattande binärfil och ändra systemomfattande python-paket, använder du `–-user` flaggan med `pip` .
+Om du använder den paketbaserade installationen eller setup.py installeras alla nödvändiga paket. Annars är de grundläggande nödvändiga paketen för `msgen` 
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
+ * [Azure-lagring](https://pypi.python.org/pypi/azure-storage). 
  * [Begär Anden](https://pypi.python.org/pypi/requests). 
 
 Du kan installera de här paketen med `pip`, `easy_install` eller via `setup.py`-standardprocedurer. 
@@ -101,7 +102,7 @@ Konfigurera ditt lagrings konto med följande information, som du ser i föregå
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resurs grupp som ditt genomik-konto. För giltiga resurs grupps namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
  |Lagringskontots namn         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
- |Plats                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
+ |Location                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard-och Premium lagrings konton finns i [Introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Typ av konto       | BlobStorage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
  |Replikering                  | Lokalt redundant lagring                  | Med lokalt redundant lagring replikeras dina data i datacentret i den region där du har skapat ditt lagringskonto. Mer information finns i [Azure Storage replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
@@ -125,9 +126,9 @@ Om du vill köra ett arbets flöde via Microsoft Genomics tjänsten redigerar du
 
 ![Genomik-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomik-konfiguration")
 
-Ange `process_name` parametern till `gatk4`om du vill köra GATK4.
+Ange parametern till om du vill köra GATK4 `process_name` `gatk4` .
 
-Som standard visar Genomics-tjänsten VCF-filer. Om `-emitRefConfidence` du vill ha en gVCF-utdata i stället för en VCF-utmatning (motsvarar i användas 3 `emit-ref-confidence` . x och i användas 4. x) `emit_ref_confidence` lägger du till parametern i *config. txt* och anger `gvcf`den till, som visas i föregående bild.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från filen *config. txt* eller `emit_ref_confidence` anger `none`parametern till. 
+Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha en gVCF-utdata i stället för en VCF-utmatning (motsvarar `-emitRefConfidence` i användas 3. x och `emit-ref-confidence` i användas 4. x) lägger du till `emit_ref_confidence` parametern i *config. txt* och anger den till `gvcf` , som visas i föregående bild.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från filen *config. txt* eller anger `emit_ref_confidence` parametern till `none` . 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Skicka arbetsflödet till Microsoft Genomics-tjänsten
 
@@ -145,4 +146,4 @@ msgen list -f c:\temp\config.txt
 När arbets flödet har slutförts kan du Visa utdatafilerna i ditt Azure Storage-konto i behållaren för utdata som du har konfigurerat. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics `msgen` tjänsten via python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan även utforska den här självstudien med hjälp av vår [Azure-självstudie som anteckningsbok.](https://aka.ms/genomicsnotebook)
+I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics tjänsten via `msgen` python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan även utforska den här självstudien med hjälp av vår [Azure-självstudie som anteckningsbok.](https://aka.ms/genomicsnotebook)

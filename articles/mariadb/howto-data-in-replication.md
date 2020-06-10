@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5549f9eaf2bc44dfa7e99df04fd7864dd4b655ce
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422476"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610907"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
 
@@ -42,6 +42,12 @@ Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitation
 
    Uppdatera brandväggsregler med hjälp av [Azure-portalen](howto-manage-firewall-portal.md) eller [Azure CLI](howto-manage-firewall-cli.md).
 
+> [!NOTE]
+> Kompensations fri kommunikation
+>
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+>
+
 ## <a name="configure-the-master-server"></a>Konfigurera huvud servern
 
 Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt, i en virtuell dator eller i en moln databas tjänst för Datareplikering. MariaDB-servern är huvud servern i Datareplikering.
@@ -60,13 +66,13 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Om variabeln [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returnerar värdet `ON`aktive ras binär loggning på servern.
+   Om variabeln [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returnerar värdet `ON` aktive ras binär loggning på servern.
 
-   Om `log_bin` returnerar värdet `OFF`redigerar du filen **My. cnf** så att `log_bin=ON` den aktiverar binär loggning. Starta om servern så att ändringen börjar gälla.
+   Om `log_bin` returnerar värdet `OFF` redigerar du filen **My. cnf** så att den `log_bin=ON` aktiverar binär loggning. Starta om servern så att ändringen börjar gälla.
 
 3. Konfigurera huvud Server inställningar.
 
-    Datareplikering kräver att parametern `lower_case_table_names` är konsekvent mellan huvud-och replik servrar. `lower_case_table_names` Parametern anges som `1` standard i Azure Database for MariaDB.
+    Datareplikering kräver att parametern `lower_case_table_names` är konsekvent mellan huvud-och replik servrar. `lower_case_table_names`Parametern anges som `1` standard i Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -78,7 +84,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
    
    Information om hur du lägger till användar konton på huvud servern finns i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/create-user/).
 
-   Genom att använda följande kommandon, kan den nya replikeringsprincipen komma åt originalet från vilken dator som helst, inte bara den dator som är värd för själva huvud servern. För den här åtkomsten anger du **syncuser\@%** i kommandot för att skapa en användare.
+   Genom att använda följande kommandon, kan den nya replikeringsprincipen komma åt originalet från vilken dator som helst, inte bara den dator som är värd för själva huvud servern. För den här åtkomsten anger du **syncuser \@ %** i kommandot för att skapa en användare.
    
    Mer information om MariaDB-dokumentationen finns i [Ange konto namn](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -128,7 +134,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 6. Hämta den aktuella binära logg filens namn och offset.
 
-   Du kan ta reda på den aktuella binära logg filens namn och [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)förskjutning genom att köra kommandot.
+   Du kan ta reda på den aktuella binära logg filens namn och förskjutning genom att köra kommandot [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
     
    ```sql
    show master status;
@@ -177,7 +183,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
    Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](reference-data-in-stored-procedures.md). Lagrade procedurer kan köras i MySQL-gränssnittet eller MySQL Workbench.
 
-   Logga in på mål replik servern i Azure DB for MariaDB-tjänsten för att länka två servrar och starta replikering. Ställ sedan in den externa instansen som huvud server genom att `mysql.az_replication_change_master` använda `mysql.az_replication_change_master_with_gtid` den eller lagrade proceduren på Azure dB för MariaDB-servern.
+   Logga in på mål replik servern i Azure DB for MariaDB-tjänsten för att länka två servrar och starta replikering. Ställ sedan in den externa instansen som huvud server genom att använda den `mysql.az_replication_change_master` eller `mysql.az_replication_change_master_with_gtid` lagrade proceduren på Azure dB för MariaDB-servern.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -241,13 +247,13 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
    show slave status;
    ```
 
-   Om `Slave_IO_Running` och `Slave_SQL_Running` är i läget `yes`och värdet för `Seconds_Behind_Master` är `0`, fungerar replikeringen. `Seconds_Behind_Master`anger hur sen repliken är. Om värdet inte `0`anges, bearbetar repliken uppdateringar.
+   Om `Slave_IO_Running` och `Slave_SQL_Running` är i läget `yes` och värdet för `Seconds_Behind_Master` är `0` , fungerar replikeringen. `Seconds_Behind_Master`anger hur sen repliken är. Om värdet inte `0` anges, bearbetar repliken uppdateringar.
 
 4. Uppdatera motsvarande servervariabler för att göra datareplikering säkrare (krävs endast för replikering utan GTID).
     
-    På grund av en begränsning för ursprunglig replikering i MariaDB måste du [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) ange [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) och variabler för replikering utan GTID-scenariot.
+    På grund av en begränsning för ursprunglig replikering i MariaDB måste du ange [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) och [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabler för replikering utan GTID-scenariot.
 
-    Kontrol lera att den sekundära `sync_master_info` serverns och `sync_relay_log_info` variablerna är stabila och Ställ in variablerna på `1`.
+    Kontrol lera att den sekundära serverns `sync_master_info` och `sync_relay_log_info` variablerna är stabila och Ställ in variablerna på `1` .
     
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 

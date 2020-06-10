@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 1ed8db4c7f780af8ac06074c514a602cc1654554
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 5baf9ce63442ee60d212362df92a44d0fa2723fa
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456884"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610312"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -174,8 +174,8 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | gallerier/avbildningar/versioner | image | 32-bitars heltal | Siffror och punkter. |
 > | images | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
 > | snapshots | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
-> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
-> | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
 
 > [!NOTE]
 > Virtuella Azure-datorer har två distinkta namn: resurs namn och värdnamn. När du skapar en virtuell dator i portalen används samma värde för båda namnen. Begränsningarna i föregående tabell är för värd namnet. Det faktiska resursnamnet kan innehålla upp till 64 tecken.
@@ -542,7 +542,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

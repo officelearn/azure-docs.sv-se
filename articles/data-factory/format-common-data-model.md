@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: daperlov
-ms.openlocfilehash: 0dce717461754ac1259bc666adf4eb9f7ef9d6c2
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 1764036413d6e4f634ed156f7cfb441b4a2bb1e6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465277"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604973"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,7 +30,7 @@ Den gemensamma data modellen är tillgänglig som en [infogad data uppsättning]
 
 ### <a name="source-properties"></a>Käll egenskaper
 
-I tabellen nedan visas de egenskaper som stöds av en common data service-källa.
+I tabellen nedan visas de egenskaper som stöds av en common data service-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
 | Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -49,7 +49,13 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Sökkorpus-entitet | Sökväg till entitetsreferens | ja | Sträng | entitetsrelation |
 | Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
-#### <a name="cdm-source-example"></a>Exempel på common data service-källa
+#### <a name="import-schema"></a>Importera schema
+
+COMMON data service är endast tillgänglig som en infogad data uppsättning och har som standard inte ett associerat schema. Hämta kolumnens metadata genom att klicka på knappen **Importera schema** på fliken **projektion** . Detta gör att du kan referera till kolumn namn och data typer som anges av sökkorpus. Om du vill importera schemat måste en [fel söknings session för data flöde](concepts-data-flow-debug-mode.md) vara aktiv.
+
+![Importera schema](media/format-common-data-model/import-schema-source.png)
+
+### <a name="cdm-source-example"></a>Exempel på common data service-källa
 
 Bilden nedan är ett exempel på en common data service käll konfiguration i mappnings data flöden.
 
@@ -79,10 +85,9 @@ source(output(
     fileSystem: 'data') ~> CDMSource
 ```
 
-
 ### <a name="sink-properties"></a>Egenskaper för mottagare
 
-I tabellen nedan visas de egenskaper som stöds av en common data service-mottagare.
+I tabellen nedan visas de egenskaper som stöds av en common data service-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
 | Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -103,7 +108,7 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-mottag
 | Kolumn avgränsare | Om du skriver till DelimitedText, så här begränsar du kolumner | Ja, om du skriver till DelimitedText | Sträng | columnDelimiter |
 | Första raden som rubrik | Om du använder DelimitedText, om kolumn namnen läggs till som en rubrik | nej | `true` eller `false` | columnNamesAsHeader |
 
-#### <a name="cdm-sink-example"></a>Exempel på common data service-mottagare
+### <a name="cdm-sink-example"></a>Exempel på common data service-mottagare
 
 Bilden nedan är ett exempel på en common data service Sink-konfiguration i mappa data flöden.
 

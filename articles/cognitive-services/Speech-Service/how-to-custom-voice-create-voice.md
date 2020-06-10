@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717324"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628998"
 ---
 # <a name="create-a-custom-voice"></a>Skapa en anpassad röst
 
@@ -28,7 +28,7 @@ Kontrol lera språk som stöds för anpassad röst: [språk för anpassning](lan
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina data uppsättningar
 
-När du är redo att ladda upp dina data går du till den [anpassade röst portalen](https://aka.ms/custom-voice-portal). Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du vill använda för din röst träning. Välj `en-GB` till exempel om ljud inspelningarna du har gjort på engelska med en brittisk accent.
+När du är redo att ladda upp dina data går du till den [anpassade röst portalen](https://aka.ms/custom-voice-portal). Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du vill använda för din röst träning. Välj till exempel `en-GB` om ljud inspelningarna du har gjort på engelska med en brittisk accent.
 
 Gå till fliken **data** och klicka på **överför data**. I guiden väljer du rätt datatyp som matchar vad du har för berett.
 
@@ -44,7 +44,7 @@ Data uppsättningar verifieras automatiskt när du trycker på knappen Överför
 
 Följande tabell visar bearbetnings tillstånd för importerade data uppsättningar:
 
-| Status | Betydelse |
+| Stat | Innebörd |
 | ----- | ------- |
 | Bearbetar | Din data uppsättning har tagits emot och bearbetas. |
 | Lyckades | Din data uppsättning har verifierats och kan nu användas för att bygga en röst modell. |
@@ -62,13 +62,13 @@ En högre signal-till-brus-förhållande (SNR) indikerar lägre brus i ljudet. D
 
 När din data uppsättning har verifierats kan du använda den för att bygga din anpassade röst modell.
 
-1.  Navigera till **text till tal > anpassad röst > utbildning**.
+1.  Navigera till **text till tal > anpassad röst > [namn på projektet] > träning**.
 
 2.  Klicka på **träna modell**.
 
 3.  Ange sedan ett **namn** och en **Beskrivning** som hjälper dig att identifiera den här modellen.
 
-    Välj ett namn noggrant. Namnet som du anger här är det namn som du använder för att ange rösten i din begäran om tal syntes som en del av SSML-indatamängden. Endast bokstäver, siffror och några interpunktionstecken, till exempel-, \_och (,) är tillåtna. Använd olika namn för olika röst modeller.
+    Välj ett namn noggrant. Namnet som du anger här är det namn som du använder för att ange rösten i din begäran om tal syntes som en del av SSML-indatamängden. Endast bokstäver, siffror och några interpunktionstecken, till exempel-, och \_ (,) är tillåtna. Använd olika namn för olika röst modeller.
 
     En vanlig användning av fältet **Beskrivning** är att registrera namnen på de data uppsättningar som användes för att skapa modellen.
 
@@ -86,7 +86,7 @@ I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen.
 
 Den status som visas visar processen för att konvertera data uppsättningen till en röst modell, som visas här.
 
-| Status | Betydelse |
+| Stat | Innebörd |
 | ----- | ------- |
 | Bearbetar | Din röst modell skapas. |
 | Lyckades | Din röst modell har skapats och kan distribueras. |
@@ -106,7 +106,7 @@ Om du använder neurala röst träning kan du välja att träna en modell som ä
 
 När röst teckensnittet har skapats kan du testa det innan du distribuerar det för användning.
 
-1.  Navigera till **text till tal > anpassad röst > testning**.
+1.  Navigera till **text till tal > anpassad röst > [namn på projektet] > testning**.
 
 2.  Klicka på **Lägg till test**.
 

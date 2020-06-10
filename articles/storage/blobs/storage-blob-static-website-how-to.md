@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194900"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609938"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -153,13 +153,10 @@ De här anvisningarna visar hur du överför filer med hjälp av den version av 
 
 Ladda upp objekt till *$Web* containern från en käll katalog.
 
-> [!NOTE]
-> Om du använder Azure Cloud Shell, se till att lägga till ett `\` escape-tecken när du refererar till `$web` behållaren (till exempel: `\$web` ). Om du använder en lokal installation av Azure CLI behöver du inte använda escape-tecken.
-
 I det här exemplet förutsätter vi att du kör kommandon från Azure Cloud Shell-sessionen.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 

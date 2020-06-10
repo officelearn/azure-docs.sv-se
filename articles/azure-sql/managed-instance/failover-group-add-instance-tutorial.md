@@ -13,12 +13,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 925e6788035952a4e7b54b8d50b910243a754a09
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 31dba12023643f96018d1192111a19c80d0ba3ef
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041285"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636214"
 ---
 # <a name="tutorial-add-a-sql-managed-instance-to-a-failover-group"></a>Självstudie: lägga till en SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Lägg till en hanterad Azure SQL-instans i en failover-grupp. I den här artikel
   > - SQL-hanterade instanser som ingår i en failover-grupp kräver antingen [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
@@ -458,7 +458,7 @@ Skapa den sekundära SQL-hanterade instansen med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen databaser.
-1. Välj **skapa** på panelen **SQL SQL-hanterade instanser** . 
+1. Välj **skapa** på panelen **SQL Managed instances** . 
 
     ![Välj SQL-hanterad instans](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527409"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606470"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Schema-och sändnings jobb (python)
 
@@ -77,7 +78,7 @@ I det här avsnittet skapar du en python-konsol-app som svarar på en direkt met
 
 2. Skapa en ny **simDevice.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner och variabler i början av **simDevice.py** -filen. Ersätt `deviceConnectionString` med anslutnings strängen för den enhet som du skapade ovan:
+3. Lägg till följande- `import` instruktioner och variabler i början av **simDevice.py** -filen. Ersätt `deviceConnectionString` med anslutnings strängen för den enhet som du skapade ovan:
 
     ```python
     import threading
@@ -162,7 +163,7 @@ Följ dessa steg om du vill skapa en princip för delad åtkomst som beviljar **
 
 3. Välj **Lägg till**på den översta menyn ovanför listan över principer.
 
-4. I fönstret **Lägg till en princip för delad åtkomst** anger du ett beskrivande namn för principen. till exempel: *serviceAndRegistryReadWrite*. Under **behörigheter**väljer du **tjänst anslutning** och **Skriv register** (**register läsning** väljs automatiskt när du väljer **register skrivning**). Välj sedan **skapa**.
+4. I fönstret **Lägg till en princip för delad åtkomst** anger du ett beskrivande namn för principen. till exempel: *serviceAndRegistryReadWrite*. Under **behörigheter**väljer du **tjänst anslutning** och **Skriv register** (**register läsning** väljs automatiskt när du väljer **register skrivning**). Välj sedan **Skapa**.
 
     ![Visa hur du lägger till en ny princip för delad åtkomst](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
@@ -186,7 +187,7 @@ I det här avsnittet skapar du en python-konsolsession som initierar en fjärran
 
 2. Skapa en ny **scheduleJobService.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner och variabler i början av **scheduleJobService.py** -filen. Ersätt `{IoTHubConnectionString}` plats hållaren med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `{deviceId}` plats hållaren med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub):
+3. Lägg till följande- `import` instruktioner och variabler i början av **scheduleJobService.py** -filen. Ersätt `{IoTHubConnectionString}` plats hållaren med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `{deviceId}` plats hållaren med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys

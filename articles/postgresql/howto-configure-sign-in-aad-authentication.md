@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: cbec7843b16298abfb9da683fc4dcec1e0a63a9d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236325"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636010"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
@@ -54,7 +54,7 @@ Vi har för närvarande testat följande klienter:
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 
@@ -130,6 +130,15 @@ Nu kan du starta en anslutning med Azure Database for PostgreSQL som du normalt 
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+
+Viktiga överväganden vid anslutning:
+
+* `user@tenant.onmicrosoft.com`är namnet på den Azure AD-användare eller-grupp som du försöker ansluta som
+* Lägg alltid till Server namnet efter namn på Azure AD-användare/grupp (t. ex. `@mydb` )
+* Se till att använda det exakta sättet som användar-eller grupp namnet i Azure AD är stavat
+* Användar-och grupp namn i Azure AD är Skift läges känsliga
+* Använd endast grupp namnet (t. ex.) när du ansluter som en grupp. `GroupName@mydb`
+* Om namnet innehåller blank steg ska du använda `\` före varje blank steg för att kringgå det
 
 Du autentiseras nu till din PostgreSQL-server med Azure AD-autentisering.
 

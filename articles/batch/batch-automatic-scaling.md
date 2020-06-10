@@ -4,12 +4,12 @@ description: Aktivera automatisk skalning i en molnbaserad pool för att dynamis
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 223ba348ce1f8b69791581a70cd21af621c28b24
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780236"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609020"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -127,6 +127,9 @@ Du kan hämta värdet för de här tjänstedefinierade variablerna för att gör
 | $CurrentLowPriorityNodes |Det aktuella antalet Compute-noder med låg prioritet, inklusive eventuella noder som har blockerats. |
 | $PreemptedNodeCount | Antalet noder i poolen som är i ett väntetillstånd-tillstånd. |
 
+> [!IMPORTANT]
+> Jobb publicerings aktiviteter ingår för närvarande inte i ovanstående variabler som innehåller aktivitets antal, till exempel $ActiveTasks och $PendingTasks. Beroende på din autoskalning-formel kan detta resultera i att noder tas bort och inga noder är tillgängliga för att köra jobb publicerings aktiviteterna.
+
 > [!TIP]
 > De skrivskyddade, tjänstedefinierade variablerna som visas i föregående tabell är *objekt* som tillhandahåller olika metoder för att komma åt data som är associerade med dem. Mer information finns i [Hämta exempel data](#getsampledata) senare i den här artikeln.
 >
@@ -162,7 +165,7 @@ Dessa typer stöds i en formel:
   * TimeInterval_Week
   * TimeInterval_Year
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 
@@ -212,7 +215,7 @@ Dessa fördefinierade **funktioner** är tillgängliga som du kan använda för 
 | tid (String dateTime = "") |timestamp |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar har skickats eller tidsstämpeln för datum/tid-strängen om den skickas. DateTime-format som stöds är W3C-DTF och RFC 1123. |
 | val (doubleVec v, dubbel i) |double |Returnerar värdet för det element som finns på plats i i Vector v, med start indexet noll. |
 
-Några av funktionerna som beskrivs i föregående tabell kan godkänna en lista som ett argument. Den kommaseparerade listan är en kombination av *dubbel* -och *doubleVec*. Ett exempel:
+Några av funktionerna som beskrivs i föregående tabell kan godkänna en lista som ett argument. Den kommaseparerade listan är en kombination av *dubbel* -och *doubleVec*. Till exempel:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -232,7 +235,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Returnerar den period med exempel som togs i en historisk exempel data uppsättning. |
 | Count () |Returnerar det totala antalet exempel i mått historiken. |
 | HistoryBeginTime() |Returnerar tidstämpeln för det äldsta tillgängliga data exemplet för måttet. |
-| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Ett exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre än den `samplePercent` angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
+| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Till exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre än den `samplePercent` angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exempel, samplings procent och metoden *GetSample ()*
 Den grundläggande åtgärden för en autoskalning-formel är att hämta information om aktiviteter och resurser och sedan ändra Poolens storlek baserat på dessa data. Det är därför viktigt att du får en tydlig förståelse för hur autoskalning formler interagerar med mät data (exempel).
@@ -257,7 +260,7 @@ För att göra det använder `GetSample(interval look-back start, interval look-
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-När raden ovan utvärderas av batch returneras ett intervall med exempel som en vektor med värden. Ett exempel:
+När raden ovan utvärderas av batch returneras ett intervall med exempel som en vektor med värden. Till exempel:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -462,7 +465,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Aktivera automatisk skalning i en befintlig pool
 
-Varje batch-SDK är ett sätt att aktivera autoskalning. Ett exempel:
+Varje batch-SDK är ett sätt att aktivera autoskalning. Till exempel:
 
 * [Metoden batchclient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .net)
 * [Aktivera automatisk skalning på en pool][rest_enableautoscale] (REST API)

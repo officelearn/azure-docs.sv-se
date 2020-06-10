@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: f376831175840284fdfd15f367542d33ad9f7177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 3e48e52294884294a2e4649e8fc0e0b9c42e0c0a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759770"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608544"
 ---
 # <a name="get-started-with-device-management-python"></a>Kom igång med enhets hantering (python)
 
@@ -68,7 +68,7 @@ I det här avsnittet får du:
 
 2. Skapa en fil med namnet **dmpatterns_getstarted_device. py** i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner i början av filen **dmpatterns_getstarted_device. py** .
+3. Lägg till följande- `import` instruktioner i början av filen **dmpatterns_getstarted_device. py** .
 
     ```python
     import threading
@@ -161,7 +161,7 @@ I det här avsnittet skapar du en python-konsol-app som initierar en fjärromsta
 
 2. Skapa en fil med namnet **dmpatterns_getstarted_service. py** i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` -instruktioner i början av filen **dmpatterns_getstarted_service. py** .
+3. Lägg till följande- `import` instruktioner i början av filen **dmpatterns_getstarted_service. py** .
 
     ```python
     import sys, time

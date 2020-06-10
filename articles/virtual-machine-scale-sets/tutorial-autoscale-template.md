@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700925"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629542"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här guiden får du lära du dig hur man:
@@ -73,7 +73,7 @@ Följande parametrar används för den här regeln:
 | *Operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
 | *fastställd*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
 | *position*       | Anger om skalningsuppsättningen ska skala in eller ut när regeln gäller.                                              | Öka        |
-| *typ*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
+| *bastyp*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
 | *värde*           | Hur många virtuella datorinstanser ska skalas in eller ut när regeln gäller.                                             | 3               |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter       |
 
@@ -183,6 +183,7 @@ ssh azureuser@13.92.224.66 -p 50001
 När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress**-arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```

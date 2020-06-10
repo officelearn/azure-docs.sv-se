@@ -5,7 +5,6 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c25955c87899291c599d7055e7213dad955c6816
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61481976"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634189"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Inaktivera och ta bort en StorSimple-enhet
 
@@ -36,28 +35,29 @@ När du inaktiverar en enhet är alla data som lagrats lokalt på enheten inte l
 >
 > Fabriks återställnings processen tar bort alla data som lagrats lokalt på enheten. Därför måste du ta en moln ögonblicks bild av alla dina data innan du inaktiverar en enhet. Med den här ögonblicks bilden av molnet kan du återställa alla data i ett senare skede.
 
+> [!NOTE]
+>
+> - Innan du inaktiverar en StorSimple fysisk enhet eller en moln installation måste du se till att data från den borttagna volym behållaren verkligen tas bort från enheten. Du kan övervaka moln förbruknings diagrammen och när du ser minskningen av moln användningen på grund av de säkerhets kopior som du har tagit bort, kan du fortsätta att inaktivera enheten. Om du inaktiverar enheten innan den här anfangen sker placeras data i lagrings kontot och avgifter debiteras.
+>
+> - Stoppa eller ta bort klienter och värdar som är beroende av enheten innan du inaktiverar en StorSimple fysisk enhet eller moln installation.
+>
+> - Om lagrings kontona eller behållarna i lagrings kontot som är kopplade till volym behållarna redan har tagits bort innan data tas bort från enheten, visas ett fel meddelande om att data inte kan tas bort. Vi rekommenderar att du tar bort data på enheten innan du tar bort lagrings kontot eller behållare där. I den här situationen måste du dock fortsätta med enhets inaktive ring och borttagning förutsatt att data redan har tagits bort från lagrings kontot.
+
 När du har läst den här självstudien kommer du att kunna:
 
-* Inaktivera en enhet och ta bort data.
-* Inaktivera en enhet och behåll data.
-
-> [!NOTE]
-> Stoppa eller ta bort klienter och värdar som är beroende av enheten innan du inaktiverar en StorSimple fysisk enhet eller moln installation.
-
+- Inaktivera en enhet och ta bort data.
+- Inaktivera en enhet och behåll data.
 
 ## <a name="deactivate-and-delete-data"></a>Inaktivera och ta bort data
 
 Om du är intresse rad av att ta bort enheten helt och inte vill behålla data på enheten utför du följande steg.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Inaktivera enheten och ta bort data
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Inaktivera enheten och ta bort data
 
-1. Innan du inaktiverar en enhet måste du ta bort alla volym containrar (och volymerna) som är associerade med enheten. Du kan bara ta bort volym behållare efter att du har tagit bort de tillhör ande säkerhets kopiorna.
-
-    > [!NOTE]
-    > Innan du inaktiverar en StorSimple fysisk enhet eller en moln installation måste du se till att data från den borttagna volym behållaren verkligen tas bort från enheten. Du kan övervaka moln förbruknings diagrammen och när du ser minskningen av moln användningen på grund av de säkerhets kopior som du har tagit bort, kan du fortsätta att inaktivera enheten. Om du inaktiverar enheten innan den här anfangen sker placeras data i lagrings kontot och avgifter debiteras.
+1. Innan du inaktiverar en enhet måste du ta bort alla volym containrar (och volymerna) som är associerade med enheten. Du kan bara ta bort volym behållare efter att du har tagit bort de tillhör ande säkerhets kopiorna. Se anteckningen i översikten ovan innan du inaktiverar en StorSimple fysisk enhet eller en moln installation.
 
 2. Inaktivera enheten på följande sätt:
-   
+
    1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. På bladet **enheter** väljer du den enhet som du vill inaktivera, högerklickar på och klickar sedan på **inaktivera**.
 
         ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Om du är intresse rad av att ta bort enheten helt och inte vill behålla data p
 
 Om du är intresse rad av att ta bort enheten men vill behålla data, utför du följande steg:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Så här inaktiverar du en enhet och behåller data
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Så här inaktiverar du en enhet och behåller data
+
 1. Inaktivera enheten. Alla volym containrar och ögonblicks bilder av enheten finns kvar.
    
    1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. På bladet **enheter** väljer du den enhet som du vill inaktivera, högerklickar på och klickar sedan på **inaktivera**.
@@ -99,7 +100,6 @@ Om du är intresse rad av att ta bort enheten men vill behålla data, utför du 
        ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. När borttagningen har slutförts meddelas du. Enhets listan uppdateras också för att återspegla borttagningen.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Inaktivera och ta bort en moln installation
 
 För en StorSimple Cloud Appliance avaktiverar du från portalen, frigör och tar bort den virtuella datorn och de resurser som skapades när den etablerades. När molninstallationen har inaktiverats kan den inte återställas till sitt tidigare tillstånd.

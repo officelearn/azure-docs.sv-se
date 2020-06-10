@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312308"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628679"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway stöd för Server delar för flera klient organisationer, till exempel App Service
 
@@ -42,7 +42,7 @@ Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigu
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>TLS-terminering och slut punkt till slut punkt för TLS med flera klient tjänster
 
-Både TLS-kryptering och slut punkt till slut punkt stöds med tjänster för flera innehavare. För TLS-avslutning i Application Gateway fortsätter TLS-certifikatet att läggas till i Application Gateway-lyssnaren. Men vid slut punkt till slut punkts-TLS behöver inte betrodda Azure-tjänster som Azure App tjänst webbappar vit listning Server delar i programgatewayen. Därför behöver du inte lägga till några autentiseringscertifikat. 
+Både TLS-kryptering och slut punkt till slut punkt stöds med tjänster för flera innehavare. För TLS-avslutning i Application Gateway fortsätter TLS-certifikatet att läggas till i Application Gateway-lyssnaren. Men i händelse av TLS-till-slutpunkt-TLS behöver inte betrodda Azure-tjänster som Azure App tjänst webbapparna tillåta Server delar i programgatewayen. Därför behöver du inte lägga till några autentiseringscertifikat. 
 
 ![slut punkt till slut punkt-TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

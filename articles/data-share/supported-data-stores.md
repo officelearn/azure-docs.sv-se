@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: a7b4de3b1d2998a1b6083283c3f397fc77fe9670
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167595"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635976"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Data lager som stöds i Azure Data Share
 
@@ -38,16 +38,17 @@ Azure Data Share ger flexibilitet för data konsumenter när de bestämmer sig f
 
 Tabellen nedan innehåller information om olika kombinationer och alternativ som data konsumenter har när de godkänner och konfigurerar data resursen. Mer information om hur du konfigurerar mappningar för data uppsättningar finns i [så här konfigurerar du mappningar för data uppsättningar](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage | ✓ || ✓|
-| Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| Azure SQL Database | ✓ | | ✓| ✓| ✓|
-| Azure Synapse Analytics (tidigare Azure SQL DW) | ✓ | | ✓| ✓| ✓|
+|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure-datautforskaren
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Azure Blob Storage | ✓ || ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (tidigare Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
+| Azure-datautforskaren |||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto
-Azure data sharing stöder delning av filer, mappar och fil system från Azure Data Lake gen1 och Azure Data Lake Gen2. Det stöder också delning av blobbar, mappar och behållare från Azure Blob Storage. Endast Block-Blob stöds för närvarande. När mappar delas i ögonblicks bilds-baserad delning kan data konsumenten välja att göra en fullständig kopia av delnings data eller använda stegvis ögonblicks bilds kapacitet för att bara kopiera nya eller uppdaterade filer. Befintliga filer med samma namn kommer att skrivas över.
+Azure data sharing stöder delning av filer, mappar och fil system från Azure Data Lake gen1 och Azure Data Lake Gen2. Det stöder också delning av blobbar, mappar och behållare från Azure Blob Storage. Endast Block-Blob stöds för närvarande. När fil system, behållare eller mappar delas i ögonblicks bilds-baserad delning, kan data konsumenten välja att göra en fullständig kopia av delnings data eller utnyttja en stegvis ögonblicks bilds kapacitet för att bara kopiera nya eller uppdaterade filer. En stegvis ögonblicks bild baseras på filernas senaste ändrings tid. Befintliga filer med samma namn kommer att skrivas över.
 
 ## <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad källa
 Azure Data Share stöder delning av tabeller eller vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW). Data konsumenter kan välja att acceptera data till Azure Data Lake Store Gen2 eller Azure Blob Storage som CSV-eller Parquet-fil. Observera att fil formaten som standard är CSV. Data konsumenten kan välja att ta emot data i Parquet-format om du vill. Detta kan göras i inställningarna för data uppsättnings mappning när data tas emot. 

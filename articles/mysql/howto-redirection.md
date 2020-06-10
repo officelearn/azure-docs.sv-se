@@ -5,20 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/5/2020
-ms.openlocfilehash: 7f43e47975b797b68b250399ee31bf56e0f01d21
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 6/8/2020
+ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483372"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610295"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Anslut till Azure Database for MySQL med omdirigering
 
 I det här avsnittet beskrivs hur du ansluter ett program till din Azure Database for MySQL-server med omdirigeringsläge. Omdirigering syftar till att minska nätverks fördröjningen mellan klient program och MySQL-servrar genom att tillåta att program ansluter direkt till backend-serverns noder.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure Database for MySQL-server med motor version 5,6, 5,7 eller 8,0. Mer information finns i så här [skapar du Azure Database for MySQL server från portalen](quickstart-create-mysql-server-database-using-azure-portal.md) eller [hur du skapar Azure Database for MySQL server med CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure Database for MySQL-server med motor version 5,6, 5,7 eller 8,0. 
+
+Mer information finns i så här skapar du en Azure Database for MySQL-server med hjälp av [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="enable-redirection"></a>Aktivera omdirigering
 

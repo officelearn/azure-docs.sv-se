@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196518"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628398"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt (för hands version) för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien använder du bilder av katter och hundar.  Eftersom var
 > * Etikettera dina data.  Antingen du eller dina etiketter kan utföra den här uppgiften.
 > * Slutför projektet genom att granska och exportera data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -64,7 +64,7 @@ Azure Machine Learning data lager används för att lagra anslutnings informatio
 
 1. Fyll i formuläret med följande inställningar:
 
-    Fält|Description 
+    Fält|Beskrivning 
     ---|---
     Data lager namn | Ge data lagret ett namn.  Här använder vi **labeling_tutorial**.
     Data lager typ | Välj lagrings typ.  Här använder vi **Azure Blob Storage**, den önskade lagringen för avbildningar.
@@ -89,7 +89,7 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 1. Använd följande indata för formuläret **projekt information** :
 
-    Fält|Description 
+    Fält|Beskrivning 
     ---|---
     Projektnamn | Ge ditt projekt ett namn.  Här kommer vi att använda **självstudie – katter-n-hundar**.
     Etikettering av uppgifts typ | Välj **bild klassificering flera klasser**.  
@@ -109,6 +109,12 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
     1. Välj cirkeln bredvid data uppsättningens namn i listan, till exempel **bilder – självstudier**.
 
 1. Välj **Nästa** för att fortsätta skapa projektet.
+
+### <a name="incremental-refresh"></a>Inkrementell uppdatering
+
+Om du planerar att lägga till nya avbildningar i din data uppsättning kommer den stegvisa uppdateringen att hitta dessa nya avbildningar och lägga till dem i projektet.  När du aktiverar den här funktionen kommer projektet att regelbundet söka efter nya avbildningar.  Du kommer inte att lägga till nya avbildningar i data lagret för den här själv studie kursen, så lämna den här funktionen omarkerad.
+
+Fortsätt genom att välja **Nästa**.
 
 ### <a name="label-classes"></a>Etikett klasser
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067771"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610501"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Självstudie: svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Skapa ett namnområde för Service Bus
 > * Förbereda ett exempel program för att skicka meddelanden
@@ -122,19 +122,25 @@ Utför sedan följande steg:
     }
     
     ```
-2. Välj **Spara och kör**.
+2. Välj **Spara** i verktygsfältet för att spara koden för funktionen.
 
-    ![Funktion för programmets utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+    ![Spara funktions kod](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
+3. Välj **test/kör** i verktygsfältet, ange ett namn i bröd texten och välj **Kör**. 
+
+    ![Kör test](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+4. Bekräfta att du ser utdata och loggar på det sätt som visas i följande bild. 
+
+    ![Testkörning-utdata](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
 3. Välj **Hämta funktions webb adress** och anteckna URL: en. 
 
     ![Hämta funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. Välj **kopierings** knappen bredvid URL-texten.    
+    ![Kopiera funktions webb adress](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 # <a name="azure-functions-v1"></a>[Azure Functions v1](#tab/v1)
 
 1. Konfigurera funktionen för att använda **v1** -version: 
     1. Välj din Function-app i trädvyn och välj **Function app-inställningar**. 
-
-        ![Funktionsappinställningar]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. Välj **~ 1** för **körnings version**. 
 2. Expandera **funktioner** i trädvyn och välj din funktion. Ersätt koden för funktionen med följande kod: 
 
@@ -184,9 +190,11 @@ Utför sedan följande steg:
 4. Välj **Spara och kör**.
 
     ![Funktion för programmets utdata](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
-4. Välj **Hämta funktions webb adress** och anteckna URL: en. 
+4. Välj **Hämta funktions webb adress** i verktygsfältet. 
 
     ![Hämta funktionswebbadress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+5. Välj **kopierings** knappen bredvid URL-texten.    
+    ![Kopiera funktions webb adress](./media/service-bus-to-event-grid-integration-example/get-function-url-copy.png)
 
 ---
 
@@ -201,16 +209,20 @@ Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
 2. Välj **+ händelse prenumeration** i verktygsfältet. 
 3. Utför följande steg på sidan **Skapa händelse prenumeration** :
     1. Ange ett **namn** för prenumerationen. 
+    2. Ange ett **namn** för **system-ämnet**. System ämnen är avsnitt som skapats för Azure-resurser, till exempel Azure Storage konto och Azure Service Bus. Mer information om system ämnen finns i [Översikt över system avsnitt](../event-grid/system-topics.md).
     2. Välj **Web Hook** för **slut punkts typ**. 
 
         ![Service Bus-Event Grid-prenumeration](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
     3. Välj **Välj en slut punkt**, klistra in funktions webb adressen och välj sedan **Bekräfta markering**. 
 
         ![Funktion-välj slut punkten](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
-    4. Växla till fliken **filter** , ange namnet på den **första prenumerationen** på Service Bus avsnittet som du skapade tidigare och välj sedan knappen **skapa** . 
+    4. Växla till fliken **filter** och utför följande aktiviteter:
+        1. Välj **Aktivera ämnes filtrering**
+        2. Ange namnet på den **första prenumerationen** på Service Bus avsnittet som du skapade tidigare.
+        3. Välj knappen **Skapa**. 
 
-        ![Filter för händelse prenumeration](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
-4. Bekräfta att du ser händelse prenumerationen i listan.
+            ![Filter för händelse prenumeration](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
+4. Växla till fliken **händelse prenumerationer** på sidan **händelser** och bekräfta att du ser händelse prenumerationen i listan.
 
     ![Händelse prenumeration i listan](./media/service-bus-to-event-grid-integration-example/event-subscription-in-list.png)
 
@@ -242,11 +254,15 @@ I det här avsnittet lär du dig hur du tar emot och bearbetar meddelanden när 
         ![Hämta publicerings profil för funktionen](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Spara filen i projektets mapp. 
 4. Högerklicka sedan på **SBEventGridIntegration** i Visual Studio och välj sedan **Publicera**. 
-5. Välj **Start** på sidan **publicera** . 
-6. På sidan **Välj ett publicerings mål** utför du följande steg och väljer **Importera profil**. 
+5. Utför följande steg på sidan **publicera**: 
+    1. Välj **Starta** på sidan **publicera** 
+    2. För **målet**väljer du **Importera profil**. 
+    3. Välj **Nästa**. 
 
-    ![Knappen Visual Studio – import profil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
-7. Välj den **publicerings profil fil** som du laddade ned tidigare. 
+        ![Knappen Visual Studio – import profil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
+7. Välj den **publicerings profil fil** som du laddade ned tidigare och välj **Slutför**.
+
+    ![Välj publicerings profil](./media/service-bus-to-event-grid-integration-example/select-publish-profile.png)
 8. Välj **publicera** på **publicerings** sidan. 
 
     ![Visual Studio – publicera](./media/service-bus-to-event-grid-integration-example/select-publish.png)

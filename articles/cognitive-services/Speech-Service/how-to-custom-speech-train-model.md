@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722634"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629026"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
 
-Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen att identifiera ord, fraser, akronymer, namn och andra produktspecifika villkor. Fler data uppsättningar i domänen som du anger (data som är relaterade till vad användarna säger och vad du förväntar dig att identifiera), desto mer exakta är din modell, vilket leder till förbättrad igenkänning. Kom ihåg att genom att mata in orelaterade data i din utbildning kan du minska eller försämra precisionen i din modell.
+Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Använd utbildning för att lösa problem med problemlösning
 
@@ -39,7 +39,7 @@ Om du stöter på igenkännings problem med din modell kan du förbättra precis
 Det första steget för att träna en modell är att överföra tränings data. Använd [förbereda och testa dina data](how-to-custom-speech-test-data.md) för steg-för-steg-instruktioner för att förbereda medmärkta avskrifter och relaterad text (yttranden och uttal). När du har överfört tränings data följer du de här anvisningarna för att börja träna din modell:
 
 1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
-2. Navigera till **> Custom Speech > utbildning för tal till text**.
+2. Navigera till **> för tal till text Custom Speech > [namn på projektet] > träning**.
 3. Klicka på **träna modell**.
 4. Ge sedan din utbildning ett **namn** och en **Beskrivning**.
 5. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Den senaste modellen är vanligt vis det bästa valet.

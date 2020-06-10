@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48a23c483ab4338492a407b60f3a5dfc95c0e680
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67805712"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607337"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggar för att felsöka validerings problem i Azure Data Box Disk
 
@@ -27,7 +27,7 @@ När du verifierar data på diskarna med hjälp av [verifierings verktyget](data
 
 Om du kör flera sessioner för verifiering skapas en fel logg per session.
 
-- Här är ett exempel på fel loggen när data som läses in i `PageBlob` mappen inte är 512-justerade byte. Alla data som laddas upp till PageBlob måste vara 512-byte-justerade, till exempel en VHD eller VHDX. Felen i den här filen finns i- `<Errors>` och-varningar `<Warnings>`i.
+- Här är ett exempel på fel loggen när data som läses in i `PageBlob` mappen inte är 512-justerade byte. Alla data som laddas upp till PageBlob måste vara 512-byte-justerade, till exempel en VHD eller VHDX. Felen i den här filen finns i- `<Errors>` och-varningar i `<Warnings>` .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ Om du kör flera sessioner för verifiering skapas en fel logg per session.
         </ErrorLog>
     ```
 
-- Här är ett exempel på fel loggen när container namnet inte är giltigt. Mappen som du skapar under `BlockBlob`, `PageBlob`eller `AzureFile` mappar på disken blir en behållare i ditt Azure Storage-konto. Namnet på behållaren måste följa [namngivnings konventionerna för Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Här är ett exempel på fel loggen när container namnet inte är giltigt. Mappen som du skapar under `BlockBlob` , `PageBlob` eller `AzureFile` mappar på disken blir en behållare i ditt Azure Storage-konto. Namnet på behållaren måste följa [namngivnings konventionerna för Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -78,7 +78,7 @@ Felen i *error. XML* med motsvarande rekommenderade åtgärder sammanfattas i f�
 | `None` | Data har verifierats. | Ingen åtgärd krävs. |
 | `InvalidXmlCharsInPath` |Det gick inte att skapa en manifest fil eftersom fil Sök vägen innehåller ogiltiga tecken. | Ta bort dessa tecken om du vill fortsätta.  |
 | `OpenFileForReadFailed`| Det gick inte att bearbeta filen. Detta kan bero på ett problem med åtkomst problemet eller att fil systemet är skadat.|Det gick inte att läsa filen på grund av ett fel. Fel informationen är i undantaget. |
-| `Not512Aligned` | Den här filen har inte ett giltigt format för PageBlob-mappen.| Ladda bara upp data som är 512 byte- `PageBlob` justerade till mappen. Ta bort filen från mappen PageBlob eller flytta den till mappen BlockBlob Gör om verifieringen.|
+| `Not512Aligned` | Den här filen har inte ett giltigt format för PageBlob-mappen.| Ladda bara upp data som är 512 byte-justerade till `PageBlob` mappen. Ta bort filen från mappen PageBlob eller flytta den till mappen BlockBlob Gör om verifieringen.|
 | `InvalidBlobPath` | Fil Sök vägen mappar inte till en giltig BLOB-sökväg i molnet enligt namngivnings konventionerna för Azure blob.|Följ rikt linjerna för namngivning i Azure för att byta namn på fil Sök vägen. |
 | `EnumerationError` | Det gick inte att räkna upp filen för verifiering. |Det kan finnas flera orsaker till det här felet. En trolig orsak är till gång till filen. |
 | `ShareSizeExceeded` | Filen gjorde att Azure-filresursens storlek överskrider Azure-gränsen på 5 TB.|Minska storleken på data i resursen så att de överensstämmer med [storleks gränserna för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen. |
@@ -91,7 +91,7 @@ Felen i *error. XML* med motsvarande rekommenderade åtgärder sammanfattas i f�
 | `InvalidFileNameFormat` | Fil Sök vägen mappar inte till en giltig fil Sök väg i molnet enligt namngivnings konventionerna för Azure-filer. |Byt namn på filen så att den överensstämmer med [namngivnings konventionerna i Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen. |
 | `InvalidDiskNameFormat` | Fil Sök vägen mappar inte till ett giltigt disk namn i molnet enligt namngivnings konventionerna för Azure Managed disks. |Byt namn på filen så att den överensstämmer med [namngivnings konventionerna i Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen.       |
 | `NotPartOfFileShare` | Uppladdnings Sök vägen för filer är ogiltig. Överför filerna till en mapp i Azure Files.   | Ta bort filerna i fel och överför filerna till en förskapad mapp. Gör om verifieringen. |
-| `NonVhdFileNotSupportedForManagedDisk` | En icke-VHD-fil kan inte överföras som en hanterad disk. |Ta bort filer som inte är VHD `ManagedDisk` -filer från mappen eftersom de inte stöds eller flytta filerna till `PageBlob` en mapp. Gör om verifieringen. |
+| `NonVhdFileNotSupportedForManagedDisk` | En icke-VHD-fil kan inte överföras som en hanterad disk. |Ta bort filer som inte är VHD-filer från `ManagedDisk` mappen eftersom de inte stöds eller flytta filerna till en `PageBlob` mapp. Gör om verifieringen. |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725558"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628058"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
-När du testar precisionen för Microsoft tal igenkänning eller tränar dina anpassade modeller, behöver du ljud-och text data. På den här sidan tar vi upp de typer av data, hur de används och hur de hanteras.
+När du testar precisionen för Microsoft tal igenkänning eller tränar dina anpassade modeller, behöver du ljud-och text data. På den här sidan tar vi upp de typer av data som en anpassad tal modell behöver.
+
+## <a name="data-diversity"></a>Datamångfald
+
+Text och ljud som används för att testa och träna en anpassad modell behöver innehålla exempel från en mängd olika högtalare och scenarier som du behöver din modell för att kunna identifiera.
+Tänk på följande faktorer när du samlar in data för testning och utbildning av anpassade modeller:
+
+* Dina text-och tal ljud data måste ta upp de typer av muntliga uttryck som användarna kommer att vidta när de interagerar med din modell. Till exempel kan en modell som höjer och sänker behovet av temperatur utbildning på utdrag som personer kan göra för att begära sådana ändringar.
+* Dina data måste innehålla alla tal avvikelser som din modell måste känna igen. Många faktorer kan variera tal, inklusive accenter, dialekter, språk – mixning, ålder, kön, röst ton, stress nivå och tid på dagen.
+* Du måste inkludera exempel från olika miljöer (inomhus, Utomhus, väg brus) där din modell ska användas.
+* Ljud måste samlas in med maskin varu enheter som produktions systemet ska använda. Om din modell behöver identifiera tal som spelas in på inspelnings enheter av varierande kvalitet, måste de ljud data som du anger för att träna modellen även representera dessa olika scenarier.
+* Du kan lägga till mer data i din modell senare, men var noga med att hålla data uppsättningen skild och representativ för dina projekt behov.
+* Även om data som *inte* ligger inom dina anpassade modell igenkännings behov kan skada igenkännings kvaliteten, så inkludera inte data som inte behövs i din modell.
+
+En modell som är utbildad i en delmängd scenarier kan bara fungera bra i dessa scenarier. Välj noggrant data som representerar det fullständiga omfånget av scenarier som du behöver din anpassade modell för att känna igen.
+
+> [!TIP]
+> Börja med små mängder exempel data som matchar språket och akustiskt din modell.
+> Registrera till exempel ett litet men representativt exempel på ljud på samma maskin vara och i samma akustiska miljö som din modell kommer att se i produktions scenarier.
+> Små data uppsättningar med representativa data kan exponera problem innan du har investerat i att samla in en mycket större data uppsättningar för utbildning.
 
 ## <a name="data-types"></a>Datatyper
 
@@ -27,7 +46,7 @@ I den här tabellen listas godkända data typer, när varje datatyp ska använda
 
 | Datatyp | Används för testning | Rekommenderad kvantitet | Används för utbildning | Rekommenderad kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
+| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Saknas |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1000 timmars ljud |
 | [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
@@ -57,7 +76,7 @@ Använd den här tabellen för att se till att ljudfilerna är korrekt formatera
 
 | Egenskap                 | Värde                 |
 |--------------------------|-----------------------|
-| Fil format              | RIFF (WAV)            |
+| Filformat              | RIFF (WAV)            |
 | Samplings frekvens              | 8 000 Hz eller 16 000 Hz |
 | Kanaler                 | 1 (mono)              |
 | Maximal längd per ljud | 2 timmar               |
@@ -85,7 +104,7 @@ Ljudfiler kan ha tystnad i början och slutet av inspelningen. Om möjligt, inkl
 
 | Egenskap                 | Värde                               |
 |--------------------------|-------------------------------------|
-| Fil format              | RIFF (WAV)                          |
+| Filformat              | RIFF (WAV)                          |
 | Samplings frekvens              | 8 000 Hz eller 16 000 Hz               |
 | Kanaler                 | 1 (mono)                            |
 | Maximal längd per ljud | 2 timmar (testning)/60 s (utbildning) |

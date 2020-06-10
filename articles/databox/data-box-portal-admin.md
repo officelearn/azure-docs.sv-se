@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22fd67797bbec516317aadaa4b33371c5d335b36
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259999"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609462"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använd Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy
 
@@ -65,7 +65,7 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 
     ![Ta bort Data Box-order 1](media/data-box-portal-admin/delete-order1.png)
 
-3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **ta bort**.
+3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **Ta bort**.
 
 ## <a name="download-shipping-label"></a>Ladda ned adressetikett
 
@@ -206,7 +206,7 @@ När enhetens status ändras i portalen meddelas du via e-post.
 |Hämtat     |Din returleverans har hämtats och genomsökts av transportören.         |
 |Mottaget     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
 |Datakopiering     | Data kopieras. Spåra kopieringsprocessen för din order i Azure-portalen. <br> Vänta tills datakopieringen är klar. |
-|Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
+|Slutförd       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Se [exempel på kopierings loggar när överföringen är klar med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
 |Slutfört med varningar| Data kopieringen slutfördes men dina data ändrades. Data innehöll icke-kritiska BLOB-eller fil namns fel som korrigerades genom att ändra fil-eller BLOB-namn. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna ändringarna i dina data. Se [exempel på kopierings loggar när överföringen är klar med varningar](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern. Om ordern inte kan uppfyllas inom 90 dagar annulleras den också och du får ett meddelande.     |

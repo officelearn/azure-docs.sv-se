@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc
+ms.custom: hdinsightactive,mvc, tracking-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 963f5bd4dfdd9dda78a437bdb1111c9eec2795dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dfdb324013a246010c12d36a50c80b4fbef503e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878450"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607099"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudie: utveckla ett Apache Spark Machine Learning-program i Azure HDInsight
 
@@ -21,7 +21,7 @@ I den här självstudien lär du dig att använda [Jupyter Notebook](https://jup
 
 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html) är Spark: s anpassningsbara maskin inlärnings bibliotek som består av vanliga inlärnings-algoritmer och-verktyg. (Klassificering, regression, klustring, gemensam filtrering och dimensionalitet. Även underliggande optimerings primitiver.)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Utveckla ett Apache Spark-maskininlärningsprogram
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="understand-the-data-set"></a>Förstå datauppsättningen
 
-Programmet använder exempel data för **HVAC. csv** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Du kan förutsäga om en byggnad ska vara Hotter eller kallare baserat på mål temperatur, angivet system-ID och systemets ålder.
+Programmet använder exempel data för **HVAC. csv** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Du kan förutsäga om en byggnad ska vara Hotter eller kallare baserat på mål temperatur, angivet system-ID och systemets ålder.
 
 ![Ögonblicks bild av data som används för Spark Machine Learning-exempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicks bild av data som används för Spark Machine Learning-exempel")
 
@@ -186,7 +186,7 @@ Det här programmet använder en spark [ml-pipeline](https://spark.apache.org/do
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Använda Anaconda scikit-bibliotek för Spark machine learning
 
-Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. Exempel på hur du använder scikit – lära-biblioteket finns [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)i.
+Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. Exempel på hur du använder scikit – lära-biblioteket finns i [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

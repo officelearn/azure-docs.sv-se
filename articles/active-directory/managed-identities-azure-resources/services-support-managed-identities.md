@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 09dea15d34ca61138c18d1c73f1c20a93b4cb0a9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 604e26a9af2377804135ef9cfac4c30b1335e3c9
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344891"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635789"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -39,7 +39,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure API Management (i regioner där det är tillgängligt):
 
-- [Azure Resource Manager mall](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Azure Resource Manager-mall](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 
 ### <a name="azure-app-service"></a>Azure App Service
@@ -54,7 +54,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure App Service (
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
@@ -80,7 +80,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 I följande lista kan du konfigurera hanterad identitet för Azure Container Instances (i regioner där det finns tillgängligt):
 
 - [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
-- [Azure Resource Manager mall](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Azure Resource Manager-mall](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -123,7 +123,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Functions (i 
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -165,7 +165,23 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 I följande lista kan du konfigurera hanterad identitet för Azure Logic Apps (i regioner där det finns tillgängligt):
 
 - [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager mall](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Azure Resource Manager-mall](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+
+
+### <a name="azure-policy"></a>Azure Policy
+
+|Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | ![Tillgänglig][check] | ![Tillgänglig][check] | ![Tillgänglig][check] | ![Tillgänglig][check] |
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+
+I följande lista kan du konfigurera hanterad identitet för Azure Policy (i regioner där det finns tillgängligt):
+
+- [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
+- [REST](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
@@ -179,7 +195,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 Se följande lista för att konfigurera hanterad identitet för Azure Service Fabric-program i alla regioner:
 
-- [Azure Resource Manager mall](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Azure Resource Manager-mall](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ### <a name="azure-spring-cloud"></a>Azure Spring Cloud
 

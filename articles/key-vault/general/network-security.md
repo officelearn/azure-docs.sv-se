@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0438f573c33c71e0f30b7db1909e3649b21010a7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78ae393c47de7a9d03d7b3de9b3dcd315d228f05
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086597"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605433"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
@@ -33,6 +33,7 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
 4. Om du vill lägga till befintliga virtuella nätverk i brand väggar och regler för virtuella nätverk väljer du **+ Lägg till befintliga virtuella nätverk**.
 5. På det nya bladet som öppnas väljer du den prenumeration, de virtuella nätverk och undernät som du vill ge åtkomst till det här nyckel valvet. Om de virtuella nätverk och undernät du väljer inte har aktiverat tjänst slut punkter, bekräftar du att du vill aktivera tjänstens slut punkter och väljer **Aktivera**. Det kan ta upp till 15 minuter att börja gälla.
 6. Under **IP-nätverk**lägger du till IPv4-adress intervall genom att ange IPv4-adress intervall i [CIDR-notering (Classless Inter-Domain routing)](https://tools.ietf.org/html/rfc4632) eller enskilda IP-adresser.
+7. Välj Ja om du vill tillåta att Microsoft-betrodda tjänster kringgår Key Vault brand väggen. En fullständig lista över aktuella Key Vault betrodda tjänster finns i följande länk. [Azure Key Vault betrodda tjänster](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 7. Välj **Spara**.
 
 Du kan också lägga till nya virtuella nätverk och undernät och sedan aktivera tjänstens slut punkter för de nyligen skapade virtuella nätverken och under näten genom att välja **+ Lägg till nytt virtuellt nätverk**. Följ sedan anvisningarna.
@@ -64,12 +65,12 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
    ```
 
-6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster `bypass` anger `AzureServices`du till.
+6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster anger `bypass` du till `AzureServices` .
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
    ```
 
-7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny`.
+7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny` .
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
    ```
@@ -103,12 +104,12 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
-6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster `bypass` anger `AzureServices`du till.
+6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster anger `bypass` du till `AzureServices` .
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
-7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny`.
+7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny` .
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```

@@ -1,0 +1,211 @@
+---
+title: Anpassade modeller
+titleSuffix: Azure Digital Twins
+description: Förstå hur Azure Digital-enheter använder användardefinierade modeller för att beskriva entiteter i din miljö.
+author: baanders
+ms.author: baanders
+ms.date: 3/12/2020
+ms.topic: conceptual
+ms.service: digital-twins
+ms.openlocfilehash: 30bf5d3eaa034c033cf32e26c3229a028f036313
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84613140"
+---
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
+
+En viktig egenskap för Azure Digitals dubbla är möjligheten att definiera en egen vokabulär och skapa ett dubbel diagram i de självdefinierade villkoren i din verksamhet. Den här funktionen tillhandahålls genom användardefinierade **modeller**. Du kan tänka på modeller som Substantiv i en beskrivning av din värld. 
+
+En modell liknar en **klass** i ett objektorienterad programmeringsspråk som definierar en data form för ett visst koncept i din verkliga arbets miljö. Modeller har namn (t. ex. *rum* eller *TemperatureSensor*) och innehåller element som egenskaper, telemetri/händelser och kommandon som beskriver vad den här typen av entitet i din miljö kan göra. Senare kommer du att använda dessa modeller för att skapa [**digitala**](concepts-twins-graph.md) delar som representerar vissa entiteter som uppfyller den här typen beskrivning.
+
+Modeller skrivs med det JSON-baserade **digitala definitions språket (DTDL)**.  
+
+## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digitalt DTDL (Digital Definition Language) för att skriva modeller
+
+Modeller för digitala Azure-dubbla grupper definieras med hjälp av DTDL (Digital enforming Definition Language). DTDL baseras på JSON-LD och är programmerings språk oberoende. DTDL är inte exklusiv för Azure Digitals, men används också för att representera enhets data i andra IoT-tjänster som [iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digitals flätar använder DTDL *version 2*.
+
+> [!TIP] 
+> Alla tjänster som använder DTDL implementerar exakt samma funktioner i DTDL. IoT Plug and Play använder till exempel inte de DTDL-funktioner som är för grafer, medan Azures digitala dubbla för närvarande inte implementerar DTDL-kommandon. Mer information om de DTDL-funktioner som är speciella för Azure Digitals dubbla finns i avsnittet längre fram i den här artikeln om [Azure Digitals DTDL-implementerings information](#azure-digital-twins-dtdl-implementation-specifics).
+
+Mer information om DTDL i allmänhet finns i Specifikations dokumentationen för GitHub: [digital, Definition Language (DTDL)-version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+
+## <a name="elements-of-a-model"></a>Element i en modell
+
+I en modell definition är kod elementet på den översta nivån ett **gränssnitt**. Detta kapslar in hela modellen och resten av modellen definieras i gränssnittet. 
+
+Ett DTDL modell gränssnitt kan innehålla noll, ett eller flera av följande fält:
+* **Egenskap** – egenskaper är data fält som representerar statusen för en entitet (som egenskaper i många objektorienterade programmeringsspråk). Till skillnad från telemetri, som är en tidsbegränsad data händelse, har egenskaper har säkerhetskopierat lagrings utrymme och kan läsas när som helst.
+* **Telemetri** – telemetri-fält representerar mått eller händelser och används ofta för att beskriva enheternas sensor läsningar. Telemetri lagras inte på ett digitalt, Det är mer precis som en data ström som är redo att skickas någonstans. 
+* **Komponent** – komponenter gör att du kan bygga ditt modell gränssnitt som en sammansättning av andra gränssnitt, om du vill. Ett exempel på en komponent är ett *frontCamera* -gränssnitt (och en annan *elkamera*för komponent gränssnitt) som används för att definiera en modell för en *telefon*. Du måste först definiera ett gränssnitt för *frontCamera* som om det vore en egen modell, och sedan kan du referera till det när du definierar *telefon*.
+
+    Använd en komponent för att beskriva något som är en del av din lösning, men som inte behöver en separat identitet, och som inte behöver skapas, tas bort eller ordnas om i det dubbla diagrammet oberoende av varandra. Om du vill att entiteter ska ha oberoende förekomster i den dubbla grafen, representerar de som separata digitala delar av olika modeller, anslutna med *relationer* (se nästa punkt).
+    
+    >[!TIP] 
+    >Komponenter kan också användas för organisationen för att gruppera uppsättningar med relaterade egenskaper i ett modell gränssnitt. I den här situationen kan du tänka på varje komponent som ett namn område eller "mapp" i gränssnittet.
+* **Relations hip** -relationer gör att du kan representera hur ett digitalt garn kan användas med andra digitala dubbla. Relationer kan representera olika semantiska betydelser, till exempel *innehåller* ("golv innehåller rum"), *häftiga* ("HVAC cools Room"), *isBilledTo* ("kompressor är fakturerad till användare") osv. Relationer tillåter lösningen att tillhandahålla ett diagram över relaterade entiteter.
+
+> [!NOTE]
+> I spec for DTDL definieras även **kommandon**, som är metoder som kan köras på ett digitalt värde (som ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt). *Kommandon stöds dock inte för närvarande i Azure Digital-dubbla.*
+
+### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Azure Digitals dubbla DTDL implementerings information
+
+För att en DTDL-modell ska vara kompatibel med Azure Digital-dubbla, måste den uppfylla dessa krav.
+
+* Alla DTDL-element på översta nivån i en modell måste vara av typen *Interface*. Detta beror på att API: er för Azure Digitals dubbla modeller kan ta emot JSON-objekt som representerar antingen ett gränssnitt eller en matris med gränssnitt. Därför tillåts inga andra DTDL-element typer på den översta nivån.
+* DTDL för Azure Digital-dubbla får inte definiera några *kommandon*.
+* Azure Digital-dubbla är bara tillåta en enda nivå av komponent kapsling. Det innebär att ett gränssnitt som används som en komponent inte kan ha några själva komponenter. 
+* Gränssnitt kan inte definieras infogade i andra DTDL-gränssnitt. de måste definieras som separata enheter på den översta nivån med sina egna ID: n. När ett annat gränssnitt vill inkludera det gränssnittet som en komponent eller genom arv kan det referera till dess ID.
+
+## <a name="example-model-code"></a>Exempel modell kod
+
+Dubbla typ modeller kan skrivas i valfri text redigerare. DTDL-språket följer JSON-syntax, så du bör lagra modeller med fil namns tillägget *. JSON*. Med JSON-tillägget kan många programmerings text redigerare tillhandahålla grundläggande syntaxkontroll och markeringar för dina DTDL-dokument. Det finns också ett [DTDL-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) tillgängligt för [Visual Studio Code](https://code.visualstudio.com/).
+
+Här är ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. Modellen beskriver planet, var och en med ett namn, en massa och en temperatur. Planet kan ha måne som satelliter och kan innehålla lådor.
+
+```json
+[
+  {
+    "@id": "dtmi:com:contoso:Planet;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Planet",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "Temperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
+    ]
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  }
+]
+```
+
+Fälten i modellen är:
+
+| Fält | Beskrivning |
+| --- | --- |
+| `@id` | En identifierare för modellen. Måste vara i formatet `dtmi:<domain>:<unique model identifier>;<model version number>` . |
+| `@type` | Identifierar vilken typ av information som beskrivs. För ett gränssnitt är typen *gränssnitt*. |
+| `@context` | Ställer in [kontexten](https://niem.github.io/json/reference/json-ld/context/) för JSON-dokumentet. Modeller bör använda `dtmi:dtdl:context;2` . |
+| `displayName` | valfritt Gör att du kan ge modellen ett eget namn om du vill. |
+| `contents` | Alla återstående gränssnitts data placeras här, som en matris med attributdefinitioner. Varje attribut måste innehålla en `@type` (*egenskap*, *telemetri*, *kommando*, *relation*eller *komponent*) för att identifiera sorteringen av gränssnitts information som anges och sedan en uppsättning egenskaper som definierar det faktiska attributet (till exempel `name` och `schema` för att definiera en *egenskap*). |
+
+> [!NOTE]
+> Observera att komponent gränssnittet (*Crater* i det här exemplet) definieras i samma matris som gränssnittet som använder det (*planet*). Komponenter måste definieras på det här sättet i API-anrop för att gränssnittet ska kunna hittas.
+
+### <a name="possible-schemas"></a>Möjliga scheman
+
+Som per DTDL kan schemat för attribut för *egenskap* och *telemetri* vara av standard typer av primitiver,,, `integer` `double` `string` och `Boolean` – och andra typer som `DateTime` och `Duration` . 
+
+Förutom primitiva typer kan fälten *egenskap* och *telemetri* ha följande komplexa typer:
+* `Object`
+* `Map`
+* `Enum`
+
+*Telemetri* -fält stöder också `Array` .
+
+### <a name="model-inheritance"></a>Modell arv
+
+Ibland kanske du vill specialisera en modell ytterligare. Det kan till exempel vara användbart att ha ett allmänt modell *rum*och specialiserade varianter *ConferenceRoom* och *gymmet*. För att uttrycka specialisering har DTDL stöd för arv: gränssnitt kan ärva från ett eller flera andra gränssnitt. 
+
+I följande exempel förändrar du *planet* modellen från det tidigare DTDL-exemplet som en undertyp till en större *CelestialBody* -modell. Modellen "Parent" definieras först och sedan bygger modellen "Child" på den med hjälp av fältet `extends` .
+
+```json
+[
+  {
+    "@id": "dtmi:com:contoso:CelestialBody;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Celestial body",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@id": "dtmi:com:contoso:Planet;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Planet",
+    "extends": "dtmi:com:contoso:CelestialBody;1",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
+    ]
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  }
+]
+```
+
+I det här exemplet bidrar *CelestialBody* till ett namn, en massa och en temperatur för *planet*. `extends`Avsnittet är ett gränssnitts namn eller en matris med gränssnitts namn (vilket gör att det utökade gränssnittet kan ärva från flera överordnade modeller om det behövs).
+
+När arvet har tillämpats visar det utökade gränssnittet alla egenskaper från hela arvs kedjan.
+
+Det utökade gränssnittet kan inte ändra någon av definitionerna för de överordnade gränssnitten. den kan bara läggas till i dem. Det går inte heller att omdefiniera en funktion som redan har definierats i något av dess överordnade gränssnitt (även om funktionerna har definierats som samma). Om ett överordnat gränssnitt till exempel definierar en `double` egenskaps *vikt*får inte det utökade gränssnittet innehålla en deklaration av *vikten*, även om det är en `double` .
+
+## <a name="validating-models"></a>Validerar modeller
+
+Det finns ett exempel som kan användas för att validera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket och är språk-oberoende. Hitta detta: [DTDL Verification-exempel](https://github.com/Azure-Samples/DTDL-Validator).
+
+Om du vill ha mer information om parsar biblioteket, inklusive ett exempel på hur du använder det direkt, se [anvisningar: parsa och validera modeller](how-to-use-parser.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+Se Hantera modeller med DigitalTwinsModels-API: er:
+* [Anvisningar: hantera en dubbel modell](how-to-manage-model.md)
+
+Du kan också läsa mer om hur digitala dubbla modeller skapas baserat på modeller:
+* [Koncept: digitala och dubbla grafer](concepts-twins-graph.md)
+

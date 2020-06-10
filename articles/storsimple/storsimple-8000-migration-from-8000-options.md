@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e4aa492567f3357867a3a3f385e8339ada093e9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767050"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608948"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Alternativ för att migrera data från StorSimple 8000-serien
 
@@ -40,6 +40,12 @@ Mer information om hur du migrerar data till Azure File Sync finns i [StorSimple
 Kunder med StorSimple 5000-7000-serien och StorSimple 8000-serien kan välja att migrera till Panzura frihet som NAS ska behålla sina data i Azure. Lösningen Panzura frihet är en NAS-lösning som omfattar data Center, kontor, offentliga och privata moln. Lösningen möjliggör lokala, hybrid och molnbaserade data arbets flöden för NFS, SMB och mobila klienter.
 
 Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära stöd för migrering från [Panzura-webbplatsen](https://panzura.com/migrate-storsimple-panzura/).
+
+#### <a name="migrate-to-nasuni"></a>Migrera till Nasuni
+
+Att flytta hela StorSimple-miljön till en stabil och säker plattform för fil tjänster med höga prestanda är enkelt med Nasuni. Nasuni erbjuder säkerhet och prestanda för lokala fil lagrings enheter samtidigt som de kombineras med skalbarhet och tålighet i Azure.  Som en ledande Azure-oberoende program varu leverantör (ISV), tar Nasuni alla verktyg som behövs för att flytta dina StorSimple-data till en modern plattform som gör det möjligt att dela och samar beta med dina filer på flera platser.
+
+Kom igång idag: [Nasuni webbplats](https://info.nasuni.com/storsimple8000-webinar).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

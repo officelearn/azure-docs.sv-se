@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ca8285eb9553e0c69a024714c2f5a258bd9b0ba0
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712238"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628187"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -172,7 +172,7 @@ Alla åtgärder som körs av användar etablerings tjänsten registreras i Azure
 
 Azure AD Provisioning-tjänsten håller käll-och mål systemen synkroniserade genom att inaktivera etablerings konton när användarna inte ska ha åtkomst längre. 
 
-Azure AD Provisioning-tjänsten kommer att ta bort en användare i ett program när programmet suupports Soft Deletes (uppdaterings förfrågan med Active = false) och någon av följande händelser inträffar:
+Azure AD Provisioning-tjänsten kommer att ta bort en användare i ett program när programmet har stöd för mjuk borttagning (uppdaterings förfrågan med aktiv = falskt) och någon av följande händelser inträffar:
 
 * Användar kontot tas bort i Azure AD
 *   Användaren är inte tilldelad från programmet
@@ -186,7 +186,7 @@ Om någon av ovanstående fyra händelser inträffar och mål programmet inte st
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

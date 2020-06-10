@@ -8,62 +8,80 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ecd1c650456bf506f22366ca1d59a3634751b9e0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800238"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607881"
 ---
 # <a name="release-notes"></a>Viktig information
-## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK-1.12.0:2020 – maj-version
-
-**Azure Speech CLI**
-- **SPX** är ett nytt kommando rads verktyg som du kan använda för att utföra igenkänning, syntes, översättning, batch-avskrift och anpassad tal hantering från kommando raden. Använd den för att testa Azure Speech service eller för att skapa skript för de tal tjänst uppgifter som du behöver utföra. Hämta verktyget och Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
+## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK-1.12.1:2020 – juni version
+**Tal CLI (aka SPX)**
+-   Tillagda hjälp Sök funktioner i CLI:
+    -   `spx help find --text TEXT`
+    -   `spx help find --topic NAME`
+-   Uppdaterat för att fungera med nyligen distribuerade v 3.0 batch-och Custom Speech-API: er:
+    -   `spx help batch examples`
+    -   `spx help csr examples`
 
 **Nya funktioner**
+-   **C \# , C++**: Talarigenkänning för hands version: den här funktionen gör det möjligt att identifiera högtalare (Vem talar?) och en högtalar verifiering (är detta som han eller hon ansöker om att vara?). Börja med en [Översikt](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/speaker-recognition-overview), läs [artikeln Talarigenkänning grunder](https://docs.microsoft.com/azure/cognitive-services/speech-service/speaker-recognition-basics)eller [referens dokument för API](https://docs.microsoft.com/rest/api/speakerrecognition/).
 
+**Fel korrigeringar**
+-   **C \# , C++**: fast mikrofon inspelning fungerade inte i 1,12 i högtalar igenkänning.
+-   **Java Script**: korrigeringar för text till tal i Firefox och Safari på MacOS och iOS.
+-   Korrigering för åtkomst överträdelse för Windows Application Verifier kraschar i konversations avskrifter när du använder 8-kanals data ström.
+-   Korrigering för åtkomst överträdelse för Windows Application Verifier kraschar vid konversation med flera enheter.
+
+**Exempel**
+-   **C#**: [kod exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) för högtalar igenkänning.
+-   **C++**: [kod exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) för högtalar igenkänning.
+-   **Java**: [kod exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) för avsikts igenkänning på Android. 
+
+**COVID – 19 förkortad-testning:** På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Vi har inte gjort några ändringar som vi tror skulle kunna ha trasigt något och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Håll dig frisk!
+
+
+## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK-1.12.0:2020 – maj-version
+**Tal CLI (aka SPX)**
+- **SPX** är ett nytt kommando rads verktyg som du kan använda för att utföra igenkänning, syntes, översättning, batch-avskrift och anpassad tal hantering från kommando raden. Använd den för att testa tal tjänsten eller för att skapa skript för de tal tjänst uppgifter som du behöver utföra. Hämta verktyget och Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
+
+**Nya funktioner**
 - **Go**: nytt go-språkstöd för [tal igenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) och [anpassad röst assistent](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Konfigurera din utvecklings miljö [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-go). Exempel kod finns i avsnittet exempel nedan. 
 - **Java Script**: stöd för webb läsar stöd för text till tal har lagts till. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file?pivots=programming-language-JavaScript).
-- **C++, C#, Java**: nytt KeywordRecognizer-objekt och API: er som stöds på Windows-, Android-, Linux & iOS-plattformar. Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-overview). Exempel kod finns i avsnittet exempel nedan. 
+- **C++, C#, Java**: nytt `KeywordRecognizer` objekt och API: er som stöds på Windows-, Android-, Linux & iOS-plattformar. Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-overview). Exempel kod finns i avsnittet exempel nedan. 
 - **Java**: fler konversationer har lagts till med stöd för översättning. Se referens dokumentet [här](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription).
 
 **Förbättringar & optimeringar**
-
 - **Java Script**: optimerad webbläsare mikrofon implementeringen förbättrar tal igenkännings precisionen.
 - **Java**: omfaktorde bindningar med hjälp av direkt jni-implementering utan swig. Detta minskar med 10X storleks bindningar för alla Java-paket som används för Windows, Android, Linux och Mac och underlättar ytterligare utveckling av tal SDK Java-implementeringen.
 - **Linux**: uppdaterad support [dokumentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) med de senaste RHEL 7-speciella anteckningarna.
 - Förbättrad anslutnings logik för att försöka ansluta flera gånger i händelse av tjänst-och nätverks fel.
 - Uppdaterad start sidan för [Portal.Azure.com](https://portal.azure.com) -tal för att hjälpa utvecklare att ta nästa steg i Azure-tal resan.
 
-**Felkorrigeringar**
-
+**Fel korrigeringar**
 - **C#, Java**: Åtgärdade ett [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) med att läsa in SDK-bibliotek på Linux arm (både 32 och 64 bitar).
 - **C#**: fast explicit avyttring av egna referenser för TranslationRecognizer-, IntentRecognizer-och Connection-objekt.
 - **C#**: hantering av livs längd för fasta ljud värden för ConversationTranscriber-objekt.
-- Ett problem har åtgärd ATS där IntentRecognizer resultat orsak inte angavs korrekt vid tolkning av avsikter från enkla fraser.
-- Ett problem har åtgärd ATS där SpeechRecognitionEventArgs result offset inte angavs korrekt.
-- Ett tävlings villkor har åtgärd ATS där SDK försökte skicka ett nätverks meddelande innan WebSocket-anslutningen öppnades. Har reproducerats för TranslationRecognizer när deltagarna lades till.
+- Ett problem har åtgärd ATS där `IntentRecognizer` resultat orsaken inte angavs korrekt vid tolkning av avsikter från enkla fraser.
+- Ett problem har åtgärd ATS där `SpeechRecognitionEventArgs` resultat förskjutning inte angavs korrekt.
+- Ett tävlings villkor har åtgärd ATS där SDK försökte skicka ett nätverks meddelande innan WebSocket-anslutningen öppnades. Har reproducerats för `TranslationRecognizer` när deltagarna lades till.
 - Fasta minnes läckor i nyckelords igenkännings motorn.
 
 **Exempel**
-
 - **Go**: nya snabb starter för [tal igenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) och [anpassad röst assistent](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Hitta exempel kod [här](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
 - **Java Script**: nya snabb starter för [text till tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)-, [översättnings](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript)-och [Avsiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Exempel på nyckelords igenkänning för [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) och [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
-**COVID – 19 förkortad-testning:**
-
-På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Ett exempel på detta är att testa mikrofon ingång och högtalare på Linux, iOS och macOS. Vi har inte gjort några ändringar som vi tror skulle kunna ha avbrutit någonting på dessa plattformar och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br>
+**COVID – 19 förkortad-testning:** På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Vi har inte gjort några ändringar som vi tror skulle kunna ha trasigt något och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Håll dig frisk!
 
 ## <a name="speech-sdk-1110-2020-march-release"></a>Speech SDK-1.11.0:2020 – mars release
-
 **Nya funktioner**
-
 - Linux: stöd har lagts till för Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 med [instruktioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) för hur du konfigurerar systemet för tal-SDK.
 - Linux: stöd för .NET Core C# på Linux ARM32 och ARM64 har lagts till. Läs mer [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
 - C#, C++: lades till `UtteranceId` i `ConversationTranscriptionResult` , ett konsekvent ID för alla resultat från mellanliggande och slutlig tal igenkänning. Information för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
@@ -72,8 +90,7 @@ Håll dig frisk!
 - Java Script: stöd för tal syntes (text till tal) i NodeJS. Läs mer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
 - Java Script: Lägg till nya API: er för att aktivera inspektion av alla meddelanden som skickas och tagits emot. Läs mer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
         
-**Felkorrigeringar**
-
+**Fel korrigeringar**
 - C#, C++: åtgärdat ett problem `SendMessageAsync` skickar nu binärt meddelande som binär typ. Information för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
 - C#, C++: ett problem där händelse används `Connection MessageReceived` kan orsaka krasch om `Recognizer` tas bort före `Connection` objektet. Information för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: ljudbuffertens storlek från mikrofonen minskade från 800ms till 100 ms för att förbättra svars tiden.
@@ -82,13 +99,10 @@ Håll dig frisk!
 - Java Script: Lägg till mer fel information för anslutnings fel från NodeJS.
         
 **Exempel**
-
 - Unit: det offentliga exemplet för avsikts igenkänning är fast, där LUIS JSON-importen misslyckades. Information [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
 - Python: exempel tillagt `Language ID` . Information [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
     
-**Covid19 förkortad-testning**
-
-Det gick inte att utföra så mycket manuell testning av enhets verifieringen på grund av att det går att fjärrstyra de senaste veckorna. Ett exempel på detta är att testa mikrofon ingång och högtalare på Linux, iOS och macOS. Vi har inte gjort några ändringar som vi tror skulle kunna ha avbrutit någonting på dessa plattformar och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br> Tack för din fortsatta support. Som alltid kan du skicka frågor eller feedback om [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) eller [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
+**Covid19 förkortad-testning:** Det gick inte att utföra så mycket manuell testning av enhets verifieringen på grund av att det går att fjärrstyra de senaste veckorna. Ett exempel på detta är att testa mikrofon ingång och högtalare på Linux, iOS och macOS. Vi har inte gjort några ändringar som vi tror skulle kunna ha avbrutit någonting på dessa plattformar och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br> Tack för din fortsatta support. Som alltid kan du skicka frågor eller feedback om [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen) eller [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
 Håll dig frisk!
 
 ## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK-1.10.0:2020 – februari utgåva
@@ -105,7 +119,7 @@ Håll dig frisk!
  - TTS använder nu prenumerations nyckeln för autentisering, vilket minskar den första byte fördröjningen för det första syntes resultatet när du har skapat en synthesizer.
  - Uppdaterade tal igenkännings modeller för 19 språk i ett genomsnittligt antal fel i Word-felgrader på 18,6% (es-ES, ES-MX, fr-CA, fr-FR, IT-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, fi-fi, ru-RU, pl-PL, ca-ES, zh-TW, Th-PT, tr-TR). De nya modellerna ger avsevärda förbättringar i flera domäner, inklusive diktering, samtals Center avskrifter och video indexerings scenarier.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
  - Åtgärdat fel där konversations program varan inte förväntades korrekt i JAVA-API: er 
  - Android x86 emulator-korrigering för Xamarin [GitHub-problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
@@ -141,7 +155,7 @@ Håll dig frisk!
 - Vi har ändrat data typen som returnerades för C# `WordLevelTimingResult.Offset` från `int` till för `long` att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
 - `PushAudioInputStream`och `PullAudioInputStream` skickar nu information om WAV-huvud till tjänsten Speech baserat på `AudioStreamFormat` , som du kan ange när de skapades. Kunderna måste nu använda [formatet för ljud inspelning som stöds](how-to-use-audio-input-streams.md). Andra format kommer att få under optimala igenkännings resultat eller kan orsaka andra problem. 
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Se `OpenSSL` uppdateringen under bryta ändringar ovan. Vi har åtgärdat både en tillfällig krasch och ett prestanda problem (Lås konkurrens under hög belastning) i Linux och Java. 
 - Java: förbättringar av objekt stängning i höga samtidighets scenarier.
@@ -182,7 +196,7 @@ Håll dig frisk!
 - En del av konversations beskrivar metoderna flyttas till den nya `Conversation` klassen.
 - Släppt stöd för 32-bitars (ARMv7 och x86) iOS
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Korrigering för krasch om Local `KeywordRecognizer` används utan en giltig prenumerations nyckel för röst tjänst
 
@@ -205,7 +219,7 @@ Håll dig frisk!
 - TTS-stöd för uppspelning av OS för macOS, iOS och Android.
 - Information om Word-gränser för TTS har lagts till.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Fast IL2CPP build-problem på Unity 2019 för Android
 - Ett åtgärds fel med felaktigt utformade huvuden i WAV-filen har bearbetats felaktigt
@@ -245,7 +259,7 @@ Håll dig frisk!
   - Förbättrad fel rapportering: metoder som kan resultera i ett fel finns nu i två versioner: en som visar ett `NSError` objekt för fel hantering och ett som aktiverar ett undantag. Den tidigare visas för Swift. Den här ändringen kräver anpassningar av befintlig SWIFT-kod.
   - Förbättrad händelse hantering
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Korrigering för TTS: där `SpeakTextAsync` framtida returneras utan att vänta tills ljudet har Render ATS
 - Korrigering för konvertering av strängar i C# för att aktivera stöd för fullt språk
@@ -260,7 +274,7 @@ Håll dig frisk!
 
 Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterade SDK: n. Den påverkar inte JavaScript-versionen av SDK: n.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Åtgärda FromSubscription när den används med konversations avskriftering.
 - Åtgärda felet i Keyword upptäcka för röst assistenter.
@@ -285,7 +299,7 @@ Detta är en fel korrigerings version och påverkar endast det inbyggda/hanterad
 - Mål-C: `OutputFormat` egenskapen har lagts till i `SPXSpeechConfiguration` .
 - SDK stöder nu Debian 9 som en Linux-distribution.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Ett problem har åtgärd ATS där högtalar resursen var destructed för tidigt i text-till-tal.
 
@@ -321,7 +335,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Om du vill ha ytterligare stöd för utveckling och fel sökning kan du omdirigera information om SDK-loggning och-diagnostik i en loggfil (mer information [här](how-to-use-logging.md)).
 - Java Script: förbättra prestanda för ljud bearbetning.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Mac/iOS: ett fel som ledde till en lång väntan på att det inte gick att upprätta en anslutning till röst tjänsten har åtgärd ATS.
 - Python: förbättra fel hanteringen för argument i python-motanrop.
@@ -372,7 +386,7 @@ Följande nya innehåll är tillgängligt i vår [exempel lagrings plats](https:
 - Windows-DLL-filer innehåller nu en versions resurs.
 - Om du skapar en igenkännings verktyg `FromEndpoint` kan du lägga till parametrar direkt i slut punkts-URL: en. `FromEndpoint`Du kan inte konfigurera tolken genom att använda standard konfigurations egenskaperna.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Tomt användar namn för proxy och proxy-lösenord hanterades inte korrekt. Om du ställer in proxy-användarnamn och proxy-lösenord till en tom sträng i den här versionen skickas de inte vid anslutning till proxyservern.
 - SessionId som skapats av SDK var inte alltid helt slumpmässigt för vissa språk &nbsp; /miljöer. Har lagt till en slumpmässig Generator initiering för att åtgärda problemet.
@@ -413,7 +427,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Förbättrad fel rapportering/information. I flera fall har fel meddelanden inte spridits ut hela vägen.
 - Uppdaterade utvecklings beroenden i Java Script för att använda aktuella moduler.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Fasta minnes läckor på grund av ett typ matchnings fel i `RecognizeAsync` .
 - I vissa fall läcker undantag.
@@ -445,7 +459,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Förbättrad hantering av lång tids tystnad i mitten av en ljudfil.
 - NuGet-paket: för .NET Framework-projekt förhindrar det att du skapar med AnyCPU-konfiguration.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Det finns flera undantag i identifierarna. Dessutom fångas och konverteras undantag till `Canceled` event.
 - Åtgärda en minnes läcka i egenskaps hantering.
@@ -507,7 +521,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - I Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` kräver funktionen inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
 - Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - I Java implementeras ljud sammanfattnings resultatet i översättnings tolken nu.
 - Ett fel som kan orsaka inaktiva trådar och ett ökat antal öppna och oanvända Sockets har åtgärd ATS.
@@ -541,7 +555,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
   - I C++ `Read` returneras och- `GetFormat` metoderna nu `size_t` i stället för `int` .
 - C++: instanser av ljud inspelnings strömmar kan nu bara skickas som en `shared_ptr` .
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Korrigerade Felaktiga retur värden i resultatet vid `RecognizeAsync()` tids gränsen.
 - Beroendet på Media Foundation-bibliotek i Windows har tagits bort. SDK använder nu centrala ljud-API: er.
@@ -567,7 +581,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 - Ändrat till `SpeechRecognitionResult.Text` från `SpeechRecognitionResult.RecognizedText` i C#.
 
-**Felkorrigeringar**
+**Fel korrigeringar**
 
 - Ett möjligt problem med återanrop har åtgärd ATS i USP-skiktet under avstängning.
 - Om en tolk förbrukar en ljud indatafil, behålls den på fil hanteringen längre än nödvändigt.

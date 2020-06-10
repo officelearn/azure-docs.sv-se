@@ -6,20 +6,20 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ad1e1ae2db5c4b2dfcac0bb08fc73b85054416b
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075168"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628636"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
 Eftersom App Service är en tjänst för flera innehavare i stället för en dedikera distribution använder den värd rubriken i den inkommande begäran för att lösa begäran till rätt app service-slutpunkt. DNS-namnet på programmet, som i sin tur är det DNS-namn som är associerat med programgatewayen fram till App Service, skiljer sig vanligt vis från domän namnet för Server delens app service. Därför är värd rubriken i den ursprungliga begäran som togs emot av Application Gateway inte samma som värd namnet för backend-tjänsten. På grund av detta, om inte värd huvudet i begäran från programgatewayen till Server delen ändras till Server dels tjänstens värdnamn, kan inte Server delen för flera klient organisationer lösa begäran till rätt slut punkt.
 
-Application Gateway innehåller en växel som `Pick host name from backend address` anropar och som åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen. Den här funktionen aktiverar stöd för Server delar för flera klient organisationer, till exempel Azure App service och API Management. 
+Application Gateway innehåller en växel som anropar `Pick host name from backend address` och som åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen. Den här funktionen aktiverar stöd för Server delar för flera klient organisationer, till exempel Azure App service och API Management. 
 
 I den här artikeln kan du se hur du:
 
@@ -59,13 +59,13 @@ I den här artikeln kan du se hur du:
 3. Välj protokollet som HTTP eller HTTPS enligt ditt användnings fall. 
 
    > [!NOTE]
-   > Om du väljer HTTPS behöver du inte ladda upp något autentiseringscertifikat eller ett betrott rot certifikat för att vitlista App Service-Dataservern eftersom App Service är en betrodd Azure-tjänst.
+   > Om du väljer HTTPS behöver du inte ladda upp något autentiseringscertifikat eller ett betrott rot certifikat för att tillåta App Service-Dataservern eftersom App Service är en betrodd Azure-tjänst.
 
 4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna `Create a probe with pick host name from backend address` och `Pick host name from backend address` kommer automatiskt att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
 
-   `Create a probe with pick host name from backend address`kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med <HTTP Setting name> <Unique GUID> namnet har lagts till i listan över hälso avsökningar och att den redan har `Pick host name from backend http settings enabled`växeln.
+   `Create a probe with pick host name from backend address`kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med namnet <HTTP Setting name> <Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har växeln `Pick host name from backend http settings enabled` .
 
-   Om du redan har en eller flera HTTP-inställningar som används för app service och om dessa HTTP-inställningar använder samma protokoll som det du använder i den som du skapar, kommer du att få en listruta i stället `Create a probe with pick host name from backend address` för-växeln och välja en av de anpassade avsökningarna. Detta beror på att eftersom det redan finns en HTTP-inställning med App Service, och därför finns det också en hälso avsökning som har `Pick host name from backend http settings enabled` växeln. Välj anpassad avsökning i list rutan.
+   Om du redan har en eller flera HTTP-inställningar som används för app service och om dessa HTTP-inställningar använder samma protokoll som det du använder i den som du skapar, `Create a probe with pick host name from backend address` kommer du att få en listruta i stället för-växeln och välja en av de anpassade avsökningarna. Detta beror på att eftersom det redan finns en HTTP-inställning med App Service, och därför finns det också en hälso avsökning som har växeln `Pick host name from backend http settings enabled` . Välj anpassad avsökning i list rutan.
 
 5. Klicka på **OK** för att skapa http-inställningen.
 

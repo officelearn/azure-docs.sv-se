@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: c53396b26d649ba3b6f9adf2409c7c3695bb1822
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799870"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606147"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -38,9 +38,11 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 1. Anslut via fjärr skrivbord till varje virtuell NVv4-serien.
 
-2. Hämta och installera den senaste driv rutinen.
+2. Om du behöver avinstallera den tidigare driv rutins versionen kan du hämta verktyget för AMD-rensning [här](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) använder du inte det verktyg som medföljer den tidigare versionen av driv rutinen.
 
-3. Starta om den virtuella datorn.
+3. Hämta och installera den senaste driv rutinen.
+
+4. Starta om den virtuella datorn.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 

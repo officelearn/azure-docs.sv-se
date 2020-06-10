@@ -8,12 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210473"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604702"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
 
@@ -41,7 +42,7 @@ I det här exemplet används en Azure-funktion för att demonstrera konceptet so
 
 Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Create new project...`.
+1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Create new project...` .
 
 1. Välj en katalog plats för projekt arbets ytan och välj **Välj**.
 
@@ -57,7 +58,7 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
 
 I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../azure-functions/functions-host-json.md) och [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. 
 
-En ny HTTP-utlöst funktion skapas också i mappen **sammanlänkningar** i Function app-projektet. I det här fallet är det en fil med\_\_namnet "init__. py" med det här innehållet:
+En ny HTTP-utlöst funktion skapas också i mappen **sammanlänkningar** i Function app-projektet. I det här fallet är det en fil med namnet " \_ \_ init__. py" med det här innehållet:
 
 ```py
 import logging

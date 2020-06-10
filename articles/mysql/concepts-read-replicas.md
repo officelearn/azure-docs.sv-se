@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: 1536773840693e943b1e32f0ae7358b8b2ee7ce9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 15b146a9299a089a3bf9601c432eb179187a9473
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324648"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610108"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -20,6 +20,12 @@ Med funktionen för skrivskyddade repliker kan du replikera data från en Azure 
 Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MySQL-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
 Mer information om funktioner och problem med MySQL-replikering finns i [dokumentationen för MySQL-replikering](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+
+> [!NOTE]
+> Kompensations fri kommunikation
+>
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
 
@@ -151,7 +157,7 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 
 Om du vill uppdatera en av parametrarna ovan på huvud servern, tar du bort replik servrar, uppdaterar parametervärdet i huvud servern och återskapar repliker.
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 
 - Globala transaktions-ID: n (GTID) stöds inte.
 - Det finns inte stöd för att skapa en replik av en replik.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067220"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629565"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett V2-lagringskonto för generell användning
 
@@ -24,7 +24,7 @@ Att uppgradera till ett allmänt-syfte v2-lagrings konto från dina generella v1
 > [!IMPORTANT]
 > Att uppgradera ett allmänt v1-eller Blob Storage-konto till General-Purpose v2 är permanent och kan inte ångras.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
@@ -60,7 +60,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Ange en åtkomst nivå för BLOB-data
 
-Allmänna-Purpose v2-konton har stöd för alla Azure Storage-tjänster och data objekt, men åtkomst nivåer är bara tillgängliga för block-blobar i Blob Storage. När du uppgraderar till ett allmänt-syfte v2-lagrings konto kan du ange en standard åtkomst nivå för kontot med frekvent eller låg frekvent, vilket anger standard nivån som dina BLOB-data laddas upp som om parametern för den enskilda BLOB-åtkomsten inte har angetts.
+Allmänna-Purpose v2-konton har stöd för alla Azure Storage-tjänster och data objekt, men åtkomst nivåer är bara tillgängliga för att blockera blobbar i Blob Storage. När du uppgraderar till ett allmänt-syfte v2-lagrings konto kan du ange en standard åtkomst nivå för kontot med frekvent eller låg frekvent, vilket anger standard nivån som dina BLOB-data laddas upp som om parametern för den enskilda BLOB-åtkomsten inte har angetts.
 
 Med BLOB Access-nivåer kan du välja den mest kostnads effektiva lagringen utifrån dina förväntade användnings mönster. Block-blobbar kan lagras på frekventa, låg frekventa eller Arkiv lag rings nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)rings nivåer.
 
@@ -73,7 +73,7 @@ I båda fallen är den första prioriteten att uppskatta kostnaden för att lagr
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostnads fritt. Du kan ange önskad konto nivå under uppgraderings processen. Om ingen konto nivå har angetts vid uppgradering blir standard konto nivån för det uppgraderade kontot `Hot`. Men om du ändrar lagrings åtkomst nivån efter uppgraderingen kan det leda till ändringar i fakturan så att du bör ange den nya konto nivån under uppgraderingen.
+Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostnads fritt. Du kan ange önskad konto nivå under uppgraderings processen. Om ingen konto nivå har angetts vid uppgradering blir standard konto nivån för det uppgraderade kontot `Hot` . Men om du ändrar lagrings åtkomst nivån efter uppgraderingen kan det leda till ändringar i fakturan så att du bör ange den nya konto nivån under uppgraderingen.
 
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
@@ -167,4 +167,4 @@ När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöv
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [skapar ett lagringskonto](storage-account-create.md)
+* [Skapa ett lagringskonto](storage-account-create.md)

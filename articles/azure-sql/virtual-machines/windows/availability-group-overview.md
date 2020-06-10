@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62dce0204f77ab65473fc1735015e41f483dddb1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: eddb63f82669821914edefc1b75a7b4dcdc0ca2d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049136"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636163"
 ---
 # <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server tillgänglighets grupper på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,9 +43,10 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | [SQL VM CLI](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
 | [Snabb starts mallar](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
-| [Portal mall](availability-group-azure-marketplace-template-configure.md) | 2016 </br>2012 R2 | 2016</br>2014 | ENT | Filresurs | Nej | Nej | Nej | Nej | Nej | Nej |
 | [Manuell](availability-group-manually-configure-prerequisites-tutorial.md) | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+
+Mallen **SQL Server AlwaysOn-kluster (för hands version)** har tagits bort från Azure Marketplace och är inte längre tillgänglig. 
 
 När du är redo att bygga en SQL Server tillgänglighets grupp på Azure Virtual Machines, se de här självstudierna.
 

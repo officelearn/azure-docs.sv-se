@@ -3,12 +3,12 @@ title: Översikt över säkerhets kopiering offline
 description: Läs mer om komponenterna i säkerhets kopiering offline. De inkluderar offline-säkerhetskopiering som baseras på Azure Data Box och offline-säkerhetskopiering baserat på Azure import/export-tjänsten.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744644"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628335"
 ---
 # <a name="overview-of-offline-backup"></a>Översikt över säkerhets kopiering offline
 
@@ -60,7 +60,7 @@ Här är en sammanfattning av arkitekturen:
 
 Om du vill använda offline-säkerhetskopiering baserat på Azure import/export-tjänsten med MARS-agenten, se [arbets flöde för säkerhets kopiering offline i Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Om du vill använda samma tillsammans med MABS eller DPM-A, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Om du vill använda samma tillsammans med MABS eller DPM-A, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## <a name="offline-backup-support-summary"></a>Översikt över stöd för offline-säkerhetskopiering
 
@@ -83,4 +83,4 @@ I följande tabell jämförs de två tillgängliga alternativen så att du kan g
 
 - [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Arbets flöde för offline-säkerhetskopiering i Azure Backup](backup-azure-backup-import-export.md)
-- [Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](backup-azure-backup-server-import-export-.md)
+- [Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](backup-azure-backup-server-import-export.md)

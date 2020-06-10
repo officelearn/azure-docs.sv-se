@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: f505f8222bd5959a9bb0213dc5c8c48092723bba
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 67c25d7065136f4748b6c0f57a8627db445c1a4e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266635"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610975"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -57,7 +57,7 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol 
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files autentisering med AD DS är tillgänglig i [alla offentliga regioner och i Azure gov-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files autentisering med AD DS är tillgängligt i [alla regioner i offentliga, Azure-gov och Kina](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Översikt
 

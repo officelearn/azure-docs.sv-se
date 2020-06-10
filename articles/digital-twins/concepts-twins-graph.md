@@ -1,0 +1,191 @@
+---
+title: Digitala garn och det dubbla diagrammet
+titleSuffix: Azure Digital Twins
+description: Förstå begreppet digital, och hur deras relationer gör en graf.
+author: baanders
+ms.author: baanders
+ms.date: 3/12/2020
+ms.topic: conceptual
+ms.service: digital-twins
+ms.openlocfilehash: 05c0c66e7b6d301a749b301178c1f666a48d434b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84613007"
+---
+# <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
+
+I en Azure digital-lösning för dubbla lösningar representeras entiteterna i din miljö av Azures **digitala dubbla**. En digital, dubbel är en instans av en av dina anpassade [modeller](concepts-models.md). Det kan anslutas till andra digitala dubbla nätverk via **relationer** för att bilda ett sammanslaget **diagram**: det här dubbla diagrammet är en representation av hela miljön.
+
+> [!TIP]
+> "Azure Digital-dubbla" syftar på den här Azure-tjänsten som helhet. "Digitals dubbla (s)" eller "dubbla (s)" syftar på enskilda dubbla noder i din instans av tjänsten.
+
+## <a name="creating-digital-twins"></a>Skapa digitala dubbla
+
+Innan du kan skapa en digital i din Azure Digitals-instans måste du ha en *modell* som överförs till tjänsten. En modell beskriver uppsättningen egenskaper, telemetri-meddelanden och relationer som en viss, t. ex. kan ha, bland annat. Information om vilka typer av information som definieras i en modell finns i [begrepp: anpassade modeller](concepts-models.md).
+
+När du har skapat och laddat upp en modell kan ditt klient program skapa en instans av typen. Detta är en digital, dubbel. När du har skapat en *vånings*modell kan du till exempel skapa en eller flera digitala garn som använder den här typen (t. ex. en typ av *golv*som kallas *GroundFloor*, en annan som kallas *Floor2*osv.). 
+
+Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att instansiera ett garn av typen *Room*.
+
+I den aktuella för hands versionen av Azure Digitals, måste alla egenskaper för en, initieras innan den dubbla kan skapas. Detta görs genom att skapa ett JSON-dokument som innehåller de nödvändiga initierings värdena.
+
+```csharp
+public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
+{
+    // Define the model for the twin to be created
+    Dictionary<string, object> meta = new Dictionary<string, object>()
+    {
+      { "$model", "dtmi:com:contoso:Room;2" }
+    };
+    // Initialize the twin properties
+    Dictionary<string, object> initData = new Dictionary<string, object>()
+    {
+      { "$metadata", meta },
+      { "Temperature", temperature},
+      { "Humidity", humidity},
+    };
+    try
+    {
+      await client.DigitalTwins.AddAsync(id, initData);
+      return true;
+    }
+    catch (ErrorResponseException e)
+    {
+      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
+      return false;
+    }
+}
+```
+
+## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relationer: skapa en graf med digitala dubbla
+
+Dubbla är anslutna till ett dubbel diagram av deras relationer. Relationerna som en snöre kan ha definieras som en del av modellen.  
+
+Modell *ytan* kan till exempel definiera en *contains* -relation som är riktad mot varandra av typen *Room*. Med den här definitionen kan du med hjälp av Azure Digitals dubbla sammanhållen *skapa relationer* från valfri *våning* till *rummets* dubbla (inklusive dubbla som är av *Room* -undertyper). 
+
+Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att bygga en relation mellan en *vånings*typ, Digital, som kallas *GroundFloor* och en av *rums*typen digital, som kallas *Cafe*.
+
+```csharp
+// Create Twins, using functions similar to the previous sample
+await CreateRoom("Cafe", 70, 66);
+await CreateFloor("GroundFloor", averageTemperature=70);
+// Create relationships
+Dictionary<string, object> targetrec = new Dictionary<string, object>()
+{
+    { "$targetId", "Cafe" }
+};
+try
+{
+    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+} catch(ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
+}
+```
+
+Resultatet av den här processen är en uppsättning noder (de digitala dubbla) som är anslutna via gränser (deras relationer) i ett diagram.
+
+## <a name="json-representations-of-graph-elements"></a>JSON-representationer av diagram element
+
+Digitala dubbla data och Relations data lagras både i JSON-format. Det innebär att när du [frågar det dubbla diagrammet](how-to-query-graph.md) i din Azure Digital-instansen blir resultatet en JSON-representation av digitala dubbla och relationer som du har skapat.
+
+### <a name="digital-twin-json-format"></a>Digitalt dubbla JSON-format
+
+När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
+
+| Fältnamn | Beskrivning |
+| --- | --- |
+| `$dtId` | En användardefinierad sträng som representerar ID: t för den digitala dubbla |
+| `$conformance` | En uppräkning som innehåller proformat-tillståndet för denna digitala garn (*överensstämmande*, *icke-överensstämmande*, *okänd*) |
+| `{propertyName}` | Värdet för en egenskap i JSON ( `string` , tal typ eller objekt) |
+| `$relationships` | URL till sökvägen till Relations samlingen. Det här fältet saknas om det digitala området inte har några utgående Relations kanter. |
+| `$metadata.$model` | Valfritt ID: t för det modell gränssnitt som kännetecknar detta digitala dubbla |
+| `$metadata.{propertyName}.desiredValue` | [Endast för skrivbara egenskaper] Det önskade värdet för den angivna egenskapen |
+| `$metadata.{propertyName}.desiredVersion` | [Endast för skrivbara egenskaper] Versionen för det önskade värdet |
+| `$metadata.{propertyName}.ackVersion` | Versionen som bekräftats av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackCode` | [Endast för skrivbara egenskaper] `ack`Koden som returneras av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackDescription` | [Endast för skrivbara egenskaper] `ack`Beskrivningen som returneras av enhets appen som implementerar den digitala dubbla |
+| `{componentName}` | Ett JSON-objekt som innehåller komponentens egenskaps värden och metadata som liknar dem för rotobjektet. Det här objektet finns även om komponenten inte har några egenskaper. |
+| `{componentName}.{propertyName}` | Värdet för komponentens egenskap i JSON ( `string` , tal typ eller objekt) |
+| `{componentName}.$metadata` | Metadata-informationen för komponenten, som liknar rot nivån`$metadata` |
+
+Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
+
+```json
+{
+  "$dtId": "Cafe",
+  "Temperature": 72,
+  "Location": {
+    "x": 101,
+    "y": 33
+  },
+  "component": {
+    "TableOccupancy": 1,
+    "$metadata": {
+      "$model": "dtmi:com:contoso:Table;1",
+      "TableOccupancy": {
+        "desiredValue": 1,
+        "desiredVersion": 3,
+        "ackVersion": 2,
+        "ackCode": 200,
+        "ackDescription": "OK"
+      }
+    }
+  },
+  "$metadata": {
+    "$model": "dtmi:com:contoso:Room;1",
+    "Temperature": {
+      "desiredValue": 72,
+      "desiredVersion": 5,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "OK"
+    },
+    "Location": {
+      "desiredValue": {
+        "x": 101,
+        "y": 33,
+      },
+      "desiredVersion": 8,
+      "ackVersion": 8,
+      "ackCode": 200,
+      "ackDescription": "OK"
+    }
+  }
+}
+```
+
+### <a name="relationship-json-format"></a>Relations-JSON-format
+
+När den visas som ett JSON-objekt, visas följande fält i en relation från en digital:
+
+| Fältnamn | Beskrivning |
+| --- | --- |
+| `$edgeId` | En användardefinierad sträng som representerar ID: t för den här Relations kanten. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `edgeId` är unik i kontexten för Azure Digitals-instansen. |
+| `$sourceId` | ID: t för den digitala källan |
+| `$targetId` | ID: t för målets digitala dubbla |
+| `$relationshipName` | Namnet på relationen |
+| `{propertyName}` | Valfritt Värdet för en egenskap för den här relationen, i JSON ( `string` , siffer typ eller objekt) |
+
+Här är ett exempel på en relation som är formaterad som ett JSON-objekt:
+
+```json
+{
+  "$edgeId": "Edge-01",
+  "$sourceId": "GroundFloor",
+  "$relationship": "contains",
+  "$targetId": "Cafe",
+  "startDate": "2020-02-04"
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+Se Hantera diagram element med Azures digitala dubbla API: er:
+* [Anvisningar: hantera en digital, dubbel](how-to-manage-twin.md)
+* [Anvisningar: hantera en dubbel graf med relationer](how-to-manage-graph.md)
+
+Eller Lär dig mer om att skicka frågor till Azure Digitals dubbla grafer för information:
+* [Begrepp: frågespråk](concepts-query-language.md)

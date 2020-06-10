@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 461c5b1603a4c06e680aab671238a1c8ccd5dacd
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628903"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609088"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
@@ -51,8 +51,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -70,8 +70,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -88,8 +88,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -102,7 +102,7 @@ Detta är fel som rör behållare och resurs namn.
 - På sidan Anslut och kopiera i det lokala webb gränssnittet laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem. 
 - Byt namn på katalogen eller behållare för att säkerställa att de är kompatibla med namngivnings konventionerna i Azure.
 
-Mer information finns i namngivnings konventionerna för [kataloger](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och [behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)i Azure.
+Mer information finns i namngivnings konventionerna för [kataloger](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   och [behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)i Azure.
 
 ## <a name="container-or-share-size-limit-errors"></a>Gräns fel för behållare eller resurs storlek
 

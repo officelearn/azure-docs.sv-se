@@ -1,14 +1,14 @@
 ---
 title: Åtgärda icke-kompatibla resurser
 description: Den här guiden vägleder dig genom reparationen av resurser som inte är kompatibla med principer i Azure Policy.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849968"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636316"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -17,7 +17,7 @@ Resurser som inte är kompatibla med en **deployIfNotExists** eller en **ändrin
 ## <a name="how-remediation-security-works"></a>Så här fungerar reparations säkerhet
 
 När Azure Policy kör mallen i **deployIfNotExists** -princip definitionen används en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identiteten saknar roller visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startar. _Platsen_ för den hanterade identiteten påverkar inte att den fungerar med Azure policy.
+Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identiteten saknar roller visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startar. _Platsen_ för den hanterade identiteten påverkar inte åtgärden med Azure policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Hanterad identitet-saknas roll" border="false":::
 
@@ -51,9 +51,6 @@ När du skapar en tilldelning med hjälp av portalen genererar Azure Policy båd
 - När du använder SDK (till exempel Azure PowerShell)
 - När en resurs utanför tilldelnings omfånget ändras av mallen
 - När en resurs utanför tilldelnings omfånget läses av mallen
-
-> [!NOTE]
-> Azure PowerShell och .NET är de enda SDK: er som för närvarande stöder den här funktionen.
 
 ### <a name="create-managed-identity-with-powershell"></a>Skapa hanterad identitet med PowerShell
 
@@ -183,7 +180,7 @@ Andra reparations-cmdletar och exempel finns i modulen [AZ. PolicyInsights](/pow
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Skapa en reparations uppgift under princip tilldelningen i Azure Portal
 
-Ett effektiviserat sätt att skapa en reparations uppgift är att göra det från Azure Portal under princip tilldelningen. Om princip definitionen att tilldela är en **deployIfNotExists** eller en **ändrings** inverkan, erbjuder guiden på fliken **reparation** en _Åtgärds alternativet Skapa en remedation_ . Om det här alternativet väljs skapas en remedation-uppgift samtidigt som princip tilldelningen.
+Ett effektiviserat sätt att skapa en reparations uppgift är att göra det från Azure Portal under princip tilldelningen. Om princip definitionen att tilldela är en **deployIfNotExists** eller en **ändrings** inverkan, erbjuder guiden på fliken **reparation** ett alternativ för att _skapa en åtgärd_ . Om det här alternativet är markerat skapas en reparations uppgift samtidigt som princip tilldelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

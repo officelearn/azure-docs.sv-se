@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a8fec876556d943d29756a38ffc27ae8095e3c4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466246"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629044"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspektera Custom Speech-data
 
@@ -33,7 +33,7 @@ På den här sidan får du lära dig att visuellt kontrol lera kvaliteten på Mi
 Följ de här anvisningarna för att skapa ett test:
 
 1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
-2. Navigera till **> för tal till text Custom Speech > testning**.
+2. Navigera till **> för tal till text Custom Speech > [namn på projektet] > testning**.
 3. Klicka på **Lägg till test**.
 4. Välj **inspektera kvalitet (endast ljuddata)**. Ge testet ett namn, en beskrivning och välj din ljud data uppsättning.
 5. Välj upp till två modeller som du vill testa.

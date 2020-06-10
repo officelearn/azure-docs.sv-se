@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266839"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610159"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med en privat Azure-länk
 
@@ -66,7 +66,7 @@ Nu kommer du att kunna se den konfigurerade privata slut punkten. Nu har du möj
 
 Om du redan har ett nyckel valv kan du skapa en privat länk anslutning genom att följa dessa steg:
 
-1. Logga in på Azure Portal. 
+1. Logga in på Azure-portalen. 
 1. I Sök fältet skriver du in "nyckel valv"
 1. Välj nyckel valvet i listan som du vill lägga till en privat slut punkt för.
 1. Välj fliken nätverk under Inställningar
@@ -146,9 +146,9 @@ Det finns fyra etablerings tillstånd:
 
 | Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
-| Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
+| Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Hantera en privat slut punkts anslutning till Key Vault med hjälp av Azure Portal 
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Begränsningar och design överväganden
 
+> [!NOTE]
+> Antalet nyckel valv med privata slut punkter som har Aktiver ATS per prenumeration är en justerbar gräns. Den gräns som visas nedan är standard gränsen. Skicka ett e-postmeddelande till om du vill begära en större gräns för tjänsten akv-privatelink@microsoft.com . Vi kommer att godkänna dessa förfrågningar från fall till fall.
+
 **Priser**: information om priser finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Begränsningar**: den privata slut punkten för Azure Key Vault är bara tillgänglig i offentliga Azure-regioner.
 
 **Maximalt antal privata slut punkter per Key Vault**: 64.
 
-**Maximalt antal nyckel valv med privata slut punkter per prenumeration**: 64.
+**Standard antal nyckel valv med privata slut punkter per prenumeration**: 400.
 
 Mer information finns i [Azure Private Link service: begränsningar](../../private-link/private-link-service-overview.md#limitations)
 

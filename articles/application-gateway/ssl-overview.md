@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3f8dcf4858d69f33ea50d473f6261cf45a6b7fa5
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648135"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629220"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -68,7 +68,7 @@ För Application Gateway-och WAF v1 SKU: n gäller TLS-principen för både fron
 
 För Application Gateway-och WAF v2-SKU: n gäller TLS-principen endast för klient dels trafiken och alla chiffer erbjuds till backend-servern, som har kontroll över att välja vissa chiffer och TLS-version under hand skakningen.
 
-Application Gateway kommunicerar endast med de backend-servrar som antingen har vit listas sina certifikat med Application Gateway eller vars certifikat är signerade av välkända CA-myndigheter och certifikatets CN matchar värd namnet i inställningarna för HTTP-backend. Dessa inkluderar betrodda Azure-tjänster som Azure App Service/Web Apps och Azure API Management.
+Application Gateway kommunicerar endast med de Server dels servrar som antingen tillåter att de har listat sitt certifikat med den Application Gateway eller vars certifikat är signerade av välkända CA-myndigheter och certifikatets CN matchar värd namnet i inställningarna för HTTP-backend. Dessa inkluderar betrodda Azure-tjänster som Azure App Service/Web Apps och Azure API Management.
 
 Om certifikaten för medlemmarna i backend-poolen inte har signerats av välkända CA-utfärdare, måste varje instans i backend-poolen med end to end TLS aktiverat konfigureras med ett certifikat för att tillåta säker kommunikation. Genom att lägga till certifikatet ser du till att programgatewayen bara kommunicerar med kända backend-instanser. Detta skyddar all kommunikation från slut punkt till slut punkt.
 
@@ -80,9 +80,9 @@ Om certifikaten för medlemmarna i backend-poolen inte har signerats av välkän
 
 I det här exemplet dirigeras begär Anden som använder TLS 1.2 till backend-servrar i Pool1 med end to end-TLS.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>Slut punkt till slut punkt för TLS och vit listning av certifikat
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>Slut punkt till slut punkt TLS och Tillåt registrering av certifikat
 
-Application Gateway kommunicerar bara med kända Server dels instanser som har vit listas sitt certifikat med Application Gateway. Det finns vissa skillnader i konfigurations processen från slut punkt till slut punkt som gäller den version av Application Gateway som används. I följande avsnitt förklaras de var för sig.
+Application Gateway kommunicerar bara med kända Server dels instanser som har Tillåt att deras certifikat visas med programgatewayen. Det finns vissa skillnader i konfigurations processen från slut punkt till slut punkt som gäller den version av Application Gateway som används. I följande avsnitt förklaras de var för sig.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>End-to-end-TLS med v1 SKU
 
@@ -90,7 +90,7 @@ För att aktivera TLS från slut punkt till slut punkt med backend-servrar och f
 
 För HTTPS-hälsosökningar använder Application Gateway v1 SKU en exakt matchning av autentiseringscertifikatet (offentlig nyckel för backend-serverns certifikat och inte rot certifikatet) som ska överföras till HTTP-inställningarna.
 
-Endast anslutningar till kända och vitlistade serverdelar tillåts sedan. Återstående Server delar betraktas som ohälsosama av hälso avsökningarna. Självsignerade certifikat är enbart för testningsändamål och rekommenderas inte för produktions-arbetsbelastningar. Sådana certifikat måste vara vit listas med Application Gateway enligt beskrivningen i föregående steg innan de kan användas.
+Endast anslutningar till kända och tillåtna Server delar tillåts sedan. Återstående Server delar betraktas som ohälsosama av hälso avsökningarna. Självsignerade certifikat är enbart för testningsändamål och rekommenderas inte för produktions-arbetsbelastningar. Sådana certifikat måste tillåtas i listan med programgatewayen enligt beskrivningen i föregående steg innan de kan användas.
 
 > [!NOTE]
 > Autentisering och konfiguration av betrodda rot certifikat krävs inte för betrodda Azure-tjänster som Azure App Service. De anses vara betrodda som standard.
@@ -138,10 +138,10 @@ Scenario | v1 | v2 |
 Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name)-huvud under TLS-handskakning som FQDN | Ange som FQDN från backend-poolen. Som enligt [RFC 6066](https://tools.ietf.org/html/rfc6066)tillåts inte textuella IPv4-och IPv6-adresser i SNI-värdnamnet. <br> **Obs:** FQDN i backend-poolen ska DNS matcha till backend-serverns IP-adress (offentlig eller privat) | SNI-huvud (server_name) anges som värd namnet från den anpassade avsökningen som är kopplad till HTTP-inställningarna (om den har kon figurer ATS), i annat fall från det värdnamn som anges i HTTP-inställningarna, annars från det fullständiga domän namn som anges i Server delen Prioritetsordningen är anpassad avsökning > HTTP-inställningar > backend-pool. <br> **Obs:** Om värd namnen som kon figurer ATS i HTTP-inställningar och anpassad avsökning skiljer sig åt, kommer SNI att anges som värdnamn från den anpassade avsökningen enligt prioritet.
-| Om Server delens adresspool är en IP-adress (v1) eller om anpassad avsöknings-värdnamn har kon figurer ATS som IP-adress (v2) | SNI (server_name) anges inte. <br> **Obs:** I det här fallet ska backend-servern kunna returnera ett standard-/fallback-certifikat och bör vara vit listas i HTTP-inställningar under autentiseringscertifikat. Om inget standard-/fallback-certifikat har kon figurer ATS i backend-servern och SNI förväntas, kan servern återställa anslutningen och leda till avsöknings problem | I prioritetsordning som nämnts tidigare, om de har IP-adress som värdnamn, kommer SNI inte att anges enligt [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Obs:** SNI anges inte heller i v2-avsökningar om ingen anpassad avsökning har kon figurer ATS och inget värdnamn har angetts för HTTP-inställningar eller backend-poolen |
+| Om Server delens adresspool är en IP-adress (v1) eller om anpassad avsöknings-värdnamn har kon figurer ATS som IP-adress (v2) | SNI (server_name) anges inte. <br> **Obs:** I det här fallet ska backend-servern kunna returnera ett standard-/fallback-certifikat och detta bör tillåtas i HTTP-inställningar under autentiseringscertifikatet. Om inget standard-/fallback-certifikat har kon figurer ATS i backend-servern och SNI förväntas, kan servern återställa anslutningen och leda till avsöknings problem | I prioritetsordning som nämnts tidigare, om de har IP-adress som värdnamn, kommer SNI inte att anges enligt [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Obs:** SNI anges inte heller i v2-avsökningar om ingen anpassad avsökning har kon figurer ATS och inget värdnamn har angetts för HTTP-inställningar eller backend-poolen |
 
 > [!NOTE] 
-> Om en anpassad avsökning inte har kon figurer ATS skickar Application Gateway en standard avsökning i formatet- \< protokoll \> ://127.0.0.1: \< port \> /. För en standard-HTTPS-avsökning kommer den till exempel att skickas som https://127.0.0.1:443/ . Observera att den 127.0.0.1 som anges här bara används som HTTP-värd rubrik och enligt RFC 6066, kommer inte att användas som SNI-huvud. Mer information om hälso avsöknings fel finns i [fel söknings guide för Server dels hälsa](application-gateway-backend-health-troubleshooting.md).
+> Om en anpassad avsökning inte har kon figurer ATS skickar Application Gateway en standard avsökning i formatet- \<protocol\> ://127.0.0.1: \<port\> /. För en standard-HTTPS-avsökning kommer den till exempel att skickas som https://127.0.0.1:443/ . Observera att den 127.0.0.1 som anges här bara används som HTTP-värd rubrik och enligt RFC 6066, kommer inte att användas som SNI-huvud. Mer information om hälso avsöknings fel finns i [fel söknings guide för Server dels hälsa](application-gateway-backend-health-troubleshooting.md).
 
 #### <a name="for-live-traffic"></a>För Live-trafik
 

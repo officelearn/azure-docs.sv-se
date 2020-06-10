@@ -13,15 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106703"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628294"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
+
+
+## <a name="availability"></a>Tillgänglighet
+
+- Versions tillstånd: **allmänt tillgängligt**
+- Nödvändiga roller: **arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure-roller för Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Läsaren** kan visa resultat.
+- Moln
+    - ✔ Kommersiella moln
+    - ✔ US Gov molnet
+    - ✘ Kina gov/övrigt gov
+
 
 ## <a name="what-is-fim-in-security-center"></a>Vad är FIM i Security Center?
 File Integrity Monitoring (FIM), även kallat ändrings övervakning, undersöker filer och register över operativ system, program vara och andra för ändringar som kan tyda på ett angrepp. En jämförelse metod används för att avgöra om filens aktuella tillstånd skiljer sig från den senaste genomsökningen av filen. Du kan utnyttja den här jämförelsen för att avgöra om giltiga eller misstänkta ändringar har gjorts i dina filer.
@@ -37,7 +48,7 @@ Security Center rekommenderar att entiteter övervakas, som du enkelt kan aktive
 > [!NOTE]
 > FIM-funktionen (File Integrity Monitoring) fungerar för Windows-och Linux-datorer och virtuella datorer och finns på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .
 
-FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om frekvens information om data insamling finns i [ändringsspårning information om data insamling](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) för Azure ändringsspårning.
+FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om datainsamlingsfrekvens finns i [Information om insamling av ändringsspårningsdata](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) för Azure Ändringsspårning.
 
 > [!NOTE]
 > Om du tar bort **ändringsspårning** resursen inaktiverar du även funktionen för övervakning av fil integritet i Security Center.
@@ -49,8 +60,8 @@ Security Center innehåller följande lista över rekommenderade objekt som ska 
 
 |**Linux-filer**|**Windows-filer**|**Windows-registernycklar**|
 |:----|:----|:----|
-|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
 |/etc/*. conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
 |/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
 |/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
@@ -61,8 +72,8 @@ Security Center innehåller följande lista över rekommenderade objekt som ska 
 |/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
 |/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
 |/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
-|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
 |/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
 |/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
 |/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
@@ -97,7 +108,7 @@ Följande information anges för varje arbets yta:
 Följande knappar kan också visas för en arbets yta:
 
 - ![Aktivera ikon][3] Anger att FIM inte är aktiverat för arbets ytan. Genom att välja arbets ytan kan du aktivera FIM på alla datorer under arbets ytan.
-- ![Ikonen][4] uppgradera plan indikerar att arbets ytan eller prenumerationen inte körs under Security Center standard nivån. Din prenumeration måste köra standard för att använda FIM-funktionen.  Genom att välja arbets ytan kan du uppgradera till standard. Mer information om standard nivån och hur du uppgraderar finns i [Uppgradera till Security Center standard nivå för ökad säkerhet](security-center-pricing.md).
+- ![Ikonen uppgradera plan ][4] indikerar att arbets ytan eller prenumerationen inte körs under Security Center standard nivån. Din prenumeration måste köra standard för att använda FIM-funktionen.  Genom att välja arbets ytan kan du uppgradera till standard. Mer information om standard nivån och hur du uppgraderar finns i [Uppgradera till Security Center standard nivå för ökad säkerhet](security-center-pricing.md).
 - En tom (det finns ingen knapp) innebär att FIM redan är aktiverat på arbets ytan.
 
 Under **övervakning av fil integritet**kan du välja en arbets yta för att aktivera FIM för den arbets ytan, Visa instrument panelen för övervakning av fil integritet för den arbets ytan eller [Uppgradera](security-center-pricing.md) arbets ytan till standard.
@@ -216,7 +227,7 @@ Använd jokertecken för att förenkla spårningen mellan kataloger. Följande r
 -   Jokertecken krävs för att spåra flera filer.
 -   Jokertecken kan endast användas i det sista segmentet i en sökväg, till exempel C:\folder\file eller/etc/*. conf
 -   Om en miljö variabel innehåller en sökväg som inte är giltig kommer verifieringen att lyckas, men sökvägen Miss lyckas När inventeringen körs.
--   När du anger sökvägen bör du undvika allmänna sökvägar, till\*exempel c:. *, vilket leder till att för många mappar passerar.
+-   När du anger sökvägen bör du undvika allmänna sökvägar, till exempel c: \* . *, vilket leder till att för många mappar passerar.
 
 ## <a name="disable-fim"></a>Inaktivera FIM
 Du kan inaktivera FIM. FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. Genom att inaktivera FIM tar du bort Ändringsspårning-lösningen från den valda arbets ytan.

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a345b5a8a4d6a99b1b3928d61b22dfba0ba2735b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 319e6a4bff4d4d5675a03359176ac765cae80116
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248846"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608086"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -32,7 +32,9 @@ Att ställa in tillhandahållet data flöde på en behållare är det alternativ
 
 Det data flöde som har allokerats för en behållare distribueras jämnt mellan de fysiska partitionerna, och en lämplig partitionsnyckel som distribuerar de logiska partitionerna jämnt mellan de fysiska partitionerna distribueras även genom data flödet jämnt över alla logiska partitioner i behållaren. Du kan inte selektivt ange data flödet för logiska partitioner. Eftersom en eller flera logiska partitioner i en behållare finns i en fysisk partition, hör de fysiska partitionerna exklusivt till behållaren och har stöd för det data flöde som har allokerats på behållaren. 
 
-Om arbets belastningen som körs på en logisk partition förbrukar mer än det data flöde som allokerats till den logiska partitionen får dina åtgärder begränsad hastighet. När Rate-Limiting inträffar kan du antingen öka det etablerade data flödet för hela behållaren eller utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
+Om arbets belastningen som körs på en logisk partition förbrukar mer än det data flöde som allokerats till den underliggande fysiska partitionen, är det möjligt att dina åtgärder kommer att begränsas. Vad som kallas för en _aktiv partition_ inträffar när en logisk partition har oproportionerligt fler förfrågningar än andra nyckel värden.
+
+När Rate-Limiting inträffar kan du antingen öka det etablerade data flödet för hela behållaren eller utföra åtgärderna igen. Du bör också se till att du väljer en partitionsnyckel som jämnt distribuerar lagringen och begär volym. Mer information om partitionering finns [i partitionering och horisontell skalning i Azure Cosmos DB](partition-data.md).
 
 Vi rekommenderar att du konfigurerar data flödet på behållar precisionen när du vill ha garanterade prestanda för behållaren.
 
@@ -104,7 +106,7 @@ Du kan skala det etablerade data flödet för en behållare eller en databas nä
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) data flöde i en databas jämfört med på en behållare. 
 
-|**Parameter**  |**Standard (manuell) genom strömning på en databas**  |**Standard (manuell) genom strömning på en behållare**|**Autoskalning av data flöde på en databas** | **Autoskalning av data flöde på en behållare**|
+|**ProfileServiceApplicationProxy**  |**Standard (manuell) genom strömning på en databas**  |**Standard (manuell) genom strömning på en behållare**|**Autoskalning av data flöde på en databas** | **Autoskalning av data flöde på en behållare**|
 |---------|---------|---------|---------|---------|
 |Start punkt (minst RU/s) |400 RU/s. Efter de första fyra behållarna kräver varje ytterligare behållare minst 100 RU/s</li> |400| Skala mellan 400-4000 RU/s. Kan ha upp till 25 behållare utan RU/s minimum per container</li> | Skala mellan 400-4000 RU/s.|
 |Lägsta RU/s per behållare|100|400|--|Skala mellan 400-4000 RU/s|

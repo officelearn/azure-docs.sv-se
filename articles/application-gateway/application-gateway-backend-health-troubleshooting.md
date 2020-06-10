@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 626f52aa8a14cd16d36bef8930cfb75654ef3f32
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648437"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628783"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
 ==================================================
@@ -81,7 +81,7 @@ När du har fått en felaktig backend-server status för alla servrar i en backe
 Det meddelande som visas i kolumnen **information** innehåller mer detaljerade insikter om problemet och utifrån dessa kan du börja felsöka problemet.
 
 > [!NOTE]
-> Standard avsöknings förfrågan skickas i formatet \< protokoll \> ://127.0.0.1: \< port \> /. Till exempel http://127.0.0.1:80 för en http-avsökning på port 80. Endast HTTP-statuskod på 200 till 399 betraktas som felfria. Protokoll-och mål porten ärvs från HTTP-inställningarna. Om du vill att Application Gateway ska avsöka på ett annat protokoll, värd namn eller sökväg och identifiera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
+> Standard avsöknings förfrågan skickas i formatet \<protocol\> ://127.0.0.1: \<port\> /. Till exempel http://127.0.0.1:80 för en http-avsökning på port 80. Endast HTTP-statuskod på 200 till 399 betraktas som felfria. Protokoll-och mål porten ärvs från HTTP-inställningarna. Om du vill att Application Gateway ska avsöka på ett annat protokoll, värd namn eller sökväg och identifiera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
 
 <a name="error-messages"></a>Felmeddelanden
 ------------------------
@@ -109,7 +109,7 @@ Följ dessa steg om du vill öka timeout-värdet:
 
 **Orsak:** Om backend-poolen är av typen IP-adress/FQDN eller App Service, matchar Application Gateway IP-adressen för FQDN som anges via Domain Name System (DNS) (anpassat eller Azure standard) och försöker ansluta till servern på TCP-porten som anges i HTTP-inställningarna. Men om det här meddelandet visas föreslår det att Application Gateway inte kunde matcha IP-adressen för det FQDN som angetts.
 
-**Lösning:**
+**Lösning**
 
 1.  Kontrol lera att det fullständiga domän namnet som angavs i backend-poolen är korrekt och att det är en offentlig domän och försök sedan att lösa den från den lokala datorn.
 
@@ -170,7 +170,7 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
 **Meddelande:** Status koden för Server delens \' HTTP-svar matchade inte avsöknings inställningen. Förväntades: {HTTPStatusCode0} togs emot: {HTTPStatusCode1}.
 
-**Orsak:** När TCP-anslutningen har upprättats och en TLS-handskakning görs (om TLS är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till backend-servern. Som tidigare beskrivits är standard avsökningen till \< protokoll \> ://127.0.0.1: \< port \> /, och det tar hänsyn till svars status koder i Rage 200 till 399 som felfria. Om servern returnerar någon annan status kod så markeras den som ohälsosam med det här meddelandet.
+**Orsak:** När TCP-anslutningen har upprättats och en TLS-handskakning görs (om TLS är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till backend-servern. Som tidigare beskrivits är standard avsökningen till \<protocol\> ://127.0.0.1: \<port\> /, och den tar hänsyn till svars status koder i Rage 200 till 399 som felfri. Om servern returnerar någon annan status kod så markeras den som ohälsosam med det här meddelandet.
 
 **Lösning:** Beroende på backend-serverns svarskod kan du utföra följande steg. Några av de vanliga status koderna visas här:
 
@@ -209,7 +209,7 @@ Läs mer om [matchning av Application Gateway avsökning](https://docs.microsoft
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Backend-servercertifikat ogiltigt CA
 
-**Meddelande:** Server certifikatet som används av Server delen är inte signerat av en välkänd certifikat utfärdare (CA). Vitlista Server delen på Application Gateway genom att ladda upp rot certifikatet för Server certifikatet som används av Server delen.
+**Meddelande:** Server certifikatet som används av Server delen är inte signerat av en välkänd certifikat utfärdare (CA). Tillåt Server delen på Application Gateway genom att ladda upp rot certifikatet för Server certifikatet som används av Server delen.
 
 **Orsak:** End-to-end-SSL med Application Gateway v2 kräver att backend-serverns certifikat verifieras för att anse att servern är felfri.
 För att ett TLS/SSL-certifikat ska vara betrott måste certifikatet på backend-servern utfärdas av en certifikat utfärdare som ingår i det betrodda lagrings lagret för Application Gateway. Om certifikatet inte har utfärdats av en betrodd certifikat utfärdare (till exempel om ett självsignerat certifikat användes) bör användare ladda upp utfärdarens certifikat till Application Gateway.

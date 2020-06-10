@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: 3259c861b0e64b560eb2a17a832a02b87855bebf
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 68c95c74768f9d9628f92b061754c942b080565c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449200"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659979"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Konfigurera beroende visualisering för agent utan agent 
 
@@ -103,8 +103,7 @@ Du kan visualisera beroenden runt sex timmar efter start av beroende identifieri
 
 Beroende data exporteras och hämtas i CSV-format. Den hämtade filen innehåller beroende data över alla datorer som är aktiverade för beroende analys. 
 
-    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
-
+![Exportera beroenden](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
 ## <a name="stop-dependency-discovery"></a>Stoppa beroende identifiering
 

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: a621ba9ebab1ffca0f9e1b8fb315714e3cf2af2f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: a55aebf13b341d1a722ddcb9525c4539b2f000e6
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416179"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656771"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
-För scenarier där dina Logi Kap par och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md)kan du skapa en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
+För scenarier där dina Logi Kap par och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md)kan du skapa en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en särskild miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
 
 När du skapar en ISE, *injicerar* Azure som ISE i ditt virtuella Azure-nätverk, som sedan distribuerar tjänsten Logic Apps till ditt virtuella nätverk. När du skapar en Logic app eller ett integrations konto väljer du din ISE som plats. Din Logic app-eller integrations konto kan sedan få direkt åtkomst till resurser, till exempel virtuella datorer, servrar, system och tjänster, i ditt virtuella nätverk.
 
@@ -148,15 +148,15 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Prenumeration** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för din miljö |
-   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | En ny eller befintlig Azure-resurs grupp där du vill skapa din miljö |
-   | **Namn på integrerings tjänst miljö** | Ja | <*miljö namn*> | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ) och punkter ( `.` ). |
-   | **Position** | Ja | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
-   | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
-   | **Ytterligare kapacitet** | Premium: <br>Ja <p><p>Utvecklarläget <br>Ej tillämpligt | Premium: <br>0 till 10 <p><p>Utvecklarläget <br>Ej tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) |
-   | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. <p><p>Valet påverkar också hur du kan visa och komma åt indata och utdata i din Logic app kör historik. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare. |
-   | **Virtuellt nätverk** | Ja | <*Azure-Virtual-Network-Name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p><p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
-   | **Undernät** | Ja | <*undernät-resurs lista*> | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
+   | **Prenumeration** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för din miljö |
+   | **Resursgrupp** | Yes | <*Azure-resurs-grupp-namn*> | En ny eller befintlig Azure-resurs grupp där du vill skapa din miljö |
+   | **Namn på integrerings tjänst miljö** | Yes | <*miljö namn*> | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ) och punkter ( `.` ). |
+   | **Position** | Yes | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
+   | **SKU** | Yes | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
+   | **Ytterligare kapacitet** | Premium: <br>Yes <p><p>Utvecklarläget <br>Ej tillämpligt | Premium: <br>0 till 10 <p><p>Utvecklarläget <br>Ej tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) |
+   | **Åtkomst slut punkt** | Yes | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. <p><p>Valet påverkar också hur du kan visa och komma åt indata och utdata i din Logic app kör historik. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare. |
+   | **Virtuellt nätverk** | Yes | <*Azure-Virtual-Network-Name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p><p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
+   | **Undernät** | Yes | <*undernät-resurs lista*> | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
    |||||
 
    <a name="create-subnet"></a>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e432f599196a6948633d7150e1a747fbe626e1f4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: f22b7eca6db55f886dbd4fea563d993bbee11ecb
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464665"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661110"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -163,7 +163,7 @@ I följande tabell visas interop-tillstånd för NTFS-fil system funktioner:
 | Fil/mapp | Anteckning |
 |-|-|
 | pagefile.sys | Filinformation till system |
-| Desktop. ini | Filinformation till system |
+| Desktop.ini | Filinformation till system |
 | tummes. db | Temporär fil för miniatyrer |
 | ehthumbs. db | Temporär fil för medie miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
@@ -356,7 +356,7 @@ Om du har en befintlig Windows-fil Server kan Azure File Sync installeras direkt
 
 Du kan också använda Data Box-enhet för att migrera data till en Azure File Sync-distribution. I de flesta fall, när kunder vill använda Data Box-enhet för att mata in data, gör de det eftersom de tror att de kommer att öka hastigheten på sin distribution, eller så kan de hjälpa till med begränsade bandbredds scenarier. Även om det är sant att när du använder en Data Box-enhet för att mata in data i din Azure File Sync-distribution minskar bandbredds användningen, kommer det förmodligen att gå snabbare för de flesta scenarier för att kunna använda en data uppladdning online via en av de metoder som beskrivs ovan. Mer information om hur du använder Data Box-enhet för att mata in data i din Azure File Sync-distribution finns i [migrera data till Azure File Sync med Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Vanliga misstag som kunder gör när de migrerar data till sin nya Azure File Sync-distribution är att kopiera data direkt till Azure-filresursen i stället för på sina Windows-filservrar. Även om Azure File Sync kommer att identifiera alla nya filer på Azure-filresursen och synkronisera tillbaka dem till dina Windows-filresurser, är detta normalt betydligt långsammare än att läsa in data via Windows-filservern. Många Azure Copy-verktyg, till exempel AzCopy, har ytterligare nack delen att inte kopiera alla viktiga metadata för en fil, till exempel tidsstämplar och ACL: er.
+Vanliga misstag som kunder gör när de migrerar data till sin nya Azure File Sync-distribution är att kopiera data direkt till Azure-filresursen i stället för på sina Windows-filservrar. Även om Azure File Sync kommer att identifiera alla nya filer på Azure-filresursen och synkronisera tillbaka dem till dina Windows-filresurser, är detta normalt betydligt långsammare än att läsa in data via Windows-filservern. När du använder Azure Copy-verktyg, till exempel AzCopy, är det viktigt att använda den senaste versionen. Se [tabellen fil kopierings verktyg](storage-files-migration-overview.md#file-copy-tools) för att få en översikt över Azure Copy-verktyg så att du kan kopiera alla viktiga metadata för en fil, till exempel tidsstämplar och ACL: er.
 
 ## <a name="antivirus"></a>Antivirus
 Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer. I version 4,0 och senare av Azure File Sync agenten har filer på nivån säker Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angett. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 

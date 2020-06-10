@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c9257c50320497a11a6cd1dbfdd1c709e2d9800
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335898"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658427"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -34,7 +34,7 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 
 Du kan bygga din utvecklings Portal på två sätt:
 
-- **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig `<your-api-management-instance-name>.developer.azure-api.net`via URL: en. Läs [den här dokumentations artikeln](api-management-howto-developer-portal-customize.md) för att lära dig hur du får åtkomst till och anpassar den hanterade portalen.
+- **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig via URL: en `<your-api-management-instance-name>.developer.azure-api.net` . Läs [den här dokumentations artikeln](api-management-howto-developer-portal-customize.md) för att lära dig hur du får åtkomst till och anpassar den hanterade portalen.
 - **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de tillhandahållna kärn funktionerna, till exempel implementera anpassade widgetar för integreringar med system från tredje part. I det här scenariot är du portalens underhållare och du ansvarar för att uppgradera portalen till den senaste versionen. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1] och [självstudien om hur du implementerar en widget][3]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som är gemensam för de hanterade och de egna värd versionerna.
 
 ## <a name="portal-architectural-concepts"></a>Arkitektur koncept för portalen
@@ -68,7 +68,7 @@ Portalen baseras på en anpassad förgrening av [Paperbits-ramverket](https://pa
 
 I det här avsnittet svarar vi på vanliga frågor om Developer-portalen, som är av allmän natur. För frågor som är speciella för den självbetjänings versionen, se [wiki-avsnittet i GitHub-lagringsplatsen](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Hur kan jag migrera från för hands versionen av portalen?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Hur kan jag migrera från för hands versionen av portalen?
 
 Med hjälp av för hands versionen av Developer-portalen etablerade du att förhands gransknings innehållet i API Managements tjänsten. Standard innehållet har ändrats avsevärt i den allmänt tillgängliga versionen för bättre användar upplevelse. Den innehåller också nya widgetar.
 
@@ -116,7 +116,7 @@ Nej.
 
 I de flesta fall – nej.
 
-Om din API Management-tjänst finns i ett internt virtuellt nätverk är din utvecklings Portal bara tillgänglig i nätverket. Värd namnet för hanterings slut punkten måste matcha den interna VIP för tjänsten från den dator som du använder för att få åtkomst till portalens administrations gränssnitt. Kontrol lera att hanterings slut punkten är registrerad i DNS. I händelse av fel konfiguration visas ett fel meddelande: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Om din API Management-tjänst finns i ett internt virtuellt nätverk är din utvecklings Portal bara tillgänglig i nätverket. Värd namnet för hanterings slut punkten måste matcha den interna VIP för tjänsten från den dator som du använder för att få åtkomst till portalens administrations gränssnitt. Kontrol lera att hanterings slut punkten är registrerad i DNS. I händelse av fel konfiguration visas ett fel meddelande: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
 Om din API Management-tjänst finns i ett internt virtuellt nätverk och du har åtkomst till den via Application Gateway från Internet, så se till att aktivera anslutningen till Developer-portalen och hanterings slut punkterna för API Management.
 
@@ -165,7 +165,7 @@ Du kan också aktivera CORS manuellt.
 
 Om du ser `Oops. Something went wrong. Please try again later.` felet när du öppnar portalen i administrations läge, kan det hända att du saknar de nödvändiga behörigheterna (RBAC).
 
-De äldre portalerna krävde behörigheten `Microsoft.ApiManagement/service/getssotoken/action` för tjänst omfånget (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) för att ge användar administratörs åtkomst till portalerna. Den nya portalen kräver behörighet `Microsoft.ApiManagement/service/users/token/action` i omfånget `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+De äldre portalerna krävde behörigheten för `Microsoft.ApiManagement/service/getssotoken/action` tjänst omfånget ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) för att ge användar administratörs åtkomst till portalerna. Den nya portalen kräver behörighet `Microsoft.ApiManagement/service/users/token/action` i omfånget `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
 Du kan använda följande PowerShell-skript för att skapa en roll med den behörighet som krävs. Kom ihåg att ändra `<subscription-id>` parametern. 
 
@@ -208,7 +208,7 @@ Anrops felen kan också orsakas av ett TLS/SSL-certifikat, som är tilldelat en 
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | Nej              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>

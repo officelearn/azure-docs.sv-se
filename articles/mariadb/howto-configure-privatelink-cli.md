@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 82d28a7ac5475752e3969a6af1185bc254b0fa7f
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: ca889f30f8c89bae60ea5f0076c4e9bbc75311aa
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636146"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660666"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med CLI
 
@@ -72,7 +72,7 @@ az vm create \
 Skapa en Azure Database for MariaDB med kommandot AZ MariaDB Server Create. Kom ihåg att namnet på din MariaDB-Server måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -88,13 +88,20 @@ az mariadb server create \
 
 ## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten 
 Skapa en privat slut punkt för MariaDB-servern i Virtual Network: 
+
+Hämta resurs-ID för servern
 ```azurecli-interactive
+$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id")
+```
+
+```azurecli-interactive
+#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
+    --private-connection-resource-id $resourceid \  
     --group-id mariadbServer \  
     --connection-name myConnection  
  ```

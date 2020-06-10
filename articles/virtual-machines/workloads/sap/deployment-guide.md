@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: ddcf1d05933daadd29bf2f93850ac3299dc9e734
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a850f7ceaeb57678738084cb14f383b46c7dfe84
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020123"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660639"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -122,9 +122,19 @@ ms.locfileid: "84020123"
 [deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
 [deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Konfigurera Azure-tillägget för SAP)
+[deployment-guide-configure-new-extension-ps]:deployment-guide.md#2ad55a0d-9937-4943-9dd2-69bc2b5d3de0 (Konfigurera det nya Azure-tillägget för SAP med Azure PowerShell)
+[deployment-guide-configure-new-extension-cli]:deployment-guide.md#c8749c24-fada-42ad-b114-f9aae2dc37da (Konfigurera det nya Azure-tillägget för SAP med Azure CLI)
 [deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Beredskaps kontroll för Azure-tillägg för SAP)
+[deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (Beredskaps kontroll för nya Azure-tillägg för SAP)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Hälso kontroll för Azure-tillägget för SAP-konfiguration)
+[deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Hälso kontroll för den nya Azure-tillägget för SAP-konfiguration)
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Felsöka Azure-tillägget för SAP)
+[deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Felsöka det nya Azure-tillägget för SAP)
+[deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Felsöka Azure-tillägget för SAP – kontakta supporten)
+[deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Felsöka Azure-tillägget för SAP – kör installations skriptet)
+[deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Felsöka Azure-tillägget för SAP-omdistribution efter Sysprep)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Felsöka Azure-tillägget för SAP-Fix Internet anslutning)
+
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurera VM-tillägg)
 [deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Konfigurera proxyn)
@@ -150,7 +160,7 @@ ms.locfileid: "84020123"
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och fel sökning för data insamling från slut punkt till slut punkt för SAP-värda Gent)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och fel sökning)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -308,6 +318,10 @@ ms.locfileid: "84020123"
 [vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
+[qs-configure-powershell-windows-vm]:../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md
+[qs-configure-cli-windows-vm]:../../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md
+[howto-assign-access-powershell]:../../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md
+[howto-assign-access-cli]:../../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -315,7 +329,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi stegen för att distribuera SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributions alternativ och fel sökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Det kompletterar även SAP-installations dokumentation och SAP-anteckningar, som är de viktigaste resurserna för att installera och distribuera SAP-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -381,7 +395,7 @@ När du konfigurerar SAP-program distributionen behöver du följande SAP-resurs
 * SAP NOTE [1984787] innehåller allmän information om SUSE Linux Enterprise Server 12.
 * SAP NOTE [2002167] innehåller allmän information om Red Hat Enterprise Linux 7. x.
 * SAP NOTE [2069760] innehåller allmän information om Oracle Linux 7. x.
-* SAP anmärkning [1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
+* SAP NOTE [1999351] innehåller ytterligare felsöknings information för Azure-tillägget för SAP.
 * SAP NOTE [1597355] har allmän information om växlings utrymme för Linux.
 * [Sidan SAP på Azure SCN](https://wiki.scn.sap.com/wiki/x/Pia7Gg) innehåller nyheter och en samling användbara resurser.
 * [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
@@ -520,7 +534,7 @@ Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-till
 
 #### <a name="vm-extension-for-sap-check"></a>VM-tillägg för SAP-kontroll
 
-Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Steg efter distribution
 
@@ -662,7 +676,7 @@ Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-till
 
 #### <a name="sap-vm-extension-check"></a>Kontroll av SAP VM-tillägg
 
-Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="scenario-3-moving-an-on-premises-vm-by-using-a-non-generalized-azure-vhd-with-sap"></a><a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: flytta en lokal virtuell dator med hjälp av en icke-generaliserad virtuell Azure-dator med SAP
@@ -752,7 +766,7 @@ Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-till
 
 #### <a name="sap-vm-check"></a>Kontroll av SAP VM
 
-Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning][deployment-guide-troubleshooting-chapter].
 
 ## <a name="update-the-configuration-of-azure-extension-for-sap"></a>Uppdatera konfigurationen av Azure-tillägget för SAP
 
@@ -771,18 +785,9 @@ Det här avsnittet innehåller detaljerade anvisningar för hur du utför vissa 
 
 ### <a name="deploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Distribuera Azure PowerShell-cmdletar
 
-1. Gå till [Microsoft Azure hämtningar](https://azure.microsoft.com/downloads/).
-1. Under **PowerShell**på **kommando rads verktyg**väljer du Windows- **installation**.
-1. I dialog rutan Microsoft Download Manager för den hämtade filen (till exempel WindowsAzurePowershellGet. 3F. 3F. 3fnew. exe) väljer du **Kör**.
-1. Välj **Ja**om du vill köra installations programmet för Microsoft-webbplattformen (Microsoft Web PI).
-1. En sida som ser ut så här visas:
+Följ stegen som beskrivs i artikeln [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
-   ![Installations sida för Azure PowerShell-cmdletar][deployment-guide-figure-500]<a name="figure-5"></a>
-
-1. Välj **Installera**och godkänn licens villkoren för program vara från Microsoft.
-1. PowerShell är installerat. Stäng installations guiden genom att klicka på **Slutför** .
-
-Sök ofta efter uppdateringar av PowerShell-cmdletarna, som vanligt vis uppdateras varje månad. Det enklaste sättet att söka efter uppdateringar är att utföra föregående installations steg, upp till installations sidan som visas i steg 5. Lanserings datumet och versions numret för cmdletarna finns på sidan som visas i steg 5. Om inget annat anges i SAP NOTE [1928533] eller SAP NOTE [2015553], rekommenderar vi att du arbetar med den senaste versionen av Azure PowerShell-cmdletar.
+Sök ofta efter uppdateringar av PowerShell-cmdletarna, som vanligt vis uppdateras varje månad. Följ stegen som beskrivs i [den här](https://docs.microsoft.com/powershell/azure/install-az-ps#update-the-azure-powershell-module) artikeln. Om inget annat anges i SAP NOTE [1928533] eller SAP NOTE [2015553], rekommenderar vi att du arbetar med den senaste versionen av Azure PowerShell-cmdletar.
 
 Om du vill kontrol lera vilken version av Azure PowerShell-cmdletarna som är installerade på datorn kör du följande PowerShell-kommando:
 
@@ -790,41 +795,17 @@ Om du vill kontrol lera vilken version av Azure PowerShell-cmdletarna som är in
 (Get-Module Az.Compute).Version
 ```
 
-Resultatet ser ut så här:
-
-![Resultat av versions kontroll av Azure PowerShell cmdlet][deployment-guide-figure-600]
-<a name="figure-6"></a>
-
-Om den version av Azure-cmdleten som är installerad på datorn är den aktuella versionen, visar den första sidan i installations guiden den genom att lägga till **(installerad)** till produkt titeln (se följande skärm bild). Dina PowerShell Azure-cmdlets är uppdaterade. Välj **Avsluta**för att stänga installations guiden.
-
-![Installations sida för Azure PowerShell-cmdletar som anger att den senaste versionen av Azure PowerShell-cmdletar är installerade][deployment-guide-figure-700]
-<a name="figure-7"></a>
-
 ### <a name="deploy-azure-cli"></a><a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Distribuera Azure CLI
 
-1. Gå till [Microsoft Azure hämtningar](https://azure.microsoft.com/downloads/).
-1. Under **kommando rads verktyg**, under **Azure kommando rads gränssnitt**, väljer du länken **Installera** för ditt operativ system.
-1. I dialog rutan Microsoft Download Manager för den hämtade filen (till exempel WindowsAzureXPlatCLI. 3F. 3F. 3fnew. exe) väljer du **Kör**.
-1. Välj **Ja**om du vill köra installations programmet för Microsoft-webbplattformen (Microsoft Web PI).
-1. En sida som ser ut så här visas:
+Följ stegen som beskrivs i artikeln [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-   ![Installations sida för Azure PowerShell-cmdletar][deployment-guide-figure-500]<a name="figure-5"></a>
-
-1. Välj **Installera**och godkänn licens villkoren för program vara från Microsoft.
-1. Azure CLI har installerats. Stäng installations guiden genom att klicka på **Slutför** .
-
-Sök ofta efter uppdateringar till Azure CLI, som vanligt vis uppdateras varje månad. Det enklaste sättet att söka efter uppdateringar är att utföra föregående installations steg, upp till installations sidan som visas i steg 5.
+Sök ofta efter uppdateringar till Azure CLI, som vanligt vis uppdateras varje månad.
 
 Kör följande kommando för att kontrol lera vilken version av Azure CLI som är installerad på datorn:
 
 ```console
-azure --version
+az --version
 ```
-
-Resultatet ser ut så här:
-
-![Resultat av kontroll av Azure CLI-version][deployment-guide-figure-760]
-<a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
 ### <a name="join-a-vm-to-an-on-premises-domain-windows-only"></a><a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Anslut en virtuell dator till en lokal domän (endast Windows)
 
@@ -934,9 +915,22 @@ Mer information om användardefinierade vägar finns i [användardefinierade vä
 
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Konfigurera Azure-tillägget för SAP
 
+> [!NOTE]
+> Allmän support instruktion: öppna alltid en incident med SAP på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR om du behöver stöd för Azure-tillägget för SAP.
+> Det finns särskilda Microsofts support tekniker som arbetar i SAP-supportsystemet för att hjälpa våra gemensamma kunder.
+
 När du har för berett den virtuella datorn enligt beskrivningen i [distributions scenarier för virtuella datorer för SAP på Azure][deployment-guide-3]installeras Azure VM-agenten på den virtuella datorn. Nästa steg är att distribuera Azure-tillägget för SAP, som är tillgängligt i Azure Extension-lagringsplatsen i de globala Azure-datacentren. Mer information finns i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide-9.1].
 
-Du kan använda PowerShell eller Azure CLI för att installera och konfigurera Azure-tillägget för SAP. Om du vill installera tillägget på en virtuell Windows-eller Linux-dator med hjälp av en Windows-dator kan du läsa [Azure PowerShell][deployment-guide-4.5.1]. Om du vill installera tillägget på en virtuell Linux-dator med hjälp av ett Linux-skrivbord, se [Azure CLI][deployment-guide-4.5.2].
+Vi håller på att lansera en ny version av Azure-tillägget för SAP. Det nya tillägget använder den systemtilldelade identiteten för den virtuella datorn för att få information om de anslutna diskarna, nätverks gränssnitten och själva virtuella datorn. För att kunna få åtkomst till dessa resurser måste system identiteten för den virtuella datorn ha läsar behörighet för den virtuella datorn, OS-disken, data diskarna och nätverks gränssnitten. Vi rekommenderar för närvarande att bara installera det nya tillägget i följande scenarier:
+
+1. Du vill installera tillägget med terraform, Azure Resource Manager mallar eller med andra metoder än Azure CLI eller Azure PowerShell
+1. Du vill installera tillägget på SUSE SLES 15 eller senare.
+1. Microsoft eller SAP-support uppmanar dig att installera det nya tillägget
+1. Du vill använda Azure Ultra disk eller standard Managed Disks
+
+I dessa scenarier följer du stegen i kapitlet [Konfigurera det nya Azure-tillägget för SAP med Azure PowerShell][deployment-guide-configure-new-extension-ps] för Azure PowerShell eller [Konfigurera det nya Azure-tillägget för SAP med Azure CLI][deployment-guide-configure-new-extension-cli] för Azure CLI.
+
+Följ [Azure PowerShell][deployment-guide-4.5.1] eller [Azure CLI][deployment-guide-4.5.2] för att installera och konfigurera standard versionen av Azure-tillägget för SAP.
 
 #### <a name="azure-powershell-for-linux-and-windows-vms"></a><a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell för virtuella Linux-och Windows-datorer
 
@@ -944,7 +938,7 @@ Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
 
 1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].  
 1. Kör följande PowerShell-cmdlet:
-    För en lista över tillgängliga miljöer kör du `commandlet Get-AzEnvironment` . Om du vill använda Global Azure är din miljö **AzureCloud**. För Azure i Kina väljer du **AzureChinaCloud**.
+    För en lista över tillgängliga miljöer kör du `commandlet Get-AzEnvironment` . Om du vill använda Global Azure är din miljö **AzureCloud**. För Azure Kina 21Vianet väljer du **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -954,7 +948,7 @@ Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
-När du har angett dina konto data och identifierat den virtuella Azure-datorn distribuerar skriptet de nödvändiga tilläggen och aktiverar de nödvändiga funktionerna. Det kan ta flera minuter.
+När du har angett dina konto data distribuerar skriptet de nödvändiga tilläggen och aktiverar de nödvändiga funktionerna. Det kan ta flera minuter.
 Mer information `Set-AzVMAEMExtension` finns i [set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
 ![Lyckad körning av SAP-Specific Azure-cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
@@ -1030,7 +1024,86 @@ Så här installerar du Azure-tillägget för SAP med hjälp av Azure CLI:
    ...
    ```
 
-## <a name="checks-and-troubleshooting-for-end-to-end-data-collection-for-sap-host-agent"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och fel sökning för data insamling från slut punkt till slut punkt för SAP-värda Gent
+#### <a name="configure-the-new-azure-extension-for-sap-with-azure-powershell"></a><a name="2ad55a0d-9937-4943-9dd2-69bc2b5d3de0"></a>Konfigurera det nya Azure-tillägget för SAP med Azure PowerShell
+
+Det nya VM-tillägget för SAP använder en hanterad identitet som tilldelats den virtuella datorn för att komma åt övervaknings-och konfigurations data för den virtuella datorn. Om du vill installera det nya Azure-tillägget för SAP med hjälp av PowerShell måste du först tilldela en sådan identitet till den virtuella datorn och bevilja identitets åtkomst till alla resurser som används av den virtuella datorn, t. ex. diskar och nätverks gränssnitt.
+
+Processen kommer att automatiseras i nästa version av Azure PowerShell (> 4.2.0). Vi kommer att uppdatera den här artikeln när den nya versionen är tillgänglig. Tills dess kan du installera tillägget manuellt genom att följa dessa steg.
+
+1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
+1. Följ stegen i artikeln [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell][qs-configure-powershell-windows-vm] -artikeln för att aktivera en systemtilldelad hanterad identitet till den virtuella datorn. Användare tilldelade hanterade identiteter stöds inte av VM-tillägget för SAP. Du kan dock aktivera både en systemtilldelad och en tilldelad identitet.
+    
+    Exempel:
+    ```powershell
+    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
+    Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned
+    ```
+
+1. Tilldela åtkomst till hanterad identitet till resurs gruppen för den virtuella datorn eller till alla nätverks gränssnitt, hanterade diskar och den virtuella datorn enligt beskrivningen i [tilldela en hanterad identitets åtkomst till en resurs med PowerShell][howto-assign-access-powershell] -exempel:
+
+    ```powershell
+    $spID = (Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>).identity.principalid
+    $rg = Get-AzResourceGroup -Name $vm.ResourceGroupName
+    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope $rg.ResourceId
+    ```
+
+1. Kör följande PowerShell-cmdlet för att installera Azure-tillägget för SAP.
+    Tillägget stöds för närvarande bara i AzureCloud. Azure Kina 21Vianet, Azure Government eller någon annan speciell miljö stöds inte ännu.
+
+    ```powershell
+    $env = Get-AzEnvironment -Name AzureCloud
+    Connect-AzAccount -Environment $env
+    Set-AzContext -SubscriptionName <subscription name>
+
+    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
+    if ($vm.StorageProfile.OsDisk.OsType -eq "Windows") {
+      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Windows -Name MonitorX64Windows -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
+    } else {
+      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Linux -Name MonitorX64Linux -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
+    }
+    ```
+
+#### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Konfigurera det nya Azure-tillägget för SAP med Azure CLI
+
+Det nya VM-tillägget för SAP använder en hanterad identitet som tilldelats den virtuella datorn för att komma åt övervaknings-och konfigurations data för den virtuella datorn. Om du vill installera det nya Azure-tillägget för SAP med hjälp av Azure CLI måste du först tilldela en sådan identitet till den virtuella datorn och bevilja identitets åtkomst till alla resurser som används av den virtuella datorn, till exempel diskar och nätverks gränssnitt.
+
+1. Installera Azure CLI 2,0 enligt beskrivningen i [Installera Azure cli 2,0][azure-cli-2].
+
+1. Logga in med ditt Azure-konto:
+
+   ```azurecli
+   az login
+   ```
+
+1. Följ stegen i artikeln [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI][qs-configure-cli-windows-vm] -artikel om du vill aktivera en systemtilldelad hanterad identitet till den virtuella datorn. Användare tilldelade hanterade identiteter stöds inte av VM-tillägget för SAP. Du kan dock aktivera både en systemtilldelad och en tilldelad identitet.
+
+   Exempel:
+   ```azurecli
+   az vm identity assign -g <resource-group-name> -n <vm name>
+   ```
+
+1. Tilldela åtkomst till hanterad identitet till resurs gruppen för den virtuella datorn eller till alla nätverks gränssnitt, hanterade diskar och den virtuella datorn enligt beskrivningen i [tilldela en hanterad identitets åtkomst till en resurs med hjälp av Azure CLI][howto-assign-access-cli]
+
+    Exempel:
+
+    ```azurecli
+    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
+    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+    ```
+
+1. Kör följande Azure CLI-kommando för att installera Azure-tillägget för SAP.
+    Tillägget stöds för närvarande bara i AzureCloud. Azure Kina 21Vianet, Azure Government eller någon annan speciell miljö stöds inte ännu.
+
+    ```azurecli
+    # For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    #For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+    ```
+
+## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och fel sökning
 
 När du har distribuerat den virtuella Azure-datorn och konfigurerat Azure-tillägget för SAP kontrollerar du om alla komponenter i tillägget fungerar som förväntat.
 
@@ -1038,7 +1111,7 @@ Kör beredskaps kontrollen för Azure-tillägget för SAP enligt beskrivningen i
 
 ### <a name="readiness-check-for-the-azure-extension-for-sap"></a><a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Beredskaps kontroll för Azure-tillägget för SAP
 
-Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP-program tillhandahålls av det underliggande Azure-tillägget för SAP.
+Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP-program tillhandahålls av det underliggande Azure-tillägget för SAP. Om du har distribuerat det nya Azure-tillägget för SAP följer du kapitel [beredskaps kontrollen för det nya Azure-tillägget för SAP][deployment-guide-5.1-new] i den här hand boken.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskaps kontrollen på en virtuell Windows-dator
 
@@ -1050,31 +1123,31 @@ Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP
 
    ![Egenskaper för tjänsten som kör Azure-tillägget för SAP][deployment-guide-figure-1000]
 
-1. I kommando tolken kör du **azperflib. exe** utan några parametrar.
+1. Kör **azperflib.exe** utan parametrar i kommando tolken.
 
    > [!NOTE]
-   > Azperflib. exe körs i en slinga och uppdaterar de insamlade räknarna var 60: e sekund. Stäng kommando tolks fönstret för att avsluta slingan.
+   > Azperflib.exe körs i en slinga och uppdaterar de insamlade räknarna var 60: e sekund. Stäng kommando tolks fönstret för att avsluta slingan.
    >
    >
 
 Om Azure-tillägget för SAP inte är installerat, eller om AzureEnhancedMonitoring-tjänsten inte körs, har tillägget inte kon figurer ATS korrekt. Detaljerad information om hur du distribuerar tillägget finns i [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
 > [!NOTE]
-> Azperflib. exe är en komponent som inte kan användas för eget bruk. Det är en komponent som levererar Azures infrastruktur data som är relaterade till den virtuella datorn för SAP-värd agenten exklusivt.
+> Azperflib.exe är en komponent som inte kan användas för egna syfte. Det är en komponent som levererar Azures infrastruktur data som är relaterade till den virtuella datorn för SAP-värd agenten exklusivt.
 > 
 
-##### <a name="check-the-output-of-azperflibexe"></a>Kontrol lera utdata från azperflib. exe
+##### <a name="check-the-output-of-azperflibexe"></a>Kontrol lera utdata från azperflib.exe
 
-Azperflib. exe-utdata visar alla fyllda Azure-prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattnings-och hälso indikator statusen för Azure-tillägget för SAP.
+Azperflib.exe utdata visar alla fyllda Azure-prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattnings-och hälso indikator statusen för Azure-tillägget för SAP.
 
-![Hälso kontrollens utdata genom att köra azperflib. exe, vilket tyder på att det inte finns några problem][deployment-guide-figure-1100]
+![Utdata från hälso kontroll genom att köra azperflib.exe, vilket tyder på att det inte finns några problem][deployment-guide-figure-1100]
 <a name="figure-11"></a>
 
 Kontrol lera resultatet som returnerades för **räknaren Totalt antal** utdata, som rapporteras som tomt och för **hälso status**, som visas i föregående bild.
 
 Tolka de resulterande värdena enligt följande:
 
-| Resultat värden för Azperflib. exe | Azure-tillägg för hälso status för SAP |
+| Azperflib.exe resultat värden | Azure-tillägg för hälso status för SAP |
 | --- | --- |
 | **API-anrop – inte tillgängligt** | Räknare som inte är tillgängliga kan vara antingen inte tillämpliga för konfigurationen av den virtuella datorn eller är fel. Se **hälso status**. |
 | **Totalt antal räknare – tomt** |Följande två räknare för Azure Storage kan vara tomma: <ul><li>Storage Read op latens-Server MSEK</li><li>Lagring Läs op latens E2E MSEK</li></ul>Alla andra räknare måste ha värden. |
@@ -1131,16 +1204,78 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
    c.  Kontrol lera om den **Virtualization_Configuration \Enhanced övervaknings åtkomst** måttet är **Sant**.
 
-Om du redan har en SAP NetWeaver ABAP-Programserver installerad öppnar du Transaction ST06 och kontrollerar om förbättrad övervakning har Aktiver ATS.
+Om du redan har en SAP NetWeaver ABAP-Programserver installerad kan du öppna transaktion ST06 och kontrol lera om övervakning har Aktiver ATS.
 
 Om någon av dessa kontroller inte fungerar och detaljerad information om hur du distribuerar om tillägget finns i [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
+
+### <a name="readiness-check-for-the-new-azure-extension-for-sap"></a><a name="7bf24f59-7347-4c7a-b094-4693e4687ee5"></a>Beredskaps kontroll för det nya Azure-tillägget för SAP
+
+Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP-program tillhandahålls av det underliggande Azure-tillägget för SAP. Om du har distribuerat det gamla Azure-tillägget för SAP följer du kapitel [beredskaps kontroll för Azure-tillägget för SAP][deployment-guide-5.1] i den här hand boken.
+
+#### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskaps kontrollen på en virtuell Windows-dator
+
+1. Logga in på den virtuella Azure-datorn (med ett administratörs konto behövs inte).
+1. Öppna en webbläsare och gå tillhttp://127.0.0.1:11812/azure4sap/metrics
+1. Webbläsaren bör visa eller hämta en XML-fil som innehåller övervaknings data för den virtuella datorn. Om så inte är fallet kontrollerar du att Azure-tillägget för SAP är installerat.
+
+##### <a name="check-the-content-of-the-xml-file"></a>Kontrol lera innehållet i XML-filen
+
+XML-filen som du har åtkomst till http://127.0.0.1:11812/azure4sap/metrics innehåller alla ifyllda Azure-prestandaräknare för SAP. Den innehåller också en sammanfattning och en hälso indikator för Azure-tillägget för SAP.
+
+Kontrol lera värdet för **beskrivnings elementet för providerns hälso tillstånd** . Om värdet inte är **OK**, följer du anvisningarna i [hälso kontroll för nya Azure-tillägg för SAP-konfiguration][deployment-guide-5.2-new].
+
+#### <a name="run-the-readiness-check-on-a-linux-vm"></a>Kör beredskaps kontrollen på en virtuell Linux-dator
+
+1. Anslut till den virtuella Azure-datorn med hjälp av SSH.
+
+1. Kontrol lera utdata från följande kommando
+
+    ```console
+    curl http://127.0.0.1:11812/azure4sap/metrics
+    ```
+    
+   **Förväntat resultat**: returnerar ett XML-dokument som innehåller övervaknings information för den virtuella datorn, dess diskar och nätverks gränssnitt.
+
+Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
+
+1. Kontrol lera att waagent har installerats och Aktiver ATS.
+
+   a.  Kör `sudo ls -al /var/lib/waagent/`
+
+     **Förväntat resultat**: visar innehållet i waagent-katalogen.
+
+   b.  Kör `ps -ax | grep waagent`
+
+   **Förväntat resultat**: visar en post som liknar:`python /usr/sbin/waagent -daemon`
+
+1. Kontrol lera att Azure-tillägget för SAP är installerat och körs.
+
+   a.  Kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+
+   **Förväntat resultat**: visar innehållet i Azure-tillägget för SAP-katalogen.
+
+   b. Kör `ps -ax | grep AzureEnhanced`
+
+   **Förväntat resultat**: visar en post som liknar:`/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
+
+1. Installera SAP host agent enligt beskrivningen i SAP anmärkning [1031096]och kontrol lera utdata från `saposcol` .
+
+   a.  Kör `/usr/sap/hostctrl/exe/saposcol -d`
+
+   b.  Kör `dump ccm`
+
+   c.  Kontrol lera om den **Virtualization_Configuration \Enhanced övervaknings åtkomst** måttet är **Sant**.
+
+Om du redan har en SAP NetWeaver ABAP-Programserver installerad kan du öppna transaktion ST06 och kontrol lera om övervakning har Aktiver ATS.
+
+Om någon av dessa kontroller inte fungerar och detaljerad information om hur du distribuerar om tillägget finns i [Felsöka det nya Azure-tillägget för SAP][deployment-guide-5.3-new].
 
 ### <a name="health-check-for-the-azure-extension-for-sap-configuration"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Hälso kontroll för Azure-tillägget för SAP-konfiguration
 
 Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [beredskaps kontrollen för Azure-tillägget för SAP][deployment-guide-5.1], kör du `Test-AzVMAEMExtension` cmdleten för att kontrol lera om Azure-infrastrukturen och Azure-tillägget för SAP är korrekt konfigurerade.
 
 1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
-1. Kör följande PowerShell-cmdlet: Kör cmdleten om du vill ha en lista över tillgängliga miljöer `Get-AzEnvironment` . Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure i Kina väljer du **AzureChinaCloud**.
+1. Kör följande PowerShell-cmdlet: Kör cmdleten om du vill ha en lista över tillgängliga miljöer `Get-AzEnvironment` . Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure Kina 21Vianet väljer du **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1148,10 +1283,6 @@ Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [b
    Set-AzContext -SubscriptionName <subscription name>
    Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
-
-1. Ange konto data och identifiera den virtuella Azure-datorn.
-
-   ![Inmatad sida för SAP-Specific Azure cmdlet-Test – VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
 1. Skriptet testar konfigurationen av den virtuella dator som du väljer.
 
@@ -1162,6 +1293,22 @@ Kontrol lera att alla hälso kontroll resultat är **OK**. Om vissa kontroller i
 > [!Note]
 > Du kan uppleva vissa varningar i fall där du använder hanterade standard Azure-diskar. Varningar visas i stället för testerna som returnerar "OK". Detta är normalt och avsett i händelse av disk typen. Se även [Felsöka Azure-tillägget för SAP][deployment-guide-5.3]
 > 
+
+### <a name="health-check-for-the-new-azure-extension-for-sap-configuration"></a><a name="464ac96d-7d3c-435d-a5ae-3faf3bfef4b3"></a>Hälso kontroll för den nya Azure-tillägget för SAP-konfiguration
+
+Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [beredskaps kontrollen för Azure-tillägget för SAP][deployment-guide-5.1-new], kör du `Get-AzVMExtension` cmdleten för att kontrol lera om Azure-tillägget för SAP är installerat. `Test-AzVMAEMExtension`Har ännu inte stöd för det nya tillägget. När cmdleten har stöd för det nya tillägget kommer vi att uppdatera den här artikeln.
+
+1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
+1. Kör följande PowerShell-cmdlet: Kör cmdleten om du vill ha en lista över tillgängliga miljöer `Get-AzEnvironment` . Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure Kina 21Vianet väljer du **AzureChinaCloud**.
+
+   ```powershell
+   $env = Get-AzEnvironment -Name <name of the environment>
+   Connect-AzAccount -Environment $env
+   Set-AzContext -SubscriptionName <subscription name>
+   Get-AzVMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   ```
+
+1. Cmdlet: en visar en lista över alla tillägg för den valda virtuella datorn. Se till att Azure-tillägget för SAP är installerat på den virtuella datorn.
 
 ### <a name="troubleshooting-azure-extension-for-sap"></a><a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsöka Azure-tillägget för SAP
 
@@ -1185,9 +1332,9 @@ Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som
 
 AzureEnhancedMonitoring Windows-tjänsten finns inte.
 
-Azperflib. exe-utdata genererar ett fel:
+Azperflib.exe utdata genererar ett fel:
 
-![Körning av azperflib. exe anger att tjänsten för Azure-tillägget för SAP inte körs][deployment-guide-figure-1400]
+![Körning av azperflib.exe anger att tjänsten för Azure-tillägget för SAP inte körs][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Lösning
@@ -1238,11 +1385,11 @@ WARNING: [WARN] Standard Managed Disks are not supported. Extension will be inst
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
 </code></pre>
 
-Kör azperfli. exe på det sätt som beskrivs tidigare. du kan få ett resultat som anger ett icke-felfritt tillstånd. 
+Om du kör azperfli.exe som beskrivits tidigare kan du få ett resultat som anger ett icke-felfritt tillstånd. 
 
 ###### <a name="solution"></a>Lösning
 
-Meddelandena orsakas av att standard Managed Disks inte levererar de API: er som används av SAP-tillägget för SAP för att kontrol lera statistik för standard Azure Storages kontona. Detta är inte en angelägenhets risk. Anledningen till att samla in data för standard Disklagring-konton var begränsade av I/o som har inträffat ofta. De hanterade diskarna förhindrar sådan begränsning genom att begränsa antalet diskar i ett lagrings konto. Därför är det inte viktigt att inte ha denna typ av data.
+Meddelandena orsakas av att standard Managed Disks inte levererar de API: er som används av SAP-tillägget för SAP för att kontrol lera statistik för standard Azure Storages kontona. Detta är inte en angelägenhets risk. Anledningen till att samla in data för standard Disklagring-konton gjorde begränsning av indata och utdata som har inträffat ofta. De hanterade diskarna förhindrar sådan begränsning genom att begränsa antalet diskar i ett lagrings konto. Därför är det inte viktigt att inte ha denna typ av data.
 
 
 #### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa prestanda räknare för Azure saknas
@@ -1252,3 +1399,121 @@ Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera oli
 En fullständig och aktuell lista över kända problem finns i SAP anmärkning [1999351], som innehåller ytterligare felsöknings information för Azure-tillägget för SAP.
 
 Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `Set-AzVMAEMExtension` konfigurations skriptet på det sätt som beskrivs i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Du kan behöva vänta en timme eftersom lagrings analys-eller diagnostik-räknare kanske inte skapas direkt efter att de har Aktiver ATS. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.
+
+### <a name="troubleshooting-the-new-azure-extension-for-sap"></a><a name="b7afb8ef-a64c-495d-bb37-2af96688c530"></a>Felsöka det nya Azure-tillägget för SAP
+
+#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Prestanda räknare för Azure visas inte alls
+
+AzureEnhancedMonitoring-processen samlar in prestanda mått i Azure. Om processen inte körs på den virtuella datorn kan inga prestanda mått samlas in.
+
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>Installations katalogen för Azure-tillägget för SAP är tom
+
+###### <a name="issue"></a>Problem
+
+Installations katalogen C: \\ paket plugin-program \\ \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; version> är tom.
+
+###### <a name="solution"></a>Lösning
+
+Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn eller installera VM-tillägget igen.
+
+#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Vissa prestanda räknare för Azure saknas
+
+AzureEnhancedMonitoring Windows-processen samlar in prestanda mått i Azure. Processen hämtar data från flera källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure Monitor.
+
+Om du felsöker med SAP NOTE [1999351]öppnar du ett SAP-kund support meddelande på komponenten BC-op-NT-AZR för Windows eller BC-op-LNX-AZR för en virtuell Linux-dator.
+
+#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Prestanda räknare för Azure visas inte alls
+
+Prestanda mått i Azure samlas in av en daemon. Om daemon inte körs kan inga prestanda mått samlas in.
+
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>Installations katalogen för Azure-tillägget för SAP är tom
+
+###### <a name="issue"></a>Problem
+
+Katalogen \\ var \\ lib- \\ waagent saknar \\ under katalog för Azure-tillägget för SAP.
+
+###### <a name="solution"></a>Lösning
+
+Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn och/eller installera VM-tillägget igen.
+
+#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa prestanda räknare för Azure saknas
+
+Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera olika källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure Monitor.
+
+En fullständig och aktuell lista över kända problem finns i SAP anmärkning [1999351], som innehåller ytterligare felsöknings information för Azure-tillägget för SAP.
+
+Om fel sökning med SAP NOTE [1999351] inte löser problemet, installerar du tillägget igen enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.
+
+## <a name="azure-extension-error-codes"></a>Fel koder för Azure-tillägg
+
+| Fel-ID | Felbeskrivning | Lösning |
+|---|---|---|
+| <a name="cfg_018"></a>cfg/018 | App-konfigurationen saknas. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_019"></a>cfg/019 | Inget distributions-ID i appens konfiguration. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_020"></a>cfg/020 | Ingen RoleInstanceId i appens konfiguration. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_022"></a>cfg/022 | Ingen RoleInstanceId i appens konfiguration. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_031"></a>cfg/031 | Det går inte att läsa Azure-konfigurationen. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_021"></a>cfg/021 | Konfigurations filen för appen saknas. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_015"></a>cfg/015 | Ingen VM-storlek i appens konfiguration. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_016"></a>cfg/016 | GlobalMemoryStatusEx-räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_023"></a>cfg/023 | MaxHwFrequency-räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_024"></a>cfg/024 | NIC-räknare misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_025"></a>cfg/025 | Disk mappnings räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_026"></a>cfg/026 | Processor namns räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_027"></a>cfg/027 | Disk mappnings räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_038"></a>cfg/038 | Måttet disk Type saknas i tilläggets konfigurations fil config.xml. "Disk Type" tillsammans med några andra räknare infördes i v 2.2.0.68 12/16/2015. Om du har distribuerat tillägget före 12/16/2015 används den gamla konfigurations filen. Azure Extension Framework uppgraderar automatiskt tillägget till en nyare version, men config.xml förblir oförändrad. Uppdatera konfigurationen genom att ladda ned och köra det senaste installations skriptet för PowerShell. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_039"></a>cfg/039 | Ingen diskcachelagring. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_036"></a>cfg/036 | Inget SLA-genomflöde för disk. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_037"></a>cfg/037 | Ingen disk-SLA IOPS. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_028"></a>cfg/028 | Disk mappnings räknaren misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_029"></a>cfg/029 | Senaste ändrings räknaren för maskin vara misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_030"></a>cfg/030 | NIC-räknare misslyckades | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_017"></a>cfg/017 | På grund av Sysprep på den virtuella datorn har ditt Windows-SID ändrats. | [distribuera om efter Sysprep][deployment-guide-redeploy-after-sysprep] |
+| <a name="str_007"></a>Str/007 | Det gick inte att komma åt lagrings analys. <br /><br />Eftersom populationen av lagrings analys data på en nyligen skapad virtuell dator kan behöva upp till en halvtimme, kan felet försvinna efter en stund. Kör installations skriptet igen om felet fortfarande visas. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="str_010"></a>Str/010 | Inga Lagringsanalys räknare. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="str_009"></a>Str/009 | Lagringsanalys misslyckades. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="wad_004"></a>wad/004 | Felaktig WAD-konfiguration. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="wad_002"></a>wad/002 | Oväntat WAD-format. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="wad_001"></a>wad/001 | Inga WAD-räknare hittades. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="wad_040"></a>wad/040 | Inaktuella WAD-räknare hittades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="wad_003"></a>wad/003 | Det går inte att läsa WAD-tabellen. Det finns ingen anslutning till WAD-tabellen. Det kan finnas flera orsaker till detta:<br /><br /> 1) inaktuell konfiguration <br />2) ingen nätverks anslutning till Azure <br />3) problem med installationen av WAD | [Kör installations skript][deployment-guide-run-the-script]<br />[åtgärda Internet anslutning][deployment-guide-fix-internet-connection]<br />[kontakta supporten][deployment-guide-contact-support] |
+| <a name="prf_011"></a>PRF/011 | Prestandan för perfmon NIC misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="prf_012"></a>PRF/012 | Det gick inte att utföra perfmon-disk mått. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="prf_013"></a>PRF/013 | Vissa prefmon-mått misslyckades. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="prf_014"></a>PRF/014 | Det gick inte att skapa en räknare i perfmon. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="cfg_035"></a>cfg/035 | Inga mått leverantörer har kon figurer ATS. | [kontakta supporten][deployment-guide-contact-support] |
+| <a name="str_006"></a>Str/006 | Felaktig Lagringsanalys konfiguration. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="str_032"></a>Str/032 | Lagringsanalys måtten misslyckades. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="cfg_033"></a>cfg/033 | En av mått leverantörerna misslyckades. | [Kör installations skript][deployment-guide-run-the-script] |
+| <a name="str_034"></a>Str/034 | Det gick inte att koppla providern. | [kontakta supporten][deployment-guide-contact-support] |
+
+### <a name="detailed-guidelines-on-solutions-provided"></a>Detaljerade rikt linjer för lösningar som tillhandahålls
+
+#### <a name="run-the-setup-script"></a><a name="0d2847ad-865d-4a4c-a405-f9b7baaa00c7"></a>Kör installations skriptet
+
+Följ stegen i kapitlet [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5] i den här guiden för att installera tillägget igen. Observera att vissa räknare kan behöva upp till 30 minuter för etablering.
+
+Om felen inte försvinner [kontaktar du supporten][deployment-guide-contact-support].
+
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakta supporten
+
+Ett oväntat fel eller så finns det ingen känd lösning. Samla in filen AzureEnhancedMonitoring_service. log som finns i mappen C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) eller/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) och kontakta SAP-supporten om du vill ha mer hjälp.
+
+#### <a name="redeploy-after-sysprep"></a><a name="2cd61f22-187d-42ed-bb8c-def0c983d756"></a>Distribuera om efter Sysprep
+
+Om du planerar att bygga en generaliserad Sysprep OS-avbildning (som kan innehålla SAP-program) rekommenderar vi att den här avbildningen inte inkluderar Azure-tillägget för SAP. Du bör installera Azure-tillägget för SAP när den nya instansen av den generaliserade OS-avbildningen har distribuerats.
+
+Men om din generaliserade och Sysprep OS-avbildning redan innehåller Azure-tillägget för SAP kan du använda följande lösning för att konfigurera om tillägget på den nyligen distribuerade virtuella dator instansen:
+
+* Ta bort innehållet i följande mappar på den nyligen distribuerade virtuella dator instansen:  
+  C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \RuntimeSettings C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Status
+
+* Följ stegen i kapitlet [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5] i den här guiden för att installera tillägget igen.
+
+#### <a name="fix-internet-connection"></a><a name="e92bc57d-80d9-4a2b-a2f4-16713a22ad89"></a>Åtgärda Internet anslutning
+
+Den Microsoft Azure virtuella datorn som kör Azure-tillägget för SAP kräver åtkomst till Internet. Om den virtuella Azure-datorn tillhör en Azure-Virtual Network eller en lokal domän kontrollerar du att de relevanta proxyinställningarna är inställda. Dessa inställningar måste också vara giltiga för att LocalSystem-kontot ska kunna få åtkomst till Internet. Följ kapitlet [Konfigurera proxyn][deployment-guide-configure-proxy] i den här hand boken.
+
+Om du behöver ange en statisk IP-adress för din virtuella Azure-dator ska du dessutom inte ange den manuellt i den virtuella Azure-datorn, men ange den med [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md) [Azure CLI](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md) [Azure Portal](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Den statiska IP-adressen sprids via Azure DHCP-tjänsten.
+
+Det finns inte stöd för att ange en statisk IP-adress manuellt i den virtuella Azure-datorn, och det kan leda till problem med Azure-tillägget för SAP.

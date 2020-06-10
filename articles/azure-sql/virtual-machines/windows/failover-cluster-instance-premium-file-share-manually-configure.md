@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 01787fbf3339a7e079b705fb4be27ba1e30aee1b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 6929f6a8ca79c63d6d6d6fc2f3eee1b22ec49d39
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342889"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656893"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en instans av SQL Server-redundanskluster med Premium-filresurs på Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du skapar en SQL Server-FCI (failover Cluster instance) på Azure Virtual Machines med hjälp av en [Premium-filresurs](../../../storage/files/storage-how-to-create-premium-fileshare.md).
@@ -47,6 +48,8 @@ Du bör också ha en allmän förståelse för dessa tekniker:
 
 > [!IMPORTANT]
 > För närvarande stöds SQL Server redundanskluster i Azure Virtual Machines bara med [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) i [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal **avmarkerar du kryss rutan bredvid rätt virtuell dator**. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
+> 
+
 
 Premium-filresurser ger IOPS och data flödes kapacitet som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att [SQL Server instanser av redundanskluster med Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md), baserat på hanterade Premium diskar eller Ultra disks.  
 
@@ -64,7 +67,7 @@ Med betala per användning-licens debiterar en FCI (failover Cluster instance) o
 
 Om du har Enterprise-avtal med Software Assurance kan du använda en kostnads fri passiv FCI-nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure använder du BYOL VM-avbildningar och använder samma licens på både aktiva och passiva noder i FCI. Mer information finns i [Enterprise-avtal](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Information om hur du jämför "betala per användning" och BYOL-licensiering för SQL Server på Azure Virtual Machines finns i [Kom igång med virtuella SQL-datorer](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+Information om hur du jämför "betala per användning" och BYOL-licensiering för SQL Server på Azure VM finns i [Kom igång med SQL Server virtuella datorer](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 Fullständig information om licens SQL Server finns i [prissättning](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -72,18 +75,18 @@ Fullständig information om licens SQL Server finns i [prissättning](https://ww
 
 FILESTREAM stöds inte för ett redundanskluster med en Premium-filresurs. Om du vill använda FILESTREAM distribuerar du klustret med hjälp av [Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
 - En Microsoft Azure-prenumeration.
 - En Windows-domän på Azure Virtual Machines.
 - Ett domän användar konto som har behörighet att skapa objekt på både Azure-Virtual Machines och i Active Directory.
-- Ett domän användar konto för att köra SQL Server tjänsten och som du kan logga in på den virtuella datorn med när du monterar fil resursen.  
+- Ett domän användar konto för att köra SQL Server tjänsten och som du kan använda för att logga in på den virtuella datorn när du monterar fil resursen. 
 - Ett virtuellt Azure-nätverk och undernät med tillräckligt med IP-adressutrymme för dessa komponenter:
-   - Två virtuella datorer.
-   - IP-adressen för klustret för växling vid fel.
-   - En IP-adress för varje FCI.
+   - Två virtuella datorer
+   - IP-adressen för klustret för växling vid fel
+   - En IP-adress för varje FCI
 - DNS konfigurerat på Azure-nätverket och pekar på domän kontrol Lanterna.
 - En [Premium-filresurs](../../../storage/files/storage-how-to-create-premium-fileshare.md) som ska användas som den klustrade enheten, baserat på lagrings kvoten för din databas för dina datafiler.
 - Om du använder Windows Server 2012 R2 och äldre behöver du en annan fil resurs som används som fil resurs vittne, eftersom det finns stöd för moln vittnen för Windows 2016 och nyare. Du kan använda en annan Azure-filresurs, eller så kan du använda en fil resurs på en separat virtuell dator. Om du ska använda en annan Azure-filresurs kan du montera den med samma process som för den Premium-filresurs som används för den klustrade enheten. 
@@ -125,19 +128,21 @@ Med dessa krav på plats kan du börja skapa ett redundanskluster. Det första s
 
       >[!IMPORTANT]
       >Du kan inte ange eller ändra tillgänglighets uppsättningen när du har skapat en virtuell dator.
+      >
 
    Välj en avbildning från Azure Marketplace. Du kan använda en Azure Marketplace-avbildning som innehåller Windows Server och SQL Server, eller använda en som bara innehåller Windows Server. Mer information finns i [Översikt över SQL Server på Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    De officiella SQL Server avbildningarna i Azure-galleriet innehåller en installerad SQL Server instans, SQL Server-installations program och nödvändig nyckel.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > När du har skapat den virtuella datorn tar du bort den förinstallerade fristående SQL Server-instansen. Du använder förinstallerade SQL Server media för att skapa SQL Server-FCI när du har ställt in klustret för växling vid fel och Premium-filresursen som lagrings plats.
+   > 
 
    Du kan också använda Azure Marketplace-avbildningar som bara innehåller operativ systemet. Välj en **Windows Server 2016 Data Center** -avbildning och installera SQL Server FCI när du har ställt in klustret för växling vid fel och Premium-filresursen som lagrings plats. Den här avbildningen innehåller inte SQL Server installationsmedia. Placera installations mediet för SQL Server på en plats där du kan köra det för varje server.
 
-1. När Azure har skapat de virtuella datorerna ansluter du till var och en med hjälp av RDP.
+1. När Azure har skapat de virtuella datorerna ansluter du till var och en med hjälp av Remote Desktop Protocol (RDP).
 
-   När du först ansluter till en virtuell dator med hjälp av RDP frågar en fråga om du vill att datorn ska kunna identifieras i nätverket. Välj **Ja**.
+   När du först ansluter till en virtuell dator med RDP frågar en fråga om du vill att datorn ska kunna identifieras i nätverket. Välj **Ja**.
 
 1. Om du använder någon av de SQL Server-baserade avbildningarna av virtuella datorer tar du bort SQL Server-instansen.
 
@@ -154,7 +159,7 @@ Med dessa krav på plats kan du börja skapa ett redundanskluster. Det första s
 
    Öppna dessa portar i Windows-brandväggen på varje virtuell dator:
 
-   | Syfte | TCP-port | Anteckningar
+   | Syfte | TCP-port | Obs!
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port för standard instanser av SQL Server. Om du använde en avbildning från galleriet öppnas porten automatiskt.
    | Hälsoavsökning | 59999 | Alla öppna TCP-portar. I ett senare steg konfigurerar du belastnings utjämningens [hälso avsökning](#probe) och klustret för att använda den här porten.
@@ -185,10 +190,11 @@ När du har skapat och konfigurerat de virtuella datorerna kan du konfigurera Pr
   > [!IMPORTANT]
   > - Överväg att använda en separat fil resurs för säkerhets kopierings filer för att spara IOPS och utrymmes kapaciteten för den här resursen för data-och loggfiler. Du kan använda antingen en Premium-eller standard fil resurs för säkerhets kopierings filer.
   > - Om du använder Windows 2012 R2 och äldre följer du samma steg för att montera fil resursen som du kommer att använda som fil resurs vittne. 
+  > 
 
 ## <a name="step-3-configure-the-failover-cluster"></a>Steg 3: Konfigurera redundansklustret
 
-Nästa steg är att konfigurera redundansklustret. I det här steget ska du utföra följande under steg:
+Nu konfigurerar du klustret för växling vid fel. I det här avsnittet utför du följande steg:
 
 1. Lägg till funktionen kluster för växling vid fel i Windows Server.
 1. Verifiera klustret.
@@ -246,8 +252,9 @@ När du har verifierat klustret skapar du klustret för växling vid fel.
 ### <a name="create-the-failover-cluster"></a>Skapa redundansklustret
 
 Du behöver följande om du vill skapa ett kluster för växling vid fel:
+
 - Namnen på de virtuella datorer som kommer att bli klusternoder.
-- Ett namn för redundansklustret
+- Ett namn för redundansklustret.
 - En IP-adress för redundansklustret. Du kan använda en IP-adress som inte används på samma virtuella Azure-nätverk och undernät som klusternoderna.
 
 #### <a name="windows-server-2012-through-windows-server-2016"></a>Windows Server 2012 via Windows Server 2016
@@ -267,9 +274,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness-win-2016-"></a>Skapa ett moln vittne (Win 2016 +)
+### <a name="create-a-cloud-witness-win-2016-and-later"></a>Skapa ett moln vittne (Win 2016 och senare)
 
-Om du använder Windows Server 2016 och senare måste du skapa ett moln vittne. Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. Detta tar bort behovet av en separat virtuell dator som är värd för en vittnes resurs eller som använder en separat fil resurs.
+Om du använder Windows Server 2016 och senare måste du skapa ett moln vittne. Ett moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. Detta tar bort behovet av en separat virtuell dator som är värd för en vittnes resurs eller som använder en separat fil resurs.
 
 1. [Skapa ett moln vittne för redundansklustret](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -296,7 +303,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
 1. Anslut till den första virtuella datorn med hjälp av RDP.
 
-1. I **Klusterhanteraren för växling vid fel**kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om du behöver kan du flytta alla resurser till den virtuella datorn.
+1. I **Klusterhanteraren för växling vid fel**kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
 
 1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . Välj **installation**.
 
@@ -304,7 +311,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
 1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
 
-   FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formuläret: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Se till att det användar konto som du använder RDP till den virtuella datorn när du sparade fil resursen är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
+   FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formuläret: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Se till att det användar konto du använde för att få åtkomst till den virtuella datorn via RDP när du sparade fil resursen är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
 
    :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/use-file-share-as-data-directories.png" alt-text="Använd fil resurs som SQL data-kataloger":::
 
@@ -318,6 +325,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
    >[!NOTE]
    >Om du använde en Azure Marketplace-Galleri avbildning med SQL Server, inkluderades SQL Server verktyg tillsammans med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Se [Ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## <a name="step-6-create-the-azure-load-balancer"></a>Steg 6: Skapa Azure Load Balancer
 
@@ -429,6 +437,7 @@ I följande lista beskrivs de värden som du behöver uppdatera:
 
 >[!IMPORTANT]
 >Nät masken för kluster parametern måste vara TCP IP-broadcast-adressen: `255.255.255.255` .
+>
 
 När du har ställt in kluster avsökningen kan du se alla kluster parametrar i PowerShell. Kör det här skriptet:
 
@@ -456,10 +465,12 @@ Om du vill testa anslutningen loggar du in på en annan virtuell dator i samma v
 
 >[!NOTE]
 >Om du behöver kan du [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## <a name="limitations"></a>Begränsningar
 
-Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och en [standard belastnings utjämning](../../../load-balancer/load-balancer-standard-overview.md).
+Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och en [standard belastningsutjämnare](../../../load-balancer/load-balancer-standard-overview.md).
+
 
 I Azure Virtual Machines stöds inte MSDTC på Windows Server 2016 eller tidigare eftersom:
 

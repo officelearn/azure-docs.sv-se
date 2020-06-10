@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ed1a952cb640fcd64808ba49e1a0937d71d769f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417852"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655633"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
 
@@ -48,9 +48,9 @@ Den nedre **körnings informationen och varaktigheten** beskriver de viktigaste 
 
 ## <a name="monitor-programmatically"></a>Övervaka program mässigt
 
-Information om körningen av kopierings aktiviteten och prestanda egenskaperna returneras också**i avsnittet** **Kopiera aktivitets körnings resultat** > , som används för att återge vyn UI-övervakning. Nedan visas en fullständig lista över egenskaper som kan returneras. Du ser bara de egenskaper som gäller för ditt kopierings scenario. Information om hur du övervakar aktivitets körningar programmatiskt i allmänhet finns i [program mässigt övervaka en Azure-datafabrik](monitor-programmatically.md).
+Information om körningen av kopierings aktiviteten och prestanda egenskaperna returneras också i avsnittet **Kopiera aktivitets körnings resultat**  >  **Output** , som används för att återge vyn UI-övervakning. Nedan visas en fullständig lista över egenskaper som kan returneras. Du ser bara de egenskaper som gäller för ditt kopierings scenario. Information om hur du övervakar aktivitets körningar programmatiskt i allmänhet finns i [program mässigt övervaka en Azure-datafabrik](monitor-programmatically.md).
 
-| Egenskapsnamn  | Beskrivning | Enhet i utdata |
+| Egenskapsnamn  | Description | Enhet i utdata |
 |:--- |:--- |:--- |
 | dataRead | Den faktiska mängden data som läses från källan. | Int64-värde, i byte |
 | dataWritten | Den faktiska monteringen av skrivna data som skrivs/allokeras till mottagaren. Storleken kan skilja sig från `dataRead` storlek, eftersom den relaterar hur varje data lager lagrar data. | Int64-värde, i byte |
@@ -60,7 +60,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | sinkPeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten. | Int64-värde (ingen enhet) |
 | rowsRead | Antal rader som lästs från källan (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsCopied | Antal rader som kopierats till Sink (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
-| rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom `enableSkipIncompatibleRow` att ange True. | Int64-värde (ingen enhet) |
+| rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom att ange `enableSkipIncompatibleRow` true. | Int64-värde (ingen enhet) |
 | copyDuration | Kopierings körningens längd. | Int32-värde, i sekunder |
 | dataflöde | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int32-värde (ingen enhet) |
@@ -68,7 +68,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolesk |
 | redshiftUnload | Anger om borttagning används när data kopieras från RedShift. | Boolesk |
 | hdfsDistcp | Om DistCp används när data kopieras från HDFS. | Boolesk |
-| effectiveIntegrationRuntime | Integrerings körningen (IR) eller körningar som används för att starta aktivitets körningen i `<IR name> (<region if it's Azure IR>)`formatet. | Text (sträng) |
+| effectiveIntegrationRuntime | Integrerings körningen (IR) eller körningar som används för att starta aktivitets körningen i formatet `<IR name> (<region if it's Azure IR>)` . | Text (sträng) |
 | usedDataIntegrationUnits | De effektiva enheterna för data integrering under kopiering. | Int32-värde |
 | usedParallelCopies | Det effektiva parallelCopies under kopieringen. | Int32-värde |
 | redirectRowPath | Sökväg till loggen över inkompatibla rader i blob-lagringen som du konfigurerar i `redirectIncompatibleRowSettings` egenskapen. Se [fel tolerans](copy-activity-overview.md#fault-tolerance). | Text (sträng) |

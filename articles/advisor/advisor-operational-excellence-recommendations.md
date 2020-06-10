@@ -3,12 +3,12 @@ title: Förbättra drifts excellencyen för dina Azure-prenumerationer med Azure
 description: Använd Advisor för att optimera och få vuxen drifts kvalitet för dina Azure-prenumerationer
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 861b12c2267ffa89985ff11357de92da5a4ac870
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187424"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658448"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Få drifts expert med Azure Advisor
 
@@ -18,6 +18,7 @@ Azure Advisor operativa rekommendationer hjälper kunden med process-och arbets 
 
 Vi rekommenderar att du konfigurerar Azure Service Health aviseringar för att bli informerad när problem med Azure-tjänsten påverkar dig. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnads fri tjänst som ger personlig vägledning och support när du påverkas av ett problem med en Azure-tjänst. Advisor identifierar prenumerationer som inte har konfigurerade varningar och rekommenderar att du skapar en.
 
+
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen överskrids
 
 En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När gränsen har nåtts kan du inte skapa fler lagrings konton i samma region/prenumerations kombination. Advisor kontrollerar dina prenumerations-och ytbehandlings rekommendationer för att du ska kunna utforma färre lagrings konton för alla som är nära att nå Max gränsen.
@@ -25,6 +26,10 @@ En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När g
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Se till att du har åtkomst till Azure Cloud-experter när du behöver det
 
 När du kör en verksamhets kritisk arbets belastning är det viktigt att ha till gång till teknisk support vid behov. Advisor identifierar potentiella affärs kritiska prenumerationer som inte har teknisk support som ingår i support avtalet och rekommenderar att du uppgraderar till ett alternativ som omfattar teknisk support.
+
+## <a name="delete-and-recreate-your-pool-to-remove-a-deprecated-internal-component"></a>Ta bort och återskapa poolen för att ta bort en inaktuell intern komponent
+
+Poolen använder en inaktuell intern komponent. Ta bort och återskapa poolen för bättre stabilitet och prestanda.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltiga logg aviserings regler
 
@@ -43,7 +48,7 @@ Azure Policy är en tjänst i Azure som används till att skapa, tilldela och ha
 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
-* [Kom igång](advisor-get-started.md)
+* [Komma igång](advisor-get-started.md)
 * [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)

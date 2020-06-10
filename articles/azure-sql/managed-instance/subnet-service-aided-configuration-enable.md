@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: c8531af9e8d43dfe1279306cea57a93cf89ded90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 88fffc083b918157857c5c170cddda2016944c89
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045797"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660341"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Aktiverar konfiguration av tjänstens konfiguration för under nätverk för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Automatiskt konfigurerade nätverks säkerhets grupper och regler för routnings
 Konfiguration av tjänstens konfiguration aktive ras automatiskt när du aktiverar [under nätets delegering](../../virtual-network/subnet-delegation-overview.md) för `Microsoft.Sql/managedInstances` resurs leverantör.
 
 > [!IMPORTANT] 
-> När undernät – delegering är aktiverat kan du inte inaktivera det förrän du tar bort det sista virtuella klustret från under nätet. Mer information om hur du tar bort ett virtuellt kluster finns i följande [artikel](virtual-cluster-delete.md#delete-virtual-cluster-from-the-azure-portal).
+> När undernät – delegering är aktiverat kan du inte inaktivera det förrän du tar bort det sista virtuella klustret från under nätet. Mer information om hur du tar bort ett virtuellt kluster finns i följande [artikel](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal).
 
 > [!NOTE] 
 > Som tjänst-konfiguration av under nätet är en viktig funktion för att upprätthålla SLA, med början den 1 maj 2020, det går inte att distribuera hanterade instanser i undernät som inte är delegerade till resurs leverantören för en hanterad instans. Den 1 juli 2020 kommer alla undernät som innehåller hanterade instanser automatiskt att delegeras till resurs leverantören för hanterade instanser. 

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Queue Storage från Node. js – Azure Storage
-description: Lär dig hur du använder Azure-Kötjänst för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden. Exempel som skrivits i Node. js.
+title: Använd Azure Queue Storage från Node.js-Azure Storage
+description: Lär dig hur du använder Azure-Kötjänst för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden. Exempel som skrivs i Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
@@ -9,30 +9,33 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: c7b5e679fa47437e7019884317d0ab14792055f3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 878c4a5028b114ad10d19c03c0239c9d7a8bc6ce
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465430"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659574"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Använd Azure Queue Service för att skapa och ta bort köer från Node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Använd Azure Queue Service för att skapa och ta bort köer från Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Kötjänst. Exemplen skrivs med Node. js-API: et. De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
+Den här guiden visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Kötjänst. Exemplen skrivs med hjälp av Node.js-API: et. De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
+
+> [!IMPORTANT]
+> Den här artikeln hänvisar till den äldre versionen av Azure Storage klient biblioteket för Java Script. För att komma igång med den senaste versionen kan du se [snabb start: Azure Queue Storage klient bibliotek för Java Script](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-nodejs-application"></a>Skapa ett Node. js-program
-Skapa ett tomt Node. js-program. Instruktioner för hur du skapar ett Node. js-program finns [i skapa en Node. js-webbapp i Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [skapa och distribuera ett Node. js-program till en Azure-moln tjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) med hjälp av Windows PowerShell eller [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+## <a name="create-a-nodejs-application"></a>Skapa ett Node.js program
+Skapa ett tomt Node.js-program. Instruktioner för hur du skapar ett Node.js program finns [i skapa en Node.js webbapp i Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [skapa och distribuera ett Node.js program till en Azure-moln tjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) med hjälp av Windows PowerShell eller [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
-Om du vill använda Azure Storage behöver du Azure Storage SDK för Node. js, som innehåller en uppsättning med bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.
+Om du vill använda Azure Storage behöver du Azure Storage SDK för Node.js, som innehåller en uppsättning av praktiska bibliotek som kommunicerar med lagrings REST tjänsterna.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Hämta paketet med hjälp av Node Pack Manager (NPM)
 1. Använd ett kommando rads gränssnitt som **PowerShell** (Windows,) **Terminal** (Mac) eller **bash** (UNIX) och navigera till mappen där du skapade exempel programmet.
@@ -54,7 +57,7 @@ Om du vill använda Azure Storage behöver du Azure Storage SDK för Node. js, s
 3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node- \_ moduler** har skapats. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
 
 ### <a name="import-the-package"></a>Importera paketet
-Använd anteckningar eller något annat text redigerings program och Lägg till följande i den översta filen **Server. js** för programmet där du tänker använda Storage:
+Använd anteckningar eller något annat text redigerings program och Lägg till följande i den översta **server.js** filen för programmet där du tänker använda Storage:
 
 ```javascript
 var azure = require('azure-storage');

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tillgänglighets grupp i olika regioner
-description: Den här artikeln beskriver hur du konfigurerar en SQL Server tillgänglighets grupp på virtuella Azure-datorer med en replik i en annan region.
+title: Konfigurera en SQL Server Always on-tillgänglighets grupp i olika regioner
+description: Den här artikeln beskriver hur du konfigurerar en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer med en replik i en annan region.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -15,14 +15,15 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 996b5a59c5c79a045cd396a24778fe0928682c5a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 00f016dd4a2a713124ef3db2ef6c595f68e9318d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044292"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657039"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Konfigurera en tillgänglighets grupp på Azure SQL Server virtuella datorer i olika regioner
+# <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurera en SQL Server Always on-tillgänglighets grupp i olika Azure-regioner
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du konfigurerar en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer på en fjärran sluten Azure-plats. Använd den här konfigurationen för att stödja haveri beredskap.
@@ -133,7 +134,7 @@ Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
 1. [Ange kluster parametrarna i PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings port som du konfigurerade i belastningsutjämnaren i den nya regionen.
+   Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings port som du konfigurerade i belastningsutjämnaren i den nya regionen.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -170,16 +171,16 @@ Om du inte kan ändra anslutnings strängarna kan du konfigurera cachelagring av
 Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över repliken till den fjärranslutna regionen. När repliken är asynkron är redundansväxlingen sårbar för potentiell data förlust. Om du vill redundansväxla utan data förlust ändrar du tillgänglighets läget till synkront och anger läget för redundans till automatisk. Använd följande steg:
 
 1. I **Object Explorer**ansluter du till den instans av SQL Server som är värd för den primära repliken.
-1. Under **AlwaysOn-tillgänglighetsgrupper**, **tillgänglighets grupper**, högerklickar du på din tillgänglighets grupp och klickar på **Egenskaper**.
+1. Under **AlwaysOn-tillgänglighetsgrupper**, **tillgänglighets grupper**, högerklickar du på din tillgänglighets grupp och väljer **Egenskaper**.
 1. På sidan **Allmänt** , under **tillgänglighets repliker**, anger du den sekundära repliken på Dr-platsen så att den använder **synkront genomförande** läge för tillgänglighet och **automatiskt** växlings läge.
 1. Om du har en sekundär replik på samma plats som din primära replik för hög tillgänglighet anger du den här repliken till **asynkron incheckning** och **manuell**.
-1. Klicka på OK.
-1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och klickar på **Visa instrument panel**.
+1. Välj OK.
+1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och väljer **Visa instrument panel**.
 1. På instrument panelen kontrollerar du att repliken på DR-platsen är synkroniserad.
-1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och klickar på **redundans...**. SQL Server Management Studios öppnar en guide för att redundansväxla SQL Server.  
-1. Klicka på **Nästa**och välj SQL Server-instansen på Dr-platsen. Klicka på **Nästa** igen.
-1. Anslut till SQL Server-instansen på DR-platsen och klicka på **Nästa**.
-1. På sidan **Sammanfattning** kontrollerar du inställningarna och klickar på **Slutför**.
+1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och väljer **redundans...**. SQL Server Management Studios öppnar en guide för att redundansväxla SQL Server.  
+1. Välj **Nästa**och välj SQL Server-instansen på Dr-platsen. Välj **Nästa** igen.
+1. Anslut till SQL Server-instansen på DR-platsen och välj **Nästa**.
+1. På sidan **Sammanfattning** kontrollerar du inställningarna och väljer **Slutför**.
 
 När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
@@ -197,9 +198,9 @@ Mer information finns i följande avsnitt:
 - [Utföra en planerad manuell redundansväxling av en tillgänglighets grupp (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Utföra en framtvingad manuell redundansväxling av en tillgänglighets grupp (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ytterligare länkar
+## <a name="next-steps"></a>Nästa steg
 
 * [Always on-tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure-Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 * [Tillgänglighets uppsättningar i Azure](../../../virtual-machines/linux/manage-availability.md)

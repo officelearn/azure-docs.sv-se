@@ -3,16 +3,16 @@ title: Konfigurera programvaru-RAID på en virtuell Linux-dator
 description: Lär dig hur du använder mdadm för att konfigurera RAID i Linux i Azure.
 author: rickstercdn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3471ccfa0899f73969c511dea283c2d0d7051af8
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250262"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659784"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario att använda programvaru-RAID på virtuella Linux-datorer i Azure för att presentera flera anslutna data diskar som en enda RAID-enhet. Detta kan användas för att förbättra prestanda och möjliggöra bättre data flöde jämfört med att bara använda en enda disk.
@@ -77,7 +77,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
     Partition number (1-4): 1
     ```
 
-1. Välj Start punkten för den nya partitionen eller tryck `<enter>` på för att acceptera standardvärdet för att placera partitionen i början av det lediga utrymmet på enheten:
+1. Välj Start punkten för den nya partitionen eller tryck på `<enter>` för att acceptera standardvärdet för att placera partitionen i början av det lediga utrymmet på enheten:
 
     ```bash   
     First cylinder (1-1305, default 1):
@@ -107,7 +107,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
     ```
 
 ## <a name="create-the-raid-array"></a>Skapa RAID-matrisen
-1. I följande exempel blir "rand" (RAID-nivå 0) tre partitioner på tre separata data diskar (sdc1, sdd1, sde1).  När du har kört det här kommandot skapas en ny RAID-enhet med namnet **/dev/md127** . Observera också att om dessa data diskar tidigare var en del av en annan felaktig RAID-matris kan det vara nödvändigt `--force` att lägga till `mdadm` parametern i kommandot:
+1. I följande exempel blir "rand" (RAID-nivå 0) tre partitioner på tre separata data diskar (sdc1, sdd1, sde1).  När du har kört det här kommandot skapas en ny RAID-enhet med namnet **/dev/md127** . Observera också att om dessa data diskar tidigare var en del av en annan felaktig RAID-matris kan det vara nödvändigt att lägga till `--force` parametern i `mdadm` kommandot:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -191,7 +191,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
    
     **fstab-konfiguration**
    
-    Många distributioner omfattar antingen parametrarna `nobootwait` eller `nofail` som kan läggas till i/etc/fstab-filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
+    Många distributioner omfattar antingen `nobootwait` parametrarna eller `nofail` som kan läggas till i/etc/fstab-filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
    
     Exempel (Ubuntu):
 
@@ -201,26 +201,26 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
 
     **Start parametrar för Linux**
    
-    Förutom parametrarna ovan kan kernel-parametern "`bootdegraded=true`" tillåta att systemet startar även om RAID uppfattas som skadat eller försämrat, till exempel om en data enhet oavsiktligt tas bort från den virtuella datorn. Som standard kan detta även resultera i ett icke-startbart system.
+    Förutom parametrarna ovan kan kernel-parametern " `bootdegraded=true` " tillåta att systemet startar även om RAID uppfattas som skadat eller försämrat, till exempel om en data enhet oavsiktligt tas bort från den virtuella datorn. Som standard kan detta även resultera i ett icke-startbart system.
    
-    Se din distributions dokumentation om hur du redigerar kernel-parametrar på rätt sätt. I många distributioner (CentOS, Oracle Linux, SLES 11) kan dessa parametrar till exempel läggas till manuellt i filen "`/boot/grub/menu.lst`".  På Ubuntu kan du lägga till den här parametern `GRUB_CMDLINE_LINUX_DEFAULT` i variabeln på "/etc/default/grub".
+    Se din distributions dokumentation om hur du redigerar kernel-parametrar på rätt sätt. I många distributioner (CentOS, Oracle Linux, SLES 11) kan dessa parametrar till exempel läggas till manuellt i `/boot/grub/menu.lst` filen "".  På Ubuntu kan du lägga till den här parametern i `GRUB_CMDLINE_LINUX_DEFAULT` variabeln på "/etc/default/grub".
 
 
 ## <a name="trimunmap-support"></a>Stöd för trimning/MAPPNING
 Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbara i standard lagring för att informera Azure om att borttagna sidor inte längre är giltiga och kan tas bort. Om du tar bort sidor kan du spara pengar om du skapar stora filer och sedan tar bort dem.
 
 > [!NOTE]
-> RAID kan inte utfärda ignorera-kommandon om segment storleken för matrisen har angetts till mindre än standard (512 kB). Detta beror på att mappnings precisionen på värden också är 512 kB. Om du har ändrat matrisens segment storlek via mdadm- `--chunk=` parametern, kan trimnings-eller mappnings begär Anden ignoreras av kerneln.
+> RAID kan inte utfärda ignorera-kommandon om segment storleken för matrisen har angetts till mindre än standard (512 kB). Detta beror på att mappnings precisionen på värden också är 512 kB. Om du har ändrat matrisens segment storlek via mdadm `--chunk=` -parametern, kan trimnings-eller mappnings begär Anden ignoreras av kerneln.
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-- Använd `discard` monterings alternativet i `/etc/fstab`, till exempel:
+- Använd `discard` monterings alternativet i `/etc/fstab` , till exempel:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- I vissa fall kan `discard` alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+- I vissa fall `discard` kan alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
 
     **Ubuntu**
 

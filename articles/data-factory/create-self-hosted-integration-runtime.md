@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
-ms.openlocfilehash: 705c35570484f604e9281b9c19ceb734180ba3e1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.date: 06/09/2020
+ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418270"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655894"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
 
@@ -56,13 +56,13 @@ Använd följande procedurer för att skapa och konfigurera en integration runti
 
 Använd följande steg för att skapa en IR med egen värd med hjälp av Azure Data Factory användar gränssnitt.
 
-1. På sidan för att **komma igång** i Azure Data Factory UI väljer du fliken **författare** i rutan längst till vänster.
+1. På sidan för att **komma igång** i Azure Data Factory UI väljer du [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i rutan längst till vänster.
 
-   ![Start sidans författar knapp](media/doc-common-process/get-started-page-author-button.png)
+   ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Välj **anslutningar** längst ned i fönstret längst till vänster och välj **integrerings körningar** i fönstret **anslutningar** . Välj **+ ny**.
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
 
-   ![Skapa Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
 
@@ -97,7 +97,7 @@ Du kan automatisera IR-installationen med egen värd på en virtuell Azure-dator
 
 Du kan använda en kommando rad för att ställa in eller hantera en befintlig egen IR-anslutning. Den här användningen kan särskilt hjälpa dig att automatisera installationen och registreringen av IR-noder med egen värd.
 
-Dmgcmd. exe ingår i installations programmet för egen värd. Den finns vanligt vis i mappen C:\Program Files\Microsoft integration Runtime\4.0\Shared\. Det här programmet har stöd för olika parametrar och kan anropas via en kommando rad med hjälp av batch-skript för Automation.
+Dmgcmd.exe ingår i installations programmet för egen värd. Den finns vanligt vis i mappen C:\Program Files\Microsoft integration Runtime\4.0\Shared\. Det här programmet har stöd för olika parametrar och kan anropas via en kommando rad med hjälp av batch-skript för Automation.
 
 Använd programmet på följande sätt:
 
@@ -109,22 +109,22 @@ Här följer information om programmets parametrar och egenskaper:
 
 | Egenskap                                                    | Beskrivning                                                  | Obligatorisk |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel. | Nej       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel och nodnamn. | Nej       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet. Eller aktivera inställning av autentiseringsuppgifter direkt mot IR med egen värd utan att gå via Azure Data Factory. Du gör det senare med hjälp av cmdleten **New-AzDataFactoryV2LinkedServiceEncryptedCredential** från en fjärrdator i samma nätverk. | Nej       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till den aktuella noden när noden körs i en behållare. | Nej       |
-| **DisableRemoteAccess**                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation av multinoder. PowerShell **-cmdleten New-AzDataFactoryV2LinkedServiceEncryptedCredential** fungerar fortfarande även om fjärråtkomst är inaktiverat. Det här beteendet är sant så länge cmdleten körs på samma dator som den lokala IR-noden. | Nej       |
-| **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | Nej       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | Nej       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | Nej       |
-| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
-| **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | Nej       |
-| **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | Nej       |
-| **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | Nej       |
-| **StopUpgradeService**                                          | Stoppa uppgraderings tjänsten för integration runtime med egen värd.        | Nej       |
-| **TurnOnAutoUpdate**                                            | Aktivera automatisk uppdatering av integrerings körningen med egen värd.        | Nej       |
-| **TurnOffAutoUpdate**                                           | Inaktivera automatisk uppdatering av integrerings körningen med egen värd.       | Nej       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Ange dia Host service som ska köras som ett nytt konto. Använd det tomma lösen ordet "" för system konton och virtuella konton. | Nej       |
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel. | No       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel och nodnamn. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet. Eller aktivera inställning av autentiseringsuppgifter direkt mot IR med egen värd utan att gå via Azure Data Factory. Du gör det senare med hjälp av cmdleten **New-AzDataFactoryV2LinkedServiceEncryptedCredential** från en fjärrdator i samma nätverk. | No       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till den aktuella noden när noden körs i en behållare. | No       |
+| **DisableRemoteAccess**                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation av multinoder. PowerShell **-cmdleten New-AzDataFactoryV2LinkedServiceEncryptedCredential** fungerar fortfarande även om fjärråtkomst är inaktiverat. Det här beteendet är sant så länge cmdleten körs på samma dator som den lokala IR-noden. | No       |
+| **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | No       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | No       |
+| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | No       |
+| **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | No       |
+| **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | No       |
+| **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | No       |
+| **StopUpgradeService**                                          | Stoppa uppgraderings tjänsten för integration runtime med egen värd.        | No       |
+| **TurnOnAutoUpdate**                                            | Aktivera automatisk uppdatering av integrerings körningen med egen värd.        | No       |
+| **TurnOffAutoUpdate**                                           | Inaktivera automatisk uppdatering av integrerings körningen med egen värd.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Ange dia Host service som ska köras som ett nytt konto. Använd det tomma lösen ordet "" för system konton och virtuella konton. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Kommando flöde och data flöde
@@ -352,8 +352,8 @@ När det konfigureras använder den lokal integrerings körningen proxyservern f
 Det finns tre konfigurations alternativ:
 
 - **Använd inte proxy**: den egna värdbaserade integrerings körningen använder inte uttryckligen någon proxy för att ansluta till moln tjänster.
-- **Använd systemproxy**: den egna värdbaserade integrerings körningen använder den proxyserver som kon figurer ATS i diahost. exe. config och diawp. exe. config. Om dessa filer inte anger någon proxykonfiguration ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy.
-- **Använd anpassad proxy**: konfigurera inställningen för http-proxy som ska användas för integration runtime med egen värd i stället för konfigurationer i diahost. exe. config och diawp. exe. config. **Adress-** och **port** värden måste anges. Värdena för **användar namn** och **lösen ord** är valfria, beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med Windows DPAPI på integration runtime med egen värd och lagras lokalt på datorn.
+- **Använd systemproxy**: den egna värdbaserade integrerings körningen använder den proxyserver som kon figurer ats i diahost.exe.config och diawp.exe.config. Om dessa filer inte anger någon proxykonfiguration ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy.
+- **Använd anpassad proxy**: konfigurera inställningen för http-proxy som ska användas för integration runtime med egen värd i stället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. **Adress-** och **port** värden måste anges. Värdena för **användar namn** och **lösen ord** är valfria, beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med Windows DPAPI på integration runtime med egen värd och lagras lokalt på datorn.
 
 Värd tjänsten för integration runtime startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
@@ -373,9 +373,9 @@ Du kan använda Configuration Manager-verktyget för att visa och uppdatera HTTP
 
 ### <a name="configure-proxy-server-settings"></a>Konfigurera inställningar för proxyserver
 
-Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder den egen värdbaserade integrerings körningen proxyinställningarna i diahost. exe. config och diawp. exe. config. När de här filerna inte anger någon proxy ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost. exe. config:
+Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder den egen värdbaserade integrerings körningen proxyinställningarna i diahost.exe.config och diawp.exe.config. När de här filerna inte anger någon proxy ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy. Följande procedur innehåller instruktioner för att uppdatera diahost.exe.config-filen:
 
-1. I Utforskaren skapar du en säker kopia av C:\Program\Microsoft integration Runtime\4.0\Shared\diahost.exe.config som en säkerhets kopia av den ursprungliga filen.
+1. I Utforskaren skapar du en säker kopia av C:\Program Files\Microsoft integration Runtime\4.0\Shared\diahost.exe.config som en säkerhets kopia av den ursprungliga filen.
 1. Öppna anteckningar som körs som administratör.
 1. I anteckningar öppnar du text filen C:\Program Files\Microsoft integration Runtime\4.0\Shared\diahost.exe.config.
 1. Hitta standard tag gen **system.net** -taggen som visas i följande kod:
@@ -407,7 +407,7 @@ Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder de
    Om tjänsten inte startar har du troligt vis lagt till felaktig syntax för XML-taggar i program konfigurations filen som du redigerade.
 
 > [!IMPORTANT]
-> Glöm inte att uppdatera både diahost. exe. config och diawp. exe. config.
+> Glöm inte att uppdatera både diahost.exe.config och diawp.exe.config.
 
 Du måste också se till att Microsoft Azure finns i företagets lista över tillåtna. Du kan ladda ned listan med giltiga Azure IP-adresser från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 

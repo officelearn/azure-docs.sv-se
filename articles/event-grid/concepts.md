@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393470"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659173"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Begrepp i Azure Event Grid
 
@@ -41,9 +41,9 @@ Information om hur du implementerar någon av de Event Grid källorna som stöds
 
 Avsnittet Event Grid innehåller en slut punkt där källan skickar händelser. Avsnittet Event Grid skapas i utgivaren och avgör om en händelse källa behöver ett ämne eller mer än ett ämne. Ett ämne används för en samling relaterade händelser. För att svara på vissa typer av händelser, bestämmer prenumeranter vilka ämnen som ska prenumerera på.
 
-Systemämnen är inbyggda ämnen som tillhandahålls av Azure-tjänster. Du ser inte systemämnen i Azure-prenumerationen eftersom utgivaren äger ämnena, men du kan prenumerera på dem. Om du vill prenumerera ska du tillhandahålla information om resursen som du vill ta emot händelser från. Så länge som du har åtkomst till resursen, kan du prenumerera på händelser.
+System ämnen är inbyggda ämnen som tillhandahålls av Azure-tjänster som Azure Storage, Azure Event Hubs och Azure Service Bus. Du kan skapa system ämnen i din Azure-prenumeration och prenumerera på dem. Mer information finns i [Översikt över system ämnen](system-topics.md). 
 
-Anpassade ämnen kommer från program och tredje part. När du skapar eller tilldelas åtkomst till ett anpassat ämne visas detta anpassade ämne i din prenumeration.
+Anpassade ämnen kommer från program och tredje part. När du skapar eller tilldelas åtkomst till ett anpassat ämne visas detta anpassade ämne i din prenumeration. Mer information finns i avsnittet om [anpassade ämnen](custom-topics.md).
 
 När du designar ditt program är du flexibel när du bestämmer hur många ämnen som ska skapas. Skapa ett anpassat ämne för varje kategori av relaterade händelser för stora lösningar. Tänk dig ett program som skickar händelser som handlar om att ändra användarkonton och bearbeta beställningar. Det är osannolikt alla händelsehanteraren vill ha båda händelsekategorier. Skapa två anpassade ämnen och låt händelsehanteraren prenumerera på det mest relevanta. För små lösningar kanske du föredrar att skicka alla händelser till ett enda ämne. Händelse prenumeranter kan filtrera efter de händelse typer som de vill ha.
 
@@ -66,7 +66,7 @@ Ett exempel på hur du anger förfallo datum finns i [Prenumerera med avancerade
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
-Från ett Event Grid perspektiv är en händelse hanterare den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Event Grid stöder flera typer av hanterare. Du kan använda en Azure-tjänst som stöds eller din egen webhook som hanterare. Beroende på typen av hanterare Event Grid följande olika mekanismer för att garantera att händelsen levereras. För HTTP webhook-händelse hanterare görs ett nytt försök tills hanteraren returnerar status koden `200 – OK`. För Azure Storage kö görs ett nytt försök till händelserna tills Kötjänst har bearbetat meddelandet push-överförts till kön.
+Från ett Event Grid perspektiv är en händelse hanterare den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Event Grid stöder flera typer av hanterare. Du kan använda en Azure-tjänst som stöds eller din egen webhook som hanterare. Beroende på typen av hanterare Event Grid följande olika mekanismer för att garantera att händelsen levereras. För HTTP webhook-händelse hanterare görs ett nytt försök tills hanteraren returnerar status koden `200 – OK` . För Azure Storage kö görs ett nytt försök till händelserna tills Kötjänst har bearbetat meddelandet push-överförts till kön.
 
 Information om hur du implementerar en Event Grid hanterare som stöds finns i [händelse hanterare i Azure Event Grid](event-handlers.md).
 

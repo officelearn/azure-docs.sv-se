@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: cee913e846ebfef174a3cd6383401eace89187f0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 347f9522bacc768265027f1a2070ac4605ade158
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044341"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655681"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Anslutnings typer för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,24 +31,24 @@ Azure SQL Managed instance stöder följande två anslutnings typer:
 
 ## <a name="redirect-connection-type"></a>Anslutnings typ för omdirigering
 
-Anslutnings typ för omdirigering innebär att när TCP-sessionen har upprättats till SQL-motorn hämtar klientsessionen den virtuella mål-IP-adressen för den virtuella klusternoden från belastningsutjämnaren. Efterföljande paket flödar direkt till den virtuella klusternoden och kringgår gatewayen. Följande diagram illustrerar det här trafikflödet.
+När TCP-sessionen har upprättats till SQL-motorn i anslutnings typen för omdirigering hämtar klientsessionen den virtuella mål-IP-adressen för den virtuella klusternoden från belastningsutjämnaren. Efterföljande paket flödar direkt till den virtuella klusternoden och kringgår gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![omdirigera. png](./media/connection-types-overview/redirect.png)
+![redirect.png](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
-> Anslutnings typen för omdirigering fungerar för närvarande endast för privat slut punkt. Oavsett inställningen för anslutnings typen, kommer anslutningar via den offentliga slut punkten att ske via en proxy.
+> Anslutnings typen för omdirigering fungerar för närvarande endast för en privat slut punkt. Oavsett inställningen för anslutnings typen, kommer anslutningar via den offentliga slut punkten att ske via en proxy.
 
 ## <a name="proxy-connection-type"></a>Typ av anslutnings proxy
 
-Anslutnings typ för proxy innebär att TCP-sessionen upprättas med hjälp av gatewayen och alla efterföljande paket flödar genom den. Följande diagram illustrerar det här trafikflödet.
+I anslutnings typen proxy upprättas TCP-sessionen med hjälp av gatewayen och alla efterföljande paket flödar genom den. Följande diagram illustrerar det här trafikflödet.
 
-![proxy. png](./media/connection-types-overview/proxy.png)
+![proxy.png](./media/connection-types-overview/proxy.png)
 
 ## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skript för att ändra inställningar för Anslutnings typ med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Följande PowerShell-skript visar hur du ändrar anslutnings typen för en SQL-hanterad instans till `Redirect` .
+Följande PowerShell-skript visar hur du ändrar anslutnings typen för en hanterad instans till `Redirect` .
 
 ```powershell
 Install-Module -Name Az
@@ -60,13 +60,13 @@ Connect-AzAccount
 Get-AzSubscription
 # Use your SubscriptionId in place of {subscription-id} below
 Select-AzSubscription -SubscriptionId {subscription-id}
-# Replace {rg-name} with the resource group for your SQL Managed Instance, and replace {mi-name} with the name of your SQL Managed Instance
+# Replace {rg-name} with the resource group for your managed instance, and replace {mi-name} with the name of your managed instance
 $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa en databas till en SQL-hanterad instans](restore-sample-database-quickstart.md)
+- [Återställa en databas till SQL-hanterad instans](restore-sample-database-quickstart.md)
 - Lär dig hur du [konfigurerar en offentlig slut punkt på SQL-hanterad instans](public-endpoint-configure.md)
 - Läs mer om [anslutnings arkitekturen för SQL-hanterade instanser](connectivity-architecture-overview.md)

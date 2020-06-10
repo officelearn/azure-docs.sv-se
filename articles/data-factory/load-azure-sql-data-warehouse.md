@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: a023599cb026a62aee034846dd390cda730d5df4
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194756"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660281"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Läs in data i Azure Synapse Analytics med hjälp av Azure Data Factory
 
@@ -38,7 +38,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från Azure Synapse Analytics med hjälp av Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Synapse Analytics: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har en Azure Synapse-analys kan du läsa anvisningarna i [skapa en Azure Synapse-analys](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
@@ -136,11 +136,13 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 1. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**.
 
     ![Sammanfattningssida](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. På **sidan distribution**väljer du **övervakare** för att övervaka pipelinen (aktiviteten).
 
-1. Observera att fliken **Övervaka** till vänster väljs automatiskt. När pipeline-körningen har slutförts, väljer du länken **CopyFromSQLToSQLDW** i kolumnen **pipeline-namn** för att Visa körnings information för aktiviteten och köra pipelinen igen.
+1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten). 
+ 
+1. Observera att fliken **Övervaka** till vänster väljs automatiskt. När pipeline-körningen har slutförts, väljer du länken **CopyFromSQLToSQLDW** i kolumnen **pipeline-namn** för att Visa körnings information för aktiviteten eller köra pipelinen igen.
 
     [![Övervaka pipelinekörningar](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. Om du vill växla tillbaka till vyn pipelines körs väljer du länken **alla pipeline-körningar** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
 
     ![Övervaka aktivitetskörningar](./media/load-azure-sql-data-warehouse/activity-monitoring.png)

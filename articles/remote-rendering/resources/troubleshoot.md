@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424418"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660024"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -145,6 +145,12 @@ Det kan finnas två problem med den här avgränsnings rutan som leder till osyn
 Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komposition med videon och för att göra omprojektionen. Öppna menyn för att kontrol lera att dessa hookar finns *:::no-loc text="Window > Analysis > Frame debugger":::* . Aktivera det och se till att det finns två poster för `HolographicRemotingCallbackPass` i pipelinen:
 
 ![Unity Frame debugger](./media/troubleshoot-unity-pipeline.png)
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>Den renderade bilden i Unity är upp-ned
+
+Se till att följa [installations guiden för projektet](../tutorials/unity/project-setup.md) exakt. En upp-ned-bild anger att Unity krävs för att skapa en rendering-mål på skärmen. Det här beteendet stöds inte för närvarande och skapar en enorm prestanda påverkan på HoloLens 2.
+
+Orsaker till det här problemet kan vara MSAA, HDR eller aktivera efter bearbetning. Kontrol lera att profilen för låg kvalitet är markerad och ange som standard i Unity. Om du vill göra det går du till *redigera > projekt inställningar... > kvalitet*.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Uniting-kod som använder API för fjärrrendering kompileras inte
 

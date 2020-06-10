@@ -3,16 +3,16 @@ title: Konfigurera LVM på en virtuell dator som kör Linux
 description: Lär dig hur du konfigurerar LVM i Linux i Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: guybo
 ms.subservice: disks
-ms.openlocfilehash: 7f560a1e6266b5f2452bf9442d2d4c983de1236e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a3498939ddf57e2520a140ff693a30de913fae0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066799"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658289"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
 Det här dokumentet beskriver hur du konfigurerar LVM (Logical Volume Manager) på din virtuella Azure-dator. LVM kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer, men som standard har de flesta moln avbildningarna inte LVM konfigurerade på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data diskar.
@@ -58,7 +58,7 @@ En är vanligt vis att börja med två eller flera tomma data diskar när du anv
     ```
 
 ## <a name="configure-lvm"></a>Konfigurera LVM
-I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi ska `/dev/sdc`referera `/dev/sdd` till `/dev/sde`som och. Dessa sökvägar stämmer inte överens med disk Sök vägens namn i den virtuella datorn. Du kan köra`sudo fdisk -l`kommandot eller liknande för att visa en lista över tillgängliga diskar.
+I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi ska referera till som `/dev/sdc` `/dev/sdd` och `/dev/sde` . Dessa sökvägar stämmer inte överens med disk Sök vägens namn i den virtuella datorn. Du kan köra `sudo fdisk -l` kommandot eller liknande för att visa en lista över tillgängliga diskar.
 
 1. Förbered de fysiska volymerna:
 
@@ -69,14 +69,14 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Skapa en volym grupp. I det här exemplet anropar vi volym gruppen `data-vg01`:
+2. Skapa en volym grupp. I det här exemplet anropar vi volym gruppen `data-vg01` :
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Skapa den eller de logiska volymerna. Kommandot nedan skapar en logisk volym som kallas `data-lv01` för att omfatta hela volym gruppen, men Observera att det också är möjligt att skapa flera logiska volymer i volym gruppen.
+3. Skapa den eller de logiska volymerna. Kommandot nedan skapar en logisk volym `data-lv01` som kallas för att omfatta hela volym gruppen, men Observera att det också är möjligt att skapa flera logiska volymer i volym gruppen.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
@@ -90,11 +90,11 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
     ```
    
    > [!NOTE]
-   > Med SLES11 använder `-t ext3` du i stället för ext4. SLES11 stöder endast skrivskyddad åtkomst till ext4-filsystem.
+   > Med SLES11 använder du `-t ext3` i stället för ext4. SLES11 stöder endast skrivskyddad åtkomst till ext4-filsystem.
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya fil systemet i/etc/fstab
 > [!IMPORTANT]
-> Felaktig redigering av filen `/etc/fstab` kan leda till att systemet inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar också att du skapar en säkerhets kopia `/etc/fstab` av filen innan du redigerar.
+> Felaktig redigering av filen `/etc/fstab` kan leda till att systemet inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar också att du skapar en säkerhets kopia av `/etc/fstab` filen innan du redigerar.
 
 1. Skapa önskad monterings punkt för det nya fil systemet, till exempel:
 
@@ -116,7 +116,7 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Spara och Stäng `/etc/fstab`sedan.
+    Spara och stäng sedan `/etc/fstab` .
 
 4. Testa att `/etc/fstab` posten är korrekt:
 
@@ -124,7 +124,7 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
     sudo mount -a
     ```
 
-    Om det här kommandot resulterar i ett fel meddelande kontrollerar du syntaxen `/etc/fstab` i filen.
+    Om det här kommandot resulterar i ett fel meddelande kontrollerar du syntaxen i `/etc/fstab` filen.
    
     Kör sedan `mount` kommandot för att se till att fil systemet är monterat:
 
@@ -136,7 +136,7 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
 
 5. Valfritt Failsafe start parametrar i`/etc/fstab`
    
-    Många distributioner omfattar antingen parametrarna `nobootwait` eller `nofail` som kan läggas till i `/etc/fstab` filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
+    Många distributioner omfattar antingen `nobootwait` parametrarna eller `nofail` som kan läggas till i `/etc/fstab` filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
    
     Exempel (Ubuntu):
 
@@ -149,13 +149,13 @@ Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oan
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-- Använd `discard` monterings alternativet i `/etc/fstab`, till exempel:
+- Använd `discard` monterings alternativet i `/etc/fstab` , till exempel:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- I vissa fall kan `discard` alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+- I vissa fall `discard` kan alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
 
     **Ubuntu**
 

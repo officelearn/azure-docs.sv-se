@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c481561f649e546170bf24c6401006734581e53d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 70dbe927c3d106e6a853f215f93c51bd7e547150
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433076"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658518"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -86,7 +86,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.7 \
+    --kubernetes-version 1.16.9 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -113,7 +113,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.16.7
+    --kubernetes-version 1.16.9
 ```
 
 Kommandot ovan skapar en ny Node-pool med namnet *npwin* och lägger till den i *myAKSCluster*. När du skapar en Node-pool för att köra Windows Server-behållare är standardvärdet för *Node-VM-size* *Standard_D2s_v3*. Om du väljer att ange parametern *Node-VM-size* kontrollerar du listan över [begränsade VM-storlekar][restricted-vm-sizes]. Den minsta rekommenderade storleken är *Standard_D2s_v3*. Kommandot ovan använder också standard under nätet i det virtuella nätverk som skapas när det körs `az aks create` .
@@ -142,8 +142,8 @@ I följande exempel på utdata visas alla noder i klustret. Kontrol lera att sta
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
-aksnpwin987654                      Ready    agent   108s   v1.16.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
+aksnpwin987654                      Ready    agent   108s   v1.16.9
 ```
 
 ## <a name="run-the-application"></a>Kör programmet

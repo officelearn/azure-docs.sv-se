@@ -5,15 +5,15 @@ services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2802907d9e3ddb1c09c2f94074a977d00d191a84
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580225"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658805"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure CLI
 
@@ -42,11 +42,11 @@ Den här typen av hanterade diskar har två unika tillstånd:
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
 
-Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil storleken på den virtuella hård disk som du vill ladda upp, i byte. För att få det kan du använda antingen `wc -c <yourFileName>.vhd` eller `ls -al <yourFileName>.vhd`. Det här värdet används när du anger parametern **--upload-size-bytes** .
+Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil storleken på den virtuella hård disk som du vill ladda upp, i byte. För att få det kan du använda antingen `wc -c <yourFileName>.vhd` eller `ls -al <yourFileName>.vhd` . Det här värdet används när du anger parametern **--upload-size-bytes** .
 
 Skapa en tom standard hård disk för uppladdning genom att ange både parametrarna **-– för-upload** och parametern **--upload-size-byte** i en [disk Create](/cli/azure/disk#az-disk-create) -cmdlet:
 
-Ersätt `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` med värden som du väljer. `--upload-size-bytes` Parametern innehåller ett exempel värde för `34359738880`och ersätter det med ett lämpligt värde.
+Ersätt `<yourdiskname>` , `<yourresourcegroupname>` , `<yourregion>` med värden som du väljer. `--upload-size-bytes`Parametern innehåller ett exempel värde för `34359738880` och ersätter det med ett lämpligt värde.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -56,7 +56,7 @@ Om du vill ladda upp antingen en Premium SSD eller en standard SSD ersätter du 
 
 Nu när du har skapat en tom hanterad disk som är konfigurerad för överförings processen kan du ladda upp en virtuell hård disk till den. Om du vill ladda upp en virtuell hård disk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för överföringen.
 
-Om du vill generera en skrivbar SAS av din tomma hanterade `<yourdiskname>`disk `<yourresourcegroupname>`ersätter du och och använder sedan följande kommando:
+Om du vill generera en skrivbar SAS av din tomma hanterade disk ersätter du `<yourdiskname>` och och `<yourresourcegroupname>` använder sedan följande kommando:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -84,7 +84,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 
-Ersätt `<yourdiskname>`och `<yourresourcegroupname>`och Använd sedan följande kommando för att göra disken användbar:
+Ersätt `<yourdiskname>` och och `<yourresourcegroupname>` Använd sedan följande kommando för att göra disken användbar:
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -99,7 +99,7 @@ Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, m
 > [!IMPORTANT]
 > Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
 
-`<sourceResourceGroupHere>`Ersätt `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+Ersätt `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` ,, `<targetDiskNameHere>` `<targetResourceGroupHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

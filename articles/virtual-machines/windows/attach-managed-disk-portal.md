@@ -3,16 +3,16 @@ title: Ansluta en hanterad datadisk till en virtuell Windows-dator – Azure
 description: Så här ansluter du en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure Portal.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919387"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657178"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Koppla en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure Portal
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du ansluter en ny hanterad datadisk till en virtuell
 3. På sidan **virtuell dator** väljer du **diskar**.
 4. På sidan **diskar** väljer du **Lägg till datadisk**.
 5. Välj **skapa disk**i list rutan för den nya disken.
-6. På sidan **skapa hanterad disk** skriver du ett namn för disken och justerar de andra inställningarna efter behov. När du är klar väljer du **Skapa**.
+6. På sidan **skapa hanterad disk** skriver du ett namn för disken och justerar de andra inställningarna efter behov. När du är färdig väljer du **Skapa**.
 7. På sidan **diskar** väljer du **Spara** för att spara den nya disk konfigurationen för den virtuella datorn.
 8. När Azure har skapat disken och bifogat den till den virtuella datorn visas den nya disken i den virtuella datorns disk inställningar under **data diskar**.
 

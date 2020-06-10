@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b149757ccfc41587aa3ea6c5d18717fdecaba656
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734932"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656642"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
-Ibland behöver dina Logi Kap par åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system eller tjänster som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten kan du [skapa en *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). En ISE är en isolerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
+Ibland behöver dina Logi Kap par åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system eller tjänster som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten kan du [skapa en *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). En ISE är en dedikerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
 
-Genom att köra Logi Kap par i en egen separat isolerad instans kan du minska den påverkan som andra Azure-klienter kan ha på dina appars prestanda, även kallade ["bruset](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)"-påverkan. En ISE tillhandahåller även följande fördelar:
+Genom att köra Logi Kap par i en egen separat dedikerad instans kan du minska den påverkan som andra Azure-klienter kan ha på dina appars prestanda, även kallade ["störningar på grannar"-effekten](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). En ISE tillhandahåller även följande fördelar:
 
 * Dina egna statiska IP-adresser, som är åtskilda från de statiska IP-adresser som delas av logi Kap par i tjänsten för flera innehavare. Du kan också konfigurera en enskild offentlig, statisk och förutsägbar utgående IP-adress för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar på dessa mål system för varje ISE.
 
@@ -38,7 +38,7 @@ Logi Kap par har åtkomst till resurser som finns i eller är anslutna till ditt
 
 Du kan fortfarande även använda kopplingar som inte har **Core** -eller **ISE** -etiketten med Logic Apps i din ISE. Dessa anslutningar körs i stället i Logic Apps tjänsten för flera innehavare. Mer information finns i följande avsnitt:
 
-* [Isolerade kontra flera innehavare](#difference)
+* [Dedikerat kontra flera innehavare](#difference)
 * [Anslut från en integrerings tjänst miljö](../connectors/apis-list.md#integration-service-environment)
 * [ISE-anslutningar](../connectors/apis-list.md#ise-connectors)
 
@@ -49,7 +49,7 @@ I den här översikten beskrivs mer information om hur en ISE ger din Logi Kap p
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-multi-tenant"></a>Isolerade kontra flera innehavare
+## <a name="dedicated-versus-multi-tenant"></a>Dedikerat kontra flera innehavare
 
 När du skapar och kör Logi Kap par i en ISE får du samma användar upplevelse och liknande funktioner som Logic Apps tjänsten för flera innehavare. Du kan använda alla inbyggda utlösare, åtgärder och hanterade anslutningar som är tillgängliga i Logic Apps tjänsten för flera innehavare. Vissa hanterade anslutningar erbjuder ytterligare ISE-versioner. Skillnaden mellan ISE-kopplingar och icke-ISE-anslutningar finns i där de körs och de etiketter som de har i Logic Apps designer när du arbetar i en ISE.
 

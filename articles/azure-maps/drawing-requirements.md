@@ -3,19 +3,19 @@ title: Krav för ritnings paket i Azure Maps Creator
 description: Lär dig mer om kraven för ritnings paket för att konvertera design filer för anläggningar för att mappa data med hjälp av Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/09/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cb34cb386939fc1160ee5a7db0007cfbf500ccb8
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681905"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660629"
 ---
-# <a name="drawing-package-requirements"></a>Krav för ritnings paket
+# <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
 Med [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) kan du konvertera uppladdade ritnings paket till kart data. I den här artikeln beskrivs kraven för ritnings paket för konverterings-API: et. Om du vill visa ett exempel paket kan du hämta exempel [ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -42,7 +42,7 @@ Ord lista med termer som används i det här dokumentet.
 Ett Drawing-paket är ett zip-arkiv som innehåller följande filer:
 
 * DWG-filer i AutoCAD DWG-filformat.
-* En _manifest-. JSON_ -fil för en enda funktion.
+* En _manifest.jspå_ fil för en enda funktion.
 
 DWG-filerna kan ordnas på valfritt sätt i mappen, men manifest filen måste vara Live i mappens rot Katalog. Mappen måste vara zippad i en enda arkivfil med fil namns tillägget. zip. Nästa avsnitt innehåller information om kraven för DWG-filerna, manifest filen och innehållet i dessa filer.  
 
@@ -167,7 +167,7 @@ Ett exempel på Zonelabel-lagret kan ses som ZONELABELS-skiktet i [exempel ritni
 
 ## <a name="manifest-file-requirements"></a>Manifest fil krav
 
-Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest. JSON**. Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](https://docs.microsoft.com/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet kommer att matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, kommer att ignoreras.
+Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå**. Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](https://docs.microsoft.com/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet kommer att matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, kommer att ignoreras.
 
 Fil Sök vägarna, i **buildingLevels** -objektet i manifest filen, måste vara relativa till rotmappen för zip-mappen. DWG-filnamnet måste exakt matcha namnet på anläggnings nivån. En DWG-fil för nivån "Basement" skulle till exempel vara "Basement. DWG". En DWG-fil för nivå 2 får namnet "level_2. DWG." Använd ett under streck om ditt nivå namn har ett blank steg. 
 
@@ -188,14 +188,14 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 | Egenskap  | typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
-| name      | sträng/heltal | true   |  Namn på byggnaden. |
-| streetAddress|    sträng/heltal |    falskt    | Byggnadens adress. |
-|unit     | sträng/heltal    |  falskt    |  Enheten i byggnaden. |
-| plats |    sträng/heltal |    falskt |    Namn på ett område, i eller region. Till exempel "översjöning" eller "Central distrikt". Lokal är inte en del av e-postadressen. |
+| name      | sträng | true   |  Namn på byggnaden. |
+| streetAddress|    sträng |    falskt    | Byggnadens adress. |
+|unit     | sträng    |  falskt    |  Enheten i byggnaden. |
+| plats |    sträng |    falskt |    Namn på ett område, i eller region. Till exempel "översjöning" eller "Central distrikt". Lokal är inte en del av e-postadressen. |
 | adminDivisions |    JSON-matris med strängar |    falskt     | En matris som innehåller adress utformningar (land, delstat, stad) eller (land, prefekturen, stad, stad). Använd ISO 3166-lands koder och ISO 3166-2-statliga/distrikts koder. |
-| Post nummer |    sträng/heltal    | falskt    | E-postsorterings koden. |
+| Post nummer |    sträng    | falskt    | E-postsorterings koden. |
 | hoursOfOperation |    sträng |     falskt | Följer formatet för [OSM Open hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) . |
-| phone    | sträng/heltal |    falskt |    Telefonnummer som är associerat med byggnaden. Måste innehålla lands koden. |
+| phone    | sträng |    falskt |    Telefonnummer som är associerat med byggnaden. Måste innehålla lands koden. |
 | webbplats    | sträng |    falskt    | Webbplats som är kopplad till byggnaden. M börjar med http eller https. |
 | ej offentlig |    boolesk    | falskt | Flagga som anger om byggnaden är öppen för allmänheten. |
 | anchorLatitude | numeric |    falskt | Latitud för en fäst punkt (kartnål). |
@@ -209,11 +209,11 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 | Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
-|levelName    |sträng/heltal    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering, Basement och så vidare.|
+|levelName    |sträng    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering, Basement och så vidare.|
 |numret | heltal |    true | Ordnings tal används för att bestämma den lodräta ordningen för nivåer. Varje funktion måste ha en nivå med ordnings tal 0. |
 |heightAboveFacilityAnchor | numeric |    falskt |    Nivå höjd över jord golv i meter. |
 | verticalExtent | numeric | falskt | Nivån av nivån i meter för golv till tak. |
-|filename |    sträng/heltal |    true |    Fil Systems Sök väg för CAD-ritningen för en skapande nivå. Det måste vara i förhållande till roten i byggnadens zip-fil. |
+|filename |    sträng |    true |    Fil Systems Sök väg för CAD-ritningen för en skapande nivå. Det måste vara i förhållande till roten i byggnadens zip-fil. |
 
 ### <a name="georeference"></a>referens
 
@@ -227,13 +227,13 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 | Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
-|yttre    |Matris med strängar/InTS|    true|    Namn på lager (n) som definierar den yttre skapande profilen.|
-|unit|    Matris med strängar/InTS|    true|    Namn på skikt som definierar enheter.|
-|byggnad|    Matris med strängar/InTS    |falskt|    Namn på lager (n) som definierar väggar.|
-|dörren    |Matris med strängar/InTS|    falskt   | Namn på lager (n) som definierar dörrar.|
-|unitLabel    |Matris med strängar/InTS|    falskt    |Namn på lager (n) som definierar namn på enheter.|
-|zon | Matris med strängar/InTS    | falskt    | Namn på lager (n) som definierar zoner.|
-|zoneLabel | Matris med strängar/InTS |     falskt |    Namn på lager (n) som definierar namn på zoner.|
+|yttre    |Strängmatris|    true|    Namn på lager (n) som definierar den yttre skapande profilen.|
+|unit|    Strängmatris|    true|    Namn på skikt som definierar enheter.|
+|byggnad|    Strängmatris    |falskt|    Namn på lager (n) som definierar väggar.|
+|dörren    |Strängmatris|    falskt   | Namn på lager (n) som definierar dörrar.|
+|unitLabel    |Strängmatris|    falskt    |Namn på lager (n) som definierar namn på enheter.|
+|zon | Strängmatris    | falskt    | Namn på lager (n) som definierar zoner.|
+|zoneLabel | Strängmatris |     falskt |    Namn på lager (n) som definierar namn på zoner.|
 
 ### <a name="unitproperties"></a>unitProperties
 
@@ -241,15 +241,15 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 | Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
-|unitName    |sträng/heltal    |true    |Namnet på den enhet som ska associeras med den här `unitProperty` posten. Den här posten är endast giltig när en etikett matchning finns `unitName` i `unitLabel` lager. |
-|categoryName|    sträng/heltal|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
+|unitName    |sträng    |true    |Namnet på den enhet som ska associeras med den här `unitProperty` posten. Den här posten är endast giltig när en etikett matchning finns `unitName` i `unitLabel` lager. |
+|categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Strängmatris |    falskt    |Anger vilka typer av navigerings agenter som kan passera enheten. Till exempel "gående". Den här egenskapen meddelar wayfinding-funktionerna.  De tillåtna värdena är,,,,,,,,, `pedestrian` `wheelchair` `machine` `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` , och `disallowed` .|
 |routeThroughBehavior|    sträng|    falskt    |Enhetens funktions sätt. De tillåtna värdena är `disallowed` , `allowed` och `preferred` . Standardvärdet är `allowed` .|
 |passagerare    |Matris med directoryInfo-objekt |falskt    |Lista över personer för enheten. |
-|nameAlt|    sträng/heltal|    falskt|    Alternativt namn på enheten. |
-|nameSubtitle|    sträng/heltal    |falskt|    Under rubrik för enheten. |
-|addressRoomNumber|    sträng/heltal|    falskt|    Enhetens rum/enhet/Apartment/Suite-nummer.|
-|verticalPenetrationCategory|    sträng/heltal|    falskt| När den här egenskapen definieras blir den resulterande funktionen en vertikal inträngning (VRT) i stället för en enhet. VRTs kan användas för att navigera till andra VRT-funktioner på nivåerna ovan eller under. Vertikal inträngning är ett [kategori](https://aka.ms/pa-indoor-spacecategories) namn. Om den här egenskapen har definierats åsidosätts egenskapen kategori namn med verticalPenetrationCategory. |
+|nameAlt|    sträng|    falskt|    Alternativt namn på enheten. |
+|nameSubtitle|    sträng    |falskt|    Under rubrik för enheten. |
+|addressRoomNumber|    sträng|    falskt|    Enhetens rum/enhet/Apartment/Suite-nummer.|
+|verticalPenetrationCategory|    sträng|    falskt| När den här egenskapen definieras blir den resulterande funktionen en vertikal inträngning (VRT) i stället för en enhet. VRTs kan användas för att navigera till andra VRT-funktioner på nivåerna ovan eller under. Vertikal inträngning är ett [kategori](https://aka.ms/pa-indoor-spacecategories) namn. Om den här egenskapen har definierats åsidosätts egenskapen kategori namn med verticalPenetrationCategory. |
 |verticalPenetrationDirection|    sträng|    falskt    |Om `verticalPenetrationCategory` har definierats kan du ange en giltig riktning för resan. De tillåtna värdena är `lowToHigh` , `highToLow` , `both` och `closed` . Standardvärdet är `both` .|
 | ej offentlig | boolesk | falskt | Anger om enheten är öppen för offentlig. |
 | isRoutable | boolesk | falskt | När det är inställt på `false` , kan enheten inte navigera till eller till. Standardvärdet är `true` . |
@@ -261,10 +261,10 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 | Egenskap  | Typ | Obligatorisk | Beskrivning |
 |-----------|------|----------|-------------|
-|Zonnamn        |sträng/heltal    |true    |Namnet på zonen som ska associeras med `zoneProperty` posten. Posten är endast giltig när en etikett matchning `zoneName` hittas i `zoneLabel` zonens skikt.  |
-|categoryName|    sträng/heltal|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    sträng/heltal|    falskt    |Alternativt namn på zonen.  |
-|zoneNameSubtitle|    sträng/heltal |    falskt    |Under rubrik för zonen. |
+|Zonnamn        |sträng    |true    |Namnet på zonen som ska associeras med `zoneProperty` posten. Posten är endast giltig när en etikett matchning `zoneName` hittas i `zoneLabel` zonens skikt.  |
+|categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    sträng|    falskt    |Alternativt namn på zonen.  |
+|zoneNameSubtitle|    sträng |    falskt    |Under rubrik för zonen. |
 
 ### <a name="sample-drawing-package-manifest"></a>Exempel på paket manifest för ritning
 

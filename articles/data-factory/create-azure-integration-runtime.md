@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858036"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659705"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +29,7 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera Azure Integration
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>Standard Azure IR
-Som standard har varje data fabrik en Azure IR i Server delen som stöder åtgärder i moln data lager och beräknings tjänster i offentliga nätverk. Platsen för Azure IR löses automatiskt. Om egenskapen **connectVia** inte anges i den länkade tjänst definitionen används standard Azure IR. Du behöver bara skapa en Azure IR när du uttryckligen vill definiera platsen för IR, eller om du vill gruppera aktivitets körningarna i olika IRs i hanterings syfte. 
+Som standard har varje data fabrik en Azure IR i Server delen som stöder åtgärder i moln data lager och beräknings tjänster i offentliga nätverk. Platsen för Azure IR är autolösa. Om egenskapen **connectVia** inte anges i den länkade tjänst definitionen används standard Azure IR. Du behöver bara skapa en Azure IR när du uttryckligen vill definiera platsen för IR, eller om du vill gruppera aktivitets körningarna i olika IRs i hanterings syfte. 
 
 ## <a name="create-azure-ir"></a>Skapa Azure IR
 
@@ -48,13 +48,13 @@ Du kan konfigurera en befintlig Azure IR att ändra dess plats med hjälp av cmd
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Skapa en Azure IR via Azure Data Factory användar gränssnitt
 Använd följande steg för att skapa en Azure IR med hjälp av Azure Data Factory UI.
 
-1. På sidan för att **komma igång** i Azure Data Factory UI väljer du fliken **författare** i det vänstra fönstret.
+1. På sidan för att **komma igång** i Azure Data Factory UI väljer du [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i rutan längst till vänster.
 
-   ![Start sidans författar knapp](media/doc-common-process/get-started-page-author-button.png)
+   ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Välj **anslutningar** längst ned i det vänstra fönstret och välj **integrerings körningar** i fönstret **anslutningar** . Välj **+ ny**.
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
 
-   ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
 

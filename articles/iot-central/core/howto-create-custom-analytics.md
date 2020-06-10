@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158205"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660124"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Utöka Azure IoT Central med anpassad analys med Azure Databricks
 
@@ -31,13 +31,13 @@ I den här instruktions guiden får du lära dig att:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="iot-central-application"></a>IoT Central program
 
 Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) med följande inställningar:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ------- | ----- |
 | Pris plan | Standard |
 | Programmall | In-Store Analytics – villkors övervakning |
@@ -59,7 +59,7 @@ Använd [Azure Portal för att skapa en resurs grupp](https://portal.azure.com/#
 
 Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.azure.com/#create/Microsoft.EventHub) med följande inställningar:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ------- | ----- |
 | Namn    | Välj namn på namn område |
 | Prisnivå | Basic |
@@ -72,7 +72,7 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 
 Använd [Azure Portal för att skapa en Azure Databricks tjänst](https://portal.azure.com/#create/Microsoft.Databricks) med följande inställningar:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ------- | ----- |
 | Namn på arbetsyta    | Välj namn på arbets yta |
 | Prenumeration | Din prenumeration |
@@ -106,14 +106,14 @@ På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentra
 1. Gå till sidan **data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
 1. Använd följande inställningar för att konfigurera exporten och välj sedan **Spara**:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Visningsnamn | Exportera till Event Hubs |
     | Enabled | På |
     | Event Hubs-namnområde | Namnet på Event Hubs namn området |
     | Händelsehubb | centralexport |
     | Mått | På |
-    | Enheter | Av |
+    | Egenskaper | Av |
     | Enhetsmallar | Av |
 
 ![Konfiguration av data export](media/howto-create-custom-analytics/cde-configuration.png)
@@ -130,13 +130,13 @@ På sidan **Azure Databricks** går du till listan med vanliga uppgifter och vä
 
 Använd informationen i följande tabell för att skapa klustret:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ------- | ----- |
 | Klusternamn | centralanalysis |
 | Kluster läge | Standard |
 | Databricks Runtime version | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Python-version | 3 |
-| Aktivera automatisk skalning | Inga |
+| Aktivera automatisk skalning | No |
 | Avsluta efter minuter av inaktivitet | 30 |
 | Typ av arbetare | Standard_DS3_v2 |
 | Arbetare | 1 |
@@ -231,4 +231,4 @@ I den här instruktions guiden har du lärt dig att:
 * Strömma telemetri från ett IoT Central program med *kontinuerlig data export*.
 * Skapa en Azure Databricks-miljö för att analysera och rita telemetridata.
 
-Nu när du vet hur du skapar anpassade analyser är det föreslagna nästa steg att lära dig hur du [hanterar ditt program](howto-administer.md).
+Nu när du vet hur du skapar anpassade analyser är det föreslagna nästa steg att lära dig att [visualisera och analysera dina Azure IoT Central-data på en Power BI instrument panel](howto-connect-powerbi.md).

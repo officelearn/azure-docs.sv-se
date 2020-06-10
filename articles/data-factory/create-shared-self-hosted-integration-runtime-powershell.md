@@ -10,13 +10,13 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106635"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655744"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
 
@@ -28,21 +28,19 @@ Den här guiden visar hur du skapar en delad integration runtime med egen värd 
 
 Om du vill skapa en delad IR med egen värd med Azure Data Factory användar gränssnitt kan du utföra följande steg:
 
-1. I den egen värdbaserade IR-filen som ska delas ger du behörighet till den data fabrik där du vill skapa den länkade IR-filen.
+1. I den egen värdbaserade IR-filen som ska delas väljer du **bevilja behörighet till en annan data fabrik** och på sidan "installation av integration runtime" väljer du den data fabrik som du vill skapa den länkade IR-filen i.
       
-    ![Knapp för att bevilja behörighet på fliken Delning](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Val för att tilldela behörigheter](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Knapp för att bevilja behörighet på fliken Delning](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Observera resurs-ID: t för den egen värd-IR som ska delas.
-      
-   ![Plats för resurs-ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Observera att du kan dela "resurs-ID" för den egen värd-IR som ska delas.
+         
 3. I data fabriken som behörigheterna har beviljats skapar du en ny lokal IR-anslutning (länkad) och anger resurs-ID: t.
       
-   ![Knapp för att skapa en länkad integration runtime med egen värd](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Rutor för namn och resurs-ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Knapp för att skapa en integration runtime med egen värd](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Knapp för att skapa en länkad integration runtime med egen värd](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Rutor för namn och resurs-ID](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Skapa en delad IR med egen värd med Azure PowerShell
 
@@ -101,7 +99,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
     > [!NOTE]  
     > Det här steget är valfritt. Hoppa över det här steget om du redan har en data fabrik. 
 
-    Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med `myResourceGroup` namnet på WestEurope-platsen: 
+    Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med namnet `myResourceGroup` på WestEurope-platsen: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

@@ -1,7 +1,7 @@
 ---
 title: Skapa ett virtuellt nätverk
 titleSuffix: Azure SQL Managed Instance
-description: Den här artikeln beskriver hur du skapar ett virtuellt nätverk som har kon figurer ATS för att stödja distribution av en hanterad Azure SQL-instans.
+description: Den här artikeln beskriver hur du skapar ett virtuellt nätverk som har kon figurer ATS för att stödja distribution av hanterad Azure SQL-instans
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 923f8b447b1103284b2c999a981826ef19a1c7d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4cbcad991da6a7517ca2914cfd99b8517853c0e4
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050753"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657920"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Skapa ett virtuellt nätverk för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,23 +27,23 @@ Den här artikeln beskriver hur du skapar ett giltigt virtuellt nätverk och und
 Azure SQL-hanterad instans måste distribueras i ett [virtuellt](../../virtual-network/virtual-networks-overview.md)Azure-nätverk. Den här distributionen möjliggör följande scenarier:
 
 - Säker privat IP-adress
-- Ansluta till en SQL-hanterad instans direkt från ett lokalt nätverk
-- Ansluta en SQL-hanterad instans till en länkad server eller ett annat lokalt data lager
-- Ansluta en SQL-hanterad instans till Azure-resurser  
+- Ansluta till SQL-hanterad instans direkt från ett lokalt nätverk
+- Ansluta SQL-hanterad instans till en länkad server eller till ett annat lokalt data lager
+- Ansluta SQL-hanterad instans till Azure-resurser  
 
 > [!NOTE]
 > Du bör [fastställa storleken på under nätet för SQL-hanterad instans](vnet-subnet-determine-size.md) innan du distribuerar den första instansen. Du kan inte ändra storlek på under nätet när du har lagt till resurserna i.
 >
-> Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra nätverks konfigurationen så att den passar din SQL-hanterade instans. Mer information finns i [ändra ett befintligt virtuellt nätverk för SQL-hanterad instans](vnet-existing-add-subnet.md).
+> Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra nätverks konfigurationen för att hantera SQL-hanterad instans. Mer information finns i [ändra ett befintligt virtuellt nätverk för SQL-hanterad instans](vnet-existing-add-subnet.md).
 >
-> När en SQL-hanterad instans har skapats går det inte att flytta SQL-hanterad instans eller VNet till en annan resurs grupp eller prenumeration.  Det går inte heller att flytta SQL-hanterad instans till ett annat undernät.
+> När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.  Det går inte heller att flytta den hanterade instansen till ett annat undernät.
 >
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
 Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att använda en mall för Azure Resource Manager distribution.
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Välj knappen **distribuera till Azure** :
 
@@ -62,8 +62,8 @@ Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att an
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i [Vad är en SQL-hanterad instans?](sql-managed-instance-paas-overview.md).
+- En översikt finns i [Vad är SQL-hanterad instans?](sql-managed-instance-paas-overview.md).
 - Lär dig mer om [anslutnings arkitektur i SQL-hanterad instans](connectivity-architecture-overview.md).
 - Lär dig hur du [ändrar ett befintligt virtuellt nätverk för SQL-hanterad instans](vnet-existing-add-subnet.md).
-- En själv studie kurs som visar hur du skapar ett virtuellt nätverk, skapar en SQL-hanterad instans och återställer en databas från en säkerhets kopia av databasen finns i [skapa en hanterad Azure SQL-instans](instance-create-quickstart.md).
+- En själv studie kurs som visar hur du skapar ett virtuellt nätverk, skapar en hanterad instans och återställer en databas från en säkerhets kopia av databasen finns i [skapa en hanterad instans](instance-create-quickstart.md).
 - Information om DNS-problem finns i [Konfigurera en anpassad DNS](custom-dns-configure.md).

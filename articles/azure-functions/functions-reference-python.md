@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: a8201b1c8443bd99ec9045fdc4b074a4f3eec4f2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9289b6304a9c9e93afeddd98b3a229dae91797
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553079"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660594"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -21,7 +21,7 @@ Exempel projekt för fristående funktioner i python finns i [exempel på python
 
 Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod som kallas `main()` i `__init__.py` filen. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
 
-Data från utlösare och bindningar binds till funktionen via method-attribut med hjälp av `name` egenskapen som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req` :
+Data från utlösare och bindningar är kopplade till funktionen via attribut med hjälp av den `name` egenskap som definierats i *function.jsi* filen. _function.js_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -48,7 +48,7 @@ Använd python-anteckningarna som ingår i [Azure. functions. *](/python/api/azu
 
 ## <a name="alternate-entry-point"></a>Alternativ Start punkt
 
-Du kan ändra standard beteendet för en funktion genom att alternativt ange `scriptFile` och- `entryPoint` egenskaperna i *Function. JSON* -filen. _Funktionen. JSON_ nedan meddelar till exempel körningen att använda `customentry()` metoden i _main.py_ -filen som start punkt för din Azure-funktion.
+Du kan ändra standard beteendet för en funktion genom att ange- `scriptFile` och- `entryPoint` egenskaperna i *function.js* i filen. _function.js_ nedan visar till exempel körningen att använda `customentry()` metoden i _main.py_ -filen som start punkt för din Azure-funktion.
 
 ```json
 {
@@ -83,14 +83,14 @@ Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i
 ```
 Huvudprojektmappen ( \_ \_ app \_ \_ ) kan innehålla följande filer:
 
-* *Local. Settings. JSON*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
-* *Requirements. txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
-* *Host. JSON*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [Host. JSON](functions-host-json.md).
+* *local.settings.jspå*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
+* *requirements.txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
+* *host.jspå*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
 * *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
-* *. gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local. Settings. JSON.
+* *. gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local.settings.jspå.
 * *Dockerfile*: (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
 
-Varje funktion har sin egen kod fil och bindnings konfigurations fil (Function. JSON).
+Varje funktion har sin egen kod fil och bindnings konfigurations fil (function.jspå).
 
 När du distribuerar ditt projekt till en Function-app i Azure, ska hela innehållet i huvudprojektet (* \_ \_ app \_ \_ *)-mappen inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen i det här exemplet `tests` . Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
 
@@ -338,7 +338,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argumentet i signaturen.
 
-Ett exempel:
+Exempel:
 
 ```python
 import azure.functions
@@ -391,7 +391,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-För lokal utveckling underhålls program inställningarna [i filen Local. Settings. JSON](functions-run-local.md#local-settings-file).
+För lokal utveckling underhålls program inställningarna [i local.settings.jsfilen](functions-run-local.md#local-settings-file).
 
 ## <a name="python-version"></a>Python-version
 
@@ -424,14 +424,14 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Publicera i Azure
 
-När du är redo att publicera ser du till att alla dina offentligt tillgängliga beroenden visas i filen Requirements. txt, som finns i roten i projekt katalogen.
+När du är redo att publicera ser du till att alla dina offentligt tillgängliga beroenden visas i requirements.txt-filen, som finns i rot katalogen i projekt katalogen.
 
 Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen.
 
 Det finns tre Bygg åtgärder som stöds för att publicera ditt python-projekt till Azure:
 
-+ Fjärran sluten version: beroenden hämtas via fjärr anslutning baserat på innehållet i filen Requirements. txt. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Remote är också standard alternativet build för Azure-verktyg.
-+ Lokal version: beroenden hämtas lokalt baserat på innehållet i filen Requirements. txt.
++ Fjärrversion: beroenden hämtas via fjärr anslutning baserat på innehållet i requirements.txts filen. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Remote är också standard alternativet build för Azure-verktyg.
++ Lokal version: beroenden hämtas lokalt baserat på innehållet i requirements.txts filen.
 + Anpassade beroenden: ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg. (Kräver Docker.)
 
 [Använd Azure-pipeline](functions-how-to-azure-devops.md)för att bygga dina beroenden och publicera med ett kontinuerligt leverans system (CD).
@@ -458,7 +458,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-Med `--build local` alternativet läses projekt beroenden från filen viktigt. txt och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i din Requirements. txt-fil med kärn verktyg, måste du använda alternativet anpassade beroenden för att publicera.
+Med `--build local` alternativet läses projekt beroenden från requirements.txt-filen och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i requirements.txt-filen av kärn verktyg måste du använda alternativet anpassade beroenden för att publicera.
 
 ### <a name="custom-dependencies"></a>Anpassade beroenden
 
@@ -630,6 +630,44 @@ from os import listdir
 
 Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen. Detta gör att du inte distribuerar test koden med din app.
 
+## <a name="preinstalled-libraries"></a>Förinstallerade bibliotek
+
+Det finns ett par bibliotek med python Functions-körningen.
+
+### <a name="python-standard-library"></a>Python standard bibliotek
+
+Python-standardbiblioteket innehåller en lista över inbyggda python-moduler som levereras med varje python-distribution. De flesta av dessa bibliotek hjälper dig att komma åt systemfunktioner, t. ex. fil-I/O. I Windows-system installeras de här biblioteken med python. På UNIX-baserade system tillhandahålls de av paket samlingar.
+
+Om du vill visa fullständig information om listan över dessa bibliotek kan du gå till länkarna nedan:
+
+* [Python 3,6 standard bibliotek](https://docs.python.org/3.6/library/)
+* [Python 3,7 standard bibliotek](https://docs.python.org/3.7/library/)
+* [Python 3,8 standard bibliotek](https://docs.python.org/3.8/library/)
+
+### <a name="azure-functions-python-worker-dependencies"></a>Azure Functions python Worker-beroenden
+
+Funktionen python Worker kräver en speciell uppsättning bibliotek. Du kan också använda dessa bibliotek i dina funktioner, men de är inte en del av python-standarden. Om dina funktioner är beroende av något av dessa bibliotek är de kanske inte tillgängliga för din kod när de körs utanför Azure Functions. Du hittar en detaljerad lista över beroenden i avsnittet **installations \_ krav** i [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) -filen.
+
+### <a name="azure-functions-python-library"></a>Azure Functions python-bibliotek
+
+Varje python Worker-uppdatering innehåller en ny version av [Azure Functions python-bibliotek (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Körnings bibliotekets version korrigeras av Azure och kan inte åsidosättas av requirements.txt. `azure-functions`Posten i requirements.txt är endast för att kunna luddfri och kund medvetenhet.
+
+Anledningen till att det här beslutet görs är att under lätta kontinuerlig uppdatering i Azure Functions python-appar. Uppdateringen av python-biblioteket bör inte vara kund medveten eftersom varje uppdatering är bakåtkompatibel. En lista med biblioteks versioner finns i [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
+
+Du kan spåra den faktiska versionen av python Functions-biblioteket i din körning med följande rad:
+
+```python
+getattr(azure.functions, '__version__', '< 1.2.1')
+```
+
+### <a name="runtime-system-libraries"></a>System bibliotek för körning
+
+Om du vill ha en lista över förinstallerade system bibliotek i python Worker Docker-avbildningar följer du länkarna nedan:
+|  Functions-körning  | Debian-version | Python-versioner |
+|------------|------------|------------|
+| Version 2. x | Sträck  | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Version 3. x | Buster | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3,8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+
 ## <a name="cross-origin-resource-sharing"></a>Cross-origin resource sharing (CORS)
 
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
@@ -638,7 +676,7 @@ CORS stöds fullt ut för python-Function-appar.
 
 ## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor och svar
 
-Tack vare din värdefulla feedback kan vi hantera en lista över fel söknings guider för vanliga problem:
+Följande är en lista över fel söknings guider för vanliga problem:
 
 * [ModuleNotFoundError och ImportError](recover-module-not-found.md)
 

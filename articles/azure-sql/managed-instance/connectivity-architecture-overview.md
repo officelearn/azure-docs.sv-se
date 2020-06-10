@@ -1,7 +1,7 @@
 ---
 title: Anslutningsarkitektur
 titleSuffix: Azure SQL Managed Instance
-description: Lär dig mer om Azure SQL-hanterad instans kommunikation och anslutnings arkitektur samt hur komponenterna dirigerar trafik till SQL-hanterad instans.
+description: Lär dig mer om kommunikation och anslutnings arkitektur för Azure SQL-hanterad instans samt hur komponenterna dirigerar trafik till en hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,97 +12,97 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: e0a16ac8b52907f5ce27d0d186172725e8536423
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d8c98f647736ac2a6cb6e72b754c7b308ad0c3b0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045188"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655583"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Anslutnings arkitektur för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Den här artikeln förklarar kommunikationen i en hanterad Azure SQL-instans. Den beskriver också anslutnings arkitekturen och hur komponenterna dirigerar trafik till SQL-hanterad instans.  
+Den här artikeln förklarar kommunikationen i Azure SQL-hanterad instans. Den beskriver också anslutnings arkitekturen och hur komponenterna dirigerar trafik till en hanterad instans.  
 
-SQL-hanterad instans placeras inuti det virtuella Azure-nätverket och under nätet som är dedikerat till SQL-hanterade instanser. Den här distributionen ger:
+SQL-hanterad instans placeras inuti det virtuella Azure-nätverket och under nätet som är dedikerat till hanterade instanser. Den här distributionen ger:
 
 - En säker privat IP-adress.
-- Möjlighet att ansluta ett lokalt nätverk till en SQL-hanterad instans.
-- Möjligheten att ansluta en SQL-hanterad instans till en länkad server eller till ett annat lokalt data lager.
-- Möjlighet att ansluta en SQL-hanterad instans till Azure-resurser.
+- Möjlighet att ansluta ett lokalt nätverk till SQL-hanterad instans.
+- Möjligheten att ansluta SQL-hanterad instans till en länkad server eller till ett annat lokalt data lager.
+- Möjlighet att ansluta SQL-hanterad instans till Azure-resurser.
 
 ## <a name="communication-overview"></a>Översikt över kommunikation
 
-Följande diagram visar entiteter som ansluter till en SQL-hanterad instans. Den visar även de resurser som måste kommunicera med SQL-hanterad instans. Kommunikations processen längst ned i diagrammet representerar kund program och verktyg som ansluter till SQL-hanterad instans som data källor.  
+Följande diagram visar entiteter som ansluter till SQL-hanterad instans. Den visar även de resurser som måste kommunicera med en hanterad instans. Kommunikations processen längst ned i diagrammet representerar kund program och verktyg som ansluter till SQL-hanterad instans som data källor.  
 
 ![Entiteter i anslutnings arkitektur](./media/connectivity-architecture-overview/connectivityarch001.png)
 
-En SQL-hanterad instans är ett PaaS-erbjudande (Platform as a Service). Azure använder automatiserade agenter (hantering, distribution och underhåll) för att hantera den här tjänsten utifrån telemetridata data strömmar. Eftersom Azure ansvarar för hantering, kan kunderna inte komma åt de virtuella SQL-hanterade instansernas virtuella kluster datorer via Remote Desktop Protocol (RDP).
+SQL-hanterad instans är ett PaaS-erbjudande (Platform as a Service). Azure använder automatiserade agenter (hantering, distribution och underhåll) för att hantera den här tjänsten utifrån telemetridata data strömmar. Eftersom Azure ansvarar för hantering, kan kunderna inte komma åt de virtuella SQL-hanterade instansernas virtuella kluster datorer via Remote Desktop Protocol (RDP).
 
-Vissa åtgärder som startas av slutanvändare eller program kan kräva SQL-hanterade instanser för att interagera med plattformen. Ett fall är att skapa en SQL-hanterad instans databas. Den här resursen exponeras via Azure Portal, PowerShell, Azure CLI och REST API.
+Vissa åtgärder som startas av slutanvändare eller program kan kräva SQL-hanterad instans för att interagera med plattformen. Ett fall är att skapa en SQL-hanterad instans databas. Den här resursen exponeras via Azure Portal, PowerShell, Azure CLI och REST API.
 
-SQL-hanterade instanser är beroende av Azure-tjänster som Azure Storage för säkerhets kopiering, Azure Event Hubs for telemetri, Azure Active Directory för autentisering, Azure Key Vault för transparent datakryptering (TDE) och ett par Azure Platform-tjänster som tillhandahåller funktioner för säkerhet och support. SQL-hanterade instanser gör anslutningar till de här tjänsterna.
+SQL-hanterad instans beror på Azure-tjänster som Azure Storage för säkerhets kopiering, Azure Event Hubs for telemetri, Azure Active Directory (Azure AD) för autentisering, Azure Key Vault för transparent datakryptering (TDE) och ett par Azure Platform-tjänster som tillhandahåller funktioner för säkerhet och support. SQL-hanterad instans gör anslutningar till de här tjänsterna.
 
-All kommunikation krypteras och signeras med hjälp av certifikat. SQL-hanterade instanser verifierar ständigt de här certifikaten genom listor över återkallade certifikat för att kontrol lera trovärdigheten för kommunikation. Om certifikaten återkallas stänger SQL-hanterad instans anslutningarna för att skydda data.
+All kommunikation krypteras och signeras med hjälp av certifikat. SQL-hanterad instans verifierar de här certifikaten ständigt med listor över återkallade certifikat för att kontrol lera trovärdigheten hos kommunicerande parter. Om certifikaten återkallas stänger SQL Managed instance anslutningar för att skydda data.
 
 ## <a name="high-level-connectivity-architecture"></a>Arkitektur med hög nivå anslutning
 
-På hög nivå är en SQL-hanterad instans en uppsättning tjänst komponenter. Dessa komponenter finns på en dedikerad uppsättning isolerade virtuella datorer som körs i kundens virtuella nätverks undernät. De här datorerna utgör ett virtuellt kluster.
+SQL-hanterad instans är en uppsättning tjänst komponenter på en hög nivå. Dessa komponenter finns på en dedikerad uppsättning isolerade virtuella datorer som körs i kundens virtuella nätverks undernät. De här datorerna utgör ett virtuellt kluster.
 
-Ett virtuellt kluster kan vara värd för flera SQL-hanterade instanser. Vid behov expanderar klustret automatiskt eller kontrakt när kunden ändrar antalet etablerade instanser i under nätet.
+Ett virtuellt kluster kan vara värd för flera hanterade instanser. Vid behov expanderar klustret automatiskt eller kontrakt när kunden ändrar antalet etablerade instanser i under nätet.
 
-Kund program kan ansluta till SQL-hanterade instanser och kan fråga efter och uppdatera databaser inuti det virtuella nätverket, peer-kopplade virtuella nätverk eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slut punkt och en privat IP-adress.  
+Kund program kan ansluta till SQL-hanterad instans och kan fråga efter och uppdatera databaser inuti det virtuella nätverket, peer-kopplade virtuella nätverk eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slut punkt och en privat IP-adress.  
 
 ![Diagram över anslutnings arkitektur](./media/connectivity-architecture-overview/connectivityarch002.png)
 
-Azures hanterings-och distributions tjänster körs utanför det virtuella nätverket. En SQL-hanterad instans och Azure-tjänster ansluter via de slut punkter som har offentliga IP-adresser. När en SQL-hanterad instans skapar en utgående anslutning, ser anslutningen till att den kommer från den här offentliga IP-adressen vid mottagandet av NAT (Network Address Translation).
+Azures hanterings-och distributions tjänster körs utanför det virtuella nätverket. SQL-hanterad instans och Azure-tjänster ansluter via de slut punkter som har offentliga IP-adresser. När SQL-hanterad instans skapar en utgående anslutning på den mottagande slut nätverks adress översättningen (NAT) ser anslutningen ut som den kommer från den här offentliga IP-adressen.
 
 Hanterings trafik flödar genom kundens virtuella nätverk. Det innebär att element i det virtuella nätverkets infrastruktur kan skada hanterings trafiken genom att göra instansen misslyckad och bli otillgänglig.
 
 > [!IMPORTANT]
-> För att förbättra kund upplevelsen och tjänstens tillgänglighet tillämpar Azure en princip för nätverks avsikt på infrastruktur element i Azure Virtual Network. Principen kan påverka hur SQL-hanterad instans fungerar. Den här plattforms mekanismen kommunicerar transparent nätverks krav till användare. Principens huvud mål är att förhindra felaktig nätverks konfiguration och se till att vanliga SQL-hanterade instans åtgärder säkerställs. När du tar bort en SQL-hanterad instans tas även principen för nätverks avsikt bort.
+> För att förbättra kund upplevelsen och tjänstens tillgänglighet tillämpar Azure en princip för nätverks avsikt på infrastruktur element i Azure Virtual Network. Principen kan påverka hur SQL-hanterad instans fungerar. Den här plattforms mekanismen kommunicerar transparent nätverks krav till användare. Principens huvud mål är att förhindra felaktig nätverks konfiguration och se till att vanliga SQL-hanterade instans åtgärder säkerställs. När du tar bort en hanterad instans tas även principen för nätverks avsikt bort.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Arkitektur för virtuella kluster anslutningar
 
-Låt oss ta en djupare titt på anslutnings arkitekturen för SQL-hanterade instanser. Följande diagram visar den konceptuella layouten för det virtuella klustret.
+Låt oss ta en djupare titt på anslutnings arkitekturen för SQL-hanterad instans. Följande diagram visar den konceptuella layouten för det virtuella klustret.
 
 ![Anslutnings arkitektur för det virtuella klustret](./media/connectivity-architecture-overview/connectivityarch003.png)
 
-Klienter ansluter till en SQL-hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net` . Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. Skapas `zone-id` automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär SQL-hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienter ansluter till SQL-hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net` . Det här värd namnet matchar en privat IP-adress, men den registreras i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. Skapas `zone-id` automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Den här privata IP-adressen tillhör den interna belastningsutjämnaren för SQL-hanterad instans. Belastningsutjämnaren dirigerar trafik till den SQL-hanterade instansens Gateway. Eftersom flera SQL-hanterade instanser kan köras i samma kluster använder gatewayen den SQL-hanterade instansens värdnamn för att dirigera om trafik till rätt SQL-motortjänster.
+Den här privata IP-adressen tillhör den interna belastningsutjämnaren för SQL-hanterad instans. Belastningsutjämnaren dirigerar trafik till den SQL-hanterade instans-gatewayen. Eftersom flera hanterade instanser kan köras i samma kluster använder gatewayen SQL-hanterad instans värd namnet för att dirigera om trafik till rätt SQL-motortjänster.
 
-Hanterings-och distributions tjänster ansluts till en SQL-hanterad instans med hjälp av en [hanterings slut punkt](#management-endpoint) som mappar till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som endast används av SQL-hanterad Instanss hanterings komponenter. En inbyggd brand vägg på noderna har kon figurer ATS för att tillåta trafik enbart från Microsoft IP-intervall. Certifikat autentiserar all kommunikation mellan hanterings komponenter och hanterings planet gemensamt.
+Hanterings-och distributions tjänster ansluter till SQL-hanterad instans med hjälp av en [hanterings slut punkt](#management-endpoint) som mappar till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som bara hanterings komponenterna i SQL-hanterad instans använder. En inbyggd brand vägg på noderna har kon figurer ATS för att tillåta trafik enbart från Microsoft IP-intervall. Certifikat autentiserar all kommunikation mellan hanterings komponenter och hanterings planet gemensamt.
 
 ## <a name="management-endpoint"></a>Hanteringsslutpunkt
 
-Azure hanterar den SQL-hanterade instansen med hjälp av en hanterings slut punkt. Den här slut punkten finns inuti instansens virtuella kluster. Hanterings slut punkten skyddas av en inbyggd brand vägg på nätverks nivå. På program nivå skyddas den av ömsesidig certifikat verifiering. Information om hur du hittar slut punktens IP-adress finns i [bestämma hanterings slut punktens IP-adress](management-endpoint-find-ip-address.md).
+Azure hanterar SQL-hanterad instans med hjälp av en hanterings slut punkt. Den här slut punkten finns inuti en instanss virtuella kluster. Hanterings slut punkten skyddas av en inbyggd brand vägg på nätverks nivå. På program nivå skyddas den av ömsesidig certifikat verifiering. Information om hur du hittar slut punktens IP-adress finns i [bestämma hanterings slut punktens IP-adress](management-endpoint-find-ip-address.md).
 
-När anslutningar börjar inuti SQL-hanterad instans (som säkerhets kopiering och gransknings loggar), verkar trafiken starta från hanterings slut punktens offentliga IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från en SQL-hanterad instans genom att ange brand Väggs regler så att endast SQL-hanterad Instanss IP-adress anges. Mer information finns i [verifiera den inbyggda brand väggen för SQL-hanterad instans](management-endpoint-verify-built-in-firewall.md).
+När anslutningar startar i SQL-hanterad instans (som säkerhets kopiering och gransknings loggar), verkar trafiken starta från hanterings slut punktens offentliga IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från SQL-hanterad instans genom att ange brand Väggs regler så att endast IP-adressen för SQL-hanterad instans anges. Mer information finns i [kontrol lera den inbyggda brand väggen för SQL-hanterad instans](management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Trafik som går till Azure-tjänster som finns i den SQL-hanterade instansens region optimeras och därför inte NATed till hanterings slut punktens offentliga IP-adress. Av den anledningen måste tjänsten vara i en annan region än SQL-hanterad instans om du behöver använda IP-baserade brand Väggs regler, som oftast finns för lagring.
+> Trafik som går till Azure-tjänster som är inuti SQL-hanterad instans region är optimerad och därför inte NATed till den offentliga IP-adressen för hanterings slut punkten. Av den anledningen måste tjänsten vara i en annan region än SQL-hanterad instans om du behöver använda IP-baserade brand Väggs regler, oftast för lagring.
 
 ## <a name="service-aided-subnet-configuration"></a>Undernätskonfiguration med tjänststöd
 
-För att hantera krav på kund säkerhet och hanterbarhet överförs SQL-hanterad instans från manuell till tjänstens konfiguration för under nätet.
+SQL-hanterad instans övergår från manuell till tjänstens konfiguration för att hantera kundernas säkerhets-och hanterings krav.
 
-Med tjänstens konfiguration för under näts konfiguration finns full kontroll över data trafik (TDS) medan SQL-hanterad instans tar ansvar för att säkerställa oavbrutet flöde för hanterings trafik för att uppfylla SLA.
+Med konfiguration av tjänstestyrt undernät har användaren full kontroll över data trafik (TDS), medan SQL-hanterad instans tar ansvar för att säkerställa oavbrutet flöde av hanterings trafik för att uppfylla ett service avtal.
 
-Serviceförstärkt undernätskonfiguration bygger på funktionen för [undernätsdelegering](../../virtual-network/subnet-delegation-overview.md) för virtuella nätverk för att tillhandahålla automatisk hantering av nätverkskonfiguration och aktivering av tjänstslutpunkter. Tjänstslutpunkter kan användas för att konfigurera brandväggsregler för virtuella nätverk på lagringskonton som upprätthåller säkerhetskopior/spårningsloggar.
+Konfiguration av tjänstens konfiguration för under nätet bygger ovanpå funktionen [delegering](../../virtual-network/subnet-delegation-overview.md) av virtuella nätverk för att tillhandahålla automatisk hantering av nätverks konfiguration och aktivera tjänstens slut punkter. Tjänst slut punkter kan användas för att konfigurera brand Väggs regler för virtuella nätverk på lagrings konton som upprätthåller säkerhets kopierings-och gransknings loggar.
 
 ### <a name="network-requirements"></a>Nätverkskrav
 
-Distribuera en SQL-hanterad instans i ett dedikerat undernät i det virtuella nätverket. Undernätet måste ha följande egenskaper:
+Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätverket. Undernätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** SQL Managed instances undernät får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men SQL-hanterad instans, och du kan inte senare lägga till andra typer av resurser i under nätet.
-- **Under näts delegering:** SQL Managed instances undernät måste delegeras till `Microsoft.Sql/managedInstances` Resource Provider.
-- **Nätverks säkerhets grupp (NSG):** En NSG måste vara associerad med under nätet för SQL-hanterad instans. Du kan använda en NSG för att styra åtkomsten till data slut punkten för SQL-hanterad instans genom att filtrera trafik på port 1433 och portarna 11000-11999 när SQL-hanterad instans har kon figurer ATS för att omdirigera anslutningar. Tjänsten etablerar automatiskt och upprätthåller de aktuella [regler](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
-- **Användardefinierad routningstabell (UDR):** En UDR-tabell måste vara associerad med under nätet för SQL-hanterad instans. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella nätverksgatewayen eller den virtuella nätverksapparaten (NVA). Tjänsten etablerar automatiskt och upprätthåller de aktuella [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
-- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterade instanser](vnet-subnet-determine-size.md). Du kan distribuera SQL-hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
+- **Dedikerat undernät:** Under nätet för SQL-hanterad instans får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men SQL-hanterad instans, och du kan inte senare lägga till andra typer av resurser i under nätet.
+- **Under näts delegering:** Det SQL-hanterade instans under nätet måste delegeras till `Microsoft.Sql/managedInstances` resurs leverantören.
+- **Nätverks säkerhets grupp (NSG):** En NSG måste vara kopplad till under nätet för SQL-hanterad instans. Du kan använda en NSG för att styra åtkomsten till data slut punkten för SQL-hanterad instans genom att filtrera trafik på port 1433 och portar 11000-11999 när SQL-hanterad instans har kon figurer ATS för att omdirigera anslutningar. Tjänsten etablerar och behåller automatiskt de aktuella [reglerna](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) för att tillåta oavbrutet flöde av hanterings trafik.
+- **Användardefinierad routningstabell (UDR):** En UDR-tabell måste vara kopplad till under nätet för SQL-hanterad instans. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella nätverksgatewayen eller den virtuella nätverksapparaten (NVA). Tjänsten etablerar automatiskt och upprätthåller de aktuella [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
+- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterad instans](vnet-subnet-determine-size.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterad instans](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> När du skapar en SQL-hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
+> När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät
 
@@ -306,23 +306,23 @@ Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpass
 
 Följande funktioner för virtuella nätverk stöds för närvarande inte med SQL-hanterad instans:
 
-- **Microsoft-peering**: aktivering av [Microsoft-peering](../../expressroute/expressroute-faqs.md#microsoft-peering) på Express Route-kretsar som är direkt eller transitivt med virtuella nätverk där SQL-hanterad instans finns påverkar TRAFIKflödet mellan SQL-hanterade instans komponenter i virtuella nätverk och tjänster, beroende på orsaken till tillgänglighets problem. Distributioner av hanterade instanser till virtuella nätverk med Microsoft-peering har redan Aktiver ATS.
+- **Microsoft-peering**: aktivering av [Microsoft-peering](../../expressroute/expressroute-faqs.md#microsoft-peering) på ExpressRoute-kretsar som är direkt eller transitivt med ett virtuellt nätverk där SQL-hanterad instans finns påverkar trafikflöde mellan SQL-hanterade instans komponenter i det virtuella nätverket och de tjänster som den är beroende av, vilket orsakar tillgänglighets problem. SQL-hanterade instans distributioner till virtuella nätverk med Microsoft-peering som redan är aktiverade förväntas fungera.
 - **Global virtuell nätverks-peering**: anslutning till [virtuellt nätverk](../../virtual-network/virtual-network-peering-overview.md) i Azure-regioner fungerar inte för SQL-hanterad instans på grund av de [dokumenterade belastnings Utjämnings begränsningarna](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-- **AzurePlatformDNS**: att använda AzurePlatformDNS [service tag](../../virtual-network/service-tags-overview.md) för att blockera plattformens DNS-matchning skulle resultera i att SQL-hanterad instans skulle bli otillgänglig. Även om SQL-hanterad instans stöder kunddefinierad DNS-matchning i-motorn, finns det ett beroende på plattforms-DNS för plattforms åtgärder.
-- **NAT-gateway**: med [Virtual Network NAT](../../virtual-network/nat-overview.md) för att kontrol lera utgående anslutningar med en speciell offentlig IP-adress skulle SQL-hanterad instans renderas otillgängligt. SQL-hanterad instans tjänst är för närvarande begränsad till användning av Basic Load Balancer som inte tillhandahåller samgåendet antal inkommande och utgående flöden med Virtual Network NAT.
+- **AzurePlatformDNS**: att använda AzurePlatformDNS- [tjänst tag gen](../../virtual-network/service-tags-overview.md) för att blockera DNS-matchning av plattformar skulle resultera i SQL-hanterad instans inte tillgänglig. Även om SQL-hanterad instans stöder kunddefinierad DNS för DNS-matchning i motorn, finns det ett beroende på plattforms-DNS för plattforms åtgärder.
+- **NAT-gateway**: med hjälp av [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) för att kontrol lera utgående anslutningar med en speciell offentlig IP-adress skulle SQL-hanterad instans renderas otillgängligt. SQL Managed instance service är för närvarande begränsad till användning av Basic Load Balancer som inte tillhandahåller samtidiga inkommande och utgående flöden med Virtual Network NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Föråldrad Nätverks krav utan konfiguration av service-stödda undernät
 
-Distribuera en SQL-hanterad instans i ett dedikerat undernät i det virtuella nätverket. Undernätet måste ha följande egenskaper:
+Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätverket. Undernätet måste ha följande egenskaper:
 
-- **Dedikerat undernät:** SQL Managed instances undernät får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men SQL-hanterad instans, och du kan inte senare lägga till andra typer av resurser i under nätet.
-- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för SQL-hanterad instans genom att filtrera trafik på port 1433 och portarna 11000-11999 när SQL-hanterad instans har kon figurer ATS för att omdirigera anslutningar.
+- **Dedikerat undernät:** Under nätet för SQL-hanterad instans får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men SQL-hanterad instans, och du kan inte senare lägga till andra typer av resurser i under nätet.
+- **Nätverks säkerhets grupp (NSG):** En NSG som är associerad med det virtuella nätverket måste definiera [inkommande säkerhets regler](#mandatory-inbound-security-rules) och [utgående säkerhets regler](#mandatory-outbound-security-rules) före andra regler. Du kan använda en NSG för att styra åtkomsten till data slut punkten för SQL-hanterad instans genom att filtrera trafik på port 1433 och portar 11000-11999 när SQL-hanterad instans har kon figurer ATS för att omdirigera anslutningar.
 - **Användardefinierad routningstabell (UDR):** En UDR-tabell som är associerad med det virtuella nätverket måste innehålla vissa [poster](#user-defined-routes).
 - **Inga tjänst slut punkter:** Ingen tjänst slut punkt måste vara kopplad till under nätet för SQL-hanterad instans. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
-- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterade instanser](vnet-subnet-determine-size.md). Du kan distribuera SQL-hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterade instanser](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
+- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterad instans](vnet-subnet-determine-size.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterad instans](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Du kan inte distribuera en ny SQL-hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en SQL-hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
+> Du kan inte distribuera en ny hanterad instans om mål under nätet saknar dessa egenskaper. När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
@@ -340,7 +340,7 @@ Distribuera en SQL-hanterad instans i ett dedikerat undernät i det virtuella n�
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 > [!IMPORTANT]
-> Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 443, 12000. SQL-hanterad instans etablering via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler Miss fungerar distributionen med felkod`VnetSubnetConflictWithIntendedPolicy`
+> Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440 och 1452, och en utgående regel för portarna 443 och 12000. SQL-hanterad instans etablering via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte-distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy` .
 
 \*MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
@@ -348,7 +348,7 @@ Distribuera en SQL-hanterad instans i ett dedikerat undernät i det virtuella n�
 > Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](management-endpoint-find-ip-address.md).
 
 > [!NOTE]
-> Om du använder Transaktionsreplikering i en SQL-hanterad instans och om du använder en instans databas som utgivare eller en distributör öppnar du Port 445 (TCP utgående) i under nätets säkerhets regler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
+> Om du använder transaktionell replikering i SQL-hanterad instans och om du använder en instans databas som utgivare eller en distributör öppnar du Port 445 (TCP utgående) i under nätets säkerhets regler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
@@ -526,9 +526,9 @@ Distribuera en SQL-hanterad instans i ett dedikerat undernät i det virtuella n�
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt finns i [Vad är en Azure SQL-hanterad instans?](sql-managed-instance-paas-overview.md).
-- Lär dig hur du [konfigurerar ett nytt virtuellt Azure-nätverk](virtual-network-subnet-create-arm-template.md) eller ett [befintligt virtuellt Azure-nätverk](vnet-existing-add-subnet.md) där du kan distribuera SQL-hanterade instanser.
-- [Beräkna storleken på det undernät](vnet-subnet-determine-size.md) där du vill distribuera SQL-hanterade instanser.
-- Lär dig hur du skapar en SQL-hanterad instans:
+- Lär dig hur du [konfigurerar ett nytt virtuellt Azure-nätverk](virtual-network-subnet-create-arm-template.md) eller ett [befintligt virtuellt Azure-nätverk](vnet-existing-add-subnet.md) där du kan distribuera SQL-hanterad instans.
+- [Beräkna storleken på det undernät](vnet-subnet-determine-size.md) där du vill distribuera SQL-hanterad instans.
+- Lär dig hur du skapar en hanterad instans:
   - Från [Azure Portal](instance-create-quickstart.md).
   - Med hjälp av [PowerShell](scripts/create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).

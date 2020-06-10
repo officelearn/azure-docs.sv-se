@@ -4,16 +4,16 @@ description: Lär dig att lägga till en beständig datadisk till din virtuella 
 author: roygara
 manager: twooley
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250418"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658332"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du ansluter en beständig disk till den virtuella datorn så att du kan bevara dina data, även om din virtuella dator har reserveras på grund av underhåll eller storleks ändring.
@@ -69,13 +69,13 @@ Utdata ser ut ungefär så här:
 > [!NOTE]
 > Vi rekommenderar att du använder de senaste versionerna av fdisk eller delar av som är tillgängliga för din distribution.
 
-Här är *SDC* den disk som vi vill ha. Partitionera disken med `parted`, om disk storleken är 2 Tebibyte (TIB) eller större, måste du använda GPT-partitionering, om den finns under 2TiB, kan du antingen använda MBR eller GPT-partitionering. Om du använder MBR-partitionering kan du använda `fdisk`. Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar `fdisk` processen på */dev/SDC*:
+Här är *SDC* den disk som vi vill ha. Partitionera disken med `parted` , om disk storleken är 2 tebibyte (TIB) eller större, måste du använda GPT-partitionering, om den finns under 2TiB, kan du antingen använda MBR eller GPT-partitionering. Om du använder MBR-partitionering kan du använda `fdisk` . Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar `fdisk` processen på */dev/SDC*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer `p` vi också för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
+Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -154,7 +154,7 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Skapa nu en katalog för att montera fil systemet med hjälp `mkdir`av. I följande exempel skapas en katalog på */datadrive*:
+Skapa nu en katalog för att montera fil systemet med hjälp av `mkdir` . I följande exempel skapas en katalog på */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -207,12 +207,12 @@ Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oan
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-* Använd alternativet `discard` Mount i */etc/fstab*, till exempel:
+* Använd `discard` alternativet Mount i */etc/fstab*, till exempel:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* I vissa fall kan `discard` alternativet ha prestanda konsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+* I vissa fall `discard` kan alternativet ha prestanda konsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
 
     **Ubuntu**
 

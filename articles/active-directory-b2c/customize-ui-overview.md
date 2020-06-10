@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebbf789d804ab903489c809fc96f1514d6c4f577
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666875"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658084"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ Den viktiga punkten är att du är värd för innehållet på en offentligt till
 
 Kom igång med din egen HTML och CSS på sidorna med användar upplevelsen genom att följa dessa rikt linjer.
 
-- Skapa välformulerat HTML-innehåll med ett `<div id="api"></div>` tomt element någonstans i `<body>`. Det här elementet anger var Azure AD B2C innehållet infogas. I följande exempel visas en minimal sida:
+- Skapa välformulerat HTML-innehåll med ett tomt `<div id="api"></div>` element någonstans i `<body>` . Det här elementet anger var Azure AD B2C innehållet infogas. I följande exempel visas en minimal sida:
 
     ```html
     <!DOCTYPE html>
@@ -169,7 +169,7 @@ Om du vill anpassa dina användar flödes sidor konfigurerar du först företags
 
 Börja med att ange banderoll, bakgrunds bild och bakgrunds färg inom **företags anpassning**.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **Hantera**väljer du **företags anpassning**.
@@ -202,7 +202,7 @@ Det här kommenterade exemplet visar en anpassad logo typ och bakgrunds bild på
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>Använda företags anpassnings till gångar i anpassad HTML
 
-Om du vill använda företagets anpassnings till gångar i anpassad HTML lägger du till följande Taggar `<div id="api">` utanför taggen:
+Om du vill använda företagets anpassnings till gångar i anpassad HTML lägger du till följande Taggar utanför `<div id="api">` taggen:
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -213,9 +213,9 @@ Bild källan ersätts med bakgrunds bildens och banderollens logo typ. Som beskr
 
 ## <a name="localize-content"></a>Lokalisera innehåll
 
-Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](user-flow-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra parametern `ui-locales` OpenID Connect till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
+Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](user-flow-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra parametern OpenID Connect `ui_locales` till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
 
-Innehållet kan hämtas från olika platser baserat på det språk som används. I din CORS-aktiverade slut punkt ställer du in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`.
+Innehållet kan hämtas från olika platser baserat på det språk som används. I din CORS-aktiverade slut punkt ställer du in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}` .
 
 Din anpassade sid-URI kan till exempel se ut så här:
 

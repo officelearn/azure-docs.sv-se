@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure-program med Azure Advisor
 description: Använd Advisor för att optimera prestanda för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 230466c7c0e8de2681737bbf9d74341dea7f7b8f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d0b309fd35fa0a78685017e25eea0caf3f97da03
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196417"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658406"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -58,6 +58,11 @@ Data snedheten kan orsaka onödig data flytt eller resurs Flask halsar när du k
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Skapa eller uppdatera gammal tabell statistik i SQL Data Warehouse-tabellen för att öka prestandan för frågor
 
 Advisor identifierar tabeller som inte har aktuell [tabell statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) och rekommenderar att du skapar eller uppdaterar tabell statistik. SQL Data Warehouse Query-Optimering använder uppdaterade statics för att beräkna kardinalitet eller antal rader i frågeresultatet som möjliggör optimering av frågor för att skapa en plan med hög kvalitet för snabbast prestanda.
+
+## <a name="improve-mysql-connection-management"></a>Förbättra hanteringen av MySQL-anslutningar
+
+Advisor-analys visar att ditt program som ansluter till MySQL-servern kanske inte hanterar anslutningar effektivt. Detta kan leda till onödig resursförbrukning och generellt längre svarstider för program. För att förbättra anslutningshanteringen rekommenderar vi att du minskar antalet kortvariga anslutningar och eliminerar onödiga inaktiva anslutningar. Det gör du genom att konfigurera en anslutningspool på serversidan, till exempel ProxySQL.
+
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cachen på dina SQL Data Warehouse tabeller för att öka prestanda för frågor
 
@@ -141,7 +146,7 @@ Mer information om Advisor-rekommendationer finns i:
 
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

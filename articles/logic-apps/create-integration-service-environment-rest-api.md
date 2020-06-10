@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 7b163c65c0bf781a068abcd6434d75149a1de20b
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324767"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656535"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API
 
-Den här artikeln visar hur du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via Logic Apps REST API för scenarier där dina Logic Apps och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
+Den här artikeln visar hur du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via Logic Apps REST API för scenarier där dina Logic Apps och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en särskild miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
 
 Du kan också skapa en ISE med hjälp av [exemplet Azure Resource Manager snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) eller genom att använda [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 > [!IMPORTANT]
 > Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris plan som skiljer sig från den förbruknings bara pris planen. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 

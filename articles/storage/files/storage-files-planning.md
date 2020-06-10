@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856899"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659629"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -57,7 +57,7 @@ Om du vill avblockera åtkomst till Azure-filresursen har du två huvud alternat
 
 - **Nätverks tunnel med ExpressRoute, plats-till-plats eller punkt-till-plats-VPN**: tunnlar till ett virtuellt nätverk tillåter åtkomst till Azure-filresurser från lokalt, även om Port 445 är blockerad.
 - **Privata slut punkter**: privata slut punkter ger ditt lagrings konto en dedikerad IP-adress i det virtuella nätverkets adress utrymme. Detta möjliggör nätverks tunnel utan att behöva öppna lokala nätverk upp till alla IP-adressintervall som ägs av Azure Storage-klustren. 
-- **DNS-vidarebefordran**: Konfigurera din lokala DNS för att matcha namnet på ditt lagrings konto (dvs `storageaccount.file.core.windows.net` . för de offentliga moln regionerna) för att matcha IP-adressen för dina privata slut punkter.
+- **DNS-vidarebefordran**: Konfigurera din lokala DNS för att matcha namnet på ditt lagrings konto (dvs. `storageaccount.file.core.windows.net` för de offentliga moln regionerna) för att matcha IP-adressen för dina privata slut punkter.
 
 Information om hur du planerar för nätverk som är kopplade till att distribuera en Azure-filresurs finns [Azure Files nätverks överväganden](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ I allmänhet är Azure Files funktioner och samverkan med andra tjänster identi
     - Standard fil resurser är tillgängliga i alla Azure-regioner.
 - Azure Kubernetes service (AKS) stöder Premium-filresurser i version 1,13 och senare.
 
-När en fil resurs har skapats som antingen en Premium-eller standard fil resurs kan du inte automatiskt konvertera den till den andra nivån. Om du vill växla till den andra nivån måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Vi rekommenderar att `robocopy` du använder för `rsync` Windows eller MacOS och Linux för att utföra den kopian.
+När en fil resurs har skapats som antingen en Premium-eller standard fil resurs kan du inte automatiskt konvertera den till den andra nivån. Om du vill växla till den andra nivån måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Vi rekommenderar att `robocopy` du använder för Windows eller `rsync` MacOS och Linux för att utföra den kopian.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Förstå etablering för Premium-filresurser
 Premium-filresurser tillhandahålls baserat på en fast GiB/IOPS/data flödes kvot. För varje GiB tilldelas resursen en IOPS och 0,1 MiB/s-genomflöde upp till de maximala gränserna per resurs. Den minsta tillåtna etableringen är 100 GiB med lägsta IOPS/data flöde.
@@ -127,7 +127,7 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 |10 240      | 10 240  | Upp till 30 720  | 675 | 450   |
 |33 792      | 33 792  | Upp till 100 000 | 2 088 | 1 392   |
 |51 200      | 51 200  | Upp till 100 000 | 3 132 | 2 088   |
-|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
+|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
 > Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. Till exempel, baserat på intern testning med 8 KiB i/o-storlek, kan en virtuell Windows-dator, *Standard F16s_v2*som är anslutna till Premium-filresurs via SMB uppnå 20 000 Read IOPS och 15 000 Skriv-IOPS. Med 512 MiB Läs-/skriv-i/o-storlekar kan samma virtuella dator uppnå 1,1 GiB/s utgående och 370 MiB/s ingress-genomflöde. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
@@ -160,17 +160,12 @@ Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Buck
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migrering
-I många fall kommer du inte att upprätta en ny net-ny fil resurs för din organisation, utan i stället migrera en befintlig fil resurs från en lokal fil server eller NAS-enhet till Azure Files. Det finns många verktyg, som tillhandahålls av Microsoft och tredje part, för att utföra en migrering till en fil resurs, men de kan delas upp i två kategorier:
+I många fall kommer du inte att upprätta en ny net-ny fil resurs för din organisation, utan i stället migrera en befintlig fil resurs från en lokal fil server eller NAS-enhet till Azure Files. Det är viktigt att du väljer strategi och verktyg för rätt migrering för ditt scenario för att migreringen ska lyckas. 
 
-- **Verktyg som upprätthåller attribut för fil system, till exempel ACL: er och tidsstämplar**:
-    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync kan användas som en metod för att mata in data i en Azure-filresurs, även om den önskade slut distributionen inte upprätthåller en lokal närvaro. Azure File Sync kan installeras på plats på befintliga Windows Server 2012 R2-, Windows Server 2016-och Windows Server 2019-distributioner. En fördel med att använda Azure File Sync som en inmatnings mekanism är att slutanvändarna kan fortsätta att använda den befintliga fil resursen på plats. Klipp ut över till Azure-filresursen kan ske efter att alla data har överförts i bakgrunden.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot.
-
-- **Verktyg som inte upprätthåller attribut för fil system**:
-    - **Data Box-enhet**: data Box-enhet tillhandahåller en mekanism för data överföring offline till fysiska leverans data till Azure. Den här metoden är utformad för att öka data flödet och spara bandbredd, men har för närvarande inte stöd för fil systemets attribut som tidsstämplar och ACL: er.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy är ett kommando rads verktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob Storage med hjälp av enkla kommandon med optimala prestanda.
+I [översikts artikeln om migreringen](storage-files-migration-overview.md) beskrivs kortfattat grunderna och innehåller en tabell som leder dig till migrerings guider som ofta täcker ditt scenario.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Planera för en Azure File Sync distribution](storage-sync-files-planning.md)
 * [Distribuera Azure Files](storage-files-deployment-guide.md)
 * [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Titta närmare på översikts artikeln om migrering för att hitta migreringsguiden för ditt scenario](storage-files-migration-overview.md)

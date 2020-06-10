@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 31681397961045da02add7ccb37f29f6c835c08d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267094"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659888"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -30,9 +30,9 @@ Du måste lagra Kundhanterade nycklar i [Azure Key Vault](../key-vault/general/o
 
    !["Resource providers"-post från den vänstra menyn](./media/how-to-setup-cmk/portal-rp.png)
 
-1. Sök efter **Microsoft. DocumentDB** -resurs leverantören. Kontrol lera att resurs leverantören redan har marker ATS som registrerad. Annars väljer du resurs leverantören och väljer **Registrera**:
+1. Sök efter **Microsoft.DocumentDB** Resource Provider. Kontrol lera att resurs leverantören redan har marker ATS som registrerad. Annars väljer du resurs leverantören och väljer **Registrera**:
 
-   ![Registrera Microsoft. DocumentDB Resource Provider](./media/how-to-setup-cmk/portal-rp-register.png)
+   ![Registrera Microsoft.DocumentDB Resource Provider](./media/how-to-setup-cmk/portal-rp-register.png)
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Konfigurera Azure Key Vault-instansen
 
@@ -59,7 +59,7 @@ Om du använder en befintlig Azure Key Vault-instans kan du kontrol lera att des
 
    ![Välja rätt behörigheter](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud-ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` för alla Azure-regioner utom Azure Government regioner där ägar-ID är `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft. DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
+1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud-ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` för alla Azure-regioner utom Azure Government regioner där ägar-ID är `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft.DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
 
    ![Välj Azure Cosmos DB huvud konto](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -220,6 +220,31 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="key-rotation"></a>Nyckelrotation
+
+Att rotera den Kundhanterade nyckeln som används av ditt Azure Cosmos-konto kan göras på två sätt.
+
+- Skapa en ny version av nyckeln som för närvarande används från Azure Key Vault:
+
+  ![Skapa en ny nyckel version](./media/how-to-setup-cmk/portal-akv-rot.png)
+
+- Byt ut nyckeln som för närvarande används med en helt annan genom att uppdatera `keyVaultKeyUri` egenskapen för ditt konto. Så här gör du det i PowerShell:
+
+    ```powershell
+    $resourceGroupName = "myResourceGroup"
+    $accountName = "mycosmosaccount"
+    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    
+    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    
+    $account.Properties.keyVaultKeyUri = $newKeyUri
+    
+    $account | Set-AzResource -Force
+    ```
+
+Föregående nyckel-eller nyckel version kan inaktive ras efter 24 timmar eller efter att [Azure Key Vault gransknings loggarna](../key-vault/general/logging.md) inte visar aktivitet från Azure Cosmos DB på den nyckeln eller nyckel versionen längre.
+    
 ## <a name="error-handling"></a>Felhantering
 
 När du använder Kundhanterade nycklar (CMK) i Azure Cosmos DB, om det finns några fel, returnerar Azure Cosmos DB fel informationen tillsammans med en HTTP-underordnad status kod i svaret. Du kan använda den här under status koden för att felsöka orsaken till problemet. Se [HTTP-statuskod för Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) artikel om du vill hämta en lista över http-understatus koder som stöds.
@@ -267,14 +292,6 @@ Du kan hämta information om ditt Azure Cosmos-konto via programmering och leta 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Hur påverkar kund hanterade nycklar en säkerhets kopia?
 
 Azure Cosmos DB använder [regelbundna och automatiska säkerhets kopieringar](./online-backup-and-restore.md) av de data som lagras i ditt konto. Den här åtgärden säkerhetskopierar krypterade data. Om du vill använda den återställda säkerhets kopian krävs den krypterings nyckel som du använde vid tidpunkten för säkerhets kopieringen. Det innebär att ingen åter kallelse görs och den version av nyckeln som användes vid tidpunkten för säkerhets kopieringen fortfarande kommer att aktive ras.
-
-### <a name="how-do-i-rotate-an-encryption-key"></a>Hur gör jag för att rotera en krypterings nyckel?
-
-Nyckel rotationen utförs genom att skapa en ny version av nyckeln i Azure Key Vault:
-
-![Skapa en ny nyckel version](./media/how-to-setup-cmk/portal-akv-rot.png)
-
-Den tidigare versionen kan inaktive ras efter 24 timmar, eller efter att [Azure Key Vault gransknings loggarna](../key-vault/general/logging.md) inte visar aktivitet från Azure Cosmos DB på den versionen längre.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Hur gör jag för att återkalla en krypterings nyckel?
 

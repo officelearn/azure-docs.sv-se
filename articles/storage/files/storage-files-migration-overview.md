@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685994"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660753"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
@@ -120,9 +120,9 @@ I följande tabell klassificerar vi Microsoft-verktyg och deras aktuella lämpli
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Stöds. Azure-filresurser kan monteras som nätverks enheter. | Fullständig åter givning. * |
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Inbyggt i Azure-filresurser. | Fullständig åter givning. * |
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Tjänsten för lagringsmigrering | Stöds indirekt. Azure-filresurser kan monteras som nätverks enheter på SMS-mål servrar. | Fullständig åter givning. * |
+|![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10,4 eller senare| Stöds. | Fullständig åter givning. * |
 |![Inte fullständigt rekommenderat](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Stöds. | Kopierar inte metadata. [Data Box-enhet kan användas med Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Stöds. | Kopierar inte metadata. |
-|![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Lagringsutforskaren | Stöds. | Kopierar inte metadata. |
+|![Inte fullständigt rekommenderat](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer version 1,14 | Stöds. | Kopierar inte ACL: er. Stöder tidsstämplar.  |
 |![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Stöds. | Kopierar inte metadata. |
 |||||
 

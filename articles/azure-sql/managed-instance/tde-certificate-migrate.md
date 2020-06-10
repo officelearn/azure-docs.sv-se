@@ -1,6 +1,6 @@
 ---
 title: Migrera TDE-certifikat – hanterad instans
-description: Migrera certifikat skydda databas krypterings nyckeln för en databas med transparent data kryptering till Azure SQL Managed instance
+description: Migrera ett certifikat som skyddar databas krypterings nyckeln för en databas med transparent datakryptering till Azure SQL-hanterad instans
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,34 +11,34 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: eb8c794f4817c11d30112fbdf7d754081cc29859
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d2f5439874590db0f2775667d91586c51d6c43b3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045790"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660317"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera certifikat för TDE-skyddad databas till Azure SQL-hanterad instans
+# <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera ett certifikat för en TDE-skyddad databas till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-När du migrerar en databas som skyddas av [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till en Azure SQL-hanterad instans med hjälp av intern återställnings alternativ måste motsvarande certifikat från SQL Server-instansen migreras innan databasen återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till den Azure SQL-hanterade instansen:
+När du migrerar en databas som skyddas av [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till en Azure SQL-hanterad instans med hjälp av det interna återställnings alternativet måste motsvarande certifikat från SQL Server-instansen migreras innan databasen återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till den Azure SQL-hanterade instansen:
 
 > [!div class="checklist"]
 >
-> * Exportera certifikatet till en Personal Information Exchange-fil (.pfx)
-> * Extrahera certifikatet från fil till base-64-sträng
-> * Ladda upp den med hjälp av PowerShell-cmdlet
+> * Exportera certifikatet till en personlig information Exchange-fil (. pfx)
+> * Extrahera certifikatet från en fil till en Base-64-sträng
+> * Ladda upp den med en PowerShell-cmdlet
 
-Ett alternativt alternativ som använder en fullständigt hanterad tjänst för sömlös migrering av både TDE-skyddade databaser och motsvarande certifikat finns i [så här migrerar du din lokala databas till Azure SQL-hanterad instans med hjälp av Azure Database migration service](../../dms/tutorial-sql-server-to-managed-instance.md).
+Ett alternativt alternativ som använder en fullständigt hanterad tjänst för sömlös migrering av både en TDE-skyddad databas och ett motsvarande certifikat finns i [så här migrerar du din lokala databas till Azure SQL-hanterad instans med hjälp av Azure Database migration service](../../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är färdig ersätts det migrerade certifikatet med ett annat skydd, antingen tjänst-hanterat certifikat eller asymmetrisk nyckel från nyckel valvet, beroende på vilken typ av transparent data kryptering som du har angett på instansen.
+> Ett migrerat certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är färdig ersätts det migrerade certifikatet av ett annat skydd, antingen ett tjänst hanterat certifikat eller en asymmetrisk nyckel från nyckel valvet, beroende på vilken typ av TDE som du har angett på instansen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Pvk2Pfx-verktyget är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående, självständig kommandoradsmiljö.
+* [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Verktyget Pvk2Pfx är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående kommando rads miljö.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) version 5.0 eller senare installerat.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -51,7 +51,7 @@ Se till att du har följande:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL-hanterad instans, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL-hanterad instans, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRM-modulerna är i stort sett identiska.
 
 Kör följande kommandon i PowerShell för att installera/uppdatera modulen:
 
@@ -66,17 +66,17 @@ Om du behöver installera eller uppgradera kan du läsa informationen i [Install
 
 * * *
 
-## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>Exportera TDE-certifikatet till en Personal Information Exchange-fil (.pfx)
+## <a name="export-the-tde-certificate-to-a-pfx-file"></a>Exportera TDE-certifikatet till en PFX-fil
 
-Certifikatet kan exporteras direkt från SQL Server-källan eller från certifikatarkivet om det förvaras där.
+Certifikatet kan exporteras direkt från käll SQL Servers instansen eller från certifikat arkivet om det finns där.
 
-### <a name="export-certificate-from-the-source-sql-server"></a>Exportera certifikat från SQL Server-källan
+### <a name="export-the-certificate-from-the-source-sql-server-instance"></a>Exportera certifikatet från käll SQL Servers instansen
 
-Använd följande steg för att exportera certifikat med SQL Server Management Studio och omvandla det till pfx-format. De allmänna namnen *TDE_Cert* och *full_path* används för certifikat- och filnamn samt sökvägar i stegen. De ska ersättas med de faktiska namnen.
+Använd följande steg för att exportera certifikatet med SQL Server Management Studio och konvertera det till. PFX-format. De generiska namnen *TDE_Cert* och *full_path* används för certifikat-och fil namn och sökvägar genom stegen. De ska ersättas med de faktiska namnen.
 
-1. I SSMS öppnar du ett nytt frågefönster och ansluter till SQL Server-källan.
+1. Öppna ett nytt frågefönster i SSMS och Anslut till käll SQL Servers instansen.
 
-1. Använd följande skript för att lista TDE-skyddade databaser och hämta namnet på det certifikat som skyddar kryptering på den databas som ska migreras:
+1. Använd följande skript för att visa en lista över TDE-skyddade databaser och hämta namnet på certifikatet som skyddar krypteringen av databasen som ska migreras:
 
    ```sql
    USE master
@@ -90,7 +90,7 @@ Använd följande steg för att exportera certifikat med SQL Server Management S
    WHERE dek.encryption_state = 3
    ```
 
-   ![lista över TDE-certifikat](./media/tde-certificate-migrate/onprem-certificate-list.png)
+   ![Lista över TDE-certifikat](./media/tde-certificate-migrate/onprem-certificate-list.png)
 
 1. Kör följande skript för att exportera certifikatet till ett par filer (.cer och .pvk) med informationen för den offentliga nyckeln och den privata nyckeln:
 
@@ -105,31 +105,31 @@ Använd följande steg för att exportera certifikat med SQL Server Management S
    )
    ```
 
-   ![säkerhetskopiera TDE-certifikat](./media/tde-certificate-migrate/backup-onprem-certificate.png)
+   ![Säkerhetskopiera TDE-certifikat](./media/tde-certificate-migrate/backup-onprem-certificate.png)
 
-1. Använd PowerShell-konsolen om du vill kopiera certifikatinformationen från ett par nyligen skapade filer till en Personal Information Exchange-fil (.pfx) med Pvk2Pfx-verktyget:
+1. Använd PowerShell-konsolen för att kopiera certifikat information från ett par med nyligen skapade filer till en. pfx-fil med hjälp av Pvk2Pfx-verktyget:
 
    ```cmd
    .\pvk2pfx -pvk c:/full_path/TDE_Cert.pvk  -pi "<SomeStrongPassword>" -spc c:/full_path/TDE_Cert.cer -pfx c:/full_path/TDE_Cert.pfx
    ```
 
-### <a name="export-certificate-from-certificate-store"></a>Exportera certifikat från certifikatarkiv
+### <a name="export-the-certificate-from-a-certificate-store"></a>Exportera certifikatet från ett certifikat Arkiv
 
-Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det exporteras med följande steg:
+Om certifikatet sparas i den SQL Server lokala datorns certifikat Arkiv, kan det exporteras med följande steg:
 
-1. Öppna PowerShell-konsolen och kör följande kommando för att öppna snapin-modulen för certifikat för Microsoft Management Console:
+1. Öppna PowerShell-konsolen och kör följande kommando för att öppna snapin-modulen certifikat i Microsoft Management Console:
 
    ```cmd
    certlm
    ```
 
-2. I MMC-snapin-modulen för certifikat expanderar du sökvägen Personligt -> Certifikat för att se listan över certifikat
+2. I MMC-snapin-modulen certifikat expanderar du sökvägen personliga > certifikat för att se listan över certifikat.
 
-3. Högerklicka på certifikatet och klicka på Exportera…
+3. Högerklicka på certifikatet och klicka på **Exportera**.
 
-4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett Personal Information Exchange-format
+4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett. PFX-format.
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Ladda upp certifikat till Azure SQL-hanterad instans med hjälp av Azure PowerShell-cmdlet
+## <a name="upload-the-certificate-to-azure-sql-managed-instance-using-an-azure-powershell-cmdlet"></a>Överför certifikatet till den Azure SQL-hanterade instansen med hjälp av en Azure PowerShell-cmdlet
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -160,7 +160,7 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Du måste först [Konfigurera en Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) med *. pfx* -filen.
+Du måste först [Konfigurera ett Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) med din *. pfx* -fil.
 
 1. Börja med förberedelsestegen i PowerShell:
 
@@ -175,7 +175,7 @@ Du måste först [Konfigurera en Azure Key Vault](/azure/key-vault/key-vault-man
    az account set --subscription <subscriptionId>
    ```
 
-1. När alla förberedelse steg har utförts kör du följande kommandon för att ladda upp det Base-64-kodade certifikatet till den hanterade mål instansen:
+1. När alla förberedelse steg har utförts kör du följande kommandon för att ladda upp det grundläggande 64-kodade certifikatet till den hanterade mål instansen:
 
    ```azurecli
    az sql mi tde-key set --server-key-type AzureKeyVault --kid "<keyVaultId>" `
@@ -184,10 +184,10 @@ Du måste först [Konfigurera en Azure Key Vault](/azure/key-vault/key-vault-man
 
 * * *
 
-Certifikatet är nu tillgängligt för den angivna hanterade instansen och säkerhets kopiering av motsvarande TDE-skyddade databas kan återställas.
+Certifikatet är nu tillgängligt för den angivna hanterade instansen och säkerhets kopieringen av motsvarande TDE-skyddade databas kan återställas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att migrera certifikat som skyddar krypteringsnyckeln för databasen med transparent datakryptering, från lokal server eller IaaS SQL-server till Azure SQL-hanterad instans.
+I den här artikeln har du lärt dig hur du migrerar ett certifikat som skyddar krypterings nyckeln för en databas med transparent datakryptering, från den lokala eller IaaS SQL Server-instansen till en Azure SQL-hanterad instans.
 
-Se [återställa en databas säkerhets kopia till en hanterad Azure SQL-instans](restore-sample-database-quickstart.md) om du vill lära dig hur du återställer en databas säkerhets kopia till en hanterad Azure SQL-instans.
+Se [återställa en databas säkerhets kopia till en hanterad Azure SQL-instans](restore-sample-database-quickstart.md) för att lära dig hur du återställer en databas säkerhets kopia till en Azure SQL-hanterad instans.

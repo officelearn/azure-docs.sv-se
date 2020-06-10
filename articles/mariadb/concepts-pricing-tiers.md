@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/9/2020
+ms.openlocfilehash: 95891e35d2f30bfceb6282c6d9b3f9e7e21b3df8
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097667"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660873"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB pris nivåer
 
@@ -58,6 +58,20 @@ Du kan lägga till ytterligare lagrings kapacitet under och efter att servern ha
 Basic-nivån ger ingen IOPS-garanti. På den Generell användning och minnesoptimerade pris nivån, skalar IOPS med den tillhandahållna lagrings storleken i ett 3:1-förhållande.
 
 Du kan övervaka i/O-förbrukningen i Azure Portal eller genom att använda Azure CLI-kommandon. De relevanta måtten för övervakning är [lagrings gränser, lagrings utrymme, lagring och i/o procent](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Stor lagring (för hands version)
+
+Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade nivåer. Nyligen skapade servrar som ingår i för hands versionen kan etablera upp till 16 TB lagrings utrymme. IOPS-skalan vid 3:1-förhållandet upp till 20 000 IOPS. Precis som med den aktuella allmänt tillgängliga lagringen kan du lägga till ytterligare lagrings kapacitet efter att servern har skapats, och gör det möjligt för systemet att växa lagring automatiskt baserat på arbets Belastningens lagrings förbrukning.
+
+|              | **Generell användning** | **Minnesoptimerade** |
+|:-------------|:--------------------|:---------------------|
+| Lagringstyp | Azure-Premium Storage | Azure-Premium Storage |
+| Lagrings storlek | 32 GB till 16 TB| 32 till 16 TB |
+| Öknings storlek för lagring | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
+
+> [!IMPORTANT]
+> Stor lagring är för närvarande en offentlig för hands version i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra, Sydostasien, Asien, östra, Östra Japan, västra Japan, västra USA, västra USA, södra centrala USA.
 
 ### <a name="reaching-the-storage-limit"></a>Nått lagrings gränsen
 

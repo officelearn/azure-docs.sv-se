@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: robinsh
 ms.service: iot-hub
 services: iot-hub

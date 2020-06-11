@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745374"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672671"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
 
@@ -49,6 +49,7 @@ LUIS-behållare har stöd för en delmängd av de [språk som stöds](luis-langu
 | Språk | Nationell inställning | Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[Text analys](../text-analytics/language-support.md)<br>(Sentiment och<br>Reserverade|
 |--|--|:--:|:--:|:--:|:--:|
 | Engelska (USA) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Arabiska (förhands granskning-modern standard arabisk) |`ar-AR`|❌|❌|❌|❌|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Franska (Frankrike) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Franska (Kanada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
@@ -56,9 +57,12 @@ LUIS-behållare har stöd för en delmängd av de [språk som stöds](luis-langu
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italienska |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Koreanska |`ko-KR` | ✔️ | ❌ | ❌ | Endast *nyckel fras* |
+| Marathi | `mr-IN`|❌|❌|❌|❌|
 | Portugisiska (Brasilien) |`pt-BR` | ✔️ | ✔️ | ✔️ | alla under kulturer |
 | Spanska (Spanien) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanska (Mexiko)|`es-MX` | ❌ | ❌ |✔️|✔️|
+| Tamilska | `ta-IN`|❌|❌|❌|❌|
+| Telugu | `te-IN`|❌|❌|❌|❌|
 | Turkiska | `tr-TR` |✔️| ❌ | ❌ | Endast *sentiment* |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]

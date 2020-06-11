@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194594"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660937"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en SQL Server-databas till Azure Blob Storage med hjälp av Kopiera data-verktyget
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -37,7 +37,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -146,18 +146,15 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. På sidan **Källdatalager** klickar du på **Skapa ny anslutning**.
 
-
 1. Sök efter **SQL Server**under **ny länkad tjänst**och välj sedan **Fortsätt**.
 
 1. I dialog rutan **ny länkad tjänst (SQL Server)** under **namn**, anger du **SqlServerLinkedService**. Välj **+Ny** under **Connect via integration runtime** (Anslut via Integration Runtime). Du måste skapa en lokal integreringskörning, ladda ned den på din dator och registrera den med Data Factory. Den lokala integreringskörningen kopierar data mellan din lokala miljö och molnet.
 
+1. I dialog rutan **integration runtime installation** väljer du **egen värd**. Välj sedan **Fortsätt**.
 
-1. I dialog rutan **integration runtime installation** väljer du **egen värd**. Välj **Nästa**.
+   ![Skapa integration runtime](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Skapa integration runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. I dialog rutan **integration runtime-konfiguration** , under **namn**, anger du **TutorialIntegrationRuntime**. Välj **Nästa**.
-
+1. I dialog rutan **integration runtime-konfiguration** , under **namn**, anger du **TutorialIntegrationRuntime**. Välj sedan **Skapa**.
 
 1. I dialog rutan **integration runtime installation** väljer **du klicka här för att starta Express installationen för den här datorn**. Med den här åtgärden installeras integreringskörningen på datorn och registreras med Data Factory. Alternativt kan du använda det manuella installationsalternativet för att ladda ned installationsfilen, köra den och använda nyckeln för att registrera integreringskörning.
 
@@ -216,20 +213,17 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. Granska värdena för alla inställningar i dialogrutan **Sammanfattning** och välj **Nästa**.
 
-1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen eller aktiviteten du skapade.
+1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten). 
 
-   ![Distributionssida](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. När pipeline-körningen är klar kan du Visa status för den pipeline som du skapade. 
 
-1. På fliken **Övervaka** kan du visa status för den pipeline som du skapade. Med länkarna i kolumnen **Åtgärd** kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt.
+1. På sidan pipeliner körs väljer du **Uppdatera** för att uppdatera listan. Klicka på länken under **pipeline-namn** om du vill visa aktivitets körnings information eller kör pipelinen igen. 
 
-1. Välj länken **Visa aktivitetskörningar** i kolumnen **Åtgärder** om du vill se aktivitetskörningar som är associerade med pipelinekörningen. Om du vill se information om kopieringsoperationen väljer du länken **information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill växla tillbaka till vyn **pipelines körs** väljer du **pipeline-körningar** överst.
+1. På sidan aktivitets körningar väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** för mer information om kopierings åtgärden. Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **alla pipeline-körningar** på menyn för dynamiska länkar. Välj **Uppdatera** för att uppdatera vyn.
 
 1. Bekräfta att utdatafilen visas i mappen **fromonprem** för containern **adftutorial**.
 
-
 1. Klicka på fliken **Redigera** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Klicka på **Kod** för att visa JSON-koden som är associerad med den entitet som har öppnats i redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
-
-   ![Fliken Redigera](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

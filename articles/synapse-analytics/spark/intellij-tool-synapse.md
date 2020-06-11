@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608765"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657828"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Självstudie: skapa Apache Spark program med IntelliJ med Synapse Synapse Analytics (för hands versioner av arbets ytor)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
 Den här självstudien visar hur du använder Azure Toolkit for IntelliJ-plugin-programmet för att utveckla Apache Spark program som är skrivna i [Scala](https://www.scala-lang.org/)och sedan skicka dem till en spark-pool (för hands version) direkt från IntelliJ-Integrated Development Environment (IDE). Du kan använda plugin-programmet på några sätt:
 
@@ -38,7 +38,7 @@ I de här självstudierna får du lära dig att
 - Scala-plugin – installera från [IntelliJ-plugin-lagringsplatsen](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 - Den här förutsättningen gäller endast för Windows-användare.
 
-  När du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils. exe saknas i Windows.
+  När du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils.exe saknas i Windows.
   Lös problemet genom att ladda ned [WinUtils-körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME**och ange värdet för variabeln till **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Skapa ett Spark Scala-program för en spark-pool
@@ -169,9 +169,9 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
     ![IntelliJ kör felsöka konfigurationer lokal körning](./media/intellij-tool-synapse/local-run-synapse.png)
 
-    - Miljövariabler och WinUtils. exe-platsen gäller endast för Windows-användare.
+    - Miljövariabler och WinUtils.exe plats är endast för Windows-användare.
     - Miljövariabler: system miljö variabeln kan identifieras automatiskt om du har angett den och inte behöver lägga till manuellt.
-    - [WinUtils. exe-plats](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): du kan ange WinUtils-platsen genom att klicka på mappikonen till höger.
+    - [WinUtils.exe plats](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): du kan ange platsen för WinUtils genom att klicka på mappikonen till höger.
 
 2. Klicka sedan på knappen lokal uppspelning.
 
@@ -210,7 +210,7 @@ Du kan köra Spark Local Console (Scala) eller köra Spark livy Interactive Sess
 
 ### <a name="spark-local-console-scala"></a>Spark-lokal konsol (Scala)
 
-Se till att du har uppfyllt WINUTILS. EXE-krav.
+Se till att du har uppfyllt kraven för WINUTILS.EXE.
 
 1. Gå till meny raden och navigera till **Kör**  >  **Redigera konfigurationer...**.
 2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse**  >  **[Spark på Synapse] MyApp**.
@@ -220,7 +220,7 @@ Se till att du har uppfyllt WINUTILS. EXE-krav.
     |Egenskap |Värde |
     |----|----|
     |Miljövariabler|Se till att värdet för HADOOP_HOME är korrekt.|
-    |Plats för WINUTILS. exe|Se till att sökvägen är korrekt.|
+    |WINUTILS.exe plats|Se till att sökvägen är korrekt.|
 
     ![Konfiguration av lokal konsol uppsättning](./media/intellij-tool-synapse/local-console-synapse01.png)
 

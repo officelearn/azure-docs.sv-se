@@ -1,14 +1,14 @@
 ---
 title: Testa appen i LUIS-portalen
 description: Använd Language Understanding (LUIS) för att kontinuerligt arbeta med ditt program för att förfina det och förbättra dess språk förståelse.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344160"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677752"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 
@@ -65,9 +65,25 @@ Från inspektions panelen kan du lägga till testet uttryck till en avsikt genom
 
 ## <a name="disable-required-features"></a>Inaktivera nödvändiga funktioner
 
-Välj den här växlingen för att se vad förutsägelsen skulle vara om entitetens funktion inte krävdes.
+Den här växlingen hjälper dig att avgöra om den tränade appen förutsäger dina entiteter korrekt baserat på de funktioner som krävs. Standardinställningen är att använda funktionen som krävs under förutsägelsen. Välj den här växlingen för att se hur förutsägelsen blir om underentitetens funktion inte krävdes.
 
-Den här växlingen hjälper dig att avgöra om den tränade appen förutsäger dina entiteter korrekt baserat på de funktioner som krävs. Den tränade appen kan felaktigt förutsäga en enhet som har lärts in baserat på antingen felaktig etikettering av exempel yttranden eller så matchar inte texten som krävs.
+### <a name="when-to-disable-required-features"></a>När du ska inaktivera nödvändiga funktioner
+
+Den tränade appen kan förutsäga en enhet som har registrerats av enheten baserat på något av följande:
+* Felaktig etikettering av exempel yttranden.
+* Den obligatoriska funktionen matchar inte texten.
+
+Ett exempel är en enhet som har registrerats av enheten med en underentitet till en persons namn.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Skärm bild av LUIS-portalen enhets schema med nödvändig funktion":::
+
+Ett exempel på en uttryck för den här enheten är: `Assign Bob Jones to work on the new security feature` .
+
+Extraheringen ska vara `security feature` som biljett beskrivning och `Bob Jones` som teknikern, två underentiteter av `Assign ticket` entiteten.
+
+Om du vill hjälpa underentiteten att förutsäga, lägger du till den färdiga entiteten [PersonName](luis-reference-prebuilt-person.md) aa a som en funktion i `engineer` underentiteten. Om du gör funktionen obligatorisk, innebär det att underentiteten bara extraheras om den PersonName fördefinierade entiteten är förväntad för texten. Det innebär att alla namn i den text som inte förutsäger PersonName-underentiteten inte returneras som en märkt underentitet, `engineer` .
+
+När du använder det interaktiva test fönstret och ser en underentitet, och en nödvändig funktion, inte förutsäger, växlar den här inställningen för att se om underentiteten skulle förutsägas utan att funktionen krävs. Underentiteten kan vara korrekt förväntad utan funktionen som krävs på grund av korrekt etikettering av exempel yttranden.
 
 ## <a name="view-sentiment-results"></a>Visa sentiment-resultat
 

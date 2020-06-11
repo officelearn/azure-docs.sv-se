@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c05daa998829c4ac0687f75ae5678695127a50b0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300597"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659911"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Självstudie: Konfigurera ett Unity-projekt från grunden
 
@@ -25,7 +25,7 @@ I den här självstudien lär du dig:
 > * Läser in modeller till en åter givnings session.
 > * Visar anslutnings statistik.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här självstudien behöver du:
 
@@ -105,6 +105,7 @@ Välj den **primära Camera** -noden.
 
 1. Öppna *redigera > projekt inställningar...*
 1. I listan till vänster väljer du kvalitet.
+1. Ändra den **aktiva kvalitets nivån** till *låg* genom att markera den
 1. Ändra **standard kvalitets nivån** till *låg*
 
     ![Ändra inställningar för projekt kvalitet](media/settings-quality.png)

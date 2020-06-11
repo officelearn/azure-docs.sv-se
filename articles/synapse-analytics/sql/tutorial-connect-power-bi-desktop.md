@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: ansluta SQL på begäran (för hands version) till Power BI Desktop & Skapa rapport'
-description: I den här självstudien får du lära dig hur du ansluter SQL på begäran (för hands version) i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport som baseras på en vy.
+title: 'Självstudie: ansluta SQL på begäran till Power BI Desktop & Skapa rapport'
+description: I den här självstudien får du lära dig hur du ansluter SQL på begäran i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport som baseras på en vy.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 3f32dc14163df6694c69258be365fcbb1390c926
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258291"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660230"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran (för hands version) med Power BI Desktop & skapa en rapport
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran med Power BI Desktop & skapa en rapport
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -100,7 +100,7 @@ Demonstrations data innehåller följande data uppsättningar:
 
 AMERIKANSKA befolkning efter kön och tävling för varje amerikansk region från 2000 och 2010 decennial-inventering i Parquet-format.
 
-| Mappsökväg                                                  | Beskrivning                                                  |
+| Mappsökväg                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /Release                                                    | Överordnad mapp för data i demonstrations lagrings konto               |
 | /Release/us_population_county/                               | US population-datafiler i Parquet-format, partitionerade efter år med Hive/Hadoop partitionerings schema. |

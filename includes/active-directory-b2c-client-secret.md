@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 6c562f9b19082f01cd8447eb727ce830b003f396
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f227021f6cd71686eb58b43dc16a03d6fc010b83
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298777"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672548"
 ---
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
 
 1. Under **Hantera**väljer du **certifikat & hemligheter**.
 1. Välj **Ny klienthemlighet**.
@@ -20,7 +20,7 @@ ms.locfileid: "84298777"
 1. Under **upphör ande**väljer du en varaktighet för vilken hemligheten är giltig och väljer sedan **Lägg till**.
 1. Registrera hemlighetens **värde**. Du använder det här värdet för konfiguration i ett senare steg.
 
-#### <a name="applications"></a>[Program](#tab/applications/)
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
 1. Under **API-åtkomst**väljer du **nycklar**.
 1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *clientsecret1*.

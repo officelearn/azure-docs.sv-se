@@ -3,18 +3,24 @@ title: Vad är nytt – Language Understanding (LUIS)
 description: Den här artikeln uppdateras regelbundet med nyheter om Azure Cognitive Services API för Language Understanding.
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675950"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678757"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
 Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="june-2020"></a>2020 juni
+
+* [Preview 3,0-redigering](luis-migration-authoring-entities.md) Gränssnittet
+    * Version 3.2.0 – för hands version. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Version 4.0.0 – för hands version. 3- [JS-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 
 ### <a name="may-2020---build"></a>2020 maj-build
 
@@ -99,7 +105,7 @@ Följande funktioner släpptes på Build 2019-konferensen:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Video
+## <a name="videos"></a>Videoklipp
 
 ### <a name="2019-ignite-videos"></a>2019 tänd videor
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561157"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661061"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiera flera tabeller i bulk genom att använda Azure Data Factory i Azure Portal
 
@@ -49,7 +49,7 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure Storage konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure Synapse Analytics (tidigare SQL DW)**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -108,13 +108,16 @@ I den här självstudien länkar du Azure SQL Database, Azure Synapse Analytics 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Skapa den länkade tjänsten för Azure SQL Database-källan
 I det här steget skapar du en länkad tjänst för att länka Azure SQL-databasen till datafabriken. 
 
-1. Klicka på **anslutningar** längst ned i fönstret och klicka på **+ ny** i verktygsfältet (**anslutningar** -knappen finns längst ned i den vänstra kolumnen under **fabriks resurser**). 
+1. Öppna [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i det vänstra fönstret.
 
+1. På sidan länkade tjänster väljer du **+ ny** för att skapa en ny länkad tjänst.
+
+   ![Ny länkad tjänst](./media/doc-common-process/new-linked-service.png)
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
 1. Utför följande steg i fönstret **ny länkad tjänst (Azure SQL Database)** : 
 
     a. Ange **AzureSqlDatabaseLinkedService** som **namn**.
-    
+
     b. Välj servern som **Server namn**
     
     c. Välj din Azure SQL-databas som **databasnamn**. 
@@ -159,7 +162,6 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
     b. Välj ditt **Azure-lagringskonto** som **Lagringskontonamn**.
     
     c. Klicka på **Skapa**.
-
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I den här självstudien skapar du datauppsättningar för källa och mottagare som anger var data lagras. 

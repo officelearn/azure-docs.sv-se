@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 708236cbbd9bf10c6e9edf6b59a3d8e814a40e9f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194605"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661013"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en SQL Server-databas till Azure Blob Storage
 
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -100,7 +100,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. I **behållare** -fönstret väljer du **+ container** för att skapa en ny.
 
-1. I fönstret **Ny container**, under **Namn** anger du **adftutorial**. Välj sedan **skapa**.
+1. I fönstret **Ny container**, under **Namn** anger du **adftutorial**. Välj sedan **Skapa**.
 
 1. I listan över behållare väljer du **adftutorial** som du nyss skapade.
 
@@ -159,7 +159,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
 1. I dialog rutan **integration runtime installation** väljer du **egen värd**och väljer sedan **Fortsätt**.
 
-1. Under namn anger du **TutorialIntegrationRuntime**. Välj sedan **skapa**.
+1. Under namn anger du **TutorialIntegrationRuntime**. Välj sedan **Skapa**.
 
 1. För inställningar väljer du **Klicka här för att starta Express installationen för den här datorn**. Med den här åtgärden installeras integreringskörningen på datorn och registreras med Data Factory. Alternativt kan du använda det manuella installationsalternativet för att ladda ned installationsfilen, köra den och använda nyckeln för att registrera integreringskörning.
     ![Installation av Integration Runtime](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
@@ -219,7 +219,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
     c. I **fil** delen väljer du **Lägg till dynamiskt innehåll**.
     ![dynamiska uttryck för lösning av filnamn](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Lägg till `@CONCAT(pipeline().RunId, '.txt')` och välj sedan **Slutför**. Den här åtgärden byter namn på filen med PipelineRunID. txt.
+    d. Lägg till `@CONCAT(pipeline().RunId, '.txt')` och välj sedan **Slutför**. Den här åtgärden kommer att byta namn på filen med PipelineRunID.txt.
 
 1. Gå till fliken med pipelinen öppen eller välj pipelinen i trädvyn. I **Sink Dataset** (Datauppsättning för mottagare) bekräftar du att **AzureBlobDataset** är vald.
 

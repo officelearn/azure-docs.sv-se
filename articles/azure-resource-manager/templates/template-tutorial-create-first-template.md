@@ -2,15 +2,15 @@
 title: Självstudie – Skapa & distribuera mall
 description: Skapa din första Azure Resource Manager-mall. I självstudien får du lära dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235221"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676156"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudie: skapa och distribuera din första ARM-mall
 
@@ -37,6 +37,7 @@ Du behöver också antingen Azure PowerShell eller Azure CLI för att distribuer
 - [Installera Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installera Azure CLI på Windows](/cli/azure/install-azure-cli-windows)
 - [Installera Azure CLI på Linux](/cli/azure/install-azure-cli-linux)
+- [Installera Azure CLI på macOS](/cli/azure/install-azure-cli-macos)
 
 När du har installerat antingen Azure PowerShell eller Azure CLI kontrollerar du att du loggar in för första gången. Mer information finns i [Logga in-PowerShell](/powershell/azure/install-az-ps#sign-in) eller [Logga in – Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
@@ -50,7 +51,7 @@ OK, du är redo att börja lära dig om mallar.
 1. Öppna Visual Studio Code med tillägget Resource Manager Tools installerat.
 1. I menyn **Arkiv** väljer du **ny fil** för att skapa en ny fil.
 1. Välj **Spara som**på **Arkiv** -menyn.
-1. Ge filen namnet **azuredeploy** och välj tillägget **JSON** -fil. Det fullständiga namnet på filen **azuredeploy. JSON**.
+1. Ge filen namnet **azuredeploy** och välj tillägget **JSON** -fil. Det fullständiga namnet på filen **azuredeploy.jspå**.
 1. Spara filen på din arbets Station. Välj en sökväg som är lätt att komma ihåg eftersom du kommer att ange den sökvägen senare när du distribuerar mallen.
 1. Kopiera och klistra in följande JSON i filen:
 
@@ -182,7 +183,7 @@ Distributions kommandot returnerar resultat. Leta efter för `ProvisioningState`
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **resurs grupper**på den vänstra menyn.
 

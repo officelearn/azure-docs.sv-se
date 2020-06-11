@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558370"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667118"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
 
@@ -32,7 +32,7 @@ I den här självstudien går du igenom följande aktiviteter:
 > * Visa utbildnings resultat i Studio
 > * Hämta den bästa modellen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
@@ -138,7 +138,7 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Visa utbildnings resultat i Studio
 
-När du följer **länken till Azure Machine Learning Studio** går du till huvud experiment sidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade-loggade värden ( `alpha_value` och `rmse` , i det här fallet) blir fält för varje körning och blir också tillgängliga för diagram och paneler överst på experiment sidan. För att lägga till ett inloggat mått i ett diagram eller en panel, Hovra över den, klicka på knappen Redigera och hitta ditt anpassade-loggade mått.
+När du följer **länken till Azure Machine Learning Studio** går du till huvud experiment sidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade-loggade värden ( `alpha_value` och `rmse` , i det här fallet) blir fält för varje körning och blir också tillgängliga för diagrammen. Om du vill rita ett nytt diagram med ett loggat mått klickar du på Lägg till diagram och väljer måttet som du vill rita.
 
 När utbildnings modeller skalas över hundratals och tusentals separata körningar, gör den här sidan det enkelt att se alla modeller som du har tränat, särskilt hur de har tränats, och hur dina unika mått har ändrats över tid.
 

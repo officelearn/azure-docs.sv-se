@@ -2,29 +2,70 @@
 title: Funktioner – LUIS
 description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742717"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677599"
 ---
 # <a name="machine-learning-ml-features"></a>Funktioner för Machine Learning (ML)
 
-I Machine Learning är en **funktion**   en särskiljande egenskaps-eller dataattribut som systemet iakttar.
+I Machine Learning är en **funktion**   en särskiljande egenskaps-eller dataattribut som systemet ser och lär sig genom.
 
 Machine Learning-funktioner ger LUIS viktiga stackar för var du ska leta efter saker som särskiljer ett koncept. De är tips som LUIS kan använda, men inte hårda regler.  Dessa tips används tillsammans med etiketterna för att hitta data.
 
- LUIS stöder både fras listor och använder andra entiteter som-funktioner:
+## <a name="what-is-a-feature"></a>Vad är en funktion?
+
+En funktion är en särskiljande egenskap som kan beskrivas som en funktion: f (x) = y. Funktionen används för att veta var du ska titta, i exemplet uttryck, för särskiljande trait. När du skapar ditt schema, vad vet du om exemplet på uttryck som anger traiten? Ditt svar är den bästa guiden för att skapa funktioner.
+
+## <a name="types-of-features"></a>Typer av funktioner
+
+ LUIS stöder både fras listor och modeller som funktioner:
 * Funktionen fras lista
 * Modell (avsikt eller entitet) som en funktion
 
 Funktioner bör anses vara en nödvändig del av schema designen.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Hur du hittar funktioner i ditt exempel yttranden
+
+Eftersom LUIS är ett språk baserat program, kommer funktionerna att vara textbaserade. Välj text som anger den trait som du vill särskilja. För LUIS är den textbaserade minsta enheten token. För det engelska språket är en token ett sammanhängande intervall, utan blank steg eller interpunktion, av bokstäver och siffror. Ett blank steg är inte en token.
+
+Eftersom blank steg och skiljetecken inte är tokens, fokuserar du på de text LED trådar som du kan använda som funktioner. Kom ihåg att inkludera variationer av ord som:
+* plural-formulär
+* mellanliggande verb
+* förkortning
+* stavning och fel stavning
+
+Behöver texten som en särskiljande egenskap:
+* Matcha ett exakt ord eller en fras – Överväg att lägga till en entitet för reguljära uttryck eller en lista entitet som en funktion i entiteten eller avsikten
+* Matcha ett välkänt koncept som datum, tid eller personers namn – Använd en fördefinierad entitet som funktion för entiteten eller avsikten
+* Lär dig nya exempel över tid – Använd en fras lista med några exempel på konceptet som funktion för entiteten eller avsikten
+
+## <a name="combine-features"></a>Kombinera funktioner
+
+Eftersom det finns flera val i hur en trait beskrivs, kan du använda mer än en funktion som hjälper dig att beskriva detta drag eller begrepp. En gemensam koppling är att använda en fras List funktion och en av de entitetstyper som ofta används som funktioner: fördefinierad entitet, reguljärt uttrycks enhet eller lista entitet.
+
+### <a name="ticket-booking-entity-example"></a>Exempel på biljett boknings entitet
+
+Det första exemplet är att fundera på en app för att boka en flygning med ett flyg boknings syfte och en biljett boknings enhet.
+
+Biljetten för biljett bokning är en enhet som har lärts in enheten för flyg destinationen. Använd två funktioner för att hjälpa till att extrahera platsen:
+* Fras lista över relevanta ord som `plane` ,, `flight` `reservation` ,`ticket`
+* Fördefinierad `geographyV2` entitet som funktion till entiteten
+
+### <a name="pizza-entity-example"></a>Exempel på pizza-entitet
+
+Ett annat exempel är att fundera på en app för att beställa en pizza med en Create pizza order-avsikt och en pizza-entitet.
+
+Pizza-entiteten är en enhet som har lärts in informationen om pizza. För att hjälpa till att extrahera information använder du två funktioner för att:
+* Fras lista över relevanta ord som `cheese` ,, `crust` `pepperoni` ,`pineapple`
+* Fördefinierad `number` entitet som funktion till entiteten
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>En fras lista för ett visst koncept
 
-En fras lista är en lista med ord eller fraser som kapslar in ett visst begrepp.
+En fras lista är en lista med ord eller fraser som kapslar in ett visst begrepp och som används som Skift läges okänslig matchning på token-nivå.
 
 När du lägger till en fras lista kan du ställa in funktionen som:
 * **[Global](#global-features)**. En global funktion gäller hela appen.
@@ -55,6 +96,18 @@ Om du vill extrahera de medicinska villkoren:
 * Börja med att skapa exempel yttranden och etikettera medicinska villkor inom dessa yttranden.
 * Skapa sedan en fras lista med exempel på villkoren i ämnes domänen. Den här fras listan ska innehålla den faktiska termen som du har märkt och andra termer som beskriver samma koncept.
 * Lägg till fras listan i entiteten eller underentiteten som extraherar det koncept som används i fras listan. Det vanligaste scenariot är en komponent (underordnad) till en enhet för maskin inlärning. Om fras listan ska användas för alla syften eller entiteter markerar du fras listan som en global fras lista. `enabledForAllModels`Flaggan styr det här modell omfånget i API: et.
+
+### <a name="token-matches-for-a-phrase-list"></a>Token-matchningar för en fras lista
+
+En fras lista gäller på token-nivå, oavsett fall. Följande diagram visar hur en fras lista som innehåller ordet `Ann` används för varianter av samma tecken i den ordningen.
+
+
+| Token variation för`Ann` | Matchning av fras lista när token hittas |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Ja-token är`Ann`                  |
+| Ann                    | Ja-token är`Ann`                  |
+| Anne                     | No-token är`Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>

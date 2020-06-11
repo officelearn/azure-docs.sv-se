@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: e945a30ca1fcd62fdfccd16d4e853540dbf73d8a
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 27d602f22aa3915f39f21ac924afa42b98e70720
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637170"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667170"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-secret-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault providern för Secret Store CSI-drivrutinen på Kubernetes
 
@@ -20,11 +20,12 @@ I den här självstudien får du åtkomst till och hämtar hemligheter från Azu
 I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> * Skapa ett huvudnamn för tjänsten
-> * Distribuera ett Azure Kubernetes service-kluster
+> * Skapa ett huvud namn för tjänsten eller Använd hanterade identiteter
+> * Distribuera ett Azure Kubernetes service-kluster med Azure CLI
 > * Installera Helm och hemligheter Arkiv CSI driv rutin
 > * Skapa en Azure Key Vault och ange hemligheter
 > * Skapa ett eget SecretProviderClass-objekt
+> * Tilldela tjänstens huvud namn eller Använd hanterade identiteter
 > * Distribuera din POD med monterade hemligheter från Key Vault
 
 ## <a name="prerequisites"></a>Krav
@@ -62,8 +63,8 @@ Följ den här [guiden](https://docs.microsoft.com/azure/aks/kubernetes-walkthro
 az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
 ```
 
-1. [Ange miljövariabeln PATH](https://www.java.com/en/download/help/path.xml) till filen "kubectl. exe" som hämtades.
-1. Kontrol lera Kubernetes-versionen med hjälp av kommandot nedan. Det här kommandot kommer att mata ut klienten och Server versionen. Klient versionen är "kubectl. exe" som du installerade när Server versionen är Azure Kubernetes-tjänster som klustret körs på.
+1. [Ange miljövariabeln PATH](https://www.java.com/en/download/help/path.xml) till den kubectl.exe-fil som hämtades.
+1. Kontrol lera Kubernetes-versionen med hjälp av kommandot nedan. Det här kommandot kommer att mata ut klienten och Server versionen. Klient versionen är "kubectl.exe" som du installerade när Server versionen är Azure Kubernetes-tjänster som klustret körs på.
     ```azurecli
     kubectl version
     ```
@@ -78,7 +79,7 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
 
     Detta är utdata med båda parametrarna markerade.
     
-    ![Avbildnings ](../media/kubernetes-key-vault-5.png) ![ bild](../media/kubernetes-key-vault-6.png)
+    ![Avbildnings ](../media/kubernetes-key-vault-2.png) ![ bild](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-secrets-store-csi-driver"></a>Installera Helm och hemligheter Arkiv CSI driv rutin
 
@@ -157,7 +158,7 @@ spec:
 ```
 Nedan visas konsolens utdata för "AZ-contosoKeyVault5" show--name "med relevanta markerade metadata:
 
-![Bild](../media/kubernetes-key-vault-2.png)
+![Bild](../media/kubernetes-key-vault-4.png)
 
 ## <a name="assign-your-service-principal-or-use-managed-identities"></a>Tilldela tjänstens huvud namn eller Använd hanterade identiteter
 
@@ -172,7 +173,7 @@ Om du använder ett huvud namn för tjänsten. Du måste ge behörighet till tj�
 
     Nedan visas utdata för kommandot: 
 
-    ![Bild](../media/kubernetes-key-vault-3.png)
+    ![Bild](../media/kubernetes-key-vault-5.png)
 
 1. Ge tjänstens huvud namn behörighet att hämta hemligheter:
     ```azurecli
@@ -206,19 +207,19 @@ Om du använder hanterade identiteter tilldelar du vissa roller till det AKS-klu
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
-1. Installera Azure Active Directory (Azure AD)-identiteten i AKS.
+1. Installera Azure Active Directory identitet (AAD) i AKS.
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Skapa en Azure AD-identitet. Kopiera nedåt i **clientId** och **principalId**.
+1. Skapa en AAD-identitet. Kopiera nedåt i **clientId** och **principalId**.
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Tilldela rollen läsare till den Azure AD-identitet som du precis har skapat för din Key Vault. Ge sedan identiteten behörighet att hämta hemligheter från din Key Vault. Du kommer att använda **clientId** och **PrincipalId** från den Azure-identitet som du nyss skapade.
+1. Tilldela rollen läsare till AAD-identiteten som du precis har skapat för din Key Vault. Ge sedan identiteten behörighet att hämta hemligheter från din Key Vault. Du kommer att använda **clientId** och **PrincipalId** från den Azure-identitet som du nyss skapade.
     ```azurecli
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
@@ -309,7 +310,7 @@ Använd följande kommando för att kontrol lera status för din POD:
 kubectl describe pod/nginx-secrets-store-inline
 ```
 
-![Bild](../media/kubernetes-key-vault-4.png)
+![Bild](../media/kubernetes-key-vault-6.png)
 
 Den distribuerade Pod bör vara i läget "körs". I avsnittet "händelser" längst ned klassificeras alla typer av händelser till vänster som "normal".
 När du har verifierat att Pod körs, kan du kontrol lera att din POD har hemligheter från din Key Vault.

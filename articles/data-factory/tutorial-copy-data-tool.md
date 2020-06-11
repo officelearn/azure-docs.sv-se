@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022069"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660982"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL Database med hjälp av Kopiera data-verktyget
 
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage konto**: Använd Blob Storage som _käll_ data lager. Om du inte har ett Azure Storage konto kan du läsa instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
@@ -156,11 +156,13 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
     ![Kolumn mappnings sida](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. Sidan **Settings** (Inställningar) visas. Välj **Nästa**.
-1. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
-1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
- 
-    ![Övervaka pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
+
+1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
+
+    ![Övervaka pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. På sidan pipeliner körs väljer du **Uppdatera** för att uppdatera listan. Klicka på länken under **pipeline-namn** om du vill visa aktivitets körnings information eller kör pipelinen igen. 
     ![Pipeline-körning](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ Förbered din Blob Storage och dina SQL Database för självstudien genom att ut
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Kontrol lera att data infogas i tabellen **dbo. EMP** i din SQL Database.
-
 
 1. Klicka på fliken **Författare** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
 

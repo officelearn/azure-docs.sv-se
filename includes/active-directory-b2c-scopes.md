@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297503"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680290"
 ---
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
 
-1. Välj **Appregistreringar (för hands version)**.
+1. Välj **Appregistreringar**.
 1. Välj *webapi1* -programmet för att öppna dess **översikts** sida.
 1. Under **Hantera**väljer du **exponera ett API**.
 1. Välj länken **mängd** bredvid **program-ID-URI**.
@@ -29,9 +29,9 @@ ms.locfileid: "84297503"
     1. **Visnings namn för administratörs medgivande**:`Write access to demo API`
     1. **Beskrivning av administratörs medgivande**:`Allows write access to the demo API`
 
-#### <a name="applications"></a>[Program](#tab/applications/)
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
-1. Välj **program**.
+1. Välj **program (bakåtkompatibelt)**.
 1. Välj *webapi1* -programmet för att öppna dess **egenskaps** sida.
 1. Välj **Publicerade omfång**. Publicerade omfattningar kan användas för att ge ett klient program vissa behörigheter till webb-API: et.
 1. För **omfattning**, ange `demo.read` och för **Beskrivning**anger du `Read access to the web API` .

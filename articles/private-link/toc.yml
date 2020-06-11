@@ -13,6 +13,7 @@
     - name: Skapa en privat slutpunkt – Azure CLI
       href: create-private-endpoint-cli.md
     - name: Skapa en privat slutpunkt – ARM-mall
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: Skapa en Private Link-tjänst – portalen
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: Skapa en Private Link-tjänst – Azure CLI
       href: create-private-link-service-cli.md
     - name: Skapa en Private Link-tjänst – ARM-mall
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Begrepp
   items:

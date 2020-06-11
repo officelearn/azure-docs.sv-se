@@ -2,13 +2,13 @@
 title: Entitetstyper – LUIS
 description: En entitet hämtar data från en användare uttryck vid förutsägelse körning. Ett _valfritt_, sekundärt syfte är att öka förutsägelsen för avsikten eller andra entiteter genom att använda entiteten som en funktion.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682168"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676496"
 ---
 # <a name="extract-data-with-entities"></a>Extrahera data med entiteter
 
@@ -41,7 +41,9 @@ När [avsikter](luis-concept-intent.md) krävs är entiteter valfria. Du behöve
 
 När ditt program utvecklar och ett nytt behov av data identifieras kan du lägga till lämpliga entiteter i LUIS-modellen senare.
 
-## <a name="entity-compared-to-intent"></a>Entitet jämfört med avsikt
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>Entitet representerar data extrahering
 
 Entiteten representerar ett data koncept _i uttryck_. En avsikt klassificerar _hela uttryck_.
 
@@ -53,6 +55,10 @@ Tänk på följande fyra yttranden:
 |Skicka något|sendSomething|-|Inget att extrahera. Modellen har inte någon nödvändig funktion för att extrahera `something` i den här kontexten och det finns ingen mottagare angiven.|
 |Skicka Bob a present|sendSomething|`Bob`, `present`|Modellen extraheras `Bob` genom att lägga till en nödvändig funktion i en fördefinierad entitet `personName` . En enhet för maskin inlärning har använts för att extrahera `present` .|
 |Skicka Bob en ruta med choklad|sendSomething|`Bob`, `box of chocolates`|De två viktiga delarna av data `Bob` och `box of chocolates` har extraherats av Machine Learning-enheter.|
+
+## <a name="label-entities-in-all-intents"></a>Märk entiteter i alla avsikter
+
+Entiteter extraherar data oavsett förväntad avsikt. Kontrol lera att du har märkt _alla_ exempel yttranden i alla avsikter. Den `None` avsikt som saknas för enhets etiketter orsakar förvirring även om det fanns mycket mer utbildnings yttranden för andra syften.
 
 ## <a name="design-entities-for-decomposition"></a>Utforma entiteter för dekomposition
 

@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/18/2020
+ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37850d2188f560b8eb8d0b16f5a1b2880a8b32e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 35c41d1605b96ad0a9d9765f8c405c1cabf9f0b7
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740662"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för Bamboo
 
 I den här självstudien får du lära dig hur du integrerar EasySSO för Bamboo med Azure Active Directory (Azure AD). När du integrerar EasySSO för Bamboo med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till EasySSO för Bamboo.
-* Gör det möjligt för användarna att logga in automatiskt till EasySSO för Bamboo med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Bamboo.
+* Gör det möjligt för användarna att logga in automatiskt till Bamboo med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -57,6 +57,7 @@ Om du vill konfigurera integreringen av EasySSO för Bamboo i Azure AD måste du
 1. Välj **nytt program**om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **EasySSO för Bamboo** i sökrutan.
 1. Välj **EasySSO för Bamboo** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-bamboo"></a>Konfigurera och testa enkel inloggning med Azure AD för EasySSO för Bamboo
 
@@ -89,28 +90,32 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<server-base-url>/`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<server-base-url>/login.jsp`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [EasySSO för Bamboo-klientens support team](mailto:support@techtime.co.nz) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [EasySSO support team](mailto:support@techtime.co.nz) för att få dessa värden om du är tveksam. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. EasySSO för Bamboo-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig EasySSO för Bamboo-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+    
+    | Name |  |  Källattribut|
+    | ---------------| --------------- | --------- |
+    | urn: OID: 0.9.2342.19200300.100.1.1 | | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
+    | urn: OID: 2.16.840.1.113730.3.1.241 | | user.displayname |
+    | urn:oid:2.5.4.4 | | user.surname |
+    | urn:oid:2.5.4.42 | | user.givenname |
+    
+    Om dina Azure AD-användare har konfigurerat **sAMAccountName** måste du mappa **urn: OID: 0.9.2342.19200300.100.1.1** till **sAMAccountName** -attributet.
+    
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på **Hämta** Länkar för **certifikat (base64)** eller **federationsmetadata XML-** alternativ och sparar antingen eller alla på datorn. Du behöver den senare för att kunna konfigurera Bamboo-EasySSO.
 
-    | Name | Källattribut |
-    | ---------------|  --------- |
-    | urn: OID: 2.16.840.1.113730.3.1.241 | user.displayname |
-    | urn:oid:2.5.4.42 | user.givenname |
-    | urn:oid:2.5.4.4 | user.surname |
-    | urn: OID: 0.9.2342.19200300.100.1.1 | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | user.userprincipalname |
-
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
-
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](./media/easysso-for-bamboo-tutorial/certificate.png)
+    
+    Om du planerar att utföra EasySSO för Bamboo-konfiguration manuellt med certifikat, måste du också kopiera **inloggnings-URL** och **Azure AD-identifierare** från avsnittet nedan och spara dem på din dator.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -120,7 +125,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -144,54 +149,74 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Konfigurera EasySSO för Bamboo SSO
 
-1. Logga in på EasySSO för Bamboo-instansen med administratörs behörighet och gå till avsnittet **Hantera appar** .
+1. Logga in på Atlassian Bamboo-instansen med administratörs behörighet och navigera till avsnittet **Hantera appar** . 
 
-    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
+    ![Hantera appar](./media/easysso-for-bamboo-tutorial/bamboo-admin-1.png)
 
-1. Klicka på **EasySSO**.
+2. På den vänstra sidan letar du upp **EasySSO** och klickar på den.
 
-    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-2.png)
+    ![Enkel inloggning](./media/easysso-for-bamboo-tutorial/bamboo-admin-2.png)
 
-1. Välj **SAML** -alternativ. Detta tar dig till avsnittet om SAML-konfiguration.
+3. Välj **SAML** -alternativ. Detta tar dig till avsnittet om SAML-konfiguration.
 
-    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-3.png)
+    ![SAML](./media/easysso-for-bamboo-tutorial/bamboo-admin-3.png)
 
-1. Fliken Välj **certifikat** överst och du kommer att visas på följande skärm och letar reda på **certifikat (base64)** eller **metadatafilen** som du har sparat i de tidigare stegen i **Azure AD SSO** -konfigurationen. Du har följande alternativ för hur du går vidare:
+4. Fliken Välj **certifikat** längst upp och visas på följande skärm:
 
-    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-4.png)
+    ![Metadata-URL](./media/easysso-for-bamboo-tutorial/bamboo-admin-4.png)
+
+5. Nu ska du leta upp **certifikat (base64)** eller **metadatafilen** som du har sparat i de tidigare stegen i **Azure AD SSO** -konfigurationen. Du har följande alternativ för hur du går vidare:
 
     a. Använd den app Federation- **metadatafil** som du laddade ned till en lokal fil på din dator. Välj **Ladda upp** alternativ knapp och följ dialog rutan Ladda upp fil som är unik för ditt operativ system
 
     **ELLER**
 
     b. Öppna appens Federations **ETA data** för att se innehållet (i valfri text redigerare) i filen och kopiera den till Urklipp. Välj **inmatat** alternativ och klistra in innehåll i Urklipp i textfältet.
-
+ 
     **ELLER**
 
-    c. Helt manuell konfiguration. Öppna appens Federations **certifikat (base64)** om du vill se innehållet (i valfri text redigerare) i filen och kopiera det till Urklipp. Klistra in det i textfältet **IDP token Signature certificates** . Gå sedan till fliken **Allmänt** och fyll **i bindnings-URL** och **entitets-ID** med respektive värden för **inloggnings-URL** och **Azure AD-identifierare** som du sparade tidigare.
+    c.  Helt manuell konfiguration. Öppna appens Federations **certifikat (base64)** om du vill se innehållet (i valfri text redigerare) i filen och kopiera det till Urklipp. Klistra in det i textfältet **IDP token Signature certificates** . Gå sedan till fliken **Allmänt** och fyll **i bindnings-URL** och **entitets-ID** med respektive värden för **inloggnings-URL** och **Azure AD-identifierare** som du sparade tidigare.
+ 
+6. Klicka på knappen **Spara** längst ned på sidan. Du kan se innehållet i metadata eller certifikatfiler parsas i konfigurations fälten. EasySSO för Bamboo-konfigurationen har slutförts.
 
-1. Klicka på knappen **Spara** längst ned på sidan. Du kan se innehållet i metadata eller certifikatfiler parsas i konfigurations fälten. EasySSO för Bamboo-konfigurationen har slutförts.
+7. För bästa test upplevelse går du till fliken **titta & känsla** och markerar knappen för **SAML-inloggning** på. Detta aktiverar separat knapp på Bamboo-inloggnings skärmen för att testa att Azure AD SAML-integration slutar till slutet. Du kan lämna den här knappen och konfigurera dess placering, färg och översättning för produktions läget.
 
-1. För bästa test upplevelse går du till fliken **titta & känsla** och markerar knappen för **SAML-inloggning** på. Detta aktiverar en separat knapp på EasySSO för Bamboo inloggnings skärmen för att testa Azure AD SAML-integrationen till slut. Du kan lämna den här knappen och konfigurera dess placering, färg och översättning för produktions läget.
-
-    ![EasySSO för Bamboo-konfiguration](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
+    ![Titta & känsla](./media/easysso-for-bamboo-tutorial/bamboo-admin-5.png)
 
     > [!NOTE]
     > Kontakta [EasySSO support team](mailto:support@techtime.co.nz)om du har några problem.
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Skapa EasySSO för Bamboo test användare
 
-I det här avsnittet skapas en användare som heter B. Simon i EasySSO för Bamboo. EasySSO för Bamboo har stöd för just-in-Time User-etablering, som är **inaktive rad** som standard. Om du vill aktivera användar etablering måste du markera kryss rutan **skapa användare på ett lyckat inloggnings** alternativ i avsnittet Allmänt i konfiguration av EasySSO-plugin-programmet. Om en användare inte redan finns i EasySSO för Bamboo skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som kallas Britta Simon i Bamboo. EasySSO för Bamboo har stöd för just-in-Time User-etablering, som är **inaktive rad** som standard. Om du vill aktivera användar etablering måste du markera kryss rutan **skapa användare på ett lyckat inloggnings** alternativ i avsnittet Allmänt i konfiguration av EasySSO-plugin-programmet. Om en användare inte redan finns i Bamboo skapas en ny efter autentiseringen.
 
-Men om du inte vill aktivera automatisk användar etablering för användaren första inloggningen måste användarna finnas i backend-användargrupper EasySSO för Bamboo-instansen använder, t. ex. LDAP eller Atlassiane full.
+Men om du inte vill aktivera automatisk användar etablering för användaren första inloggningen måste användarna finnas i backend-användargrupper som Bamboo-instansen använder, till exempel LDAP eller Atlassian Fully.
 
-![Användaretablering](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
+![Användaretablering](./media/easysso-for-bamboo-tutorial/bamboo-admin-6.png)
 
-## <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO 
+
+### <a name="idp-initiated-workflow"></a>IdP-initierat arbets flöde
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen EasySSO för Bamboo på åtkomst panelen, bör du loggas in automatiskt på EasySSO för Bamboo som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen EasySSO för Bamboo på åtkomst panelen, bör du loggas in automatiskt på Bamboo-instansen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="sp-initiated-workflow"></a>SP-initierat arbets flöde
+
+I det här avsnittet ska du testa din Azure AD-konfiguration för enkel inloggning med Bamboo **SAML Logid** -knappen.
+
+![SAML-inloggning för användare](./media/easysso-for-bamboo-tutorial/bamboo-admin-7.png)
+
+I det här scenariot förutsätter vi att du har aktiverat **knappen SAML-inloggning** på fliken **Sök & känner** på EasySSO-Bamboo (se ovan). Öppna din inloggnings-URL för Bamboo i webbläsarens Incognito-läge för att undvika störningar i befintliga sessioner. Klicka på knappen **SAML-inloggning** så omdirigeras du till Azure AD User Authentication Flow. När du har slutfört omdirigeras du tillbaka till Bamboo-instansen som autentiserad användare via SAML.
+
+Det finns en risk att du kan stöta på följande skärm när du har omdirigerat tillbaka från Azure AD
+
+![Skärmen EasySSO-krasch](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
+
+I det här fallet måste du följa [anvisningarna på den här sidan]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) för att få åtkomst till **Atlassian-Bamboo. log** -filen. Information om felet är tillgängligt med referens-ID: t som finns på fel sidan för EasySSO.
+
+Om du har några problem med att sammanfatta logg meddelandena kontaktar du [EasySSO support team](mailto:support@techtime.co.nz).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -199,7 +224,7 @@ När du klickar på panelen EasySSO för Bamboo på åtkomst panelen, bör du lo
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa EasySSO för Bamboo med Azure AD](https://aad.portal.azure.com/)
 

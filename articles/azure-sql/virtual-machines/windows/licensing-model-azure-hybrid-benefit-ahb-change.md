@@ -4,7 +4,6 @@ description: Lär dig hur du växlar licensiering för en SQL Server VM i Azure 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 07f5896ab43cd02abc9c83667763c1989355b8bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219417"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668910"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Ändra licens modell för en virtuell SQL-dator i Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,7 +44,7 @@ Om du vill ange användningen av Azure Hybrid-förmån för SQL Server på virtu
 
 Licens typen för SQL Server kan konfigureras när den virtuella datorn är etablerad eller när som helst efteråt. Växling mellan licens modeller medför ingen nedtid, startar inte om den virtuella datorn eller tjänsten SQL Server, lägger inte till några ytterligare kostnader och börjar gälla omedelbart. Aktiverings Azure Hybrid-förmån *minskar* i själva verket kostnaderna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Att ändra licensierings modellen för SQL Server VM har följande krav: 
 

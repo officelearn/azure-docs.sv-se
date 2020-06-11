@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: aadbe07c5bb22c23ac32e46fdf7f102cdd33989a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712357"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673111"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Lägga till ett användar flöde för självbetjänings registrering i en app (för hands version)
 |     |
@@ -81,7 +81,7 @@ Därefter skapar du användar flödet för självbetjänings registrering och l�
 
 Du kan välja i vilken ordning attributen ska visas på registrerings sidan. 
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory**.
+1. Välj **Azure Active Directory** i [Azure-portalen](https://portal.azure.com).
 2. Välj **externa identiteter**, Välj **användar flöden (förhands granskning)**.
 3. Välj användar flödet för självbetjänings registrering i listan.
 4. Under **Anpassa**väljer du **sidlayouter.**
@@ -109,3 +109,5 @@ Nu kan du koppla program till användar flödet.
 
 - [Lägg till Google i din lista över sociala identitets leverantörer](google-federation.md)
 - [Lägg till Facebook i listan över sociala identitets leverantörer](facebook-federation.md)
+<!-- - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md) -->
+<!-- - [Add custom approval to your user flow](self-service-sign-up-add-approvals.md) -->

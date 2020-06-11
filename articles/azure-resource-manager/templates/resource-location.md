@@ -3,12 +3,12 @@ title: Mallens resurs plats
 description: Beskriver hur du anger resurs plats i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0bf0ac79c7e304a61561808dc2290ceb4a379e6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156437"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672688"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Ange resurs plats i ARM-mallen
 
@@ -38,13 +38,13 @@ az provider show \
 
 ## <a name="use-location-parameter"></a>Använd plats parameter
 
-För att ge flexibilitet när du distribuerar din mall använder du en parameter för att ange plats för resurser. Ange standardvärdet för parametern till `resourceGroup().location`.
+För att ge flexibilitet när du distribuerar din mall använder du en parameter för att ange plats för resurser. Ange standardvärdet för parametern till `resourceGroup().location` .
 
 I följande exempel visas ett lagrings konto som har distribuerats till en plats som anges som en parameter:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {

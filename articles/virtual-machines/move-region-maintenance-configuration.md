@@ -1,19 +1,18 @@
 ---
 title: Flytta en underhålls konfiguration till en annan Azure-region
 description: Lär dig hur du flyttar en konfiguration för underhåll av virtuella datorer till en annan Azure-region
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304464"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676820"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Flytta en konfiguration för underhålls kontroll till en annan region
 

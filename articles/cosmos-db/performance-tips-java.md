@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 092cee943161048bf252fb5e27a1c1169a70bed0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650105"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674473"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB Sync Java SDK v2
 
@@ -20,7 +20,8 @@ ms.locfileid: "83650105"
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Asynkron Java-SDK v2](performance-tips-async-java.md)
 > * [Synkron Java-SDK v2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -150,7 +151,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge-egenskap i [ResourceResponse \< t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) eller [FeedResponse \< T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) för att mäta antalet enheter för programbegäran som används av dessa åtgärder.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge-egenskap i [ResourceResponse \<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) eller [FeedResponse \<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) för att mäta antalet enheter för programbegäran som används av dessa åtgärder.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Synkronisera Java SDK v2 (maven com. Microsoft. Azure:: Azure-DocumentDB)

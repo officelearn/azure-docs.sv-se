@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f187cc47d9c64c8257cc097734fa41e10629f1c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0b0acd84112e9fd997cb0d60a914da9528cffd9a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597452"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673045"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiera anpassade attribut för användar flöden (förhands granskning)
 |     |
@@ -25,13 +25,13 @@ ms.locfileid: "83597452"
 
 För varje program kan du ha olika krav för den information som du vill samla in under registreringen. Azure AD levereras med en inbyggd uppsättning information som lagras i attribut, till exempel namn, efter namn, stad och post nummer. Med Azure AD kan du utöka uppsättningen med attribut som lagras på ett gäst konto när den externa användaren loggar in via ett användar flöde.
 
-Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<Application-client-id>_attributename` . Till exempel:
+Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<aad-extensions-app-id>_attributename` . Exempel:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-Du hittar `<Application-client-id>` på sidan **Appregistreringar** bredvid **program-ID: t (klient)**. Detta ID är bara för din klient.
+`<aad-extensions-app-id>`Är unik för din klient. Du hittar den här identifieraren genom att gå till Azure Active Directory > Appregistreringar > alla program. Sök efter appen som börjar med "AAD-Extensions-app" och markera den. Notera program-ID (klient) på appens översikts sida.
 
 ## <a name="create-a-custom-attribute"></a>Skapa ett anpassat attribut
 
@@ -55,7 +55,7 @@ Du hittar `<Application-client-id>` på sidan **Appregistreringar** bredvid **pr
 
 Det anpassade attributet är nu tillgängligt i listan över användarattribut och för användning i dina användar flöden. Ett anpassat attribut skapas bara första gången det används i alla användar flöden och inte när du lägger till det i listan med användarattribut.
 
-När du har skapat en ny användare med ett användar flöde som använder det nya anpassade attributet, kan du frågas om objektet i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Nu bör du se **ShoeSize** i listan över attribut som samlats in under registreringen och se den i den token som skickas tillbaka till ditt program. Information om hur du tar med dessa anspråk i den token som skickas tillbaka till programmet finns i [Konfigurera katalog tillägg valfria anspråk](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims#configuring-directory-extension-optional-claims)
+När du har skapat en ny användare med ett användar flöde som använder det nya anpassade attributet, kan du frågas om objektet i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Nu bör du se **ShoeSize** i listan över attribut som samlats in under registreringen av användaren på användarobjektet. Du kan anropa Graph API från ditt program för att hämta data från det här attributet när det har lagts till i objektet User.
 
 ## <a name="next-steps"></a>Nästa steg
 

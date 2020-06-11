@@ -3,12 +3,12 @@ title: Key Vault hemlighet med mall
 description: Visar hur du skickar en hemlighet från ett nyckel valv som en parameter under distributionen.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458274"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677873"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använd Azure Key Vault för att skicka ett säkert parameter värde under distributionen
 
@@ -18,7 +18,7 @@ Den här artikeln fokuserar på scenariot med att skicka ett känsligt värde i 
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Distribuera nyckel valv och hemligheter
 
-Om du vill få åtkomst till ett nyckel valv under `enabledForTemplateDeployment` mal Lav distributionen anger du `true`nyckel valvet till.
+Om du vill få åtkomst till ett nyckel valv under mal Lav distributionen anger du `enabledForTemplateDeployment` nyckel valvet till `true` .
 
 Om du redan har ett Key Vault kontrollerar du att det är möjligt att distribuera mallar.
 
@@ -95,7 +95,7 @@ Mer information om hur du skapar nyckel valv och lägger till hemligheter finns 
 - [Ange och hämta en hemlighet med hjälp av PowerShell](../../key-vault/secrets/quick-create-powershell.md)
 - [Ange och hämta en hemlighet med hjälp av portalen](../../key-vault/secrets/quick-create-portal.md)
 - [Ange och hämta en hemlighet med .NET](../../key-vault/secrets/quick-create-net.md)
-- [Ange och hämta en hemlighet med Node. js](../../key-vault/secrets/quick-create-node.md)
+- [Ange och hämta en hemlighet med hjälp av Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Bevilja åtkomst till hemligheterna
 
@@ -163,7 +163,7 @@ Följande mall distribuerar en SQL-Server som innehåller ett administratörs l�
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -201,7 +201,7 @@ I följande parameter fil måste nyckel valvets hemlighet redan finnas och du an
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -267,7 +267,7 @@ Följande mall skapar dynamiskt Key Vault-ID och skickar det som en parameter.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -314,7 +314,7 @@ Följande mall skapar dynamiskt Key Vault-ID och skickar det som en parameter.
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {

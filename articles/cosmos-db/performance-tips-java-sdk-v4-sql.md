@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: dca9babff198fc780e54df6e89149f2c4c8157bf
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e8dc52b160ee69e9c8bfd810c80c1035fc6e0d0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677698"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674511"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
 
@@ -20,7 +20,8 @@ ms.locfileid: "83677698"
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Asynkron Java-SDK v2](performance-tips-async-java.md)
 > * [Synkron Java-SDK v2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -393,7 +394,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse \< T> eller FeedResponse \< T>.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse \<T> eller FeedResponse \<T> .
 
     #### <a name="async"></a>[Async](#tab/api-async)
 

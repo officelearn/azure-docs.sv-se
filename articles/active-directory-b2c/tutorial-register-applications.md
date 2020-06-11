@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e97df60739b04884e8a9cd68679c23d4407e4947
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c3be9136f260d73647e144d4d00bb58ce5e6774d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298810"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672620"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Om du använder en inbyggd app i stället (t. ex. iOS, Android, mobil & Desktop)
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
@@ -42,12 +42,12 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapp1*.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD-klienter-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**.
+1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog eller någon identitets leverantör. För autentisering av användare med Azure AD B2C**.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://jwt.ms` i text rutan URL.
 
     Omdirigerings-URI: n är den slut punkt som användaren skickas till av auktoriseringsservern (Azure AD B2C i det här fallet) när dess interaktion med användaren har slutförts och till vilken en åtkomsttoken eller auktoriseringskod skickas vid lyckad auktorisering. I ett produktions program är det vanligt vis en offentligt tillgänglig slut punkt där appen körs, t `https://contoso.com/auth-response` . ex.. För testnings ändamål som den här självstudien kan du ställa in den till `https://jwt.ms` , ett Microsoft-ägda webb program som visar det avkodade innehållet i en token (innehållet i token aldrig lämnar webbläsaren). Under utveckling av appar kan du lägga till slut punkten där ditt program lyssnar lokalt, t `https://localhost:5000` . ex.. Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
@@ -68,7 +68,7 @@ När program registreringen är klar aktiverar du det implicita tilldelnings fl�
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.

@@ -2,18 +2,17 @@
 title: Klassiska Azure CLI-kommandon
 description: Kommando rads gränssnitt för Azure (CLI) för att hantera resurser.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3e5fd1a6934d246463e3fd5ad24db7079ca088d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250886"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678434"
 ---
 # <a name="azure-classic-cli-commands"></a>Klassiska Azure CLI-kommandon 
 
@@ -25,11 +24,11 @@ Den här artikeln innehåller syntax och alternativ för kommandon i Azures klas
 
 Kom igång genom att först [installera det klassiska CLI-fönstret i Azure](../cli-install-nodejs.md) och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli).
 
-För aktuell kommandosyntax och alternativ på kommando raden i Resource Manager-läge skriver `azure help` du eller, för att visa hjälp för ett särskilt kommando. `azure help [command]` Du hittar också CLI-exempel i dokumentationen för att skapa och hantera vissa Azure-tjänster.
+För aktuell kommandosyntax och alternativ på kommando raden i Resource Manager-läge skriver `azure help` du eller, för att visa hjälp för ett särskilt kommando `azure help [command]` . Du hittar också CLI-exempel i dokumentationen för att skapa och hantera vissa Azure-tjänster.
 
-Valfria parametrar visas inom hakparenteser (till exempel `[parameter]`). Alla andra parametrar krävs.
+Valfria parametrar visas inom hakparenteser (till exempel `[parameter]` ). Alla andra parametrar krävs.
 
-Förutom kommandobaserade valfria parametrar som dokumenteras här finns det tre valfria parametrar som kan användas för att visa detaljerade utdata, till exempel alternativ för begäran och status koder. `-v` Parametern innehåller utförliga utdata och `-vv` parametern innehåller ännu mer detaljerade utförliga utdata. `--json` Alternativet skriver ut resultatet i RAW JSON-format.
+Förutom kommandobaserade valfria parametrar som dokumenteras här finns det tre valfria parametrar som kan användas för att visa detaljerade utdata, till exempel alternativ för begäran och status koder. `-v`Parametern innehåller utförliga utdata och `-vv` parametern innehåller ännu mer detaljerade utförliga utdata. `--json`Alternativet skriver ut resultatet i RAW JSON-format.
 
 ## <a name="setting-the-resource-manager-mode"></a>Ange Resource Manager-läge
 Använd följande kommando för att aktivera kommandon i Azure CLI Resource Manager-läge.
@@ -125,7 +124,7 @@ Din prenumerations information för Azure används av verktyget för att ansluta
 
     config set <name> <value>
 
-**Ställer in Azure CLI-arbetsläget `arm` på antingen eller`asm`**
+**Ställer in Azure CLI-arbetsläget på antingen `arm` eller`asm`**
 
     config mode [options] <modename>
 
@@ -1696,7 +1695,7 @@ Parameter alternativ:
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>Virtuella datorer
+## <a name="virtual-machines"></a>Virtual Machines
 **Skapa en virtuell dator**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1706,7 +1705,7 @@ Parameter alternativ:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> Från och med CLI version 0,10 kan du ange ett kort alias, till exempel "UbuntuLTS" eller "Win2012R2Datacenter" som `image-urn` för vissa populära Marketplace-avbildningar. Kör `azure help vm quick-create` för alternativ. Från och med version 0,10 `azure vm quick-create` använder dessutom Premium Storage som standard om den är tillgänglig i den valda regionen.
+> Från och med CLI version 0,10 kan du ange ett kort alias, till exempel "UbuntuLTS" eller "Win2012R2Datacenter" som `image-urn` för vissa populära Marketplace-avbildningar. Kör `azure help vm quick-create` för alternativ. Från och med version 0,10 använder dessutom `azure vm quick-create` Premium Storage som standard om den är tillgänglig i den valda regionen.
 > 
 > 
 

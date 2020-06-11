@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ee9f2f0366cc680c874c6748d27e02dcadb82e35
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78942916"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673317"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -37,13 +37,13 @@ Data Lake Storage Gen2 är också mycket kostnads effektiv eftersom det bygger p
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Viktiga funktioner i Data Lake Storage Gen2
 
--   **Hadoop-kompatibel åtkomst**: data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) är tillgänglig i alla Apache Hadoop miljöer, inklusive [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)och [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) för att komma åt data som lagras i data Lake Storage Gen2.
+-   **Hadoop-kompatibel åtkomst**: data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) finns i alla Apache Hadoop miljöer, inklusive [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)och [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics) för att komma åt data som lagras i data Lake Storage Gen2.
 
 -   **En supermängd av POSIX-behörigheter**: säkerhets modellen för data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information som är speciell för data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller genom ramverk som Hive och Spark.
 
 -   **Kostnads effektiv**: data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Som data över gångar via hela livs cykeln, ändrar fakturerings taxan kostnaderna till ett minimum via inbyggda funktioner, till exempel [Azure Blob Storage livs cykel](storage-lifecycle-management-concepts.md).
 
--   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net`.
+-   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net` .
 
 ### <a name="scalability"></a>Skalbarhet
 
@@ -61,7 +61,7 @@ Data Lake Storage Gen2 är en ytterligare funktion för stor data analys som byg
 
 Följande är motsvarande entiteter, enligt beskrivningen i olika koncept. Om inget annat anges är dessa entiteter direkt synonyma:
 
-| Begrepp                                | Organisation på högsta nivå | Organisation på lägre nivå                                            | Data behållare |
+| Koncept                                | Organisation på högsta nivå | Organisation på lägre nivå                                            | Data behållare |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobbar – lagring av generell användnings objekt | Container              | Virtuell katalog (endast SDK – ger inte atomiska modifieringar) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Katalog                                                           | Fil           |

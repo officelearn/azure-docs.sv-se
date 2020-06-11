@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371366"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678774"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM-avstängning har fastnat på "starta om", "stänga av" eller "stoppa tjänster"
 
@@ -43,25 +43,25 @@ Windows använder avstängnings processen för att utföra system underhålls å
 
 Använd [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att utföra följande steg:
 
-1. Öppna en administrativ PowerShell och kontrol lera att tjänsten är låst när den stoppas.
+1. Öppna en administrativ PowerShell och kontrol lera den tjänst som slutar svara vid stopp.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. Hämta PID för den avstannade tjänsten i en administrativ kommando tolk.
+2. Hämta PID för tjänsten som inte svarar i en administrativ kommando tolk.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Hämta ett exempel på en minnesdump från den avstannade processen <STOPPING SERVICE>.
+3. Få ett exempel på en minnesdump från den process som inte svarar <STOPPING SERVICE> .
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Stoppa den avstannade processen för att låsa upp avstängnings processen.
+4. Avsluta nu processen som inte svarar för att låsa upp avstängnings processen.
 
    ``
    taskkill /PID <PID> /t /f

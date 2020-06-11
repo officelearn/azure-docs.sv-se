@@ -7,29 +7,29 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 073878d6dfb0637b8d0fb7fdf5c7f6d77d2b2c8d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857043"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672654"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
 
-- Service märken för utgående (för hands version)
+- Service märken för utgående
 - IP-brandväggs regler för ingångar (för hands version)
-- Privata slut punkter för ingress (för hands version)
+- Privata slut punkter för inkommande trafik
 
 
 ## <a name="service-tags"></a>Tjänsttaggar
 En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler. Mer information om service märken finns i [Översikt över tjänst Taggar](../virtual-network/service-tags-overview.md).
 
-Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **AzureEventGrid**) i lämpligt *käll* -eller *mål* fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
+Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules)   eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **AzureEventGrid**) i lämpligt *käll*   -eller *mål*   fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Obs:* Den här taggen täcker Azure Event Grid slut punkter i södra centrala USA, östra USA, östra USA 2, västra USA 2 och endast USA, Central. | Båda | Nej | Nej |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Båda | Nej | Nej |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
@@ -54,14 +54,14 @@ När du skapar en privat slut punkt för ett ämne eller en domän i ditt VNet, 
 Utgivare i ett VNet som använder den privata slut punkten bör använda samma anslutnings sträng för ämnet eller domänen som klienter som ansluter till den offentliga slut punkten. DNS-matchning dirigerar automatiskt anslutningar från VNet till ämnet eller domänen via en privat länk. Event Grid skapar en [privat DNS-zon](../dns/private-dns-overview.md) som är kopplad till VNet med den nödvändiga uppdateringen för privata slut punkter som standard. Men om du använder en egen DNS-server kan du behöva göra ytterligare ändringar i DNS-konfigurationen.
 
 ### <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
-När du skapar en privat slut punkt uppdateras DNS CNAME-posten för resursen till ett alias i en under domän med prefixet `privatelink`. Som standard skapas en privat DNS-zon som motsvarar den privata länkens under domän. 
+När du skapar en privat slut punkt uppdateras DNS CNAME-posten för resursen till ett alias i en under domän med prefixet `privatelink` . Som standard skapas en privat DNS-zon som motsvarar den privata länkens under domän. 
 
 När du löser ämnet eller domänens slut punkts-URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för tjänsten. DNS-resursposterna för ",", när de matchas från **utanför det virtuella** nätverket som är värd för den privata slut punkten, blir:
 
 | Name                                          | Typ      | Värde                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure Traffic Manager-profil\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 Du kan neka eller kontrol lera åtkomsten för en klient utanför VNet via den offentliga slut punkten med hjälp av [IP-brandväggen](#ip-firewall). 
 
@@ -74,9 +74,9 @@ Vid matchning från det VNet som är värd för den privata slut punkten matchas
 
 Den här metoden ger åtkomst till ämnet eller domänen med samma anslutnings sträng för klienter på det virtuella nätverk som är värd för privata slut punkter och klienter utanför VNet.
 
-Om du använder en anpassad DNS-server i nätverket kan klienterna matcha FQDN för ämnet eller domän slut punkten till den privata slut punktens IP-adress. Konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` A-posterna för med den privata slut PUNKTens IP-adress.
+Om du använder en anpassad DNS-server i nätverket kan klienterna matcha FQDN för ämnet eller domän slut punkten till den privata slut punktens IP-adress. Konfigurera DNS-servern så att den delegerar din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` med den privata slut punktens IP-adress.
 
-Namnet på den rekommenderade DNS- `privatelink.eventgrid.azure.net`zonen är.
+Namnet på den rekommenderade DNS-zonen är `privatelink.eventgrid.azure.net` .
 
 ### <a name="private-endpoints-and-publishing"></a>Privata slut punkter och publicering
 
@@ -84,10 +84,10 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 
 | Anslutnings status   |  Publiceringen lyckades (Ja/Nej) |
 | ------------------ | -------------------------------|
-| Godkända           | Ja                            |
-| Avvisad           | Nej                             |
-| Väntar            | Nej                             |
-| Frånkopplad       | Nej                             |
+| Godkända           | Yes                            |
+| Avslagen           | No                             |
+| Väntar            | No                             |
+| Frånkopplad       | No                             |
 
 För att publiceringen ska lyckas bör anslutnings statusen för den privata slut punkten **godkännas**. Om en anslutning avvisas kan den inte godkännas med hjälp av Azure Portal. Den enda möjligheten är att ta bort anslutningen och skapa en ny i stället.
 

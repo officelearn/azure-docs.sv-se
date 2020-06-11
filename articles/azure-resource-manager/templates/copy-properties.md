@@ -3,12 +3,12 @@ title: Definiera flera instanser av en egenskap
 description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap för en resurs.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583404"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678468"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Egenskaps upprepning i ARM-mallar
 
@@ -55,7 +55,7 @@ I följande exempel visas hur du använder `copy` egenskapen data disks på en v
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {
@@ -95,7 +95,7 @@ I följande exempel visas hur du använder `copy` egenskapen data disks på en v
 }
 ```
 
-Observera att när du `copyIndex` använder i en egenskap iteration måste du ange namnet på iterationen. Egenskapen iteration stöder också ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' data disks ', 1).
+Observera att när `copyIndex` du använder i en egenskap iteration måste du ange namnet på iterationen. Egenskapen iteration stöder också ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' data disks ', 1).
 
 Resource Manager expanderar `copy` matrisen under distributionen. Namnet på matrisen blir namnet på egenskapen. De angivna värdena blir objekt egenskaperna. Den distribuerade mallen blir:
 
@@ -252,7 +252,7 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 
 I följande exempel visas ett vanligt scenario för att skapa mer än ett värde för en egenskap.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 |[VM-distribution med ett variabel antal data diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera data diskar till en virtuell dator. |
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: efb450f4da58c73c134d9f6b6aad6193f786912d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f117e2fc4939eee1458c0807cac5a292785608
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415009"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669893"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (för hands version)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Den här Marketo-anslutningen stöds för följande aktiviteter:
 
 Du kan kopiera data från Marketo till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
+För närvarande stöds inte Marketo-instans som är integrerad med extern CRM.
 
 >[!NOTE]
 >Den här Marketo-anslutningen bygger på Marketo-REST API. Tänk på att Marketo har [samtidiga förfrågningar](https://developers.marketo.com/rest-api/) på tjänst sidan. Om du trycker på fel som säger "fel vid försök att använda REST API: Max hastighets gränsen" 100 "överskreds med i" 20 "sekunder (606)" eller "fel vid försök att använda REST API: den samtidiga åtkomst gränsen" 10 "nås (615)", Överväg att minska antalet samtidiga kopierings aktiviteter för att minska antalet förfrågningar till tjänsten.
@@ -50,15 +50,15 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Marketo-länkad tjänst:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Marketo** | Ja |
-| slutpunkt | Den Marketo-serverns slut punkt. (t. ex. 123-ABC-321.mktorest.com)  | Ja |
-| ClientID | Klient-ID för din Marketo-tjänst.  | Ja |
-| clientSecret | Klient hemligheten för din Marketo-tjänst. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| typ | Egenskapen Type måste anges till: **Marketo** | Yes |
+| slutpunkt | Den Marketo-serverns slut punkt. (t. ex. 123-ABC-321.mktorest.com)  | Yes |
+| ClientID | Klient-ID för din Marketo-tjänst.  | Yes |
+| clientSecret | Klient hemligheten för din Marketo-tjänst. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
 
 **Exempel:**
 
@@ -85,9 +85,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Marketo anger du egenskapen type för data uppsättningen till **MarketoObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **MarketoObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **MarketoObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -115,10 +115,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Marketo anger du käll typen i kopierings aktiviteten till **MarketoSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MarketoSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MarketoSource** | Yes |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

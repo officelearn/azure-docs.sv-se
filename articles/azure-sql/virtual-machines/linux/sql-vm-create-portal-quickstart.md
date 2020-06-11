@@ -3,7 +3,6 @@ title: 'Snabb start: skapa en Linux-SQL Server VM i Azure'
 description: Den här kursen visar hur du skapar virtuell Linux SQL Server 2017-dator i Azure Portal.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,12 +10,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 767bdeef48ed78b32ad5e3b0e43002a21cb1c9b6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343718"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669519"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Etablera en virtuell Linux-dator som kör SQL Server i Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +32,13 @@ I den här snabba självstudiekursen använder du Azure Portal till att skapa en
 * [Ändra SA-lösenordet](#password)
 * [Konfigurera för fjärr anslutningar](#remote)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a> Skapa en virtuell Linux-dator med SQL Server installerat
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 

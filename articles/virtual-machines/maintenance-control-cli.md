@@ -3,16 +3,16 @@ title: Underhålls kontroll för virtuella Azure-datorer med CLI
 description: Lär dig hur du styr när underhåll tillämpas på dina virtuella Azure-datorer med underhålls kontroll och CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137509"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675867"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Styra uppdateringar med underhålls kontroll och Azure CLI
 
@@ -39,7 +39,7 @@ Med `--maintenanceScope host` ser du till att underhålls konfigurationen använ
 
 Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din prenumeration.
 
-Du kan fråga efter tillgängliga underhålls konfigurationer `az maintenance configuration list`med.
+Du kan fråga efter tillgängliga underhålls konfigurationer med `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -51,7 +51,7 @@ Använd `az maintenance assignment create` för att tilldela konfigurationen til
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
-Tillämpa konfigurationen på en virtuell dator med hjälp av konfigurationens ID. Ange `--resource-type virtualMachines` och ange namnet på den virtuella datorn för `--resource-name`, och resurs gruppen för den virtuella datorn i `--resource-group`, och platsen för den virtuella datorn för. `--location` 
+Tillämpa konfigurationen på en virtuell dator med hjälp av konfigurationens ID. Ange `--resource-type virtualMachines` och ange namnet på den virtuella datorn för `--resource-name` , och resurs gruppen för den virtuella datorn i `--resource-group` , och platsen för den virtuella datorn för `--location` . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -66,7 +66,7 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
-Om du vill tillämpa en konfiguration på en dedikerad värd måste du inkludera `--resource-type hosts`, `--resource-parent-name` med namnet på värd gruppen och `--resource-parent-type hostGroups`. 
+Om du vill tillämpa en konfiguration på en dedikerad värd måste du inkludera `--resource-type hosts` , `--resource-parent-name` med namnet på värd gruppen och `--resource-parent-type hostGroups` . 
 
 -Parametern `--resource-id` är värdens ID. Du kan använda [AZ VM Host get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) för att hämta ID för den dedikerade värden.
 
@@ -85,7 +85,7 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>Kontrol lera konfigurationen
 
-Du kan kontrol lera att konfigurationen har tillämpats korrekt eller kontrol lera vilken konfiguration som tillämpas med hjälp av `az maintenance assignment list`.
+Du kan kontrol lera att konfigurationen har tillämpats korrekt eller kontrol lera vilken konfiguration som tillämpas med hjälp av `az maintenance assignment list` .
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -118,7 +118,7 @@ az maintenance assignment list \
 
 Använd `az maintenance update list` för att se om det finns väntande uppdateringar. Uppdatera--prenumerationen är ID för den prenumeration som innehåller den virtuella datorn.
 
-Om det inte finns några uppdateringar returnerar kommandot ett fel meddelande som kommer att innehålla texten: `Resource not found...StatusCode: 404`.
+Om det inte finns några uppdateringar returnerar kommandot ett fel meddelande som kommer att innehålla texten: `Resource not found...StatusCode: 404` .
 
 Om det finns uppdateringar returneras bara en av dem, även om det finns flera väntande uppdateringar. Data för den här uppdateringen kommer att returneras i ett objekt:
 
@@ -199,9 +199,9 @@ az maintenance applyupdate create \
 
 ## <a name="check-the-status-of-applying-updates"></a>Kontrol lera status för att tillämpa uppdateringar 
 
-Du kan kontrol lera förloppet för uppdateringarna med hjälp `az maintenance applyupdate get`av. 
+Du kan kontrol lera förloppet för uppdateringarna med hjälp av `az maintenance applyupdate get` . 
 
-Du kan använda `default` som uppdaterings namn för att se resultat för den senaste uppdateringen eller ersätta `myUpdateName` med namnet på den uppdatering som returnerades när du körde `az maintenance applyupdate create`.
+Du kan använda `default` som uppdaterings namn för att se resultat för den senaste uppdateringen eller ersätta `myUpdateName` med namnet på den uppdatering som returnerades när du körde `az maintenance applyupdate create` .
 
 ```text
 Status         : Completed

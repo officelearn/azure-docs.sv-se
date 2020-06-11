@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB prestanda tips för .NET SDK v2
-description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos DB .NET v2 SDK-prestanda.
-author: SnehaGunda
+title: Azure Cosmos DB prestanda tips för .NET SDK v3
+description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos DB .NET v3 SDK-prestanda.
+author: j82w
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.author: sngun
-ms.openlocfilehash: 07ca4674c1b8dafc9c02ff8fdf82de330862de73
+ms.date: 06/23/2020
+ms.author: jawilley
+ms.openlocfilehash: 48ab7d0b04a155465f2325179cf5617de7873fd8
 ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674031"
+ms.locfileid: "84680205"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Prestanda tips för Azure Cosmos DB och .NET SDK v2
+# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -22,16 +22,9 @@ ms.locfileid: "84674031"
 > * [Asynkron Java-SDK v2](performance-tips-async-java.md)
 > * [Synkron Java-SDK v2](performance-tips-java.md)
 
-Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
+Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL .NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3).
 
 Om du försöker förbättra databasens prestanda bör du därför överväga följande alternativ:
-
-## <a name="upgrade-to-the-net-v3-sdk"></a>Uppgradera till .NET v3 SDK
-[.Net v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) lanseras. Om du använder .NET v3 SDK, se [prestanda guiden för .net v3](performance-tips-dotnet-sdk-v3-sql.md) för följande information:
-- Standardinställningar för direkt TCP-läge
-- Stream API-stöd
-- Stöd för anpassad serialisering för att tillåta System.Text.JSanvändning
-- Integrerad batch och Mass stöd
 
 ## <a name="hosting-recommendations"></a>Värd rekommendationer
 
@@ -53,7 +46,7 @@ Vi rekommenderar Windows 64-bitars värd bearbetning för bättre prestanda. SQL
     
 **Aktivera skräp insamling på Server sidan (GC)**
 
-Att minska frekvensen skräp insamling kan i vissa fall hjälpa till. I .NET anger du [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till `true` .
+Att minska frekvensen skräp insamling kan i vissa fall hjälpa till. I .NET anger du [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) till `true` .
 
 **Skala ut din klient arbets belastning**
 
@@ -69,19 +62,20 @@ Om du testar med höga data flödes nivåer (mer än 50 000 RU/s) kan klient pro
 
 Hur en klient ansluter till Azure Cosmos DB har viktiga prestanda effekter, särskilt för observerad svars tid på klient sidan. Det finns två nyckel konfigurations inställningar som är tillgängliga för konfigurering av klient anslutnings princip: anslutnings *läget* och anslutnings *protokollet*.  De två tillgängliga lägena är:
 
-   * Gateway-läge (standard)
+   * Direkt läge (standard)
+
+     Direct-läget stöder anslutningar via TCP-protokollet och är standard anslutnings läget om du använder [Microsoft. Azure. Cosmos/. net v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). Detta ger bättre prestanda och kräver färre nätverks hopp än Gateway-läge.
+
+   * Gateway-läge
       
-     Gateway-läge stöds på alla SDK-plattformar och är det konfigurerade standardvärdet för [Microsoft.Azure.DocUMENTDB SDK](sql-api-sdk-dotnet.md). Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway-läget det bästa valet eftersom det använder HTTPS-standardporten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare ett nätverks hopp varje gång data läses från eller skrivs till Azure Cosmos DB. Det direkta läget ger bättre prestanda eftersom det finns färre nätverks hopp. Vi rekommenderar också Gateway-anslutnings läge när du kör program i miljöer som har ett begränsat antal socketanslutningar.
+     Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway-läget det bästa valet eftersom det använder HTTPS-standardporten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare ett nätverks hopp varje gång data läses från eller skrivs till Azure Cosmos DB. Det direkta läget ger bättre prestanda eftersom det finns färre nätverks hopp. Vi rekommenderar också Gateway-anslutnings läge när du kör program i miljöer som har ett begränsat antal socketanslutningar.
 
      När du använder SDK i Azure Functions, i synnerhet i [förbruknings planen](../azure-functions/functions-scale.md#consumption-plan), var medveten om de aktuella [gränserna för anslutningar](../azure-functions/manage-connections.md). I så fall kan gateway-läget vara bättre om du även arbetar med andra HTTP-baserade klienter i ditt Azure Functions-program.
 
-   * Direkt läge
-
-     Direct-läget stöder anslutning via TCP-protokollet.
 
 I Gateway-läge använder Azure Cosmos DB port 443 och portarna 10250, 10255 och 10256 när du använder Azure Cosmos DB API för MongoDB. Port 10250 mappar till en standard instans av MongoDB utan geo-replikering. Portarna 10255 och 10256 mappar till MongoDB-instansen som har geo-replikering.
      
-Om du använder TCP i direkt läge, förutom Gateway-portarna, måste du se till att port intervallet är mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar (när du använder direkt läge på [privata slut punkter](./how-to-configure-private-endpoints.md), måste hela intervallet TCP-portar-från 0 till 65535-vara öppna). Om de här portarna inte är öppna och du försöker använda TCP, får du ett fel meddelande om att 503-tjänsten inte är tillgänglig. I den här tabellen visas de anslutnings lägen som är tillgängliga för olika API: er och tjänst portarna som används för varje API:
+Om du använder TCP i direkt läge, förutom Gateway-portarna, måste du se till att port intervallet är mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar (när du använder direkt läge på [privata slut punkter](./how-to-configure-private-endpoints.md), måste hela intervallet TCP-portar-från 0 till 65535-vara öppna). Portarna är öppna som standard för standard konfigurationen av virtuella Azure-datorer. Om de här portarna inte är öppna och du försöker använda TCP, får du ett fel meddelande om att 503-tjänsten inte är tillgänglig. I den här tabellen visas de anslutnings lägen som är tillgängliga för olika API: er och tjänst portarna som används för varje API:
 
 |Anslutningsläge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
 |---------|---------|---------|---------|
@@ -90,33 +84,23 @@ Om du använder TCP i direkt läge, förutom Gateway-portarna, måste du se till
 
 Azure Cosmos DB erbjuder en enkel, öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. TCP-protokollet använder TLS för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
 
-För Microsoft.Azure.DocumentDB SDK konfigurerar du anslutnings läget under `DocumentClient` instansen av instansen med hjälp av `ConnectionPolicy` parametern. Om du använder direkt läge kan du också ställa in `Protocol` med hjälp av `ConnectionPolicy` parametern.
+För SDK v3 konfigurerar du anslutnings läget när du skapar `CosmosClient` instansen i `CosmosClientOptions` . Kom ihåg att Direct-läget är standardvärdet.
 
 ```csharp
 var serviceEndpoint = new Uri("https://contoso.documents.net");
 var authKey = "your authKey from the Azure portal";
-DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-new ConnectionPolicy
+CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+new CosmosClientOptions
 {
-   ConnectionMode = ConnectionMode.Direct, // ConnectionMode.Gateway is the default
-   ConnectionProtocol = Protocol.Tcp
+    ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
 
-Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, används HTTPS-protokollet alltid för att kommunicera med gatewayen och `Protocol` värdet i `ConnectionPolicy` ignoreras.
+Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, används HTTPS-protokollet alltid för att kommunicera med gatewayen.
 
-![Azure Cosmos DB anslutnings princip](./media/performance-tips/connection-policy.png)
 
-**Anropa openAsync för att undvika start fördröjning för första begäran**
+<a id="same-region"></a>
 
-Som standard har den första begäran högre latens eftersom den måste hämta adress routningstabellen. När du använder [SDK v2](sql-api-sdk-dotnet.md)anropar du `OpenAsync()` en gång under initieringen för att undvika den här start fördröjningen på den första begäran:
-
-    await client.OpenAsync();
-
-> [!NOTE] 
-> `OpenAsync`genererar begär Anden för att hämta adress routningstabellen för alla behållare i kontot. För konton som har många behållare men vars program har åtkomst till en delmängd av dem, `OpenAsync` genererar en onödig mängd trafik som gör initieringen långsam. Det `OpenAsync` kan vara bra att använda i det här scenariot eftersom det gör att program starten går långsamt.
-
-   <a id="same-region"></a>
 **Samordna-klienter i samma Azure-region för prestanda.**
 
 Placera eventuella program som anropar Azure Cosmos DB i samma region som Azure Cosmos DBs databasen när det är möjligt. Här är en ungefärlig jämförelse: anrop till Azure Cosmos DB inom samma region slutförs inom 1 ms till 2 MS, men fördröjningen mellan västra USA och östra kust är över 50 ms. Svars tiden kan variera från begäran till begäran, beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Du kan få lägsta möjliga fördröjning genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
@@ -125,7 +109,7 @@ Placera eventuella program som anropar Azure Cosmos DB i samma region som Azure 
 
 **Öka antalet trådar/aktiviteter**
 
-Eftersom anrop till Azure Cosmos DB görs via nätverket kan du behöva variera graden av parallellitet för dina begär Anden så att klient programmet tillbringar minimal tid i väntan mellan begär Anden. Om du till exempel använder ett [parallellt .net-aktivitets bibliotek](https://msdn.microsoft.com//library/dd460717.aspx)skapar du i ordningen på hundratals aktiviteter som läser från eller skriver till Azure Cosmos dB.
+Eftersom anrop till Azure Cosmos DB görs via nätverket kan du behöva variera graden av samtidighet för dina begär Anden så att klient programmet ägnar lång tid åt att vänta mellan begär Anden. Om du till exempel använder ett [parallellt .net-aktivitets bibliotek](https://msdn.microsoft.com//library/dd460717.aspx)skapar du i ordningen på hundratals aktiviteter som läser från eller skriver till Azure Cosmos dB.
 
 **Aktivera accelererat nätverk**
  
@@ -134,13 +118,34 @@ Eftersom anrop till Azure Cosmos DB görs via nätverket kan du behöva variera 
 ## <a name="sdk-usage"></a>SDK-användning
 **Installera den senaste SDK: n**
 
-Azure Cosmos DB SDK: er har ständigt förbättrats för att ge bästa möjliga prestanda. Se de [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) -sidorna för att fastställa de senaste SDK: er och gransknings förbättringarna.
+Azure Cosmos DB SDK: er har ständigt förbättrats för att ge bästa möjliga prestanda. Se de [Azure Cosmos DB SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) -sidorna för att fastställa de senaste SDK: er och gransknings förbättringarna.
+
+**Använda Stream-API: er**
+
+[.NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3) innehåller stream-API: er som kan ta emot och returnera data utan att serialiseras. 
+
+Program på mellan nivå som inte konsumerar svar direkt från SDK, men som vidarebefordrar dem till andra program nivåer kan dra nytta av data Ströms-API: erna. Se exempel på hantering av data strömmar i exemplen för [objekt hantering](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) .
 
 **Använd en singleton Azure Cosmos DB-klient för programmets livs längd**
 
-Varje `DocumentClient` instans är tråd säker och utför effektiv anslutnings hantering och cachelagring av adresser när de körs i direkt läge. För att möjliggöra effektiv anslutnings hantering och bättre prestanda för SDK-klienten, rekommenderar vi att du använder en enda instans per `AppDomain` för programmets livs längd.
+Varje `CosmosClient` instans är tråd säker och utför effektiv anslutnings hantering och cachelagring av adresser när de körs i direkt läge. För att möjliggöra effektiv anslutnings hantering och bättre prestanda för SDK-klienten, rekommenderar vi att du använder en enda instans per `AppDomain` för programmets livs längd.
 
-   <a id="max-connection"></a>
+När du arbetar med Azure Functions bör instanserna också följa de befintliga [rikt linjerna](../azure-functions/manage-connections.md#static-clients) och underhålla en enda instans.
+
+<a id="max-connection"></a>
+
+**Inaktivera innehålls svar vid Skriv åtgärder**
+
+För arbets belastningar som har hävningsvyer skapar du nytto laster ange värdet false för alternativet EnableContentResponseOnWrite-begäran. Tjänsten kommer inte längre att returnera den skapade eller uppdaterade resursen till SDK: n. Normalt är programmet det objekt som skapas så att det inte behöver tjänsten för att returnera det. Huvud värden är fortfarande tillgängliga som begär ande avgift. Detta kan förbättra prestandan eftersom SDK inte längre behöver allokera minne eller serialisera bröd texten i svaret. Detta minskar också nätverkets bandbredds användning för att ytterligare hjälpa till med prestanda.  
+
+```csharp
+ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
+// Resource will be null
+itemResponse.Resource
+```
+
+**Aktivera Mass optimering för data flöde i stället för svars tid** Aktivera Mass bearbetning för scenarier där arbets belastningen kräver stor mängd data flöde och svars tiden är inte lika viktig. I [introduktionen till bulk](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk) finns mer information om hur du aktiverar funktionen och vilka scenarier som ska användas för.
 
 **Öka System.Net MaxConnections per värd när du använder Gateway-läge**
 
@@ -148,15 +153,15 @@ Azure Cosmos DB begär Anden görs via HTTPS/REST när du använder Gateway-läg
 
 **Justera parallella frågor för partitionerade samlingar**
 
-SQL .NET SDK-1.9.0 och senare stöder parallella frågor som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för att arbeta med SDK: er. Parallella frågor är utformade för att ge bättre svars tid och data flöde än deras serie motsvarighet. Parallella frågor ger två parametrar som du kan justera för att passa dina behov: 
-- `MaxDegreeOfParallelism`kontrollerar det högsta antalet partitioner som kan frågas parallellt. 
+SQL .NET SDK stöder parallella frågor, vilket gör att du kan fråga en partitionerad behållare parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) för att arbeta med SDK: er. Parallella frågor är utformade för att ge bättre svars tid och data flöde än deras serie motsvarighet. Parallella frågor ger två parametrar som du kan justera för att passa dina behov: 
+- `MaxConcurrency`kontrollerar det högsta antalet partitioner som kan frågas parallellt. 
 - `MaxBufferedItemCount`styr antalet i förväg hämtade resultat.
 
-***Justera graden av parallellitet***
+***Justera graden av samtidighet***
 
-Parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Inställningen `MaxDegreeOfParallelism` i [SDK v2](sql-api-sdk-dotnet.md) till antalet partitioner har den bästa möjligheten att nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet antalet partitioner kan du ange graden av parallellitet till ett högt tal. Systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
+Parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Inställningen `MaxConcurrency` i [SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3) till antalet partitioner har bästa möjliga chans att nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet antalet partitioner kan du ange graden av parallellitet till ett högt tal. Systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
 
-Observera att parallella frågor ger flest fördelar om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller de flesta data som returneras av en fråga är koncentrerade i några partitioner (en partition är det värsta fallet), kommer dessa partitioner att översätta prestandan hos frågan.
+Parallella frågor ger flest fördelar om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller de flesta data som returneras av en fråga är koncentrerade i några partitioner (en partition är det värsta fallet), kommer dessa partitioner att översätta prestandan hos frågan.
 
 ***Justera MaxBufferedItemCount***
     
@@ -168,41 +173,14 @@ För hämtning fungerar på samma sätt oavsett graden av parallellitet och det 
 
 Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden begränsas. Om begär Anden begränsas bör klient programmet stängas av vid begränsningen för det Server-angivna återförsöksintervallet. Att respektera backoff garanterar att du ägnar en liten stund åt att vänta mellan återförsök. 
 
-Princip support för återförsök ingår i dessa SDK: er:
-- Version 1.8.0 och senare av [.NET SDK för SQL](sql-api-sdk-dotnet.md) och [Java SDK för SQL](sql-api-sdk-java.md)
-- Version 1.9.0 och senare av [Node.js SDK för SQL](sql-api-sdk-node.md) och [python SDK för SQL](sql-api-sdk-python.md)
-- Alla versioner av [.net Core](sql-api-sdk-dotnet-core.md) SDK: er som stöds 
-
-Mer information finns i [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+Mer information finns i [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
-I version 1,19 och senare av .NET SDK finns det en mekanism för att logga ytterligare diagnostikinformation och felsöka latens problem, som du ser i följande exempel. Du kan logga den diagnostiska strängen för förfrågningar som har en högre Läs fördröjning. Den hämtade diagnostikloggar hjälper dig att förstå hur många gånger du fick 429 fel för en specifik begäran.
+Det finns en mekanism för att logga ytterligare diagnostikinformation och felsöka latens problem, som du ser i följande exempel. Du kan logga den diagnostiska strängen för förfrågningar som har en högre Läs fördröjning. Den hämtade diagnostikloggar hjälper dig att förstå hur många gånger du fick 429 fel för en specifik begäran.
 
 ```csharp
-ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
-readDocument.RequestDiagnosticsString 
+ItemResponse<Book> readItemResponse = await this.cosmosContainer.ReadItemAsync<Book>("ItemId", new PartitionKey("PartitionKeyValue"));
+readItemResponse.Diagnostics.ToString(); 
 ```
-
-**Cachelagra dokument-URI: er för lägre Läs fördröjning**
-
-Cachelagra dokument-URI: er när det är möjligt för bästa möjliga Läs prestanda. Du måste definiera logik för att cachelagra resurs-ID när du skapar en resurs. Sökningar baserat på resurs-ID: n är snabbare än namnbaserade sökningar, så cachelagring av dessa värden ger bättre prestanda.
-
-   <a id="tune-page-size"></a>
-**Justera sid storleken för frågor/läsa feeds för bättre prestanda**
-
-När du gör en Mass läsning av dokument med hjälp av funktionen för att läsa feeds (till exempel `ReadDocumentFeedAsync` ) eller när du skickar en SQL-fråga, returneras resultatet i ett segmenterat läge om resultat mängden är för stor. Som standard returneras resultaten i segment om 100 objekt eller 1 MB, beroende på vilken gräns som nåtts först.
-
-För att minska antalet nätverks fördröjningar som krävs för att hämta alla tillämpliga resultat kan du öka sid storleken genom att använda [x-MS-Max-item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att begära så många som 1 000 sidhuvud. Om du bara behöver visa några få resultat, till exempel om ditt användar gränssnitt eller ditt program-API bara returnerar 10 resultat i taget, kan du också minska sid storleken till 10 för att minska data flödet som används för läsningar och frågor.
-
-> [!NOTE] 
-> `maxItemCount`Egenskapen bör inte användas bara för sid brytning. Den används huvudsakligen för att förbättra prestandan för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
-
-Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i `FeedOptions` kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet, beroende på dokumentets storlek. Exempel:
-    
-```csharp
-IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
-```
-    
-När en fråga körs skickas resulterande data i ett TCP-paket. Om du anger för lågt värde för värdet `maxItemCount` är antalet resor som krävs för att skicka data i TCP-paketet hög, vilket påverkar prestanda. Så om du inte är säker på vilket värde som ska anges för `maxItemCount` egenskapen, är det bäst att ange det till-1 och låta SDK: n välja standardvärdet.
 
 **Öka antalet trådar/aktiviteter**
 
@@ -212,13 +190,13 @@ Se [öka antalet trådar/aktiviteter](#increase-threads) i avsnittet nätverk i 
  
 **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 
-Med Azure Cosmos DB indexerings principen kan du också ange vilka dokument Sök vägar som ska ingå i eller undantas från indexering genom att använda indexerings Sök vägar (IndexingPolicy. IncludedPaths och IndexingPolicy. ExcludedPaths). Indexering av sökvägar kan förbättra skriv prestanda och minska index lagringen för scenarier där fråge mönstren är kända i förväg. Detta beror på att indexerings kostnader korrelerar direkt med antalet unika sökvägar. Den här koden visar till exempel hur du undantar en hel del av dokumenten (ett under träd) från indexering med hjälp av jokertecknet "*":
+Med Azure Cosmos DB indexerings principen kan du också ange vilka dokument Sök vägar som ska tas med eller undantas från indexering genom att använda indexerings Sök vägar (IndexingPolicy. IncludedPaths och IndexingPolicy. ExcludedPaths). Indexering av bara de sökvägar du behöver kan förbättra skrivnings prestanda, minska RU-avgiften för Skriv åtgärder och minska index lagringen för scenarier där fråge mönstren är kända i förväg. Detta beror på att indexerings kostnader korrelerar direkt med antalet unika sökvägar. Den här koden visar till exempel hur du undantar en hel del av dokumenten (ett under träd) från indexering med hjälp av jokertecknet "*":
 
 ```csharp
-var collection = new DocumentCollection { Id = "excludedPathCollection" };
-collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+var containerProperties = new ContainerProperties(id: "excludedPathCollection", partitionKeyPath: "/pk" );
+containerProperties.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+containerProperties.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+Container container = await this.cosmosDatabase.CreateContainerAsync(containerProperties);
 ```
 
 Mer information finns i [Azure Cosmos DB indexerings principer](index-policy.md).
@@ -238,13 +216,13 @@ Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort)
 
 ```csharp
 // Measure the performance (Request Units) of writes
-ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
-Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
+ItemResponse<Book> response = await container.CreateItemAsync<Book>(myBook, new PartitionKey(myBook.PkValue));
+Console.WriteLine("Insert of item consumed {0} request units", response.RequestCharge);
 // Measure the performance (Request Units) of queries
-IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
+FeedIterator<Book> queryable = container.GetItemQueryIterator<ToDoActivity>(queryString);
 while (queryable.HasMoreResults)
     {
-        FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
+        FeedResponse<Book> queryResponse = await queryable.ExecuteNextAsync<Book>();
         Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
     }
 ```             
@@ -262,9 +240,9 @@ När en klient försöker överskrida det reserverade data flödet för ett kont
 
 SDK: erna fångar alla implicita dessa svar, med den server-angivna återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen är standard antalet nya försök som för närvarande är 9 internt av klienten inte tillräckligt. I det här fallet genererar klienten en DocumentClientException med status kod 429 i programmet. 
+Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen är standard antalet nya försök som för närvarande är 9 internt av klienten inte tillräckligt. I det här fallet genererar klienten en CosmosException med status kod 429 i programmet. 
 
-Du kan ändra standard antalet nya försök genom att ställa in `RetryOptions` på `ConnectionPolicy` instansen. Som standard returneras DocumentClientException med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Det här felet returnerar även när det aktuella antalet nya försök är mindre än det högsta antalet tillåtna försök, om det aktuella värdet är standardvärdet 9 eller ett användardefinierat värde.
+Du kan ändra standard antalet nya försök genom att ställa in `RetryOptions` på `CosmosClientOptions` instansen. Som standard returneras CosmosException med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Det här felet returnerar även när det aktuella antalet nya försök är mindre än det högsta antalet tillåtna försök, om det aktuella värdet är standardvärdet 9 eller ett användardefinierat värde.
 
 Det automatiska återförsöket hjälper till att förbättra återhämtning och användbarhet för de flesta program. Men det kanske inte är det bästa beteendet när du utför prestandatest, särskilt när du mäter svars tid. Den klientbaserade svars tiden kommer att inaktive ras om experimentet träffar Server begränsningen och gör att klient-SDK: n kan försöka tyst igen. För att undvika fördröjningar vid prestanda experiment kan du mäta den avgift som returneras av varje åtgärd och se till att förfrågningarna fungerar under den reserverade begär ande frekvensen. Mer information finns i [enheter för programbegäran](request-units.md).
 

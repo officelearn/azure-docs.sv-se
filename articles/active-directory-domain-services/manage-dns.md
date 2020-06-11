@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bd3f75c3246cb11e88dbaae817eba8ac76b394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c0ae6a96a303c1c9d2887e6ed4dfb0d1fed4453
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603515"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672586"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS och skapa villkorliga vidarebefordrare i en Azure AD Domain Services hanterad domän
 
@@ -58,7 +58,7 @@ Om du vill skapa och ändra DNS-poster i Azure AD DS måste du installera verkty
 
     ![Välj att installera verktyg för DNS-server från listan över tillgängliga roll administrations verktyg](./media/manage-dns/install-dns-tools.png)
 
-1. På sidan **bekräftelse** väljer du **Installera**. Det kan ta en minut eller två att installera grupprincip hanterings verktyg.
+1. På sidan **bekräftelse** väljer du **Installera**. Det kan ta en minut eller två att installera dnsGroup princip hanterings verktyg.
 1. När funktions installationen är klar väljer du **Stäng** för att avsluta guiden **Lägg till roller och funktioner** .
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Öppna DNS-hanteringskonsolen för att administrera DNS
@@ -96,7 +96,7 @@ Utför följande steg för att skapa en villkorlig vidarebefordrare i din Azure 
 
 1. Markera kryss rutan för att **lagra den här villkorliga vidarebefordraren i Active Directory och replikera den enligt**följande. Välj sedan alternativet för *alla DNS-servrar i den här domänen*, som visas i följande exempel:
 
-    ![DNS-konsol – administrera domän](./media/manage-dns/store-in-domain.png)
+    ![DNS-konsol – Välj alla DNS-servrar i den här domänen](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
     > Om den villkorliga vidarebefordraren lagras i *skogen* i stället för *domänen*, Miss lyckas den villkorliga vidarebefordraren.

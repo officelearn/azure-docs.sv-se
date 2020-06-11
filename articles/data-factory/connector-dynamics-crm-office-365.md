@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/10/2020
+ms.openlocfilehash: 6aef73381b9294f6bbd83ff99c3fa99eafb4fb1f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891535"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678329"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -77,17 +77,17 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 och Dynamics CRM Online
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till **Dynamics**, **DynamicsCrm**eller **CommonDataServiceForApps**. | Ja |
-| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"online"** för Dynamics Online. | Ja |
-| serviceUri | Tjänst-URL för din Dynamics-instans, t `https://adfdynamics.crm.dynamics.com`. ex.. | Ja |
-| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Tillåtna värden är: **AADServicePrincipal** eller **"Office365"**. | Ja |
-| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja när du `AADServicePrincipal` använder autentisering |
-| servicePrincipalCredentialType | Ange vilken typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Tillåtna värden är: **ServicePrincipalKey** eller **ServicePrincipalCert**. | Ja när du `AADServicePrincipal` använder autentisering |
-| servicePrincipalCredential | Ange autentiseringsuppgifterna för tjänstens huvud namn. <br>När du `ServicePrincipalKey` använder som autentiseringstyp `servicePrincipalCredential` kan vara en sträng (ADF krypterar den vid länkad tjänst distribution) eller en referens till en hemlighet i akv. <br>När du `ServicePrincipalCert` använder som autentiseringsuppgift `servicePrincipalCredential` bör vara en referens till ett certifikat i akv. | Ja när du `AADServicePrincipal` använder autentisering | 
-| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja när du `Office365` använder autentisering |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du `Office365` använder autentisering |
+| typ | Egenskapen Type måste anges till **Dynamics**, **DynamicsCrm**eller **CommonDataServiceForApps**. | Yes |
+| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"online"** för Dynamics Online. | Yes |
+| serviceUri | Tjänst-URL för din Dynamics-instans, t `https://adfdynamics.crm.dynamics.com` . ex.. | Yes |
+| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Tillåtna värden är: **AADServicePrincipal** eller **"Office365"**. | Yes |
+| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja när du använder `AADServicePrincipal` autentisering |
+| servicePrincipalCredentialType | Ange vilken typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Tillåtna värden är: **ServicePrincipalKey** eller **ServicePrincipalCert**. | Ja när du använder `AADServicePrincipal` autentisering |
+| servicePrincipalCredential | Ange autentiseringsuppgifterna för tjänstens huvud namn. <br>När `ServicePrincipalKey` du använder som autentiseringstyp `servicePrincipalCredential` kan vara en sträng (ADF krypterar den vid länkad tjänst distribution) eller en referens till en hemlighet i akv. <br>När `ServicePrincipalCert` du använder som autentiseringsuppgift `servicePrincipalCredential` bör vara en referens till ett certifikat i akv. | Ja när du använder `AADServicePrincipal` autentisering |
+| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja när du använder `Office365` autentisering |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du använder `Office365` autentisering |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har en integrerings körning |
 
 >[!NOTE]
@@ -174,16 +174,16 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 *Ytterligare egenskaper som jämförs med Dynamics Online är "värdnamn" och "Port".*
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till **Dynamics**, **DynamicsCrm**eller **CommonDataServiceForApps**. | Ja |
-| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"OnPremisesWithIfd"** för Dynamics-lokal med IFD.| Ja |
-| Värdnamn | Värd namnet för den lokala Dynamics-servern. | Ja |
+| typ | Egenskapen Type måste anges till **Dynamics**, **DynamicsCrm**eller **CommonDataServiceForApps**. | Yes |
+| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"OnPremisesWithIfd"** för Dynamics-lokal med IFD.| Yes |
+| Värdnamn | Värd namnet för den lokala Dynamics-servern. | Yes |
 | port | Porten för den lokala Dynamics-servern. | Nej, standard är 443 |
-| Databasen | Organisations namnet för Dynamics-instansen. | Ja |
-| authenticationType | Autentiseringstypen för att ansluta till Dynamics-servern. Ange **"IFD"** för Dynamics lokalt med IFD. | Ja |
-| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Ja |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta kopierings aktiviteten hämta från där när data kopieringen ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| Databasen | Organisations namnet för Dynamics-instansen. | Yes |
+| authenticationType | Autentiseringstypen för att ansluta till Dynamics-servern. Ange **"IFD"** för Dynamics lokalt med IFD. | Yes |
+| användarnamn | Ange användar namnet för att ansluta till Dynamics. | Yes |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta kopierings aktiviteten hämta från där när data kopieringen ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
 **Exempel: Dynamics lokalt med IFD med IFD-autentisering**
@@ -220,9 +220,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från och till Dynamics.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till **DynamicsEntity**, **DynamicsCrmEntity**eller **CommonDataServiceForAppsEntity**. |Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till **DynamicsEntity**, **DynamicsCrmEntity**eller **CommonDataServiceForAppsEntity**. |Yes |
 | Entitetsnamnet | Det logiska namnet på den entitet som ska hämtas. | Nej för källa (om "fråga" i aktivitets källan har angetts), Ja för mottagare |
 
 **Exempel:**
@@ -252,9 +252,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Dynamics stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till **DynamicsSource**, **DynamicsCrmSource**eller **CommonDataServiceForAppsSource**. | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till **DynamicsSource**, **DynamicsCrmSource**eller **CommonDataServiceForAppsSource**. | Yes |
 | DocumentDB | FetchXML är ett patentskyddat frågespråk som används i Dynamics (online och lokalt). Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om "entityName" i data uppsättningen har angetts) |
 
 >[!NOTE]
@@ -320,11 +320,11 @@ Om du vill kopiera data från Dynamics stöds följande egenskaper i avsnittet K
 
 För att kunna kopiera data till Dynamics stöds följande egenskaper i avsnittet Kopiera aktivitets **mottagare** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **DynamicsSink**, **DynamicsCrmSink**eller **CommonDataServiceForAppsSink**. | Ja |
-| writeBehavior | Åtgärdens Skriv funktion.<br/>Tillåtet värde är **"upsert"**. | Ja |
-| alternateKeyName | Ange det alternativa nyckel namnet som definierats i entiteten för att utföra "upsert". | Inga |
+| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **DynamicsSink**, **DynamicsCrmSink**eller **CommonDataServiceForAppsSink**. | Yes |
+| writeBehavior | Åtgärdens Skriv funktion.<br/>Tillåtet värde är **"upsert"**. | Yes |
+| alternateKeyName | Ange det alternativa nyckel namnet som definierats i entiteten för att utföra "upsert". | No |
 | writeBatchSize | Rad antalet data som skrivs till Dynamics i varje batch. | Nej (standard är 10) |
 | ignoreNullValues | Anger om null-värden ska ignoreras från indata (förutom nyckel fält) under en Skriv åtgärd.<br/>Tillåtna värden är **True** och **false**.<br>- **True**: lämna kvar data i målobjektet oförändrade när du gör en upsert/uppdatering-åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **False**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert/uppdatering-åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 
@@ -379,17 +379,17 @@ Konfigurera motsvarande Data Factory data typ i en data uppsättnings struktur b
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Lång | ✓ | ✓ |
 | AttributeTypeCode. Boolean | Boolesk | ✓ | ✓ |
-| AttributeType. kund | GUID | ✓ | |
+| AttributeType. kund | GUID | ✓ | ✓ (se [rikt linjer](#writing-data-to-lookup-field)) |
 | AttributeType. DateTime | Datumtid | ✓ | ✓ |
 | AttributeType. decimal | Decimal | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
 | AttributeType. EntityName | Sträng | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
-| AttributeType. lookup | GUID | ✓ | ✓ (med associerat enskilt mål) |
+| AttributeType. lookup | GUID | ✓ | ✓ (se [rikt linjer](#writing-data-to-lookup-field)) |
 | AttributeType.ManagedProperty | Boolesk | ✓ | |
 | AttributeType. PM | Sträng | ✓ | ✓ |
 | AttributeType. Money | Decimal | ✓ | ✓ |
-| AttributeType. owner | GUID | ✓ | |
+| AttributeType. owner | GUID | ✓ | ✓ (se [rikt linjer](#writing-data-to-lookup-field)) |
 | AttributeType. listruta | Int32 | ✓ | ✓ |
 | AttributeType. uniqueidentifier | GUID | ✓ | ✓ |
 | AttributeType. String | Sträng | ✓ | ✓ |
@@ -398,6 +398,34 @@ Konfigurera motsvarande Data Factory data typ i en data uppsättnings struktur b
 
 > [!NOTE]
 > Det finns inte stöd för Dynamics data typerna AttributeType. CalendarRules, AttributeType. MultiSelectPicklist och AttributeType. PartyList.
+
+## <a name="writing-data-to-lookup-field"></a>Skriver data till uppslags fält
+
+Om du vill skriva data i uppslags fält med flera mål, t. ex. *kund* och *ägare*, följer du dessa anvisningar och exempel:
+
+1. Gör din källa som innehåller både fältvärdet och motsvarande målnamn.
+   - Om alla poster mappar till samma målentitet kontrollerar du att antingen dina källdata har en kolumn som lagrar namnet på målentiteten eller lägger till en ytterligare kolumn i Kopiera aktivitets källan för att definiera målentiteten.
+   - Om olika poster mappar till en annan målentitet, se till att dina källdata har en kolumn som lagrar motsvarande målnamn.
+
+2. Mappa både värdet och entitetens referens kolumner från källan till Sink. Entitetens referens kolumn måste mappas till en virtuell kolumn med ett särskilt namngivnings mönster `{lookup_field_name}@EntityReference` . Det finns faktiskt inte i Dynamics, men det används för att indikera att det här är kolumnen metadata i det angivna uppslags fältet för flera mål.
+
+ Källan har till exempel två kolumner:
+
+- `CustomerField`kolumn av typen *GUID*, som är värdet för primär nyckel för målentiteten i Dynamics.
+- `Target`kolumn av typen *sträng*, som är det logiska namnet på målentiteten. 
+
+Och du vill kopiera sådana data till mottagare av Dynamics-entitetsfält `CustomerField` av typen *kund*. 
+
+I kolumn mappning för kopierings aktivitet mappar du de två kolumnerna enligt följande:
+
+- `CustomerField` -> `CustomerField`: det här är den normala fält mappningen.
+- `Target` -> `CustomerField@EntityReference`: kolumnen Sink är en virtuell kolumn som representerar enhets referensen. Ange ett sådant fält namn i mappningen, eftersom det inte visas genom att importera scheman.
+
+![Kolumn mappning för Dynamics lookup-fält](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+
+Om alla käll poster mappar till samma målentitet och dina källdata inte innehåller målentiteten, är det här en genväg: i Kopiera aktivitets Källa lägger du till ytterligare en kolumn. Du kan ange namnet efter mönstret `{lookup_field_name}@EntityReference` och värdet som målentiteten, och i så fall blir explicit kolumn mappning valfri eftersom kopierings aktiviteten som standard mappar kolumner efter namn.
+
+![Lägg till entitetsreferens i Dynamics lookup-fältet](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 

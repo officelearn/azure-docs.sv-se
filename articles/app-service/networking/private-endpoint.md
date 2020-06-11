@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 92fdb48f11d4d8753706d61fab9fd32e2b06f488
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295447"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668193"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
@@ -45,7 +45,7 @@ Under nätet där du ansluter den privata slut punkten kan ha andra resurser, du
 Du kan också distribuera den privata slut punkten i en annan region än webbappen. 
 
 > [!Note]
->Funktionen VNet-integrering kan inte använda samma undernät än privat slut punkt, detta är en begränsning för funktionen VNet-integrering.
+>Funktionen för VNet-integrering kan inte använda samma undernät som privat slut punkt, detta är en begränsning för funktionen för VNet-integrering.
 
 Från ett säkerhets perspektiv:
 

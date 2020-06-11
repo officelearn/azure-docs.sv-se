@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: fd067a0a0e99291dd4cea924a15c1157bc3b9f9f
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 74e2c452d229373d271225dcbb28359b6af1524d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84425504"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670505"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiera data från och till snö flingor genom att använda Azure Data Factory
 
@@ -48,9 +48,9 @@ Följande egenskaper stöds för en länkad snö-tjänst:
 
 | Egenskap         | Beskrivning                                                  | Obligatorisk |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| typ             | Egenskapen Type måste anges till **snö**.              | Ja      |
-| Begär | Konfigurera det [fullständiga konto namnet](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (inklusive ytterligare segment som identifierar region och moln plattform), användar namn, lösen ord, databas och lager. Ange anslutnings strängen JDBC för att ansluta till snö-instansen. Du kan också ställa in lösen ord i Azure Key Vault. Se exemplen under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information.| Ja      |
-| connectVia       | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | Nej       |
+| typ             | Egenskapen Type måste anges till **snö**.              | Yes      |
+| Begär | Konfigurera det [fullständiga konto namnet](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (inklusive ytterligare segment som identifierar region och moln plattform), användar namn, lösen ord, databas och lager. Ange anslutnings strängen JDBC för att ansluta till snö-instansen. Du kan också ställa in lösen ord i Azure Key Vault. Se exemplen under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information.| Yes      |
+| connectVia       | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | No       |
 
 **Exempel:**
 
@@ -104,7 +104,7 @@ Följande egenskaper stöds för snö data uppsättning:
 
 | Egenskap  | Beskrivning                                                  | Obligatorisk                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Data uppsättningens typ-egenskap måste anges till **SnowflakeTable**. | Ja                         |
+| typ      | Data uppsättningens typ-egenskap måste anges till **SnowflakeTable**. | Yes                         |
 | schema | Schemats namn. |Nej för källa, Ja för mottagare  |
 | tabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
 
@@ -143,13 +143,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 
 | Egenskap                     | Beskrivning                                                  | Obligatorisk |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Typ egenskapen för kopierings aktivitets källan måste anges till **SnowflakeSource**. | Ja      |
-| DocumentDB          | Anger SQL-frågan för att läsa data från snö. | Nej       |
-| exportSettings | Avancerade inställningar som används för att hämta data från snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som ADF passerar genom att anropa instruktionen. | Nej       |
+| typ                         | Typ egenskapen för kopierings aktivitets källan måste anges till **SnowflakeSource**. | Yes      |
+| DocumentDB          | Anger SQL-frågan för att läsa data från snö.<br>Det finns inte stöd för att köra den lagrade proceduren. | No       |
+| exportSettings | Avancerade inställningar som används för att hämta data från snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som ADF passerar genom att anropa instruktionen. | No       |
 | ***Under `exportSettings` :*** |  |  |
-| typ | Typ av export kommando, anges till **SnowflakeExportCopyCommand**. | Ja |
-| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: MAX_FILE_SIZE, Skriv över. Läs mer från [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Nej |
-| additionalFormatOptions | Ytterligare fil formats alternativ som finns tillgängliga för kommandot Kopiera, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Läs mer från [alternativ för alternativ för snö-format](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Nej |
+| typ | Typ av export kommando, anges till **SnowflakeExportCopyCommand**. | Yes |
+| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: MAX_FILE_SIZE, Skriv över. Läs mer från [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Ytterligare fil formats alternativ som finns tillgängliga för kommandot Kopiera, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Läs mer från [alternativ för alternativ för snö-format](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-from-snowflake"></a>Direkt kopiering från snö
 
@@ -271,13 +271,13 @@ För att kunna kopiera data till snö, stöds följande egenskaper i avsnittet K
 
 | Egenskap          | Beskrivning                                                  | Obligatorisk                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SnowflakeSink**. | Ja                                           |
-| preCopyScript     | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till snö flingor i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | Nej                                            |
+| typ              | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SnowflakeSink**. | Yes                                           |
+| preCopyScript     | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till snö flingor i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | No                                            |
 | importSettings | *Avancerade inställningar som används för att skriva data till snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som ADF passerar genom att anropa instruktionen.* | *Nej* |
 | ***Under `importSettings` :*** |                                                              |  |
-| typ | Typ av import kommando, anges till **SnowflakeImportCopyCommand**. | Ja |
-| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Läs mer från [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Nej |
-| additionalFormatOptions | Ytterligare fil formats alternativ som finns tillgängliga för kommandot Kopiera, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Läs mer från [alternativ för alternativ för snö-format](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Nej |
+| typ | Typ av import kommando, anges till **SnowflakeImportCopyCommand**. | Yes |
+| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Läs mer från [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Ytterligare fil formats alternativ som finns tillgängliga för kommandot Kopiera, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Läs mer från [alternativ för alternativ för snö-format](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-to-snowflake"></a>Direkt kopiering till snö flingor
 

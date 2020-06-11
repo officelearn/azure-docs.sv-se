@@ -8,19 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: c7877ca4b300a238b14698948dbe3b9347b16f24
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1427d4e8dcec9e54758f55e007aafe53596c7d97
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660414"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672450"
 ---
-# <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET standard SDK för SQL API: Hämta och viktig information
+# <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 för SQL API: Hämta och viktig information
 > [!div class="op_single_selector"]
-> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
@@ -29,7 +29,7 @@ ms.locfileid: "83660414"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
@@ -43,7 +43,7 @@ ms.locfileid: "83660414"
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

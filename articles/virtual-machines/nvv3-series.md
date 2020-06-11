@@ -2,17 +2,18 @@
 title: NVv3-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i NVv3-serien.
 services: virtual-machines
+ms.subservice: sizes
 author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: d74b00a4bade956d3a511a47b0a6b0011b9fb212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: b309cf5302d72e934e767161719f3d3795c77e8d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78267416"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674694"
 ---
 # <a name="nvv3-series"></a>NVv3-serien
 

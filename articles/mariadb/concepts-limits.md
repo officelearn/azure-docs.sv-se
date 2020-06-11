@@ -5,16 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/8/2020
-ms.openlocfilehash: 11b28acfbda8b2760f19aa130373ba0f24f94db2
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 6/10/2020
+ms.openlocfilehash: d217c579c5f2cb5c3b6b984c0f2e0c57f17df2c9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636605"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669774"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure Database for MariaDB
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten.
+
+## <a name="server-parameters"></a>Serverparametrar
+
+> [!NOTE]
+> Om du letar efter minsta/högsta-värden för Server parametrar som `max_connections` och `innodb_buffer_pool_size` har den här informationen flyttats till **[Server parametrar](./concepts-server-parameters.md)** -artikeln.
+
+Azure Database for MySQL stöder justering av värdet för Server parametrar. Det minsta och högsta värdet för vissa parametrar (t. ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) bestäms av pris nivån och virtuella kärnor för servern. Se [Server parametrar](./concepts-server-parameters.md) för mer information om dessa gränser. 
 
 ## <a name="storage-engine-support"></a>Stöd för lagrings motor
 
@@ -33,9 +40,6 @@ I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för st
 - DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen.
 - SUPER Privilege: liknande [superbehörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
 - Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
-
-## <a name="server-parameters"></a>Serverparametrar
-Azure Database for MariaDB stöder justering av värdet för Server parametrar. Det minsta och högsta värdet för vissa parametrar bestäms av pris nivån och virtuella kärnor för servern. Se [Server parametrar](./concepts-server-parameters.md) för mer information om dessa gränser. 
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
 

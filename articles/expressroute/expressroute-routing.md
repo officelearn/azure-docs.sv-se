@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8c86e88f481c6ad27f551a87afae7547c32a331
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273051"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676259"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -220,17 +220,18 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |
-| Exchange Online * * | 12076:5010 |
-| SharePoint Online * * | 12076:5020 |
-| Skype för företag – Online * * | 12076:5030 |
-| CRM Online * * * |12076:5040 |
-| Globala Azure-tjänster * | 12076:5050 |
+| Exchange Online\*\* | 12076:5010 |
+| SharePoint Online\*\* | 12076:5020 |
+| Skype för företag – Online\*\*/\*\*\* | 12076:5030 |
+| CRM Online\*\*\*\* |12076:5040 |
+| Globala Azure-tjänster\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Andra Office 365 Online Services * * | 12076:5100 |
 
-* Globala Azure-tjänster innehåller bara Azure-DevOps just nu. \
-* * Auktorisering krävs från Microsoft, se [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-portal.md)\
-CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du den regionala communityn för dina Dynamics-distributioner.
+\*Azures globala tjänster innehåller bara Azure-DevOps just nu. \
+\*\*Auktorisering krävs från Microsoft, se [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-portal.md)\
+\*\*\*Den här gruppen publicerar även de vägar som krävs för Microsoft Teams Services. \
+\*\*\*\*CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du den regionala communityn för dina Dynamics-distributioner.
 
 > [!NOTE]
 > Microsoft använder inte några community-värden för BGP som du har angett för vägar som annonseras till Microsoft.
@@ -241,7 +242,7 @@ CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du de
 
 | **Regioner för nationella Azure-moln**| **BGP-community värde** |
 | --- | --- |
-| **Amerikanska myndigheter** |  |
+| **AMERIKANSKA myndigheter** |  |
 | US Gov, Arizona | 12076:51106 |
 | USA Gov, Iowa | 12076:51109 |
 | US Gov, Virginia | 12076:51105 |
@@ -252,7 +253,7 @@ CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du de
 
 | **Tjänst i nationella moln** | **BGP-community värde** |
 | --- | --- |
-| **Amerikanska myndigheter** |  |
+| **AMERIKANSKA myndigheter** |  |
 | exchange online |12076:5110 |
 | sharepoint online |12076:5120 |
 | Skype för företag – Online |12076:5130 |

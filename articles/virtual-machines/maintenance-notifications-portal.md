@@ -4,15 +4,15 @@ description: Visa underhålls meddelanden för virtuella datorer som körs i Azu
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77d5731738fbade97be08841428c3bc6b712a7a8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77115737"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678740"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Hantera meddelanden för planerat underhåll med hjälp av portalen
 
@@ -22,7 +22,7 @@ När du har schemalagt en [planerad underhålls](maintenance-notifications.md) v
 
 Du kan använda Azure Portal och leta efter virtuella datorer som är schemalagda för underhåll.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Klicka på **Virtual Machines**i det vänstra navigerings fältet.
 

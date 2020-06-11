@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416624"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669842"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -37,8 +37,10 @@ Du kan kopiera data från Sybase Database till alla mottagar data lager som stö
 
 Mer specifikt stöder denna Sybase-anslutning:
 
-- SAP Sybase SQL Anywhere (ASA) **version 16 och senare**; SWEETIQ och ASE stöds inte.
+- SAP Sybase SQL Anywhere (ASA) **version 16 och senare**.
 - Kopiera data med **Basic** -eller **Windows** -autentisering.
+
+Sybase-SWEETIQ och ASE stöds inte. Du kan använda allmän ODBC-anslutning med Sybase-drivrutin i stället.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -57,15 +59,15 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade tjänsten Sybase:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen måste anges till: **Sybase** | Ja |
-| server | Sybase-serverns namn. |Ja |
-| databas | Sybase-databasens namn. |Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Basic**och **Windows**. |Ja |
-| användarnamn | Ange användar namnet för att ansluta till Sybase-databasen. |Ja |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
+| typ | Typ egenskapen måste anges till: **Sybase** | Yes |
+| server | Sybase-serverns namn. |Yes |
+| databas | Sybase-databasens namn. |Yes |
+| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Basic**och **Windows**. |Yes |
+| användarnamn | Ange användar namnet för att ansluta till Sybase-databasen. |Yes |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Yes |
 
 **Exempel:**
 
@@ -98,9 +100,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från Sybase:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SybaseTable** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SybaseTable** | Yes |
 | tableName | Namnet på tabellen i Sybase-databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -120,7 +122,7 @@ Följande egenskaper stöds för att kopiera data från Sybase:
 }
 ```
 
-Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
+Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -130,10 +132,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Sybase:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SybaseSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SybaseSource** | Yes |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -167,7 +169,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 ]
 ```
 
-Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
+Om du använder `RelationalSource` typ av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ## <a name="data-type-mapping-for-sybase"></a>Data typs mappning för Sybase
 

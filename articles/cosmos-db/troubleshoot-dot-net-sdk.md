@@ -8,12 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c0f40b3c79c16046ef61e89cad72c714346d2674
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170366"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672637"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -32,10 +32,10 @@ Den här artikeln beskriver vanliga problem, lösningar, diagnostiska steg och v
 *    Använd den senaste [SDK: n](sql-api-sdk-dotnet-standard.md). Preview SDK: er bör inte användas för produktion. Detta förhindrar att kända problem som redan har åtgärd ATS visas.
 *    Granska [prestanda tipsen](performance-tips.md)och följ rekommendationerna. Detta bidrar till att förhindra skalning, svars tid och andra prestanda problem.
 *    Aktivera SDK-loggning för att hjälpa dig att felsöka ett problem. Att aktivera loggning kan påverka prestanda, så det är bäst att aktivera det bara när du felsöker problem. Du kan aktivera följande loggar:
-    *    [Logga mått](monitor-accounts.md) med hjälp av Azure Portal. Portal mått visar Azure Cosmos DB telemetri, vilket är användbart för att avgöra om problemet motsvarar Azure Cosmos DB eller om det kommer från klient sidan.
-    *    Logga den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) i v3 SDK från åtgärds svar för punkt.
-    *    Logga [SQL-frågans mått](sql-api-query-metrics.md) från alla fråge svar 
-    *    Följ konfigurationen för [SDK-loggning]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*    [Logga mått](monitor-accounts.md) med hjälp av Azure Portal. Portal mått visar Azure Cosmos DB telemetri, vilket är användbart för att avgöra om problemet motsvarar Azure Cosmos DB eller om det kommer från klient sidan.
+*    Logga den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) i v3 SDK från åtgärds svar för punkt.
+*    Logga [SQL-frågans mått](sql-api-query-metrics.md) från alla fråge svar 
+*    Följ konfigurationen för [SDK-loggning]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Ta en titt på avsnittet [vanliga problem och lösningar](#common-issues-workarounds) i den här artikeln.
 

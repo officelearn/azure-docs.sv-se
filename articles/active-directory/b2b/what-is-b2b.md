@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 87da588806908566bd1980da4c3120c0d4537b4a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585848"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673147"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -44,7 +44,7 @@ Med Azure AD B2B använder dina partners sina egna lösningar för identitetshan
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Bjud in gästanvändare med en enkel process för inbjudan och inlösen
 
-Gästanvändarna loggar in på dina appar och tjänster med sina egna arbets- eller skolidentiteter eller sociala identiteter. Om en gästanvändare inte har något Microsoft-konto eller ett Azure AD-konto skapas ett när användaren löser in sin inbjudan. 
+Gästanvändarna loggar in på dina appar och tjänster med sina egna arbets- eller skolidentiteter eller sociala identiteter. Om gäst användaren inte har ett Microsoft-konto eller ett Azure AD-konto, skapas ett för dem när de löser in sin inbjudan. 
 
 - Bjud in gästanvändare med valfri e-postidentitet.
 - Skicka en direktlänk till en app eller skicka en inbjudan till gästanvändaren egen åtkomstpanel.
@@ -84,7 +84,7 @@ Du kan delegera hanteringen av gästanvändarna till programägarna, så att de 
 
 ## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>Anpassa onboarding-upplevelsen för B2B-gäst användare
 
-Integrera dina externa partners så passar din organisations behov.
+Ta med dina externa partner på ett sätt som anpassas efter din organisations behov.
 
 - Använd [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) för att konfigurera principer som [hanterar åtkomst för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Använd [API: er för inbjudan med B2B-samarbete](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) för att anpassa dina onboarding-upplevelser.
@@ -98,7 +98,8 @@ Azure AD stöder externa identitets leverantörer som Facebook, Microsoft-konton
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Skapa ett användar flöde för självbetjänings registrering (förhands granskning)
 
-Med ett användar flöde för självbetjänings registrering kan du skapa en registrerings miljö för externa användare som vill ha åtkomst till dina appar. Som en del av registrerings flödet kan du ange alternativ för olika sociala eller företags identitets leverantörer och samla in information om användaren. Lär dig om självbetjänings registrering och hur du konfigurerar det.
+Med ett användar flöde för självbetjänings registrering kan du skapa en registrerings miljö för externa användare som vill ha åtkomst till dina appar. Som en del av registrerings flödet kan du ange alternativ för olika sociala eller företags identitets leverantörer och samla in information om användaren. Lär dig om självbetjänings [registrering och hur du konfigurerar det](self-service-sign-up-overview.md).
+<!-- You can also use [API connectors](api-connectors-overview.md) to integrate your user flows with external systems, for example user approval systems, user input validation systems, or custom business logic. -->
 
 ![Skärm bild som visar sidan användar flöden](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 

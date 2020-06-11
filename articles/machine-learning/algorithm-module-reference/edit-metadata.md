@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 6683dd445b4d209a6420c7490216b8e325b34c91
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064249"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669978"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
@@ -34,7 +34,7 @@ Typiska metadata-ändringar kan innehålla:
   
 + Byta namn på kolumner.
   
- Använd redigera metadata när som helst behöver du ändra definitionen för en kolumn, vanligt vis för att uppfylla kraven för en underordnad modul. Till exempel fungerar vissa moduler bara med vissa data typer eller kräver flaggor på kolumnerna, till exempel `IsFeature` eller. `IsCategorical`  
+ Använd redigera metadata när som helst behöver du ändra definitionen för en kolumn, vanligt vis för att uppfylla kraven för en underordnad modul. Till exempel fungerar vissa moduler bara med vissa data typer eller kräver flaggor på kolumnerna, till exempel `IsFeature` eller `IsCategorical` .  
   
  När du har utfört den begärda åtgärden kan du återställa metadata till dess ursprungliga tillstånd.
   
@@ -55,7 +55,8 @@ Typiska metadata-ändringar kan innehålla:
     + Kolumn typen och värdena kommer att ändras när du har utfört åtgärden redigera metadata. Du kan återställa den ursprungliga data typen när som helst genom att använda redigera metadata för att återställa kolumn data typen.  
 
     > [!NOTE]
-    > Om du ändrar någon typ av tal till **datetime** -typen lämnar du fältet **datetime-format** tomt. Det går för närvarande inte att ange mål data formatet.  
+        > **Datetime-formatet** följer [python-inbyggt datetime-format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+        > Om du ändrar någon typ av tal till **datetime** -typen lämnar du fältet **datetime-format** tomt. Det går för närvarande inte att ange mål data formatet.
 
 1. Välj alternativet **kategoriska** för att ange att värdena i de markerade kolumnerna ska behandlas som kategorier.
 

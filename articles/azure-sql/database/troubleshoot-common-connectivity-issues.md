@@ -9,16 +9,15 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266975"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668414"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Felsök tillfälliga anslutnings fel i SQL Database och SQL-hanterad instans
 
@@ -150,7 +149,7 @@ Om antalet till exempel är lika med 3 och intervallet är lika med 10 sekunder,
 **ConnectRetryCount** -och **ConnectRetryInterval** -parametrarna gör att **SQLConnection** -objektet kan försöka ansluta igen utan att tala eller bry dig om programmet, till exempel att returnera kontroll till programmet. Återförsök kan ske i följande situationer:
 
 - mySqlConnection. Open-metod anrop
-- mySqlConnection. Execute-metod anrop
+- Anrop för mySqlConnection.Exesöta-metoden
 
 Det finns en subtlety. Om ett tillfälligt fel inträffar när din *fråga* körs, kommer **SQLConnection** -objektet inte att försöka ansluta igen. Det gör inget nytt försök att köra frågan igen. **SQLConnection** måste dock snabbt kontrol lera anslutningen innan du skickar din fråga för körning. Om snabb kontrollen identifierar ett anslutnings problem, försöker **SQLConnection** att försöka ansluta igen. Om försöket lyckas skickas frågan för körning.
 
@@ -227,7 +226,7 @@ Om programmet inte kan ansluta till databasen i SQL Database, är ett diagnostis
 
 På en Windows-dator kan du prova följande verktyg:
 
-- SQL Server Management Studio (SSMS. exe), som ansluter med hjälp av ADO.NET
+- SQL Server Management Studio (ssms.exe), som ansluter med hjälp av ADO.NET
 - `sqlcmd.exe`, som ansluter med hjälp av [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 När programmet har anslutits testar du om en kort SQL SELECT-fråga fungerar.
@@ -243,7 +242,7 @@ I Linux kan följande verktyg vara användbara:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Ändra värdet i exemplet så att det blir din IP-adress.
 
-I Windows kan verktyget [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) vara till hjälp. Här är en exempel körning som efterfrågade port situationen på en databas i SQL Database och som kördes på en bärbar dator:
+I Windows kan [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) -verktyget vara till hjälp. Här är en exempel körning som efterfrågade port situationen på en databas i SQL Database och som kördes på en bärbar dator:
 
 ```cmd
 [C:\Users\johndoe\]
@@ -277,7 +276,7 @@ Enterprise Library 6 (EntLib60) erbjuder .NET-hanterade klasser som hjälp vid l
 
 Här följer några Transact-SQL SELECT-uttryck som frågar efter fel loggar och annan information.
 
-| Fråga efter logg | Beskrivning |
+| Fråga efter logg | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) -vyn innehåller information om enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutnings fel.<br/><br/>Vi rekommenderar att du korrelerar **start_time** -eller **end_times** värden med information om när ditt klient program fick problem.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |I [sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) -vyn finns det sammanställda antalet händelse typer för ytterligare diagnostik.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |

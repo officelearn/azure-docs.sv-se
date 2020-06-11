@@ -11,12 +11,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 021d548c56810021af7257b25c40d7d4cc68ec12
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 30b6412ed5a8462b1ce0d8351e9e86a16b2082da
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629448"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670046"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadata och svars data för webb tjänst
 
->[!Important]
+> [!IMPORTANT]
 > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås loggas bara de senaste utflödena av modellen. 
 
 Om du vill logga information om en begäran till webb tjänsten lägger du till `print` instruktioner till din score.py-fil. Varje `print` instruktion resulterar i en post i spårnings tabellen i Application Insights under meddelandet `STDOUT` . Innehållet i `print` instruktionen kommer att finnas under `customDimensions` och sedan `Contents` i spårnings tabellen. Om du skriver ut en JSON-sträng skapar den en hierarkisk data struktur i spårningens utdata under `Contents` .
@@ -74,6 +74,9 @@ Du kan fråga Azure Application insikter direkt för att komma åt dessa data el
 Om du vill logga anpassade spår följer du standard distributions processen för AKS eller ACI i avsnittet [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
 
 1. Om du vill skicka data till Application Insights under härledningen uppdaterar du bedömnings filen genom att lägga till utskrifts instruktioner. Om du vill logga mer komplex information, till exempel begär ande data och svar, kan du se en JSON-struktur. I följande exempel score.py-fil loggar tiden som modellen initieras, indata och utdata under härledningen och hur lång tid det tar att utföra fel:
+
+    > [!IMPORTANT]
+    > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås loggas bara de senaste utflödena av modellen. Om de data som du vill logga in är större än 64 KB bör du i stället lagra dem till Blob Storage med hjälp av informationen i [samla in data för modeller i produktion](how-to-enable-data-collection.md).
     
     ```python
     import pickle

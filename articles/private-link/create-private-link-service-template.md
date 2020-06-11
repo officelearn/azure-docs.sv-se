@@ -4,17 +4,18 @@ description: Personlig länk service ARM-mall
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 93a66057ddb0034f7ac9ac62578292ca38f2d2fe
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 304ee8c1180c318dd6e99b6e81eb964e264951d1
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237131"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667037"
 ---
-# <a name="create-a-private-link-service---resource-manager-template"></a>Skapa en Private Link service – Resource Manager-mall
+# <a name="quickstart-create-a-private-link-service---resource-manager-template"></a>Snabb start: skapa en Private Link service – Resource Manager-mall
 
 I den här snabb starten använder du en Resource Manager-mall för att skapa en privat länk-tjänst.
 
@@ -22,7 +23,7 @@ I den här snabb starten använder du en Resource Manager-mall för att skapa en
 
 Du kan också slutföra den här snabb starten med [Azure Portal](create-private-link-service-portal.md), [Azure POWERSHELL](create-private-link-service-powershell.md)eller [Azure CLI](create-private-link-service-cli.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -32,20 +33,20 @@ den här mallen skapar en privat länk-tjänst.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-privatelink-service/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
 Flera Azure-resurser definieras i mallen:
 
-- [**Microsoft. Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : privat länk tjänst för att exponera tjänsten lokalt
-- [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : privat slut punkt för att få åtkomst till privat tjänst
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : ett för varje virtuell dator
 - [**Microsoft. Network/belastningsutjämnare**](/azure/templates/microsoft.network/loadBalancers) : Load Balancer som exponerar de virtuella datorer som är värdar för tjänsten
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 nätverks gränssnitt, ett för varje virtuell dator
 - [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : 2 virtuella datorer, en som är värd för tjänsten och en för att testa anslutningen till den privata slut punkten
 - [**Microsoft. Compute/virtualMachines/tillägg**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : tillägg som installerar webb server
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : ett för varje virtuell dator
+- [**Microsoft. Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : privat länk tjänst för att exponera tjänsten lokalt
 - [**Microsoft. Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : 2 offentlig IP-adress, en för varje virtuell dator
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 nätverks gränssnitt, ett för varje virtuell dator
+- [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : privat slut punkt för att få åtkomst till privat tjänst
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 

@@ -4,7 +4,6 @@ description: Använd Azure CLI för att skapa Windows-redundansklustret, tillgä
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -14,19 +13,19 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23667e8a50d2ef3a7a31aeb165c0b5d43bcf3eca
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3366438012ecc3395e7f4ae3774316ef1ddcd3b9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219613"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669349"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på virtuell Azure-dator
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du använder [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) för att distribuera ett Windows-redundanskluster, lägger till SQL Server virtuella datorer i klustret och skapar den interna belastningsutjämnaren och lyssnare för en tillgänglighets grupp som alltid är tillgänglig. Distribution av Always on-tillgänglighetsgrupper görs fortfarande manuellt via SQL Server Management Studio (SSMS). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill automatisera installationen av en tillgänglighets grupp som alltid är tillgänglig med hjälp av Azure CLI måste du ha följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
@@ -129,7 +128,7 @@ När du har skapat tillgänglighets gruppen manuellt kan du skapa en lyssnare me
    1. Gå till din resurs grupp i [Azure Portal](https://portal.azure.com). 
    1. Välj den virtuella nätverks resursen. 
    1. Välj **Egenskaper** i fönstret **Inställningar** . 
-   1. Identifiera resurs-ID för det virtuella nätverket och Lägg till i `/subnets/<subnetname>` slutet av det för att skapa ett under näts resurs-ID. Ett exempel:
+   1. Identifiera resurs-ID för det virtuella nätverket och Lägg till i `/subnets/<subnetname>` slutet av det för att skapa ett under näts resurs-ID. Exempel:
       - Ditt virtuella nätverks resurs-ID är:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - Under nätets namn är:`default`
       - Därför är ditt under näts resurs-ID:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

@@ -4,7 +4,6 @@ description: Lär dig hur du kan migrera din SQL Server virtuella dator från en
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4211909a577adf7c16a99610654907ce58908fdf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bc65e34fa16312b54fc8a346c561ab128424ab26
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337775"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668925"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Flytta en SQL Server VM till en annan region inom Azure med Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +73,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
 
 Följande steg visar hur du använder Azure Site Recovery för att kopiera data till mål regionen. Skapa Recovery Services-valvet i någon annan region än käll regionen. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 1. Välj att **skapa en resurs** i det övre vänstra hörnet i navigerings fönstret. 
 1. Välj **den & hanterings verktyg** och välj sedan **säkerhets kopiering och Site Recovery**. 
 1. På fliken **grundläggande** , under **projekt information**, skapar du antingen en ny resurs grupp i mål regionen eller väljer en befintlig resurs grupp i mål regionen. 

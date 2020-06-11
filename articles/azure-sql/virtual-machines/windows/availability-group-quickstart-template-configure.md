@@ -4,7 +4,6 @@ description: Använd Azures snabb starts mallar för att skapa Windows-redundans
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8476029fb189db846eca3eba31fe8cc62d3726f8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219463"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669249"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +35,7 @@ I den här artikeln beskrivs hur du använder Azures snabb starts mallar för at
 Andra delar av tillgänglighets grupps konfigurationen måste utföras manuellt, till exempel skapa tillgänglighets gruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller en sekvens med automatiserade och manuella steg.
  
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Om du vill automatisera installationen av en tillgänglighets grupp som alltid är tillgänglig med hjälp av snabb starts mallar måste du ha följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
@@ -104,7 +103,7 @@ Du behöver bara skapa den interna belastningsutjämnaren. I steg 4 hanterar sna
 4. På bladet **Load Balancer** väljer du **skapa**.
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ange ett text namn som representerar belastningsutjämnaren. Skriv till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |

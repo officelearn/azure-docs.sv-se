@@ -8,18 +8,19 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: c2e625a1e6f640e8c554e793abea553d75934f62
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 35d83d11d631d94cad4781c69d985a73c70dde99
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418236"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677975"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
@@ -28,7 +29,7 @@ ms.locfileid: "84418236"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett Sync-API till en maven-artefakt. V4 SDK ger förbättrade prestanda, nya API-funktioner och asynkront stöd baserat på projekt reaktor och det [Netta biblioteket](https://netty.io/). Användare kan förväntas förbättra prestanda med Azure Cosmos DB Java SDK v4 jämfört med [Azure Cosmos DB asynkron Java SDK v2](sql-api-sdk-async-java.md) och [Azure Cosmos DB Sync Java SDK v2](sql-api-sdk-java.md).
@@ -47,7 +48,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 | |  |
 |---|---|
 | **SDK-hämtning** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**API-dokumentation** | [Referens dokumentation för Java API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1-beta.3/index.html) |
+|**API-dokumentation** | [Referens dokumentation för Java API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html) |
 |**Bidra till SDK** | [Azure SDK för Java Central lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
 |**Kom igång** | [Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) · [GitHub lagrings platsen med snabb starts kod](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Grundläggande kod exempel** | [Azure Cosmos DB: Java-exempel för SQL-API](sql-api-java-sdk-samples.md) · [GitHub lagrings platsen med exempel kod](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|

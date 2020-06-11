@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260198"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668295"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella POP IP-listan för Azure CDN
 
@@ -39,7 +39,7 @@ Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azu
 * Azure CDN från Microsofts IPv4-backend-IP-utrymme: 147.243.0.0/16
 * Azure CDN från Microsofts IPv6-backend-IP-utrymme: 2a01:111:2050::/44
 
-IP-adressintervall och service märken för Microsoft-tjänster hittar du [här](https://www.microsoft.com/download/details.aspx?id=56519)
+Om du vill använda service märken med Azure CDN från Microsoft använder du taggen för Azures frontend-dörr. IP-adressintervall och service märken för Microsoft-tjänster hittar du [här](https://www.microsoft.com/download/details.aspx?id=56519)
 
 
 ## <a name="typical-use-case"></a>Vanligt användningsfall

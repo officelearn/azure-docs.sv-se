@@ -4,19 +4,19 @@ description: Lista över tjänster som stöder hanterade identiteter för Azure-
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 604e26a9af2377804135ef9cfac4c30b1335e3c9
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 66f3e8b07ecb3bceb2f147aa27b1fb1ad585be91
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635789"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673689"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -95,6 +95,12 @@ I följande lista kan du konfigurera hanterad identitet för Azure Container Reg
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### <a name="azure-data-explorer"></a>Azure-datautforskaren
+
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgänglig | ![Tillgänglig][check] |
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -241,7 +247,14 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 - [REST](qs-configure-rest-vm.md)
 
 
+### <a name="azure-vm-image-builder"></a>Image Builder för Azure VM
 
+| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | 
+| Tilldelad användare | [Tillgängligt i regioner som stöds](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
+
+Information om hur du konfigurerar hanterad identitet för Azure VM Image Builder (i regioner där tillgänglig) finns i [Översikt över Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
 

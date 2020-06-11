@@ -4,21 +4,21 @@ description: Visa underhålls meddelanden för virtuella datorer som körs i Azu
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916090"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677941"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Hantera planerat underhåll med PowerShell
 
 **Den här artikeln gäller för virtuella datorer som kör både Linux och Windows.**
 
-Du kan använda Azure PowerShell för att se när virtuella datorer är schemalagda för [Underhåll](maintenance-notifications.md). Information om planerat underhåll är tillgänglig från cmdleten [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) när du använder `-status` -parametern.
+Du kan använda Azure PowerShell för att se när virtuella datorer är schemalagda för [Underhåll](maintenance-notifications.md). Information om planerat underhåll är tillgänglig från cmdleten [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) när du använder- `-status` parametern.
   
 Underhålls information returneras endast om underhållet är planerat. Om inget underhåll har schemalagts som påverkar den virtuella datorn returnerar cmdleten ingen underhålls information. 
 

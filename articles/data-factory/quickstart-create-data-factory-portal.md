@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248540"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655777"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
@@ -42,8 +42,6 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure Portal](https://portal.azure.com). 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.
-   
-   ![Välj Skapa en resurs från Azure Portal-menyn](./media/doc-common-process/create-a-resource.png)
 1. Välj **analys**och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 I den här proceduren skapar du en länkad tjänst för att länka ditt Azure Storage-konto till data fabriken. Den länkade tjänsten har anslutningsinformationen som Data Factory-tjänsten använder vid körning för att ansluta till den.
 
-1. Välj **anslutningar**och välj sedan knappen **nytt** i verktygsfältet (**anslutningar** -knappen finns längst ned i den vänstra kolumnen under **fabriks resurser**). 
+1. Öppna [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i det vänstra fönstret.
 
+1. På sidan länkade tjänster väljer du **+ ny** för att skapa en ny länkad tjänst.
+
+   ![Ny länkad tjänst](./media/doc-common-process/new-linked-service.png)
+   
 1. På sidan **New Linked Service** (Ny länkad tjänst) väljer du **Azure Blob Storage** och klickar på **Fortsätt**. 
 
 1. Utför följande steg på sidan ny länkad tjänst (Azure Blob Storage): 
@@ -123,7 +125,7 @@ I de länkade tjänst inställningarna angav du det Azure Storage konto som inne
 
     c. För **Filsökväg** väljer du knappen **Bläddra**.
 
-    d. I fönstret **Välj en fil eller mapp** bläddrar du till mappen **indata** i behållaren **adftutorial** , väljer filen **EMP. txt** och väljer sedan **OK**.
+    d. I fönstret **Välj en fil eller mapp** bläddrar du till mappen **indata** i behållaren **adftutorial** , väljer filen **emp.txt** och väljer sedan **OK**.
     
     e. Välj **OK**.   
 

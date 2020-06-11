@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccb5543fbeae4d4fe9c0104d873cd9776ea45a5a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681408"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672960"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst
 
@@ -37,7 +37,7 @@ En lista över tillgängliga klient program finns i [krav på skydds princip fö
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: Office 365-appar kräver godkända appar med skydds principer för appar
 
-I det här scenariot har contoso beslutat att all mobil åtkomst till Office 365-resurser måste använda godkända klient program, t. ex. Outlook Mobile, OneDrive och Microsoft Teams som skyddas av en skydds princip för appar innan du får åtkomst. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
+I det här scenariot har contoso beslutat att all mobil åtkomst till Office 365-resurser måste använda godkända klient program, t. ex. Outlook Mobile och OneDrive, som skyddas av en skydds princip för appar innan åtkomsten tas emot. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
 
 Organisationer måste utföra följande steg för att kräva att ett godkänt klient program används på mobila enheter.
 
@@ -49,7 +49,7 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
@@ -73,7 +73,7 @@ Konfigurera följande komponenter för principen för villkorlig åtkomst i det 
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
 1. Under **villkor**:
    1. **Klient program (för hands version)**:
@@ -101,7 +101,7 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
@@ -134,7 +134,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online** och **Office 365 SharePoint Online**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
@@ -156,7 +156,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
 1. Under **villkor**:
    1. **Klient program (för hands version)**:
@@ -172,7 +172,7 @@ Läs artikeln [så här skapar och tilldelar du skydds principer för appar](/in
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är villkorsstyrd åtkomst?](overview.md)
+[Vad är villkorlig åtkomst?](overview.md)
 
 [Komponenter för villkorlig åtkomst](concept-conditional-access-policies.md)
 

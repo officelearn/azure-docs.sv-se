@@ -3,12 +3,12 @@ title: MABS (Azure Backup Server) v3 UR1-skydds mat ris
 description: Den här artikeln innehåller en support mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup Server skyddar.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3489b88730b17090c207124d41132263a1c14ff
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f950c7be28a4ff0dd0caa12d1327c2a0e2ac4fc5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629108"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677329"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS (Azure Backup Server) v3 UR1-skydds mat ris
 
@@ -39,7 +39,7 @@ I följande avsnitt beskrivs matrisen för skydds support för MABS:
 | Klient datorer (64-bitars) | Windows 10                                                  | Fysisk server  <br><br>    Virtuell Hyper-V-dator   <br><br>   Virtuell VMware-dator | V3-UR1                            | Volym, dela, mapp, filer, deduplicerade volymer   <br><br>   Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.  <br><br>    Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB. |
 | Servrar (64-bitars)          | Windows Server 2019, 2016, 2012 R2, 2012                    | Virtuell Azure-dator (när arbets belastningen körs som virtuell Azure-dator)  <br><br>    Fysisk server  <br><br>    Virtuell Hyper-V-dator <br><br>     Virtuell VMware-dator  <br><br>    Azure Stack | V3-UR1                            | Volym, dela, mapp, fil, deduplicerade volymer (NTFS och ReFS)  <br><br>   System tillstånd och Bare Metal (stöds inte när arbets belastningen körs som virtuell Azure-dator) |
 | Servrar (64-bitars)          | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (du måste installera [Windows Management ram 4,0](https://www.microsoft.com/download/details.aspx?id=40855)) | Fysisk server  <br><br>    Virtuell Hyper-V-dator  <br><br>      Virtuell VMware-dator  <br><br>   Azure Stack | V3-UR1                            | Volym, resurs, mapp, fil, system tillstånd/Bare Metal        |
-| SQL Server                | SQL Server 2019, 2017, 2016 och [stöd för SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 och stödda [SPS](hhttps://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Fysisk server  <br><br>     Virtuell Hyper-V-dator   <br><br>     Virtuell VMware-dator  <br><br>   Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)  <br><br>     Azure Stack | V3-UR1                            | Alla distributions scenarier: databas       <br><br>  MABS v3-UR1 har stöd för säkerhets kopiering av SQL-databaser över ReFS-volymer                  |
+| SQL Server                | SQL Server 2019, 2017, 2016 och [stöd för SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 och stödda [SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Fysisk server  <br><br>     Virtuell Hyper-V-dator   <br><br>     Virtuell VMware-dator  <br><br>   Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)  <br><br>     Azure Stack | V3-UR1                            | Alla distributions scenarier: databas       <br><br>  MABS v3-UR1 har stöd för säkerhets kopiering av SQL-databaser över ReFS-volymer                  |
 | Exchange                   | Exchange 2019, 2016                                         | Fysisk server   <br><br>   Virtuell Hyper-V-dator  <br><br>      Virtuell VMware-dator  <br><br>   Azure Stack  <br><br>    Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator) | V3-UR1                            | Skydda (alla distributions scenarier): fristående Exchange-Server, databas under en databas tillgänglighets grupp (DAG)  <br><br>    Återställa (alla distributionsscenarier): Postlåda, postlådedatabaser under en grupp för databastillgänglighet    <br><br>  Säkerhets kopiering av Exchange över ReFS stöds med MABS v3 UR1 |
 | SharePoint                 | SharePoint 2019, 2016 med senaste SPs                       | Fysisk server  <br><br>    Virtuell Hyper-V-dator <br><br>    Virtuell VMware-dator  <br><br>   Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)   <br><br>   Azure Stack | V3-UR1                            | Skydda (alla distributions scenarier): Server grupp, webb server innehåll för klient del  <br><br>    Återställ (alla distributions scenarier): Server grupp, databas, webb program, fil eller List objekt, SharePoint-sökning, webb server för klient del  <br><br>    Det finns inte stöd för att skydda en SharePoint-grupp som använder AlwaysOn-funktionen SQL Server 2012 för innehålls databaserna. |
 

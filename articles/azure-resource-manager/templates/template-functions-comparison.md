@@ -3,12 +3,12 @@ title: Mall-funktioner – jämförelse
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203785"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677839"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
 
@@ -29,10 +29,10 @@ Returnerar det första värdet som inte är null från parametrarna. Tomma strä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
-| ytterligare argument |Nej |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
+| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
+| ytterligare argument |No |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -44,7 +44,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -104,16 +104,16 @@ Kontrollerar om två värden är lika med varandra.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
-| arg2 |Ja |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
+| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
+| arg2 |Yes |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
 
 ### <a name="return-value"></a>Returvärde
 
 Returnerar **Sant** om värdena är lika. annars **false**.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Funktionen Equals används ofta tillsammans med `condition` elementet för att testa om en resurs har distribuerats.
 
@@ -138,7 +138,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -210,7 +210,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -237,10 +237,10 @@ Kontrollerar om det första värdet är större än det andra värdet.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för större jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för större jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för större jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för större jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -252,7 +252,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -302,10 +302,10 @@ Kontrollerar om det första värdet är större än eller lika med det andra vä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för större eller lika jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för större eller lika jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för större eller lika jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för större eller lika jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -317,7 +317,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -367,10 +367,10 @@ Kontrollerar om det första värdet är mindre än det andra värdet.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för mindre jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för mindre jämförelse. |
+| arg1 |Yes |int eller string |Det första värdet för mindre jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för mindre jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -382,7 +382,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -432,10 +432,10 @@ Kontrollerar om det första värdet är mindre än eller lika med det andra vär
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int eller string |Det första värdet för mindre eller lika med jämförelse. |
-| arg2 |Ja |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
+| arg1 |Yes |int eller string |Det första värdet för mindre eller lika med jämförelse. |
+| arg2 |Yes |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -447,7 +447,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {

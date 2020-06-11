@@ -1,24 +1,24 @@
 ---
 title: M-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i M-serien.
-services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 4050a74dfef1fb31939ba716cfbaf78577f1aaef
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744688"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675952"
 ---
 # <a name="m-series"></a>M-serien
 
-M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storleken på M-serien stöds både på&reg; Intel Xeon&reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; platina-8280M (överlappande sjö).
+M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storleken på M-serien stöds både på Intel &reg; Xeon &reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel &reg; Xeon &reg; platina-8280M (överlappande sjö).
 
-Virtuella datorer i M-serien har&reg; Intel Hyper-Threading-teknik.
+Virtuella datorer i M-serien har Intel &reg; Hyper-Threading-teknik.
 
 ACU: 160–180
 

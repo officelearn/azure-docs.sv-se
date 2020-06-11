@@ -2,21 +2,21 @@
 title: 'Pausa, återuppta och skala med REST API: er'
 description: 'Hantera beräknings kraften i Azure Synapse Analytics-datalagret via REST-API: er.'
 services: synapse-analytics
-author: kevinvngo
+author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
 ms.date: 03/29/2019
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 65161915a63b58ad75ff2c01c16c95dec1aad2ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b71daf66eea924107af8b052967e807fabfb8edf
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652615"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669995"
 ---
 # <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>REST API: er för Azure Synapse Analytics data Warehouse
 

@@ -4,7 +4,6 @@ description: I den här artikeln beskrivs automatiserad uppdaterings funktion f�
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3a255b87724bb0c2f86743a5efc3613aba765c78
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a63b7af1cf29f120f41bd03ed51b5114fa85fa02
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219631"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669434"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Automatiserad uppdatering för SQL Server på Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +35,7 @@ Automatiserad uppdatering upprättar en underhålls period för en virtuell Azur
 
 Automatiserad uppdatering beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Operativ system**:
@@ -68,7 +67,7 @@ Om du vill använda automatisk uppdatering bör du tänka på följande:
 ## <a name="settings"></a>Inställningar
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk uppdatering. De faktiska konfigurations stegen varierar beroende på om du använder Azure Portal-eller Azure Windows PowerShell-kommandon.
 
-| Inställning | Möjliga värden | Description |
+| Inställningen | Möjliga värden | Description |
 | --- | --- | --- |
 | **Automatisk korrigering** |Aktivera/inaktivera (inaktive rad) |Aktiverar eller inaktiverar automatisk uppdatering för en virtuell Azure-dator. |
 | **Underhållsschema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schemat för att ladda ned och installera Windows-, SQL Server-och Microsoft-uppdateringar för den virtuella datorn. |

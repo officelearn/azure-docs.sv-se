@@ -4,7 +4,6 @@ description: Den här självstudien visar hur du konfigurerar förutsättningarn
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 229a402413f48a28faf11f57c2abd0aa478f3564
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657054"
+ms.locfileid: "84669366"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
 

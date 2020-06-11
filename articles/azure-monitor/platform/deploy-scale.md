@@ -4,12 +4,12 @@ description: Distribuera Azure Monitor funktioner i skala med Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5da174b374265126df2113f5ccf41397745d39d6
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632250"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678706"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuera Azure Monitor i skala med Azure Policy
 Vissa Azure Monitor funktioner konfigureras en gång eller ett begränsat antal gånger, men andra måste upprepas för varje resurs som du vill övervaka. I den här artikeln beskrivs metoder för att använda Azure Policy för att implementera Azure Monitor i skala för att säkerställa att övervakningen är konsekvent och korrekt konfigurerad för alla dina Azure-resurser.
@@ -24,7 +24,7 @@ Med Azure Policy kan du ange konfigurations krav för alla resurser som skapas o
 
 Azure Policy består av objekten i följande tabell. Se [Azure policy objekt](../../governance/policy/overview.md#azure-policy-objects) för en mer detaljerad förklaring av varje.
 
-| Objekt | Beskrivning |
+| Objekt | Description |
 |:---|:---|
 | Definition av princip | Beskriver villkoren för resurs efterlevnad och den påverkan som ska vidtas om ett villkor är uppfyllt. Detta kan vara alla resurser av en viss typ eller endast resurser som matchar vissa egenskaper. Detta kan vara att helt enkelt flagga resursen för efterlevnad eller distribuera en relaterad resurs. Princip definitioner skrivs med JSON enligt beskrivningen i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md). Effekter beskrivs i [förstå Azure policys effekter](../../governance/policy/concepts/effects.md).
 | Princip initiativ | En grupp princip definitioner som ska appliceras tillsammans. Du kan till exempel ha en princip definition för att skicka resurs loggar till en Log Analytics-arbetsyta och en annan för att skicka resurs loggar till Event Hub. Skapa ett initiativ som innehåller båda princip definitionerna och tillämpa initiativet på resurser i stället för de enskilda princip definitionerna. Initiativ skrivs med JSON enligt beskrivningen i [Azure policy initiativets struktur](../../governance/policy/concepts/initiative-definition-structure.md). |
@@ -79,7 +79,7 @@ Skriptet [create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. Skriptet skapar separata mappar för varje princip definition som innehåller tre filer med namnet azurepolicy, JSON, azurepolicy. rules. JSON, azurepolicy. Parameters. JSON. Om du vill skapa principen manuellt i Azure Portal kan du kopiera och klistra in innehållet i azurepolicy. JSON eftersom det innehåller hela princip definitionen. Använd de andra två filerna med PowerShell eller CLI för att skapa princip definitionen från en kommando rad.
+5. Skriptet skapar separata mappar för varje princip definition, där varje innehåller tre filer med namnet azurepolicy, JSON, azurepolicy.rules.jspå azurepolicy.parameters.jspå. Om du vill skapa principen manuellt i Azure Portal kan du kopiera och klistra in innehållet i azurepolicy.jspå eftersom det innehåller hela princip definitionen. Använd de andra två filerna med PowerShell eller CLI för att skapa princip definitionen från en kommando rad.
 
     I följande exempel visas hur du installerar princip definitionen från både PowerShell och CLI. Varje inkluderar metadata för att ange en kategori för **övervakning** för att gruppera den nya princip definitionen med de inbyggda princip definitionerna.
 
@@ -135,4 +135,3 @@ Mer information om den här processen finns i [aktivera Azure Monitor for VMS me
 
 - Läs mer om [Azure policy](../../governance/policy/overview.md).
 - Läs mer om [diagnostikinställningar](diagnostic-settings.md).
-- Se [Northstar Spelbok-lagringsplatsen](https://github.com/Azure/CET-NorthStar) som innehåller rikt linjer för arkitektur och implementering för storskaliga Enterprise Azure-antaganden.

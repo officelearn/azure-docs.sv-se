@@ -2,13 +2,13 @@
 title: Borttagning av distributionshistorik
 description: Beskriver hur Azure Resource Manager automatiskt tar bort distributioner från distributions historiken. Distributioner tas bort när historiken är nära att överskrida gränsen på 800.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 2d87cc1dcc0d3a41cb32bf7750ccdd832019f8bf
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/10/2020
+ms.openlocfilehash: c16b71646e20b71c0d0ca8c9f8e028773983022f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462744"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673997"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatisk borttagning från distributions historik
 
@@ -18,10 +18,12 @@ Från och med juni 2020 tar Azure Resource Manager automatiskt bort distribution
 
 > [!NOTE]
 > Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
+>
+> Om du har ett [CanNotDelete-lås](../management/lock-resources.md) på en resurs grupp går det inte att ta bort distributionerna för resurs gruppen. Du måste ta bort låset för att kunna dra nytta av automatiska borttagningar i distributions historiken.
 
 ## <a name="when-deployments-are-deleted"></a>När distributioner tas bort
 
-Distributioner tas bara bort från distributions historiken när du närmar dig gränsen på 800. Azure Resource Manager tar bort en liten uppsättning av de äldsta distributionerna för att rensa utrymme för framtida distributioner. Merparten av historiken ändras inte. De äldsta distributionerna tas alltid bort först.
+Distributioner tas bort från distributions historiken när du når 790-distributioner. Azure Resource Manager tar bort en liten uppsättning av de äldsta distributionerna för att rensa utrymme för framtida distributioner. Merparten av historiken ändras inte. De äldsta distributionerna tas alltid bort först.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Borttagningar från distributions historik":::
 

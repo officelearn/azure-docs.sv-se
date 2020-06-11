@@ -4,7 +4,6 @@ description: I den här artikeln förklaras funktionen för automatisk säkerhet
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 13cafdcd7ac4b7f46bd5f7c3b007372228234ba6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 08ede149c24d8ba4921c0e0b75f5e6eff3f2250f
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267808"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669417"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,7 +59,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 ### <a name="basic-settings"></a>Grundläggande inställningar
 
-| Inställning | Intervall (standard) | Beskrivning |
+| Inställningen | Intervall (standard) | Description |
 | --- | --- | --- |
 | **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar automatisk säkerhets kopiering för en virtuell Azure-dator som kör SQL Server 2016/2017 Developer, standard eller Enterprise. |
 | **Kvarhållningsperiod** | 1-30 dagar (30 dagar) | Antalet dagar att behålla säkerhets kopior. |
@@ -70,7 +69,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
-| Inställning | Intervall (standard) | Beskrivning |
+| Inställningen | Intervall (standard) | Description |
 | --- | --- | --- |
 | **Säkerhets kopior av system databasen** | Aktivera/inaktivera (inaktive rad) | När den här funktionen är aktive rad säkerhets kopie ras även system databaser: Master, MSDB och Model. För MSDB-och modell databaserna kontrollerar du att de är i fullständigt återställnings läge om du vill att logg säkerhets kopior ska vidtas. Logg säkerhets kopior tas aldrig för huvud. Och inga säkerhets kopior tas för TempDB. |
 | **Schema för säkerhets kopiering** | Manuellt/automatiserat (automatiserat) | Som standard bestäms schemat för säkerhets kopiering automatiskt utifrån logg tillväxten. Schema för manuell säkerhets kopiering gör att användaren kan ange tids perioden för säkerhets kopieringar. I det här fallet sker säkerhets kopieringar endast med den angivna frekvensen och under den angivna tids perioden för en given dag. |

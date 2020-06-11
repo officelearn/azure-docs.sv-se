@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b95112146c0003f3fc5ea563e5561dc26ea064e8
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: bfe61c7e461d6598277aa9b38eafc16194b08bf1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800734"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672127"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -41,9 +41,10 @@ Om du har vissa frågor ska vi peka dig på vissa dokument eller flöden i det h
 
 - Det finns stöd för de virtuella Azure-datorer och HANA-instanser som stöds för vilka SAP-program versioner och vilka operativ system versioner som används. Läs dokumentet [vilka SAP-program som stöds för Azure-distribution](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) för svar och processen för att hitta informationen
 - Vilka SAP-distributions scenarier som stöds med virtuella Azure-datorer och HANA-stora instanser. Information om de scenarier som stöds finns i dokumenten:
-    - [SAP-arbetsbelastningar i scenarier med virtuella Azure-datorer som stöds](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+    - [SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [Scenarier som stöds för HANA stor instans](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
 - Vilka Azure-tjänster, Azure VM-typer och Azure Storage-tjänster är tillgängliga i olika Azure-regioner, kontrollerar du de plats [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) 
+- Fungerar tredje part HA-ramen, förutom Windows och pacemaker som stöds? Kontrol lera den nedre delen av [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA på Azure (stora instanser)
@@ -111,6 +112,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 06/10/2020: lägga till nya HLI SKU: er i [tillgängliga SKU: er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) och [SAP HANA (stora instanser) lagrings arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture)
 - 05/21/2020: ändra i [ställa in pacemaker på SLES i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) och konfigurera [pacemaker på RHEL i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att lägga till en länk till en [offentlig slut punkts anslutning för virtuella datorer med Azure standard ILB i SAP ha-scenarier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Lägg till viktigt meddelande för att inte använda rot volym gruppen när du använder LVM för HANA-relaterade volymer i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 05/19/2020: Lägg till ett nytt operativ system som stöds för HANA stor instans typ II i [kompatibla operativ system för HANA stora instanser] (https://docs.microsoft.com/
@@ -161,13 +163,13 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 02/11/2020: version av [SAP HANA om migrering av stora Azure-instanser till azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: ändring i [offentlig slut punkts anslutning för virtuella datorer med Azure standard ILB i SAP ha-scenarier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) för att uppdatera exempel NSG skärm bild
 - 02/03/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) och [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) för att ta bort varningen om att använda bindestreck i värdnamn för klusternoder på SLES
-- 01/28/2020: ändring i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) för att justera SAP HANA kluster resursernas timeout till rekommendationerna för Red Hat-timeout
-- 01/17/2020: ändringar i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att ändra avsnittet om att flytta befintliga virtuella datorer till en närhets placerings grupp
-- 01/17/2020: ändra i [SAP-arbetsbelastnings konfigurationer med Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) för att peka på den procedur som automatiserar mätningar av svars tider mellan Tillgänglighetszoner
-- 01/16/2020: ändra i [så här installerar och konfigurerar du SAP HANA (stora instanser) på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) för att anpassa OS-versioner till Hana IaaS Hardware Directory
-- 01/16/2020: ändringar i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES med multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) för att lägga till instruktioner för SAP-system med hjälp av ENSA2 (Queue server 2 Architecture)
-- 01/10/2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) och i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) för att lägga till instruktioner om hur du gör `nfs4_disable_idmapping` ändringar permanent.
-- 01/10/2020: ändringar i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) och i [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) för att lägga till instruktioner för hur du monterar Azure NetApp Files NFSv4-volymer.
+- 28 januari 2020: ändring i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) för att justera SAP HANA kluster resursernas timeout till rekommendationerna för Red Hat-timeout
+- 17 januari 2020: ändring i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att ändra avsnittet om att flytta befintliga virtuella datorer till en närhets placerings grupp
+- 17 januari 2020: ändring i [SAP-arbetsbelastningar med Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) för att peka på en procedur som automatiserar mätningar av svars tider mellan Tillgänglighetszoner
+- 16 januari 2020: ändra i [så här installerar och konfigurerar du SAP HANA (stora instanser) på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) för att anpassa OS-versioner till Hana IaaS Hardware Directory
+- 16 januari 2020: ändringar i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES med multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) för att lägga till instruktioner för SAP-system med hjälp av ENSA2 (Server Queue server 2 Architecture)
+- 10 januari 2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) och i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) för att lägga till instruktioner om hur du gör `nfs4_disable_idmapping` ändringar permanent.
+- 10 januari 2020: ändringar i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) och i [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) för att lägga till instruktioner för hur du monterar Azure NetApp Files NFSv4-volymer.
 - 23 december 2019: version av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 - 18 december 2019: lansering av [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 - 21 november 2019: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) för att förenkla konfigurationen för NFS-ID-mappning och ändra det rekommenderade primära nätverks gränssnittet för att förenkla routning.

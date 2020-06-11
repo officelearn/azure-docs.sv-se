@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38187bef1d9c73b20c3b1930f97e7dae2468c889
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760257"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673453"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -65,7 +65,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för di
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades `Non-authoritative answer`i. Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
 
 Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
@@ -123,25 +123,18 @@ Det är viktigt att Observera att dessa inte är nya avgifter, d.v.s. de fanns i
 
 En lista över Service Bus gränser och kvoter finns i [Översikt över Service Bus kvoter][Quotas overview].
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>Har Service Bus några användnings kvoter?
-För alla moln tjänster anger Microsoft som standard en sammanställd kvot för månatlig användning som beräknas för alla kund prenumerationer. Om du behöver mer än dessa gränser kan du när som helst kontakta kund tjänst för att förstå dina behov och justera de här gränserna på lämpligt sätt. För Service Bus är den aggregerade användnings kvoten 5 000 000 000 meddelanden per månad.
-
-Medan Microsoft förbehåller sig rätten att inaktivera ett kund konto som har överskridit användnings kvoterna under en månad skickas e-postaviseringar och flera försök görs att kontakta kunden innan du vidtar åtgärder. Kunder som överskrider dessa kvoter ansvarar fortfarande för avgifter som överstiger kvoterna.
-
-Precis som med andra tjänster på Azure tillämpar Service Bus en uppsättning olika kvoter för att säkerställa att resurserna är rättvist. Du hittar mer information om kvoterna i [Översikt över Service Bus kvoter][Quotas overview].
-
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Hur hanterar du meddelanden med storlek > 1 MB?
 Service Bus meddelande tjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med upp till 256 KB (standard nivå) eller 1 MB (Premium-nivå). Om du hanterar meddelanden med en storlek som är större än 1 MB använder du det kontroll mönster för anspråk som beskrivs i [det här blogg inlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
-När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists`. 
+När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists` . 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Vad är några av undantagen som genereras av Azure Service Bus API: er och deras föreslagna åtgärder?
 En lista över möjliga Service Bus undantag finns i [Översikt över undantag][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk som stöder generering av en signatur?
-Signaturer för delad åtkomst är en autentiseringsmekanism som baseras på SHA-256-säkra hash-värden eller URI: er. Information om hur du skapar egna signaturer i Node. js, PHP, Java, python och C# finns i artikeln om signaturer för [delad åtkomst][Shared Access Signatures] .
+Signaturer för delad åtkomst är en autentiseringsmekanism som baseras på SHA-256-säkra hash-värden eller URI: er. Information om hur du genererar egna signaturer i Node.js, PHP, Java, python och C# finns i artikeln [signaturer för delad åtkomst][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Hantering av prenumerationer och namn område
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur gör jag för att migrera ett namn område till en annan Azure-prenumeration?
@@ -173,7 +166,7 @@ Mer information om Service Bus finns i följande artiklar:
 * [Vi presenterar Azure Service Bus Premium (blogg inlägg)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Vi presenterar Azure Service Bus Premium (channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Översikt över Service Bus](service-bus-messaging-overview.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md

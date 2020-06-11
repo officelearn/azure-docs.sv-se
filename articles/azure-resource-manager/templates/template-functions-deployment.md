@@ -3,12 +3,12 @@ title: Mall funktioner – distribution
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203802"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677822"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Distributions funktioner för ARM-mallar
 
@@ -103,17 +103,17 @@ När du distribuerar till en Azure-prenumeration, hanterings grupp eller klient,
 }
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du kan använda Deployment () för att länka till en annan mall baserat på den överordnade mallens URI.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
-Om du distribuerar om en mall från distributions historiken i portalen distribueras mallen som en lokal fil. `templateLink` Egenskapen returneras inte i distributions funktionen. Om mallen är beroende av `templateLink` att skapa en länk till en annan mall ska du inte använda portalen för att distribuera om den. Använd i stället de kommandon som du använde för att distribuera mallen från början.
+Om du distribuerar om en mall från distributions historiken i portalen distribueras mallen som en lokal fil. `templateLink`Egenskapen returneras inte i distributions funktionen. Om mallen är beroende av `templateLink` att skapa en länk till en annan mall ska du inte använda portalen för att distribuera om den. Använd i stället de kommandon som du använde för att distribuera mallen från början.
 
 ### <a name="example"></a>Exempel
 
@@ -121,7 +121,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -140,7 +140,7 @@ Föregående exempel returnerar följande objekt:
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
@@ -264,20 +264,20 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Yes |sträng |Namnet på den parameter som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
 Värdet för den angivna parametern.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Normalt använder du parametrar för att ange resurs värden. I följande exempel anges namnet på webbplatsen till det parameter värde som överfördes under distributionen.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -298,7 +298,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringParameter": {
@@ -369,15 +369,15 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
+| variableName |Yes |Sträng |Namnet på variabeln som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
 Värdet för den angivna variabeln.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Normalt använder du variabler för att förenkla din mall genom att endast konstruera komplexa värden en gång. I följande exempel skapas ett unikt namn för ett lagrings konto.
 
@@ -407,7 +407,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {

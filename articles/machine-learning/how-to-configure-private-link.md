@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9a5a739ec9a17d37d8bcfd65face91c8223c452c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 49565624cee70e40141ca7e8b57b2c26b950d20b
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432240"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666937"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning arbets yta (förhands granskning)
 
@@ -99,14 +99,13 @@ Mer information finns i [distribuera resurser med Resource Manager-mallar och Az
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Använda en arbets yta över en privat slut punkt
 
-Eftersom kommunikation till arbets ytan endast tillåts från det virtuella nätverket måste alla utvecklings miljöer som använder arbets ytan vara medlemmar i det virtuella nätverket. Till exempel en virtuell dator i det virtuella nätverket eller en dator som är ansluten till det virtuella nätverket med en VPN-gateway.
+Eftersom kommunikation till arbets ytan endast tillåts från det virtuella nätverket måste alla utvecklings miljöer som använder arbets ytan vara medlemmar i det virtuella nätverket. Till exempel en virtuell dator i det virtuella nätverket.
 
 > [!IMPORTANT]
 > För att undvika tillfälligt avbrott i anslutningen rekommenderar Microsoft att tömma DNS-cachen på datorer som ansluter till arbets ytan när du har aktiverat privat länk. 
 
 Information om Azure Virtual Machines finns i Virtual Machines- [dokumentationen](/azure/virtual-machines/).
 
-Information om VPN-gatewayer finns i [Vad är VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="using-azure-storage"></a>Använda Azure Storage
 

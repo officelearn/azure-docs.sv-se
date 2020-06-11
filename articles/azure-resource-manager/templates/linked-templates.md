@@ -3,12 +3,12 @@ title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6594386fd2d8c8ab9d9c1414d7e04f4352a3f086
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609314"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678281"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -69,7 +69,7 @@ I följande exempel distribueras ett lagrings konto via en kapslad mall.
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "resources": [
             {
@@ -96,7 +96,7 @@ I följande exempel distribueras ett lagrings konto via en kapslad mall.
 
 När du använder en kapslad mall kan du ange om mall uttryck ska utvärderas inom omfånget för den överordnade mallen eller den kapslade mallen. Omfånget avgör hur parametrar, variabler och funktioner som [resourceGroup](template-functions-resource.md#resourcegroup) och [prenumerationen](template-functions-resource.md#subscription) löses.
 
-Du ställer in omfånget `expressionEvaluationOptions` via egenskapen. Som standard är `expressionEvaluationOptions` egenskapen inställd på `outer`, vilket innebär att den använder den överordnade mallens omfattning. Ställ in värdet på `inner` för att orsaka att uttryck utvärderas inom omfånget för den kapslade mallen.
+Du ställer in omfånget via `expressionEvaluationOptions` egenskapen. Som standard `expressionEvaluationOptions` är egenskapen inställd på `outer` , vilket innebär att den använder den överordnade mallens omfattning. Ställ in värdet på `inner` för att orsaka att uttryck utvärderas inom omfånget för den kapslade mallen.
 
 ```json
 {
@@ -110,7 +110,7 @@ Du ställer in omfånget `expressionEvaluationOptions` via egenskapen. Som stand
   ...
 ```
 
-Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller en variabel med `exampleVar` namnet som definieras i både den överordnade mallen och den kapslade mallen. Den returnerar variabelns värde.
+Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller en variabel med namnet `exampleVar` som definieras i både den överordnade mallen och den kapslade mallen. Den returnerar variabelns värde.
 
 ```json
 {
@@ -132,7 +132,7 @@ Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller 
         },
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "variables": {
             "exampleVar": "from nested template"
@@ -158,18 +158,18 @@ Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller 
 }
 ```
 
-Värdet för `exampleVar` ändringar beroende på `scope` egenskapens värde i. `expressionEvaluationOptions` I följande tabell visas resultaten för båda omfattningarna.
+Värdet för `exampleVar` ändringar beroende på `scope` egenskapens värde i `expressionEvaluationOptions` . I följande tabell visas resultaten för båda omfattningarna.
 
-| `expressionEvaluationOptions` `scope` | Resultat |
+| `expressionEvaluationOptions` `scope` | Utdata |
 | ----- | ------ |
 | innersta | från kapslad mall |
 | yttre (eller standard) | från överordnad mall |
 
-I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som används för lösen ordet hämtas. Omfånget är inställt på `inner` eftersom det dynamiskt skapar Key Vault- `adminPassword.reference.keyVault` ID: t ( `parameters`se i de yttre mallarna) och skickar det som en parameter till den kapslade mallen.
+I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som används för lösen ordet hämtas. Omfånget är inställt på `inner` eftersom det dynamiskt skapar Key Vault-ID: t (se `adminPassword.reference.keyVault` i de yttre mallarna `parameters` ) och skickar det som en parameter till den kapslade mallen.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -232,7 +232,7 @@ I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som
           }
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -277,7 +277,7 @@ I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som
 
 > [!NOTE]
 >
-> När omfånget är `outer`inställt på, `reference` kan du inte använda funktionen i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Om du vill returnera värdena för en distribuerad resurs i en kapslad mall, `inner` kan du antingen använda omfång eller konvertera den kapslade mallen till en länkad mall.
+> När omfånget är inställt på `outer` , kan du inte använda `reference` funktionen i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Om du vill returnera värdena för en distribuerad resurs i en kapslad mall, kan du antingen använda `inner` omfång eller konvertera den kapslade mallen till en länkad mall.
 
 ## <a name="linked-template"></a>Länkad mall
 
@@ -308,11 +308,11 @@ Om du vill länka en mall lägger du till en [distributions resurs](/azure/templ
 }
 ```
 
-När du refererar till en länkad mall `uri` får värdet inte vara en lokal fil eller en fil som bara är tillgänglig i det lokala nätverket. Du måste ange ett URI-värde som kan hämtas som **http** eller **https**. 
+När du refererar till en länkad mall får värdet `uri` inte vara en lokal fil eller en fil som bara är tillgänglig i det lokala nätverket. Du måste ange ett URI-värde som kan hämtas som **http** eller **https**.
 
 > [!NOTE]
 >
-> Du kan referera till mallar med parametrar som i slut ända till något som använder **http** eller **https**, till exempel med `_artifactsLocation` hjälp av parametern som så här:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> Du kan referera till mallar med parametrar som i slut ända till något som använder **http** eller **https**, till exempel med hjälp av `_artifactsLocation` parametern som så här:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 
 
@@ -369,7 +369,7 @@ Du kan inte använda både infogade parametrar och en länk till en parameter fi
 
 ## <a name="contentversion"></a>contentVersion
 
-Du behöver inte ange `contentVersion` egenskapen för egenskapen `templateLink` eller. `parametersLink` Om du inte anger någon `contentVersion`, distribueras den aktuella versionen av mallen. Om du anger ett värde för innehålls version måste det matcha versionen i den länkade mallen. annars Miss lyckas distributionen med ett fel.
+Du behöver inte ange `contentVersion` egenskapen för `templateLink` `parametersLink` egenskapen eller. Om du inte anger någon `contentVersion` , distribueras den aktuella versionen av mallen. Om du anger ett värde för innehålls version måste det matcha versionen i den länkade mallen. annars Miss lyckas distributionen med ett fel.
 
 ## <a name="using-variables-to-link-templates"></a>Använda variabler för att länka mallar
 
@@ -425,7 +425,7 @@ I följande exempel mall visas hur du använder kopiera med en kapslad mall.
     "scope": "inner"
     },
     "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
       {
@@ -453,7 +453,7 @@ I följande exempel mall visas hur du använder kopiera med en kapslad mall.
 
 ## <a name="get-values-from-linked-template"></a>Hämta värden från den länkade mallen
 
-Hämta ett utdata-värde från en länkad mall genom att hämta egenskap svärdet med syntax som `"[reference('deploymentName').outputs.propertyName.value]"`:.
+Hämta ett utdata-värde från en länkad mall genom att hämta egenskap svärdet med syntax som: `"[reference('deploymentName').outputs.propertyName.value]"` .
 
 När du hämtar en output-egenskap från en länkad mall får egenskaps namnet inte innehålla något bindestreck.
 
@@ -461,7 +461,7 @@ Följande exempel visar hur du refererar till en länkad mall och hämtar ett ut
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -479,7 +479,7 @@ Huvud mal len distribuerar den länkade mallen och hämtar det returnerade värd
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -512,7 +512,7 @@ I följande exempel visas en mall som distribuerar en offentlig IP-adress och re
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -547,7 +547,7 @@ Om du vill använda den offentliga IP-adressen från föregående mall när du d
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "loadBalancers_name": {
@@ -620,7 +620,7 @@ Du kan använda dessa separata poster i historiken för att hämta värden för 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -658,7 +658,7 @@ Följande mall länkar till föregående mall. Den skapar tre offentliga IP-adre
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   },
@@ -725,7 +725,7 @@ I följande exempel visas hur du skickar en SAS-token vid länkning till en mall
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "containerSasToken": { "type": "securestring" }
@@ -787,7 +787,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 I följande exempel visas vanliga användnings områden för länkade mallar.
 
-|Huvud mal len  |Länkad mall |Beskrivning  |
+|Huvud mal len  |Länkad mall |Description  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från den länkade mallen. |
 |[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adressen från den länkade mallen och anger värdet i belastningsutjämnaren. |

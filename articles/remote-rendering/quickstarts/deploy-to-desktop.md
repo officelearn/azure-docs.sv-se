@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759004"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659921"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Snabb start: Distribuera Unity-exempel till Skriv bordet
 
@@ -46,7 +46,7 @@ Endast flata skrivbordsappar stöds för närvarande på Desktop, så VR-stödet
 ## <a name="build-the-sample-project"></a>Bygg exempelprojektet
 
 1. Öppna *fil > versions inställningar*.
-1. Ändra *plattform* till **universell Windows-plattform** (**fristående dator** stöds också, men används inte här).
+1. Ändra *plattform* till **universell Windows-plattform** (**fristående dator** stöds också, men används inte här, se [plattforms begränsningar](../reference/limits.md#platform-limitations)).
 1. Ställ in *mål enheten* på **datorn**.
 1. Ange *arkitektur* till **x86**.
 1. Ange *build-typ* till **D3D-projekt**.
@@ -60,7 +60,7 @@ Endast flata skrivbordsappar stöds för närvarande på Desktop, så VR-stödet
 1. Bygg lösningen (F7).
 
 > [!WARNING]
-> Se till att välja **x86**. **x64** stöds inte för närvarande, se [plattforms begränsningar](../reference/limits.md#platform-limitations).
+> Se till att välja **x86**. **UWP/x64** stöds inte för närvarande, se [plattforms begränsningar](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Starta exempelprojektet
 

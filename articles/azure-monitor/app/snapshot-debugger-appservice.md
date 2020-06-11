@@ -6,12 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298279"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676858"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Aktivera Snapshot Debugger för .NET-appar i Azure App Service
 
@@ -28,12 +28,12 @@ Om du använder en för hands version av .NET Core följer du anvisningarna för
 
 Application Insights Snapshot Debugger är förinstallerat som en del av App Services runtime, men du måste aktivera det för att skapa ögonblicks bilder för din App Service-app. När du har distribuerat en app, även om du har inkluderat Application Insights SDK i käll koden, följer du stegen nedan för att aktivera fel sökning av ögonblicks bild.
 
-1. Gå till rutan **app Services** i Azure Portal.
-2. Gå till **inställningar > Application Insightss** fönstret.
+1. Navigera till Azures kontroll panel för din App Service.
+2. Gå till sidan **inställningar > Application Insights** .
 
    ![Aktivera App Insights på App Services Portal](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Följ anvisningarna i fönstret för att skapa en ny resurs eller Välj en befintlig App Insights-resurs för att övervaka din app. Se också till att båda växlar för Snapshot Debugger finns **på**.
+3. Följ anvisningarna på sidan för att skapa en ny resurs eller Välj en befintlig App Insights-resurs för att övervaka din app. Se också till att båda växlar för Snapshot Debugger finns **på**.
 
    ![Lägg till App Insights-webbplatsens tillägg][Enablement UI]
 

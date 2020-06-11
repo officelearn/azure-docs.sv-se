@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730174"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674962"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
 
@@ -186,9 +186,9 @@ Brödtext: det här avsnittet är i JSON-format och representerar den dubbla av 
 
 Enhets identiteter visas som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Beskrivning |
+| Egenskap | Alternativ | Description |
 | --- | --- | --- |
-| deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | generationId |krävs, skrivskyddad |En IoT Hub-genererad, SKIFT läges känslig sträng som är upp till 128 tecken lång. Det här värdet används för att särskilja enheter med samma **deviceId**, när de har tagits bort och återskapas. |
 | etag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhets identiteten per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | Factor |valfri |Ett sammansatt objekt som innehåller autentiseringsinformation och säkerhets material. |
@@ -204,16 +204,16 @@ Enhets identiteter visas som JSON-dokument med följande egenskaper:
 > Anslutnings status kan bara representera IoT Hub visning av anslutningens status. Uppdateringar av det här tillståndet kan bli fördröjda, beroende på nätverks förhållanden och konfigurationer.
 
 > [!NOTE]
-> För närvarande har enhets-SDK: erna `+` inte `#` stöd för användning av and-tecknen i **deviceId**.
+> För närvarande har enhets-SDK: erna inte stöd för användning av `+` and- `#` tecknen i **deviceId**.
 
 ## <a name="module-identity-properties"></a>Egenskaper för modulens identitet
 
 Modul identiteter representeras som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Beskrivning |
+| Egenskap | Alternativ | Description |
 | --- | --- | --- |
-| deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
+| moduleId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | generationId |krävs, skrivskyddad |En IoT Hub-genererad, SKIFT läges känslig sträng som är upp till 128 tecken lång. Det här värdet används för att särskilja enheter med samma **deviceId**, när de har tagits bort och återskapas. |
 | etag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhets identiteten per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | Factor |valfri |Ett sammansatt objekt som innehåller autentiseringsinformation och säkerhets material. |
@@ -226,7 +226,7 @@ Modul identiteter representeras som JSON-dokument med följande egenskaper:
 | lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid då enheten anslöt, togs emot eller skickat ett meddelande. |
 
 > [!NOTE]
-> För närvarande har enhets-SDK: erna `+` inte `#` stöd för användning av and-tecknen i **deviceId** -och **moduleId**.
+> För närvarande har enhets-SDK: erna inte stöd för användning av `+` and- `#` tecknen i **DeviceID** -och **moduleId**.
 
 ## <a name="additional-reference-material"></a>Ytterligare referens material
 

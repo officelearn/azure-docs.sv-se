@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 06/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626470"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670176"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Aktivera diagnostikloggar för Azure Event Grid-ämnen eller domäner
 Med diagnostikinställningar kan Event Grid användare fånga och visa **publicerings-och leverans fel** loggar i antingen ett lagrings konto, en händelsehubben eller en Log Analytics arbets yta. Den här artikeln innehåller steg-för-steg-instruktioner för att aktivera de här inställningarna i ett Event Grid ämne.
@@ -25,15 +25,19 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
     - Händelsehubb
     - Log Analytics-arbetsyta
 
-## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Steg för att aktivera diagnostikloggar för ett ämne
+## <a name="enable-diagnostic-logs-for-a-custom-topic"></a>Aktivera diagnostikloggar för ett anpassat ämne
 
 > [!NOTE]
 > Följande procedur innehåller stegvisa instruktioner för hur du aktiverar diagnostikloggar för ett ämne. Steg för att aktivera diagnostikloggar för en domän är mycket likartade. I steg 2 navigerar du till Event Grid- **domänen** i Azure Portal.  
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Navigera till det event Grid-ämne som du vill aktivera diagnostikloggar för. 
-3. Välj **diagnostikinställningar** under **övervakning** i den vänstra menyn.
-4. På sidan **diagnostikinställningar** väljer du **Lägg till ny diagnostisk inställning**. 
+    1. I Sök fältet högst upp söker du efter **Event Grid ämnen**. 
+    
+        ![Sök efter anpassade ämnen](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Välj det **ämne** i listan som du vill konfigurera diagnostikinställningar för. 
+1. Välj **diagnostikinställningar** under **övervakning** i den vänstra menyn.
+1. På sidan **diagnostikinställningar** väljer du **Lägg till ny diagnostisk inställning**. 
     
     ![Knappen Lägg till diagnostisk inställning](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Ange ett **namn** för den diagnostiska inställningen. 
@@ -53,6 +57,38 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
 
      Du kan också aktivera insamling av alla mått för ämnet. 
 
+## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Aktivera diagnostikloggar för ett system ämne
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Navigera till det event Grid-ämne som du vill aktivera diagnostikloggar för. 
+    1. I Sök fältet högst upp söker du efter **Event Grid system ämnen**. 
+    
+        ![Sök efter system avsnitt](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Välj det **system avsnitt** som du vill konfigurera diagnostikinställningar för. 
+    
+        ![Avsnittet Välj system](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Välj **diagnostikinställningar** under **övervakning** i den vänstra menyn och välj sedan **Lägg till diagnostisk inställning**. 
+
+    ![Lägg till diagnostikinställningar – knapp](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Ange ett **namn** för den diagnostiska inställningen. 
+7. Välj **DeliveryFailures** i avsnittet **log** . 
+    ![Välj leverans problem](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Aktivera en eller flera av avbildnings målen för loggarna och konfigurera dem genom att välja en tidigare skapad avbildnings resurs. 
+    - Om du väljer **Skicka till Log Analytics**väljer du arbets ytan Log Analytics.
+        ![Skicka till Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - Om du väljer **Arkiv till ett lagrings konto**väljer du **lagrings konto – Konfigurera**och väljer sedan lagrings kontot i din Azure-prenumeration. 
+
+        ![Arkivera till ett Azure Storage-konto](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - Om du väljer **Stream till en händelsehubben**väljer du **Event Hub – konfigurera**och väljer sedan Event Hubs namnrymd, händelsehubben och åtkomst principen. 
+        ![Strömma till en Event Hub](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Välj **Spara**. Välj sedan **X** i det högra hörnet för att stänga sidan. 
+9. Nu bekräftar du på sidan **diagnostikinställningar** och bekräftar att du ser en ny post i tabellen **diagnostikinställningar** . 
+    ![Diagnostisk inställning i listan](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+     Du kan också aktivera insamling av alla **Mät värden** för system avsnittet.
+
+    ![System ämne – aktivera alla mått](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
+
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Visa diagnostikloggar i Azure Storage 
 
 1. När du aktiverar ett lagrings konto som ett registrerings mål och Event Grid börjar generera diagnostikloggar, bör du se nya behållare med namnet **Insights-logs-deliveryfailures** och Insights- **logs-publishfailures** i lagrings kontot. 
@@ -60,7 +96,7 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
     ![Lagrings behållare för diagnostikloggar](./media/enable-diagnostic-logs-topic/storage-containers.png)
 2. När du navigerar genom en av behållarna, kommer du att få en BLOB i JSON-format. Filen innehåller logg poster för antingen ett leverans problem eller ett publicerings haveri. Navigerings Sök vägen representerar **ResourceID** för Event Grid-ämnet och tidsstämpeln (minut nivån) när logg posterna skulle genereras. BLOB/JSON-filen, som kan hämtas, i slutet följer schemat som beskrivs i nästa avsnitt. 
 
-    [![JSON-fil i lagringen](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
+    [![JSON-fil i lagringen ](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Du bör se innehåll i JSON-filen som liknar följande exempel: 
 
     ```json

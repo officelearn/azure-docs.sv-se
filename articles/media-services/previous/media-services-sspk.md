@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 423597da44a74afb60e69c4e32cbd6353f81e726
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344041"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677176"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licens för Microsoft &reg; Smooth Streaming client porting kit 
 ## <a name="overview"></a>Översikt
@@ -113,52 +113,41 @@ Tillfälliga och slutgiltiga SSPK-licenser kan skicka tekniska frågor till [smo
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licens för slutgiltiga produkt avtal för Microsoft Smooth Streaming-klienten
 * Avancerad digital sändning SA
 * Kablosuz Iletism Sanayive dis Ticaret.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONIK SAN. VE-LUFFARSCHACK. A. Ş
-* Brittisk himmelsblå-sändning Limited
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Comp elektronik, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar inköps företag
-* Enseo, Inc.
-* FilmFlex filmer begränsade
+* EXPRESS TILL TEKNIK BEGRÄNSAD
 * Fluendo-och Sydamerika
 * FUNAI ELECTRIC CO., LTD
-* Gibson innovationer Limited
-* Haier information: sökande S. R. L
-* HANDAN BroadInfoCom co., Ltd.
 * Hisense International co., Ltd. 
-* Homecast co., Ltd
-* Hon Hai precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation Limited
+* Hong Kong Konka Ltd
+* InnoLux Corporation
+* Innopia Technologies, Inc
 * Kaonmedia co., Ltd.
 * KDDI Corporation
+* Megabyte Fame Electronics Co. Limited
+* MIRC elektronik, begränsad
 * Nintendo co., Ltd.
-* Orange SA
-* Saffron Digital Limited
-* Sagemcom bred band SAS
+* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
+* Panasonic Corporation
+* Qingdao Haier Optronics co., Ltd.
+* Shenzhen ATEKO PHOTO Electric Co., Ltd.
 * Shenzhen Chuangwei – RGB Electronics Co., Ltd.
-* Shenzhene Electronic Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen KTC Technology Co., Ltd. 
+* Shenzhen Maxmade Technology Co., Ltd
+* Shenzhen MTC co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * SKARDIN-industriella Corp.
 * Himmelsblå Deutschland Fernsehen GmbH & co. KG
-* SmarDTV-och Sydamerika
+* SMARDTV GLOBALA SAS
 * SoftAtHome
 * Sony Corporation
 * Technicolor-leverans tekniker, SAS
-* Tongfang global Ltd.
 * De främsta Victory-investeringarna, Ltd.
-* Toshiba livsstils produkter & Services Corporation
-* Universal Media Corporation/Slovakia/-s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC Polen SP. z. o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

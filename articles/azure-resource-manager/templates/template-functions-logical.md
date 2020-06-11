@@ -3,12 +3,12 @@ title: Template Functions – Logical
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att fastställa logiska värden.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192322"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677397"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Logiska funktioner för ARM-mallar
 
@@ -28,11 +28,11 @@ Kontrollerar om alla parameter värden är sanna.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -44,7 +44,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -68,9 +68,9 @@ Utdata från föregående exempel är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falskt |
+| orExampleOutput | Bool | Sant |
+| notExampleOutput | Bool | Falskt |
 
 ## <a name="bool"></a>boolesk
 
@@ -80,9 +80,9 @@ Konverterar parametern till ett booleskt värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
+| arg1 |Yes |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
 Ett booleskt värde för det konverterade värdet.
@@ -93,7 +93,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -121,10 +121,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
+| trueString | Bool | Sant |
+| falseString | Bool | Falskt |
+| trueInt | Bool | Sant |
+| falseInt | Bool | Falskt |
 
 ## <a name="if"></a>om
 
@@ -134,17 +134,17 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| moduletype |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
-| trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
-| falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
+| moduletype |Yes |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
+| trueValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
+| falseValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
 ### <a name="return-value"></a>Returvärde
 
 Returnerar den andra parametern när den första parametern är **True**; annars returnerar den tredje parametern.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 När villkoret är **Sant**utvärderas bara det sanna värdet. Om villkoret är **falskt**utvärderas bara det falska värdet. Med funktionen **IF** kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
 
@@ -154,7 +154,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -187,7 +187,7 @@ I följande [exempel mall](https://github.com/krnese/AzureDeploy/blob/master/ARM
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -239,9 +239,9 @@ Konverterar booleskt värde till motsatt värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det värde som ska konverteras. |
+| arg1 |Yes |boolean |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -253,7 +253,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -277,15 +277,15 @@ Utdata från föregående exempel är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falskt |
+| orExampleOutput | Bool | Sant |
+| notExampleOutput | Bool | Falskt |
 
 Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** [lika](template-functions-comparison.md#equals)med.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -302,7 +302,7 @@ Utdata från föregående exempel är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | Sant |
 
 ## <a name="or"></a>eller
 
@@ -312,11 +312,11 @@ Kontrollerar om ett parameter värde är sant.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -328,7 +328,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -352,9 +352,9 @@ Utdata från föregående exempel är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falskt |
+| orExampleOutput | Bool | Sant |
+| notExampleOutput | Bool | Falskt |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
-ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860502"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673368"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper servern kan inte bilda ett kvorum i Azure HDInsight
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs fel söknings steg och möjliga lösningar på prob
 
 ## <a name="sample-log"></a>Exempel logg
 
-Du kan se ett fel meddelande som liknar:
+Du kan se ett fel meddelande som liknar följande i garn loggar (/var/log/Hadoop-yarn/yarn/yarn-yarn *. log på huvudnoderna):
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -116,6 +116,7 @@ Node count: 133212
 
 ## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException i Zookeeper-serverloggen kräver inte ögonblicks bild rensning
 
+* Detta undantag visas på Zookeeper-servrarna (/var/log/Zookeeper/Zookeeper-Zookeeper-* eller/var/log/HDInsight-Zookeeper/Zookeeper * Files)
 * Detta undantag innebär vanligt vis att klienten inte längre är aktiv och att servern inte kan skicka ett meddelande
 * Detta undantag indikerar också att Zookeeper-klienten avslutar sessioner för tidigt
 * Leta efter de andra problemen som beskrivs i det här dokumentet

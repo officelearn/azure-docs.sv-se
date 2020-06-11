@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: bbe4cfe2cce70735e765601e46cb62cd3939c693
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433094"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675210"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +127,8 @@ Använd modulen __Kör Python-skript__ för att lägga till loggnings logik i de
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +209,11 @@ Du kan visa måtten för en utbildad modell med ```run.get_metrics()``` . Nu kan
 
 När ett experiment har körts kan du bläddra till den registrerade experiment körnings posten. Du kan komma åt historiken från [Azure Machine Learning Studio](https://ml.azure.com).
 
-Gå till fliken experiment och välj experimentet. Du kommer till experiment körnings instrument panelen där du kan se spårade mått och diagram som loggas för varje körning. I det här fallet loggade vi MSE och alpha-värdena.
+Gå till fliken experiment och välj experimentet. Du kommer till experiment körnings instrument panelen där du kan se spårade mått och diagram som loggas för varje körning. 
 
-  ![Kör information i Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
+Du kan redigera tabellen kör lista om du vill visa antingen det senaste, lägsta eller högsta loggade värdet för dina körningar. Du kan markera eller avmarkera flera körningar i körnings listan och de valda körningarna fyller diagrammen med dina data. Du kan också lägga till nya diagram eller redigera diagram för att jämföra de inloggade måtten (lägsta, högsta, sista eller alla värden) över flera körningar. För att utforska dina data mer effektivt kan du också maximera dina diagram.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Kör information i Azure Machine Learning Studio":::
 
 Du kan öka detalj nivån till en speciell körning för att visa dess utdata eller loggar, eller ladda ned ögonblicks bilden av experimentet som du har skickat så att du kan dela experiment-mappen med andra.
 

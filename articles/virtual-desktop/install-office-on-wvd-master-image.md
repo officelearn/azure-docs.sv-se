@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d53c21af77204a5e83687d3ce893f3f6f45101f2
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 2c62fdb41cdd19e34062124564ace9645df1dde6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628996"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672705"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
@@ -55,13 +55,13 @@ Det här är den här exempel konfigurations-XML: en:
 >[!NOTE]
 >Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns på **dator konfigurations \\ principer \\ administrativa mallar \\ Microsoft Office 2016 (dator) \\ licens inställningar**
 
-Distributions verktyget för Office innehåller setup. exe. Installera Office genom att köra följande kommando på en kommando rad:
+Distributions verktyget för Office innehåller setup.exe. Installera Office genom att köra följande kommando på en kommando rad:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Exempel på Configuration. XML
+#### <a name="sample-configurationxml"></a>Exempel configuration.xml
 
 Följande XML-exempel kommer att installera den månatliga Enterprise Channel-versionen.
 
@@ -118,7 +118,7 @@ Så här installerar du OneDrive i per dator läge:
 
 1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [ \\ \\ UNC]-plats (File://UNC) är felfri.
 
-2. Hämta OneDriveSetup. exe till den mellanlagrade platsen med den här länken:<https://aka.ms/OneDriveWVD-Installer>
+2. Ladda ned OneDriveSetup.exe till din mellanlagrade plats med den här länken:<https://aka.ms/OneDriveWVD-Installer>
 
 3. Om du har installerat Office med OneDrive genom att utesluta **\<ExcludeApp ID="OneDrive" /\>** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
     
@@ -156,9 +156,11 @@ Så här installerar du OneDrive i per dator läge:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Team och Skype
+## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams och Skype för företag
 
-Virtuella Windows-datorer har inte stöd för Skype för företag och team.
+Virtuella Windows-datorer har inte stöd för Skype för företag.
+
+Information om hur du installerar Microsoft Teams finns i [använda Microsoft Teams på Windows Virtual Desktop](teams-on-wvd.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

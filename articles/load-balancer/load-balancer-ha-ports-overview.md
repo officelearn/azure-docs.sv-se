@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e60d44278bb568b1aaaf416fddf35d02596a5ee2
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476978"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674660"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -87,15 +87,12 @@ Om ditt scenario kräver att du konfigurerar fler än en HA-port-klient för sam
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>En intern belastningsutjämnare med HA-portar och en offentlig belastningsutjämnare på samma backend-instans
 
-Du kan konfigurera *en* offentlig standard Load Balancer resurs för backend-resurserna, tillsammans med en enda intern standard load BALANCER med ha-portar.
-
->[!NOTE]
->Den här funktionen är för närvarande tillgänglig via Azure Resource Manager mallar, men är inte tillgänglig via Azure Portal.
+Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels resurserna, tillsammans med en enda intern standard load BALANCER med ha-portar.
 
 ## <a name="limitations"></a>Begränsningar
 
 - Belastnings Utjämnings regler för HA-portar är bara tillgängliga för interna Standard Load Balancer.
-- En belastnings Utjämnings regel för belastnings utjämning och en icke-belastnings Utjämnings port som pekar på samma server dels ipconfigurations stöds inte.
+- Att kombinera en belastnings Utjämnings regel för belastnings utjämning och en icke-HA-belastnings Utjämnings regel som pekar på samma ipconfiguration (en eller flera), stöds inte om inte båda har flytande IP-aktiverade.
 - Befintliga IP-fragment vidarebefordras av HA port belastnings Utjämnings regler till samma mål som det första paketet.  IP-fragmentering av UDP-eller TCP-paket stöds inte.
 - Flödes symmetrin (främst för NVA-scenarier) stöds med backend-instansen och ett enda nätverkskort (och enskild IP-konfiguration) endast när det används som det visas i diagrammet ovan och med belastnings Utjämnings regler för HA-portar. Den finns inte i något annat scenario. Det innebär att två eller flera Load Balancer resurser och deras respektive regler gör oberoende beslut och inte samordnade. Se beskrivningen och diagrammet för [virtuella nätverks enheter](#nva). När du använder flera nätverkskort eller mellan NVA mellan en offentlig och intern Load Balancer, är flödets symmetri inte tillgängligt.  Du kanske kan kringgå detta genom att källan NAT'ing ingångs flödet till IP-enheten för att tillåta svar på samma NVA.  Vi rekommenderar dock starkt att du använder ett enda nätverkskort och använder referens arkitekturen som visas i diagrammet ovan.
 

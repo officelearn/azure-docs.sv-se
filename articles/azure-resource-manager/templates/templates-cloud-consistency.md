@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 459a34d104e01dca2cdf997c6aedd6f54f3adbaa
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156114"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677686"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Utveckla ARM-mallar för moln konsekvens
 
@@ -51,7 +51,7 @@ Nya mall funktioner som introduceras för Azure Resource Manager är inte omedel
 
 Azure Resource Manager funktioner kommer alltid att lanseras till Global Azure. Du kan använda följande PowerShell-skript för att kontrol lera om nyligen introducerade mal funktioner också är tillgängliga i Azure Stack:
 
-1. Gör en klon av GitHub-lagringsplatsen [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions):.
+1. Gör en klon av GitHub-lagringsplatsen: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions) .
 
 1. När du har en lokal klon av lagrings platsen ansluter du till målets Azure Resource Manager med PowerShell.
 
@@ -106,7 +106,7 @@ En bättre praxis för distributioner mellan moln är att lagra de länkade mall
 
 Eftersom Blob Storage på varje moln använder ett annat fullständigt kvalificerat domän namn (FQDN), konfigurerar du mallen med platsen för de länkade mallarna med två parametrar. Parametrar kan acceptera användarindata vid distributions tiden. Mallar har vanligt vis skapats och delats av flera personer, så det är en bra idé att använda ett standard namn för dessa parametrar. Namn konventioner gör det lättare att använda mallar i regioner, moln och författare.
 
-I följande kod `_artifactsLocation` används för att peka på en enda plats, som innehåller alla distributions relaterade artefakter. Observera att ett standardvärde har angetts. Vid distributions tillfället används standardvärdet om inget indatavärde `_artifactsLocation`har angetts för. `_artifactsLocationSasToken` Används som ininformation för `sasToken`. Standardvärdet ska vara en tom sträng för scenarier där `_artifactsLocation` inte är säkrad, till exempel en offentlig GitHub-lagringsplats.
+I följande kod `_artifactsLocation` används för att peka på en enda plats, som innehåller alla distributions relaterade artefakter. Observera att ett standardvärde har angetts. Vid distributions tillfället används standardvärdet om inget indatavärde har angetts för `_artifactsLocation` . `_artifactsLocationSasToken`Används som ininformation för `sasToken` . Standardvärdet ska vara en tom sträng för scenarier där `_artifactsLocation` inte är säkrad, till exempel en offentlig GitHub-lagringsplats.
 
 ```json
 "parameters": {
@@ -127,13 +127,13 @@ I följande kod `_artifactsLocation` används för att peka på en enda plats, s
 }
 ```
 
-I hela mallen genereras länkar genom att kombinera bas-URI: n (från `_artifactsLocation` parametern) med en artefakt relativ sökväg och `_artifactsLocationSasToken`. Följande kod visar hur du anger länken till den kapslade mallen med hjälp av funktionen URI-mall:
+I hela mallen genereras länkar genom att kombinera bas-URI: n (från `_artifactsLocation` parametern) med en artefakt relativ sökväg och `_artifactsLocationSasToken` . Följande kod visar hur du anger länken till den kapslade mallen med hjälp av funktionen URI-mall:
 
 ```json
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -150,7 +150,7 @@ Med den här metoden används standardvärdet för `_artifactsLocation` paramete
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Använd _artifactsLocation i stället för hårdkoda-länkar
 
-Förutom att används för kapslade mallar används URL: en `_artifactsLocation` i parametern som bas för alla relaterade artefakter för en distributionsmall. Vissa VM-tillägg innehåller en länk till ett skript som lagras utanför mallen. För dessa tillägg bör du inte hårdkoda länkarna. Till exempel kan det anpassade skriptet och PowerShell DSC-tillägg länka till ett externt skript på GitHub som visas:
+Förutom att används för kapslade mallar används URL: en i `_artifactsLocation` parametern som bas för alla relaterade artefakter för en distributionsmall. Vissa VM-tillägg innehåller en länk till ett skript som lagras utanför mallen. För dessa tillägg bör du inte hårdkoda länkarna. Till exempel kan det anpassade skriptet och PowerShell DSC-tillägg länka till ett externt skript på GitHub som visas:
 
 ```json
 "properties": {
@@ -231,7 +231,7 @@ Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, Re
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Verifiera versionen av alla resurs typer
 
-En egenskaps uppsättning är gemensam för alla resurs typer, men varje resurs har också egna specifika egenskaper. Nya funktioner och relaterade egenskaper läggs till i befintliga resurs typer vid gånger via en ny API-version. En resurs i en mall har sin egen API-version- `apiVersion`egenskap –. Den här versionen säkerställer att en befintlig resurs konfiguration i en mall inte påverkas av ändringar på plattformen.
+En egenskaps uppsättning är gemensam för alla resurs typer, men varje resurs har också egna specifika egenskaper. Nya funktioner och relaterade egenskaper läggs till i befintliga resurs typer vid gånger via en ny API-version. En resurs i en mall har sin egen API-version-egenskap – `apiVersion` . Den här versionen säkerställer att en befintlig resurs konfiguration i en mall inte påverkas av ändringar på plattformen.
 
 Nya API-versioner som introduceras i befintliga resurs typer i Global Azure kanske inte omedelbart är tillgängliga i alla regioner, suveräna moln eller Azure Stack. Om du vill visa en lista över tillgängliga resurs leverantörer, resurs typer och API-versioner för ett moln kan du använda Resursläsaren i Azure Portal. Sök efter Resursläsaren på menyn alla tjänster. Expandera noden providers i Resursläsaren för att returnera alla tillgängliga resurs-providers, resurs typer och API-versioner i molnet.
 
@@ -255,7 +255,7 @@ En mall distribueras alltid till en resurs grupp som finns i en region. Förutom
 
 Om du vill hantera olika regioner lägger du till en indataparameter till mallen med ett standardvärde. Standardvärdet kommer att användas om inget värde anges under distributionen.
 
-Funktionen `[resourceGroup()]` Template returnerar ett objekt som innehåller följande nyckel/värde-par:
+Funktionen Template `[resourceGroup()]` returnerar ett objekt som innehåller följande nyckel/värde-par:
 
 ```json
 {
@@ -270,7 +270,7 @@ Funktionen `[resourceGroup()]` Template returnerar ett objekt som innehåller f�
 }
 ```
 
-Genom att referera till plats nyckeln för objektet i defaultValue för Indataparametern Azure Resource Manager kommer vid körning att ersätta funktionen `[resourceGroup().location]` mall med namnet på den resurs grupp där mallen distribueras.
+Genom att referera till plats nyckeln för objektet i defaultValue för Indataparametern Azure Resource Manager kommer vid körning att ersätta `[resourceGroup().location]` funktionen mall med namnet på den resurs grupp där mallen distribueras.
 
 ```json
 "parameters": {
@@ -295,13 +295,13 @@ Med den här funktionen mall kan du distribuera din mall till alla moln utan att
 
 ### <a name="track-versions-using-api-profiles"></a>Spåra versioner med hjälp av API-profiler
 
-Det kan vara mycket svårt att hålla koll på alla tillgängliga resurs leverantörer och relaterade API-versioner som finns i Azure Stack. Vid tidpunkten för skrivning är `2018-04-01`den senaste API-versionen för **Microsoft. Compute/availabilitySets** i Azure, medan den tillgängliga API-versionen som är gemensam för Azure och Azure Stack är. `2016-03-30` Den vanliga API-versionen för **Microsoft. Storage/storageAccounts** som delas mellan alla Azure-och `2016-01-01`Azure Stack platser är, medan den senaste API- `2018-02-01`versionen i Azure är.
+Det kan vara mycket svårt att hålla koll på alla tillgängliga resurs leverantörer och relaterade API-versioner som finns i Azure Stack. Vid tidpunkten för skrivning är den senaste API-versionen för **Microsoft. Compute/availabilitySets** i Azure `2018-04-01` , medan den tillgängliga API-versionen som är gemensam för Azure och Azure Stack är `2016-03-30` . Den vanliga API-versionen för **Microsoft. Storage/storageAccounts** som delas mellan alla Azure-och Azure Stack platser är `2016-01-01` , medan den senaste API-versionen i Azure är `2018-02-01` .
 
-Av den anledningen introducerade Resource Manager konceptet med API-profiler för mallar. Utan API-profiler konfigureras varje resurs i en mall med ett `apiVersion` -element som beskriver API-versionen för den aktuella resursen.
+Av den anledningen introducerade Resource Manager konceptet med API-profiler för mallar. Utan API-profiler konfigureras varje resurs i en mall med ett- `apiVersion` element som beskriver API-versionen för den aktuella resursen.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -338,11 +338,11 @@ Av den anledningen introducerade Resource Manager konceptet med API-profiler fö
 }
 ```
 
-En API-profil-version fungerar som ett alias för en enskild API-version per resurs typ som är gemensam för Azure och Azure Stack. I stället för att ange en API-version för varje resurs i en mall anger du bara API-profilen i ett nytt rot element `apiProfile` med namnet och `apiVersion` utelämnar elementet för de enskilda resurserna.
+En API-profil-version fungerar som ett alias för en enskild API-version per resurs typ som är gemensam för Azure och Azure Stack. I stället för att ange en API-version för varje resurs i en mall anger du bara API-profilen i ett nytt rot element med namnet `apiProfile` och utelämnar `apiVersion` elementet för de enskilda resurserna.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ API-profilen är inte ett obligatoriskt element i en mall. Även om du lägger t
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -452,11 +452,11 @@ Följande Template-funktion hämtar slut punkts namn området från Storage Reso
 "diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
-Genom att ersätta hårdkodad-värdet för lagrings konto slut punkten `reference` med funktionen mall kan du använda samma mall för att distribuera till olika miljöer utan att göra några ändringar i slut punkts referensen.
+Genom att ersätta hårdkodad-värdet för lagrings konto slut punkten med `reference` funktionen mall kan du använda samma mall för att distribuera till olika miljöer utan att göra några ändringar i slut punkts referensen.
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Referera till befintliga resurser efter unikt ID
 
-Du kan också referera till en befintlig resurs från samma eller en annan resurs grupp, inom samma prenumeration eller en annan prenumeration, inom samma klient organisation i samma moln. Om du vill hämta resurs egenskaperna måste du använda den unika identifieraren för själva resursen. Funktionen `resourceId` Template hämtar det unika ID: t för en resurs, till exempel SQL Server som följande kod visar:
+Du kan också referera till en befintlig resurs från samma eller en annan resurs grupp, inom samma prenumeration eller en annan prenumeration, inom samma klient organisation i samma moln. Om du vill hämta resurs egenskaperna måste du använda den unika identifieraren för själva resursen. `resourceId`Funktionen Template hämtar det unika ID: t för en resurs, till exempel SQL Server som följande kod visar:
 
 ```json
 "outputs": {
@@ -487,7 +487,7 @@ Om du vill hämta en lista över tillgängliga VM-avbildningar på en plats kör
 az vm image list -all
 ```
 
-Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Ett exempel:
+Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -532,7 +532,7 @@ En fullständig lista över tillgängliga tjänster finns i [produkt tillgängli
 
 Managed disks hanterar lagringen för en Azure-klient. I stället för att explicit skapa ett lagrings konto och ange URI: n för en virtuell hård disk (VHD) kan du använda hanterade diskar för att implicit utföra dessa åtgärder när du distribuerar en virtuell dator. Hanterade diskar förbättrar tillgängligheten genom att placera alla diskar från virtuella datorer i samma tillgänglighets uppsättning i olika lagrings enheter. Dessutom kan befintliga virtuella hård diskar konverteras från standard till Premium Storage med betydligt mindre stillestånds tid.
 
-Även om Managed disks finns i översikten för Azure Stack, stöds de inte för närvarande. Innan de är det kan du utveckla moln-konsekventa mallar för Azure Stack genom att `vhd` uttryckligen ange virtuella hård diskar med hjälp av elementet i mallen för den virtuella dator resursen som visas:
+Även om Managed disks finns i översikten för Azure Stack, stöds de inte för närvarande. Innan de är det kan du utveckla moln-konsekventa mallar för Azure Stack genom att uttryckligen ange virtuella hård diskar med hjälp av `vhd` elementet i mallen för den virtuella dator resursen som visas:
 
 ```json
 "storageProfile": {
@@ -553,7 +553,7 @@ Managed disks hanterar lagringen för en Azure-klient. I stället för att expli
 }
 ```
 
-Om du däremot vill ange en hanterad disk konfiguration i en mall tar du `vhd` bort elementet från disk konfigurationen.
+Om du däremot vill ange en hanterad disk konfiguration i en mall tar du bort `vhd` elementet från disk konfigurationen.
 
 ```json
 "storageProfile": {
@@ -584,13 +584,13 @@ Med hjälp av den här mallens deklarativ metod kan du definiera slut tillstånd
 
 Det finns många typer av VM-tillägg. När du utvecklar mall för moln konsekvens ska du bara använda de tillägg som är tillgängliga i alla regioner som mal len mål.
 
-Om du vill hämta en lista över de VM-tillägg som är tillgängliga för en speciell region (i `myLocation`det här exemplet) kör du följande Azure CLI-kommando:
+Om du vill hämta en lista över de VM-tillägg som är tillgängliga för en speciell region (i det här exemplet `myLocation` ) kör du följande Azure CLI-kommando:
 
 ```azurecli-interactive
 az vm extension image list --location myLocation
 ```
 
-Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Ett exempel:
+Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -623,7 +623,7 @@ Du kan också använda VM-tillägg i skalnings uppsättningar för virtuella dat
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
-Varje enskilt tillägg är också en version. Den här versionen visas i `typeHandlerVersion` egenskapen för VM-tillägget. Kontrol lera att versionen som anges i `typeHandlerVersion` elementet i MALLens VM-tillägg är tillgängliga på de platser där du planerar att distribuera mallen. Följande kod anger till exempel version 1,7:
+Varje enskilt tillägg är också en version. Den här versionen visas i `typeHandlerVersion` egenskapen för VM-tillägget. Kontrol lera att versionen som anges i `typeHandlerVersion` elementet i mallens VM-tillägg är tillgängliga på de platser där du planerar att distribuera mallen. Följande kod anger till exempel version 1,7:
 
 ```json
 {

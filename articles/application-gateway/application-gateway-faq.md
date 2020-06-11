@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196495"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668244"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -338,11 +338,31 @@ Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
 Med Kubernetes kan `deployment` du skapa och- `service` resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst externt [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) definieras en resurs som tillhandahåller belastnings utjämning, TLS-avslutning och namnbaserade virtuella värdar.
 För att tillfredsställa den här `Ingress` resursen krävs en ingångs kontroll som lyssnar efter eventuella ändringar av `Ingress` resurser och konfigurerar belastnings Utjämnings principerna.
 
-På Application Gateway ingångs styrenheten kan [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) användas som ingress för en [Azure Kubernetes-tjänst](https://azure.microsoft.com/services/kubernetes-service/) även kallat ett AKS-kluster.
+Med Application Gateway ingångs styrenhet (AGIC) kan [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) användas som ingångs punkt för en [Azure Kubernetes-tjänst](https://azure.microsoft.com/services/kubernetes-service/) även kallat ett AKS-kluster.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Kan en enskild instans av kontroll enheten hantera flera programgatewayer?
 
 För närvarande kan en instans av ingångs styrenheten bara kopplas till en Application Gateway.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Varför fungerar inte mitt AKS-kluster med Kubernetes med AGIC?
+
+AGIC försöker automatiskt koppla väg tabell resursen till Application Gateway under nätet, men kan Miss lyckas på grund av otillräckliga behörigheter från AGIC. Om AGIC inte kan koppla routningstabellen till Application Gateway under nätet, kommer det att finnas ett fel i AGIC-loggarna, i vilket fall måste du associera routningstabellen som skapats av AKS-klustret manuellt till Application Gatewayens undernät. Mer information finns i anvisningarna [här](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Kan jag ansluta mitt AKS-kluster och Application Gateway i separata virtuella nätverk? 
+
+Ja, så länge de virtuella nätverken har peer-kopplats och de inte har några överlappande adress utrymmen. Om du kör AKS med Kubernetes ska du associera routningstabellen som genererats av AKS till Application Gateway under nätet. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Vilka funktioner stöds inte för AGIC-tillägget? 
+
+Se skillnaderna mellan AGIC som distribueras via Helm jämfört med distribueras som ett AKS-tillägg [här](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>När ska jag använda tillägget jämfört med Helm-distributionen? 
+
+Se skillnaderna mellan AGIC som distribuerats via Helm jämfört med distribueras som ett AKS-tillägg [här](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), särskilt tabellerna som dokumenterar vilka scenarier som stöds av AGIC som distribueras via Helm i stället för ett AKS-tillägg. I allmänhet gör distributionen via Helm att du kan testa beta funktioner och lanserings kandidater innan du börjar med en officiell version. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Kan jag kontrol lera vilken version av AGIC som ska distribueras med tillägget?
+
+Nej, AGIC-tillägg är en hanterad tjänst, vilket innebär att Microsoft automatiskt kommer att uppdatera tillägget till den senaste stabila versionen. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 

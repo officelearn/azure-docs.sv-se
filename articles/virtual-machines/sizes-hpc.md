@@ -1,26 +1,20 @@
 ---
 title: Storlekar för virtuella Azure-datorer – HPC | Microsoft Docs
 description: Visar en lista över de olika storlekar som är tillgängliga för virtuella datorer med hög prestanda beräkning i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
-ms.reviewer: jonbeck
-ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.reviewer: jushiman
+ms.openlocfilehash: 961e5a0febc0212b8a747b052b3fd6f696689351
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839070"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678638"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -92,7 +86,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Virtuella datorer** – distribuera RDMA-kompatibla HPC-datorer i samma skalnings uppsättning eller tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst.
 
-- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer (VMSS), se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i VMSS. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till. `true` Observera att den maximala VMSS-storlek som kan anpassas med `singlePlacementGroup` egenskapen till `true` är en gräns på 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda VMSS-klient kan du begära en ökning, [öppna en support förfrågan online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda VMSS kan ökas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
+- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer (VMSS), se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i VMSS. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till `true` . Observera att den maximala VMSS-storlek som kan anpassas med `singlePlacementGroup` egenskapen till `true` är en gräns på 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda VMSS-klient kan du begära en ökning, [öppna en support förfrågan online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda VMSS kan ökas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
 
 - **MPI mellan virtuella datorer** – om RDMA (t. ex. använder MPI-kommunikation) krävs mellan virtuella datorer (VM), se till att de virtuella datorerna finns i samma skalnings uppsättning eller tillgänglighets uppsättning för virtuella datorer.
 
@@ -100,7 +94,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Azure Batch** – skapa en [Azure Batch](/azure/batch/) -pool för att köra MPI-arbetsbelastningar. Om du vill använda beräknings intensiva instanser när du kör MPI-program med Azure Batch, se [Använd aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i Azure Batch](../batch/batch-mpi.md).
 
-- **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) innehåller en körnings miljö för MS-MPI som använder Azure RDMA-nätverket när det distribueras på RDMA-kompatibla virtuella Linux-datorer. Exempel på distributioner finns i [Konfigurera ett Linux RDMA-kluster med HPC Pack för att köra MPI-program](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+- **Microsoft HPC Pack**  -  [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) innehåller en körnings miljö för MS-MPI som använder Azure RDMA-nätverket när det distribueras på RDMA-kompatibla virtuella Linux-datorer. Exempel på distributioner finns i [Konfigurera ett Linux RDMA-kluster med HPC Pack för att köra MPI-program](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 

@@ -3,16 +3,16 @@ title: Underhålls kontroll för virtuella Azure-datorer med PowerShell
 description: Lär dig hur du styr när underhåll tillämpas på dina virtuella Azure-datorer med underhålls kontroll och PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996481"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675851"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -20,7 +20,7 @@ Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar 
  
 ## <a name="enable-the-powershell-module"></a>Aktivera PowerShell-modulen
 
-Se till `PowerShellGet` att det är aktuellt.    
+Se till att `PowerShellGet` det är aktuellt.    
 
 ```azurepowershell-interactive  
 Install-Module -Name PowerShellGet -Repository PSGallery -Force 
@@ -73,7 +73,7 @@ Använd [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/mo
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
-Tillämpa konfigurationen på en virtuell dator med hjälp av konfigurationens ID. Ange `-ResourceType VirtualMachines` och ange namnet på den virtuella datorn för `-ResourceName`och resurs gruppen för den virtuella datorn för `-ResourceGroupName`. 
+Tillämpa konfigurationen på en virtuell dator med hjälp av konfigurationens ID. Ange `-ResourceType VirtualMachines` och ange namnet på den virtuella datorn för och `-ResourceName` resurs gruppen för den virtuella datorn för `-ResourceGroupName` . 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -88,7 +88,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
-Om du vill tillämpa en konfiguration på en dedikerad värd måste du också inkludera `-ResourceType hosts`, `-ResourceParentName` med namnet på värd gruppen och `-ResourceParentType hostGroups`. 
+Om du vill tillämpa en konfiguration på en dedikerad värd måste du också inkludera `-ResourceType hosts` , `-ResourceParentName` med namnet på värd gruppen och `-ResourceParentType hostGroups` . 
 
 
 ```azurepowershell-interactive
@@ -166,7 +166,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-Vid lyckad kommer det här kommandot att returnera `PSApplyUpdate` ett objekt. Du kan använda attributet name i `Get-AzApplyUpdate` kommandot för att kontrol lera uppdaterings statusen. Se [kontrol lera uppdaterings status](#check-update-status).
+Vid lyckad kommer det här kommandot att returnera ett `PSApplyUpdate` objekt. Du kan använda attributet name i `Get-AzApplyUpdate` kommandot för att kontrol lera uppdaterings statusen. Se [kontrol lera uppdaterings status](#check-update-status).
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
@@ -183,7 +183,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Kontrol lera uppdaterings status
-Använd [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen med hjälp `default` av för `-ApplyUpdateName` -parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
+Använd [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen med hjälp av `default` för- `-ApplyUpdateName` parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
 
 ```text
 Status         : Completed

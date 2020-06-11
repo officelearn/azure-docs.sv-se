@@ -3,12 +3,12 @@ title: Överordnad resurs fel
 description: Beskriver hur du löser fel när du arbetar med en överordnad resurs i en Azure Resource Manager-mall.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154048"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673668"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Lös fel för överordnade resurser
 
@@ -25,7 +25,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Orsak
 
-När en resurs är underordnad en annan resurs måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen definierar anslutningen till den överordnade resursen. Namnet på den underordnade resursen är i formatet `<parent-resource-name>/<child-resource-name>`. Till exempel kan en SQL Database definieras som:
+När en resurs är underordnad en annan resurs måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen definierar anslutningen till den överordnade resursen. Namnet på den underordnade resursen är i formatet `<parent-resource-name>/<child-resource-name>` . Till exempel kan en SQL Database definieras som:
 
 ```json
 {
@@ -52,7 +52,7 @@ För att lösa det här felet när den överordnade resursen tidigare har distri
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {

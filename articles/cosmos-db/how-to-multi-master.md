@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.custom: tracking-python
-ms.openlocfilehash: 70b9f1aaeaedd7968aeaf09aebe4e53682a60019
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 792b0ef3f31bfb9dd26c153d5bb0eeab6ba8baf9
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629370"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677992"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera huvud i dina program som använder Azure Cosmos DB
 
@@ -56,18 +56,17 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a>Java v4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a>Java v4 SDK
 
 Om du vill aktivera multi-master i ditt program, anropa `.multipleWriteRegionsEnabled(true)` och `.preferredRegions(preferredRegions)` i client Builder, där `preferredRegions` är ett `List` objekt som innehåller ett-element, som är den region där programmet distribueras och där Cosmos DB replikeras:
 
-### <a id="java4-multi-master"></a>
-#### <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) asynkront API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ConfigureMultimasterAsync)]
 
-#### <a name="sync"></a>[Synkronisera](#tab/api-sync)
+# <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
@@ -75,9 +74,9 @@ Om du vill aktivera multi-master i ditt program, anropa `.multipleWriteRegionsEn
 
 --- 
 
-## <a name="async-java-v2-sdk-maven-commicrosoftazureazure-cosmosdb"></a><a id="java"></a>[Asynkron Java v2 SDK](sql-api-sdk-async-java.md) (maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a>Asynkron Java v2 SDK
 
-Om du vill aktivera multi-master i ditt program ställer du in `policy.setUsingMultipleWriteLocations(true)` och anger `policy.setPreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
+Java v2 SDK använde maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Om du vill aktivera multi-master i ditt program ställer du in `policy.setUsingMultipleWriteLocations(true)` och anger `policy.setPreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -92,7 +91,7 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node. js, Java Script och TypeScript SDK: er
+## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, Java Script och TypeScript SDK: er
 
 Om du vill aktivera multi-master i programmet anger `connectionPolicy.UseMultipleWriteLocations` du till `true` . Ange också `connectionPolicy.PreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
 

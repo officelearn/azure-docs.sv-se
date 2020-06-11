@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 8a60d34c73eed5d71599a90e463138186e21fdf7
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929221"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677907"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -44,13 +44,13 @@ Du behöver också följande information från första gången du skapade värdd
 
 Expandera din värddator genom att lägga till virtuella datorer:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter och välj **virtuellt skriv bord i Windows**.
 
 3. I menyn till vänster på skärmen väljer du **lagringspooler**och väljer sedan namnet på den värddator som du vill lägga till virtuella datorer i.
 
-4. Välj **virtuella datorer** på menyn på vänster sida av skärmen.
+4. Välj **sessions-värdar** på menyn till vänster på skärmen.
 
 5. Välj **+ Lägg** till för att börja skapa din värd pool.
 

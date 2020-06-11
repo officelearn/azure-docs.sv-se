@@ -3,12 +3,12 @@ title: Mall-funktioner-matriser
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203819"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677856"
 ---
 # <a name="array-functions-for-arm-templates"></a>Mat ris funktioner för ARM-mallar
 
@@ -40,9 +40,9 @@ Konverterar värdet till en matris.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |heltal, sträng, matris eller objekt |Värdet som ska konverteras till en matris. |
+| convertToArray |Yes |heltal, sträng, matris eller objekt |Värdet som ska konverteras till en matris. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -54,7 +54,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "intToConvert": {
@@ -105,10 +105,10 @@ Kombinerar flera matriser och returnerar den sammanfogade matrisen, eller kombin
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
-| ytterligare argument |Nej |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
+| arg1 |Yes |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
+| ytterligare argument |No |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Matriser sammanfogas endast med andra matriser.
 
@@ -122,7 +122,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstArray": {
@@ -163,7 +163,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -195,10 +195,10 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
+| container |Yes |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Yes |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -210,7 +210,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -276,10 +276,10 @@ Skapar en matris från parametrarna.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Sträng, heltal, matris eller objekt |Det första värdet i matrisen. |
-| ytterligare argument |Nej |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
+| arg1 |Yes |Sträng, heltal, matris eller objekt |Det första värdet i matrisen. |
+| ytterligare argument |No |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -291,7 +291,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -343,9 +343,9 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Yes |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -357,7 +357,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -408,9 +408,9 @@ Returnerar det första elementet i matrisen eller första tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
+| arg1 |Yes |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -422,7 +422,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -460,11 +460,11 @@ Returnerar en enskild matris eller ett objekt med de gemensamma elementen från 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
-| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
-| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
+| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
+| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
+| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -476,7 +476,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -526,9 +526,9 @@ Returnerar det sista elementet i matrisen eller det sista tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
+| arg1 |Yes |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -540,7 +540,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -578,9 +578,9 @@ Returnerar antalet element i en matris, tecken i en sträng eller på rot nivå 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 |Yes |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -592,7 +592,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -665,9 +665,9 @@ Returnerar det maximala värdet från en matris med heltal eller en kommaavgrän
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
+| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -679,7 +679,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -716,9 +716,9 @@ Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsa
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
+| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -730,7 +730,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -767,10 +767,10 @@ Skapar en matris med heltal från ett start-heltal och innehåller ett antal obj
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| Start |Ja |int |Det första heltalet i matrisen. Summan av start index och Count får inte vara större än 2147483647. |
-| count |Ja |int |Antalet heltal i matrisen. Måste vara ett icke-negativt heltal upp till 10000. |
+| Start |Yes |int |Det första heltalet i matrisen. Summan av start index och Count får inte vara större än 2147483647. |
+| count |Yes |int |Antalet heltal i matrisen. Måste vara ett icke-negativt heltal upp till 10000. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -782,7 +782,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "startingInt": {
@@ -818,10 +818,10 @@ Returnerar en matris med alla element efter det angivna talet i matrisen eller r
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
-| numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
+| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
+| numberToSkip |Yes |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -833,7 +833,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -886,10 +886,10 @@ Returnerar en matris med det angivna antalet element från början av matrisen, 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
-| numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
+| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
+| numberToTake |Yes |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -901,7 +901,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -954,11 +954,11 @@ Returnerar en enskild matris eller ett objekt med alla element från parametrarn
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
-| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
-| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
+| arg1 |Yes |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
+| arg2 |Yes |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
+| ytterligare argument |No |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -970,7 +970,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {

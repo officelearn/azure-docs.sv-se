@@ -8,18 +8,19 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 799f38cff1c10da1b0d280121a7a5ab4a380152d
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 149a14109c5da3daab96cf08e59e70b16195a63a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331431"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677720"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
@@ -28,7 +29,7 @@ ms.locfileid: "84331431"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL API som stöder synkrona åtgärder.
@@ -46,7 +47,7 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-java-application.md)|
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Versionsanmärkningar
+## <a name="release-notes"></a>Viktig information
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Korrigerar Master partition cache-problem på documentCollection-fråga.
@@ -330,7 +331,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | 0.9.1 till och – för-leasing |19 december 2014 |29 februari 2016 |
 | 0.9.0 – för-leasing |10 december 2014 |29 februari 2016 |
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

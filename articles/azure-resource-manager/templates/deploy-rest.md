@@ -3,12 +3,12 @@ title: Distribuera resurser med REST API och mall
 description: Använd Azure Resource Manager-och Resource Manager-REST API för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: de24283301a4612179f8eaa3562e0c372898387f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431640"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678417"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Distribuera resurser med ARM-mallar och Resource Manager-REST API
 
@@ -133,7 +133,7 @@ I exemplen i den här artikeln används resurs grupps distributioner.
       "properties": {
       "mode": "Incremental",
       "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
           "storageAccountType": {

@@ -4,20 +4,18 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 5efa8b845952c8ab5b66b781fb534c3754239b4e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82616073"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677446"
 ---
 ## <a name="attack-scenario"></a>Attack scenario
 
 Brute force-attacker brukar rikta hanterings portar som ett sätt att få åtkomst till en virtuell dator. Om det lyckas kan en angripare ta kontroll över den virtuella datorn och upprätta en fäste i din miljö.
 
 Ett sätt att minska exponeringen för en brute force-attack är att begränsa hur lång tid en port är öppen. Hanterings portar behöver inte vara öppna hela tiden. De behöver bara vara öppna när du är ansluten till den virtuella datorn, till exempel för att utföra hanterings-eller underhålls uppgifter. När just-in-Time är aktiverat använder Security Center [nätverks säkerhets gruppen](../articles/virtual-network/security-overview.md#security-rules) (NSG) och Azure brand Väggs regler som begränsar åtkomsten till hanterings portar så att de inte kan nås av angripare.
-
-![Just-in-Time-scenario](../articles/security-center/media/security-center-just-in-time/just-in-time-scenario.png)
 
 ## <a name="how-does-jit-access-work"></a>Hur fungerar JIT-åtkomst?
 

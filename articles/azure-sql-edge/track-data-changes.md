@@ -1,6 +1,6 @@
 ---
 title: Spåra data ändringar i Azure SQL Edge (för hands version)
-description: Lär dig mer om ändrings spårning och registrering av ändrings data i Azure SQL Edge (för hands version)
+description: Lär dig mer om ändrings spårning och registrering av ändrings data i Azure SQL Edge (för hands version).
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,54 +9,56 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 3e3a6c3e171383d1812f63b945735d1b82f70b9c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235106"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669604"
 ---
-# <a name="tracking-data-changes-in-azure-sql-edge-preview"></a>Spåra data ändringar i Azure SQL Edge (för hands version)
+# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Spåra data ändringar i Azure SQL Edge (för hands version)
 
-Azure SQL Edge stöder de två SQL Server funktioner som spårar ändringar av data i en databas:[ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) och [registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Dessa funktioner gör det möjligt för program att fastställa DML-ändringar (Insert-, Update-och Delete-åtgärder) som har gjorts till användar tabeller i en databas. Registrering av ändrings data och ändrings spårning kan aktive ras på samma databas. Inga särskilda överväganden krävs.
+Azure SQL Edge stöder de två SQL Server funktionerna som spårar ändringar av data i en databas: [ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) och [insamling av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Dessa funktioner gör det möjligt för program att fastställa ändringar av data ändringar (Insert-, Update-och Delete-åtgärder) som har gjorts till användar tabeller i en databas. Du kan aktivera registrering av ändrings data och ändrings spårning på samma databas. Inga särskilda överväganden krävs.
 
-Möjligheten att fråga efter data som har ändrats i en databas är ett viktigt krav för att vissa program ska vara effektiva. För att fastställa data ändringar måste programutvecklare implementera en anpassad spårnings metod i sina program med hjälp av en kombination av utlösare, tidsstämpel-kolumner och ytterligare tabeller. Att skapa dessa program omfattar vanligt vis mycket arbete att implementera, leder till schema uppdateringar och har ofta en hög prestanda. I händelse av IoT-lösning, där det finns behov av att regelbundet flytta data från gränsen till ett moln eller ett Data Center, kan ändrings spårning vara mycket användbart. Detta kan användas för att snabbt och effektivt fråga endast delta ändringar från den senaste synkroniseringen och överföra ändringarna till molnet eller data Center målet. För ytterligare information om fördelarna med att använda Ändringsspårning och registrering av ändrings data, se [fördelarna med att använda registrering av ändrings data eller ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#benefits-of-using-change-data-capture-or-change-tracking). 
+Möjligheten att fråga efter data som har ändrats i en databas är ett viktigt krav för att vissa program ska vara effektiva. För att fastställa data ändringar måste programutvecklare implementera en anpassad spårnings metod i sina program med hjälp av en kombination av utlösare, tidsstämpel-kolumner och ytterligare tabeller. Att skapa dessa program omfattar vanligt vis mycket arbete att implementera, leder till schema uppdateringar och har ofta en hög prestanda.
 
-Om du vill förstå funktions skillnaderna mellan Ändringsspårning och registrering av ändrings data, kan du se [funktions skillnader mellan avbildning av ändrings data och ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#feature-differences-between-change-data-capture-and-change-tracking)
+I händelse av en IoT-lösning, där du regelbundet behöver flytta data från gränsen till ett moln eller ett Data Center, kan ändrings spårning vara mycket användbart. Användare kan snabbt och effektivt fråga efter ändringar från den senaste synkroniseringen och överföra ändringarna till molnet eller data Center målet. Mer information finns i [fördelarna med att använda registrering av ändrings data eller spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#benefits-of-using-change-data-capture-or-change-tracking). 
 
-## <a name="change-data-capture"></a>Sammanställning av ändringsdata
+Dessa två funktioner är inte desamma. Mer information finns i [funktions skillnader mellan registrering av ändrings data och ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#feature-differences-between-change-data-capture-and-change-tracking)
 
-Information om hur registrering av ändrings data fungerar finns i [registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
+## <a name="change-data-capture"></a>Registrering av ändringsdata
 
-Information om hur du aktiverar eller inaktiverar registrering av ändrings data finns i [Aktivera och inaktivera registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server)
+Information om hur den här funktionen fungerar finns i [om registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
-Information om hur du administrerar och övervakar registrering av ändrings data finns i [administrera och övervaka registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server)
+Information om hur du aktiverar eller inaktiverar den här funktionen finns i [Aktivera och inaktivera registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server).
 
-Information om hur du frågar och arbetar med ändrade data finns i [arbeta med ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/work-with-change-data-sql-server)
+Information om hur du administrerar och övervakar den här funktionen finns i [administrera och övervaka registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server).
+
+Information om hur du frågar och arbetar med ändrade data finns i [arbeta med ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
 ## <a name="change-tracking"></a>Spårning av ändringar
 
-Information om hur Ändringsspårning fungerar finns i [ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server).
+Information om hur den här funktionen fungerar finns i [om ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server).
 
-Information om hur du aktiverar eller inaktiverar Ändringsspårning finns i [Aktivera och inaktivera ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)
+Information om hur du aktiverar eller inaktiverar den här funktionen finns i [Aktivera och inaktivera ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server).
 
-Information om hur du administrerar, övervakar och hanterar Ändringsspårning finns i [administrera och övervaka ändringsspårning](https://docs.microsoft.com/sql/relational-databases/track-changes/manage-change-tracking-sql-server)
+Information om hur du administrerar, övervakar och hanterar den här funktionen finns i [administrera och övervaka ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/manage-change-tracking-sql-server).
 
-Information om hur du frågar och arbetar med ändrade data finns i [arbeta med ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/work-with-change-tracking-sql-server)
+Information om hur du frågar och arbetar med ändrade data finns i [arbeta med ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/work-with-change-tracking-sql-server).
 
 ## <a name="temporal-tables"></a>Temporala tabeller
 
-Förutom stöd Ändringsspårning och ändra data insamlings funktionerna i SQL Server stöder Azure SQL Edge också funktionen temporala tabeller i SQL Server. Temporala tabeller (även kallade system versions temporala tabeller) som en databas funktion som ger inbyggt stöd för att tillhandahålla information om data som lagras i tabellen vid en viss tidpunkt snarare än bara de data som är korrekta vid aktuell tidpunkt.
+Azure SQL Edge stöder även funktionen temporala tabeller i SQL Server. Den här funktionen (kallas även för *temporala system versions tabeller*) ger inbyggt stöd för att tillhandahålla information om data som lagras i tabellen vid en viss tidpunkt. Funktionen ger inte bara bara information om de data som är korrekta vid aktuell tidpunkt.
 
-En temporal system versions tabell är en typ av användar tabell som är utformad för att bevara en fullständig historik över data ändringar och tillåta enkel tidpunkts analys. Den här typen av temporal tabell kallas en temporal system versions tabell, eftersom giltighets perioden för varje rad hanteras av systemet (det vill säga databas motorn).
+En temporal system versions tabell är en typ av användar tabell som är utformad för att bevara en fullständig historik över data ändringar och för att möjliggöra enkel tidpunkts analys. Den här typen av temporal tabell kallas en temporal system versions tabell, eftersom giltighets perioden för varje rad hanteras av systemet (det vill säga databas motorn).
 
-Varje temporal tabell har två explicit definierade kolumner, var och en med data typen datetime2. Dessa kolumner kallas för period kolumner. Dessa period kolumner används exklusivt av systemet för att registrera giltighets perioden för varje rad när en rad ändras.
+Varje temporal tabell har två explicit definierade kolumner, var och en med en `datetime2` datatyp. Dessa kolumner kallas för *period* kolumner. Systemet använder bara dessa period kolumner för att registrera giltighets perioden för varje rad varje gång en rad ändras.
 
-Förutom dessa period kolumner innehåller en temporal tabell även en referens till en annan tabell med ett speglat schema. Systemet använder den här tabellen för att automatiskt lagra den tidigare versionen av raden varje gången en rad i den temporala tabellen uppdateras eller tas bort. Denna ytterligare tabell kallas historik tabellen, medan huvud tabellen som lagrar aktuella (faktiska) rad versioner kallas den aktuella tabellen eller helt enkelt som den temporala tabellen. Under skapandet av temporala tabeller kan användare ange befintlig historik tabell (måste vara schema kompatibelt) eller låta systemet skapa standard historik tabell.
+Förutom dessa period kolumner innehåller en temporal tabell även en referens till en annan tabell med ett speglat schema. Systemet använder den här tabellen för att automatiskt lagra den tidigare versionen av raden varje gången en rad i den temporala tabellen uppdateras eller tas bort. Den här extra tabellen kallas för *Historik* tabellen, medan huvud tabellen som lagrar aktuella (faktiska) rad versioner kallas den *aktuella* tabellen, eller helt enkelt som den temporala tabellen. När en temporal tabell skapas kan användarna ange en befintlig historik tabell (den måste vara kompatibel med schemat) eller låta systemet skapa standard historik tabellen.
 
-Mer information om temporala tabeller finns i [temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)
+Mer information finns i [temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 - [Data strömning i Azure SQL Edge (för hands version)](stream-data.md)
 - [Machine Learning och AI med ONNX i Azure SQL Edge (för hands version)](onnx-overview.md)

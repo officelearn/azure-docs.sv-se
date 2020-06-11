@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558860"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669791"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -43,8 +43,8 @@ I följande tabell visas roller och tillåtna åtgärder i Security Center.
 |Åtgärd|Säkerhets läsare/ <br> Läsare |Säkerhetsadministratör  |Resurs grupps deltagare/ <br> Resurs grupp ägare  |Prenumerations deltagare  |Prenumerations ägare  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Redigera säkerhets princip|-|✔|-|-|✔|
-|Ändra pris nivå för prenumeration|-|✔|-|-|-|
-|Aktivera/inaktivera automatisk etablering|-|✔|-|-|-|
+|Ändra pris nivå för prenumeration|-|✔|-|-|✔|
+|Aktivera/inaktivera automatisk etablering|-|✔|-|-|✔|
 |Tillämpa säkerhets rekommendationer för en resurs</br> (och Använd [snabb korrigering!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Ignorera aviseringar|-|✔|-|✔|✔|
 |Visa aviseringar och rekommendationer|✔|✔|✔|✔|✔|

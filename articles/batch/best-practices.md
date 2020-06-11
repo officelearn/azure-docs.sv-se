@@ -3,12 +3,12 @@ title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1d482eeb8b3da94e8af0a597ade1a1d834ccf6a0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871361"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677789"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -158,7 +158,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 
@@ -171,13 +171,17 @@ För användardefinierade vägar (UDR) ser du till att du har en process för at
 
 ### <a name="honoring-dns"></a>DNS-inlöst
 
-Se till att dina system följer DNS-TTL (Time-to-Live) för batch-kontots tjänst-URL. Kontrol lera också att batch-tjänstens klienter och andra anslutnings metoder till batch-tjänsten inte förlitar sig på IP-adresser.
+Se till att dina system följer DNS-TTL (Time-to-Live) för batch-kontots tjänst-URL. Se dessutom till att batch-tjänstens klienter och andra anslutnings metoder till batch-tjänsten inte förlitar sig på IP-adresser (eller [skapa en pool med statiska offentliga IP-adresser](create-pool-public-ip.md) enligt beskrivningen nedan).
 
 Om dina begär Anden tar emot HTTP-svar på 5xx nivå och det finns ett "anslutning: Stäng"-huvud i svaret, bör batch-tjänstens klient studera rekommendationen genom att stänga den befintliga anslutningen, matcha om DNS för batch-kontots tjänst-URL och försöka utföra följande förfrågningar på en ny anslutning.
 
-### <a name="retrying-requests-automatically"></a>Försöker utföra begär anden igen automatiskt
+### <a name="retry-requests-automatically"></a>Försök utföra begär Anden automatiskt
 
 Se till att dina batch-betjäna klienter har lämpliga principer för återförsök på plats för att automatiskt försöka utföra begär anden igen, även under normal drift och inte enbart under några tids perioder för tjänste underhåll. Dessa principer för återförsök bör omfatta ett intervall på minst 5 minuter. Funktioner för automatisk återförsök tillhandahålls med olika batch-SDK: er, till exempel [.net RetryPolicyProvider-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+
+### <a name="static-public-ip-addresses"></a>Statiska offentliga IP-adresser
+
+Normalt nås virtuella datorer i en batch-pool via offentliga IP-adresser som kan ändras under poolens livstid. Detta kan göra det svårt att interagera med en databas eller annan extern tjänst som begränsar åtkomsten till vissa IP-adresser. För att säkerställa att de offentliga IP-adresserna i poolen inte ändras, kan du skapa en pool med en uppsättning statiska offentliga IP-adresser som du styr. Mer information finns i [skapa en Azure Batch pool med angivna offentliga IP-adresser](create-pool-public-ip.md).
 
 ## <a name="batch-node-underlying-dependencies"></a>Underliggande beroenden för batch-noden
 

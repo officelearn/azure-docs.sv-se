@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 9dffa4d32980a16377f33a4ddb23987b3c2f3dd5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778565"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678602"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera Live Azure App Service-appar med Application Insights
 
@@ -21,13 +21,13 @@ Du kan köra profiler på ASP.NET och ASP.NET Core appar som körs på Azure App
 Följ anvisningarna nedan om du vill aktivera profiler för en app. Om du kör en annan typ av Azure-tjänst, finns här instruktioner för att aktivera profiler på andra plattformar som stöds:
 * [Molntjänster](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric program](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtuella datorer](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler är förinstallerat som en del av App Services Runtime. I stegen nedan visas hur du aktiverar det för App Service. Följ dessa steg även om du har inkluderat App Insights SDK i ditt program i bygge-tid.
 
-1. Aktivera inställningen "Always On" för din app service. Du kan uppdatera inställningen på sidan konfiguration i App Service under allmänna inställningar.
-1. Gå till rutan **app Services** i Azure Portal.
-1. Gå till **inställningar > Application Insightss** fönstret.
+1. Navigera till Azures kontroll panel för din App Service.
+1. Aktivera inställningen "Always On" för din app service. Du hittar den här inställningen under **Inställningar**, **konfigurations** sida (se skärm bild i nästa steg) och klickar på fliken **allmänna inställningar** .
+1. Gå till **inställningar > Application Insights** sidan.
 
    ![Aktivera App Insights på App Services Portal](./media/profiler/AppInsights-AppServices.png)
 

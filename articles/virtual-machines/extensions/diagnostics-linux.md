@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 4033437db5c14abcd0376fbfeca22cca915908d2
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118556"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677193"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -65,7 +65,7 @@ Distributioner och versioner som stöds:
 - Debian 9, 8, 7
 - RHEL 7, 6,7 +
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) för att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) -miljön på din dator.
@@ -451,7 +451,7 @@ Styr avbildningen av loggfiler. LAD fångar nya text rader när de skrivs till f
 
 Element | Värde
 ------- | -----
-file | Den fullständiga sökvägen till logg filen som ska bevakas och fångas. Sökvägen måste ha ett namn på en enskild fil. den kan inte namnge en katalog eller innehålla jokertecken.
+file | Den fullständiga sökvägen till logg filen som ska bevakas och fångas. Sökvägen måste ha ett namn på en enskild fil. den kan inte namnge en katalog eller innehålla jokertecken. Användar kontot "omsagent" måste ha Läs behörighet till fil Sök vägen.
 tabell | valfritt Azure Storage-tabellen, i det angivna lagrings kontot (enligt vad som anges i den skyddade konfigurationen), som nya rader från "änden" av filen skrivs till.
 mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som logg rader skickas till.
 
@@ -566,7 +566,7 @@ Sammanställda värden för alla diskar kan hämtas genom att ställa in `"condi
 
 ## <a name="installing-and-configuring-lad-30-via-cli"></a>Installera och konfigurera LAD 3.0 via CLI
 
-Förutsatt att dina skyddade inställningar finns i filen PrivateConfig. JSON och din offentliga konfigurations information finns i PublicConfig. JSON kör du det här kommandot:
+Förutsatt att dina skyddade inställningar finns i filen PrivateConfig.jspå och din offentliga konfigurations information är i PublicConfig.jspå, kör du följande kommando:
 
 ```azurecli
 az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
@@ -578,7 +578,7 @@ Kommandot förutsätter att du använder Azures resurs hanterings läge (arm) i 
 
 Baserat på föregående definitioner är här ett exempel på en LAD 3,0-tilläggs konfiguration med en förklaring. Om du vill använda det här exemplet i ditt fall bör du använda ditt eget lagrings konto namn, SAS-token för konto och EventHubs SAS-token.
 
-### <a name="privateconfigjson"></a>PrivateConfig. JSON
+### <a name="privateconfigjson"></a>PrivateConfig.jspå
 
 De här privata inställningarna konfigureras:
 
@@ -628,7 +628,7 @@ De här privata inställningarna konfigureras:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig. JSON
+### <a name="publicconfigjson"></a>PublicConfig.jspå
 
 Dessa offentliga inställningar gör att LAD:
 

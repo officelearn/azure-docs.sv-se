@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Node. js API, SDK & resurser'
-description: Lär dig allt om SQL Node. js API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB Node. js SDK.
+title: 'Azure Cosmos DB: SQL Node.js-API, SDK &-resurser'
+description: Lär dig allt om SQL Node.js API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB Node.js SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,18 +8,19 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 66597f0807e27e421d5f7001550533090d5936c0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: b0d9b0bd520b3bfca57f2bf7f306ebddd15cc3e5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171607"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677669"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node. js SDK för SQL API: viktig information och resurser
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
@@ -28,7 +29,7 @@ ms.locfileid: "84171607"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 |Resurs  |Länk  |
@@ -37,20 +38,20 @@ ms.locfileid: "84171607"
 |API-dokumentation  |  [Referens dokumentation för Java Script SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Instruktioner för SDK-installation  |  [Installationsinstruktioner](https://github.com/Azure/azure-cosmos-js#installation)
 |Bidra till SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Exempel | [Node. js-kod exempel](sql-api-nodejs-samples.md)
+| Exempel | [Node.js kod exempel](sql-api-nodejs-samples.md)
 | Vägledning för att komma igång | [Kom igång med Java Script SDK](sql-api-nodejs-get-started.md)
-| Själv studie kurs om webbapp | [Bygg ett Node. js-webbprogram med Azure Cosmos DB](sql-api-nodejs-application.md)
-| Aktuell plattform som stöds | [Node. js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK version 3. x. x<br/>[Node. js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK version 3. x. x<br/>[Node. js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK version 3. x. x<br/>[Node. js v6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK version 2. x. x<br/>[Node. js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)– SDK version 1. x. x<br/> [Node. js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)– SDK version 1. x. x<br/> [Node. js v 0,10](https://nodejs.org/en/blog/release/v0.10.0/)-SDK version 1. x. x
+| Själv studie kurs om webbapp | [Bygg ett Node.js-webbprogram med hjälp av Azure Cosmos DB](sql-api-nodejs-application.md)
+| Aktuell plattform som stöds | [Node.js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK version 3. x. x<br/>[Node.js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK version 3. x. x<br/>[Node.js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK version 3. x. x<br/>[Node.js v6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK version 2. x. x<br/>[Node.js v-4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)– SDK version 1. x. x<br/> [Node.js v-0.12](https://nodejs.org/en/blog/release/v0.12.0/)– SDK version 1. x. x<br/> [Node.js v 0,10](https://nodejs.org/en/blog/release/v0.10.0/)-SDK version 1. x. x
 
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="310"></a><a name="3.1.0"></a>3.1.0
-* Ange standard-ResponseContinuationTokenLimitInKB till 1 KB. Som standard capping detta till 1 KB för att undvika långa huvuden (Node. js har en storleks gräns för global rubrik). En användare kan ange det här fältet för att tillåta längre rubriker, vilket kan hjälpa till att optimera frågekörning för Server delen.
+* Ange standard-ResponseContinuationTokenLimitInKB till 1 KB. Som standard är det capping att 1 KB för att undvika långa huvuden (Node.js har en storleks gräns för global rubrik). En användare kan ange det här fältet för att tillåta längre rubriker, vilket kan hjälpa till att optimera frågekörning för Server delen.
 * Ta bort disableSSLVerification. Det här alternativet har nya alternativ som beskrivs i [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
 ### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * Tillåt att initialHeaders explicit anger nyckel huvud för partition
-* Använd Package. JSON # filer för att förhindra att extra filer publiceras
+* Använd package.jspå # Files för att förhindra att extra filer publiceras
 * Åtgärda sorterings fel i cirkulations kartan på en äldre version av Node + V8
 * Korrigerar fel när användaren tillhandahåller alternativ för del återförsök
 
@@ -101,7 +102,7 @@ I v2 fanns det många olika sätt att iterera eller hämta resultat från en fr�
 
 * Ta bort iterator. Next () och iterator. Current (). Använd fetchNext () för att hämta resultat sidor.
 * Ta bort iterator. (). Använd asynkrona iteratorer i stället.
-* iterator. executeNext () har bytt namn till iterator. fetchNext ()
+* iterator.executeNext () har bytt namn till iterator. fetchNext ()
 * iterator. toArray () har bytt namn till iterator. fetchAll ()
 * Sidor är nu riktiga svars objekt i stället för vanliga JS-objekt
 * CONST container = client. Database (dbId). container (containerId)
@@ -150,7 +151,7 @@ Misslyckade förfrågningar returnerar nu rätt fel eller underklasser av fel. T
 
 #### <a name="new-features"></a>Nya funktioner
 ##### <a name="user-cancelable-requests"></a>Användare-cancelable-begäranden
-Med funktionen flytta till hämtning internt kan vi använda webbläsarens AbortController-API för att stödja åtgärder som kan avbrytas av användaren. Om det finns åtgärder där flera begär Anden är potentiellt pågående (t. ex. kors partitions frågor) avbryts alla förfrågningar för åtgärden. Moderna webb läsar användare har redan AbortController. Node. js-användare måste använda ett polyfyllnings bibliotek
+Med funktionen flytta till hämtning internt kan vi använda webbläsarens AbortController-API för att stödja åtgärder som kan avbrytas av användaren. Om det finns åtgärder där flera begär Anden är potentiellt pågående (t. ex. kors partitions frågor) avbryts alla förfrågningar för åtgärden. Moderna webb läsar användare har redan AbortController. Node.js användare behöver använda ett polyfyllnings bibliotek
 
 ``` js
  const controller = new AbortController()
@@ -181,7 +182,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Förbättrad webb läsar upplevelse
-Det var möjligt att använda v2 SDK i webbläsaren, men det var inte en perfekt upplevelse. Du behövde polyfyll flera inbyggda bibliotek i Node. js och använda ett paket som webbpaket eller paket. V3 SDK gör att du får ut så mycket bättre för webb läsar användare.
+Det var möjligt att använda v2 SDK i webbläsaren, men det var inte en perfekt upplevelse. Du behövde samfylla flera node.js inbyggda bibliotek och använder en Bundle som webbpaket eller paket. V3 SDK gör att du får ut så mycket bättre för webb läsar användare.
 
 * Ersätt begär ande interna med Fetch (#245)
 * Ta bort användning av buffert (#330)
@@ -218,7 +219,7 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Åtgärda regional redundans inom princip för återförsök
 * Korrigera ChangeFeed hasMoreResults-egenskap
 * Uppdatering av dev-beroenden
-* Lägg till PolicheckExclusions. txt
+* Lägg till PolicheckExclusions.txt
 
 ### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * Växla _tss typ från sträng till tal

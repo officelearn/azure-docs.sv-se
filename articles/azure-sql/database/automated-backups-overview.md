@@ -6,19 +6,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
-ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-manager: craigg
 ms.date: 06/04/2020
-ms.openlocfilehash: fc2c8ea232004488664bc7f15b1d1bb3b83f2e7b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 41df5190f2a7435ad91de94cb6f407037e1783a2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609615"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667836"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -76,18 +74,6 @@ Med andra ord, för alla tidpunkter under kvarhållningsperioden, måste det fin
 > [!NOTE]
 > Om du vill aktivera PITR lagras ytterligare säkerhets kopior i upp till en vecka längre än den konfigurerade kvarhållningsperioden. Lagring av säkerhets kopior debiteras till samma pris för alla säkerhets kopieringar. 
 
-För enskilda databaser används den här ekvationen för att beräkna den totala användningen av lagring av säkerhets kopior:
-
-`Total backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
-
-För databaser i pooler sammanställs den totala lagrings storleken för säkerhets kopior på Poolnivå och beräknas enligt följande:
-
-`Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
-
-För hanterade instanser sammanställs den totala lagrings storleken för säkerhets kopior på instans nivå och beräknas enligt följande:
-
-`Total backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
-
 Säkerhets kopieringar som inte längre behövs för att tillhandahålla PITR-funktioner tas bort automatiskt. Eftersom differentiella säkerhets kopior och logg säkerhets kopior kräver en tidigare fullständig säkerhets kopiering för att bli återställas rensas alla tre säkerhets kopierings typerna tillsammans i vecko uppsättningar.
 
 För alla databaser, inklusive [TDE-krypterade](transparent-data-encryption-tde-overview.md) databaser, komprimeras säkerhets kopior för att minska lagrings komprimering och kostnader för säkerhets kopiering. Genomsnittlig komprimerings kvot för säkerhets kopiering är 3-4 gånger, men det kan vara betydligt lägre eller högre beroende på datans beskaffenhet och om data komprimering används i-databasen.
@@ -144,9 +130,21 @@ I DTU-modellen finns det ingen extra kostnad för lagring av säkerhets kopior f
 
 För enskilda databaser i SQL Database ges ett lagrings utrymme för säkerhets kopior som motsvarar 100 procent av den maximala data lagrings storleken för databasen utan extra kostnad. För elastiska pooler och hanterade instanser tillhandahålls en lagrings mängd för säkerhets kopior som motsvarar 100 procent av den maximala data lagringen för poolen eller den maximala instans lagrings storleken. 
 
-Ytterligare förbrukning av lagrings utrymme för säkerhets kopior debiteras i GB/månad. Den här ytterligare förbrukningen är beroende av arbets belastningen och storleken på enskilda databaser, elastiska pooler och hanterade instanser. Kraftigt ändrade databaser har större differentiella och logg säkerhets kopior, eftersom storleken på dessa säkerhets kopieringar är proportionell mot mängden data som ändras. Därför kommer sådana databaser att ha högre kostnader för säkerhets kopiering.
+För enskilda databaser används den här ekvationen för att beräkna den totala mängden fakturerbara säkerhets kopierings lagring:
 
-SQL Database-och SQL-hanterad instans beräknar den totala lagringen av säkerhets kopior som ett ackumulerat värde för alla säkerhets kopierings filer. Varje timme rapporteras det här värdet till Azures fakturerings pipeline, som sammanställer den här Tim användningen för att hämta din användning av lagrings utrymme för säkerhets kopior i slutet av varje månad. Om en databas tas bort minskar lagrings förbrukningen för säkerhets kopiering gradvis när äldre säkerhets kopieringar åldras och tas bort. Eftersom differentiella säkerhets kopior och logg säkerhets kopior kräver en tidigare fullständig säkerhets kopiering för att bli återställas rensas alla tre säkerhets kopierings typerna tillsammans i vecko uppsättningar. När alla säkerhets kopior tas bort stoppas faktureringen. 
+`Total billable backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
+
+För databaser i pooler aggregeras den totala mängden fakturerbara lagrings utrymmet på Poolnivå och beräknas enligt följande:
+
+`Total billable backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
+
+För hanterade instanser aggregeras den totala mängden fakturerbara lagrings utrymmet på instans nivån och beräknas på följande sätt:
+
+`Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
+
+Totalt antal fakturerbara lagrings enheter för säkerhets kopior debiteras i GB/månad. Den här lagrings förbrukningen för säkerhets kopiering beror på arbets belastningen och storleken på enskilda databaser, elastiska pooler och hanterade instanser. Kraftigt ändrade databaser har större differentiella och logg säkerhets kopior, eftersom storleken på dessa säkerhets kopieringar är proportionell mot mängden data som ändras. Därför kommer sådana databaser att ha högre kostnader för säkerhets kopiering.
+
+SQL Database-och SQL-hanterad instans beräknar den totala fakturerbara säkerhets kopierings lagringen som ett ackumulerat värde för alla säkerhetskopieringsfiler. Varje timme rapporteras det här värdet till Azures fakturerings pipeline, som sammanställer den här Tim användningen för att hämta din användning av lagrings utrymme för säkerhets kopior i slutet av varje månad. Om en databas tas bort minskar lagrings förbrukningen för säkerhets kopiering gradvis när äldre säkerhets kopieringar åldras och tas bort. Eftersom differentiella säkerhets kopior och logg säkerhets kopior kräver en tidigare fullständig säkerhets kopiering för att bli återställas rensas alla tre säkerhets kopierings typerna tillsammans i vecko uppsättningar. När alla säkerhets kopior tas bort stoppas faktureringen. 
 
 Som ett förenklat exempel förutsätter vi att en databas har samlat 744 GB lagrings utrymme för säkerhets kopior och att denna mängd förblir konstant under en hel månad eftersom databasen är helt inaktiv. Om du vill konvertera den här kumulativa lagrings användningen till per timme delar du den med 744,0 (31 dagar per månad * 24 timmar per dag). SQL Database rapporterar till Azure-fakturerings pipelinen att databasen förbrukade 1 GB av PITR-säkerhetskopiering varje timme enligt en konstant taxa. Azure-faktureringen sammanställer den här förbrukningen och visar en användning på 744 GB för hela månaden. Kostnaden baseras på pris/GB/månads pris i din region.
 

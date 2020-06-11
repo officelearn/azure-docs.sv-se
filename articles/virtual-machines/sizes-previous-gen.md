@@ -1,25 +1,19 @@
 ---
-title: VIRTUELLA Azure Linux-storlekar – tidigare generationer | Microsoft Docs
-description: Visar en lista över tidigare generationer av storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Storlekar för virtuella Azure-datorer – tidigare generationer | Microsoft Docs
+description: Visar en lista över tidigare generationer av storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 3284db031214dfaa631efa6f9f40e6a069998843
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081548"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677074"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -134,7 +128,7 @@ Premium Storage caching: stöds inte
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0&nbsp;<sup>1</sup> | 1 | 0.768 | 20 | 1 | 1 × 500 | 2/100 |
+| Standard_A0 &nbsp; <sup>1</sup> | 1 | 0.768 | 20 | 1 | 1 × 500 | 2/100 |
 | Standard_A1 | 1 | 1.75 | 70  | 2  | 2 × 500  | 2/500  |
 | Standard_A2 | 2 | 3.5  | 135 | 4  | 4 × 500  | 2/500  |
 | Standard_A3 | 4 | 7    | 285 | 8  | 8 × 500  | 2/1000 |
@@ -161,8 +155,8 @@ Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva ins
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort|
 |---|---|---|---|---|---|---|
-| Standard_A8&nbsp;<sup>1</sup> | 8  | 56  | 382 | 32 | 32 × 500 | 2 |
-| Standard_A9&nbsp;<sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
+| Standard_A8 &nbsp; <sup>1</sup> | 8  | 56  | 382 | 32 | 32 × 500 | 2 |
+| Standard_A9 &nbsp; <sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
 | Standard_A10 | 8  | 56  | 382 | 32 | 32 × 500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
@@ -232,7 +226,7 @@ DC-serien använder den senaste generationen av 3,7 GHz Intel XEON E-2176G-proce
 
 > [!IMPORTANT]
 >
-> Virtuella datorer i VM-serien är [generation 2 virtuella datorer](./linux/generation-2.md#creating-a-generation-2-vm) och stöder `Gen2` bara avbildningar.
+> Virtuella datorer i VM-serien är [generation 2 virtuella datorer](./linux/generation-2.md#creating-a-generation-2-vm) och stöder bara `Gen2` avbildningar.
 
 
 ### <a name="ds-series"></a>DS-serien  
@@ -295,7 +289,7 @@ Premium Storage caching: stöds inte
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8000  |
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
-| Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
+| Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
 Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serien kan begränsas av antal, storlek och striping för anslutna diskar. Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).
 
@@ -314,8 +308,8 @@ Premium Storage caching: stöds
 | Standard_GS1 | 2 | 28  | 56  | 8  | 10000/100 (264)  | 5000/ 125  | 2/2000 |
 | Standard_GS2 | 4 | 56  | 112 | 16 | 20000/200 (528)  | 10000/ 250 | 2/4000 |
 | Standard_GS3 | 8 | 112 | 224 | 32 | 40000/400 (1056) | 20000/ 500 | 4/8000 |
-| Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
-| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
+| Standard_GS4 &nbsp; <sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
+| Standard_GS5 &nbsp; <sup>2, &nbsp; 3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
 <sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en GS-seriens virtuella dator kan begränsas av antalet, storlek och striping av de anslutna diskarna. Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).
 
@@ -339,7 +333,7 @@ Premium Storage caching: stöds inte
 | Standard_G2  | 4  | 56  | 768  | 12 000/187/93  | 16/16x500 | 2/4000  |
 | Standard_G3  | 8  | 112 | 1536 | 24 000/375/187 | 32/32x500 | 4/8000  |
 | Standard_G4  | 16 | 224 | 3072 | 48 000/750/375 | 64/64x500 | 8/16000 |
-| Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
+| Standard_G5 &nbsp; <sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
 <br>

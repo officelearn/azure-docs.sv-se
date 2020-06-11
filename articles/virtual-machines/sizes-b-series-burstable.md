@@ -2,18 +2,18 @@
 title: Burst-Virtual Machines i B-serien – Azure
 description: Beskriver B-serien med burst-storlekar för virtuella Azure-datorer.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161088"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678553"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
@@ -86,7 +86,7 @@ Bas linje: 270%
 | Ingen trafik | 22:00 | 0 | 162 | 642 |
 | Ingen trafik | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> krediter ackumulerade/krediter som används i en timme motsvarar: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> krediter ackumulerade/krediter som används i en timme motsvarar: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
 För en D16s_v3 som har 16 virtuella processorer-och 64-GiB av minne är Tim priset $0,936 per timme (månatlig $673,92) och för B16ms med 16 virtuella processorer och 64 GiB-minne är priset $0,794 per timme (månatlig $547,86). <b>Detta resulterar i 15% besparingar!</b>
 

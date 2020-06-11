@@ -4,18 +4,17 @@ description: Lär dig att utföra en offline-migrering från SQLite till Azure S
 services: sql-database
 author: joplum
 ms.author: joplum
-manager: prda
 ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: e72b75b39205d245351480d914ed26eeec8939f7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 551276895de0ba659349c20205fa21d3d2c6b43e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051334"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669585"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrera din SQLite-databas till Azure SQL Database Server lös
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +25,7 @@ Azure SQL Database utan server är en beräknings nivå för enskilda databaser 
 
 När du har följt stegen nedan kommer databasen att migreras till Azure SQL Database Server lös, så att du kan göra databasen tillgänglig för andra användare eller program i molnet och bara betala för det du använder, med minimala program kod ändringar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration
 - SQLite2-eller SQLite3-databas som du vill migrera

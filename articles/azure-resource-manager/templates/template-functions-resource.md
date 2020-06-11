@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 15b1610dfcacb37bce2e265b4e16f675e944b9db
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: b04861e0d3c1b96b77e3865652a4300213b49a09
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331516"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676734"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -36,10 +36,10 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceId |Yes |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
+| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Yes |sträng |Resursens namn. |
+| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -83,7 +83,7 @@ I följande exempel returneras resurs-ID för ett resurs grupp lås.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -114,9 +114,9 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |sträng |Unikt ID för resursen. |
-| apiVersion |Ja |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |Inga |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| resourceName eller resourceIdentifier |Yes |sträng |Unikt ID för resursen. |
+| apiVersion |Yes |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
+| functionValues |No |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
 
 ### <a name="valid-uses"></a>Giltig användning
 
@@ -132,8 +132,8 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | Listnycklar |
 | Microsoft. Automation/automationAccounts | [Listnycklar](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft. batch/batchAccounts | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft. BatchAI/arbets ytor/experiment/jobb | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.BatCH/batchAccounts | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.BatchAI/arbets ytor/experiment/jobb | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft. blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft. blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft. cache/Redis | [Listnycklar](/rest/api/redis/redis/listkeys) |
@@ -163,12 +163,12 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. DevTestLab/labb/scheman | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft. DevTestLab/Labs/Users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft. DevTestLab/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft. DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft. DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft. EventGrid/Domains | [Listnycklar](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft. EventGrid/ämnen | [Listnycklar](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft. EventGrid/Domains | [Listnycklar](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft. EventGrid/ämnen | [Listnycklar](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft. EventHub/Namespaces/authorizationRules | [listnycklar](/rest/api/eventhub) |
 | Microsoft. EventHub/Namespaces/disasterRecoveryConfigs/authorizationRules | [listnycklar](/rest/api/eventhub) |
 | Microsoft. EventHub/Namespaces/eventhubs/authorizationRules | [listnycklar](/rest/api/eventhub) |
@@ -290,7 +290,7 @@ Om du vill hämta SAS-token skickar du ett objekt för förfallo tiden. Förfall
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storagename": {
@@ -363,8 +363,8 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ja |sträng |Namn område för providern |
-| resourceType |Inga |sträng |Typ av resurs inom den angivna namn rymden. |
+| providerNamespace |Yes |sträng |Namn område för providern |
+| resourceType |No |sträng |Typ av resurs inom den angivna namn rymden. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -386,7 +386,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -438,9 +438,9 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |Inga |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| Fullständig |Inga |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
+| resourceName eller resourceIdentifier |Yes |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
+| apiVersion |No |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
+| Fullständig |No |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -527,7 +527,7 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Ett exempel:
+Exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` inte korrekt
 
@@ -559,7 +559,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -653,7 +653,7 @@ Följande [exempel mal len refererar till](https://github.com/Azure/azure-docs-j
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -725,7 +725,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -761,11 +761,11 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |Inga |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
+| resourceGroupName |No |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
+| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Yes |sträng |Resursens namn. |
+| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -827,7 +827,7 @@ Ofta måste du använda den här funktionen när du använder ett lagrings konto
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -873,7 +873,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -935,7 +935,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -957,10 +957,10 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
+| subscriptionId |No |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Yes |sträng |Resursens namn. |
+| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -982,7 +982,7 @@ Följande mall tilldelar en inbyggd roll. Du kan distribuera den till antingen e
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -1039,9 +1039,9 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 
 | Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
-| resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceType |Yes |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
+| resourceName1 |Yes |sträng |Resursens namn. |
+| resourceName2 |No |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 

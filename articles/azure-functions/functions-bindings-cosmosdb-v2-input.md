@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 338fecfe914c1a3667c828355bd4071c317aaebf
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561590"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667904"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB bindning för Azure Functions 2. x
 
@@ -382,9 +382,9 @@ namespace CosmosDBSamplesV2
 
 ### <a name="queue-trigger-look-up-id-from-string"></a>Köa utlösare, leta upp ID från sträng
 
-I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
+I följande exempel visas en Cosmos DB indata-bindning i en *function.jspå* fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -416,11 +416,11 @@ Här är C#-skript koden:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
+I följande exempel visas en Azure Cosmos DB indata-bindning i en *function.jspå* fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
 Utlösaren för kön innehåller en parameter `departmentId` . Ett Queue-meddelande i `{ "departmentId" : "Finance" }` returnerar alla poster för ekonomi avdelningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -459,7 +459,7 @@ Här är C#-skript koden:
 
 I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -522,7 +522,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -586,7 +586,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i `SqlQuery` egenskapen Attribute.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -644,7 +644,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient` instans som tillhandahålls av Azure Cosmos DB bindningen för att läsa en lista över dokument. `DocumentClient`Instansen kan också användas för Skriv åtgärder.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -730,9 +730,9 @@ Det här avsnittet innehåller följande exempel som läser ett enda dokument ge
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
 
-I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
+I följande exempel visas en Cosmos DB indata-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -776,7 +776,7 @@ Här är JavaScript-koden:
 
 I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -835,7 +835,7 @@ module.exports = function (context, req, toDoItem) {
 
 I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -893,11 +893,11 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
+I följande exempel visas en Azure Cosmos DB indata-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
 Utlösaren för kön innehåller en parameter `departmentId` . Ett Queue-meddelande i `{ "departmentId" : "Finance" }` returnerar alla poster för ekonomi avdelningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -939,9 +939,9 @@ Det här avsnittet innehåller följande exempel som läser ett enda dokument ge
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
 
-I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
+I följande exempel visas en Cosmos DB indata-bindning i en *function.jspå* filen och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -987,7 +987,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -1018,7 +1018,6 @@ Här är *Function. JSON* -filen:
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```
@@ -1046,7 +1045,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -1103,11 +1102,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
+I följande exempel visas en Azure Cosmos DB indata-bindning i en *function.jspå* fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
 Utlösaren för kön innehåller en parameter `departmentId` . Ett Queue-meddelande i `{ "departmentId" : "Finance" }` returnerar alla poster för ekonomi avdelningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -1427,9 +1426,9 @@ I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDB` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `CosmosDB` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
 |**position**     | saknas | Måste anges till `in` .         |

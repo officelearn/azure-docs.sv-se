@@ -7,18 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259124"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678366"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Anpassade data och Cloud-Init på Azure Virtual Machines
 
-## <a name="what-is-custom-data"></a>Vad är anpassade data?
-
-Kunder frågar ofta hur de kan mata in ett skript eller andra metadata i en Microsoft Azure virtuell dator med etablerings tid.  I andra moln kallas det här konceptet ofta användar data.  I Microsoft Azure har vi en liknande funktion som kallas anpassade data. 
+Du kan behöva mata in ett skript eller andra metadata i en Microsoft Azure virtuell dator vid etablerings tiden.  I andra moln kallas det här konceptet ofta användar data.  I Microsoft Azure har vi en liknande funktion som kallas anpassade data. 
 
 Anpassade data görs bara tillgängliga för den virtuella datorn under den första starten/första installationen. vi kallar denna "etablering". Etablering är den process där virtuella dator parametrar (till exempel värdnamn, användar namn, lösen ord, certifikat, anpassade data, nycklar osv.) görs tillgängliga för den virtuella datorn och en etablerings agent bearbetar dem, till exempel [Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) och [Cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 
@@ -65,12 +63,12 @@ De etablerings agenter som är installerade på de virtuella datorerna hanterar 
 Anpassade data placeras i *%systemdrive%\AzureData\CustomData.bin* som en binär fil, men bearbetas inte. Om du vill bearbeta den här filen måste du skapa en anpassad avbildning och skriva kod för att bearbeta CustomData. bin.
 
 ### <a name="linux"></a>Linux  
-På Linux-operativsystem skickas anpassade data till den virtuella datorn via filen OVF-ENV. XML, som kopieras till */var/lib/waagent* -katalogen under etableringen.  Nyare versioner av Microsoft Azure Linux-agenten kommer också att kopiera base64-kodade data till */var/lib/waagent/CustomData* för bekvämlighet.
+På Linux-operativsystem skickas anpassade data till den virtuella datorn via ovf-env.xml-filen, som kopieras till */var/lib/waagent* -katalogen under etableringen.  Nyare versioner av Microsoft Azure Linux-agenten kommer också att kopiera base64-kodade data till */var/lib/waagent/CustomData* för bekvämlighet.
 
 Azure har för närvarande stöd för två etablerings agenter:
 * Linux-Agent – som standard kommer agenten inte att bearbeta anpassade data. du måste bygga en anpassad avbildning med den aktive rad. De relevanta inställningarna enligt [dokumentationen](https://github.com/Azure/WALinuxAgent#configuration) är:
     * Etablering. DecodeCustomData
-    * Etablering. ExecuteCustomData
+    * Provisioning.ExecuteCustomData
 
 När du aktiverar anpassade data och kör ett skript, kommer det att fördröja den VM-rapportering som är klar eller att etableringen har slutförts tills skriptet har slutförts. Om skriptet överskrider den totala tids gränsen för VM-etablering på 40 minuter kommer den virtuella datorns skapande att Miss klaras. Obs! Om skriptet inte kan köras eller fel under körningen, betraktas det inte som ett oåterkalleligt etablerings fel. du måste skapa en meddelande Sök väg för att varna dig om skriptets slut för ande tillstånd.
 

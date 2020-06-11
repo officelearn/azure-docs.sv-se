@@ -4,17 +4,18 @@ description: Lär dig mer om Azures privata länk
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a91415e7e3d91c2950cc4df2235c3d58df284cc0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: af00119f1da3368b8592e020eee1ebb2a39a8501
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235987"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669961"
 ---
-# <a name="create-a-private-endpoint---resource-manager-template"></a>Skapa en privat slut punkt – Resource Manager-mall
+# <a name="quickstart-create-a-private-endpoint---resource-manager-template"></a>Snabb start: skapa en privat slut punkt – Resource Manager-mall
 
 I den här snabb starten använder du en Resource Manager-mall för att skapa en privat slut punkt.
 
@@ -22,7 +23,7 @@ I den här snabb starten använder du en Resource Manager-mall för att skapa en
 
 Du kan också slutföra den här snabb starten med [Azure Portal](create-private-endpoint-portal.md), [Azure POWERSHELL](create-private-endpoint-powershell.md)eller [Azure CLI](create-private-endpoint-cli.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -32,22 +33,22 @@ den här mallen skapar en privat slut punkt för en Azure SQL-Server.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-private-endpoint-sql/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
 Flera Azure-resurser definieras i mallen:
 
+- [**Microsoft. SQL/Servers**](/azure/templates/microsoft.sql/servers) : Azure SQL Server med exempel databasen
+- [**Microsoft. SQL/Servers/databaser**](/azure/templates/microsoft.sql/servers/databases) : exempel databas
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network där den privata slut punkten distribueras
 - [**Microsoft. Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints) : privat slut punkt för att få åtkomst till Azure SQL-servern privat
 - [**Microsoft. Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones) : används för att matcha den privata slut PUNKTens IP-adress
 - [**Microsoft. Network/privateDnsZones/virtualNetworkLinks**](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks)
 - [**Microsoft. Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups) : associera privat slut punkt med en privat DNS-zon
-- [**Microsoft. SQL/Servers**](/azure/templates/microsoft.sql/servers) : Azure SQL Server med exempel databasen
-- [**Microsoft. SQL/Servers/databaser**](/azure/templates/microsoft.sql/servers/databases) : exempel databas
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network där den privata slut punkten distribueras
 - [**Microsoft. Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : offentlig IP-adress för att få åtkomst till den virtuella datorn
-- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : virtuell dator för att testa den privata anslutningen med privat slut punkt till Azure SQL Server
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : nätverks gränssnitt för den virtuella datorn
+- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : virtuell dator för att testa den privata anslutningen med privat slut punkt till Azure SQL Server
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561875"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676139"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
@@ -91,7 +91,7 @@ Det finns två bitar som krävs för att implementera en krets brytare i en hän
 
 Implementerings informationen kan variera, men för att dela tillstånd mellan instanser behöver du en lagrings funktion. Du kan välja att lagra tillstånd i Azure Storage, en Redis-cache eller något annat konto som är tillgängligt för en samling funktioner.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller [varaktiga enheter](./durable/durable-functions-overview.md) är en naturlig anpassning för att hantera arbets flödet och krets läget. Andra tjänster fungerar även lika bra, men Logic Apps används i det här exemplet. Med hjälp av Logic Apps kan du pausa och starta om en funktions körning som ger dig den kontroll som krävs för att implementera krets brytar mönstret.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller [varaktiga funktioner](./durable/durable-functions-overview.md) är en naturlig anpassning för att hantera arbets flödes-och krets tillstånd. Andra tjänster fungerar även lika bra, men Logic Apps används i det här exemplet. Med hjälp av Logic Apps kan du pausa och starta om en funktions körning som ger dig den kontroll som krävs för att implementera krets brytar mönstret.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Definiera ett tröskelvärde för en tröskel över instanser
 
@@ -123,7 +123,7 @@ Med den här metoden går inga meddelanden förlorade, alla meddelanden bearbeta
 ## <a name="resources"></a>Resurser
 
 - [Exempel på Reliable Event Processing](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Azure Durable Functions krets brytare](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Krets brytare för Azure tåliga enheter](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Nästa steg
 

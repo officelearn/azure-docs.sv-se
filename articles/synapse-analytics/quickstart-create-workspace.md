@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609479"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656701"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
+# <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
 
@@ -38,7 +38,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 ![Kommando för att skapa en ny Azure dataSynapses-arbetsyta är markerat.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Fyll i formuläret för **Azure DataSynapses-arbetsyta** med följande information:
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställningen | Föreslaget värde | Description |
     | :------ | :-------------- | :---------- |
     | **Prenumeration** | *Din prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 3ef0f89d7011da1f86032202f408aaae83dcf160
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795598"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675262"
 ---
 # <a name="add-health-probes-to-your-service"></a>Lägg till hälso avsökningar i din tjänst
 Som standard etablerar ingress Controller en HTTP GET-avsökning för exponerade poddar.
@@ -47,15 +47,15 @@ spec:
 
 Kubernetes API-referens:
 * [Container PROBE](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [HttpGet-åtgärd](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+* [HttpGet-åtgärd](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`och `livenessProbe` stöds när de konfigureras `httpGet`med.
+> * `readinessProbe`och `livenessProbe` stöds när de konfigureras med `httpGet` .
 > * Det finns för närvarande inte stöd för avsökning på en annan port än den som exponeras på pod.
-> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` stöds inte.
+> * `HttpHeaders`, `InitialDelaySeconds` , `SuccessThreshold` stöds inte.
 
 ##  <a name="without-readinessprobe-or-livenessprobe"></a>Utan `readinessProbe` eller`livenessProbe`
-Om avsökningarna ovan inte anges, gör ingångs enheten ett antagande om att tjänsten kan `Path` kontaktas för `backend-path-prefix` antecknings anteckning eller som `path` anges i `ingress` definitionen för tjänsten.
+Om avsökningarna ovan inte anges, gör ingångs enheten ett antagande om att tjänsten kan kontaktas `Path` för `backend-path-prefix` antecknings anteckning eller som `path` anges i `ingress` definitionen för tjänsten.
 
 ## <a name="default-values-for-health-probe"></a>Standardvärden för hälso avsökning
 Standardvärden anges för en egenskap som inte kan härledas av beredskap/direktmigreringen.

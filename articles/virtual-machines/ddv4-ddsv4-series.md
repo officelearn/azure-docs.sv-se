@@ -1,19 +1,20 @@
 ---
-title: Ddv4 och Ddsv4-serien – Azure Virtual Machines
+title: Ddv4- och Ddsv4-serien
 description: Specifikationer för virtuella datorer i DV4, Ddv4, Dsv4 och Ddsv4-serien.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 7a5951d15806cd2969d61c52ef929472da023386
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 5f241847ee25d3e964d101bd43a8384f764b4f36
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488739"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672790"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4- och Ddsv4-serien
 
@@ -37,7 +38,7 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|
 | Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2/1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2/2000 |

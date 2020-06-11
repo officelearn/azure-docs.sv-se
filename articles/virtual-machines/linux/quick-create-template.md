@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 0e9ce74d62bb45c84f8bca2d71579b05c0ba656a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485744"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677958"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Snabb start: skapa en virtuell Ubuntu Linux virtuell dator med en Resource Manager-mall
 
@@ -23,8 +23,13 @@ Den här snabb starten visar hur du använder en Resource Manager-mall för att 
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Krav
 
-## <a name="review-the-template"></a>Granska mallen
+Inga.
+
+## <a name="create-an-ubuntu-linux-virtual-machine"></a>Skapa en virtuell Ubuntu Linux virtuell dator
+
+### <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -35,19 +40,17 @@ Flera resurser definieras i mallen:
 
 - [**Microsoft. Network/virtualNetworks/subnets**](/azure/templates/Microsoft.Network/virtualNetworks/subnets): skapa ett undernät.
 - [**Microsoft. Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): skapa ett lagrings konto.
-- [**Microsoft. Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): skapa en offentlig IP-adress.
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): skapa ett nätverkskort.
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/Microsoft.Network/networkSecurityGroups): skapa en nätverks säkerhets grupp.
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/Microsoft.Network/virtualNetworks): skapa ett virtuellt nätverk.
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): skapa ett nätverkskort.
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): skapa en offentlig IP-adress.
 - [**Microsoft. Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): skapa en virtuell dator.
 
-
-
-## <a name="deploy-the-template"></a>Distribuera mallen
+### <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
 
-    [![Distribuera till Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 1. Välj eller ange följande värden. Använd standardvärdena om det är tillgängligt.
 

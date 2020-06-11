@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1f07e6eb1a219db4f8eb94c54acaa3181e186da6
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649896"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670029"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrera Azure Event Hubs med Azures privata länk
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
@@ -22,7 +22,7 @@ En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säke
 Mer information finns i [Vad är en privat Azure-länk?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Den här funktionen stöds bara med den **dedikerade** nivån. Mer information om den dedikerade nivån finns i [Översikt över Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> Den här funktionen stöds för både **standard** -och **dedikerade** nivåer. 
 
 >[!WARNING]
 > Att aktivera privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Event Hubs.
@@ -58,11 +58,11 @@ Din privata slut punkt använder en privat IP-adress i det virtuella nätverket.
 ### <a name="steps"></a>Steg
 Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutning genom att följa dessa steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. I Sök fältet skriver du i **Event Hub**.
 3. Välj det **namn område** i listan som du vill lägga till en privat slut punkt för.
 4. Välj fliken **nätverk** under **Inställningar**.
-5. Välj fliken **anslutningar för privata slut punkter** överst på sidan. Om du inte använder en dedikerad nivå av Event Hubs visas ett meddelande: **privata slut punkts anslutningar på Event Hubs stöds endast av namn områden som skapats i ett dedikerat kluster**.
+5. Välj fliken **anslutningar för privata slut punkter** överst på sidan. 
 6. Välj knappen **+ privat slut punkt** överst på sidan.
 
     ![Bild](./media/private-link-service/private-link-service-3.png)
@@ -202,12 +202,12 @@ Det finns fyra etablerings tillstånd:
 |--|--|--|
 | Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
-| Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
+| Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. I Sök fältet skriver du i **Event Hub**.
 3. Välj det **namn område** som du vill hantera.
 4. Välj fliken **nätverk** .

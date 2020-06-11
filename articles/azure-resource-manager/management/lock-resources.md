@@ -2,13 +2,13 @@
 title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d6617b7e13ebf7a58cdbbf9356eac1d035a1f73
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/10/2020
+ms.openlocfilehash: cf5e2c7d19b9b90be3e9ca9e64e832794cd70c92
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483485"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678043"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -35,9 +35,11 @@ Att använda Lås kan leda till oväntade resultat eftersom vissa åtgärder som
 
 * Ett skrivskyddat lås på en **resurs grupp** som innehåller en **virtuell dator** hindrar alla användare från att starta eller starta om den virtuella datorn. De här åtgärderna kräver en POST-begäran.
 
-* Ett skrivskyddat lås på en **prenumeration** förhindrar att **Azure Advisor** fungerar korrekt. Advisor kan inte lagra resultatet av sina frågor.
+* Ett borttagnings lås för en **resurs grupp** förhindrar Azure Resource Manager från att [automatiskt ta bort distributioner](../templates/deployment-history-deletions.md) i historiken. Om du når 800-distributioner i historiken går det inte att distribuera.
 
 * Ett borttagnings lås på **resurs gruppen** som skapats av **Azure Backup tjänsten** medför att säkerhets kopieringen Miss lyckas. Tjänsten har stöd för högst 18 återställnings punkter. När det är låst kan säkerhets kopierings tjänsten inte rensa återställnings punkter. Mer information finns i vanliga frågor och svar om hur du [säkerhetskopierar virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
+
+* Ett skrivskyddat lås på en **prenumeration** förhindrar att **Azure Advisor** fungerar korrekt. Advisor kan inte lagra resultatet av sina frågor.
 
 ## <a name="who-can-create-or-delete-locks"></a>Vem kan skapa eller ta bort lås
 

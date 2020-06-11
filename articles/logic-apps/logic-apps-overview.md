@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241670"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659608"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Översikt – vad är Azure Logic Apps?
 
@@ -102,9 +102,9 @@ Skapa Logi Kap par som Azure Resource Manager mallar så att du kan [Automatiser
 
 ### <a name="access-resources-inside-azure-virtual-networks"></a>Få åtkomst till resurser i virtuella Azure-nätverk
 
-Logi Kap par kan komma åt skyddade resurser, till exempel virtuella datorer (VM) och andra system eller tjänster som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) när du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en isolerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
+Logi Kap par kan komma åt skyddade resurser, till exempel virtuella datorer (VM) och andra system eller tjänster som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) när du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en dedikerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
 
-Genom att köra Logi Kap par i en egen separat isolerad instans kan du minska den påverkan som andra Azure-klienter kan ha på dina appars prestanda, även kallade ["bruset](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)"-påverkan. En ISE tillhandahåller även följande fördelar:
+Genom att köra Logi Kap par i en egen separat dedikerad instans kan du minska den påverkan som andra Azure-klienter kan ha på dina appars prestanda, även kallade ["störningar på grannar"-effekten](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). En ISE tillhandahåller även följande fördelar:
 
 * Dina egna statiska IP-adresser, som är åtskilda från de statiska IP-adresser som delas av logi Kap par i tjänsten för flera innehavare. Du kan också konfigurera en enskild offentlig, statisk och förutsägbar utgående IP-adress för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar på dessa mål system för varje ISE.
 

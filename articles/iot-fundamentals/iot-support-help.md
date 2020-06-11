@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 74d8d05ba3c7a061bc78dc4c24a24d6a6275525d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827243"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659617"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Support och hjälp för Azure IoT
 
@@ -29,35 +29,43 @@ Utforska [support alternativen för Azure och välj den plan](https://azure.micr
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
+## <a name="post-a-question-on-microsoft-qa"></a>Publicera en fråga på Microsoft Q&A
+
+För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](https://aka.ms/azureqa), Azures önskade mål för Community-support. 
+
+Om du inte kan hitta ett svar på problemet med hjälp av Sök skickar du en ny fråga till Microsoft Q&A. Använd någon av följande Taggar när du ställer din fråga:
+
+- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
+- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Azure IoT Hub Device Provisioning Service (DPS)](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
+- [SDK:er för Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
+- [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Azure-återställningstider](https://docs.microsoft.com/answers/topics/azure-rtos.html)
+- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
+- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
+- [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+
 ## <a name="post-a-question-on-stack-overflow"></a>Publicera en fråga på Stack Overflow
 
 <div class='icon is-large'>
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-För omedelbara svar från communityn, se Stack Overflow. Stack Overflow är den föredragna kanalen för **utvecklings frågor**. Det är där medlemmar i communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att lösa dina problem.
+För svar på dina frågor om utvecklare från det största community Developer-eko systemet, Ställ din fråga på Stack Overflow.
 
-Om du inte kan hitta ett svar på ditt problem via sökning skickar du en ny fråga till Stack Overflow. Använd någon av följande Taggar när du formulerar frågan:
+Om du skickar en ny fråga till Stack Overflow ska du använda en eller flera av följande Taggar när du skapar frågan:
 
- - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
  - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [SDK:er för Azure IoT](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
+ - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
+ - [Azure-återställningstider](https://stackoverflow.com/questions/tagged/azure-rtos)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
-
-## <a name="start-a-conversation-on-the-msdn-forums"></a>Starta en konversation i MSDN-forumen
-
-För att diskutera Azure-teknik och-tjänster för att skapa IoT-lösningar. MSDN är den föredragna kanalen för **lösnings-relaterade frågor**. Det är där medlemmar i communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att välja rätt lösning för ditt projekt.
-
-Om du inte hittar något svar på problemet via sökning skickar du en ny fråga till MSDN i det service-relaterade forumet:
-
-- [Sidan Microsoft Q&en fråga för Azure Digitals, dubbla](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Sidan Microsoft Q&en fråga för Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Sidan Microsoft Q&en fråga för Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Sidan Microsoft Q&en fråga för Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
-- [Sidan Microsoft Q&en fråga för Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
+ - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Skicka feedback om feedback från Azure
 
@@ -77,6 +85,7 @@ Om du vill begära nya funktioner kan du publicera dem på Azure feedback. Dela 
 | Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
 | Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
 | Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
+| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Håll dig informerad om uppdateringar och nya versioner
 

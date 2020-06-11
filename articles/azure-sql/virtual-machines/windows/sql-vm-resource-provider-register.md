@@ -4,7 +4,6 @@ description: Registrera din virtuella Azure SQL Server-dator med resurs leverant
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c6e40842235f0070d283974eaded25390e3555e7
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: b7372d1e542c4261e982721386c96a34e4be633e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661139"
+ms.locfileid: "84667445"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server VM i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

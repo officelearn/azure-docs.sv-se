@@ -3,12 +3,12 @@ title: Template Functions-String
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med strängar.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a590e8102bce45e577f1a827c09e752eb0a13139
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982422"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676615"
 ---
 # <a name="string-functions-for-arm-templates"></a>Sträng funktioner för ARM-mallar
 
@@ -55,9 +55,9 @@ Returnerar den base64-representation av Indatasträngen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Värdet som ska returneras som en Base64-representation. |
+| inputString |Yes |sträng |Värdet som ska returneras som en Base64-representation. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -69,7 +69,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -120,9 +120,9 @@ Konverterar en Base64-representation till ett JSON-objekt.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Den base64-representation som ska konverteras till ett JSON-objekt. |
+| base64Value |Yes |sträng |Den base64-representation som ska konverteras till ett JSON-objekt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -134,7 +134,7 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -185,9 +185,9 @@ Konverterar en Base64-representation till en sträng.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Den base64-representation som ska konverteras till en sträng. |
+| base64Value |Yes |sträng |Den base64-representation som ska konverteras till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -199,7 +199,7 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringData": {
@@ -250,10 +250,10 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen, elle
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller matris |Den första strängen eller matrisen för sammanfogning. |
-| ytterligare argument |Nej |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
+| arg1 |Yes |sträng eller matris |Den första strängen eller matrisen för sammanfogning. |
+| ytterligare argument |No |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Strängar sammanfogas bara med andra strängar.
 
@@ -267,7 +267,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -295,24 +295,24 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -340,10 +340,10 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
+| container |Yes |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Yes |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -355,7 +355,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -421,9 +421,9 @@ Konverterar ett värde till en data-URI.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |sträng |Det värde som ska konverteras till en data-URI. |
+| stringToConvert |Yes |sträng |Det värde som ska konverteras till en data-URI. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -435,7 +435,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -476,9 +476,9 @@ Konverterar ett data-URI-formaterat värde till en sträng.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Ja |sträng |Data-URI-värdet som ska konverteras. |
+| dataUriToConvert |Yes |sträng |Data-URI-värdet som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -490,7 +490,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -531,9 +531,9 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Yes |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -545,7 +545,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -596,10 +596,10 @@ Anger om en sträng slutar med ett värde. Jämförelsen är inte Skift läges k
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| stringToSearch |Yes |sträng |Det värde som innehåller objektet som ska hittas. |
+| stringToFind |Yes |sträng |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -611,7 +611,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -662,9 +662,9 @@ Returnerar det första tecken strängen eller det första elementet i matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
+| arg1 |Yes |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -676,7 +676,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -714,13 +714,13 @@ Skapar en formaterad sträng från angivna värden.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| formatString | Ja | sträng | Strängen för sammansatt format. |
-| arg1 | Ja | sträng, heltal eller boolesk | Värdet som ska tas med i den formaterade strängen. |
-| ytterligare argument | Nej | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
+| formatString | Yes | sträng | Strängen för sammansatt format. |
+| arg1 | Yes | sträng, heltal eller boolesk | Värdet som ska tas med i den formaterade strängen. |
+| ytterligare argument | No | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Använd den här funktionen för att formatera en sträng i mallen. Den använder samma formateringsalternativ som metoden [system. String. format](/dotnet/api/system.string.format) i .net.
 
@@ -730,7 +730,7 @@ I följande exempel mall visas hur du använder funktionen format.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "greeting": {
@@ -771,12 +771,12 @@ Skapar ett värde i formatet för en globalt unik identifierare baserat på de v
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
-| ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| baseString |Yes |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
+| ytterligare parametrar efter behov |No |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Den här funktionen är användbar när du behöver skapa ett värde i formatet för en globalt unik identifierare. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution.
 
@@ -812,7 +812,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -842,10 +842,10 @@ Returnerar den första positionen för ett värde i en sträng. Jämförelsen ä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| stringToSearch |Yes |sträng |Det värde som innehåller objektet som ska hittas. |
+| stringToFind |Yes |sträng |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -857,7 +857,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -903,9 +903,9 @@ Returnerar det sista tecken strängen eller det sista elementet i matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
+| arg1 |Yes |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -917,7 +917,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -955,10 +955,10 @@ Returnerar den sista positionen för ett värde i en sträng. Jämförelsen är 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| stringToSearch |Yes |sträng |Det värde som innehåller objektet som ska hittas. |
+| stringToFind |Yes |sträng |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -970,7 +970,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1016,13 +1016,13 @@ Returnerar antalet tecken i en sträng, element i en matris eller på rot nivå 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 |Yes |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
-En int. 
+En int.
 
 ### <a name="examples"></a>Exempel
 
@@ -1030,7 +1030,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -1090,7 +1090,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 Returnerar ett värde i formatet för en globalt unik identifierare. **Den här funktionen kan endast användas i standardvärdet för en parameter.**
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
@@ -1114,7 +1114,7 @@ I följande exempel mall visas en parameter med en ny identifierare.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1143,7 +1143,7 @@ I följande exempel används funktionen newGuid för att skapa ett unikt namn f�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "guidValue": {
@@ -1191,11 +1191,11 @@ Returnerar en högerjusterad sträng genom att lägga till tecken till vänster 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Ja |sträng eller heltal |Värdet till Högerjustera. |
-| totalLength |Ja |int |Det totala antalet tecken i den returnerade strängen. |
-| paddingCharacter |Nej |enstaka Character |Det tecken som ska användas för vänster utfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blank steg. |
+| valueToPad |Yes |sträng eller heltal |Värdet till Högerjustera. |
+| totalLength |Yes |int |Det totala antalet tecken i den returnerade strängen. |
+| paddingCharacter |No |enstaka Character |Det tecken som ska användas för vänster utfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blank steg. |
 
 Om den ursprungliga strängen är längre än antalet tecken som ska padas läggs inga tecken till.
 
@@ -1205,11 +1205,11 @@ En sträng med minst antalet angivna tecken.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) visas hur du fyller i det användardefinierade parametervärdet genom att lägga till noll tecknet tills det når det totala antalet tecken. 
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) visas hur du fyller i det användardefinierade parametervärdet genom att lägga till noll tecknet tills det når det totala antalet tecken.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1241,11 +1241,11 @@ Returnerar en ny sträng med alla instanser av en sträng ersatt av en annan str
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |sträng |Värdet som innehåller alla instanser av en sträng ersatt av en annan sträng. |
-| oldString |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
-| newString |Ja |sträng |Strängen som ska läggas till i stället för den borttagna strängen. |
+| originalString |Yes |sträng |Värdet som innehåller alla instanser av en sträng ersatt av en annan sträng. |
+| oldString |Yes |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
+| newString |Yes |sträng |Strängen som ska läggas till i stället för den borttagna strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1257,7 +1257,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1294,10 +1294,10 @@ Returnerar en sträng med alla tecken efter det angivna antalet tecken, eller en
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
-| numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
+| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
+| numberToSkip |Yes |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1309,7 +1309,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1362,10 +1362,10 @@ Returnerar en matris med strängar som innehåller under strängarna i Indatastr
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Strängen som ska delas. |
-| avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
+| inputString |Yes |sträng |Strängen som ska delas. |
+| avgränsare |Yes |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1377,7 +1377,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstString": {
@@ -1421,10 +1421,10 @@ Anger om en sträng börjar med ett värde. Jämförelsen är inte Skift läges 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| stringToSearch |Yes |sträng |Det värde som innehåller objektet som ska hittas. |
+| stringToFind |Yes |sträng |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1436,7 +1436,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1487,9 +1487,9 @@ Konverterar det angivna värdet till en sträng.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja | Alla |Värdet som ska konverteras till sträng. Alla typer av värden kan konverteras, inklusive objekt och matriser. |
+| valueToConvert |Yes | Alla |Värdet som ska konverteras till sträng. Alla typer av värden kan konverteras, inklusive objekt och matriser. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1501,7 +1501,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testObject": {
@@ -1558,17 +1558,17 @@ Returnerar en under sträng som börjar vid den angivna tecken positionen och so
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |sträng |Den ursprungliga sträng som under strängen extraheras från. |
-| Start |Nej |int |Den nollbaserade start tecken positionen för under strängen. |
-| length |Nej |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
+| stringToParse |Yes |sträng |Den ursprungliga sträng som under strängen extraheras från. |
+| Start |No |int |Den nollbaserade start tecken positionen för under strängen. |
+| length |No |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
 
 ### <a name="return-value"></a>Returvärde
 
 Under strängen. Eller en tom sträng om längden är noll.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strängen eller när längden är mindre än noll. Följande exempel Miss lyckas med felet "index-och längd parametrarna måste referera till en plats inom strängen. Index parametern: 0, längd parameter: ' 11 ', längden på sträng parametern: ' 10 '.
 
@@ -1576,7 +1576,7 @@ Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strä
 "parameters": {
     "inputString": { "type": "string", "value": "1234567890" }
 },
-"variables": { 
+"variables": {
     "prefix": "[substring(parameters('inputString'), 0, 11)]"
 }
 ```
@@ -1587,7 +1587,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1619,10 +1619,10 @@ Returnerar en sträng med det angivna antalet tecken från början av strängen,
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
-| numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
+| Ursprungligt värde |Yes |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
+| numberToTake |Yes |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1634,7 +1634,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1687,9 +1687,9 @@ Konverterar den angivna strängen till gemener.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet som ska konverteras till gemener. |
+| stringToChange |Yes |sträng |Värdet som ska konverteras till gemener. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1701,7 +1701,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1738,9 +1738,9 @@ Konverterar den angivna strängen till versaler.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet som ska konverteras till versaler. |
+| stringToChange |Yes |sträng |Värdet som ska konverteras till versaler. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1752,7 +1752,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1789,9 +1789,9 @@ Tar bort alla inledande och avslutande blank stegs tecken från den angivna str�
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |sträng |Det värde som ska trimmas. |
+| stringToTrim |Yes |sträng |Det värde som ska trimmas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1803,7 +1803,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testString": {
@@ -1831,18 +1831,18 @@ Utdata från föregående exempel med standardvärdena är:
 
 `uniqueString (baseString, ...)`
 
-Skapar en deterministisk hash-sträng baserat på de värden som anges som parametrar. 
+Skapar en deterministisk hash-sträng baserat på de värden som anges som parametrar.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
-| ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| baseString |Yes |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
+| ytterligare parametrar efter behov |No |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
-Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution. 
+Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution.
 
 Det returnerade värdet är inte en slumpmässig sträng, utan i stället resultatet av en hash-funktion. Det returnerade värdet är 13 tecken långt. Den är inte globalt unik. Du kanske vill kombinera värdet med ett prefix från namngivnings konventionen för att skapa ett namn som är meningsfullt. I följande exempel visas formatet för det returnerade värdet. Det faktiska värdet varierar beroende på de angivna parametrarna.
 
@@ -1871,9 +1871,9 @@ Unikt scope till distribution för en resurs grupp
 I följande exempel visas hur du skapar ett unikt namn för ett lagrings konto baserat på din resurs grupp. Inuti resurs gruppen är namnet inte unikt om det är konstruerat på samma sätt.
 
 ```json
-"resources": [{ 
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
-    "type": "Microsoft.Storage/storageAccounts", 
+"resources": [{
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
     ...
 ```
 
@@ -1889,7 +1889,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -1913,19 +1913,19 @@ Skapar en absolut URI genom att kombinera baseUri-och relativeUri-strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |sträng |Bas-URI-sträng. Ta hand om det beteende som rör hanteringen av det avslutande snedstrecket ("/"), enligt beskrivningen i den här tabellen.  |
-| relativeUri |Ja |sträng |Den relativa URI-sträng som ska läggas till i bas-URI-strängen. |
+| baseUri |Yes |sträng |Bas-URI-sträng. Ta hand om det beteende som rör hanteringen av det avslutande snedstrecket ("/"), enligt beskrivningen i den här tabellen.  |
+| relativeUri |Yes |sträng |Den relativa URI-sträng som ska läggas till i bas-URI-strängen. |
 
 * Om **baseUri** slutar på ett avslutande snedstreck är resultatet bara **baseUri** , följt av **relativeUri**.
 
-* Om **baseUri** inte avslutas med ett avslutande snedstreck inträffar ett av två saker.  
+* Om **baseUri** inte avslutas med ett avslutande snedstreck inträffar ett av två saker.
 
    * Om **baseUri** inte har några snedstreck alls (förutom från "//" nära fram) är resultatet bara **baseUri** , följt av **relativeUri**.
 
    * Om **baseUri** har vissa snedstreck, men inte slutar med ett snedstreck, tas allt från det sista snedstrecket bort från **BaseUri** och resultatet är **BaseUri** följt av **relativeUri**.
-     
+
 Här följer några exempel:
 
 ```
@@ -1952,11 +1952,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -1993,9 +1993,9 @@ Kodar en URI.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |sträng |Det värde som ska kodas. |
+| stringToEncode |Yes |sträng |Det värde som ska kodas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2007,11 +2007,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],
@@ -2048,9 +2048,9 @@ Returnerar en sträng med ett URI-kodat värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |sträng |Det URI-kodade värdet som ska konverteras till en sträng. |
+| uriEncodedString |Yes |sträng |Det URI-kodade värdet som ska konverteras till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2062,11 +2062,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
         "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]"
     },
     "resources": [
     ],

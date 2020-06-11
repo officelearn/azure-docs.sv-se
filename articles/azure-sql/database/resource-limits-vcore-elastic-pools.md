@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 05/29/2020
-ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235749"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668465"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Resurs begränsningar för elastiska pooler med vCore inköps modell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ För inköps modell gränser för DTU, se [SQL Database gräns för DTU-resurs-e
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
 
-Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](elastic-pool-manage.md#powershell), [Azure CLI](elastic-pool-manage.md#azure-cli)eller [REST API](elastic-pool-manage.md#rest-api).
+Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings belopp med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](elastic-pool-manage.md#powershell), [Azure CLI](elastic-pool-manage.md#azure-cli)eller [REST API](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Information om skalning och överväganden finns i [skala en elastisk pool](elastic-pool-scale.md).
@@ -40,14 +40,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Tjänst nivå för generell användning: generation 4-beräknings plattform (del 1)
 
-|Beräknings storlek|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Beräknings storlek (tjänst mål)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Virtuella kärnor|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
 |Max antal databaser per pool <sup>1</sup>|100|200|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|512|756|1536|1536|1536|2048|
 |Maximal logg storlek|154|227|461|461|461|614|
 |Maximal data storlek för TempDB (GB)|32|64|96|128|160|192|
@@ -60,8 +60,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -72,14 +72,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Tjänst nivå för generell användning: generation 4 beräknings plattform (del 2)
 
-|Beräknings storlek|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Beräknings storlek (tjänst mål)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|159,5|
 |Max antal databaser per pool <sup>1</sup>|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|2048|2048|2048|2048|3584|4096|
 |Största logg storlek (GB)|614|614|614|614|1075|1229|
 |Maximal data storlek för TempDB (GB)|224|256|288|320|512|768|
@@ -92,8 +92,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -106,14 +106,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Tjänst nivå för generell användning: generation 5 beräknings plattform (del 1)
 
-|Beräknings storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Beräknings storlek (tjänst mål)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Virtuella kärnor|2|4|6|8|10|12|14|
 |Minne (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Max antal databaser per pool <sup>1</sup>|100|200|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|512|756|1536|1536|1536|2048|2048|
 |Största logg storlek (GB)|154|227|461|461|461|614|614|
 |Maximal data storlek för TempDB (GB)|64|128|192|256|320|384|448|
@@ -126,8 +126,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -138,14 +138,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Tjänst nivå för generell användning: generation 5 beräknings plattform (del 2)
 
-|Beräknings storlek|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Beräknings storlek (tjänst mål)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Virtuella kärnor|16|18|20|24|32|40|80|
 |Minne (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |Max antal databaser per pool <sup>1</sup>|500|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Största logg storlek (GB)|614|922|922|922|1229|1229|1229|
 |Maximal data storlek för TempDB (GB)|512|576|640|768|1024|1280|2560|
@@ -158,8 +158,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Lässkalning|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -172,14 +172,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Fsv2-seriens beräknings generation (för hands version)
 
-|Beräknings storlek|GP_Fsv2_72|
+|Beräknings storlek (tjänst mål)|GP_Fsv2_72|
 |:--- | --: |
 |Beräknings generation|Fsv2-serien|
 |Virtuella kärnor|72|
 |Minne (GB)|136,2|
 |Max antal databaser per pool <sup>1</sup>|500|
 |Columnstore-stöd|Yes|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|
+|Minnes intern OLTP-lagring (GB)|Saknas|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|1024|
 |Maximal data storlek för TempDB (GB)|333|
@@ -192,8 +192,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga sessioner|30 000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-72|
 |Antal repliker|1|
-|Multi-AZ|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|
+|Multi-AZ|Saknas|
+|Lässkalning|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 <sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
@@ -209,7 +209,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Verksamhets kritisk tjänst nivå: generation 4 beräknings plattform (del 1)
 
-|Beräknings storlek|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Beräknings storlek (tjänst mål)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Virtuella kärnor|2|3|4|5|6|
@@ -241,13 +241,13 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Verksamhets kritisk tjänst nivå: generation 4 beräknings plattform (del 2)
 
-|Beräknings storlek|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Beräknings storlek (tjänst mål)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|159,5|
 |Max antal databaser per pool <sup>1</sup>|100|100|100|100|100|100|
-|Columnstore-stöd|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Columnstore-stöd|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal data storlek (GB)|1024|1024|1024|1024|1024|1024|
@@ -275,7 +275,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Verksamhets kritisk tjänst nivå: generation 5 beräknings plattform (del 1)
 
-|Beräknings storlek|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Beräknings storlek (tjänst mål)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Virtuella kärnor|4|6|8|10|12|14|
@@ -307,7 +307,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Verksamhets kritisk tjänst nivå: generation 5 beräknings plattform (del 2)
 
-|Beräknings storlek|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Beräknings storlek (tjänst mål)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Virtuella kärnor|16|18|20|24|32|40|80|
@@ -341,7 +341,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 
 ### <a name="m-series-compute-generation-preview"></a>Beräknings generation i M-serien (för hands version)
 
-|Beräknings storlek|BC_M_128|
+|Beräknings storlek (tjänst mål)|BC_M_128|
 |:--- | --: |
 |Beräknings generation|M-serien|
 |Virtuella kärnor|128|
@@ -378,7 +378,7 @@ Om alla virtuella kärnor av en elastisk pool är upptagna får varje databas i 
 I följande tabell beskrivs egenskaperna för databaser i pooler.
 
 > [!NOTE]
-> Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler som har samma beräknings storlek. Till exempel är maximalt antal samtidiga arbetare för en GP_Gen4_1-databas 200 arbetare. Det innebär att maximalt antal samtidiga arbetare för en databas i en GP_Gen4_1 pool också är 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
+> Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler som har samma beräknings storlek (tjänst målet). Till exempel är maximalt antal samtidiga arbetare för en GP_Gen4_1-databas 200 arbetare. Det innebär att maximalt antal samtidiga arbetare för en databas i en GP_Gen4_1 pool också är 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |

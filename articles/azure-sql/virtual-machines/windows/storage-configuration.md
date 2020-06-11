@@ -4,7 +4,6 @@ description: I det här avsnittet beskrivs hur Azure konfigurerar lagring för S
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: e84c58ba1b3037f770f4809d48356d5ec3f9a138
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342407"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667377"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +28,7 @@ I det här avsnittet beskrivs hur Azure konfigurerar lagring för dina SQL Serve
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda de automatiserade konfigurations inställningarna för lagring måste den virtuella datorn ha följande egenskaper:
 
@@ -41,7 +40,7 @@ Om du vill använda de automatiserade konfigurations inställningarna för lagri
 
 I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server virtuella datorer.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
@@ -124,11 +123,11 @@ Information om priser finns på sidan för [lagrings priser](https://azure.micro
 
 Azure använder följande inställningar för att skapa lagringspoolen på SQL Server virtuella datorer.
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
 | Disk storlekar |1 TB varje |
-| Cache |Läsa |
+| Cache |Läs |
 | Fördelnings storlek |storlek för 64 KB NTFS-allokeringsenhet |
 | Återställning | Enkel återställning (ingen återhämtning) |
 | Antal kolumner |Antal data diskar upp till 8<sup>1</sup> |
@@ -143,7 +142,7 @@ I följande tabell beskrivs de tre tillgängliga alternativen för arbets belast
 
 | Arbets belastnings typ | Description | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Ingen |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inga |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
 | **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 

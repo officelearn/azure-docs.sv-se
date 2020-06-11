@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267145"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667054"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -32,7 +32,7 @@ Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 
 - [Förbered ditt nätverk](/microsoftteams/prepare-network/) för Microsoft-team.
-- Installera [Windows Desktop-klienten](connect-windows-7-and-10.md) på en Windows 10-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Installera [Windows Skriv bords klient](connect-windows-7-and-10.md) på en Windows 10-eller Windows 10 IoT Enterprise-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Anslut till en virtuell Windows 10-dator med flera sessioner eller Windows 10 Enterprise (VM).
 - Installera Teams Desktop-appen på värden med hjälp av installation per dator. Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
 
@@ -53,7 +53,7 @@ Om du vill aktivera installation av team per dator anger du följande register n
 
 ### <a name="install-the-teams-websocket-service"></a>Installera Teams WebSocket-tjänsten
 
-Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vkL6) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
+Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
 
 ### <a name="install-microsoft-teams"></a>Installera Microsoft Teams
 
@@ -131,9 +131,9 @@ Ge feedback för Microsoft Teams på det virtuella Windows-skrivbordet på teame
 
 ## <a name="collect-teams-logs"></a>Samla in team loggar
 
-Om du stöter på problem med Teams Desktop-appen i din Windows-miljö för virtuella datorer samlar du in klient loggar under **%AppData%\Microsoft\Teams\logs.txt** på den virtuella värddatorn.
+Om du stöter på problem med Teams Desktop-appen i din Windows-miljö för virtuella datorer samlar du in klient loggar under **% AppData% \Microsoft\Teams\logs.txt** på den virtuella värddatorn.
 
-Om du stöter på problem med samtal och möten ska du samla in Teams webb klient loggar med tangentkombinationen **CTRL**  +  **Alt**  +  **Shift**  +  **1**. Loggarna skrivs till%USERPROFILE%\Downloads\MSTeams-diagnostikloggar **DATE_TIME. txt** på den virtuella värddatorn.
+Om du stöter på problem med samtal och möten ska du samla in Teams webb klient loggar med tangentkombinationen **CTRL**  +  **Alt**  +  **Shift**  +  **1**. Loggar skrivs till%USERPROFILE%\Downloads\MSTeams- **DATE_TIME.txt** på den virtuella värddatorn.
 
 ## <a name="contact-microsoft-teams-support"></a>Kontakta supporten för Microsoft Teams
 

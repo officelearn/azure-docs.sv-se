@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
-ms.openlocfilehash: 3d3eee7dc57a2438ccf726851025c700824a5e3a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 6/10/2020
+ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322081"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667598"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 
 | | **Serverlös databearbetning** | **Allokerad beräkning** |
 |:---|:---|:---|
-|**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
+|**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. | Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
 | **Prestanda hanterings ansträngning** |Lower|Högre|
 |**Beräknings skalning**|Automatiskt|Manuell|
 |**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
@@ -145,7 +145,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -161,19 +161,8 @@ Om du använder [kundhanterad transparent data kryptering](transparent-data-encr
 
 Att skapa en ny databas eller flytta en befintlig databas till en server lös beräknings nivå följer samma mönster som att skapa en ny databas i en allokerad beräknings nivå och omfattar följande två steg.
 
-1. Ange tjänst målet. Tjänst målet föreskriver tjänst nivån, maskin varu genereringen och Max virtuella kärnor. I följande tabell visas alternativen för tjänst målet:
+1. Ange tjänst målet. Tjänst målet föreskriver tjänst nivån, maskin varu genereringen och Max virtuella kärnor. Information om tjänst mål finns i [begränsningar för Server lös resurs](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Namn på tjänst målet|Tjänstenivå|Maskin varu generering|Max virtuella kärnor|
-   |---|---|---|---|
-   |GP_S_Gen5_1|Generell användning|Gen5|1|
-   |GP_S_Gen5_2|Generell användning|Gen5|2|
-   |GP_S_Gen5_4|Generell användning|Gen5|4|
-   |GP_S_Gen5_6|Generell användning|Gen5|6|
-   |GP_S_Gen5_8|Generell användning|Gen5|8|
-   |GP_S_Gen5_10|Generell användning|Gen5|10|
-   |GP_S_Gen5_12|Generell användning|Gen5|12|
-   |GP_S_Gen5_14|Generell användning|Gen5|14|
-   |GP_S_Gen5_16|Generell användning|Gen5|16|
 
 2. Alternativt kan du ange den minsta virtuella kärnor och den automatiskt paus fördröjningen för att ändra standardvärdena. I följande tabell visas de tillgängliga värdena för dessa parametrar.
 

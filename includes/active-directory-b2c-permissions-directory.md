@@ -5,20 +5,20 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: 587a4bfed00415499bcca6d6054d4ab25cddf0b8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dfe35eecfec5a12395ac3d9973a651e033aeea73
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298945"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672549"
 ---
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
 
 1. Under **Hantera**, Välj **API-behörigheter**.
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Microsoft API: er** och välj sedan **Microsoft Graph**.
 1. Välj **Programbehörigheter**.
-1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Till exempel:
+1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Exempel:
     * **AuditLog**  >  **AuditLog. Read. all**: för att läsa katalogens gransknings loggar.
     * **Katalog**  >  **Directory. readwrite. all**: för användar migrering eller användar hanterings scenarier.
     * **Princip**  >  **Princip. readwrite. TrustFramework**: för scenarier med kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
@@ -28,12 +28,12 @@ ms.locfileid: "84298945"
 1. Välj **Godkänn**.
 1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status**. Det kan ta några minuter innan behörigheterna har spridits.
 
-#### <a name="applications"></a>[Program](#tab/applications/)
+#### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
 1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
 1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
 1. Välj **Microsoft Graph**.
-1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Till exempel:
+1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Exempel:
     * **Läs alla Gransknings logg data**: Välj den här behörigheten för att läsa katalogens gransknings loggar.
     * **Läsa och skriva katalog data**: Välj den här behörigheten för användar migrering eller användar hanterings scenarier.
     * **Läs och skriv organisationens förtroende Ramverks principer**: Välj den här behörigheten för scenarier för kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.

@@ -4,12 +4,12 @@ description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a91623d22a921b6285723af2b4ca1411b9cf0bab
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152535"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677890"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera distributions metoder för säker distribution med Azure Deployment Manager (offentlig för hands version)
 
@@ -268,7 +268,7 @@ Du skapar två parameter-filer. En parameter fil används vid distribution av tj
 
 ## <a name="containerroot-variable"></a>containerRoot-variabel
 
-Med versions distributioner ändras sökvägen till dina artefakter med varje ny version. Första gången du kör en distribution kan sökvägen vara `https://<base-uri-blob-container>/binaries/1.0.0.0`. Den andra gången det kan vara `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager gör det enklare att få rätt rot Sök väg för den aktuella distributionen med `$containerRoot` hjälp av variabeln. Det här värdet ändras med varje version och är inte känt före distributionen.
+Med versions distributioner ändras sökvägen till dina artefakter med varje ny version. Första gången du kör en distribution kan sökvägen vara `https://<base-uri-blob-container>/binaries/1.0.0.0` . Den andra gången det kan vara `https://<base-uri-blob-container>/binaries/1.0.0.1` . Deployment Manager gör det enklare att få rätt rot Sök väg för den aktuella distributionen med hjälp av `$containerRoot` variabeln. Det här värdet ändras med varje version och är inte känt före distributionen.
 
 Använd `$containerRoot` variabeln i parameter filen för mallen för att distribuera Azure-resurserna. Vid distributions tillfället ersätts den här variabeln med de faktiska värdena från distributionen.
 
@@ -294,13 +294,13 @@ Under distributionen skapar du till exempel en artefakt källa för de binära a
 },
 ```
 
-Lägg märke `artifactRoot` till `sasUri` egenskaperna och. Artefakt roten kan vara inställd på ett värde som `binaries/1.0.0.0`. SAS-URI: n är URI: n till din lagrings behållare med SAS-token för åtkomst. Deployment Manager konstruerar automatiskt värdet för `$containerRoot` variabeln. Den kombinerar dessa värden i formatet `<container>/<artifactRoot>`.
+Lägg märke `artifactRoot` till `sasUri` egenskaperna och. Artefakt roten kan vara inställd på ett värde som `binaries/1.0.0.0` . SAS-URI: n är URI: n till din lagrings behållare med SAS-token för åtkomst. Deployment Manager konstruerar automatiskt värdet för `$containerRoot` variabeln. Den kombinerar dessa värden i formatet `<container>/<artifactRoot>` .
 
-Din mall och parameter fil måste känna till rätt sökväg för att hämta versioner av binärfilerna. Om du till exempel vill distribuera filer för en webbapp skapar du följande parameter fil med variabeln $containerRoot. Du måste använda två omvända snedstreck (`\\`) för sökvägen eftersom det första är ett escape-tecken.
+Din mall och parameter fil måste känna till rätt sökväg för att hämta versioner av binärfilerna. Om du till exempel vill distribuera filer för en webbapp skapar du följande parameter fil med variabeln $containerRoot. Du måste använda två omvända snedstreck ( `\\` ) för sökvägen eftersom det första är ett escape-tecken.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

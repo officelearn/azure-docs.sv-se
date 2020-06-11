@@ -1,5 +1,5 @@
 ---
-title: Använda hemligheter i utbildnings körningar
+title: Autentisering av hemligheter i utbildning
 titleSuffix: Azure Machine Learning
 description: Skicka hemligheter till inlärnings körningar på ett säkert sätt med hjälp av arbets ytan Key Vault
 services: machine-learning
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: dd3ebeb0f9c55fcc4dee090097459326cbe08eed
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 8fefeb162dd6f036c21485715dd680972823fbaa
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434434"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677484"
 ---
-# <a name="use-secrets-in-training-runs"></a>Använda hemligheter i utbildnings körningar
+# <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Använd hemligheter för autentisering av autentiseringsuppgifter i Azure Machine Learning utbildnings körningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du använder hemligheter i utbildning på ett säkert sätt. Autentiseringsinformation som ditt användar namn och lösen ord är hemligheter. Om du till exempel ansluter till en extern databas för att fråga efter tränings data måste du skicka ditt användar namn och lösen ord till fjärrkörnings kontexten. Att koda sådana värden till utbildnings skript i klartext är inte säkra eftersom det exponerar hemligheten. 

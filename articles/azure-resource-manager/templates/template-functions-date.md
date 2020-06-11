@@ -3,12 +3,12 @@ title: Mallens funktioner – datum
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med datum.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22bb3c80acb504649e4f5485c4d78dcd04277ec0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192305"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678009"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
 
@@ -25,11 +25,11 @@ Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| base | Ja | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
-| varaktighet | Ja | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Inga | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Yes | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
+| varaktighet | Yes | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | No | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -72,7 +72,7 @@ Följande exempel-mall visar olika sätt att lägga till tids värden.
 }
 ```
 
-När föregående mall distribueras med en bas tid av `2020-04-07 14:53:14Z`, är utdata:
+När föregående mall distribueras med en bas tid av `2020-04-07 14:53:14Z` , är utdata:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
@@ -142,11 +142,11 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | Typ | Description |
 |:--- |:--- |:--- |:--- |
-| format |Inga |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |No |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
@@ -164,7 +164,7 @@ I följande exempel mall visas olika format för datetime-värdet.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {

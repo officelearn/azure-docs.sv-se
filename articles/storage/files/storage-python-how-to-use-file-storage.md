@@ -8,12 +8,12 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
-ms.openlocfilehash: b8d460f35f67d4e7f48611fdc2a770d4a0bed002
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d04b158761d501d4a79d91fe551670b57f9847f3
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552080"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678723"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -48,7 +48,7 @@ pip install azure-storage-file
 Alternativa installations metoder finns i [Azure Storage SDK för python på GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visa exempel programmet
-f om du vill visa och köra ett exempel program som visar hur du använder python med Azure Files, se [Azure Storage: komma igång med Azure Files i python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+Om du vill visa och köra ett exempel program som visar hur du använder python med Azure Files, se [Azure Storage: komma igång med Azure Files i python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 Kontrol lera att du har installerat både-och-paketen för att köra exempel programmet `azure-storage-file` `azure-storage-common` .
 
@@ -96,7 +96,7 @@ Använd `create_file_from_path` `create_file_from_stream` metoderna,, eller för
 
 `create_file_from_path`överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` laddar upp innehållet från en redan öppnad fil/data ström. `create_file_from_bytes`laddar upp en matris med byte och `create_file_from_text` laddar upp det angivna textvärdet med den angivna kodningen (Standardvärdet är UTF-8).
 
-I följande exempel överförs innehållet i filen **solnedgång. png** **till filen.**
+I följande exempel överförs innehållet i **sunset.png** -filen **till filen.**
 
 ```python
 from azure.storage.file import ContentSettings
@@ -111,7 +111,7 @@ file_service.create_file_from_path(
 ## <a name="download-a-file"></a>Hämta en fil
 Använd,, eller för att hämta data från en fil `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` `get_file_to_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
-I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det till filen **out-Sunset. png** .
+I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det i **out-sunset.png** -filen.
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')

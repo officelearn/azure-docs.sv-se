@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 513f0240296debb5e878461ed1ca7cffecad760a
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462999"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675660"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Återställning av tidpunkt för block-blobar (för hands version)
 
@@ -85,7 +85,7 @@ Följande regioner har stöd för återställning av tidpunkt vid tid i för han
 För hands versionen innehåller följande begränsningar:
 
 - Det finns inte stöd för att återställa Premium block-blobar.
-- Det finns inte stöd för att återställa blobar på Arkiv nivå. Om en blob till exempel har flyttats till Arkiv nivån två dagar sedan, och en återställnings åtgärd återställs till en punkt tre dagar sedan, återställs inte blobben till frekvent nivå.
+- Det finns inte stöd för att återställa blobar på arkivnivå. Om till exempel en blog på frekvent nivå flyttades till en arkivnivå för två dagar sedan, och en återställningsåtgärd återställer till en punkt för tre dagar sedan, återställs inte bloben till frekvent nivå.
 - Det finns inte stöd för att återställa Azure Data Lake Storage Gen2 enkla och hierarkiska namn områden.
 - Det finns inte stöd för att återställa lagrings konton med kund tillhandahållna nycklar.
 
@@ -97,6 +97,7 @@ För hands versionen innehåller följande begränsningar:
 Om du vill registrera dig för för hands versionen kör du följande kommandon:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -110,7 +111,9 @@ Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
 az feature register --namespace Microsoft.Storage --name Changefeed
@@ -125,13 +128,14 @@ az provider register --namespace 'Microsoft.Storage'
 Registrering för återställning av tidpunkt är automatisk och bör ta mindre än 10 minuter. Kör följande kommandon för att kontrol lera status för registreringen:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
-    
+
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
 ```
@@ -145,7 +149,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ```
 
 ---
-
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 

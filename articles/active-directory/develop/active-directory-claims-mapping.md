@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 91a70395bc359f0c5e199f91a739a7cef9205605
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737511"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673283"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Beskrivning |
+| Anspråks uppsättning | Description |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -284,7 +284,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Beskrivning |
+| Källa | ID | Description |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -325,6 +325,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
+| Användare | assignedroles | lista över app-roller tilldelade till användare|
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
 | program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
@@ -358,7 +359,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
@@ -384,7 +385,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Beskrivning|
+|Källa|ID|Description|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|User Principal Name|
@@ -435,7 +436,7 @@ Principer för anspråks mappning kan bara tilldelas till tjänstens huvud objek
 
 I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas i tokens för särskilda tjänst huvud namn. I det här avsnittet går vi igenom några vanliga scenarier som hjälper dig att grepp hur du använder princip typen för anspråks mappning.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för tjänstens huvud namn. Om du är nybörjare på Azure AD rekommenderar vi att du [Lär dig hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
 

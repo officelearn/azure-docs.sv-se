@@ -1,28 +1,27 @@
 ---
-title: Täckning för mobilitet (överföring) | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om mobilitets täckning i Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Täckning för mobilitet (överföring)
+description: I den här artikeln får du lära dig om offentlig överförings täckning i Microsoft Azure mappar mobilitets tjänsten.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310248"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673650"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps mobilitets täckning
 
-Azure Maps erbjuder en [mobilitets tjänst](https://aka.ms/AzureMapsMobilityService). Mobilitets tjänsten förbättrar utvecklings tiden för program med funktioner för offentlig överföring, cykel delning och Scooter resurs. Funktioner för offentlig överföring: Sök efter platser i närheten, Sök efter stoppas, Sök efter överförings rader, Hämta schema information, hämta information om offentliga transiter i real tid, lista stoppa och Visa väg guider. Tjänsten returnerar information om real tids-och statisk tillgänglighet till delade fordon, till exempel bilar, cyklar och scooters. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar behållning, val av hagel-och överförings alternativ, allt i en resa. Användarnas Cam får åtkomst till detaljerade och multimodal steg-för-steg-färd vägar och tjänst aviseringar.
+Tjänsten Azure Maps [Mobility](https://aka.ms/AzureMapsMobilityService) förbättrar utvecklings tiden för program med funktioner för offentlig överföring, till exempel transit Routning och sökning efter närliggande offentlig överföring. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar. 
 
-Azure Maps har inte samma nivå av information och noggrannhet för alla städer och länder/regioner. Möjligheten att anropa överförings data beror på ort. Data får inte heller innehålla alla offentliga överförings alternativ och myndigheter som hanterar staden.
+Azure Maps tillhandahåller inte samma nivå av information och noggrannhet för alla städer och länder/regioner. Möjligheten att anropa offentliga överförings data beror på Metro-ytan. Mappnings data får inte heller innehålla alla offentliga överförings alternativ och myndigheter som hanterar Metro-ytan.
 
 Följande tabell innehåller information om disponering för Azure Maps Mobility Service.
-
 
 | Symbol | Innebörd |
 |--------|---------|

@@ -1,29 +1,29 @@
 ---
 title: Det gick inte att hitta resursen
-description: Beskriver hur du löser fel när det inte går att hitta en resurs när du distribuerar med en Azure Resource Manager-mall.
+description: Beskriver hur du löser fel när det inte går att hitta en resurs. Felet kan uppstå när du distribuerar en Azure Resource Manager-mall eller när du tar hanterings åtgärder.
 ms.topic: troubleshooting
-ms.date: 06/01/2020
-ms.openlocfilehash: 5d827f68ec97cfa77fb69a34284bd572286641a4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259362"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667955"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Det gick inte att hitta fel för Azure-resurser
+# <a name="resolve-resource-not-found-errors"></a>Fel vid matchning av resurs hittades inte
 
-I den här artikeln beskrivs de fel som kan uppstå när det inte går att hitta en resurs under distributionen.
+I den här artikeln beskrivs det fel som visas när det inte går att hitta en resurs under en åtgärd. Normalt visas det här felet när du distribuerar resurser. Du ser även det här felet när du utför hanterings aktiviteter och Azure Resource Manager inte kan hitta den nödvändiga resursen. Om du till exempel försöker lägga till taggar till en resurs som inte finns får du det här felet.
 
 ## <a name="symptom"></a>Symptom
 
-När din mall innehåller namnet på en resurs som inte kan lösas visas ett fel som liknar följande:
+Det finns två felkoder som anger att resursen inte kan hittas. **Notfound** -felet returnerar ett resultat som liknar:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Om du använder [referens](template-functions-resource.md#reference) -eller [listnycklar](template-functions-resource.md#listkeys) -funktionerna med en resurs som inte kan lösas visas följande fel meddelande:
+**ResourceNotFound** -felet returnerar ett resultat som liknar:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +33,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Orsak
 
-Resource Manager måste hämta egenskaperna för en resurs, men kan inte identifiera resursen i din prenumeration.
+Resource Manager måste hämta egenskaperna för en resurs, men det går inte att hitta resursen i dina prenumerationer.
 
-## <a name="solution-1---set-dependencies"></a>Lösning 1 – ange beroenden
+## <a name="solution-1---check-resource-properties"></a>Lösning 1 – kontrol lera resurs egenskaper
 
-Om du försöker distribuera den saknade resursen i mallen kontrollerar du om du behöver lägga till ett beroende. Resource Manager optimerar distributionen genom att skapa resurser parallellt, när så är möjligt. Om en resurs måste distribueras efter en annan resurs måste du använda **dependsOn** -elementet i mallen. Om du till exempel distribuerar en webbapp måste App Service plan finnas. Om du inte har angett att webbappen är beroende av App Service plan, skapar Resource Manager båda resurserna på samma gång. Du får ett fel meddelande om att det inte finns någon App Service plan resurs, eftersom den inte finns ännu vid försök att ange en egenskap för webbappen. Du undviker det här felet genom att ange beroendet i webbappen.
+När du får det här felet när du utför en hanterings uppgift kontrollerar du de värden som du anger för resursen. De tre värdena som ska kontrol leras är:
+
+* Resursnamn
+* Namn på resursgrupp
+* Prenumeration
+
+Om du använder PowerShell eller Azure CLI kontrollerar du om du kör kommandot i den prenumeration som innehåller resursen. Du kan ändra prenumerationen med [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) eller [AZ Account set](/cli/azure/account#az-account-set). Många kommandon innehåller också en prenumerations parameter som gör att du kan ange en annan prenumeration än den aktuella kontexten.
+
+Om du har problem med att verifiera egenskaperna loggar du in på [portalen](https://portal.azure.com). Hitta resursen som du försöker använda och granska resurs namnet, resurs gruppen och prenumerationen.
+
+## <a name="solution-2---set-dependencies"></a>Lösning 2 – ange beroenden
+
+Om du får det här felet när du distribuerar en mall kan du behöva lägga till ett beroende. Resource Manager optimerar distributionen genom att skapa resurser parallellt, när så är möjligt. Om en resurs måste distribueras efter en annan resurs måste du använda **dependsOn** -elementet i mallen. Om du till exempel distribuerar en webbapp måste App Service plan finnas. Om du inte har angett att webbappen är beroende av App Service plan, skapar Resource Manager båda resurserna på samma gång. Du får ett fel meddelande om att det inte finns någon App Service plan resurs, eftersom den inte finns ännu vid försök att ange en egenskap för webbappen. Du undviker det här felet genom att ange beroendet i webbappen.
 
 ```json
 {
@@ -70,23 +82,19 @@ När du ser beroende problem måste du få insikt i ordningen på resurs distrib
 
    ![sekventiell distribution](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Lösning 2 – Hämta resurs från en annan resurs grupp
+## <a name="solution-3---get-external-resource"></a>Lösning 3 – Hämta extern resurs
 
-När resursen finns i en annan resurs grupp än den som distribueras till, använder du [funktionen resourceId](template-functions-resource.md#resourceid) för att hämta det fullständigt kvalificerade namnet på resursen.
+När du distribuerar en mall och behöver skaffa en resurs som finns i en annan prenumeration eller resurs grupp, använder du [resourceId-funktionen](template-functions-resource.md#resourceid). Den här funktionen returnerar för att hämta det fullständigt kvalificerade namnet på resursen.
+
+Parametrarna för prenumeration och resurs grupp i resourceId-funktionen är valfria. Om du inte anger dem används den aktuella prenumerationen och resurs gruppen som standard. När du arbetar med en resurs i en annan resurs grupp eller prenumeration ska du se till att du anger dessa värden.
+
+I följande exempel hämtas resurs-ID: t för en resurs som finns i en annan resurs grupp.
 
 ```json
 "properties": {
   "name": "[parameters('siteName')]",
   "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
-```
-
-## <a name="solution-3---check-reference-function"></a>Lösning 3 – kontrol lera referens funktion
-
-Leta efter ett uttryck som innehåller [referens](template-functions-resource.md#reference) funktionen. Värdena som du anger varierar beroende på om resursen finns i samma mall, resurs grupp och prenumeration. Dubbel kontroll av att du tillhandahåller de parameter värden som krävs för ditt scenario. Om resursen finns i en annan resurs grupp anger du det fullständiga resurs-ID: t. Om du till exempel vill referera till ett lagrings konto i en annan resurs grupp använder du:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Lösning 4 – Hämta hanterad identitet från resurs
@@ -116,4 +124,12 @@ Eller så använder du för att hämta klient-ID för en hanterad identitet som 
 
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Lösning 5 – kontrol lera funktioner
+
+När du distribuerar en mall ska du söka efter uttryck som använder [referens](template-functions-resource.md#reference) -eller [listnycklar](template-functions-resource.md#listkeys) -funktionerna. Värdena som du anger varierar beroende på om resursen finns i samma mall, resurs grupp och prenumeration. Kontrol lera att du har angett de parameter värden som krävs för ditt scenario. Om resursen finns i en annan resurs grupp anger du det fullständiga resurs-ID: t. Om du till exempel vill referera till ett lagrings konto i en annan resurs grupp använder du:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

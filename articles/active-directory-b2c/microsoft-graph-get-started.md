@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: fd4ed98383d38be8528bafd6ec7d149381386fac
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298947"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672550"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
 
@@ -46,7 +46,15 @@ Du aktiverar det **automatiserade** interaktions scenariot genom att skapa en pr
 
 Innan dina skript och program kan interagera med [Microsoft Graph-API][ms-graph-api] för att hantera Azure AD B2C-resurser måste du skapa en program registrering i din Azure AD B2C klient som ger nödvändiga API-behörigheter.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
+1. Välj **Appregistreringar**och välj sedan **ny registrering**.
+1. Ange ett **namn** för programmet. Till exempel *managementapp1*.
+1. Välj **konton endast i den här organisations katalogen**.
+1. Under **behörigheter**avmarkerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörigheter* .
+1. Välj **Registrera**.
+1. Registrera **program-ID: t (Client)** som visas på program översikts sidan. Du använder det här värdet i ett senare steg.
 
 ### <a name="grant-api-access"></a>Bevilja API-åtkomst
 

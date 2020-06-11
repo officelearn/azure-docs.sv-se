@@ -1,24 +1,20 @@
 ---
-title: Översikt över Azure Compute Unit | Microsoft Docs
+title: Översikt över Azure Compute Unit
 description: 'Översikt över konceptet med Azure Compute units. ACU är ett sätt att jämföra CPU-prestanda i Azure SKU: er.'
-services: virtual-machines
-documentationcenter: ''
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.reviewer: davberg
+ms.openlocfilehash: 3fda339b234b83bae9cbf0b6614cb75c66031f71
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629107"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678536"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure Compute Unit (ACU)
 
@@ -60,7 +56,7 @@ Hyper-threaded och kan köra kapslad virtualisering
 | [HC](hc-series.md) |297 – 315 * | 1:1 |
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2-L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
-| [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
+| [Avstånd](m-series.md) | 160 – 180 | 2:1\*\*\* |
 
 Här finns länkar till mer information om de olika storlekarna:
 

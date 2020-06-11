@@ -8,20 +8,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 43096e61fee740c6d1f1093cd441b8d2ee5901f8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d7b2e5b811e6e9972c94862a92b8f5808dcbe592
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171641"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678128"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
 
 > [!div class="op_single_selector"]
 >
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
@@ -30,7 +31,7 @@ ms.locfileid: "84171641"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -98,7 +99,7 @@ ms.locfileid: "84171641"
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
 * Nytt API, aktivitet &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
-* Stöder Microsoft. Azure. DocumentDB SDK 2,0. Kräver Microsoft. Azure. DocumentDB 2,0 eller senare.
+* Stöder Microsoft.Azure.DocumentDB SDK 2,0. Kräver Microsoft.Azure.DocumentDB 2,0 eller senare.
 
 ### <a name="206"></a><a name="2.0.6"></a>2.0.6
 * Lade till egenskapen ChangeFeedEventHost. HostName offentlig för kompatibilitet med v1.
@@ -115,10 +116,10 @@ ms.locfileid: "84171641"
   * GetEstimatedRemainingWork-API: n returnerade 0 när det inte fanns några lån i låne samlingen.
 
 * Följande undantag görs offentliga. Tillägg som implementerar IPartitionProcessor kan utlösa dessa undantag.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionException. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
 
 ### <a name="202-prerelease"></a><a name="2.0.2-prerelease"></a>2.0.2-för hands version
 * Mindre API-ändringar:

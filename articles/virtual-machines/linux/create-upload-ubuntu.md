@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 316f5dcb3a5fe0cbf8fb6a2f65c0ab11fc45c146
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abd357808cd0213e92eaba478fb861110bcf9f39
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607286"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666731"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Förbereda en virtuell Ubuntu-dator för Azure
 
@@ -50,8 +50,8 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux op
 
     Ubuntu 16,04 och Ubuntu 18,04:
    
-        # sudo sed -i 's/archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
-        # sed -i 's/[a-z][a-z]\.archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
         # sudo apt-get update
 
 
@@ -67,7 +67,9 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux op
 
 5. Ändra start raden för kernel för grub för att inkludera ytterligare kernel-parametrar för Azure. Öppna `/etc/default/grub` en text redigerare genom att leta upp variabeln `GRUB_CMDLINE_LINUX_DEFAULT` (eller lägga till den vid behov) och redigera den för att inkludera följande parametrar:
    
-        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
+    ```
+    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
+    ```
 
     Spara och Stäng filen och kör sedan `sudo update-grub` . Detta säkerställer att alla konsol meddelanden skickas till den första serie porten, vilket kan hjälpa Azure Technical Support med fel söknings problem.
 
@@ -76,46 +78,49 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux op
 7. Installera Cloud-Init (etablerings agenten) och Azure Linux-agenten (gäst tilläggs hanteraren). Cloud-Init använder netplan för att konfigurera systemets nätverks konfiguration under etableringen och varje efterföljande omstart.
 
         # sudo apt update
-        # sudo apt install -y cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+        # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
 
    > [!Note]
    >  `walinuxagent`Paketet kan ta bort `NetworkManager` -och `NetworkManager-gnome` -paketen om de är installerade.
 
-8. Ta bort standard konfigurationerna för Cloud-Init och överblivna artefakter som kan vara i konflikt med Cloud-Init-etablering på Azure:
+8. Ta bort standard konfigurationerna för Cloud-Init och överblivna netplan-artefakter som kan vara i konflikt med Cloud-Init-etablering på Azure:
 
         # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
         # rm -f /etc/cloud/ds-identify.cfg
+        # rm -f /etc/netplan/*.yaml
 
 9. Konfigurera Cloud-Init för att etablera systemet med hjälp av Azure DataSource:
 
-        # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
-        datasource_list: [ Azure ]
-        EOF
+    ```
+    # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+    datasource_list: [ Azure ]
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
-        system_info:
-        package_mirrors:
-            - arches: [i386, amd64]
-            failsafe:
-                primary: http://archive.ubuntu.com/ubuntu
-                security: http://security.ubuntu.com/ubuntu
-            search:
-                primary:
-                - http://azure.archive.ubuntu.com/ubuntu/
-                security: []
-            - arches: [armhf, armel, default]
-            failsafe:
-                primary: http://ports.ubuntu.com/ubuntu-ports
-                security: http://ports.ubuntu.com/ubuntu-ports
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
+    system_info:
+       package_mirrors:
+         - arches: [i386, amd64]
+           failsafe:
+             primary: http://archive.ubuntu.com/ubuntu
+             security: http://security.ubuntu.com/ubuntu
+           search:
+             primary:
+               - http://azure.archive.ubuntu.com/ubuntu/
+             security: []
+         - arches: [armhf, armel, default]
+           failsafe:
+             primary: http://ports.ubuntu.com/ubuntu-ports
+             security: http://ports.ubuntu.com/ubuntu-ports
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
-        reporting:
-        logging:
-            type: log
-        telemetry:
-            type: hyperv
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
+    reporting:
+      logging:
+        type: log
+      telemetry:
+        type: hyperv
+    EOF
+    ```
 
 10. Konfigurera Azure Linux-agenten så att den förlitar sig på Cloud-Init för att utföra etableringen. Titta på [WALinuxAgent-projektet](https://github.com/Azure/WALinuxAgent) om du vill ha mer information om de här alternativen.
 
@@ -142,6 +147,12 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux op
         # sudo rm -f /var/log/waagent.log
 
 12. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering på Azure:
+
+    > [!NOTE]
+    > `sudo waagent -force -deprovision+user`Kommandot försöker rensa systemet och göra det lämpligt för ometablering. `+user`Alternativet tar bort det senast etablerade användar kontot och associerade data.
+
+    > [!WARNING]
+    > Avetablering med kommandot ovan garanterar inte att avbildningen är klar med all känslig information och är lämplig för omdistribution.
 
         # sudo waagent -force -deprovision+user
         # rm -f ~/.bash_history

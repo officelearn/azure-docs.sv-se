@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207750"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678094"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Spara kostnader med en reserverad instans av Azure-dedikerade värdar
 
@@ -38,11 +38,11 @@ Reserverade instanser är tillgängliga för de flesta dedikerade värd storleka
 
 Reservations rabatter gäller inte för följande:
 
-- **Moln** – reservationer är inte tillgängliga för köp i Tyskland eller regioner i Kina.
+- **Moln**   – Reservationer är inte tillgängliga för köp i Tyskland-eller Kina-regioner.
 
-- **Otillräcklig kvot** – en reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya reserverade instansen. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för DSv3-serien kan du inte köpa en dedikerade dedikerade värdar som stöder den här serien. Kvot kontrollen för reservationer omfattar de virtuella datorer och dedikerade värdar som redan har distribuerats i prenumerationen. Du kan [skapa en begäran](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om kvot ökning för att lösa problemet.
+- **Otillräcklig kvot**   -En reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya reserverade instansen. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för DSv3-serien kan du inte köpa en dedikerade dedikerade värdar som stöder den här serien. Kvot kontrollen för reservationer omfattar de virtuella datorer och dedikerade värdar som redan har distribuerats i prenumerationen. Du kan [skapa en begäran om kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)   för att lösa problemet.
 
-- **Kapacitets begränsningar** – i sällsynta fall begränsar Azure inköpet av nya reservationer för en delmängd av dedikerade värd-SKU: er, på grund av låg kapacitet i en region.
+- **Kapacitets begränsningar**   I sällsynta fall begränsar Azure köpet av nya reservationer för en delmängd av dedikerade värd-SKU: er, på grund av låg kapacitet i en region.
 
 ## <a name="buy-a-reservation"></a>Köpa en reservation
 
@@ -52,7 +52,7 @@ Betala för reservationen [fram eller med månads betalningar](https://docs.mic
 
 - Du måste ha ägar rollen för minst en EA-prenumeration eller en prenumeration med en taxa enligt principen betala per användning.
 
-- För EA-prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
+- För EA-prenumerationer måste alternativet **Lägg till reserverade instanser**   vara aktiverat i [EA-portalen](https://ea.azure.com/). Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 
 - För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa reservationer.
 
@@ -60,34 +60,34 @@ Så här köper du en instans:
 
 1. Logga in på  [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **alla tjänster** \> **reservationer**.
+2. Välj **alla tjänster**   \>  **reservationer**.
 
-3. Välj **Lägg till** för att köpa en ny reservation och klicka sedan på **dedikerade värdar**.
+3. Välj **Lägg till**   för att köpa en ny reservation och klicka sedan på **dedikerade värdar**.
 
 4. Fyll i obligatoriska fält. Kör dedikerade värd instanser som matchar de attribut du väljer kvalificera för att hämta reservations rabatten. Det faktiska antalet dedikerade värd instanser som erhåller rabatten beror på omfattning och kvantitet som väljs.
 
-Om du har ett EA-avtal kan du använda  **alternativet Lägg till fler**för att snabbt lägga till fler instanser. Alternativet är inte tillgängligt för andra prenumerations typer.
+Om du har ett EA-avtal kan du använda **alternativet Lägg till fler**   för att snabbt lägga till fler instanser. Alternativet är inte tillgängligt för andra prenumerations typer.
 
-| **Field**           | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Fält**           | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Prenumeration        | Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras kostnaderna för reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Avgifterna dras av från betalnings åtagande beloppet, om det är tillgängligt eller debiteras som överanvändning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen. |
 | Omfång               | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | Den Azure-region som omfattas av reservationen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedikerad värd storlek | Storleken på de dedikerade värd instanserna.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Period                | Ett år eller tre år.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Term                | Ett år eller tre år.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Kvantitet            | Antalet instanser som köps i reservationen. Antalet är antalet aktiva dedikerade värd instanser som kan hämta fakturerings rabatten.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-- **Definitions område** för enskild resurs grupp – tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.
+- **Definitions område**   för enskild resurs grupp – Tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.
 
-- **Enda prenumerations omfång** – tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.
+- Omfång för enskild **prenumeration**   – Tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.
 
-- **Delat omfång** – tillämpar reservations rabatten på matchande resurser i berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
+- **Delat omfång**   – Tillämpar reservations rabatten på matchande resurser i de berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Användnings data och reservations användning
 
 Dina användningsdata har ett effektivt pris på noll för användning som täcks av reservationen. Du kan se vilken VM-instans som har tagit emot reservations rabatten för varje reservation.
 
-Mer information om hur reservations rabatter visas i användnings data finns i [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) om du är en EA-kund. Om du har en enskild prenumeration kan du läsa mer i avsnittet om [hur du betalar per användning för din prenumeration enligt principen betala per användning](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Mer information om hur reservations rabatter visas i användnings data finns i [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)   om du är en EA-kund. Om du har en enskild prenumeration kan du läsa mer i avsnittet om [hur du betalar per användning för din prenumeration enligt principen betala per användning](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
 
 ## <a name="change-a-reservation-after-purchase"></a>Ändra en reservation efter köpet
 
@@ -111,7 +111,7 @@ Du kan inte göra följande typer av ändringar efter köpet, direkt:
 
 - Varaktighet
 
-Du kan dock *byta* ut en reservation om du vill göra ändringar.
+Du kan dock *byta*ut   en reservation om du vill göra ändringar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
@@ -127,7 +127,7 @@ Information om hur du hanterar en reservation finns i [hantera Azure reservatio
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 
 - [Använda Azure Dedicated Hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 

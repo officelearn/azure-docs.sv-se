@@ -2,20 +2,19 @@
 title: Felsöka problem med delade avbildningar i Azure
 description: Lär dig hur du felsöker problem med delade bild gallerier.
 author: axayjo
-manager: gwallace
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 04/17/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: ac0a691c19e0a99471e8bfafedaa6d0332b293ce
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8285bc216b5b06a33d481dbca011e44e77df25de
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796881"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678791"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>Felsöka delade bildgallerier
 

@@ -624,7 +624,7 @@
           href: ../extensions/agent-windows.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
-        - name: Övervaka metadata
+        - name: Azure Instance Metadata Service
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering
           href: nested-virtualization.md

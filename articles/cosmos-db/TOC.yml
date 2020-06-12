@@ -977,41 +977,40 @@
           href: how-to-manage-indexing-policy.md
         - name: Definiera unika nycklar
           href: how-to-define-unique-keys.md
-    - name: Bästa praxis
+    - name: Prestanda och felsökning
       items:
-        - name: Prestandatips
+        - name: Söka i data
           items:
             - name: Hämta mått för frågekörning
-              displayName: 'query profile, profile'
               href: profile-sql-api-query.md
             - name: Justera prestanda för frågor
               href: sql-api-query-metrics.md
-            - name: Prestandatips för .NET SDK
+            - name: Felsöka frågeprestanda
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: Prestandatips för .NET SDK v3
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: Prestandatips för .NET SDK v2
               href: performance-tips.md
+            - name: Felsöka .NET SDK
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
             - name: Prestandatips för Java SDK v4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: 'Prestandatips för äldre Java-SDK:er'
-              items:
-                - name: Asynkron Java-SDK v2
-                  href: performance-tips-async-java.md
-                - name: Synkron Java-SDK v2
-                  href: performance-tips-java.md
-            - name: Prestandatest – exempelapp
-              href: performance-testing.md
-        - name: Kostnadseffektiva läsningar och skrivningar
-          href: key-value-store-cost.md
-    - name: Felsöka
-      items:
-        - name: Felsöka frågeprestanda
-          href: troubleshoot-query-performance.md
-        - name: Felsöka Java-SDK v4
-          href: troubleshoot-java-sdk-v4-sql.md
-        - name: 'Felsöka äldre Java-SDK:er'
-          items:
+            - name: Felsöka Java-SDK v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Asynkron Java-SDK v2
+              href: performance-tips-async-java.md
+            - name: Synkron Java-SDK v2
+              href: performance-tips-java.md
             - name: Asynkron Java-SDK v2
               href: troubleshoot-java-async-sdk.md
-        - name: Felsöka .NET SDK
-          href: troubleshoot-dot-net-sdk.md
+        - name: Prestandatest – exempelapp
+          href: performance-testing.md
+        - name: Kostnadseffektiva läsningar och skrivningar
+          href: key-value-store-cost.md
     - name: 'Migrera till nyare SDK:er'
       items:
         - name: Migrera till Java V4-SDK
@@ -1194,28 +1193,30 @@
           href: how-to-migrate-from-bulk-executor-library.md
         - name: Massexecutor – Java-bibliotek
           href: bulk-executor-java.md
-- name: Referens
+- name: 'Referenser för SQL API-SDK:er'
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: Bibliotek för .NET-ändringsfeed
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: Bibliotek för .NET-massexecutor
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Bibliotek för Java-massexecutor
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Java SDK v4 för Core
-      href: sql-api-sdk-java-v4.md
-    - name: 'Äldre Java SDK:er för Core'
+    - name: '.NET-SDK:er'
       items:
+        - name: .NET SDK v3
+          href: sql-api-sdk-dotnet-standard.md
+        - name: .NET SDK v2
+          href: sql-api-sdk-dotnet.md
+        - name: .NET Core SDK v2
+          href: sql-api-sdk-dotnet-core.md
+        - name: .NET-ändringsflödesbibliotek v2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: .NET-masskörningsbibliotek v2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: 'Java-SDK:er'
+      items:
+        - name: Java SDK v4
+          href: sql-api-sdk-java-v4.md
         - name: Asynkron Java-SDK v2
           href: sql-api-sdk-async-java.md
         - name: Synkron Java-SDK v2
           href: sql-api-sdk-java.md
+        - name: Java-masskörningsbibliotek v2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

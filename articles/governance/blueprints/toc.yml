@@ -4,16 +4,19 @@
   items:
     - name: Vad är Azure Blueprint?
       displayName: 'templates, policy, definition, assignment, rbac'
-      href: overview.md
+      href: ./overview.md
 - name: Snabbstarter
   expanded: true
   items:
     - name: Skapa en skiss – Portal
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-portal.md
-    - name: Skapa en skiss – PowerShell
+      href: ./create-blueprint-portal.md
+    - name: Skapa en skiss – Azure PowerShell
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-powershell.md
+      href: ./create-blueprint-powershell.md
+    - name: Skapa en skiss – Azure CLI
+      displayName: 'publish, assign, track, unassign, delete'
+      href: ./create-blueprint-azurecli.md
     - name: Skapa en skiss – REST API
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
@@ -268,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: Referens
   items:
+    - name: Azure CLI
+      href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'
     - name: Azure SDK för .NET
@@ -285,7 +290,7 @@
     - name: GitHub – Azure Blueprints-exempel
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Frågor och svar från Microsoft – Azure Blueprints
-      href: /answers/topics/azure-blueprints.html.html
+      href: /answers/topics/azure-blueprints.html
     - name: Styrning av YouTube-kanal
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Friday – Översikt över Azure Blueprints

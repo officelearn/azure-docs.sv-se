@@ -3,17 +3,17 @@ title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 06/08/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874508"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560570"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -107,8 +107,7 @@ När du stänger av utgiftsprognosen visas inte planerade utgifter för framtida
 
 Normalt kan du förvänta dig att se data eller meddelanden för förbrukade resurser inom åtta till tolv timmar.
 
-
-**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.
+**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.  Mer information om alternativ för gruppering och filtrering finns i [Alternativ för gruppering och filter](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
 
 De flesta [Azure-resurser stöder taggning](../../azure-resource-manager/management/tag-support.md). Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för taggar gäller för användning som rapporterats *efter* taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
 
@@ -142,42 +141,6 @@ Du kan visa den fullständiga datauppsättningen för alla vyer. Oavsett vilka v
 
 ![Data för aktuell vy i en tabellvy](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-
-## <a name="understanding-grouping-and-filtering-options"></a>Förstå alternativ för gruppering och filtrering
-
-Kostnadsanalys har många grupperings- och filtreringsalternativ. Om du vill se en video om grupperings- och filtreringsalternativen kan du se videon [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) (Cost Management-rapportering efter dimensioner och taggar). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
-
-I följande tabell visas några av de vanligaste alternativen för gruppering och filtrering och när du ska använda dem.
-
-| Egenskap | När du ska använda detta | Anteckningar |
-| --- | --- | --- |
-| **Tillgänglighetszoner** | Bryt ned AWS-kostnader per tillgänglighetszon. | Gäller endast för AWS-omfång och -hanteringsgrupper. Azure data inkluderar inte tillgänglighetszon och visas som **Ej tillämpligt**. |
-| **Faktureringsperiod** | Bryt ned PAYG-kostnader efter den månad som de (eller kommer att) fakturerades. | Använd **Faktureringsperiod** för att få en korrekt representation av fakturerade PAYG-avgifter. Inkludera 2 extra dagar före och efter faktureringsperioden om du filtrerar ned till ett anpassat datumintervall. Begränsning av de exakta datumen för faktureringsperioden stämmer inte överens med fakturan. Visar kostnader från alla fakturor under faktureringsperioden. Använd **Faktura-ID** för att filtrera ned till en speciell faktura. Endast tillgängligt för PAYG-prenumerationer eftersom EA och MCA faktureras per kalendermånad. EA/MCA-konton kan använda kalendermånader i datumväljaren eller månadsvis kornighet för att utföra samma mål. |
-| **Kostnadstyp** | Dela upp användning, köp, återbetalning och outnyttjade reservationskostnader. | Köp och återbetalningar av reservationer är bara tillgängliga när du använder faktiska kostnader och inte när du använder amorterade kostnader. Oanvända reservationskostnader är bara tillgängliga när du tittar på amorterade kostnader. |
-| **Avdelning** | Dela upp kostnader efter EA-avdelning. | Endast tillgängligt för EA- och hanteringsgrupper. PAYG-prenumerationer har ingen avdelning och visas som **Ej tillämpligt** eller **ej tilldelade**. |
-| **Registreringskonto** | Dela upp kostnader efter EA-kontots ägare. | Endast tillgängligt för EA-faktureringskonton, avdelningar och hanteringsgrupper. PAYG-prenumerationer har inga EA-registreringskonton och visas som **Ej tillämpligt** eller **ej tilldelade**. |
-| **Frekvens** | Bryt ned användningsbaserade, engångs- och återkommande kostnader. | |
-| **Faktura-ID** | Dela upp kostnader per fakturerad faktura. | Ofakturerade avgifter har ännu inget faktura-ID och EA-kostnader inkluderar inte fakturainformation och visas som **Inte tillämpligt**.  |
-| **Mätare** | Dela upp kostnader per användningsmätare. | Köp och Marketplace-användning visas som **Ej tillämpligt**. Se **Kostnadstyp** för att identifiera inköp och **Typ av utgivare** för att identifiera Marketplace-avgifter. |
-| **Åtgärd** | Bryt ned AWS-kostnader per åtgärd. | Gäller endast för AWS-omfång och -hanteringsgrupper. Azure data inkluderar inte åtgärd och visas som **Ej tillämpligt** – använd **Mätare** i stället. |
-| **Prismodell** | Dela upp kostnader per begäran, reservation eller dekor användning. | Köp visas som **OnDemand**. Om du ser **Inte tillämpligt**kan du gruppera efter **Reservation** för att avgöra om användningen är en reservation eller användning på begäran och **Kostnadstyp** för att identifiera köp.
-| **Leverantör** | Dela upp kostnader per AWS och Azure. | Endast tillgängligt för hanteringsgrupper. |
-| **Typ av utgivare** | Dela upp AWS-, Azure- och Marketplace-kostnader. |  |
-| **Reservation** | Dela upp kostnader per reservation. | All användning eller alla inköp som inte är associerade med en reservation visas som **Inte tillämpligt**. Gruppera efter **Typ av utgivare** för att identifiera andra Azure-, AWS- eller Marketplace-köp. |
-| **Resurs** | Dela upp kostnader per resurs. | Köp visas som **Inte tillämpligt** eftersom de används på ett EA-/PAYG-faktureringskonto eller en MCA-faktureringsprofilnivå och inte är associerade med en speciell resurs. Gruppera efter **Typ av utgivare** för att identifiera andra Azure-, AWS- eller Marketplace-köp. |
-| **Resursgrupp** | Dela upp kostnader per resursgrupp. | Köp, klientresurser som inte är associerade med prenumerationer, prenumerationsresurser som inte har distribuerats till en resursgrupp och klassiska resurser som inte har någon resursgrupp visas som **övriga**, **klassiska tjänster**, **$system**eller **Inte tillämpligt**. |
-| **Resurstyp** | Dela upp kostnader per resurstyp. | Inköps och klassiska tjänster har ingen Azure Resource Manager-resurstyp och visas som **andra**, **klassiska tjänster**eller **Inte tillämpligt**. |
-| **Resursplats** | Dela upp kostnader efter plats eller region. | Köp- och Marketplace-användning kan visas som **ej tilldelad**, **okänd**, **omappad**eller **Inte tillämpligt**. |
-| **Tjänstnamn** eller **Mätarkategori** | Dela upp kostnad per Azure-tjänst. | Köp och Marketplace-användning visas som **Inte tillämpligt** eller **Otilldelad**. |
-| **Tjänstnivå** eller **Mätarunderkategori** | Dela upp kostnaden efter Azure-användningsmätarens underklassificering. | Köp och Marketplace-användning visas som **Inte tillämpligt** eller **Otilldelad**. |
-| **Prenumeration** | Dela upp kostnader per Azure-prenumeration och AWS-länkat konto. | Köp- och klientresurser kan visas som **Ej tillämpligt**. |
-| **Tag** | Dela upp kostnader efter taggvärden för en speciell taggnyckel. | Taggar är inte tillgängliga för köp, klientresurser som inte är associerade med prenumerationer, prenumerationsresurser som inte har distribuerats till en resursgrupp eller klassiska resurser. Observera att vissa tjänster inte innehåller taggar i användningsdata. Läs mer om [stöd för taggar för varje resurstyp](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
-
-Mer information om villkor finns i [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md) (Förstå villkoren som används i filen för Azure-användning och avgifter).
-
-
 ## <a name="saving-and-sharing-customized-views"></a>Spara och dela anpassade vyer
 
 Spara och dela anpassade vyer med andra genom att fästa kostnadsanalys på Azure-portalens instrumentpanel eller genom att kopiera en länk till kostnadsanalys.
@@ -192,54 +155,12 @@ Om du vill dela en länk till kostnadsanalys väljer du **Dela** överst på bla
 
 Läs mer om hur du beviljar åtkomst till kostnader för varje omfång som stöds i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
-
-
-## <a name="automation-and-offline-analysis"></a>Automatisering och offlineanalys
+## <a name="download-usage-data"></a>Ladda ned användningsdata
 
 Det finns tillfällen när du behöver hämta data för ytterligare analys, sammanfoga dem med dina egna data eller integrera dem i dina egna system. Cost Management erbjuder några olika alternativ. Som startpunkt, om du behöver en ad hoc-sammanfattning på hög nivå, t. ex. vad du får inom kostnadsanalys, skapar du den vy du behöver. Sedan kan du ladda ned den genom att välja **Exportera** och välja **Ladda ned rapport till CSV** eller **Ladda ned data till Excel**. Excel-nedladdningen ger ytterligare kontext för vyn du använde för att generera nedladdningen, som omfång, frågekonfiguration, summa och datum för generering.
 
 Om du behöver den fullständiga, icke-aggregerade datauppsättningen kan du ladda ned den från faktureringskontot. I listan över tjänster i portalens vänstra navigeringsfönster går du till **Kostnadshantering och fakturering**. Välj ditt faktureringskonto, om det är tillämpligt. Gå till **Användning och avgifter**och välj sedan **nedladdningsikonen** för önskad faktureringsperiod.
 
-Använd en liknande metod för att automatisera hanteringen av kostnadsdata. Använd [fråge-API](/rest/api/cost-management/query) för bättre analys med dynamisk filtrering, gruppering och aggregering, eller använd [UsageDetails-API:et](/rest/api/consumption/usageDetails) för den fullständiga, icke-aggregerade datauppsättningen. Den allmänna tillgänglighetsversionen för dessa API:er är 2019-01-01. Använd **2019-04-01-preview** för att få åtkomst till förhandsversionen av reservations- och Marketplace-köp inom dessa API:er.
-
-Följande är till exempel en sammanställd vy över amorterade kostnader uppdelade efter kostnadstyp (användning, köp eller återbetalning), typ av utgivare (Azure eller Marketplace), resursgrupp (tom för inköp) och reservation (tom om ej tillämpligt).
-
-```
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
-Content-Type: application/json
-
-{
-  "type": "AmortizedCost",
-  "timeframe": "Custom",
-  "timePeriod": { "from": "2019-04-01", "to": "2019-04-30" },
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": { "name": "PreTaxCost", "function": "Sum" }
-    },
-    "grouping": [
-      { "type": "dimension", "name": "ChargeType" },
-      { "type": "dimension", "name": "PublisherType" },
-      { "type": "dimension", "name": "Frequency" },
-      { "type": "dimension", "name": "ResourceGroup" },
-      { "type": "dimension", "name": "SubscriptionName" },
-      { "type": "dimension", "name": "SubscriptionId" },
-      { "type": "dimension", "name": "ReservationName" },
-      { "type": "dimension", "name": "ReservationId" },
-    ]
-  },
-}
-```
-
-Och om du inte behöver aggregeringen och föredrar den fullständiga rådatauppsättningen:
-
-```
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
-
-Om du behöver de faktiska kostnaderna för att visa inköp när de påförs kan du ändra **typ**/**mått** till **ActualCost**. Mer information om dessa API:er finns i API-dokumentationen [Fråga](/rest/api/cost-management/query) och [UsageDetails](/rest/api/consumption/usageDetails). Observera att de publicerade dokumenten är till för GA-versionen. De båda fungerar dock på samma sätt för API-versionen *2019-04-01-preview* utanför det nya typ-/måttattributet och ändrade egenskapsnamn. (Läs mer om egenskapsnamnen nedan.)
-
-API:er för Cost Management fungerar över alla omfång över resurser: resursgrupp, prenumeration och hanteringsgrupp via Azure RBAC-åtkomst, EA-faktureringskonton (registreringar), avdelningar och registreringskonton via åtkomst till EA-portalen. Lär dig mer om omfång, till exempel hur du fastställer ditt omfångs-ID eller hanterar åtkomst, i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020004"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434193"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -20,6 +20,7 @@ När du har köpt en Azure-reservation kan du behöva använda reservationen fö
 
 Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra reservationens optimeringsinställning. Reservationsrabatten kan användas för virtuella datorer i samma serie, eller så kan du reservera datacenterkapacitet för en viss VM-storlek. Du bör också försöka optimera dina reservationer så att de används fullt ut.
 
+*Den behörighet som krävs för att hantera en reservation skiljer sig från prenumerationsbehörigheten.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ Omfånget gäller endast enskilda prenumerationer där du betalar per användnin
 
 Du kan delegera reservationshantering genom att lägga till användare till roller i reservationsbeställningen eller i reservationen. Som standard har den person som lägger reservationsbeställningen samt kontoadministratören rollen som Ägare för reservationsbeställningen och reservationen.
 
-Du kan hantera åtkomsten till reservationsbeställningar och reservationer oberoende av prenumerationerna som erhåller reservationsrabatten. När du ger någon behörighet att hantera en reservationsbeställning eller själva reservationen innebär det inte att de får behörighet att hantera prenumerationen. Om du ger någon behörighet att hantera en prenumeration i reservationens omfattning innebär det på samma sätt inte att de får behörighet att hantera reservationsbeställningen eller reservationen.
+Du kan hantera åtkomsten till reservationsbeställningar och reservationer *oberoende av prenumerationerna* som erhåller reservationsrabatten. När du ger någon behörighet att hantera en reservationsbeställning eller själva reservationen innebär det inte att de får behörighet att hantera prenumerationen. Om du ger någon behörighet att hantera en prenumeration i reservationens omfattning innebär det på samma sätt inte att de får behörighet att hantera reservationsbeställningen eller reservationen.
 
 För att göra ett byte eller en återbetalning måste användaren ha åtkomst till reservationsbeställningen. När du ger någon behörighet är det bättre att ge behörighet för reservationsbeställningen, inte för själva reservationen.
-
 
 Så här delegerar du åtkomstbehörighet för en reservation:
 

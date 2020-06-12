@@ -219,8 +219,12 @@
           href: sap-hana-db-manage.md
     - name: Azure Backup Server (MABS)
       items:
-        - name: Skyddsöversikt för Azure Backup Server
-          href: backup-mabs-protection-matrix.md
+        - name: Skyddsmatriser
+          items:
+            - name: MABS V3 UR1-skyddsmatris
+              href: backup-mabs-protection-matrix.md
+            - name: MABS V3 RTM-skyddsmatris
+              href: microsoft-azure-backup-server-protection-v3.md
         - name: Installera eller uppgradera
           items:
             - name: Installera Azure Backup Server
@@ -229,7 +233,7 @@
               href: backup-mabs-add-storage.md
             - name: Nyheter i MABS
               href: backup-mabs-whats-new-mabs.md
-            - name: Viktig information om MABS V3
+            - name: Viktig information om MABS
               href: backup-mabs-release-notes-v3.md
             - name: Obevakad installation
               href: backup-mabs-unattended-install.md
@@ -284,7 +288,9 @@
         - name: Säkerhets kopiering offline med Import/Export (MARS)
           href: backup-azure-backup-import-export.md
         - name: Säkerhets kopiering offline med Import/Export (DPM/MABS)
-          href: backup-azure-backup-server-import-export-.md
+          href: backup-azure-backup-server-import-export.md
+        - name: Offlinesäkerhetskopiering för DPM och MABS (tidigare versioner)
+          href: offline-backup-server-previous-versions.md
     - name: Övervakning och aviseringar
       items:
         - name: Använda säkerhetskopieringsutforskaren

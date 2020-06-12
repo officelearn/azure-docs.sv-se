@@ -71,6 +71,8 @@
           href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
         - name: Lägga till tjänstens huvudnamn till administratörsrollen för servern
           href: analysis-services-addservprinc-admins.md
+        - name: Flytta mellan regioner
+          href: move-between-regions.md
     - name: Modell
       items:
         - name: Tabellmodellering

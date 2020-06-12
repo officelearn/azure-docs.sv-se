@@ -3,7 +3,7 @@ title: Dokumentation om QnA Maker
 summary: Lär dig mer om QnA Maker-tjänsten och hur den här tjänstens kunskapsbaser fungerar med dina frågor och svar.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/18/2019
+  ms.date: 06/08/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentation om QnA Maker
   description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
-  ms.openlocfilehash: 189782ca4e8d9c6a098f6080a62be4da0f2be853
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 09c577368ef6ca9b6bc584601ad018c2a63c7347
+  ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83651156"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84628039"
 landingContent:
 - title: Om QnA Maker
   linkLists:
@@ -66,8 +66,8 @@ landingContent:
     links:
     - text: 'Snabbstart: Med Postman eller cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Snabbstart: Använda REST och C#'
-      url: quickstarts/get-answer-from-knowledge-base-csharp.md
+    - text: 'Snabbstart: Använda REST och cURL'
+      url: quickstarts/quickstart-rest-curl.md
     - text: 'Snabbstart: Använda SDK'
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
@@ -94,8 +94,12 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 'Portal: Skapa en QnA-robot'
+    - text: 'Portal: Skapa en Azure Bot Service-robot'
       url: tutorials/create-qna-bot.md
+    - text: 'Power Apps: Skapa en QnA Maker-baserad robot'
+      url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - text: 'Bot Framework: Använda Dispatch mellan LUIS- och QnA Maker-appar'
+      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
     - text: Andra exempelrobotar
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Referens

@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: Användarflöden för registrering via självbetjäning (förhandsversion)
           href: self-service-sign-up-overview.md
+        - name: API-anslutningsprogram för registrering med självbetjäning (förhandsversion)
+          href: api-connectors-overview.md
         - name: Azure AD-berättigandehantering
           href: self-service-portal.md
         - name: Aktuella begränsningar
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Anpassa användarflödesspråket
               href: user-flow-customize-language.md
+            - name: Lägg till ett API-anslutningsprogram
+              href: self-service-sign-up-add-api-connector.md
+            - name: Lägg till ett anpassat godkännandesystem
+              href: self-service-sign-up-add-approvals.md
         - name: Hantera gästkonton
           items:
             - name: Lägga till en B2B-användare till en roll

@@ -36,6 +36,12 @@
       href: manage-dhcp.md
     - name: Haveriberedskap
       href: disaster-recovery.md
+    - name: Azure Backup Server för AVS
+      items:
+        - name: Konfigurera Azure Backup Server för AVS
+          href: set-up-mabs-for-avs.md
+        - name: Säkerhetskopiera virtuella AVS-datorer med Azure Backup Server
+          href: backup-avs-vms-with-mabs.md
 - name: Referens
   items: null
 - name: Resurser

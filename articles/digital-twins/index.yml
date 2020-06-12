@@ -1,75 +1,81 @@
 ### YamlMime:Landing
 title: Dokumentation om förhandsversionen av Azure Digital Twins
-summary: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens. Gå igenom snabbstarten och självstudierna för att övervaka en tänkt smart byggnad, lär dig mer djupgående begrepp och skapa en nästa generations IoT-lösning som bygger på din fysiska miljö.
+summary: Lär dig hur du skapar en digital representation av tillgångar, miljöer och affärssystem med Azure Digital Twins för att bygga nästa generations IoT-lösningar med modeller av verkligheten.
 metadata:
   title: Dokumentation om förhandsversionen av Azure Digital Twins – självstudier, API-referens | Microsoft Docs
   description: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 02/07/2020
-  ms.openlocfilehash: e5d66ffb35cb0ce50aa7898cad30bf9fd0bf57ac
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77110584"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84610040"
 landingContent:
 - title: Om Azure Digital Twins
   linkLists:
   - linkListType: overview
     links:
     - text: Vad är Azure Digital Twins?
-      url: about-digital-twins.md
-  - linkListType: concept
-    links:
-    - text: Förstå Digital Twins-objektmodellen och diagram för rumslig intelligens
-      url: concepts-objectmodel-spatialgraph.md
-  - linkListType: video
-    links:
-    - text: Introduktion till Azure Digital Twins
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-- title: Kom igång
+      url: overview.md
+- title: Kom igång med självstudier
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Hitta tillgängliga rum
-      url: quickstart-view-occupancy-dotnet.md
   - linkListType: tutorial
     links:
-    - text: Distribuera och konfigurera
-      url: tutorial-facilities-setup.md
-    - text: Etablera och övervaka villkor
-      url: tutorial-facilities-udf.md
-    - text: Meddela med Logic Apps
-      url: tutorial-facilities-events.md
-    - text: Visualisera händelser med Time Series Insights
-      url: tutorial-facilities-analyze.md
-- title: Utveckla med Azure Digital Twins
+    - text: Koda en klientapp
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: Utforska grunderna med en exempelklientapp
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: Ansluta en lösning från slutpunkt till slutpunkt
+      url: tutorial-end-to-end.md
+- title: Läs mer
   linkLists:
   - linkListType: concept
     links:
-    - text: Enhetsanslutning och inkommande telemetri
-      url: concepts-device-ingress.md
-    - text: Databearbetning och användardefinierade funktioner
-      url: concepts-user-defined-functions.md
+    - text: Anpassade modeller
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Digitala tvillingenheter och tvillingdiagrammet
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: Frågespråk
+      url: concepts-query-language.md
+- title: Utveckla
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Konfigurera Postman
-      url: how-to-configure-postman.md
-    - text: Skapa användardefinierade funktioner
-      url: how-to-user-defined-functions.md
+    - text: Använda Azure Digital Twins CLI
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en Azure Digital Twins-instans
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autentisera ett klientprogram
+      url: how-to-authenticate-client.md
 - title: API-referens
   linkLists:
-  - linkListType: reference
-    links:
-    - text: Användardefinierade funktioner – klientbibliotek
-      url: reference-user-defined-functions-client-library.md
   - linkListType: how-to-guide
     links:
-    - text: Använda Digital Twins Swagger
-      url: how-to-use-swagger.md
+    - text: Använda Azure Digital Twins-API:er och -SDK:er
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa anpassade SDK:er med AutoRest
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: REST API:er
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

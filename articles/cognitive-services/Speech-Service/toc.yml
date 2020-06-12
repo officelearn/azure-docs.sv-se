@@ -462,6 +462,8 @@
       items:
         - name: Vad är talarigenkänning?
           href: speaker-recognition-overview.md
+        - name: Grunderna i talarigenkänning
+          href: speaker-recognition-basics.md
     - name: Referens
       items:
         - name: 'REST API:er'

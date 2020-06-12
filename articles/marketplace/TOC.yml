@@ -378,8 +378,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Skapa ett SaaS-erbjudande
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: SaaS-fakturering efter förbrukning
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: 'API:er för uppfyllnad av SaaS'
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +389,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: SaaS-fakturering efter förbrukning
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: Leadhantering – översikt
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:

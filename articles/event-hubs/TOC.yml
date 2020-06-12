@@ -213,8 +213,12 @@
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:
-        - name: Felsökningsguide
+        - name: Felsöka anslutningsproblem
           href: troubleshooting-guide.md
+        - name: Felsöka problem med autentisering och auktorisering
+          href: troubleshoot-authentication-authorization.md
+        - name: Kafka-felsökningsguide för Event Hubs
+          href: apache-kafka-troubleshooting-guide.md
         - name: .NET-undantag
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager-undantag

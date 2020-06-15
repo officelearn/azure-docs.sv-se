@@ -12,6 +12,8 @@
       href: language-support.md
     - name: Stöd för regioner
       href: regions.md
+    - name: Nyheter i Docs
+      href: whats-new.md
 - name: Tal till text
   items:
     - name: Dokumentation om tal till text

@@ -36,8 +36,12 @@
           href: virtual-wan-locations-partners.md
         - name: Automatiseringsriktlinjer för partner
           href: virtual-wan-configure-automation-providers.md
-    - name: IPSec-principer
-      href: virtual-wan-ipsec.md
+    - name: Plats-till-plats
+      items:
+        - name: Om IPSec-principer
+          href: virtual-wan-ipsec.md
+        - name: Flera ISP-länkar – val av Azure-sökväg
+          href: path-selection-multiple-links.md
 - name: Anvisningar
   items:
     - name: Anslut virtuell nätverksgateway till Virtual WAN
@@ -58,8 +62,6 @@
       items:
         - name: Skapa en plats-till-plats-anslutning
           href: virtual-wan-site-to-site-portal.md
-        - name: Flera ISP-länkar – val av Azure-sökväg
-          href: path-selection-multiple-links.md
     - name: Användar-VPN (punkt-till-plats)
       items:
         - name: Skapa en VPN-anslutning för användare

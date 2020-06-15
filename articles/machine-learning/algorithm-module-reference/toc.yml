@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: Poäng för SVD-rekommenderare
       href: score-svd-recommender.md
+    - name: Bedöma modulen Wide and Deep Recommender
+      href: score-wide-and-deep-recommender.md
     - name: Träna SVD-rekommenderare
       href: train-svd-recommender.md
+    - name: Träna modulen Wide and Deep Recommender
+      href: train-wide-and-deep-recommender.md
 - name: Avvikelseidentifiering
   items:
     - name: PCA-baserad avvikelseidentifiering

@@ -4,6 +4,8 @@
   items:
     - name: Vad är Windows Virtual Desktop?
       href: overview.md
+    - name: Nyheter
+      href: whats-new.md
     - name: Dokumentation om 2019-versionen
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Självstudier
@@ -82,6 +84,8 @@
       href: teams-on-wvd.md
     - name: Konfigurera multifaktorautentisering i Azure
       href: set-up-mfa.md
+    - name: Konfigurera automatiska uppdateringar
+      href: configure-automatic-updates.md
     - name: Installera språkpaket
       href: language-packs.md
 - name: Begrepp

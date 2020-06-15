@@ -15,6 +15,8 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Skapa DB – Azure CLI up-kommando
           href: quickstart-create-server-up-azure-cli.md
+        - name: Skapa DB – Azure PowerShell
+          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
         - name: Skapa DB – ARM-mall
           href: quickstart-create-postgresql-server-database-using-arm-template.md
           displayName: deploy azure resource manager template
@@ -48,6 +50,8 @@
               href: tutorial-design-database-using-azure-portal.md
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
+            - name: Azure PowerShell
+              href: tutorial-design-database-using-powershell.md
         - name: '2 – Utforma webbapp: Python'
           href: ../app-service/containers/tutorial-python-postgresql-app.md
           maintainContext: true
@@ -227,6 +231,8 @@
               href: howto-restore-server-portal.md
             - name: Azure CLI
               href: howto-restore-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
         - name: Migrera en databas
           items:
             - name: Dumpa och återställa
@@ -245,12 +251,16 @@
               href: howto-configure-server-parameters-using-portal.md
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
+            - name: Azure PowerShell
+              href: howto-configure-server-parameters-using-powershell.md
         - name: Lagring som växer automatiskt
           items:
             - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
+            - name: Azure PowerShell
+              href: howto-auto-grow-storage-powershell.md
         - name: Åtkomstloggar
           items:
             - name: Azure Portal
@@ -297,6 +307,8 @@
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
         - name: Neka åtkomst till offentligt nätverk
           items:
             - name: Azure Portal
@@ -307,6 +319,8 @@
               href: howto-read-replicas-portal.md
             - name: 'Hantera skrivskyddade repliker i Azure CLI, REST-API'
               href: howto-read-replicas-cli.md
+            - name: Hantera skrivskyddade repliker med Azure PowerShell
+              href: howto-read-replicas-powershell.md
     - name: Hyperskala (Citus)
       items:
         - name: Skapa användare

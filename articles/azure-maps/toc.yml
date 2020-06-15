@@ -59,6 +59,8 @@
           href: drawing-conversion-error-codes.md
     - name: Täckning
       items:
+        - name: Täckning
+          href: geographic-coverage.md
         - name: Täckning för geokodning
           href: geocoding-coverage.md
         - name: Trafiktäckning

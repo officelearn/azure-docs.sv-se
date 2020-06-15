@@ -10,9 +10,9 @@
     - name: Skapa CF i Azure
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Distribuera CF-app till Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: CloudFoundry på Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: Distribuera CF OMS Nozzle
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Integrera Cloud Foundry med Azure

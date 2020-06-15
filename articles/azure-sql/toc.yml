@@ -35,6 +35,8 @@
           href: temporal-tables.md
         - name: Skala upp/ned
           href: database/scale-resources.md
+        - name: Lässkalbarhet
+          href: database/read-scale-out.md
         - name: Säkerhet
           items:
             - name: Översikt
@@ -282,8 +284,6 @@
           href: database/connectivity-architecture.md
         - name: Anslutningsinställningar
           href: database/connectivity-settings.md
-        - name: Lässkalbarhet
-          href: database/read-scale-out.md
         - name: T-SQL-skillnader
           href: database/transact-sql-tsql-differences-sql-server.md
         - name: Azure Automation

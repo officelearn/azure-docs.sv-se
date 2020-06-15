@@ -256,12 +256,10 @@
           href: limit-egress-traffic.md
         - name: Aktivera Azure Active Directory-integrering
           items:
-            - name: Integrera Azure AD (förhandsversion)
+            - name: AKS-hanterad AAD (förhandsversion)
               href: managed-aad.md
             - name: Använda Azure CLI
               href: azure-ad-integration-cli.md
-            - name: Använda Azure-portalen
-              href: azure-ad-integration.md
         - name: Använda Kubernetes RBAC med Azure AD-integrering
           href: azure-ad-rbac.md
           maintainContext: true

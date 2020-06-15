@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: bd070300427716634d786e685cfe1cf8e45a246c
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a4db7c59bd43a541a350d78511c6749a914bec79
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140769"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735591"
 ---
 <a name="HOLTop"></a>
 
-[Referens dokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  [Paket](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Referens dokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  [Paket](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) med version 8 eller senare
@@ -32,14 +32,14 @@ ms.locfileid: "84140769"
 
 ### <a name="add-the-client-library"></a>Lägg till klient biblioteket
 
-Skapa ett Maven-projekt i önskad IDE-eller utvecklings miljö. Lägg sedan till följande beroende i projektets *Pom. XML-* fil. Du kan hitta implementations-syntaxen [för andra build-verktyg](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) online.
+Skapa ett Maven-projekt i önskad IDE-eller utvecklings miljö. Lägg sedan till följande beroende till projektets *pom.xml* -fil. Du kan hitta implementations-syntaxen [för andra build-verktyg](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.5</version>
+        <version>1.0.0</version>
     </dependency>
 </dependencies>
 ```

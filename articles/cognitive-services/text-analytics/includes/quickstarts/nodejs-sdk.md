@@ -1,20 +1,20 @@
 ---
-title: 'Snabb start: Textanalys v3-klient bibliotek för Node. js | Microsoft Docs'
-description: Kom igång med v3-Textanalys klient biblioteket för Node. js.
+title: 'Snabb start: Textanalys v3-klient bibliotek för Node.js | Microsoft Docs'
+description: Kom igång med v3-Textanalys klient biblioteket för Node.js.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7f25c9c500615f376ffe2fee2483fbfbdc03f3b8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140768"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735595"
 ---
 <a name="HOLTop"></a>
 
@@ -29,10 +29,10 @@ ms.locfileid: "84140768"
 
 ---
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node. js](https://nodejs.org/).
+* Den aktuella versionen av [Node.js](https://nodejs.org/).
 * När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" skapar du en textanalys resurs "  target="_blank"> skapa en textanalys resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
@@ -61,7 +61,7 @@ npm init
 Installera `@azure/ai-text-analytics` NPM-paketen:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.5
+npm install --save @azure/ai-text-analytics@1.0.0
 ```
 
 > [!TIP]

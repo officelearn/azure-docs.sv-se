@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: e27719f7a639a97a0cde04848a51ba6135c3199e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: f8f65d5f5fe9ec2345279d9f680cb77354834715
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346131"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735592"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ ms.locfileid: "84346131"
 
 ---
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
@@ -44,7 +44,8 @@ Skapa en ny .NET Core-konsol med hjälp av Visual Studio IDE. Då skapas ett "He
 
 #### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
-Installera klient biblioteket genom att högerklicka på lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I paket hanteraren som öppnas väljer du **Bläddra**, markerar **ta med för hands version**och söker efter `Azure.AI.TextAnalytics` . Välj version `1.0.0-preview.5` och **Installera**sedan. Du kan också använda [Package Manager-konsolen](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installera klient biblioteket genom att högerklicka på lösningen i **Solution Explorer** och välja **Hantera NuGet-paket**. I den paket hanterare som öppnas väljer du **Bläddra** och söker efter `Azure.AI.TextAnalytics` . Välj version `1.0.0` och **Installera**sedan. Du kan också använda [Package Manager-konsolen](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 
 > [!TIP]
 > Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), som innehåller kod exemplen i den här snabb starten. 
@@ -127,7 +128,7 @@ Om du använder en version `3.0` av tjänsten kan du använda en valfri `TextAna
 
 * [Sentiment-analys](#sentiment-analysis)
 * [Språk identifiering](#language-detection)
-* [Igenkänning av namngiven entitet](#named-entity-recognition-ner)
+* [Igenkänning av namngiven enhet](#named-entity-recognition-ner)
 * [Länkning av entitet](#entity-linking)
 * [Extrahering av nyckel fraser](#key-phrase-extraction)
 

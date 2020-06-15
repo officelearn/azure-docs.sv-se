@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671593"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754628"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -32,7 +32,7 @@ Det första steget är att se till att projektet är öppet i Visual Studio.
 
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
-1. Öppna **Solution Explorer** `MainPage.xaml`i Solution Explorer.
+1. Öppna i **Solution Explorer** `MainPage.xaml` .
 
 1. I designerns XAML-vy ersätter du hela innehållet med följande kod avsnitt som definierar ett elementära-användar gränssnitt:
 
@@ -83,9 +83,9 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
-1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. (Det är grupperat `MainPage.xaml`under.) Ersätt innehållet i den här filen med följande, som innehåller:
+1. Öppna käll filen bakomliggande kod i **Solution Explorer** `MainPage.xaml.cs` . (Det är grupperat under `MainPage.xaml` .) Ersätt innehållet i den här filen med följande, som innehåller:
 
-- `using`instruktioner för namn `Speech` områdena `Speech.Dialog` och
+- `using`instruktioner för `Speech` `Speech.Dialog` namn områdena och
 - En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
 - Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
 - En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
@@ -259,16 +259,16 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
         }
     }
     ```
-1. Lägg till följande kodfragment i metod texten i `InitializeDialogServiceConnector`. Den här koden skapar `DialogServiceConnector` med din prenumerations information.
+1. Lägg till följande kodfragment i metod texten i `InitializeDialogServiceConnector` . Den här koden skapar `DialogServiceConnector` med din prenumerations information.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
-    // the RecoLanguage property is optional (default en-US)
+    // the botConfig.Language property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
 
     var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
-    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    botConfig.Language = "en-US";
     connector = new DialogServiceConnector(botConfig);
     ```
 
@@ -280,7 +280,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 1. Ersätt strängarna `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din tal prenumeration och [region](~/articles/cognitive-services/speech-service/regions.md).
 
-1. Lägg till följande kodfragment i slutet av metod texten i `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig `DialogServiceConnector` på att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information.
+1. Lägg till följande kodfragment i slutet av metod texten i `InitializeDialogServiceConnector` . Den här koden konfigurerar hanterare för händelser som förlitar sig på `DialogServiceConnector` att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -335,7 +335,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
     };
     ```
 
-1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i- `MainPage` klassen. Den här koden ställs `DialogServiceConnector` in för att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
+1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i- `MainPage` klassen. Den här koden ställs in `DialogServiceConnector` för att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
 
     ```csharp
     if (connector == null)
@@ -368,9 +368,9 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 Nu är du redo att bygga din app och testa din anpassade röst assistent med hjälp av tal tjänsten.
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
+1. Starta programmet genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
    ![Exempel på UWP röst assistent program i C# – snabb start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 

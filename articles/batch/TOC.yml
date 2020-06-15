@@ -97,6 +97,8 @@
           href: budget.md
         - name: Använda privata slutpunkter med Batch-konton
           href: private-connectivity.md
+        - name: Konfigurera kundhanterade nycklar
+          href: batch-customer-managed-key.md
     - name: Autentisera med Azure AD
       items:
         - name: Azure AD med Batch-tjänsten

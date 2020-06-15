@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
 ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219614"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704717"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -95,7 +95,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 | Tjänst            | Variant                  |
 |--------------------|-----------------------|
@@ -105,7 +105,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Tal
+### <a name="speech"></a>Speech
 
 | Tjänst            | Variant                 |
 |--------------------|----------------------|
@@ -140,7 +140,7 @@ az cognitiveservices account list-kinds
 
 Om du vill skapa och prenumerera på en ny Cognitive Services-resurs använder du kommandot [AZ cognitiveservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Detta kommando lägger till en ny fakturerbar resurs till resurs gruppen som skapades tidigare. När du skapar din nya resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med dess pris nivå (eller SKU) och en Azure-plats:
 
-Du kan skapa en F0 (kostnads fri) resurs för avvikelse detektor, med `anomaly-detector-resource` namnet med kommandot nedan.
+Du kan skapa en F0 (kostnads fri) resurs för avvikelse detektor, med namnet `anomaly-detector-resource` med kommandot nedan.
 
 ```azurecli-interactive
 az cognitiveservices account create \

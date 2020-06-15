@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927215"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730313"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Vad är det för tal enheter SDK?
 
@@ -37,7 +37,11 @@ Med tal enheter SDK kan du använda olika röst funktioner, till exempel [röst 
 
 ### <a name="android"></a>Android
 
-För Android laddar enheter ned den senaste versionen av [Android Speech-enheterna SDK](https://aka.ms/sdsdk-download-android).
+Tal enheter SDK för Android har stöd för [Roobo v1](speech-devices-sdk-roobo-v1.md) och motsvarande enheter, för dessa Ladda ned den senaste versionen av [Android Speech-enheterna SDK](https://aka.ms/sdsdk-download-android).
+
+
+Om du har en annan Android-enhet, till exempel en telefon eller mobil, börjar du med [Android-talet SDK](speech-sdk.md)
+
 
 ### <a name="windows"></a>Windows
 

@@ -12,26 +12,26 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
 ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219724"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686638"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
 
 Language Understanding (LUIS) tillhandahåller färdiga entiteter. När en fördefinierad entitet ingår i ditt program, innehåller LUIS motsvarande enhets förutsägelse i slut punkts svaret. Alla exempel-yttranden är också märkta med entiteten. Det **går inte** att ändra beteendet för förbyggda entiteter. Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
-|Culture (Kultur)|Underkulturer|Obs!|
+|Culture (Kultur)|Underkulturer|Anteckningar|
 |--|--|--|
 |Kinesiska|[zh-CN](#chinese-entity-support)||
 |Nederländska|[nl-NL](#dutch-entity-support)||
-|Svenska|[en-US (American)](#english-american-entity-support)||
+|Engelska|[en-US (American)](#english-american-entity-support)||
 |Franska|[fr-ca (Kanada)](#french-canadian-entity-support), [fr-fr (Frankrike)](#french-france-entity-support), ||
 |Tyska|[de-DE](#german-entity-support)||
 |Italienska|[it-IT](#italian-entity-support)||
 |Japanska|[ja-JP](#japanese-entity-support)||
-|Koreansk|[ko-KR](#korean-entity-support)||
+|Koreanska|[ko-KR](#korean-entity-support)||
 |Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)||
 |Spanska|[es-es (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)||
 |Turkiska|[Turkiska](#turkish-entity-support)|Inga fördefinierade entiteter stöds i turkiska|
@@ -53,14 +53,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    -   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="dutch-entity-support"></a>Stöd för nederländsk entitet
 
@@ -75,14 +75,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="english-american-entity-support"></a>Stöd för engelska (American) entiteter
 
@@ -97,14 +97,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="french-france-entity-support"></a>Stöd för franska (Frankrike) entitet
 
@@ -119,14 +119,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |   -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="french-canadian-entity-support"></a>Stöd för franska (kanadensisk) entitet
 
@@ -141,14 +141,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="german-entity-support"></a>Stöd för tyska entiteter
 
@@ -163,14 +163,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="italian-entity-support"></a>Stöd för italienska entiteter
 
@@ -187,14 +187,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="japanese-entity-support"></a>Stöd för japanska entiteter
 
@@ -209,14 +209,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2,-   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2,-   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2,-   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2,-   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="korean-entity-support"></a>Stöd för koreanska entiteter
 
@@ -231,14 +231,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    -   |
+[Nummer](luis-reference-prebuilt-number.md)   |    -   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    -   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="portuguese-brazil-entity-support"></a>Stöd för portugisiska (Brasilien) entitet
 
@@ -253,14 +253,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="spanish-spain-entity-support"></a>Stöd för spanska (Spanien) entitet
 
@@ -275,14 +275,14 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="spanish-mexico-entity-support"></a>Stöd för spanska (Mexiko) entitet
 
@@ -297,18 +297,18 @@ Följande entiteter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Antal](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Numret](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    -   |
-[ADRESSER](luis-reference-prebuilt-url.md)   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 Se kommentarer om [inaktuella förbyggda entiteter](luis-reference-prebuilt-deprecated.md)
 
-En fras är inte tillgänglig i alla under odlingar av portugisiska (Brasilien)- ```pt-BR```.
+En fras är inte tillgänglig i alla under odlingar av portugisiska (Brasilien)- ```pt-BR``` .
 
 ## <a name="turkish-entity-support"></a>Stöd för turkiska entiteter
 

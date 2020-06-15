@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457107"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753188"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -104,7 +104,7 @@ Följ de här anvisningarna för att skapa en tal resurs:
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har en tal resurs:
 
-| Namn | Typ  | Location |
+| Name | Typ  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
@@ -125,7 +125,7 @@ Nästa steg är att skapa en App Service-plan. En App Service-plan definierar en
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har två resurser:
 
-| Namn | Typ  | Location |
+| Name | Typ  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
@@ -164,7 +164,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Fil**  ->  **Öppna bot**.
-3. Ange URL: en för din robot. Ett exempel:
+3. Ange URL: en för din robot. Exempel:
 
    ```
    http://localhost:3978/api/messages
@@ -208,7 +208,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
 1. Din standard webbläsare bör öppna och visa en sida som läser: "din robot är klar!".
 1. I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal och kontrollerar att det finns tre resurser:
 
-| Namn | Typ  | Location |
+| Name | Typ  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
@@ -249,7 +249,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 
 I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal. Nu bör det Visa fyra resurser:
 
-| Namn | Typ  | Location |
+| Name | Typ  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
@@ -265,7 +265,7 @@ Registrerings sidan för Azure bot Channels har ett **test i Web Chat-** alterna
 
 1. Leta upp och öppna din **EchoBotTutorial-BotRegistration-# #** # #-resurs i [Azure Portal](https://portal.azure.com)
 1. Välj **Inställningar**i navigeringen för **bot hantering** . Kopiera värdet under **Microsoft app ID**
-1. Öppna Visual Studio EchoBot-lösningen. Leta upp och dubbelklicka på **appSettings. JSON** i Solution Explorer.
+1. Öppna Visual Studio EchoBot-lösningen. I Solution Explorer, leta upp och dubbelklicka på **appsettings.jspå**
 1. Ersätt den tomma strängen bredvid **MicrosoftAppId** i JSON-filen med det kopierade ID-värdet
 1. Gå tillbaka till Azure Portal och gå till navigering för **bot hantering** , Välj **Inställningar**och klicka på **(hantera)** bredvid **Microsoft app-ID**
 1. Klicka på **ny klient hemlighet**. Lägg till en beskrivning (t. ex. Web chat) och klicka på **Lägg till**. Kopiera den nya hemligheten
@@ -323,13 +323,16 @@ Om du får ett fel meddelande i huvud fönstret i appen använder du den här ta
 
 | Fel | Hur ska du göra? |
 |-------|----------------------|
-|Fel AuthenticationFailure: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel (401). Sök efter rätt prenumerations nyckel (eller autentiseringstoken) och region namn| På sidan Inställningar i appen kontrollerar du att du har angett tal prenumerations nyckeln och dess region korrekt.<br>Kontrol lera att din tal nyckel och nyckel region har angetts korrekt. |
-|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: vi kunde inte ansluta till bot innan ett meddelande skickades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
-|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: svars status koden indikerar inte lyckad: 500 (InternalServerError)| Din robot har angett en neurala röst i sitt [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) -fält för utdata-aktivitet, men den Azure-region som är associerad med din tal prenumerations nyckel stöder inte neurala-röster. Se [standard-och neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1000. Fel information: överskrider maximal inaktiv varaktighet för WebSocket-anslutning (> 300000 MS)| Detta är ett förväntat fel när en anslutning till kanalen lämnas öppen och inaktiv i mer än fem minuter. |
+|Fel (AuthenticationFailure): WebSocket-uppgraderingen misslyckades med ett autentiseringsfel (401). Sök efter rätt prenumerations nyckel (eller autentiseringstoken) och region namn| På sidan Inställningar i appen kontrollerar du att du har angett tal prenumerations nyckeln och dess region korrekt.<br>Kontrol lera att din tal nyckel och nyckel region har angetts korrekt. |
+|Fel (ConnectionFailure): anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: vi kunde inte ansluta till bot innan ett meddelande skickades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
+|Fel (ConnectionFailure): anslutningen stängdes av den fjärranslutna värden. Felkod: 1002. Fel information: Servern returnerade status koden 503 när status koden 101 förväntades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
+|Fel (ConnectionFailure): anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: svars status koden indikerar inte lyckad: 500 (InternalServerError)| Din robot har angett en neurala röst i sitt [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) -fält för utdata-aktivitet, men den Azure-region som är associerad med din tal prenumerations nyckel stöder inte neurala-röster. Se [standard-och neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga frågor och svar](faq-voice-assistants.md).
+Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga frågor och svar](faq-voice-assistants.md). Om det fortfarande inte går att lösa problemet när du har använt alla steg i den här självstudien anger du ett nytt ärende på [GitHub-sidan för röst assistenten](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
+#### <a name="a-note-on-connection-time-out"></a>En anteckning om anslutnings tids gränsen
+
+Om du är ansluten till en robot och ingen aktivitet har skett under de senaste 5 minuterna stängs WebSocket-anslutningen automatiskt med klienten och med bot. Det här är avsiktligt. Ett meddelande visas i det nedre fältet: *"tids gränsen nåddes för aktiv anslutning, men det är dags att återansluta på begäran"*. Du behöver inte trycka på knappen "Återanslut". Tryck bara på mikrofon knappen och börja prata, Skriv in ett textmeddelande eller säg nyckelordet (om ett sådant är aktiverat). Anslutningen kommer automatiskt att upprättas.  
 ### <a name="view-bot-activities"></a>Visa bot-aktiviteter
 
 Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i Windows Voice Assistant-klienten ser du de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp av- [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.

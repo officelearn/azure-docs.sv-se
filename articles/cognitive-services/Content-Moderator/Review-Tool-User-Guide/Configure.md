@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220131"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689851"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
 
@@ -25,7 +25,7 @@ ms.locfileid: "79220131"
 
 ## <a name="manage-team-and-subteams"></a>Hantera team och under grupper
 
-På fliken **team** kan du hantera ditt team och under&mdash;grupper av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) startas. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
+På fliken **team** kan du hantera ditt team och under &mdash; grupper av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) startas. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
 
 ![Granska team inställningar för verktyget](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Om du är medlem i fler än ett under team kan du växla mellan dessa under grup
 
 ## <a name="tags"></a>Taggar
 
-På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna&mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
+På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna &mdash; **isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
 
 ![Vyn taggar, inklusive kryss rutorna "är synliga"](images/tags-4-disable.png)
 

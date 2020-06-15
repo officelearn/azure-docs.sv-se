@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: ddc61a0d0cb5a630282a9ba0589cef6fda29c4b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eeaab547a1f0648d2e7a59fda24454d7bfe1fadf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343471"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754652"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
 
@@ -34,7 +34,7 @@ Det första steget är att skapa en anpassad under domän. Om du vill använda e
 2. Skapa sedan [en Cognitive Services-resurs](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) med en anpassad under domän. Under domän namnet måste vara globalt unikt och får inte innehålla specialtecken, till exempel: ".", "!", ",".
 
    ```powershell-interactive
-   New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
+   $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
    ```
 
 3. Om det lyckas bör **slut punkten** Visa det under domän namn som är unikt för din resurs.
@@ -52,7 +52,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
 
-   New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
+   $app = New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
    ```
 
    Du kommer att behöva **ApplicationId** i nästa steg.

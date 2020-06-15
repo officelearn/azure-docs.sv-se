@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220219"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710175"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
 
@@ -27,7 +27,7 @@ Använd följande när du definierar dina segment på webben:
 
 | Segment namn | Beskrivning                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Till exempel `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com`, returnerar Bing även resultat från `support.microsoft.com` eller. `technet.microsoft.com` |
+| Domain     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Exempelvis `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
 | Undersida    | En subpage-sektor innehåller allt innehåll som finns på undersidan och Sök vägarna under det. Du kan ange högst två under sidor i sökvägen. Till exempel, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Historik    | En webb sidas sektor kan bara innehålla den webb sidan i en anpassad sökning. Du kan också ange om du vill inkludera under sidor.                                                                                                                                                                                  |
 
@@ -76,7 +76,7 @@ När du har lagt till WebSlices i den **aktiva** listan genererar anpassad sökn
 
 Du kan söka efter bilder och videor på samma sätt som webb innehåll med hjälp av [anpassade bildsökning-API: t för Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) eller [Bing anpassad videosökning API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Du kan visa dessa resultat med det [värdbaserade användar gränssnittet](hosted-ui.md)eller API: erna. 
 
-Dessa API: er liknar de icke-anpassade [bildsökning i Bing](../Bing-Image-Search/overview.md) -och [videosökning i Bing](../Bing-Video-Search/search-the-web.md) -API: erna, men du kan inte använda `customConfig` Frågeparametern för att söka igenom hela webbplatsen. Se dessa dokumentations uppsättningar för mer information om hur du arbetar med bilder och videor. 
+Dessa API: er liknar de icke-anpassade [bildsökning i Bing](../Bing-Image-Search/overview.md) -och [videosökning i Bing](../Bing-Video-Search/search-the-web.md) -API: erna, men du kan inte använda Frågeparametern för att söka igenom hela webbplatsen `customConfig` . Se dessa dokumentations uppsättningar för mer information om hur du arbetar med bilder och videor. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testa din Sök instans med förhands gransknings fönstret
 

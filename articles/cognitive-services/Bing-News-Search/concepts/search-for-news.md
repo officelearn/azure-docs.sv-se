@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220329"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710600"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -107,7 +107,7 @@ Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den 
 
 ## <a name="get-todays-top-news"></a>Hämta dagens viktigaste nyheter
 
-Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som `q` du lämnar parametern unset.
+Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som du lämnar `q` parametern unset.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1

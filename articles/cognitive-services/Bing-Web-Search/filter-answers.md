@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220274"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696719"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera svaren som Sök svaret innehåller  
 
@@ -53,7 +53,7 @@ Om du vill filtrera svaren som returneras av Bing använder du nedanstående fr�
 
 Du kan filtrera de typer av svar som Bing inkluderar i svaret (till exempel bilder, videor och nyheter) med hjälp av [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) -Frågeparametern, som är en kommaavgränsad lista med svar. Ett svar tas med i svaret om Bing hittar relevant innehåll för det. 
 
-Om du vill utesluta vissa svar från svaret, till exempel bilder, `-` lägga ett meddelande till svars typen. Ett exempel:
+Om du vill utesluta vissa svar från svaret, till exempel bilder, lägga ett meddelande `-` till svars typen. Exempel:
 
 ```
 &responseFilter=-images,-videos
@@ -98,11 +98,11 @@ Nedan visas svaret på den tidigare frågan. Eftersom Bing inte hittade relevant
 
 Även om Bing inte returnerade video-och nyhets resultat i föregående svar, innebär det inte att video-och nyhets innehållet inte finns. Det innebär bara att sidan inte innehåller dem. Men [om du går](./paging-webpages.md) igenom fler resultat kommer de efterföljande sidorna förmodligen att innehålla dem. Om du anropar Videosökning- [API: et](../bing-video-search/search-the-web.md) och nyhetssökning slut punkter för [API: er](../bing-news-search/search-the-web.md) direkt, skulle svaret förmodligen innehålla resultat.
 
-Du rekommenderas inte att använda `responseFilter` för att få resultat från ett enda API. Om du vill ha innehåll från ett enda Bing API anropar du detta API direkt. Om du till exempel bara vill ta emot bilder skickar du en begäran till Bildsökning API- `https://api.cognitive.microsoft.com/bing/v7.0/images/search` slutpunkten eller någon av de andra slut punkterna för [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) . Anrop till det enskilda API: t är viktigt inte bara av prestanda skäl, men eftersom de innehållsbaserade API: erna erbjuder fler resultat. Du kan till exempel använda filter som inte är tillgängliga för Webbsökning API för att filtrera resultaten.  
+Du rekommenderas inte `responseFilter` att använda för att få resultat från ett enda API. Om du vill ha innehåll från ett enda Bing API anropar du detta API direkt. Om du till exempel bara vill ta emot bilder skickar du en begäran till Bildsökning API-slutpunkten `https://api.cognitive.microsoft.com/bing/v7.0/images/search` eller någon av de andra slut punkterna för [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) . Anrop till det enskilda API: t är viktigt inte bara av prestanda skäl, men eftersom de innehållsbaserade API: erna erbjuder fler resultat. Du kan till exempel använda filter som inte är tillgängliga för Webbsökning API för att filtrera resultaten.  
 
-### <a name="site"></a>Plats
+### <a name="site"></a>Webbplats
 
-Om du vill få Sök Resultat från en speciell domän inkluderar `site:` du frågeparametern i frågesträngen.  
+Om du vill få Sök Resultat från en speciell domän inkluderar du `site:` frågeparametern i frågesträngen.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -119,7 +119,7 @@ Om du vill begränsa webb svars resultatet till webb sidor som Bing identifierad
 * `Week`– Returnera webb sidor som Bing har identifierat under de senaste 7 dagarna
 * `Month`– Returnera webb sidor som har identifierats under de senaste 30 dagarna
 
-Du kan också ange den här parametern till ett anpassat datum intervall i formuläret `YYYY-MM-DD..YYYY-MM-DD`. 
+Du kan också ange den här parametern till ett anpassat datum intervall i formuläret `YYYY-MM-DD..YYYY-MM-DD` . 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
@@ -131,7 +131,7 @@ Resultaten kan vara webb sidor som ligger utanför den angivna perioden om antal
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Begränsa antalet svar i svaret
 
-Bing kan returnera flera svars typer i JSON-svaret. Om du till exempel frågar *uppsegling + dinghies* `webpages`kan Bing returnera `images`,, `videos`, och. `relatedSearches`
+Bing kan returnera flera svars typer i JSON-svaret. Om du till exempel frågar *uppsegling + dinghies*kan Bing returnera `webpages` , `images` , `videos` , och `relatedSearches` .
 
 ```json
 {
@@ -159,7 +159,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Svaret innehåller bara `webPages` och `images`.
+Svaret innehåller bara `webPages` och `images` .
 
 ```json
 {
@@ -215,8 +215,8 @@ Följande är svaret på ovanstående begäran. Bing returnerar de två vanligas
 }
 ```
 
-Om du anger `promote` nyhets brev innehåller svaret inte nyhets svaret eftersom det inte är ett Rankat svar&mdash;. du kan bara befordra de rankade svaren.
+Om du anger `promote` nyhets brev innehåller svaret inte nyhets svaret eftersom det inte är ett Rankat svar &mdash; . du kan bara befordra de rankade svaren.
 
 Svaren som du vill befordra räknas inte mot `answerCount` gränsen. Om till exempel de rankade svaren är nyheter, bilder och videor och du anger `answerCount` till 1 och `promote` till nyheter, innehåller svaret nyheter och bilder. Eller, om de rankade svaren är videor, bilder och nyheter, innehåller svaret videor och nyheter.
 
-Du får bara `promote` använda om du anger `answerCount` Frågeparametern.
+Du får `promote` bara använda om du anger `answerCount` Frågeparametern.

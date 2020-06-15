@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636112"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730330"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -28,8 +28,6 @@ Både Microsoft Speech SDK och REST API stöder följande språk (lokala).
 
 För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av **ljud + mänskligt avskrifter** eller **relaterad text: meningar**. Mer information om anpassning finns i [Kom igång med Custom Speech](how-to-custom-speech.md).
 
-Mer information om hur du kan förbättra uttal finns i [förbättra en modell för Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
-
 <!--
 To get the AM and ML bits:
 https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
@@ -40,16 +38,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Stöds | Anpassningar                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Nej                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Inga                                                |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Ja       | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Ja       | Språkmodell                                    |
-| `ar-IL` | Arabiska (Israel)                   | Ja       | Nej                                                |
-| `ar-JO` | Arabiska (Jordanien)                   | Ja       | Nej                                                |
-| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Nej                                                |
-| `ar-LB` | Arabiska (Libanon)                  | Ja       | Nej                                                |
-| `ar-PS` | Arabiska (Palestina)                | Ja       | Nej                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Ja       | Nej                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Nej                                                |
+| `ar-IL` | Arabiska (Israel)                   | Ja       | Inga                                                |
+| `ar-JO` | Arabiska (Jordanien)                   | Ja       | Inga                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Inga                                                |
+| `ar-LB` | Arabiska (Libanon)                  | Ja       | Inga                                                |
+| `ar-PS` | Arabiska (Palestina)                | Ja       | Inga                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Ja       | Inga                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Inga                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Ja       | Språkmodell                                    |
 | `ca-ES` | Katalanska                           | Ja       | Språkmodell                                    |
 | `da-DK` | Danska (Danmark)                  | Ja       | Språkmodell                                    |
@@ -80,7 +78,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Svenska (Sverige)                  | Ja       | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Ja       | Språkmodell                                    |
 | `te-IN` | Telugu (Indien)                    | Ja       | Språkmodell                                    |
-| `th-TH` | Thailändska (Thailand)                   | Ja       | Nej                                                |
+| `th-TH` | Thailändska (Thailand)                   | Ja       | Inga                                                |
 | `tr-TR` | Turkiska (Turkiet)                  | Ja       | Språkmodell                                    |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Ja       | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Ja       | Språkmodell                                    |

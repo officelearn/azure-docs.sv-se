@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220472"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782542"
 ---
 # <a name="speech-service-supported-regions"></a>Regioner som stöds av tal tjänster
 
@@ -38,7 +38,7 @@ Tal tjänsten är tillgänglig i dessa regioner för **tal igenkänning**, **tex
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Om du använder [tal-SDK](speech-sdk.md)anges regioner av **regions-ID** (till exempel som en parameter till `SpeechConfig.FromSubscription`). Se till att regionen matchar region för din prenumeration.
+Om du använder [tal-SDK](speech-sdk.md)anges regioner av **regions-ID** (till exempel som en parameter till `SpeechConfig.FromSubscription` ). Se till att regionen matchar region för din prenumeration.
 
 ### <a name="intent-recognition"></a>Avsiktsigenkänning
 
@@ -75,6 +75,10 @@ Det här är en delmängd av de publicerings regioner som stöds av [language Un
 | Europa, norra   | `northeurope`        |
 | Sydostasien | `southeastasia`      |
 
+### <a name="speaker-recognition"></a>Talarigenkänning
+
+Talarigenkänning är för närvarande endast tillgängligt i `westus` regionen.
+
 ## <a name="rest-apis"></a>REST API:er
 
 Tjänsten Speech visar också REST-slutpunkter för tal-till-text-och text till tal-begäranden.
@@ -94,7 +98,7 @@ Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för di
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är språket inställt på amerikansk engelska med slut punkten västra USA: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är språket inställt på amerikansk engelska med slut punkten västra USA: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
 ### <a name="text-to-speech"></a>Text till tal
 

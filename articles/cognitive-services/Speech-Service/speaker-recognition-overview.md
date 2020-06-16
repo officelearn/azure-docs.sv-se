@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635177"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780893"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Vad är Azure Talarigenkänning-tjänsten?
 
@@ -55,6 +55,20 @@ Högtalar registrerings data lagras i ett skyddat system, inklusive tal ljudet f
 Du kan styra hur länge data ska bevaras. Du kan skapa, uppdatera och ta bort registrerings data för enskilda högtalare via API-anrop. När prenumerationen tas bort, tas även alla högtalar registrerings data som är associerade med prenumerationen bort. 
 
 Precis som med alla Cognitive Services-resurser måste utvecklare som använder tjänsten Talarigenkänning vara medvetna om Microsofts principer för kund information. Du bör se till att du har fått rätt behörighet från användarnas Talarigenkänning. Mer information finns på [sidan Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)   på Microsoft Trust Center. 
+
+## <a name="common-questions-and-solutions"></a>Vanliga frågor och lösningar
+
+| Fråga | Lösning |
+|---------|----------|
+| Vilka scenarier kan Talarigenkänning användas för? | Call Center kundverifiering, Voice-baserad patient incheckning, Mötes avskrift, anpassning av flera användare enheter|
+| Vad är skillnaden mellan identifiering och verifiering? | Identifiering är en process för att identifiera vilken medlem från en grupp av högtalare som talar. Verifiering handlar om att bekräfta att en talare matchar en känd eller **registrerad** röst.|
+| Vad är skillnaden mellan text beroende och text oberoende verifiering? | Text beroende verifiering kräver en speciell pass fras för både registrering och igenkänning. För text oberoende verifiering krävs ett längre röst exempel för registrering, men allt kan ses, inklusive under igenkänning.|
+| Vilka språk stöds? | Engelska, franska, spanska, kinesiska, tyska, italienska, japanska och portugisiska |
+| Vilka Azure-regioner stöds? | Talarigenkänning är en för hands versions tjänst och är för närvarande endast tillgänglig i regionen USA, västra.|
+| Vilka ljud format stöds? | Mono 16-bitars, 16kHz PCM-kodad WAV |
+| Att **acceptera** och **avvisa** svar är inte korrekt, Hur justerar du tröskelvärdet? | Eftersom det optimala tröskelvärdet varierar mycket med scenarier, bestämmer API: et om du vill acceptera eller avvisa genom att bara baseras på ett standard tröskelvärde på 0,5. Avancerade användare uppmanas att åsidosätta standard beslutet och finjustera resultatet baserat på ditt eget scenario. |
+| Kan du registrera en talare flera gånger? | Ja, för text beroende verifiering kan du registrera en högtalare upp till 50 gånger. För text oberoende verifiering eller högtalar identifiering kan du registrera dig med upp till 300 sekunders ljud. |
+| Vilka data lagras i Azure? | Ljud för registrering lagras i tjänsten tills röst profilen [tas bort](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Igenkänning av ljud exempel behålls inte eller lagras inte. |
 
 ## <a name="next-steps"></a>Nästa steg
 

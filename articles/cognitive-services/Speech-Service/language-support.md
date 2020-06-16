@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730330"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783103"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -39,8 +39,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Nationell inställning  | Språk                          | Stöds | Anpassningar                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Inga                                                |
-| `ar-BH` | Arabiska (Bahrain), modern standard | Ja       | Språkmodell                                    |
-| `ar-EG` | Arabiska (Egypten)                    | Ja       | Språkmodell                                    |
+| `ar-BH` | Arabiska (Bahrain), modern standard | Yes       | Språkmodell                                    |
+| `ar-EG` | Arabiska (Egypten)                    | Yes       | Språkmodell                                    |
 | `ar-IL` | Arabiska (Israel)                   | Ja       | Inga                                                |
 | `ar-JO` | Arabiska (Jordanien)                   | Ja       | Inga                                                |
 | `ar-KW` | Arabiska (Kuwait)                   | Ja       | Inga                                                |
@@ -48,41 +48,41 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-PS` | Arabiska (Palestina)                | Ja       | Inga                                                |
 | `ar-QA` | Arabiska (Qatar)                    | Ja       | Inga                                                |
 | `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Inga                                                |
-| `ar-SY` | Arabiska (Syrien)                    | Ja       | Språkmodell                                    |
-| `ca-ES` | Katalanska                           | Ja       | Språkmodell                                    |
-| `da-DK` | Danska (Danmark)                  | Ja       | Språkmodell                                    |
-| `de-DE` | Tyska (Tyskland)                  | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `en-AU` | Engelska (Australien)               | Ja       | Akustisk modell<br>Språkmodell                  |
-| `en-CA` | Engelska (Kanada)                  | Ja       | Akustisk modell<br>Språkmodell                  |
-| `en-GB` | Engelska (Storbritannien)          | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `en-IN` | Engelska (Indien)                   | Ja       | Akustisk modell<br>Språkmodell                  |
-| `en-NZ` | Engelska (Nya Zeeland)             | Ja       | Akustisk modell<br>Språkmodell                  |
-| `en-US` | Engelska (USA)           | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `es-ES` | Spanska (Spanien)                   | Ja       | Akustisk modell<br>Språkmodell                  |
-| `es-MX` | Spanska (Mexiko)                  | Ja       | Akustisk modell<br>Språkmodell                  |
-| `fi-FI` | Finska (Finland)                 | Ja       | Språkmodell                                    |
-| `fr-CA` | Franska (Kanada)                   | Ja       | Akustisk modell<br>Språkmodell                  |
-| `fr-FR` | Franska (Frankrike)                   | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `gu-IN` | Gujarati (indiska)                 | Ja       | Språkmodell                                    |
-| `hi-IN` | Hindi (Indien)                     | Ja       | Akustisk modell<br>Språkmodell                  |
-| `it-IT` | Italienska (Italien)                   | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `ja-JP` | Japanska (Japan)                  | Ja       | Språkmodell                                    |
-| `ko-KR` | Koreanska (Korea)                    | Ja       | Språkmodell                                    |
-| `mr-IN` | Marathi (Indien)                   | Ja       | Språkmodell                                    |
-| `nb-NO` | Norska (bokmål) (Norge)       | Ja       | Språkmodell                                    |
-| `nl-NL` | Nederländska (Nederländerna)               | Ja       | Språkmodell                                    |
-| `pl-PL` | Polska (Polen)                   | Ja       | Språkmodell                                    |
-| `pt-BR` | Portugisiska (Brasilien)               | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `pt-PT` | Portugisiska (Portugal)             | Ja       | Språkmodell                                    |
-| `ru-RU` | Ryska (Ryssland)                  | Ja       | Akustisk modell<br>Språkmodell                  |
-| `sv-SE` | Svenska (Sverige)                  | Ja       | Språkmodell                                    |
-| `ta-IN` | Tamiliska (Indien)                     | Ja       | Språkmodell                                    |
-| `te-IN` | Telugu (Indien)                    | Ja       | Språkmodell                                    |
+| `ar-SY` | Arabiska (Syrien)                    | Yes       | Språkmodell                                    |
+| `ca-ES` | Katalanska                           | Yes       | Språkmodell                                    |
+| `da-DK` | Danska (Danmark)                  | Yes       | Språkmodell                                    |
+| `de-DE` | Tyska (Tyskland)                  | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `en-AU` | Engelska (Australien)               | Yes       | Akustisk modell<br>Språkmodell                  |
+| `en-CA` | Engelska (Kanada)                  | Yes       | Akustisk modell<br>Språkmodell                  |
+| `en-GB` | Engelska (Storbritannien)          | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `en-IN` | Engelska (Indien)                   | Yes       | Akustisk modell<br>Språkmodell                  |
+| `en-NZ` | Engelska (Nya Zeeland)             | Yes       | Akustisk modell<br>Språkmodell                  |
+| `en-US` | Engelska (USA)           | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `es-ES` | Spanska (Spanien)                   | Yes       | Akustisk modell<br>Språkmodell                  |
+| `es-MX` | Spanska (Mexiko)                  | Yes       | Akustisk modell<br>Språkmodell                  |
+| `fi-FI` | Finska (Finland)                 | Yes       | Språkmodell                                    |
+| `fr-CA` | Franska (Kanada)                   | Yes       | Akustisk modell<br>Språkmodell                  |
+| `fr-FR` | Franska (Frankrike)                   | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `gu-IN` | Gujarati (indiska)                 | Yes       | Språkmodell                                    |
+| `hi-IN` | Hindi (Indien)                     | Yes       | Akustisk modell<br>Språkmodell                  |
+| `it-IT` | Italienska (Italien)                   | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `ja-JP` | Japanska (Japan)                  | Yes       | Språkmodell                                    |
+| `ko-KR` | Koreanska (Korea)                    | Yes       | Språkmodell                                    |
+| `mr-IN` | Marathi (Indien)                   | Yes       | Språkmodell                                    |
+| `nb-NO` | Norska (bokmål) (Norge)       | Yes       | Språkmodell                                    |
+| `nl-NL` | Nederländska (Nederländerna)               | Yes       | Språkmodell                                    |
+| `pl-PL` | Polska (Polen)                   | Yes       | Språkmodell                                    |
+| `pt-BR` | Portugisiska (Brasilien)               | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `pt-PT` | Portugisiska (Portugal)             | Yes       | Språkmodell                                    |
+| `ru-RU` | Ryska (Ryssland)                  | Yes       | Akustisk modell<br>Språkmodell                  |
+| `sv-SE` | Svenska (Sverige)                  | Yes       | Språkmodell                                    |
+| `ta-IN` | Tamiliska (Indien)                     | Yes       | Språkmodell                                    |
+| `te-IN` | Telugu (Indien)                    | Yes       | Språkmodell                                    |
 | `th-TH` | Thailändska (Thailand)                   | Ja       | Inga                                                |
-| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Språkmodell                                    |
-| `zh-CN` | Kinesiska (mandariner, förenklad)    | Ja       | Akustisk modell<br>Språkmodell                  |
-| `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Ja       | Språkmodell                                    |
-| `zh-TW` | Kinesiska (Taiwan-mandariner)      | Ja       | Språkmodell                                    |
+| `tr-TR` | Turkiska (Turkiet)                  | Yes       | Språkmodell                                    |
+| `zh-CN` | Kinesiska (mandariner, förenklad)    | Yes       | Akustisk modell<br>Språkmodell                  |
+| `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Yes       | Språkmodell                                    |
+| `zh-TW` | Kinesiska (Taiwan-mandariner)      | Yes       | Språkmodell                                    |
 
 ## <a name="text-to-speech"></a>Text till tal
 
@@ -312,6 +312,27 @@ API: et för **tal översättning** stöder olika språk för översättning av 
 | Vietnamesiska              | `vi`          |
 | Walesiska                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## <a name="speaker-recognition"></a>Talarigenkänning
+
+I följande tabell visas vilka språk som stöds för de olika Talarigenkänning API: erna. Mer information om Talarigenkänning finns i [översikten](speaker-recognition-overview.md) .
+
+| Nationell inställning | Språk | Text beroende verifiering | Text oberoende verifiering | Text oberoende identifiering |
+|----|----|----|----|----|
+| sv-SE | Engelska (USA) | ja | ja | ja |
+|zh-CN  |Kinesiska (mandariner, förenklad)|    saknas|    ja|    ja|
+|de-DE  |Tyska (Tyskland)   |saknas    |ja    |ja|
+|en-GB  |Engelska (Storbritannien)   |saknas    |ja    |ja|
+|fr-FR  |Franska (Frankrike)    |saknas    |ja    |ja|
+|en – AU  |Engelska (Australien)    |saknas    |ja    |ja|
+|en-CA  |Engelska (Kanada)   |saknas|   ja|    ja|
+|fr-CA  |Franska (Kanada)    |saknas    |ja|   ja|
+|it-IT  |Italienska|   saknas |ja|   ja|
+|es-ES| Spanska (Spanien) |saknas    |ja|   ja|
+|ES – MX  |Spanska (Mexiko)   |saknas|   ja|    ja|
+|ja-JP| Japanska    |saknas    |ja    |ja|
+|pt-BR| Portugisiska (Brasilien)|    saknas|    ja|    ja|
+|ko-KR| Koreanska  |saknas    |ja|   ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

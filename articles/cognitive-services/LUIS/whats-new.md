@@ -2,13 +2,13 @@
 title: Vad är nytt – Language Understanding (LUIS)
 description: Den här artikeln uppdateras regelbundet med nyheter om Azure Cognitive Services API för Language Understanding.
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/15/2020
+ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678757"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789216"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
@@ -16,11 +16,19 @@ Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig informatio
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="june-2020"></a>2020 juni
+### <a name="june-2020"></a>Juni 2020
 
 * [Preview 3,0-redigering](luis-migration-authoring-entities.md) Gränssnittet
     * Version 3.2.0 – för hands version. 3- [.net-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Version 4.0.0 – för hands version. 3- [JS-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Använda DevOps-metoder med LUIS
+    * Begrepp
+        * [DevOps-metoder för LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Kontinuerlig integrering och kontinuerliga leverans arbets flöden för LUIS-DevOps](luis-concept-devops-automation.md)
+        * [Testa för LUIS-DevOps](luis-concept-devops-testing.md)
+    * Så här gör du
+        * [Använd DevOps-program för LUIS-utveckling med GitHub-åtgärder](luis-how-to-devops-with-github.md)
+    * [Fullständig kod GitHub lagrings platsen](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>2020 maj-build
 

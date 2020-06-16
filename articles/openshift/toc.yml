@@ -70,7 +70,7 @@
 - name: Referens
   items:
     - name: CLI för Azure Red Hat OpenShift
-      href: /cli/azure/openshift
+      href: /cli/azure/aro
     - name: 'REST-API:er för Azure Red Hat OpenShift'
       href: /rest/api/openshift
 - name: Resurser

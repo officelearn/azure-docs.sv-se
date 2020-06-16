@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 06/15/2020
 ms.author: diberry
-ms.openlocfilehash: e1ac608d064e3ad60fb98f35abab61e453d20edd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 285f68b4f0d7284740867f83311135d6c3efa90f
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654792"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791222"
 ---
 # <a name="whats-new-in-qna-maker"></a>Vad är nytt i QnA Maker
 
@@ -25,9 +25,13 @@ Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckni
 
 Lär dig vad som är nytt med QnA Maker.
 
+### <a name="june-2020"></a>Juni 2020
+
+* Uppdaterad hand ledning för [Power Virtual agent](tutorials/integrate-with-power-virtual-assistant-fallback-topic.md) för snabbare och enklare steg
+
 ### <a name="may-2020"></a>Maj 2020
 
-* [Rollbaserad åtkomst kontroll (RBAC)](concepts/role-based-access-control.md)
+* [Rollbaserad åtkomstkontroll (RBAC)](concepts/role-based-access-control.md)
 * [Omfattande text redigering](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) för svar
 
 ### <a name="march-2020"></a>Mars 2020

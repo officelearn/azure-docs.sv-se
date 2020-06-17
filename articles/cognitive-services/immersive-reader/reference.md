@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267247"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907388"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
 SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 SDK: n visar funktionerna:
 
@@ -80,7 +80,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfritt. |
 
@@ -111,7 +111,7 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Innehåller svaret från anropet till `ImmersiveReader.launchAsync` .
+Innehåller svaret från anropet till `ImmersiveReader.launchAsync` . Observera att en referens till `iframe` som innehåller den fördjupade läsaren kan nås via `container.firstChild` .
 
 ```typescript
 {
@@ -130,12 +130,12 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="supported-mime-types"></a>MIME-typer som stöds
 
-| MIME-typ | Beskrivning |
+| MIME-typ | Description |
 | --------- | ----------- |
 | text/ren | Oformaterad text. |
 | text/html | HTML-innehåll. [Läs mer](#html-support)|
 | program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](./how-to/display-math.md).
-| Application/VND. openxmlformats-officedocument. WordprocessingML. Document | Dokument för Microsoft Word. docx-format.
+| ument för program/vnd.openxmlformats-officedocument.wordprocessingml.doc | Dokument för Microsoft Word. docx-format.
 
 ### <a name="html-support"></a>HTML-stöd
 
@@ -188,7 +188,7 @@ Innehåller information om felet.
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Beskrivning |
+| Kod | Description |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt `message` . mer information finns i. |
 | Tidsgräns | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |

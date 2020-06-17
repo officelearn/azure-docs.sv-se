@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637523"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902473"
 ---
 > [!NOTE]
 > `PHI`Använd `domain=phi` parametern och modell versionen eller senare för att identifiera `2020-04-01` .
@@ -22,7 +22,7 @@ ms.locfileid: "84637523"
  
 Följande enhets kategorier returneras när begär Anden skickas till `/v3.1-preview.1/entities/recognition/pii` slut punkten.
 
-| Kategori   | Underkategori | Beskrivning                          | Startar modell version | Anteckningar |
+| Kategori   | Underkategori | Description                          | Startar modell version | Anteckningar |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | Saknas         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
 | PersonType | Saknas         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
@@ -37,17 +37,17 @@ Följande enhets kategorier returneras när begär Anden skickas till `/v3.1-pre
 | URL | Saknas | URL: er till webbplatser. | `2019-10-01` | Returneras också med `domain=phi` . |
 | IP-adress | Saknas | Nätverks-IP-adresser. | `2019-10-01` | |
 | DateTime | Saknas | Datum och tidpunkter på dagen. | `2019-10-01` |  | 
-| DateTime | Datum | Kalender datum. | `2019-10-01` | Returneras också med `domain=phi` . |
+| DateTime | Date | Kalender datum. | `2019-10-01` | Returneras också med `domain=phi` . |
 | Kvantitet | Saknas | Siffror och numeriska kvantiteter. | `2019-10-01` |  |
 | Kvantitet | Ålder | Personer. | `2019-10-01` | | |
-| Internationell klassificering av sjukdomar (ICD-10-CM) | Saknas | Enheter som rör internationell klassificering av sjukdomar, nionde revidering.   | `2020-04-01` | |
+| Internationell klassificering av sjukdomar (ICD-9-CM) | Saknas | Enheter som rör internationell klassificering av sjukdomar, nionde revidering.   | `2020-04-01` | |
 | Internationell klassificering av sjukdomar (ICD-10-CM) | Saknas | Enheter som rör internationell klassificering av sjukdomar, tionde revidering.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Azure-information
 
 Den här enhets kategorin innehåller identifierbar Azure-information, inklusive autentiseringsinformation och anslutnings strängar. Tillgängligt från och med modell version `2019-10-01` . Returnerades inte med `domain=phi` parametern.
 
-| Underkategori                           | Beskrivning                                                                 |
+| Underkategori                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB auth-nyckel             | Auktoriseringsregel för en Azure DocumentDB-Server.                           |
 | Anslutnings sträng för Azure IAAS Database och Azure SQL-anslutningssträng | Anslutnings sträng för en Azure Infrastructure as a service-databas (IaaS) och SQL-anslutningssträng. |

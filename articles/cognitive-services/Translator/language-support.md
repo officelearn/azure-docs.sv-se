@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718452"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888305"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -186,7 +186,7 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 | Språk    | Språkkod | Skript | Till/från | Skript|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabiska`Arab` | <--> | Latin`Latn` |
-|Bangla  | `bn` | Bengali`Beng` | <--> | Latin`Latn` |
+| Bangla  | `bn` | Bengali`Beng` | <--> | Latin`Latn` |
 | Kinesiska (förenklad) | `zh-Hans` | Kinesiska, förenklad`Hans`| <--> | Latin`Latn` |
 | Kinesiska (förenklad) | `zh-Hans` | Kinesiska, förenklad`Hans`| <--> | Kinesiska, traditionell`Hant`|
 | Kinesiska (traditionell) | `zh-Hant` | Kinesiska, traditionell`Hant`| <--> | Latin`Latn` |

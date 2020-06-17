@@ -10,6 +10,10 @@
       href: overview-iot-central-developer.md
     - name: Senaste uppdateringarna
       items:
+        - name: Maj 2020 – uppdateringar
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-updates/'
+        - name: Maj 2020 – uppdateringar till instrumentpanelen
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/'
         - name: April 2020 – nya funktioner
           href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
         - name: April 2020 – uppdateringar
@@ -182,9 +186,9 @@
     - name: 'SDK:er för Azure IoT'
       items:
         - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: 'Referens till IoT Central-API:er'
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Kunddataförfrågningar

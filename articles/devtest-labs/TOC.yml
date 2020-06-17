@@ -1,0 +1,287 @@
+- name: Dokumentation om DevTest Labs
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om DevTest Labs
+      href: devtest-lab-overview.md
+    - name: Azure DevTest Labs och Lab Services
+      href: lab-services-overview.md
+- name: Självstudier
+  items:
+    - name: 1. Konfigurera ett labb
+      href: tutorial-create-custom-lab.md
+    - name: 2. Åtkomst till ett labb
+      href: tutorial-use-custom-lab.md
+- name: Exempel
+  items:
+    - name: Mallar för Resurshanteraren
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
+    - name: Azure PowerShell
+      href: samples-powershell.md
+      items:
+        - name: Lägga till en extern användare i ett labb
+          href: scripts/add-external-user-to-lab.md
+        - name: Lägga till marknadsplatsavbildningar i ett labb
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Skapa en anpassad avbildning från en VHD
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Skapa en anpassad roll i ett labb
+          href: scripts/create-custom-role-in-lab.md
+        - name: Ange tillåtna VM-storlekar i ett labb
+          href: scripts/set-allowed-vm-sizes-in-lab.md
+    - name: Azure PowerShell – Az.DevTestLabs2-modul
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
+    - name: Azure CLI
+      href: samples-cli.md
+      items:
+        - name: Skapa och verifiera tillgängligheten för en virtuell dator
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Starta en virtuell dator
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Stoppa och ta bort en virtuell dator
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
+- name: Begrepp
+  items:
+    - name: DevTest Labs-koncept
+      href: devtest-lab-concepts.md
+    - name: Metodtips för distribuerad utveckling och samarbetsutveckling
+      href: best-practices-distributive-collaborative-development-environment.md
+    - name: Integrering med Azure DevOps
+      href: devtest-lab-dev-ops.md
+    - name: Scenarier
+      items:
+        - name: Populära scenarier för användning av DevTest Labs
+          href: devtest-lab-guidance-get-started.md
+        - name: Använda labb för utvecklare
+          href: devtest-lab-developer-lab.md
+        - name: Använda labb för testmiljöer
+          href: devtest-lab-test-env.md
+        - name: Använda labb för utbildning
+          href: devtest-lab-training-lab.md
+        - name: Scenarier för att använda virtuella datorer som kan begäras
+          href: devtest-lab-use-claim-capabilities.md
+- name: Anvisningar
+  items:
+    - name: Konfigurera ett labb
+      items:
+        - name: Skapa ett labb
+          href: devtest-lab-create-lab.md
+        - name: Skapa eller ändra labb med Resource Manager-mall
+          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+        - name: Ange resursgrupp för virtuella labbdatorer
+          href: resource-group-control.md
+        - name: Lägg till supportinformation till ett labb
+          href: devtest-lab-internal-support-message.md
+        - name: Ange principer och scheman
+          href: devtest-lab-set-lab-policy.md
+        - name: Konfigurera ett labb för användning med en fjärrskrivbords-gateway
+          href: configure-lab-remote-desktop-gateway.md
+        - name: Publicera ett meddelande i ett labb
+          href: devtest-lab-announcements.md
+        - name: Aktivera webbläsaranslutning på virtuella datorer
+          href: enable-browser-connection-lab-virtual-machines.md
+        - name: Konfigurera kostnadshantering
+          href: devtest-lab-configure-cost-management.md
+        - name: Ställa in automatisk start för virtuella labbdatorer
+          href: devtest-lab-auto-startup-vm.md
+        - name: Skala ditt labb
+          href: devtest-lab-scale-lab.md
+        - name: Aktivera hanterade identiteter för virtuella labbdatorer
+          href: enable-managed-identities-lab-vms.md
+        - name: Hantera virtuella datorbaser
+          items:
+            - name: Konfigurera Azure Marketplace-avbildningar
+              href: devtest-lab-configure-marketplace-images.md
+            - name: Aktivera en licensierad avbildning
+              href: devtest-lab-enable-licensed-images.md
+            - name: Konfigurera ett delat avbildningsgalleri
+              href: configure-shared-image-gallery.md
+        - name: Konfigurera taggar
+          href: devtest-lab-add-tag.md
+        - name: Konfigurera åtkomstkontroll
+          items:
+            - name: Lägg till labbägare och användare
+              href: devtest-lab-add-devtest-user.md
+            - name: Anpassa behörigheter med anpassade roller
+              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Lägga till labbanvändare automatiskt
+              href: automate-add-lab-user.md
+        - name: Hantera virtuella nätverk
+          items:
+            - name: Konfigurera virtuella nätverk
+              href: devtest-lab-configure-vnet.md
+            - name: Välj IP-konfigurationsalternativ
+              href: devtest-lab-shared-ip.md
+        - name: Ta bort ett labb eller en virtuell dator i ett labb
+          href: devtest-lab-delete-lab-vm.md
+        - name: Exportera eller ta bort personliga data
+          href: personal-data-delete-export.md
+    - name: Använd virtuella datorer i ett labb
+      items:
+        - name: Skapa en virtuell dator – Azure-portalen
+          href: devtest-lab-add-vm.md
+        - name: Skapa en virtuell dator – Azure PowerShell
+          href: devtest-lab-vm-powershell.md
+        - name: Skapa en virtuell dator – Azure CLI
+          href: devtest-lab-vmcli.md
+        - name: Skapa en virtuell dator – Resource Manager-mall
+          href: devtest-lab-use-resource-manager-template.md
+        - name: Skapa en virtuell dator med en avbildning från delat bildgalleri
+          href: add-vm-use-shared-image.md
+        - name: Ansluta till din virtuella dator via en webbläsare
+          href: connect-virtual-machine-through-browser.md
+        - name: Starta eller stoppa en virtuell dator med PowerShell eller CLI
+          href: use-command-line-start-stop-virtual-machines.md
+        - name: Starta om en virtuell dator
+          href: devtest-lab-restart-vm.md
+        - name: Ändra storlek på en virtuell dator
+          href: devtest-lab-resize-vm.md
+        - name: Distribuera om en VM
+          href: devtest-lab-redeploy-vm.md
+        - name: Konfigurera automatisk avstängning av virtuella datorer för beräkning och labb
+          href: devtest-lab-auto-shutdown.md
+        - name: Skapa och hantera tillgängliga virtuella datorer
+          href: devtest-lab-add-claimable-vm.md
+        - name: Konfigurera hemligheter
+          href: devtest-lab-store-secrets-in-key-vault.md
+        - name: Ansluta och koppla från datadiskar
+          href: devtest-lab-attach-detach-data-disk.md
+        - name: Starta virtuella datorer med Automation-runbooks
+          href: start-machines-use-automation-runbooks.md
+        - name: Importera virtuella datorer från ett annat labb
+          href: import-virtual-machines-from-another-lab.md
+    - name: Använd miljöer i ett labb
+      items:
+        - name: Skapa en miljö
+          href: devtest-lab-create-environment-from-arm.md
+        - name: Använda PaaS-tjänster (Plattform som en tjänst)
+          href: use-paas-services.md
+        - name: Offentliga miljöer
+          items:
+            - name: Konfigurera och använda offentliga miljöer
+              href: devtest-lab-configure-use-public-environments.md
+            - name: Skapa en miljö med Service Fabric-kluster
+              href: create-environment-service-fabric-cluster.md
+        - name: Ansluta en miljö till labbets virtuella nätverk
+          href: connect-environment-lab-virtual-network.md
+        - name: Konfigurera testmiljöer med kapslade mallar
+          href: deploy-nested-template-environments.md
+        - name: Använda hanterade Azure-identiteter för att distribuera miljöer
+          href: use-managed-identities-environments.md
+        - name: Säkerhetsaviseringar för miljöer
+          href: environment-security-alerts.md
+    - name: Hantera återanvändbara mallar
+      items:
+        - name: Anpassade avbildningar kontra formler
+          href: devtest-lab-comparing-vm-base-image-types.md
+        - name: Hantera miljömallar
+          items:
+            - name: Lägg till en Git-lagringsplats för artefakter och mallar
+              href: devtest-lab-add-artifact-repo.md
+        - name: Hantera anpassade avbildningar
+          items:
+            - name: Skapa en anpassad avbildning från en virtuell dator
+              href: devtest-lab-create-custom-image-from-vm-using-portal.md
+            - name: Skapa en anpassad avbildning från en virtuell hårddisk – Azure Portal
+              href: devtest-lab-create-template.md
+            - name: Skapa en anpassad avbildning från en virtuell hårddisk – PowerShell
+              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+            - name: Överför VHD-filen med AzCopy
+              href: devtest-lab-upload-vhd-using-azcopy.md
+            - name: Överför VHD-filen med PowerShell
+              href: devtest-lab-upload-vhd-using-powershell.md
+            - name: Överför VHD-filen med Lagringsutforskaren
+              href: devtest-lab-upload-vhd-using-storage-explorer.md
+        - name: Hantera formler
+          href: devtest-lab-manage-formulas.md
+        - name: Skapa en avbildningsfabrik
+          href: image-factory-create.md
+          items:
+            - name: Köra en avbildningsfabrik från Azure DevOps
+              href: image-factory-set-up-devops-lab.md
+            - name: Spara anpassade avbildningar och distribuera till flera labb
+              href: image-factory-save-distribute-custom-images.md
+            - name: Ange bevarandeprincip och köra rensningsskript
+              href: image-factory-set-retention-policy-cleanup.md
+    - name: Hantera artefakter
+      items:
+        - name: Lägga till artefakter i en virtuell dator
+          href: add-artifact-vm.md
+        - name: Skapa anpassade artefakter
+          href: devtest-lab-artifact-author.md
+        - name: Lägga till ett artefaktcentrallager till ett labb
+          href: add-artifact-repository.md
+        - name: Ange obligatoriska artefakter
+          href: devtest-lab-mandatory-artifacts.md
+        - name: Felsöka problem med att använda artefakter
+          href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Integrera med CI/CD
+      items:
+        - name: Integrera labb i CI/CD-pipelinen i Azure Pipelines
+          href: devtest-lab-integrate-ci-cd.md
+        - name: Integrera miljöer i CI/CD-pipelinen i Azure Pipelines
+          href: integrate-environments-devops-pipeline.md
+        - name: Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
+          href: use-devtest-labs-build-release-pipelines.md
+    - name: Utöka DevTest Labs
+      items:
+        - name: Använda Azure Functions för att utöka DevTest Labs
+          href: extend-devtest-labs-azure-functions.md
+    - name: Rapportera användning av labb
+      href: report-usage-across-multiple-labs-subscriptions.md
+    - name: DevTest Labs i företaget
+      items:
+        - name: DevTest Labs med skalbarhet i företagsklass
+          href: devtest-lab-guidance-prescriptive-adoption.md
+        - name: Referensarkitektur
+          href: devtest-lab-reference-architecture.md
+        - name: Leverera Proof of Concept
+          href: deliver-proof-concept.md
+        - name: Skala upp din DevTest Labs-distribution
+          href: devtest-lab-guidance-scale.md
+        - name: Dirigera implementeringen av DevTest Labs
+          href: devtest-lab-guidance-orchestrate-implementation.md
+        - name: Styrning av DevTest Labs-infrastruktur
+          items:
+            - name: Resurser
+              href: devtest-lab-guidance-governance-resources.md
+            - name: Kostnad och ägarskap
+              href: devtest-lab-guidance-governance-cost-ownership.md
+            - name: Princip och efterlevnad
+              href: devtest-lab-guidance-governance-policy-compliance.md
+            - name: Migrering och integrering av program
+              href: devtest-lab-guidance-governance-application-migration-integration.md
+    - name: Testa appen i Azure
+      href: test-app-azure.md
+    - name: Felsöka
+      items:
+        - name: Felsöka problem med att skapa virtuella datorer och miljöer
+          href: troubleshoot-vm-environment-creation-failures.md
+        - name: Felsöka fel i artefakter
+          href: devtest-lab-troubleshoot-artifact-failure.md
+- name: Referens
+  items:
+    - name: CLI
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: /powershell/module/az.devtestlabs
+    - name: PowerShell – Az.DevTestLabs2-exempelmodul
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.devtestlab/allversions
+- name: Resurser
+  items:
+    - name: Azure-uppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
+    - name: Frågesida på Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-devtestlabs.html'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
+    - name: Vanliga frågor och svar
+      href: devtest-lab-faq.md

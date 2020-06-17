@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Allmän distributionsprocess
       href: deployment-overview.md
-    - name: Betrodda säkerhetspartner
+    - name: Säkerhetspartnerprovidrar
       href: trusted-security-partners.md
     - name: Regelbearbetningslogik
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Anvisningar
   items:
-    - name: Distribuera betrodda säkerhetspartner
+    - name: Distribuera säkerhetspartnerprovidrar
       href: deploy-trusted-security-partner.md
     - name: Migrera till brandväggsprincip – PowerShell
       href: migrate-to-policy.md

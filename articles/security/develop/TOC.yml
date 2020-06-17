@@ -1,20 +1,6 @@
 - name: Dokumentation till säker utveckling
   href: index.yml
-- name: Exempelappar
-  expanded: true
-  items:
-    - name: Ny på säker utveckling
-      items:
-        - name: Webbapp i en Linux-container
-          href: secure-web-app.md
-        - name: Webbapp med Azure Active Directory
-          href: secure-aad-app.md
-    - name: Lösningar som uppfyller branschkraven
-      items:
-        - name: Betalkortsbranschen
-          href: secure-pci-web-app.md
 - name: Begrepp
-  expanded: true
   items:
     - name: Bästa praxis
       items:
@@ -26,8 +12,8 @@
           href: secure-develop.md
         - name: Distribuera säkra appar
           href: secure-deploy.md
-- name: Resurser
   expanded: true
+- name: Resurser
   items:
     - name: Analys av Microsoft-säkerhetskod
       items:
@@ -95,3 +81,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: Sessionshantering
               href: threat-modeling-tool-session-management.md
+  expanded: true

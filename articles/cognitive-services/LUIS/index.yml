@@ -3,7 +3,7 @@ title: Dokumentation om Language Understanding (LUIS)
 summary: Se hur Language Understanding gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord.
 metadata:
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 06/15/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Dokumentation om Language Understanding Intelligent Service (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
-  ms.openlocfilehash: f1fab99692fbd02cf3a8b659aad0069ac73ce8e6
-  ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+  ms.openlocfilehash: 0d941872670a5bdd559a2760f73cda72773fc887
+  ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/23/2020
-  ms.locfileid: "82101679"
+  ms.lasthandoff: 06/15/2020
+  ms.locfileid: "84791596"
 landingContent:
 - title: Om Language Understanding (LUIS)
   linkLists:
@@ -33,6 +33,8 @@ landingContent:
       url: luis-how-plan-your-app.md
     - text: Iterativ apputformning
       url: luis-concept-app-iteration.md
+    - text: DevOps-metoder
+      url: luis-concept-devops-sourcecontrol.md
   - linkListType: whats-new
     links:
     - text: Nyheter

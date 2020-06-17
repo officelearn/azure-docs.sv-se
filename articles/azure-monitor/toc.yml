@@ -197,7 +197,7 @@
             - name: Översikt
               href: platform/agents-overview.md
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Azure Diagnostics-tillägg
               items:
                 - name: Översikt
@@ -905,7 +905,7 @@
         - name: Vanliga frågor och svar om allmän tillgänglighet
           href: insights/vminsights-ga-release-faq.md
         - name: VANLIGA FRÅGOR OCH SVAR
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: Aktivera övervakning
           items:
             - name: Aktivera övervakningsöversikt
@@ -937,7 +937,7 @@
         - name: Översikt
           href: insights/container-insights-overview.md
         - name: VANLIGA FRÅGOR OCH SVAR
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: Aktivera övervakning
           items:
             - name: Aktivera övervakningsöversikt
@@ -952,6 +952,8 @@
               href: insights/container-insights-azure-redhat-setup.md
             - name: Aktivera för Azure Red Hat OpenShift v4
               href: insights/container-insights-azure-redhat4-setup.md
+            - name: Aktivera för Arc-aktiverat kluster
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Regionsmappningar
               href: insights/container-insights-region-mapping.md
         - name: Övervaka prestanda

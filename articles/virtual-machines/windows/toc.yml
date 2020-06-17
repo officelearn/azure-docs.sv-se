@@ -194,6 +194,8 @@
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Ddv4- och Ddsv4-serien
               href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: DV4- och Dsv4-serien
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Beräkningsoptimerad
           items:
             - name: Översikt
@@ -213,6 +215,8 @@
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Edv4- och Edsv4-serien
               href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Ev4- och Esv4-serien
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: M-serien
               href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Mv2-serien
@@ -277,6 +281,8 @@
         - name: Virtuella Spot-datorer
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: Virtuella Azure-datorer utan temporär disk
+          href: ../azure-vms-no-temp-disk.md
         - name: Tidigare generationer
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
@@ -371,7 +377,7 @@
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Felkoder
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Använda C#'
+        - name: Använda C#
           href: csharp.md
         - name: Använda specialiserad disk
           items:
@@ -379,7 +385,7 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Använda ARM-mall med C#'
+        - name: Använda ARM-mall med C#
           href: csharp-template.md
           displayName: Azure Resource Manager
         - name: Skapa en virtuell dator med Chef
@@ -624,7 +630,7 @@
           href: ../extensions/agent-windows.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
-        - name: Azure Instance Metadata Service
+        - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering
           href: nested-virtualization.md
@@ -663,7 +669,7 @@
             - name: Översikt över agenter
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Azure Diagnostics-tillägg
               items:
                 - name: Översikt
@@ -736,7 +742,7 @@
             - name: Vanliga frågor och svar om allmän tillgänglighet
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Aktivera övervakning
               items:
                 - name: Aktivera övervakningsöversikt

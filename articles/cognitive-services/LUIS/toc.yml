@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: Använda med robot
       items:
-        - name: 'Med C#'
+        - name: Med C#
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Med Node.js
@@ -125,6 +125,14 @@
         - name: Utforma strategier
           href: luis-concept-enterprise.md
           displayName: import
+    - name: Använda DevOps-metoder med LUIS
+      items:
+        - name: Källkontroll och förgreningsstrategier för LUIS
+          href: luis-concept-devops-sourcecontrol.md
+        - name: Testar för DevOps
+          href: luis-concept-devops-testing.md
+        - name: CI/CD-arbetsflöden
+          href: luis-concept-devops-automation.md
 - name: Anvisningar
   items:
     - name: Starta en ny app
@@ -238,11 +246,13 @@
         - name: Begränsningar för container
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Använda DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Relaterade tjänster
       items:
         - name: Azure Bot Service
           href: 'https://dev.botframework.com/'
-        - name: 'Bot Builder 4.x SDK C#'
+        - name: Bot Builder 4.x SDK C#
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA Maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +294,7 @@
               href: luis-reference-response-codes.md
         - name: 'SDK:er'
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: NuGet – redigering
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'

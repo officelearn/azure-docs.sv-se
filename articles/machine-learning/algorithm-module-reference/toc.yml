@@ -155,7 +155,7 @@
     - name: Initiera bildtransformering
       href: init-image-transformation.md
     - name: Dela bildkatalog
-      href: split-to-image-directory.md
+      href: split-image-directory.md
     - name: DenseNet
       href: densenet.md
     - name: ResNet

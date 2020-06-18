@@ -1,8 +1,14 @@
-- name: Rendera en modell med Unity
-  href: render-model.md
-- name: Distribuera Unity-exempel till HoloLens
-  href: deploy-to-hololens.md
-- name: Distribuera Unity-exempel till skrivbordet
-  href: deploy-to-desktop.md
+- name: Unity
+  items:
+    - name: Rendera en modell med Unity
+      href: render-model.md
+    - name: Distribuera Unity-exempel till HoloLens
+      href: deploy-to-hololens.md
+    - name: Distribuera Unity-exempel till skrivbordet
+      href: deploy-to-desktop.md
+- name: Ursprunglig C++
+  items:
+    - name: Distribuera exempel med ursprunglig C++ till HoloLens
+      href: native-cpp/hololens/deploy-native-cpp-tutorial.md
 - name: Konvertera en modell för rendering
   href: convert-model.md

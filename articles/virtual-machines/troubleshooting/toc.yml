@@ -99,6 +99,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: Den virtuella datorn svarar inte när grupprincipen tillämpas
           href: unresponsive-vm-apply-group-policy.md
+        - name: Den virtuella datorn svarar inte när säkerhetsprincipen tillämpas
+          href: unresponsive-vm-apply-security-policy.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

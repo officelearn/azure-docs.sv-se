@@ -114,6 +114,8 @@
         - name: Inmatningstid för loggdata
           displayname: latency
           href: platform/data-ingestion-time.md
+        - name: Strömma data till Event Hubs
+          href: platform/stream-monitoring-data-event-hubs.md
     - name: Insikter
       href: insights/insights-overview.md
     - name: Datasäkerhet
@@ -299,36 +301,12 @@
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/platform-logs-overview.md
         - name: Aktivitetslogg
-          items:
-            - name: Visa i Azure-portalen
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-view.md
-            - name: Samla in och analysera
-              displayName: 'Platform logs, Activity log'
-              href: platform/activity-log-collect.md
-            - name: Exportera (bakåtkompatibelt)
-              displayname: Activity log
-              href: platform/activity-log-export.md
-        - name: Skicka till Log Analytics-arbetsytan
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-workspace.md
-        - name: Skicka till Azure-lagring
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-collect-storage.md
-        - name: Skicka till Event Hubs
-          displayname: 'Resource logs, Activity log, Platform logs'
-          href: platform/resource-logs-stream-event-hubs.md
-        - name: Skapa diagnostiskinställning
+          href: platform/activity-log.md
+        - name: Resursloggar
+          href: platform/resource-logs.md
+        - name: Diagnostikinställningar
           displayName: 'Platform logs, Resource logs, Activity log'
           href: platform/diagnostic-settings.md
-        - name: Skapa diagnostiskinställning med Resource Manager
-          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings-template.md
-        - name: Ändra till bloblagringsformat
-          displayname: Diagnostic settings
-          href: platform/resource-logs-blob-format.md
-        - name: Strömma data till Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
     - name: Log Analytics
       items:
         - name: Översikt över loggfråga
@@ -1015,6 +993,8 @@
           href: insights/storage-insights-overview.md
         - name: Resursgrupper
           href: insights/resource-group-insights.md
+        - name: Felsöka insikter
+          href: insights/troubleshoot-workbooks.md
     - name: Lösningar
       items:
         - name: Översikt
@@ -1185,12 +1165,12 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Plattformsloggar
       items:
-        - name: Resursloggtyper och -kategorier som stöds
-          href: platform/resource-logs-categories.md
-        - name: Scheman för resursloggar
-          href: platform/resource-logs-schema.md
         - name: Aktivitetsloggschema
           href: platform/activity-log-schema.md
+        - name: Scheman för resursloggar
+          href: platform/resource-logs-schema.md
+        - name: Resursloggkategorier som stöds
+          href: platform/resource-logs-categories.md
     - name: Scheman för diagnostiska tillägg
       items:
         - name: Tillägg för Windows-diagnostik
@@ -1277,6 +1257,9 @@
           href: platform/oms-portal-transition.md
         - name: Utfasning av diskmått
           href: platform/portal-disk-metrics-deprecation.md
+        - name: Ändra till bloblagringsformat
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
 - name: Resurser
   items:
     - name: Azure-översikt

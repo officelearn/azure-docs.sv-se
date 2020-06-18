@@ -13,32 +13,32 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 7a0efa00b4fc881c113e151c6730ca5185ea0349
-  ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+  ms.openlocfilehash: 55cf57d283433936b0cba03b67de8726d0ee98c8
+  ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84194441"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84945604"
 highlightedContent:
   items:
   - title: Introduktion till Azure Key Vault
     itemType: overview
     url: ./general/overview.md
-  - title: Grundläggande begrepp
+  - title: Autentisering
     itemType: overview
-    url: ./general/basic-concepts.md
+    url: ./general/authentication.md
   - title: Mjuk borttagning
     itemType: overview
     url: ./general/overview-soft-delete.md
+  - title: Grundläggande begrepp
+    itemType: overview
+    url: ./general/basic-concepts.md
   - title: Loggning
     itemType: overview
     url: ./general/logging.md
   - title: Begränsning
     itemType: overview
     url: ./general/overview-throttling.md
-  - title: Säkerhetsrekommendationer
-    itemType: overview
-    url: ./general/security-recommendations.md
 conceptualContent:
   items:
   - title: Certifikat
@@ -63,6 +63,9 @@ conceptualContent:
     - url: ./keys/about-keys.md
       itemType: overview
       text: Om nycklar
+    - url: ../security/fundamentals/encryption-atrest.md
+      itemType: overview
+      text: Datakryptering
     - url: ./keys/quick-create-portal.md
       itemType: quickstart
       text: Ange och hämta en nyckel från Azure Key Vault med hjälp av Azure-portalen
@@ -131,6 +134,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Azure Kubernetes Service – använd Key Vault-hemligheter, certifikat, nycklar i AKS
-    - url: ../data-factory/store-credentials-in-key-vault.md
+    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
       itemType: overview
-      text: Azure Data Factory – bevara autentiseringsuppgifter i Key Vault
+      text: Azure Databricks – hemlighetshantering med Key Vault

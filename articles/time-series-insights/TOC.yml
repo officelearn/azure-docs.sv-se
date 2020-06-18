@@ -41,9 +41,9 @@
           items:
             - name: Autentisera och auktorisera
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Fråga data med hjälp av C#'
+            - name: Fråga data med hjälp av C#
               href: time-series-insights-query-data-csharp.md
-            - name: 'Hantera referensdata med C#'
+            - name: Hantera referensdata med C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Dela en anpassad vy
               href: time-series-insights-parameterized-urls.md
@@ -65,7 +65,7 @@
           items:
             - name: Autentisera och auktorisera
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Fråga data med hjälp av C#'
+            - name: Fråga data med hjälp av C#
               href: time-series-insights-update-query-data-csharp.md
             - name: Power BI-integrering
               href: concepts-power-bi.md
@@ -111,6 +111,12 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Ansluta till Power BI
           href: how-to-connect-power-bi.md
+- name: Icke-bakåtkompatibla ändringar
+  items:
+    - name: Förhandsversion av Azure Time Series Insights
+      items:
+        - name: Stöd för datatypen Long läggs till
+          href: time-series-insights-long-data-type.md
 - name: Referens
   items:
     - name: Time Series Insights

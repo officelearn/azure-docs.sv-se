@@ -41,10 +41,10 @@
           href: mca-section-invoice.md
         - name: Konfigurera ett faktureringskonto för Microsoft-kundavtal
           href: mca-setup-account.md
-        - name: Logga in med Office 365-konto
-          href: office-365-account-for-azure-subscription.md
-        - name: Registrera dig för Office 365 med ett Azure-konto
-          href: azure-account-for-office-365-subscription.md
+        - name: Registrera dig med ett Microsoft 365-konto
+          href: microsoft-365-account-for-azure-subscription.md
+        - name: Registrera dig för Microsoft 365 med ett Azure-konto
+          href: azure-account-for-microsoft-365-subscription.md
         - name: Betala med stark kundautentisering
           href: open-banking-strong-customer-authentication.md
     - name: Administrera prenumerationer

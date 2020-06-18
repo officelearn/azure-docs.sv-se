@@ -18,6 +18,8 @@
           href: ./servers/onboard-dsc.md
     - name: Hantera
       items:
+        - name: Hantera och använda tillägg för virtuella Azure-datorer
+          href: ./servers/manage-vm-extensions.md
         - name: Hantera agent
           href: ./servers/manage-agent.md
 - name: Exempel

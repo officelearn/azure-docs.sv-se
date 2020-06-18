@@ -66,6 +66,8 @@
   items:
     - name: Autentisera
       items:
+        - name: Autentisera till Key Vault
+          href: authentication.md
         - name: Använda en hanterad identitet i App Service
           href: managed-identity.md
         - name: Använda en princip för åtkomstkontroll
@@ -123,7 +125,7 @@
     - name: Vanliga parametrar och sidhuvuden
       href: common-parameters-and-headers.md
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET

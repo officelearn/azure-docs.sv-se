@@ -188,6 +188,8 @@
       items:
         - name: Aktivera tillbakaskrivning av enheter
           href: how-to-connect-device-writeback.md
+        - name: Aktivera tillbakaskrivning av grupper
+          href: how-to-connect-group-writeback.md
         - name: Enhetsalternativ
           href: how-to-connect-device-options.md
         - name: Ytterligare funktioner i Azure AD Connect

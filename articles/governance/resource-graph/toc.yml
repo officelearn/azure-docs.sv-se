@@ -10,19 +10,22 @@
   items:
     - name: Kör din första fråga – Azure-portalen
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Kör din första fråga – Azure CLI
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Kör din första fråga – PowerShell
+      href: ./first-query-azurecli.md
+    - name: Kör din första fråga – Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Kör din första fråga – Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: Kör din första fråga – Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: Distribuera en delad fråga – ARM-mall
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Självstudier
   items:
     - name: Skapa och dela en fråga i Azure Portal

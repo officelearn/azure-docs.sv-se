@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Skapa tekniska tillgångar för en virtuell Azure-dator
               items:
+                - name: Certifiering av virtuella datorer – problem och lösningar
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Skapa tekniska tillgångar för en virtuell Azure-dator
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer

@@ -112,8 +112,14 @@
       items:
         - name: Konfigurera vanliga inställningar
           href: configure-common.md
+        - name: Konfigurera ASP.NET
+          href: configure-language-dotnet-framework.md
+        - name: Konfigurera ASP.NET Core
+          href: configure-language-dotnetcore.md
+        - name: Konfigurera Node.js
+          href: configure-language-nodejs.md
         - name: Konfigurera PHP
-          href: web-sites-php-configure.md
+          href: configure-language-php.md
         - name: Konfigurera Java
           href: configure-language-java.md
         - name: Ansluta till lokala resurser
@@ -216,12 +222,14 @@
           href: app-service-web-app-cloning.md
         - name: Återställ borttagen App Service
           href: app-service-undelete.md
+        - name: Återställa från region ur funktion
+          href: manage-disaster-recovery.md
     - name: Flytta app
       items:
         - name: Flytta mellan regioner
           href: manage-move-across-regions.md
         - name: Flytta prenumerationer
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: Kör bakgrundsaktiviteter
       items:
         - name: Skapa WebJobs
@@ -237,7 +245,7 @@
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: '/powershell/module/az.websites/#app_service'
+      href: /powershell/module/az.websites/#app_service
     - name: REST-API
       href: /rest/api/appservice/
     - name: Resource Manager-mall
@@ -253,7 +261,7 @@
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Kvotinformation
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Vägledning för Migration Assistant

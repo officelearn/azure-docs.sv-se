@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 67a17373bb161e54493974ebf01e785bb1329087
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402662"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944822"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
 
@@ -32,8 +32,8 @@ I den här självstudien får du lära dig att:
 * En [Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), tillgängligt kostnads fritt.
 * En Excel-fil (. xlsx) som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* När du har en Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="-prenumeration skapar du en textanalys"  target="_blank">resurs skapa en textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> </a> resurs i Azure Portal för att hämta din nyckel och slut punkt. 
-    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
+* När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" skapar du en avvikelse detektor resurs "  target="_blank"> skapa en avvikelse <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i den Azure Portal för att hämta nyckel och slut punkt. 
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API: t för avvikelse identifiering. Du kommer att göra detta senare i snabb starten.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -160,11 +160,11 @@ Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på 
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure.png)
 
-På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value`. Dra `IsAnomaly` sedan från de **anropade funktions** fälten för att **filtrera**. Välj `True` i den nedrullningsbara menyn **filter** .
+På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value` . Dra sedan `IsAnomaly` från de **anropade funktions** fälten för att **filtrera**. Välj `True` i den nedrullningsbara menyn **filter** .
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure-2.png)
 
-När du har klickat på **OK**har `Value for True` du ett fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
+När du har klickat på **OK**har du ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/format-x-axis.png)
 

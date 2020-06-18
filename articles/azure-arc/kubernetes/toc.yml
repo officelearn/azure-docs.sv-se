@@ -4,6 +4,10 @@
   items:
     - name: Om Azure Arc-aktiverade Kubernetes
       href: overview.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      href: ./policy-samples.md
 - name: Anvisningar
   items:
     - name: Klusteråtgärder

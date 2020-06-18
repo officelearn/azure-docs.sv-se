@@ -24,27 +24,6 @@
       items:
         - name: Utveckla med Helm
           href: quickstart-helm.md
-        - name: Azure Dev Spaces
-          expanded: true
-          items:
-            - name: Använda Azure Dev Spaces för teamutveckling
-              href: ../dev-spaces/quickstart-team-development.md
-              maintainContext: true
-            - name: Använda Visual Studio Code
-              href: ../dev-spaces/quickstart-netcore.md
-              maintainContext: true
-            - name: Använda Visual Studio
-              href: ../dev-spaces/quickstart-netcore-visualstudio.md
-              maintainContext: true
-            - name: Använda CLI
-              href: ../dev-spaces/quickstart-cli.md
-              maintainContext: true
-            - name: Använda Azure Dev Spaces med Java
-              href: ../dev-spaces/quickstart-java.md
-              maintainContext: true
-            - name: Använda Azure Dev Spaces Node.js
-              href: ../dev-spaces/quickstart-nodejs.md
-              maintainContext: true
 - name: Självstudier
   items:
     - name: 1 – Förbereda program för AKS
@@ -302,54 +281,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Utveckla och köra program
       items:
-        - name: Utveckla med Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-          items:
-            - name: Java (VS Code och CLI)
-              items:
-                - name: 1 – Kom igång
-                  href: ../dev-spaces/get-started-java.md
-                  maintainContext: true
-                - name: 2 – Utveckling för flera tjänster
-                  href: ../dev-spaces/multi-service-java.md
-                  maintainContext: true
-                - name: 3 – Teamutveckling
-                  href: ../dev-spaces/team-development-java.md
-                  maintainContext: true
-            - name: .NET Core (VS Code och CLI)
-              items:
-                - name: 1 – Kom igång
-                  href: ../dev-spaces/get-started-netcore.md
-                  maintainContext: true
-                - name: 2 – Utveckling för flera tjänster
-                  href: ../dev-spaces/multi-service-netcore.md
-                  maintainContext: true
-                - name: 3 – Teamutveckling
-                  href: ../dev-spaces/team-development-netcore.md
-                  maintainContext: true
-            - name: .NET Core (Visual Studio 2017)
-              items:
-                - name: 1 – Kom igång
-                  href: ../dev-spaces/get-started-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 2 – Utveckling för flera tjänster
-                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 3 – Teamutveckling
-                  href: ../dev-spaces/team-development-netcore-visualstudio.md
-                  maintainContext: true
-            - name: Node.js (VS Code & CLI)
-              items:
-                - name: 1 – Kom igång
-                  href: ../dev-spaces/get-started-nodejs.md
-                  maintainContext: true
-                - name: 2 – Utveckling för flera tjänster
-                  href: ../dev-spaces/multi-service-nodejs.md
-                  maintainContext: true
-                - name: 3 – Teamutveckling
-                  href: ../dev-spaces/team-development-nodejs.md
-                  maintainContext: true
+        - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
+          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - name: Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
+          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Installera befintliga program med Helm
           href: kubernetes-helm.md
         - name: Använda OpenFaaS

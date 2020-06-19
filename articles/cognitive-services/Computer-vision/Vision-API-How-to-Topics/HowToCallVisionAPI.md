@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72177049"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983461"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
 
@@ -25,14 +25,6 @@ Den här artikeln visar hur du anropar API för visuellt innehåll med hjälp av
 - Hämta taggar, en beskrivning och kategorier
 - Hämta domänbaserad information eller "kändisar"
 
-## <a name="prerequisites"></a>Krav
-
-- En bild-URL eller en sökväg till en lokalt lagrad avbildning
-- Indata metoder som stöds: en RAW-bildbinärfil i form av en program/oktett-Stream eller en bild-URL
-- Avbildnings fil format som stöds: JPEG, PNG, GIF och BMP
-- Bild fils storlek: 4 MB eller mindre
-- Bild dimensioner: 50 &times; 50 pixlar eller mer
-  
 I exemplen i den här artikeln demonstreras följande funktioner:
 
 * Analysera en bild för att returnera en matris med taggar och en beskrivning
@@ -42,14 +34,22 @@ Funktionerna erbjuder följande alternativ:
 
 - **Alternativ 1**: analys med omfång – analysera bara en angiven modell
 - **Alternativ 2**: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier, taxonomi](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Krav
+
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* En bild-URL eller en sökväg till en lokalt lagrad avbildning
+* Indata metoder som stöds: en RAW-bildbinärfil i form av en program/oktett-Stream eller en bild-URL
+* Avbildnings fil format som stöds: JPEG, PNG, GIF och BMP
+* Bild fils storlek: 4 MB eller mindre
+* Bild dimensioner: 50 &times; 50 pixlar eller mer
   
 ## <a name="authorize-the-api-call"></a>Auktorisera API-anropet
 
 Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Den här nyckeln måste antingen skickas via en frågeparameter-parameter eller anges i begär ande huvudet.
-
-Gör något av följande för att få en kostnads fri utvärderings nyckel:
-* Gå till sidan [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) . 
-* Gå till sidan [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om du vill prenumerera på visuellt innehåll.
 
 Du kan skicka prenumerations nyckeln genom att göra något av följande:
 
@@ -177,15 +177,15 @@ Här är ett exempel:
 }
 ```
 
-Field | Typ | Innehåll
+Fält | Typ | Innehåll
 ------|------|------|
 Taggar  | `object` | Objektet på den översta nivån för en matris med taggar.
-tags[].Name | `string`  | Nyckelordet från taggarnas klassificerare.
-tags[].Score    | `number`  | Förtroende poängen, mellan 0 och 1.
-description  | `object` | Objektet på den översta nivån för en beskrivning.
+tags[].Name | `string`    | Nyckelordet från taggarnas klassificerare.
+tags[].Score    | `number`    | Förtroende poängen, mellan 0 och 1.
+description     | `object`    | Objektet på den översta nivån för en beskrivning.
 description.tags[] |    `string`    | Listan med taggar.  Om det inte finns tillräckligt med förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för anroparen.
-description.captions[].text | `string`  | En mening som beskriver bilden.
-description.captions[].confidence   | `number`  | Förtroende poängen för frasen.
+description.captions[].text    | `string`    | En mening som beskriver bilden.
+description.captions[].confidence    | `number`    | Förtroende poängen för frasen.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänbaserade modeller
 
@@ -239,12 +239,12 @@ För företagsspecifika modeller som använder alternativ 2 (utökad analys) ut�
 
 Fältet kategorier är en lista över en eller flera av 86- [kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Kategorier som slutar med ett under streck matchar kategorin och dess underordnade objekt (till exempel "people_" eller "people_group" för kändisar-modellen).
 
-Field   | Typ  | Innehåll
+Fält    | Typ    | Innehåll
 ------|------|------|
-kategorier | `object`   | Objektet på den översta nivån.
-categories[].name    | `string` | Namnet från listan med taxonomier i 86-kategori.
-categories[].score  | `number`  | Förtroende poängen, mellan 0 och 1.
-categories[].detail  | `object?`      | Valfritt Objektet detaljerat.
+kategorier | `object`    | Objektet på den översta nivån.
+categories[].name     | `string`    | Namnet från listan med taxonomier i 86-kategori.
+categories[].score    | `number`    | Förtroende poängen, mellan 0 och 1.
+categories[].detail     | `object?`      | Valfritt Objektet detaljerat.
 
 Om flera kategorier matchar varandra (till exempel om en klassificerare i 86-kategori returnerar en poäng för både "people_" och "people_young", när Model = kändisar), är informationen kopplad till den mest generella nivån ("people_" i det här exemplet).
 

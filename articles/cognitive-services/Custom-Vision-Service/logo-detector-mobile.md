@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403674"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987868"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -28,7 +28,7 @@ De här självstudierna visar hur du:
 > - Anslut appen till Azure-tjänsten Visuellt innehåll och Custom Vision.
 > - Skapa ett konto för Azure-tjänstens huvudnamn för att distribuera Azure-tjänster från appen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -175,7 +175,7 @@ Följ dessa steg om du vill köra appen:
 
 Om du har följt alla steg i det här scenariot och använt appen för att distribuera Azure-tjänster till ditt konto går du till [Azure-portalen](https://ms.portal.azure.com/). Där avbryter du de tjänster som du inte vill använda.
 
-Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. I en kostnadsfri utvärderingsversion av Custom Vision går det bara att ha två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt**.
+Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. En kostnads fri prenumeration på Custom Vision tillåter endast två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt**.
 
 ## <a name="next-steps"></a>Nästa steg
 

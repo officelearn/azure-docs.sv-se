@@ -9,8 +9,6 @@
       href: cognitive-services-and-machine-learning.md
     - name: Anpassade underdomäner för Cognitive Services
       href: cognitive-services-custom-subdomains.md
-    - name: Process för Cognitive Services-filtrering
-      href: cognitive-services-gating-process.md
     - name: Stöd för språk
       href: language-support.md
 - name: Snabbstarter
@@ -21,6 +19,13 @@
       href: cognitive-services-apis-create-account-cli.md
     - name: Diagnostikloggning
       href: diagnostic-logging.md
+    - name: ARM-mall
+      displayName: Resource Manager
+      href: resource-manager-template.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      href: ./policy-samples.md
 - name: Säkerhet
   items:
     - name: Cognitive Services-säkerhet

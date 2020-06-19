@@ -10,11 +10,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 7a9762d36d2c9ae6ede6718a31cae99afa230ef6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237640"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702331"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd API:erna för Azure-fakturering för att få programmatisk insyn i din Azure-användning
 Använd API:er för Azure-fakturering för att hämta användnings- och resursdata till önskat dataanalysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API:erna implementeras som en resursprovider och en del av familjen av API:er som exponeras av Azure Resource Manager.  

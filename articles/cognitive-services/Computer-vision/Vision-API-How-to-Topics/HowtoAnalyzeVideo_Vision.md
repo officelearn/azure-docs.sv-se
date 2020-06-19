@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 700c53c8fee61ce6e3c9a65bc3815fabfc5b2baa
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166834"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983510"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analysera videor i nära real tid
 
@@ -230,12 +230,12 @@ Genom att använda den här metoden kan du visualisera den identifierade ytan di
 
 Kom igång med det här exemplet genom att göra följande:
 
-1. Hämta API-nycklar för API:er för visuellt innehåll från [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). För analys av video ramar är tillämpliga tjänster följande:
-    - [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Ansikte](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Klona [kognitiv-samples-VideoFrameAnalysis GitHub-](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lagrings platsen.
-
-3. Öppna exemplet i Visual Studio 2015 eller senare och skapa sedan och kör exempel programmen:
+1. Skapa ett [Azure-konto](https://azure.microsoft.com/free/cognitive-services/). Om du redan har en kan du gå vidare till nästa steg.
+2. Skapa resurser för Visuellt innehåll och ansikte i Azure Portal för att hämta din nyckel och slut punkt. Se till att välja den kostnads fria nivån (F0) under installationen.
+   - [Visuellt innehåll](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Ansikte](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) När resurserna har distribuerats klickar du på **gå till resurs** för att samla in din nyckel och slut punkt för varje resurs. 
+3. Klona [kognitiv-samples-VideoFrameAnalysis GitHub-](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lagrings platsen.
+4. Öppna exemplet i Visual Studio 2015 eller senare och skapa sedan och kör exempel programmen:
     - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample anger du nycklarna i appens **inställnings** ruta. Nycklarna behålls mellan sessioner som användar data.
 
@@ -245,7 +245,7 @@ Funktionerna image-, röst-, video-och text hantering i VideoFrameAnalyzer anvä
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig hur du kör nära real tids analys på direktsända video strömmar med hjälp av ansikts-och Visuellt innehålls tjänsterna. Du har också lärt dig hur du kan använda vår exempel kod för att komma igång. Om du vill komma igång med att skapa din app med hjälp av kostnads fria API-nycklar går du till [registrerings sidan för Azure-Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+I den här artikeln har du lärt dig hur du kör nära real tids analys på direktsända video strömmar med hjälp av ansikts-och Visuellt innehålls tjänsterna. Du har också lärt dig hur du kan använda vår exempel kod för att komma igång.
 
 Lämna gärna feedback och förslag i [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Om du vill ge bredare API-feedback går du till vår [UserVoice-webbplats](https://cognitive.uservoice.com/).
 

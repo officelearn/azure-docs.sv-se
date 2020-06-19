@@ -6,7 +6,7 @@
     - name: Vad är Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning vs Studio
+    - name: Azure Machine Learning jämfört med Studio (klassisk)
       displayName: 'AML, Studio, designer'
       href: compare-azure-ml-to-studio-classic.md
     - name: Arkitektur och villkor
@@ -323,6 +323,9 @@
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Datadelningar och korsvalidering (Python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-cross-validation-data-splits.md
         - name: Funktionalisering i automatiserad ML (python)
           displayName: 'automl, feature engineering, feature importance'
           href: how-to-configure-auto-features.md

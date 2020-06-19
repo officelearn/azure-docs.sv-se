@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7270d05fa7668278db285336c45b5d5c1fb39c77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b4cc6e046b3d6442526df40cad574dbdb9159d5f
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149363"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073401"
 ---
 Kom igång med ansikts klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -27,24 +27,22 @@ Använd ansikts klient biblioteket för python för att:
 * Verifiera ansikten
 * Ta en ögonblicks bild för datamigrering
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)  |  [Paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* När du har fått en nyckel och slut punkt [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slut punkten, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-face-azure-resource"></a>Skapa en ansikte Azure-resurs
-
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för ansikts med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slut punkten `FACE_SUBSCRIPTION_KEY` , `FACE_ENDPOINT`med namnet respektive.
  
 ### <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-Skapa ett nytt python-&mdash;skript*QuickStart-File.py*, till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
+Skapa ett nytt Python-skript &mdash; *QuickStart-File.py*, till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
@@ -92,7 +90,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med ansikts klient b
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din `FACE_SUBSCRIPTION_KEY`ansikts nyckel, med namnet.
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din ansikts nyckel, med namnet `FACE_SUBSCRIPTION_KEY` .
 
 Instansiera en klient med din slut punkt och nyckel. Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) -objekt.
 
@@ -140,9 +138,9 @@ Följande kod skapar en **PersonGroup** med tre olika **person** objekt. Den ass
 
 ### <a name="create-persongroup"></a>Skapa PersonGroup
 
-För att gå igenom det här scenariot måste du spara följande avbildningar till rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+För att gå igenom det här scenariot måste du spara följande avbildningar till rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Den här gruppen med bilder innehåller tre uppsättningar ansikts bilder som motsvarar tre olika personer. Koden definierar tre **person** objekt och associerar dem med bildfiler som börjar med `woman`, `man`och. `child`
+Den här gruppen med bilder innehåller tre uppsättningar ansikts bilder som motsvarar tre olika personer. Koden definierar tre **person** objekt och associerar dem med bildfiler som börjar med `woman` , `man` och `child` .
 
 När du har konfigurerat dina avbildningar definierar du en etikett överst i skriptet för **PersonGroup** -objektet som du skapar.
 
@@ -173,7 +171,7 @@ Följande kod tar en bild med flera ansikten och söker efter identiteten för v
 
 ### <a name="get-a-test-image"></a>Hämta en test avbildning
 
-Följande kod söker i roten i projektet efter en bild _test-image-person-Group. jpg_ och identifierar ansikten i bilden. Du kan hitta avbildningen med de avbildningar som **PersonGroup** används för PersonGroup https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images-hantering:.
+Följande kod söker i roten i projektet efter en bild _test-image-person-group.jpg_ och identifierar ansikten i bilden. Du kan hitta avbildningen med de avbildningar som används för **PersonGroup** -hantering: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
@@ -211,7 +209,7 @@ Följande kod jämför var och en av käll avbildningarna till mål avbildningen
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
 
-Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kanske vill använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en bred översikt över ögonblicks bilds funktionen.
+Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kanske vill använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri prenumeration och nu vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en bred översikt över ögonblicks bilds funktionen.
 
 I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och träna en person grupp](#create-and-train-a-person-group). Du kan antingen slutföra det avsnittet först eller använda dina egna data konstruktioner.
 
@@ -255,7 +253,7 @@ Resten av ögonblicks bild åtgärderna sker i en asynkron funktion.
 
 När du har slutfört de här stegen kan du komma åt dina data konstruktioner från din nya (mål) prenumeration.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet med `python` kommandot på snabb starts filen.
 
@@ -267,7 +265,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den kör du följande kod i skriptet:

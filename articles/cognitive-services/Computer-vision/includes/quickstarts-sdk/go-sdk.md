@@ -10,36 +10,31 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d8f40ab57ee2569b2cb5bf62f391919476b8ab17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 40796951fe356fcf950b83c6ac771a0ca98ffd5a
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80136016"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073246"
 ---
 <a name="HOLTop"></a>
 
-[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [paket](https://github.com/Azure/azure-sdk-for-go)
+[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision)  |  [Paket](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Visuellt innehåll Azure-resurs
-
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuellt innehåll med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
-
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure Portal](https://portal.azure.com/).
-
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `COMPUTER_VISION_ENDPOINT`-URL: en, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive.
-
 ### <a name="create-a-go-project-directory"></a>Skapa en go-projektfil
 
-I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt `my-app`, med namnet och navigerar till den.
+I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt, med namnet `my-app` och navigerar till den.
 
 ```
 mkdir -p my-app/{src, bin, pkg}  
@@ -50,10 +45,10 @@ Arbets ytan kommer att innehålla tre mappar:
 
 * **src** – den här katalogen kommer att innehålla källkod och paket. Alla paket som installeras med `go get` kommandot hamnar i den här katalogen.
 * **pkg** – den här katalogen kommer att innehålla de kompilerade go-paket-objekten. De här filerna har ett `.a` fil namns tillägg.
-* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du `go install`kör.
+* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du kör `go install` .
 
 > [!TIP]
-> Läs mer om strukturen för en Go-arbetsyta i [språk dokumentationen för go](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om `$GOPATH` hur `$GOROOT`du ställer in och.
+> Läs mer om strukturen för en Go-arbetsyta i [språk dokumentationen för go](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om hur du ställer in `$GOPATH` och `$GOROOT` .
 
 ### <a name="install-the-client-library-for-go"></a>Installera klient biblioteket för go
 
@@ -71,7 +66,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Skapa ett Go-program
 
-Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go`:
+Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go` :
 
 ```bash
 cd src
@@ -110,7 +105,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Det här steget förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och `COMPUTER_VISION_SUBSCRIPTION_KEY` slut `COMPUTER_VISION_ENDPOINT` punkt, med namnet respektive.
+> Det här steget förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och slut punkt, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 Skapa en `main` funktion och Lägg till följande kod i den för att instansiera en klient med din slut punkt och nyckel.
 
@@ -203,15 +198,15 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 ### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande funktion skriver ut information om typen av bild&mdash;oavsett om den är ClipArt eller en linje ritning.
+Följande funktion skriver ut information om typen av bild &mdash; oavsett om den är ClipArt eller en linje ritning.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
 ## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
-Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Koden i det här avsnittet definierar en funktion, `RecognizeTextReadAPIRemoteImage`som använder-klient objekt för att identifiera och extrahera utskrift eller handskriven text i bilden.
+Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Koden i det här avsnittet definierar en funktion, `RecognizeTextReadAPIRemoteImage` som använder-klient objekt för att identifiera och extrahera utskrift eller handskriven text i bilden.
 
-Lägg till exempel bild referensen och funktions anropet `main` i din funktion.
+Lägg till exempel bild referensen och funktions anropet i din `main` funktion.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
@@ -220,7 +215,7 @@ Lägg till exempel bild referensen och funktions anropet `main` i din funktion.
 
 ### <a name="call-the-read-api"></a>Anropa Read API
 
-Definiera den nya funktionen för att läsa text `RecognizeTextReadAPIRemoteImage`. Lägg till koden nedan, som anropar **BatchReadFile** -metoden för den aktuella avbildningen. Den här metoden returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen.
+Definiera den nya funktionen för att läsa text `RecognizeTextReadAPIRemoteImage` . Lägg till koden nedan, som anropar **BatchReadFile** -metoden för den aktuella avbildningen. Den här metoden returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
 
@@ -236,7 +231,7 @@ Lägg till följande kod för att parsa och Visa hämtade text data och slutför
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet från program katalogen med `go run` kommandot.
 
@@ -248,7 +243,7 @@ go run sample-app.go
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

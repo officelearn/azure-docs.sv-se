@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168868"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983622"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: utforska en app för bild bearbetning med C #
 
@@ -33,7 +33,10 @@ Utforska ett grundläggande Windows-program som använder Visuellt innehåll fö
 Innan du utforskar exempelappen ska du uppfylla följande förutsättningar:
 
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
-* Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Anteckna även tjänstens slut punkts-URL.
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
 ## <a name="get-the-sample-app"></a>Hämta exempelappen
 
@@ -80,7 +83,6 @@ Du kan köra exempelappen om du vill se hur den interagerar med dig och med klie
    ![Sidan för hantering av prenumerationsnyckel](../Images/Vision_UI_Subscription.PNG)  
 1. Ange din prenumerationsnyckel i **Prenumerationsnyckel**.
 1. Ange slut punkts-URL: en i **slut punkten**.  
-   Om du till exempel använder prenumerations nyckeln från den Visuellt innehåll kostnads fria utvärderings versionen anger du följande slut punkts-URL:`https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Om du inte vill ange prenumerationsnyckeln och slutpunkts-URL:en nästa gång du kör exempelappen väljer du **Save Setting** (Spara inställning) för att spara prenumerationsnyckeln och slutpunkts-URL:en till datorn. Om du vill ta bort din tidigare sparade prenumerationsnyckel och slutpunkts-URL väljer du **Delete Setting** (Ta bort inställning).
 

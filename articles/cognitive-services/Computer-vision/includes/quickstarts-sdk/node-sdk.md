@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Visuellt innehåll klient bibliotek för Node. js'
-description: Kom igång med Visuellt innehåll klient biblioteket för Node. js med den här snabb starten
+title: 'Snabb start: Visuellt innehåll klient bibliotek för Node.js'
+description: Kom igång med Visuellt innehåll klient biblioteket för Node.js med den här snabb starten
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,32 +9,27 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 234e2402287fd76bdfd96cb6884c3fd20e805d06
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 556e56991d59eb65f789fde4d705706a03a63be9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80136023"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073341"
 ---
 <a name="HOLTop"></a>
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)  |  [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node. js](https://nodejs.org/)
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* Den aktuella versionen av [Node.js](https://nodejs.org/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Visuellt innehåll Azure-resurs
-
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuellt innehåll med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
-
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
-* Visa din resurs på [Azure Portal](https://portal.azure.com/).
-
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `COMPUTER_VISION_ENDPOINT` -URL: en med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive.
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -44,7 +39,7 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör `npm init` kommandot för att skapa ett Node-program med `package.json` en fil.
+Kör `npm init` kommandot för att skapa ett Node-program med en `package.json` fil.
 
 ```console
 npm init
@@ -60,13 +55,13 @@ npm install @azure/cognitiveservices-computervision
 
 Appens `package.json` fil kommer att uppdateras med beroenden.
 
-### <a name="prepare-the-nodejs-script"></a>Förbereda Node. js-skriptet
+### <a name="prepare-the-nodejs-script"></a>Förbereda Node.js-skriptet
 
-Skapa en ny fil, *index. js*och öppna den i en text redigerare. Lägg till följande import uttryck.
+Skapa en ny fil, *index.js*och öppna den i en text redigerare. Lägg till följande import uttryck.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Definiera sedan en funktion `computerVision` och deklarera en async-serie med funktionen primär funktion och motringning. Du kommer att lägga till snabb starts koden i den primära funktionen `computerVision` och anropa längst ned i skriptet.
+Definiera sedan en funktion `computerVision` och deklarera en async-serie med funktionen primär funktion och motringning. Du kommer att lägga till snabb starts koden i den primära funktionen och anropa `computerVision` längst ned i skriptet.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
@@ -74,7 +69,7 @@ Definiera sedan en funktion `computerVision` och deklarera en async-serie med fu
 
 ## <a name="object-model"></a>Objekt modell
 
-Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Node. js SDK.
+Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Node.js SDK.
 
 |Name|Beskrivning|
 |---|---|
@@ -83,7 +78,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 
 ## <a name="code-examples"></a>Kodexempel
 
-De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll-klient biblioteket för Node. js:
+De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll klient biblioteket för Node.js:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Analysera en bild](#analyze-an-image)
@@ -124,7 +119,7 @@ Följande kod hämtar den identifierade kategorin för avbildningen. Se [kategor
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
 
-Definiera hjälp funktionen `formatCategories`:
+Definiera hjälp funktionen `formatCategories` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories_format)]
 
@@ -134,7 +129,7 @@ Följande kod hämtar en uppsättning identifierade Taggar i avbildningen. Se [i
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
 
-Definiera hjälp funktionen `formatTags`:
+Definiera hjälp funktionen `formatTags` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tagsformat)]
 
@@ -144,7 +139,7 @@ Följande kod identifierar vanliga objekt i avbildningen och skriver ut dem till
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Definiera hjälp funktionen `formatRectObjects`:
+Definiera hjälp funktionen `formatRectObjects` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 
@@ -160,7 +155,7 @@ Följande kod returnerar identifierade ansikten i bilden med deras Rectangle-koo
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_faces)]
 
-Definiera hjälp funktionen `formatRectFaces`:
+Definiera hjälp funktionen `formatRectFaces` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
@@ -204,11 +199,11 @@ Definiera hjälp funktionen `formatRectDomain` för att parsa plats data om iden
 
 ### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
+Följande kod skriver ut information om typen av bild &mdash; oavsett om den är en ClipArt-eller linje ritning.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
 
-Definiera hjälp funktionen `describeType`:
+Definiera hjälp funktionen `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
@@ -235,11 +230,11 @@ Definiera `recognizeText` funktionen. Detta anropar metoden **recognizeText** p�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-Definiera sedan hjälp funktionen `printRecText`, som skriver ut resultatet av en åtgärd för att identifiera till-konsolen.
+Definiera sedan hjälp funktionen `printRecText` , som skriver ut resultatet av en åtgärd för att identifiera till-konsolen.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet med `node` kommandot på snabb starts filen.
 
@@ -251,13 +246,13 @@ node index.js
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[API för visuellt innehåll referens (Node. js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
+>[API för visuellt innehåll referens (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
 * [Vad är visuellt innehåll?](../../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

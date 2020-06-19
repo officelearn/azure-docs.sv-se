@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 436367ede4f4be323b5334a201b1c9fb8f7f28e8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997517"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981769"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Sekretess rikt linjer för röst assistenter i Windows
 
@@ -24,37 +24,37 @@ Det är viktigt att användarna får tydlig information om hur deras röst data 
 Utvecklare som skapar röst assistenter i Windows måste ta med tydliga användar gränssnitts element i sina program som återspeglar lyssnar funktioner i assistenten.
 
 > [!NOTE]
-> Underlåtenhet att lämna ut korrekt information och medgivande för ett assistent program, inklusive efter program uppdateringar, kan leda till att assistenten blir otillgänglig för röst aktivering tills integritets problem har lösts. 
+> Underlåtenhet att lämna ut korrekt information och medgivande för ett assistent program, inklusive efter program uppdateringar, kan leda till att assistenten blir otillgänglig för röst aktivering tills integritets problem har lösts.
 
 ## <a name="minimum-requirements-for-feature-inclusion"></a>Minimi krav för funktions inkludering
 
-Windows-användare kan se och kontrol lera tillgängligheten för sina assistent **`Settings > Privacy > Voice activation`** program i.
+Windows-användare kan se och kontrol lera tillgängligheten för sina assistent program i **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
  > [![Sekretess – app-List](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "En sekretess inställnings post för Windows Voice Activation för ett assistent program")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
-För att bli berättigad till att inkluderas i den här listan måste ett program:
+Kontakta Microsoft på winvoiceassistants@microsoft.com för att komma igång om du vill bli berättigad till att inkludera i den här listan. Som standard måste användarna uttryckligen aktivera röst aktivering för en ny assistent i **`Settings > Privacy > Voice Activation`** , vilket ett program kan protokoll länkar till med `ms-settings:privacy-voiceactivation` . Ett tillåtet program kommer att visas i listan när det har körts och använt `Windows.ApplicationModel.ConversationalAgent` API: erna. Inställningarna för röst aktivering kan ändras när programmet har fått ett mikrofon godkännande från användaren.
 
-1. Berätta tydligt om sina användare att de lyssnar efter ett nyckelord, även om programmet inte körs och vad nyckelordet är
-1. Ta med en beskrivning av hur en användares röst data ska användas, inklusive en länk eller hänvisning till relevanta sekretess principer
-1. Informera användare som, förutom alla inställningar i appar, kan visa och ändra sina sekretess alternativ i, om **`Settings > Privacy > Voice activation`** du vill, inklusive en protokoll länk till `ms-settings:privacy-voiceactivation` för direkt åtkomst
+Eftersom inställningarna för Windows-sekretess innehåller information om hur röst aktivering fungerar och har standard gränssnittet för att kontrol lera behörighet, är information och godkännande båda uppfyllda. Assistenten finns kvar i den här listan över tillåtna så länge det inte är:
 
-Efter att ha följt dessa krav och godkänt godkännande från Microsoft visas ett assistent program i listan över röst aktiverings appar när den har registrerats `Windows.ApplicationModel.ConversationalAgent` med API: erna och användarna kommer att kunna bevilja medgivande till programmet för nyckelords aktivering. Som standard är `Off` båda dessa inställningar och kräver att användaren manuellt besöker sidan Inställningar för att aktivera.
+* Vilseleda eller misinform användaren om röst aktivering eller hantering av röst data från assistenten
+* Otillbörligt stör en annan assistent
+* Bryt alla andra relevanta Microsoft-principer
+
+Om något av ovanstående är identifierat kan Microsoft ta bort en assistent från listan över tillåtna tills problem har lösts.
 
 > [!NOTE]
 > I samtliga fall kräver röst aktiverings behörigheten mikrofon behörighet. Om ett assistent program inte har åtkomst till mikrofonen är det inte berättigat till röst aktivering och kommer att visas i sekretess inställningarna för röst aktivering i inaktiverat tillstånd.
 
 ## <a name="additional-requirements-for-inclusion-in-microphone-consent"></a>Ytterligare krav för att inkludera i mikrofonen
 
-Assistent författare som vill göra det enklare och smidigare för användarna att välja röst aktivering kan göra detta genom att uppfylla ytterligare krav för dem ovan. Efter att ha uppfyllt dessa är en assistents program standard inställningen för enhets låst röst `On` aktivering som standard en gång (och bara en gång) ger programmet åtkomst. Detta eliminerar behovet av en extra resa till inställningarna innan röst aktiveringen av en assistent aktive ras.
+Assistent författare som vill göra det enklare och smidigare för användarna att välja röst aktivering kan göra detta genom att uppfylla ytterligare krav på korrekt uppfyllande av information och medgivande utan en extra resa till inställnings sidan. När den har godkänts blir röst aktiveringen tillgänglig omedelbart när en användare ger till gång till ett mikrofon program. För att kunna göra detta måste ett assistent program göra följande **innan** du uppmanas att ange ett mikrofon godkännande (till exempel genom att använda `AppCapability.RequestAccessAsync` API: et):
 
-De ytterligare kraven är att ett assistent program måste:
+1. Ge tydliga och framträdande uppgifter om användaren att programmet vill lyssna på användarens röst för ett nyckelord, *även om programmet inte körs*och vill att användarens samtycke
+1. Ta med relevant information om principer för data användning och sekretess, till exempel en länk till en officiell sekretess policy
+1. Undvik alla direktiv eller inledande orda lydelse (till exempel "Klicka på Ja i följande prompt") i upplevelse flödet som avbildar ljud tagnings beteendet
 
-1. **Innan** du tillfrågas om mikrofon godkännande (till exempel med `AppCapability.RequestAccessAsync` hjälp av API: et) ger du en synlig indikation på användaren att assistent programmet vill lyssna på en användares röst för ett nyckelord, även om programmet inte körs och vill att användarens samtycke
-2. Ta med all relevant information om principer för data användning och sekretess **innan** du begär åtkomst till mikrofonen eller via `Windows.ApplicationModel.ConversationalAgent` API: erna
-3. Undvik alla direktiv eller inledande orda lydelse (till exempel "Klicka på Ja i följande fråga") i upplevelse flödet, Stäng av ljud tagnings beteende och begära behörighet
-
-När dessa krav är uppfyllda visas ett berättigat assistent program i listan över program som är berättigade till röst aktivering i ett `enabled` tillstånd när mikrofon åtkomst beviljas.
+Om ett program uppnår alla ovanstående, är det möjligt att aktivera röst aktiverings funktioner tillsammans med mikrofon. Kontakta winvoiceassistants@microsoft.com för att få mer information och granska en första användnings upplevelse.
 
 > [!NOTE]
 > Röst aktivering över lås är inte kvalificerad för automatisk aktivering med mikrofon åtkomst och kommer fortfarande att kräva att en användare besöker sidan för röst aktiverings sekretess för att aktivera åtkomst över lås till en assistent.

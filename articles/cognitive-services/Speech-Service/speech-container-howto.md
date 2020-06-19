@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: b76690cfbe0eb4851bdd1e4316235a7a9092c86e
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781216"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974661"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -28,14 +28,14 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 | Funktion | Funktioner | Nya |
 |--|--|--|
-| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.2.0 |
-| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.2.0 |
-| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.4.0 |
-| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.4.0 |
+| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.3.1 |
+| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.3.1 |
+| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.5.0 |
+| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.5.0 |
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare:
 
@@ -165,7 +165,7 @@ Alla Taggar, förutom `latest` i, är i följande format och är Skift läges k�
 Följande tagg är ett exempel på formatet:
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
@@ -194,7 +194,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> `latest`Taggen hämtar `en-US` språket och `jessarus` rösten. För ytterligare språk, se [text till tal-språk](#text-to-speech-locales).
+> `latest`Taggen hämtar `en-US` språket och `ariarus` rösten. För ytterligare språk, se [text till tal-språk](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Text till tal-språk
 
@@ -207,13 +207,13 @@ Alla Taggar, förutom `latest` i, är i följande format och är Skift läges k�
 Följande tagg är ett exempel på formatet:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> När du skapar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-JessaRUS` .
+> När du skapar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-AriaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
@@ -411,7 +411,7 @@ Det här kommandot:
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containers | SDK-värd-URL | Protokoll |
+| Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
 | Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |

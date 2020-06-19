@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f2584892bb349d126b73c3f8df211f745a362bd8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f4d848eae23023d55ad41b7893610f246eddefd9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403352"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987811"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP
 
@@ -23,10 +23,13 @@ I den här snabb starten ska du använda Azures ansikts REST API med PHP för at
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
-- En kod redigerare som [Visual Studio Code](https://code.visualstudio.com/download).
-- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) -paketet.
-- En PHP-aktiverad webbläsare. Om du inte har konfigurerat detta kan du göra det genom att installera och konfigurera [XAMPP](https://www.apachefriends.org/) på datorn.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* En kod redigerare som [Visual Studio Code](https://code.visualstudio.com/download).
+* PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) -paketet.
+* En PHP-aktiverad webbläsare. Om du inte har konfigurerat detta kan du göra det genom att installera och konfigurera [XAMPP](https://www.apachefriends.org/) på datorn.
 
 ## <a name="initialize-the-html-file"></a>Initiera HTML-filen
 

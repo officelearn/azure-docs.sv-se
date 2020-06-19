@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995657"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791290"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -122,6 +122,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 - Användes taggen för mer än 24 timmar sedan? Se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention)
 - Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
     - Azure Active Directory B2C-kataloger
+    - Azure Bastion
     - Azure Firewall-brandväggar
     - Azure NetApp Files
     - Data Factory

@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120818"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986676"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
 
-Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Face-prenumeration. Om du vill flytta data använder du ögonblicks bild funktionen. På så sätt undviker du att upprepade gånger skapa och träna ett PersonGroup-eller FaceList-objekt när du flyttar eller utökar dina åtgärder. Du kanske t. ex. har skapat ett PersonGroup-objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till din betalda prenumeration. Eller så kanske du behöver synkronisera ansikts data mellan prenumerationer i olika regioner för en stor företags åtgärd.
+Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Face-prenumeration. Om du vill flytta data använder du ögonblicks bild funktionen. På så sätt undviker du att upprepade gånger skapa och träna ett PersonGroup-eller FaceList-objekt när du flyttar eller utökar dina åtgärder. Exempelvis kanske du har skapat ett PersonGroup-objekt med en kostnads fri prenumeration och nu vill migrera det till den betalda prenumerationen. Eller så kanske du behöver synkronisera ansikts data mellan prenumerationer i olika regioner för en stor företags åtgärd.
 
 Samma migrations strategi gäller även för LargePersonGroup-och LargeFaceList-objekt. Om du inte är bekant med begreppen i den här hand boken kan du se deras definitioner i rikt linjer för [ansikts igenkänning](../concepts/face-recognition.md) . Den här guiden använder sitt ansikte .NET-klient bibliotek med C#.
 

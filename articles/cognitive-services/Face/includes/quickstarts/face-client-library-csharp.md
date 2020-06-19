@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6341754078c77225511523431a56618a4866c418
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7dbd8783b62d9a6f573b8f0eb25e8dadabaac56b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149370"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073299"
 ---
 Kom igång med ansikts klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -26,26 +26,24 @@ Använd ansikts klient biblioteket för .NET för att:
 * [Identifiera ett ansikte](#identify-a-face)
 * [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* När du har fått en nyckel och slut punkt [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT` .
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-face-azure-resource"></a>Skapa en ansikte Azure-resurs
-
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för ansikts med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `FACE_ENDPOINT`-URL: en, med namnet `FACE_SUBSCRIPTION_KEY` respektive.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet. `face-quickstart` Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `face-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
 
 ```dotnetcli
 dotnet new console -n face-quickstart
@@ -71,7 +69,7 @@ Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings pro
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_using)]
 
-I programmets `Main` Metod skapar du variabler för resursens Azure-slutpunkt och nyckel.
+I programmets `Main` metod skapar du variabler för resursens Azure-slutpunkt och nyckel.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_mainvars)]
 
@@ -114,7 +112,7 @@ Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient bib
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel `FACE_SUBSCRIPTION_KEY` och `FACE_ENDPOINT`slut punkt, med namnet och.
+> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel och slut punkt, med namnet `FACE_SUBSCRIPTION_KEY` och `FACE_ENDPOINT` .
 
 I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** -objekt med din nyckel och Använd den med slut punkten för att skapa ett **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** -objekt.
 
@@ -142,7 +140,7 @@ Lägg till följande metod anrop till din **main** -metod. Du definierar metoden
 
 ### <a name="get-detected-face-objects"></a>Hämta identifierade ansikts objekt
 
-I nästa kodblock identifierar `DetectFaceExtract` metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** -objekt i program minnet. Listan med **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -värden anger vilka funktioner som ska extraheras. 
+I nästa kodblock `DetectFaceExtract` identifierar metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** -objekt i program minnet. Listan med **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -värden anger vilka funktioner som ska extraheras. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
@@ -192,7 +190,7 @@ Lägg till följande kod i en ny metod. Den här metoden kommer att utföra iden
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_files)]
 
-Lägg sedan till följande kod för att skapa ett **person** objekt för varje person i ord listan och Lägg till ansikts data från lämpliga avbildningar. Varje **person** objekt är associerat med samma **PersonGroup** via dess unika ID-sträng. Kom ihåg att skicka `client`variablerna `url`, och `RECOGNITION_MODEL1` till den här metoden.
+Lägg sedan till följande kod för att skapa ett **person** objekt för varje person i ord listan och Lägg till ansikts data från lämpliga avbildningar. Varje **person** objekt är associerat med samma **PersonGroup** via dess unika ID-sträng. Kom ihåg att skicka variablerna `client` , `url` och `RECOGNITION_MODEL1` till den här metoden.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
@@ -206,7 +204,7 @@ Den här **person** gruppen och dess associerade **person** objekt är nu redo a
 
 ### <a name="get-a-test-image"></a>Hämta en test avbildning
 
-Observera att koden för att [skapa och träna en person grupp](#create-and-train-a-person-group) definierar en variabel `sourceImageFileName`. Den här variabeln motsvarar käll bilden&mdash;för den bild som innehåller personer som ska identifieras.
+Observera att koden för att [skapa och träna en person grupp](#create-and-train-a-person-group) definierar en variabel `sourceImageFileName` . Den här variabeln motsvarar käll bilden &mdash; för den bild som innehåller personer som ska identifieras.
 
 ### <a name="identify-faces"></a>Identifiera ansikten
 
@@ -220,7 +218,7 @@ Nästa kodfragment anropar åtgärden **IdentifyAsync** och skriver ut resultate
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
 
-Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kanske vill använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri utvärderings prenumeration och vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en översikt över ögonblicks bilds funktionen.
+Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kanske vill använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri prenumeration och vill migrera det till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en översikt över ögonblicks bilds funktionen.
 
 I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och träna en person grupp](#create-and-train-a-person-group). Du kan antingen slutföra det avsnittet först eller skapa egna data konstruktioner att migrera.
 
@@ -228,11 +226,11 @@ I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och t
 
 Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att följa stegen i avsnittet [Konfigurera inställningar](#setting-up) . 
 
-Definiera sedan följande variabler i program `Main` metoden. Du måste skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto. 
+Definiera sedan följande variabler i `Main` program metoden. Du måste skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
 
-I det här exemplet ska du deklarera en variabel för ID: t för målet **PersonGroup**&mdash;objektet som tillhör den nya prenumerationen, som du kopierar dina data till.
+I det här exemplet ska du deklarera en variabel för ID: t för målet **PersonGroup** &mdash; objektet som tillhör den nya prenumerationen, som du kopierar dina data till.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
 
@@ -268,7 +266,7 @@ Resten av ögonblicks bild åtgärderna måste äga rum inom en asynkron metod.
 
 Det nya **PersonGroup** -objektet ska nu ha samma data som det ursprungliga, och det bör vara tillgängligt från din nya (mål) Azure Face-prenumeration.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet från program katalogen med `dotnet run` kommandot.
 
@@ -280,7 +278,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den kör du följande kod i programmet:

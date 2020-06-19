@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d52f4ad7be6ce31fd2d01208536945c1f9ab2d7d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169889"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986728"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
 
@@ -26,7 +26,7 @@ Den här guiden visar hur du utför analyser nästan i realtid på bildrutor som
 - Skicka dessa bildrutor till API:et
 - Använda varje analysresultat som returneras från API-anropet
 
-De här exemplen är skrivna i C# och koden hittar du på GitHub här: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+De här exemplen är skrivna i C# och koden hittar du på GitHub här: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) .
 
 ## <a name="the-approach"></a>Metoden
 
@@ -138,7 +138,7 @@ while (true)
 
 ### <a name="getting-started"></a>Komma igång
 
-För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. Om du vill komma åt koden går [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)du till.
+För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. Om du vill komma åt koden går du till [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) .
 
 Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivna producent-konsument-systemet för att bearbeta bildrutor från en webbkamera. Användaren kan ange den exakta formen av API-anropet, och klassen använder händelser för att informera koden om när en ny bildruta tas eller ett nytt analysresultat är tillgängligt.
 
@@ -201,13 +201,12 @@ I de flesta lägen finns en synlig fördröjning mellan den direktströmmade vid
 
 Kom igång med det här exemplet genom att följa dessa steg:
 
-1. Hämta API-nycklar för API:er för visuellt innehåll från [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). För bildruteanalys är de tillämpliga API:erna:
-    - [API för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-
-2. Klona GitHub-lagringsplatsen [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
-
-3. Öppna exemplet i Visual Studio 2015 och skapa och kör exempelprogrammen:
+1. Skapa ett [Azure-konto](https://azure.microsoft.com/free/cognitive-services/). Om du redan har en kan du gå vidare till nästa steg.
+2. Skapa resurser för Visuellt innehåll och ansikte i Azure Portal för att hämta din nyckel och slut punkt. Se till att välja den kostnads fria nivån (F0) under installationen.
+   - [Visuellt innehåll](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Ansikte](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) När resurserna har distribuerats klickar du på **gå till resurs** för att samla in din nyckel och slut punkt för varje resurs. 
+3. Klona [kognitiv-samples-VideoFrameAnalysis GitHub-](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lagrings platsen.
+4. Öppna exemplet i Visual Studio och skapa och kör exempel programmen:
     - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample bör du ange nycklarna i appens fönster Inställningar. De bevaras mellan sessioner som användardata.
         
@@ -216,7 +215,7 @@ När du är redo att integrera **refererar du till biblioteket VideoFrameAnalyze
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i nästan realtid med hjälp av Ansikts-API, API för visuellt innehåll och Känslo-API samt hur du kommer igång genom att använda vår exempelkod. Du kan börja skapa din app med kostnadsfria API-nycklar på [registreringssidan för Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
+I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i nästan realtid med hjälp av Ansikts-API, API för visuellt innehåll och Känslo-API samt hur du kommer igång genom att använda vår exempelkod.
 
 Ge oss gärna feedback och förslag på [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängiltig API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
 

@@ -194,11 +194,7 @@
         - name: Migrera från sammansatt entitet
           href: migrate-from-composite-entity.md
         - name: Migrera till redigeringsresurs
-          items:
-            - name: Översikt
-              href: luis-migration-authoring.md
-            - name: Så här migrerar du
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Migrera till V3 API
           href: luis-migration-api-v3.md
     - name: Hantera app
@@ -209,11 +205,7 @@
         - name: Inställningar för app och version
           href: how-to-application-settings-portal.md
         - name: Migrera till redigeringsresurs
-          items:
-            - name: Översikt
-              href: luis-migration-authoring.md
-            - name: Så här migrerar du
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Författare och medarbetare
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md

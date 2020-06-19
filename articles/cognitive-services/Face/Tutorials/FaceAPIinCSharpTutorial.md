@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b4458920ec8b3e0c302f6e0654891b83ed07264f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 633404b59581a86dc3c115f132b06d8c8165d13a
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81402895"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986502"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Självstudie: skapa en Windows Presentation Framework-app (WPF) för att Visa ansikts data i en bild
 
@@ -34,13 +34,17 @@ I den här självstudiekursen lär du dig att:
 
 Den fullständiga exempelkoden är tillgänglig på [Cognitive Face CSharp sample](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample)-lagringsplatsen på GitHub.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `FACE_SUBSCRIPTION_KEY` med `FACE_ENDPOINT`namnet respektive.
-- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT` .
+- Vilken version av [Visual Studio](https://www.visualstudio.com/downloads/)som helst.
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
@@ -57,7 +61,7 @@ I det här avsnittet lägger du till appens grundläggande ramverk utan dess ans
 
 ### <a name="create-the-ui"></a>Skapa användargränssnittet
 
-Öppna *MainWindow. XAML* och ersätt innehållet med följande kod&mdash;den här koden skapar användar gränssnitts fönstret. Metoderna `FacePhoto_MouseMove` och `BrowseButton_Click` är händelse hanterare som du senare ska definiera.
+Öppna *MainWindow. XAML* och ersätt innehållet med följande kod &mdash; den här koden skapar användar gränssnitts fönstret. `FacePhoto_MouseMove`Metoderna och `BrowseButton_Click` är händelse hanterare som du senare ska definiera.
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 

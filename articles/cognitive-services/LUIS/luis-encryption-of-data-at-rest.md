@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372341"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052704"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Language Understanding tjänst kryptering av data i vila
 
@@ -38,13 +38,11 @@ Du måste använda Azure Key Vault för att lagra dina Kundhanterade nycklar. Du
 
 Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar [formuläret Luis service kund-Managed Key Request](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med LUIS måste du skapa en ny Language Understanding resurs från Azure Portal och välja E0 som pris nivå. Den nya SKU: n fungerar på samma sätt som F0 SKU som redan är tillgänglig förutom för CMK. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
 
-E0-resurser är bara tillgängliga för redigerings tjänsten och att E0-nivån först kommer att stödjas i regionen Västra USA.
-
 ![LUIS prenumerations avbildning](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>Regional tillgänglighet
 
-Kundhanterade nycklar är för närvarande tillgängliga i regionen **USA, västra** .
+Kundhanterade nycklar är tillgängliga i alla [redigerings regioner](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Begränsningar
 

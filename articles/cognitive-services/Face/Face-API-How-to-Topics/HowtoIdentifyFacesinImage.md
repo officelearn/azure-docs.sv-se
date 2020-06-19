@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 248bae81db1bc8cb69bac4618bd7593658336636
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169916"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986713"
 ---
 # <a name="example-identify-faces-in-images"></a>Exempel: identifiera ansikten i bilder
 
@@ -41,7 +41,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Alternativt kan du ange prenumerations nyckeln i HTTP-begärans huvud **OCP-APIM-Subscription-Key: &lt;prenumerations&gt;nyckel**.
+Alternativt kan du ange prenumerations nyckeln i HTTP-begärans huvud **OCP-APIM-Subscription-Key: &lt; prenumerations &gt; nyckel**.
 När du använder ett klient bibliotek skickas prenumerations nyckeln genom FaceClient-klassens konstruktor. Ett exempel:
  
 ```csharp 
@@ -50,7 +50,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-Hämta prenumerations nyckeln genom att gå till Azure Marketplace från Azure Portal. Mer information finns i [prenumerationer](https://azure.microsoft.com/try/cognitive-services/).
+Följ dessa instruktioner för att få en nyckel.
+
+1. Skapa ett [Azure-konto](https://azure.microsoft.com/free/cognitive-services/). Om du redan har en kan du gå vidare till nästa steg.
+2. Skapa en [ansikts resurs](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) i Azure Portal för att hämta din nyckel. Se till att välja den kostnads fria nivån (F0) under installationen. 
+3. När resurserna har distribuerats klickar du på **gå till resurs** för att samla in din nyckel. 
 
 ## <a name="step-2-create-the-persongroup"></a>Steg 2: Skapa PersonGroup
 

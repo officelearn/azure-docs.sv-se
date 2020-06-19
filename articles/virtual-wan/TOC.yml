@@ -44,14 +44,10 @@
           href: path-selection-multiple-links.md
 - name: Anvisningar
   items:
-    - name: Anslut virtuell nätverksgateway till Virtual WAN
-      href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md
     - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
-    - name: Konfigurera anpassad IPsec-princip
-      href: virtual-wan-custom-ipsec-portal.md
     - name: ExpressRoute
       items:
         - name: Skapa en ExpressRoute-anslutning
@@ -62,6 +58,10 @@
       items:
         - name: Skapa en plats-till-plats-anslutning
           href: virtual-wan-site-to-site-portal.md
+        - name: Anslut virtuell nätverksgateway till Virtual WAN
+          href: connect-virtual-network-gateway-vwan.md
+        - name: Konfigurera anpassad IPsec-princip
+          href: virtual-wan-custom-ipsec-portal.md
     - name: Användar-VPN (punkt-till-plats)
       items:
         - name: Skapa en VPN-anslutning för användare
@@ -109,7 +109,7 @@
 - name: Referens
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
     - name: Azure CLI

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587883"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073348"
 ---
 Kom igång med ansikts klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -28,68 +28,16 @@ Använd klient biblioteket för ansikts tjänsten för att gå till:
 
 [Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  [SDK-hämtning](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* När du har fått en nyckel och slut punkt [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slut punkten, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT` .
 
-## <a name="set-up"></a>Konfigurera
-
-### <a name="create-a-face-azure-resource"></a>Skapa en ansikte Azure-resurs 
-
-Börja använda ansikts tjänsten genom att skapa en Azure-resurs. Välj den resurs typ som passar dig bäst:
-
-* En [utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/#decision) (ingen Azure-prenumeration behövs): 
-    * Gäller i sju dagar utan kostnad. Efter registreringen kommer en utvärderings nyckel och slut punkt att vara tillgängliga på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * Det här är ett bra alternativ om du vill testa ansikts tjänsten, men inte har en Azure-prenumeration.
-* [Resurs för ansikts tjänst](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * Tillgängligt via Azure Portal tills du tar bort resursen.
-    * Använd den kostnads fria pris nivån för att testa tjänsten och uppgradera senare till en betald nivå för produktion.
-* En [resurs med flera tjänster](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Tillgängligt via Azure Portal tills du tar bort resursen.  
-    * Använd samma nyckel och slut punkt för dina program i flera Cognitive Services.
-
-### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
-
->[!NOTE]
-> Slut punkterna för icke-testresurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
-* `FACE_SUBSCRIPTION_KEY`– Resurs nyckeln för autentisering av dina begär Anden.
-* `FACE_ENDPOINT`– Resurs slut punkten för att skicka API-begäranden. Det kommer att se ut så här: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Följ anvisningarna för ditt operativ system.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Starta om konsol fönstret när du har lagt till miljövariabeln.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Redigera din `.bash_profile` och Lägg till miljövariabeln:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
-***
+## <a name="setting-up"></a>Konfigurera
 
 ### <a name="create-a-go-project-directory"></a>Skapa en go-projektfil
 
@@ -145,7 +93,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |Name|Beskrivning|
 |---|---|
 |[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
-|[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
+|[Klient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
 |[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)|Den här klassen representerar alla data som upptäcktes från ett enskilt ansikte i en bild. Du kan använda den för att hämta detaljerad information om FACET.|
 |[ListClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#ListClient)|Den här klassen hanterar molnbaserade **FaceList** -konstruktioner, som lagrar en stor uppsättning ansikten. |
 |[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)| Den här klassen hanterar molnbaserade **person** konstruktioner, som lagrar en uppsättning ansikten som tillhör en enda person.|
@@ -251,7 +199,7 @@ Följande kod tar en bild med flera ansikten och söker efter identiteten för v
 
 ### <a name="get-a-test-image"></a>Hämta en test avbildning
 
-Följande kod söker i roten i projektet efter en avbildning _test-image-person-Group. jpg_ och läser in den i program minnet. Du kan hitta avbildningen i samma lagrings platsen som de bilder som används i [skapa och träna en person grupp](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
+Följande kod söker i roten i projektet efter en avbildning _test-image-person-group.jpg_ och läser in den i program minnet. Du kan hitta avbildningen i samma lagrings platsen som de bilder som används i [skapa och träna en person grupp](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -301,13 +249,13 @@ Följande kod jämför var och en av käll avbildningarna till mål avbildningen
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
 
-Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kan använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en bred översikt över ögonblicks bilds funktionen.
+Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kan använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri prenumeration och nu vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en bred översikt över ögonblicks bilds funktionen.
 
 I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och träna en person grupp](#create-and-train-a-person-group). Du kan antingen slutföra det avsnittet först eller använda dina egna data konstruktioner.
 
 ### <a name="set-up-target-subscription"></a>Konfigurera mål prenumeration
 
-Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att upprepa stegen i avsnittet [Konfigurera](#set-up) . 
+Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att upprepa stegen i avsnittet [Konfigurera](#setting-up) . 
 
 Skapa sedan följande variabler längst upp i **huvud** metoden. Du måste också skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto.
 

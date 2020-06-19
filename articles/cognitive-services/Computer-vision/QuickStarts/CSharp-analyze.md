@@ -11,23 +11,25 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ece80ce5337304d1b0d51e5e334cd64cc133619
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679875"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984420"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Snabb start: analysera en lokal avbildning med hjälp av Visuellt innehåll REST API och C #
 
 I den här snabb starten ska du analysera en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuell funktions information från bild innehåll.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
-
 ## <a name="prerequisites"></a>Krav
 
-- Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT` .
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en, med namnet respektive `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -36,8 +38,8 @@ Skapa exemplet i Visual Studio enligt följande:
 1. Skapa en ny Visual Studio-lösning/projekt i Visual Studio med hjälp av mallen Visual C#-konsolen (.NET Core Framework).
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
-    1. Klicka på fliken **Bläddra** . i **sökrutan skriver** du "Newtonsoft. JSON" (om den inte redan visas).
-    1. Välj **Newtonsoft. JSON**och klicka sedan på kryss rutan bredvid ditt projekt namn och **Installera**.
+    1. Klicka på fliken **Bläddra** . i **sökrutan skriver** du Newtonsoft.Jspå (om den inte redan visas).
+    1. Välj **Newtonsoft.Jspå**och klicka sedan på kryss rutan bredvid ditt projekt namn och **Installera**.
 1. Kopiera/klistra in exempel kod avsnittet nedan i din Program.cs-fil. Justera namn områdets namn om det skiljer sig från det som du skapade.
 1. Lägg till en bild som du väljer i mappen bin/debug/netcoreappX. X och Lägg sedan till avbildnings namnet (med tillägget) i variabeln ' imageFilePath '.
 1. Kör programmet.

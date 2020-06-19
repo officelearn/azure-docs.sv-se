@@ -3,12 +3,12 @@ title: Gränser – LUIS
 description: Den här artikeln innehåller de kända gränserna för Azure Cognitive Services Language Understanding (LUIS). LUIS har flera gräns områden. Modell gräns kontroller för avsikter, entiteter och funktioner i LUIS. Kvot gränser baserat på nyckel typ. Tangent bords kombinationen styr LUIS-webbplatsen.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449506"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976990"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Begränsningar för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Den första är [modell gränsen](#model-limits), som styr avsikter, entiteter och funktioner i Luis. Det andra avsnittet är [kvot gränser](#key-limits) baserat på nyckel typ. Ett tredje begränsat utrymme är [tangentkombinationen](#keyboard-controls) för att kontrol lera Luis-webbplatsen. Ett fjärde område är [Mappning av världs regionen](luis-reference-regions.md) mellan Luis Authoring-webbplatsen och API: erna för Luis- [slutpunkt](luis-glossary.md#endpoint) .
@@ -27,7 +27,7 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | Explicit lista | 50 per program|
 | Externa entiteter | inga gränser |
 | [Avsikter][intents]|500 per program: 499 anpassade avsikter och det krävs _ingen_ avsikt.<br>[Skickat](https://aka.ms/dispatch-tool) program har motsvarande 500-sändnings källor.|
-| [Listentiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * standard tecknen max. Synonym värden har ingen längd begränsning. |
+| [Lista entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * standard tecknen max. Synonym värden har ingen längd begränsning. |
 | [enheter för maskin inlärning + roller](./luis-concept-entity-types.md):<br> sammansättning<br>gång<br>enhets roll|En gräns på antingen 100 överordnade entiteter eller 330 entiteter, beroende på vilken gräns användaren träffar först. En roll räknas som en entitet för den här begränsningen. Ett exempel är ett sammansatt objekt med en enkel entitet, som har två roller: 1 sammansatt + 1 enkla + 2 roller = 4 av 330-enheterna.<br>Underentiteter kan vara kapslade upp till 5 nivåer.|
 |Modell som en funktion| Det maximala antalet modeller som kan användas som en funktion för en speciell modell som är 10 modeller. Det maximala antalet fras listor som används som en funktion för en speciell modell som är 10 fras listor.|
 | [Förhands granskning-dynamiska List enheter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per förfrågan för förutsägelse slut punkt|
@@ -37,7 +37,7 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | [Fördefinierade entiteter](./luis-prebuilt-entities.md) | ingen gräns|
 | [Lägga till entiteter för reguljära uttryck](./luis-concept-entity-types.md)|20 entiteter<br>500-Character max. per reguljärt uttryck enhets mönster|
 | [Roller](luis-concept-roles.md)|300 roller per program. 10 roller per entitet|
-| [Yttrande][utterances] | 500 tecken<br><br>Om du har text längre än den här tecken gränsen måste du segmentera uttryck innan du inkommer till LUIS och slå samman svaren. Det finns uppenbara raster som du kan arbeta med, till exempel skiljetecken och långa pauser i tal.|
+| [Yttrande][utterances] | 500 tecken<br><br>Om du har text längre än den här tecken gränsen måste du segmentera uttryck innan indatamängden till LUIS och du får enskilda svar per segment. Det finns uppenbara raster som du kan arbeta med, till exempel skiljetecken och långa pauser i tal.|
 | [Uttryck-exempel][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt<br><br>Om du behöver träna programmet med fler exempel kan du använda en metod för [sändnings](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) modellen. Du tränar enskilda LUIS-appar (kallade underordnade appar till den överordnade sändnings appen) med en eller flera avsikter och sedan tränar du en sändnings app som innehåller exempel från varje underordnad LUIS Apps yttranden för att dirigera förutsägelsen till rätt underordnad app. |
 | [5](luis-concept-version.md)| 100-versioner per program |
 | [Versions namn][luis-how-to-manage-versions] | 128 tecken |
@@ -106,7 +106,7 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 
 ## <a name="keyboard-controls"></a>Tangent bords kontroller
 
-|Tangent bords inmatare | Beskrivning |
+|Tangent bords inmatare | Description |
 |--|--|
 |Kontroll + E|växlar mellan token och entiteter i yttranden-listan|
 

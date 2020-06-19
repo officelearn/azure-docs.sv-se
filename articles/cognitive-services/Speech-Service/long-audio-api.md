@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310605"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080644"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
@@ -56,7 +56,7 @@ När du har bearbetat indata-innehållet följer du snabb starten för det [lån
 
 **Http-status koderna** anger vanliga fel.
 
-| API | HTTP-statuskod | Description | Förslag |
+| API | HTTP-statuskod | Beskrivning | Förslag |
 |-----|------------------|-------------|----------|
 | Skapa | 400 | Röst syntesen är inte aktive rad i den här regionen. | Ändra tal prenumerations nyckeln med en region som stöds. |
 |        | 400 | Endast **standard** tal prenumerationen för den här regionen är giltig. | Ändra tal prenumerations nyckeln till pris nivån "standard". |
@@ -66,7 +66,7 @@ När du har bearbetat indata-innehållet följer du snabb starten för det [lån
 |        | 400 | Röst syntesen stöder bara text filen i UTF-8-kodningen med byte-ordnings markören. | Kontrol lera att indatafilerna är i UTF-8-kodning med markör för byte-ordning. |
 |        | 400 | Endast giltiga SSML-indata är tillåtna i röst syntes förfrågan. | Kontrol lera att SSML-uttrycken är korrekta. |
 |        | 400 | Det gick inte att hitta röst namnet {voiceName} i indatafilen. | Röst namnet för SSML är inte justerat med modell-ID: t. |
-|        | 400 | Styckets mängd i indatafilen ska vara mindre än 10 000. | Kontrol lera att stycket i filen är mindre än 10 000. |
+|        | 400 | Antalet stycken i indatafilen ska vara mindre än 10 000. | Kontrol lera att antalet stycken i filen är mindre än 10 000. |
 |        | 400 | Indatafilen får innehålla mer än 400 tecken. | Kontrol lera att indatafilen överskrider 400 tecken. |
 |        | 404 | Det går inte att hitta modellen som har deklarerats i röst syntes definitionen: {modelID}. | Kontrol lera att {modelID} är korrekt. |
 |        | 429 | Överskrida den aktiva röst syntes gränsen. Vänta tills några begär Anden har slutförts. | Servern kan köra och köa upp till 120 förfrågningar för varje Azure-konto. Vänta och Undvik att skicka nya begär Anden förrän vissa begär Anden har slutförts. |

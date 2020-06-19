@@ -219,10 +219,6 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: Spark- och Hive-verktyg för VSCode
               href: ./hdinsight-for-vscode.md
-            - name: HDInsight-verktyg för IntelliJ med begränsat Hortonworks-läge
-              href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-            - name: Data Lake-verktyg med begränsat Hortonworks-läge
-              href: ./hdinsight-hadoop-emulator-visual-studio.md
         - name: Övervakning
           items:
             - name: Använda Azure Monitor-loggar
@@ -501,7 +497,7 @@
                   href: ./hadoop/apache-hadoop-run-samples-linux.md
                 - name: Köra anpassade Apache Hadoop MapReduce-program
                   href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'Utveckla strömmande C#-MapReduce-program'
+                - name: Utveckla strömmande C#-MapReduce-program
                   href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
                 - name: Utveckla Java MapReduce-program
                   href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -758,7 +754,7 @@
           items:
             - name: Bearbeta och analysera JSON-dokument
               href: ./hadoop/using-json-in-hive.md
-            - name: 'Använda C#-användardefinierade funktioner'
+            - name: Använda C#-användardefinierade funktioner
               href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
             - name: Använda Python med Apache Hive och Apache Pig
               href: ./hadoop/python-udf-hdinsight.md
@@ -893,7 +889,7 @@
                   href: ./storm/apache-storm-develop-java-topology.md
                 - name: Utveckla topologier med Python
                   href: ./storm/apache-storm-develop-python-topology.md
-                - name: 'Utveckla topologier med C#'
+                - name: Utveckla topologier med C#
                   href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
                 - name: Programmeringsguide för SCP.NET
                   href: ./storm/apache-storm-scp-programming-guide.md
@@ -901,7 +897,7 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: Strömningspipelines
               items:
-                - name: 'Event Hub och Apache Storm (C# och Java)'
+                - name: Event Hub och Apache Storm (C# och Java)
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: Hantera
           items:

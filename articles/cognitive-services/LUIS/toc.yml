@@ -30,9 +30,9 @@
     - name: 'Använda REST-API:er'
       items:
         - name: Hämta avsikt
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Ändra modell
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Självstudier
   items:
     - name: Bygg en app som kan delas upp
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: Migrera till V2 API
           href: luis-migration-api-v1-to-v2.md
+    - name: 'Använda REST-API:er'
+      items:
+        - name: Hämta avsikt
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Ändra modell
+          href: get-started-get-model-rest-apis.md
     - name: Använda containrar
       items:
         - name: Installera och köra containrar

@@ -953,6 +953,9 @@
                 - name: Utgåva
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Version
+                  displayName: 'change, modify, update'
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Azure Storage för säkerhetskopiering och återställning
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
             - name: Migrera

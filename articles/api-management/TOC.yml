@@ -38,9 +38,11 @@
 - name: Exempel
   items:
     - name: Principer
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Inbyggda Azure Policy-program
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Terminologi

@@ -10,7 +10,7 @@
       href: advisor-get-started.md
 - name: Anvisningar
   items:
-    - name: Förbättra tillgängligheten för Azure-program
+    - name: Förbättra pålitligheten för Azure-program
       href: advisor-high-availability-recommendations.md
     - name: Gör resurser säkrare
       href: advisor-security-recommendations.md

@@ -91,6 +91,17 @@
           href: how-to-manage-account-keys.md
         - name: Hantera autentisering
           href: how-to-manage-authentication.md
+          items:
+            - name: Så här skyddar du ett daemon-program
+              href: how-to-secure-daemon-app.md
+            - name: Så här skyddar du interaktiva inloggningsprogram för en sida
+              href: how-to-secure-spa-users.md
+            - name: Så här skyddar du en webbapp
+              href: how-to-secure-webapp-users.md
+            - name: Så här skyddar du icke-interaktiva inloggningsprogram för en sida
+              href: how-to-secure-spa-app.md
+            - name: Så här skyddar du program med begränsad inmatning
+              href: how-to-secure-device-code.md
         - name: Hantera prisnivå
           href: how-to-manage-pricing-tier.md
         - name: Hantera skapare
@@ -318,9 +329,9 @@
     - name: 'SDK:er för Azure IoT'
       items:
         - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Användningsvillkor för Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps-prissättning

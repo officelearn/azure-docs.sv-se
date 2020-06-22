@@ -860,14 +860,14 @@
             - name: Exempel på modellinferens
               href: /azure/databricks/applications/deep-learning/inference/model-inference-examples
               maintainContext: true
-            - name: Modellinferens med Keras
+            - name: Modellslutsatsdragning med TensorFlow Keras
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-keras
               maintainContext: true
             - name: Modellinferens med PyTorch
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-pytorch
               maintainContext: true
-            - name: Modellinferens med TensorFlow
-              href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
+            - name: Modellslutsatsdragning med TensorFlow och TensorRT
+              href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorrt
               maintainContext: true
             - name: Prestandajustering för modellinferens
               href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
@@ -1072,14 +1072,22 @@
               maintainContext: true
         - name: GDPR-regelverk
           href: /azure/databricks/security/privacy/gdpr-delta
+          maintainContext: true
+        - name: Regelverk för datastyrning
+          href: /azure/databricks/security/data-governance
+          maintainContext: true
         - name: IP-åtkomstlista
           href: /azure/databricks/security/network/ip-access-list
+          maintainContext: true
         - name: Kryptera trafik mellan klusterarbetsnoder
           href: /azure/databricks/security/encryption/encrypt-otw
+          maintainContext: true
         - name: Aktivera kundhanterade nycklar för notebooks
           href: /azure/databricks/security/keys/customer-managed-key-notebook
+          maintainContext: true
         - name: Aktivera kundhanterade nycklar för DBFS
           href: /azure/databricks/security/keys/customer-managed-keys-dbfs
+          maintainContext: true
     - name: Administration
       items:
         - name: Administrationsöversikt
@@ -1196,6 +1204,8 @@
             - name: Inställningar för användardefinierad väg
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
+            - name: IP-adresser för MySQL
+              href: mysql-ip-address.md
     - name: Felsökning
       items:
         - name: Vanliga frågor
@@ -1886,13 +1896,13 @@
                 - name: Runtime-versioner
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
-                - name: Databricks Runtime 7.0 (Beta)
+                - name: Databricks Runtime 7.0
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
                 - name: Databricks Runtime 7.0 ML (Beta)
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
-                - name: Databricks Runtime 7.0 Genomics (Beta)
+                - name: Databricks Runtime 7.0 Genomics
                   href: /azure/databricks/release-notes/runtime/7.0genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.6

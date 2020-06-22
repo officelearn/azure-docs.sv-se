@@ -75,7 +75,7 @@
           href: pay-by-invoice.md
         - name: Skapa ytterligare prenumerationer
           href: create-subscription.md
-        - name: Överföra CSP-prenumerationer
+        - name: Överföra prenumerationer mellan molnlösningsleverantörer och prenumeranter
           href: transfer-subscriptions-subscribers-csp.md
         - name: Exportera prenumerationsinformation
           href: export-subscriptions.md

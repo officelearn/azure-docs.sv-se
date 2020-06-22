@@ -19,6 +19,10 @@
       items:
         - name: Integrera Azure Key Vault med Kubernetes
           href: key-vault-integrate-kubernetes.md
+    - name: Azure Databricks
+      items:
+        - name: Få åtkomst till Azure Blob Storage med Azure Databricks och Azure Key Vault
+          href: integrate-databricks-blob-storage.md
     - name: Ansluta Key Vault till en webbapp med en hanterad identitet och .NET
       href: tutorial-net-create-vault-azure-web-app.md
 - name: Exempel
@@ -129,13 +133,13 @@
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
+      href: /python/api/overview/azure/keyvault/management?view=azure-python
     - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager-mall

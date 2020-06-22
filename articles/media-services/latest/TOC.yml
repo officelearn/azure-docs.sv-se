@@ -18,6 +18,11 @@
     - name: Livehändelse med portal och OBS
       displayName: 'live, event, portal, obs'
       href: live-events-obs-quickstart.md
+    - name: 'Använda portalen för att ladda upp, koda och strömma innehåll'
+      href: manage-assets-quickstart.md
+    - name: Använda portalen för att kryptera innehåll
+      displayName: 'protect, drm, aes'
+      href: encrypt-content-quickstart.md
 - name: Självstudier
   items:
     - name: Koda fjärrfiler och strömma videor
@@ -378,6 +383,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Scheman för standardkodare
       items:
+        - name: Inkommande metadata
+          href: input-metadata-schema.md
         - name: Utgående metadata
           href: output-metadata-schema.md
 - name: Resurser

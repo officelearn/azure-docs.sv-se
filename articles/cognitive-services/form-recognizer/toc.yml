@@ -60,7 +60,7 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Använda containerinstanser
           href: deploy-form-recognizer-on-container-instances.md
-    - name: Kopiera modeller för haveriberedskap
+    - name: Säkerhetskopiera och återställa modeller
       href: disaster-recovery.md
 - name: Referens
   items:

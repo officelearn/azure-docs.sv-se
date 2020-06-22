@@ -36,6 +36,8 @@
       href: manage-dhcp.md
     - name: Haveriberedskap
       href: disaster-recovery.md
+    - name: Få hjälp med AVS-distribution och etableringsfel
+      href: fix-deployment-provisioning-failures.md
     - name: Azure Backup Server för AVS
       items:
         - name: Konfigurera Azure Backup Server för AVS

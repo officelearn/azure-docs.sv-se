@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: Scenarier
       items:
-        - name: Använda labb i klasser
+        - name: Använda labbtjänster för att hålla i klasser
           href: classroom-labs-scenarios.md
+        - name: Använda labbtjänster för hackathon
+          href: hackathon-labs.md
         - name: Klassrumslabb – klasstyper
           items:
             - name: Översikt över klasstyper

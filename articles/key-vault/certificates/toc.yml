@@ -34,6 +34,8 @@
       href: create-certificate-scenarios.md
     - name: Metoder för att skapa certifikat
       href: create-certificate.md
+    - name: Skapa en certifikatsigneringsförfrågan
+      href: create-certificate-signing-request.md
 - name: Anvisningar
   items:
     - name: Integrera Key Vault med DigiCert CA

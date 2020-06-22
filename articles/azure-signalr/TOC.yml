@@ -25,10 +25,6 @@
   items:
     - name: Skapa en serverlös realtidsapp med autentisering
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Övervaka
-      items:
-        - name: Använda diagnostikloggar för att övervaka SignalR-tjänst
-          href: signalr-tutorial-diagnostic-logs.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -51,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: SignalR Service-bindningar för Azure Functions-referens
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: Överordnade inställningar
+          href: concept-upstream.md
     - name: Hög tillgänglighet
       items:
         - name: Återhämtning och haveriberedskap
@@ -81,12 +79,20 @@
           href: howto-private-endpoints.md
         - name: Hantera nätverksåtkomstkontroll
           href: howto-network-access-control.md
+        - name: Använda hanterad identitet
+          href: howto-use-managed-identity.md
     - name: Integrera
       items:
         - name: Bindningar för Azure Functions
           href: signalr-concept-azure-functions.md
         - name: Event Grid-integrering
           href: signalr-howto-event-grid-integration.md
+    - name: Övervaka
+      items:
+        - name: Använda diagnostikloggar för att övervaka SignalR-tjänst
+          href: signalr-howto-diagnostic-logs.md
+        - name: Granska efterlevnad med Azure Policy
+          href: signalr-howto-azure-policy.md
 - name: Referenser
   items:
     - name: Azure CLI

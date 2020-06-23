@@ -240,6 +240,8 @@
       items:
         - name: Krav för ritningspaket
           href: drawing-requirements.md
+        - name: Dynamisk mappning – StylesObject
+          href: schema-stateset-stylesobject.md
         - name: Förbrukningsmodell för fordon
           href: consumption-model.md
         - name: Utöka GeoJSON-format

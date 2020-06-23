@@ -193,6 +193,8 @@
           items:
             - name: Konfigurationsalternativ
               href: concepts-hyperscale-configuration-options.md
+            - name: Förskottsbetalning för reserverad kapacitet
+              href: concepts-hyperscale-reserved-pricing.md
 - name: Anvisningar
   items:
     - name: Enskild server

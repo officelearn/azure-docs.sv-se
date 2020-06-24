@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278004"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698367"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache for Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -24,7 +24,7 @@ Du kan övervaka följande mått för att hjälpa dig att avgöra om du behöver
 * Redis server-belastning
 * Minnesanvändning
 * Nätverks bandbredd
-* CPU-användning
+* Processoranvändning
 
 Om du fastställer att cachen inte längre uppfyller programmets krav kan du skala till en större eller mindre cache-pris nivå som passar ditt program. Mer information om hur du avgör vilken pris nivå för cache som ska användas finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -64,19 +64,19 @@ Förutom att skala dina cache-instanser i Azure Portal kan du skala med hjälp a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när egenskaperna `Size`, `Sku`, eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache `myCache` med namnet till en 2,5 GB-cache. 
+Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när `Size` `Sku` egenskaperna,, eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Mer information om skalning med PowerShell finns i [skala en Azure-cache för Redis med hjälp av PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Skala med Azure CLI
-Om du vill skala Azure-cachen för Redis-instanser med Azure `azure rediscache set` CLI anropar du kommandot och överför önskade konfigurations ändringar som innehåller en ny storlek, SKU eller kluster storlek, beroende på den önskade skalnings åtgärden.
+Om du vill skala Azure-cachen för Redis-instanser med Azure CLI anropar du `azure rediscache set` kommandot och överför önskade konfigurations ändringar som innehåller en ny storlek, SKU eller kluster storlek, beroende på den önskade skalnings åtgärden.
 
 Mer information om skalning med Azure CLI finns i [ändra inställningar för en befintlig Azure-cache för Redis](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Skala med MAML
-Om du vill skala Azure-cachen för Redis-instanser med hjälp av [Microsoft Azure hanterings bibliotek (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)anropar du `IRedisOperations.CreateOrUpdate` metoden och skickar `RedisProperties.SKU.Capacity`den nya storleken för.
+Om du vill skala Azure-cachen för Redis-instanser med hjälp av [Microsoft Azure hanterings bibliotek (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)anropar du `IRedisOperations.CreateOrUpdate` metoden och skickar den nya storleken för `RedisProperties.SKU.Capacity` .
 
     static void Main(string[] args)
     {
@@ -137,10 +137,10 @@ Nej, ditt cache-namn och nycklar är oförändrade under en skalnings åtgärd.
 Om du har konfigurerat ett anpassat värde för `databases` inställningen när du skapade cacheminnet bör du tänka på att vissa pris nivåer har olika [begränsningar i databasen](cache-configure.md#databases). Här följer några saker att tänka på när du skalar i det här scenariot:
 
 * Vid skalning till en pris nivå med en lägre `databases` gräns än den aktuella nivån:
-  * Om du använder standard antalet `databases`, som är 16 för alla pris nivåer, går inga data förlorade.
-  * Om du använder ett anpassat antal `databases` som ligger inom gränserna för nivån som du skalar till, behålls den här `databases` inställningen och inga data förloras.
-  * Om du använder ett anpassat antal `databases` som överskrider gränserna för den nya nivån, sänks `databases` inställningen till gränserna för den nya nivån och alla data i de borttagna databaserna går förlorade.
-* När du skalar till en pris nivå med samma eller `databases` högre gräns än den aktuella nivån, `databases` behålls inställningen och inga data förloras.
+  * Om du använder standard antalet `databases` , som är 16 för alla pris nivåer, går inga data förlorade.
+  * Om du använder ett anpassat antal `databases` som ligger inom gränserna för nivån som du skalar till, `databases` behålls den här inställningen och inga data förloras.
+  * Om du använder ett anpassat antal `databases` som överskrider gränserna för den nya nivån, `databases` sänks inställningen till gränserna för den nya nivån och alla data i de borttagna databaserna går förlorade.
+* När du skalar till en pris nivå med samma eller högre `databases` gräns än den aktuella nivån, `databases` behålls inställningen och inga data förloras.
 
 Även om standard-och Premium-cacheminnen har ett service avtal på 99,9% för tillgänglighet finns det inget service avtal för data förlust.
 

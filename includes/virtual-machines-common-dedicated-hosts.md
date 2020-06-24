@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128876"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902517"
 ---
 ## <a name="limitations"></a>Begränsningar
 
@@ -71,8 +71,7 @@ Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för 
 
 Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster.
 
-> [!NOTE]
->  Underhålls kontrollen är för närvarande en offentlig för hands version. Mer information finns i **styra uppdateringar med underhålls kontroll med [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) eller [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
+Mer information finns i [Hantera plattforms uppdateringar med underhålls kontroll](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## <a name="capacity-considerations"></a>Överväganden för kapaciteter
 

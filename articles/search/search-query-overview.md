@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282827"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130814"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Frågetyper och sammansättning i Azure Kognitiv sökning
 
-I Azure Kognitiv sökning är en fråga en fullständig specifikation av en tur och retur-åtgärd. Parametrar på begäran ger matchnings villkor för att hitta dokument i ett index, vilka fält som ska inkluderas eller exkluderas, körnings instruktioner som skickas till motorn och direktiv för att forma svaret. Ospecificerad (`search=*`), en fråga körs mot alla sökbara fält som en fullständig texts ökning och returnerar en resultat uppsättning i valfri ordning.
+I Azure Kognitiv sökning är en fråga en fullständig specifikation av en tur och retur-åtgärd. På begäran finns det parametrar som innehåller körnings instruktioner för motorn, samt parametrar som formar svaret som kommer tillbaka. Ospecificerad ( `search=*` ), utan matchnings villkor och använder null eller standard parametrar, en fråga körs mot alla sökbara fält som en fullständig texts ökning och returnerar en resultat uppsättning i valfri ordning.
 
-Följande exempel är en representativ fråga som konstruerats i [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Det här exemplet riktar sig till [hotell demonstrations indexet](search-get-started-portal.md) och inkluderar vanliga parametrar.
+Följande exempel är en representativ fråga som konstruerats i [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Det här exemplet riktar sig till [hotell demonstrations indexet](search-get-started-portal.md) och inkluderar vanliga parametrar så att du kan få en uppfattning om hur en fråga ser ut.
 
 ```
 {
@@ -35,25 +35,33 @@ Följande exempel är en representativ fråga som konstruerats i [REST API](http
 
 + **`queryType`** ställer in parsern, som är antingen [standardvärdet för enkel fråga](search-query-simple-examples.md) (optimal för full texts ökning) eller den [fullständiga Lucene-frågeuttrycket](search-query-lucene-examples.md) som används för avancerade fråge konstruktioner som reguljära uttryck, närhets sökning, fuzzy och jokertecken, för att ge några.
 
-+ **`search`** innehåller matchnings villkor, vanligt vis text men ofta tillsammans med booleska operatorer. Enstaka fristående villkor är *term* frågor. Quote – inneslutna frågor med flera delar är *viktiga fras* frågor. Sökningen kan vara odefinierad, som i **`search=*`**, men mer sannolikt består av termer, fraser och operatorer som liknar vad som visas i exemplet.
++ **`search`** innehåller matchnings villkor, vanligt vis hela termer eller fraser, men ofta åtföljs av booleska operatorer. Enstaka fristående villkor är *term* frågor. Quote-inneslutna frågor med flera delar är *fras* frågor. Sökningen kan vara odefinierad, som i **`search=*`** , men utan villkor att matcha på består resultat uppsättningen av godtyckligt valda dokument.
 
 + **`searchFields`** begränsar frågans körning till vissa fält. Alla fält som har attribut som *sökbara* i index schemat är en kandidat för den här parametern.
 
-Svar är också formade av de parametrar som du inkluderar i frågan. I exemplet består resultat uppsättningen av fält som anges i **`select`** instruktionen. Endast fält som är markerade som *hämtnings* bara kan användas i en $SELECT-instruktion. Dessutom returneras bara de **`top`** 10 träffarna i den här frågan, medan **`count`** visar hur många dokument som matchar övergripande, vilket kan vara mer än vad som returneras. I den här frågan sorteras rader efter klassificering i fallande ordning.
+Svar är också formade av de parametrar som du inkluderar i frågan:
+
++ **`select`** anger vilka fält som ska returneras i svaret. Endast fält som har marker ATS som *hämtnings* bara i indexet kan användas i en SELECT-instruktion.
+
++ **`top`** Returnerar det angivna antalet dokument med optimal matchning. I det här exemplet returneras bara 10 träffar. Du kan använda Top och SKIP (visas inte) för att visa resultatet.
+
++ **`count`** visar hur många dokument i hela indexet som matchar övergripande, vilket kan vara mer än vad som returneras. 
+
++ **`orderby`** används om du vill sortera resultaten efter ett värde, till exempel en klassificering eller plats. Annars är standardvärdet att använda relevans poängen för att rangordna resultat.
 
 I Azure Kognitiv sökning sker frågekörningen alltid mot ett index, autentiseras med hjälp av en API-nyckel som anges i begäran. I REST finns båda i begärandehuvuden.
 
 ### <a name="how-to-run-this-query"></a>Så här kör du den här frågan
 
-Använd [Sök Utforskaren och hotell demonstrations indexet](search-get-started-portal.md)för att köra den här frågan. 
+Innan du skriver någon kod kan du använda specialverktyg för att lära dig syntaxen och experimentera med olika parametrar. Den snabbaste metoden är det inbyggda Portal verktyget, [Sök Utforskaren](search-explorer.md).
 
-Du kan klistra in den här frågesträngen i Explorer-Sök fältet:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Om du har följt den här [snabb starten för att skapa hotell demonstrations indexet](search-get-started-portal.md)kan du klistra in frågesträngen i Explorers sökfält för att köra din första fråga:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Hur Query-åtgärder aktive ras av indexet
 
 Index design och fråge design är nära kopplade i Azure Kognitiv sökning. Ett viktigt faktum att känna sig fram är att *index schemat*, med attribut på varje fält, bestämmer vilken typ av fråga som du kan skapa. 
 
-Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökbart* i indexet, kan *hämtas* i resultat, *sorterbart*, *filtrerat*och så vidare. I exempel frågans sträng fungerar `"$orderby": "Rating"` endast eftersom fältet klassificering är markerat som *sorterbart* i index schemat. 
+Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökbart* i indexet, kan *hämtas* i resultat, *sorterbart*, *filtrerat*och så vidare. I exempel frågans sträng `"$orderby": "Rating"` fungerar endast eftersom fältet klassificering är markerat som *sorterbart* i index schemat. 
 
 ![Index definition för hotellet-exemplet](./media/search-query-overview/hotel-sample-index-definition.png "Index definition för hotellet-exemplet")
 
@@ -91,15 +99,15 @@ I följande tabell visas de API: er och verktyg baserade metoder för att skicka
 
 Azure Kognitiv sökning finns ovanpå Apache Lucene och ger dig ett val mellan två fråge tolkare för hantering av typiska och specialiserade frågor. Begär Anden som använder den enkla parsern formuleras med hjälp av den [enkla frågesyntaxen](query-simple-syntax.md), valt som standard för dess hastighet och effektivitet i text frågor med fri form. Den här syntaxen stöder ett antal vanliga Sök operatorer som operatörerna AND, OR, NOT, fras, suffix och prioritet.
 
-Den [fullständiga Lucene-frågesyntaxen](query-Lucene-syntax.md#bkmk_syntax), som aktive ras `queryType=full` när du lägger till begäran, exponerar det vanligaste och lättfattliga programspecifika-frågespråket som utvecklats som en del av [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Fullständig syntax utökar den enkla syntaxen. Alla frågor som du skriver för den enkla syntaxen körs under hela Lucene-parsern. 
+Den [fullständiga Lucene-frågesyntaxen](query-Lucene-syntax.md#bkmk_syntax), som aktive ras när du lägger till `queryType=full` begäran, exponerar det vanligaste och lättfattliga programspecifika-frågespråket som utvecklats som en del av [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Fullständig syntax utökar den enkla syntaxen. Alla frågor som du skriver för den enkla syntaxen körs under hela Lucene-parsern. 
 
-I följande exempel visas punkten: samma fråga, men med olika inställningar för queryType ger det olika resultat. I den första frågan behandlas `^3` efter `historic` som en del av Sök termen. Det översta resultatet för den här frågan är "Marquis Plaza & Suitess", som har *10 i beskrivningen*
+I följande exempel visas punkten: samma fråga, men med olika inställningar för queryType ger det olika resultat. I den första frågan `^3` `historic` behandlas efter som en del av Sök termen. Det översta resultatet för den här frågan är "Marquis Plaza & Suitess", som har *10 i beskrivningen*
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-Samma fråga `^3` som använder den fullständiga Lucene-parsern tolkar som en term förstärkning i fält. När du växlar parser ändras rangordningen, med resultat som innehåller den *historiska* termen flytta högst upp.
+Samma fråga som använder den fullständiga Lucene-parsern tolkar `^3` som en term förstärkning i fält. När du växlar parser ändras rangordningen, med resultat som innehåller den *historiska* termen flytta högst upp.
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -113,7 +121,7 @@ Azure Kognitiv sökning stöder ett brett utbud av frågetyper.
 
 | Frågetyp | Användning | Exempel och mer information |
 |------------|--------|-------------------------------|
-| Texts ökning med fritext | Sök parameter och antingen parser| Fullständig texts ökning söker efter en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig att en sökmotor som Google eller Bing fungerar. Exemplet i introduktionen är full texts ökning.<br/><br/>Full texts ökning underbörjar text analys med hjälp av standard Lucene Analyzer (som standard) till gemener alla villkor, ta bort stoppord som "The". Du kan åsidosätta standardvärdet med [icke-engelska analyserare](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade oberoende-analyser](index-add-custom-analyzers.md#AnalyzerTable) som ändrar text analyser. Ett exempel är ett [nyckelord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar hela innehållet i ett fält som en enskild token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn. | 
+| Texts ökning med fritext | Sök parameter och antingen parser| Fullständig texts ökning söker efter en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig att en sökmotor som Google eller Bing fungerar. Exemplet i introduktionen är full texts ökning.<br/><br/>Full texts ökning underbörjar lexikal analys med hjälp av standard Lucene Analyzer (som standard) för att sänka alla villkor, ta bort stoppord som "The". Du kan åsidosätta standardvärdet med [icke-engelska analyserare](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade oberoende-analyser](index-add-custom-analyzers.md#AnalyzerTable) som ändrar lexikalisk analys. Ett exempel är ett [nyckelord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar hela innehållet i ett fält som en enskild token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn. | 
 | Filtrerad sökning | [OData filter-uttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filter frågor utvärderar ett booleskt uttryck över alla *filter* bara fält i ett index. Till skillnad från sökningen matchar en filter fråga det exakta innehållet i ett fält, inklusive Skift läges känslighet i sträng fält. En annan skillnad är att filter frågor uttrycks i OData-syntax. <br/>[Exempel på filter uttryck](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-sökning | [EDM. GeographyPoint-typ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fältet, filter uttrycket och antingen parsern | Koordinater som lagras i ett fält med en EDM. GeographyPoint används för "hitta nära mig" eller mappbaserade Sök kontroller. <br/>[Exempel på Geo-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Intervalls ökning | filter uttryck och enkel parser | I Azure Kognitiv sökning skapas intervall frågor med hjälp av filter parametern. <br/>[Exempel på intervall filter](search-query-simple-examples.md#example-4-range-filters) | 
@@ -122,7 +130,7 @@ Azure Kognitiv sökning stöder ett brett utbud av frågetyper.
 | [närhets sökning](query-lucene-syntax.md#bkmk_proximity) | Sök parameter och fullständig parser | Söker efter termer som är nära varandra i ett dokument. <br/>[Exempel på närhet](search-query-lucene-examples.md#example-4-proximity-search) |
 | [term förstärkning](query-lucene-syntax.md#bkmk_termboost) | Sök parameter och fullständig parser | Rangordna ett dokument högre om det innehåller den ökade termen, i förhållande till andra som inte är det. <br/>[Exempel på term förstärkning](search-query-lucene-examples.md#example-5-term-boosting) |
 | [sökning efter reguljära uttryck](query-lucene-syntax.md#bkmk_regex) | Sök parameter och fullständig parser | Matchningar baserat på innehållet i ett reguljärt uttryck. <br/>[Exempel på reguljära uttryck](search-query-lucene-examples.md#example-6-regex) |
-|  [sökning med jokertecken eller prefix](query-lucene-syntax.md#bkmk_wildcard) | Sök parameter och fullständig parser | Matchar baserat på ett prefix och tilde (`~`) eller ett enskilt tecken`?`(). <br/>[Sök exempel i jokertecken](search-query-lucene-examples.md#example-7-wildcard-search) |
+|  [sökning med jokertecken eller prefix](query-lucene-syntax.md#bkmk_wildcard) | Sök parameter och fullständig parser | Matchar baserat på ett prefix och tilde ( `~` ) eller ett enskilt tecken ( `?` ). <br/>[Sök exempel i jokertecken](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="manage-search-results"></a>Hantera Sök Resultat 
 
@@ -141,10 +149,10 @@ Ibland är ämnet och inte resultat strukturen oväntade. När frågans resultat
 
 + Ändra **`searchMode=any`** (standard) om **`searchMode=all`** du vill kräva matchningar för alla kriterier i stället för något av villkoren. Detta gäller särskilt när booleska operatorer ingår i frågan.
 
-+ Ändra frågans teknik om text-eller lexikalisk analys är nödvändig, men typen av fråga utesluter språklig bearbetning. I full texts ökning korrigeras text eller lexikala analyser automatiskt för stavnings fel, singular-pluraling-formulär och även oregelbundna verb eller substantiv. För vissa frågor, till exempel fuzzy eller jokertecken, är text analyser inte en del av pipelinen för analys av frågor. I vissa fall har reguljära uttryck använts som en lösning. 
++ Ändra frågans teknik om text-eller lexikalisk analys är nödvändig, men typen av fråga utesluter språklig bearbetning. I full texts ökning korrigeras text eller lexikala analyser automatiskt för stavnings fel, singular-pluraling-formulär och även oregelbundna verb eller substantiv. För vissa frågor, till exempel fuzzy eller jokertecken, är lexikalisk analys inte en del av pipelinen för frågekörning. I vissa fall har reguljära uttryck använts som en lösning. 
 
 ### <a name="paging-results"></a>Växla resultat
-Med Azure Kognitiv sökning är det enkelt att implementera sid indelning för Sök resultat. Genom att använda **`top`** - **`skip`** och-parametrarna kan du smidigt utfärda Sök begär Anden som gör att du kan ta emot den totala uppsättningen Sök resultat i hanterbara, ordnade del mängder som gör det enkelt att snabbt aktivera lämpliga Sök gränssnitts metoder. När du tar emot dessa mindre delmängder med resultat kan du också se antalet dokument i den fullständiga uppsättningen sökresultat.
+Med Azure Kognitiv sökning är det enkelt att implementera sid indelning för Sök resultat. Genom att använda **`top`** **`skip`** -och-parametrarna kan du smidigt utfärda Sök begär Anden som gör att du kan ta emot den totala uppsättningen Sök resultat i hanterbara, ordnade del mängder som gör det enkelt att snabbt aktivera lämpliga Sök gränssnitts metoder. När du tar emot dessa mindre delmängder med resultat kan du också se antalet dokument i den fullständiga uppsättningen sökresultat.
 
 Du kan lära dig mer om sid öknings resultat i artikeln [så här hittar du sid Sök resultat i Azure kognitiv sökning](search-pagination-page-layout.md).
 
@@ -155,7 +163,7 @@ Om du vill att Azure Kognitiv sökning returnerar dina resultat sorterade efter 
 
 
 ### <a name="hit-highlighting"></a>Träffmarkering
-I Azure kognitiv sökning är det enkelt att framhäva den EXAKTA delen av Sök resultaten som matchar Sök frågan med parametrarna **`highlight`**, **`highlightPreTag`** och. **`highlightPostTag`** Du kan ange vilka *sökbara* fält som ska framhävas och ange de exakta sträng taggarna som ska läggas till i början och slutet av den matchade text som Azure kognitiv sökning returnerar.
+I Azure Kognitiv sökning är det enkelt att framhäva den EXAKTA delen av Sök resultaten som matchar Sök frågan med **`highlight`** **`highlightPreTag`** parametrarna, och **`highlightPostTag`** . Du kan ange vilka *sökbara* fält som ska framhävas och ange de exakta sträng taggarna som ska läggas till i början och slutet av den matchade text som Azure kognitiv sökning returnerar.
 
 ## <a name="see-also"></a>Se även
 

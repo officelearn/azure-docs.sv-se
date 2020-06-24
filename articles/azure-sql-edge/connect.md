@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c6dbd628b4c271815c0210f93d776338cb01275
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669689"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252652"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Anslut och fråga Azure SQL Edge (för hands version)
 
-När du har distribuerat en behållare i Azure SQL Edge kan du ansluta till SQL Database-motorn från någon av följande platser:
+När du har distribuerat en behållare i Azure SQL Edge kan du ansluta till databas motorn från någon av följande platser:
 
 - Inuti behållaren
 - Från en annan Docker-behållare som körs på samma värd

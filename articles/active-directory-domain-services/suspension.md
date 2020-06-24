@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 42b26911c12b1e7c62444a6fb2ee68720b02a56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654595"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734290"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
 
@@ -26,20 +26,20 @@ I den här artikeln förklaras varför hanterade domäner har pausats och hur du
 
 ## <a name="overview-of-managed-domain-states"></a>Översikt över hanterade domän tillstånd
 
-Genom livs cykeln för en Azure AD DS-hanterad domän finns det olika tillstånd som indikerar dess hälsa. Om den hanterade domänen rapporterar ett problem kan du snabbt lösa den underliggande orsaken för att stoppa statusen från att fortsätta försämras.
+Genom livs cykeln för en hanterad domän finns det olika tillstånd som indikerar dess hälsa. Om den hanterade domänen rapporterar ett problem kan du snabbt lösa den underliggande orsaken för att stoppa statusen från att fortsätta försämras.
 
-![Förloppet för tillstånd som en Azure AD DS-hanterad domän tar mot SUS Pension](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+![Förloppet för tillstånd som en hanterad domän tar mot SUS Pension](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-En Azure AD DS-hanterad domän kan vara i något av följande tillstånd:
+En hanterad domän kan vara i något av följande tillstånd:
 
 * [Körs](#running-state)
 * [Kräver åtgärd](#needs-attention-state)
 * [Inaktiverad](#suspended-state)
-* [Borttaget](#deleted-state)
+* [Borttagen](#deleted-state)
 
 ## <a name="running-state"></a>Kör tillstånd
 
-En Azure AD DS-hanterad domän som är korrekt konfigurerad och körs utan problem är i *körnings* tillstånd. Detta är det önskade läget för en hanterad domän.
+En hanterad domän som är korrekt konfigurerad och körs utan problem är i *körnings* läge. Detta är det önskade läget för en hanterad domän.
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
@@ -50,15 +50,15 @@ En Azure AD DS-hanterad domän som är korrekt konfigurerad och körs utan probl
 
 ## <a name="needs-attention-state"></a>Kräver Attention-tillstånd
 
-En Azure AD DS-hanterad domän med ett eller flera problem som måste åtgärdas är i *Åtgärds läget krav* . Sidan hälso tillstånd för den hanterade domänen visar aviseringarna och visar var det finns ett problem. Vissa aviseringar är tillfälliga och löses automatiskt av Azure-plattformen. För andra aviseringar kan du åtgärda problemet genom att följa de lösnings steg som anges. Det finns en kritisk varning. [öppna en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+En hanterad domän med ett eller flera problem som måste åtgärdas är i *Åtgärds läget krav* . Sidan hälso tillstånd för den hanterade domänen visar aviseringarna och visar var det finns ett problem. Vissa aviseringar är tillfälliga och löses automatiskt av Azure-plattformen. För andra aviseringar kan du åtgärda problemet genom att följa de lösnings steg som anges. Det finns en kritisk varning. [öppna en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 Ett exempel på en avisering är när det finns en begränsande nätverks säkerhets grupp. I den här konfigurationen kanske inte Azure-plattformen kan uppdatera och övervaka den hanterade domänen. En avisering genereras och statusen ändras till *kräver en åtgärd*.
 
-Mer information finns i [Felsöka aviseringar för en hanterad Azure AD DS-domän][resolve-alerts].
+Mer information finns i [fel sökning av aviseringar för en hanterad domän][resolve-alerts].
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
-När en Azure AD DS-hanterad domän är i *krav* kontroll, kanske inte Azure-plattformen kan övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, t. ex. med en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
+När en hanterad domän är i *behovs* känslig status kan Azure-plattformen kanske inte övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, t. ex. med en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
 
 * Den hanterade domänen är i ett ohälsosamt tillstånd och pågående hälso övervakning kan sluta tills aviseringen har åtgärd ATS.
 * Domänkontrollanter för den hanterade domänen kan inte korrigeras eller uppdateras.
@@ -69,7 +69,7 @@ När en Azure AD DS-hanterad domän är i *krav* kontroll, kanske inte Azure-pla
 
 ## <a name="suspended-state"></a>Inaktiverat tillstånd
 
-En Azure AD DS-hanterad domän går in i tillståndet **suspendd** av någon av följande orsaker:
+En hanterad domän övergår i **pausat** tillstånd av någon av följande anledningar:
 
 * En eller flera kritiska aviseringar har inte lösts på 15 dagar.
     * Kritiska aviseringar kan orsakas av en felaktig konfiguration som blockerar åtkomst till resurser som krävs av Azure AD DS. Till exempel är aviseringen [AADDS104: nätverks felet][alert-nsg] har olösts på över 15 dagar i den hanterade domänen.
@@ -79,7 +79,7 @@ Hanterade domäner pausas när Azure-plattformen inte kan hantera, övervaka, ko
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
-Följande problem uppstår när en Azure AD DS-hanterad domän är i tillståndet *Suspended* :
+Följande beteende uppstår när en hanterad domän är i tillståndet *Suspended* :
 
 * Domän kontrol Lanterna för den hanterade domänen är avetablerade och går inte att komma åt i det virtuella nätverket.
 * Säkert LDAP åtkomst till den hanterade domänen via Internet, om aktive rad, slutar fungera.
@@ -93,10 +93,10 @@ Du ser en [avisering][resolve-alerts] på sidan Azure AD DS Health i den Azure P
 
 ### <a name="restore-a-suspended-domain"></a>Återställa en pausad domän
 
-Slutför följande steg för att återställa hälso tillståndet för en Azure AD DS-hanterad domän som har tillståndet *Suspended* :
+Slutför följande steg för att återställa hälsan för en hanterad domän som har tillståndet *Suspended* :
 
 1. Sök efter och välj **domän tjänster**i Azure Portal.
-1. Välj din Azure AD DS-hanterade domän i listan, till exempel *aaddscontoso.com*, och välj sedan **hälsa**.
+1. Välj din hanterade domän i listan, t. ex. *aaddscontoso.com*, och välj sedan **hälsa**.
 1. Välj aviseringen, till exempel *AADDS503* eller *AADDS504*, beroende på orsaken till SUS pensionen.
 1. Välj den upplösnings länk som anges i aviseringen och följ stegen för att lösa problemet.
 
@@ -106,11 +106,11 @@ När du har löst aviseringar när den hanterade domänen är i *paus* läge [ö
 
 ## <a name="deleted-state"></a>Borttaget läge
 
-Om en Azure AD DS-hanterad domän förblir i *pausat* tillstånd i 15 dagar tas den bort. Den här processen kan inte återställas.
+Om en hanterad domän förblir i *pausat* tillstånd i 15 dagar tas den bort. Den här processen kan inte återställas.
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
-När en Azure AD DS-hanterad domän går in i det *borttagna* läget visas följande:
+När en hanterad domän går in i det *borttagna* läget visas följande:
 
 * Alla resurser och säkerhets kopior för den hanterade domänen tas bort.
 * Du kan inte återställa den hanterade domänen och du måste skapa en ersättande hanterad domän för åter användning av Azure AD DS.
@@ -118,7 +118,7 @@ När en Azure AD DS-hanterad domän går in i det *borttagna* läget visas följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill att din Azure AD DS-hanterade domän ska vara felfritt och minimera risken för att den blir pausad, lär du dig att [lösa aviseringar för din hanterade domän][resolve-alerts]
+Om du vill hålla din hanterade domän felfri och minimera risken för att den blir pausad, lär du dig hur du [löser aviseringar för din hanterade domän][resolve-alerts].
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md

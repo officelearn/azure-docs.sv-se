@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: d2108b4c6b81675e2df6789d412dbd7d36f58a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e725fb483afed0f126248737c2e9121ce823a45
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655116"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734698"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän med hjälp av en Resource Manager-mall
 
@@ -33,14 +33,14 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
-* Ett användar konto som är en del av den hanterade Azure AD DS-domänen.
+    * Vid behov skapar och konfigurerar den första självstudien [en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
+* Ett användar konto som är en del av den hanterade domänen.
 
 ## <a name="azure-resource-manager-template-overview"></a>Översikt över Azure Resource Manager mall
 
 Med Resource Manager-mallar kan du definiera Azure-infrastruktur i kod. De resurser, nätverks anslutningar eller konfigurationer som krävs för virtuella datorer kan alla definieras i en mall. Dessa mallar skapar konsekventa, reproducerbara distributioner varje tillfälle och kan installeras när du gör ändringar. Mer information finns i [Översikt över Azure Resource Manager mallar][template-overview].
 
-Varje resurs definieras i en mall med hjälp av JavaScript Object Notation (JSON). Följande JSON-exempel använder resurs typen *Microsoft. Compute/virtualMachines/Extensions* för att installera Active Directory domän anslutnings tillägget. Parametrar används som du anger vid distributions tiden. När tillägget distribueras är den virtuella datorn ansluten till den angivna Azure AD DS-hanterade domänen.
+Varje resurs definieras i en mall med hjälp av JavaScript Object Notation (JSON). Följande JSON-exempel använder resurs typen *Microsoft. Compute/virtualMachines/Extensions* för att installera Active Directory domän anslutnings tillägget. Parametrar används som du anger vid distributions tiden. När tillägget distribueras är den virtuella datorn ansluten till den angivna hanterade domänen.
 
 ```json
  {
@@ -77,63 +77,63 @@ Detta VM-tillägg kan distribueras även om du inte skapar en virtuell dator i s
 
 ## <a name="create-a-windows-server-vm-and-join-to-a-managed-domain"></a>Skapa en virtuell Windows Server-dator och ansluta till en hanterad domän
 
-Om du behöver en virtuell Windows Server-dator kan du skapa och konfigurera en med hjälp av en Resource Manager-mall. När den virtuella datorn distribueras installeras ett tillägg för att ansluta den virtuella datorn till en hanterad Azure AD DS-domän. Om du redan har en virtuell dator som du vill ansluta till en Azure AD DS-hanterad domän, hoppar du över att [ansluta en befintlig virtuell Windows Server-dator till en hanterad domän](#join-an-existing-windows-server-vm-to-a-managed-domain).
+Om du behöver en virtuell Windows Server-dator kan du skapa och konfigurera en med hjälp av en Resource Manager-mall. När den virtuella datorn distribueras installeras ett tillägg för att ansluta den virtuella datorn till en hanterad domän. Om du redan har en virtuell dator som du vill ansluta till en hanterad domän, hoppar du över att [ansluta en befintlig virtuell Windows Server-dator till en hanterad domän](#join-an-existing-windows-server-vm-to-a-managed-domain).
 
-Om du vill skapa en virtuell Windows Server-dator ansluter du den till en hanterad Azure AD DS-domän och utför följande steg:
+Om du vill skapa en virtuell Windows Server-dator ansluter du den till en hanterad domän och utför följande steg:
 
 1. Bläddra till [snabb starts mal len](https://azure.microsoft.com/resources/templates/201-vm-domain-join/). Välj alternativet för att **distribuera till Azure**.
-1. På sidan **Anpassad distribution** anger du följande information för att skapa och ansluta en virtuell Windows Server-dator till den hanterade domänen för Azure AD DS:
+1. På sidan **Anpassad distribution** anger du följande information för att skapa och ansluta en virtuell Windows Server-dator till den hanterade domänen:
 
-    | Inställning                   | Värde |
+    | Inställningen                   | Värde |
     |---------------------------|-------|
     | Prenumeration              | Välj samma Azure-prenumeration där du har aktiverat Azure AD Domain Services. |
     | Resursgrupp            | Välj resurs grupp för den virtuella datorn. |
-    | Plats                  | Välj platsen för den virtuella datorn. |
+    | Location                  | Välj platsen för den virtuella datorn. |
     | Befintligt VNET-namn        | Namnet på det befintliga virtuella nätverket för att ansluta den virtuella datorn till, till exempel *myVnet*. |
     | Befintligt under näts namn      | Namnet på det befintliga under nätet för virtuella nätverk, till exempel *arbets belastningar*. |
     | DNS-etikett-prefix          | Ange ett DNS-namn som ska användas för den virtuella datorn, till exempel *myvm*. |
     | Storlek på virtuell dator                   | Ange en storlek på virtuell dator, t. ex. *Standard_DS2_v2*. |
-    | Domän att ansluta till            | DNS-namnet för den hanterade domänen i Azure AD DS, till exempel *aaddscontoso.com*. |
-    | Domän användar namn           | Användar kontot i den hanterade Azure AD DS-domänen som ska användas för att ansluta den virtuella datorn till den hanterade domänen `contosoadmin@aaddscontoso.com`, till exempel. Det här kontot måste ingå i den hanterade domänen för Azure AD DS. |
+    | Domän att ansluta till            | DNS-namnet för den hanterade domänen, till exempel *aaddscontoso.com*. |
+    | Domän användar namn           | Användar kontot i den hanterade domänen som ska användas för att ansluta den virtuella datorn till den hanterade domänen, till exempel `contosoadmin@aaddscontoso.com` . Det här kontot måste vara en del av den hanterade domänen. |
     | Domän lösen ord           | Lösen ordet för det användar konto som anges i föregående inställning. |
     | Valfri OU-sökväg          | Den anpassade ORGANISATIONSENHETen där den virtuella datorn ska läggas till. Om du inte anger ett värde för den här parametern läggs den virtuella datorn till i ou för *AAD DC-datorer* . |
     | Användar namn för administratör för virtuell dator         | Ange ett lokalt administratörs konto som ska skapas på den virtuella datorn. |
     | Administratörs lösen ord för virtuell dator         | Ange ett lokalt administratörs lösen ord för den virtuella datorn. Skapa ett starkt lokalt administratörs lösen ord för att skydda mot lösen ords bruten angrepp. |
 
-1. Granska villkoren och markera sedan kryss rutan för **Jag accepterar villkoren ovan**. När du är klar väljer du **köp** för att skapa och ansluta den virtuella datorn till den hanterade Azure AD DS-domänen.
+1. Granska villkoren och markera sedan kryss rutan för **Jag accepterar villkoren ovan**. När du är klar väljer du **köp** för att skapa och ansluta den virtuella datorn till den hanterade domänen.
 
 > [!WARNING]
 > **Hantera lösen ord med försiktighet.**
-> Mallens parameter fil begär lösen ordet för ett användar konto som är en del av den hanterade domänen i Azure AD DS. Ange inte värden manuellt i filen och lämna den tillgänglig på fil resurser eller andra delade platser.
+> Mallens parameter fil begär lösen ordet för ett användar konto som är en del av den hanterade domänen. Ange inte värden manuellt i filen och lämna den tillgänglig på fil resurser eller andra delade platser.
 
-Det tar några minuter för distributionen att slutföras. När den är färdig skapas en virtuell Windows-dator som är ansluten till den hanterade domänen i Azure AD DS. Den virtuella datorn kan hanteras eller loggas in i med domän konton.
+Det tar några minuter för distributionen att slutföras. När du är färdig skapas en virtuell Windows-dator som är ansluten till den hanterade domänen. Den virtuella datorn kan hanteras eller loggas in i med domän konton.
 
 ## <a name="join-an-existing-windows-server-vm-to-a-managed-domain"></a>Anslut en befintlig virtuell Windows Server-dator till en hanterad domän
 
-Om du har en befintlig virtuell dator eller grupp med virtuella datorer som du vill ansluta till en hanterad Azure AD DS-domän, kan du använda en Resource Manager-mall för att bara distribuera VM-tillägget.
+Om du har en befintlig virtuell dator eller grupp med virtuella datorer som du vill ansluta till en hanterad domän, kan du använda en Resource Manager-mall för att bara distribuera VM-tillägget.
 
-Slutför följande steg för att ansluta en befintlig virtuell Windows Server-dator till en Azure AD DS-hanterad domän:
+Slutför följande steg för att ansluta en befintlig virtuell Windows Server-dator till en hanterad domän:
 
 1. Bläddra till [snabb starts mal len](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Välj alternativet för att **distribuera till Azure**.
-1. På sidan **Anpassad distribution** anger du följande information för att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen:
+1. På sidan **Anpassad distribution** anger du följande information för att ansluta den virtuella datorn till den hanterade domänen:
 
-    | Inställning                   | Värde |
+    | Inställningen                   | Värde |
     |---------------------------|-------|
     | Prenumeration              | Välj samma Azure-prenumeration där du har aktiverat Azure AD Domain Services. |
     | Resursgrupp            | Välj resurs gruppen med din befintliga virtuella dator. |
-    | Plats                  | Välj plats för den befintliga virtuella datorn. |
-    | VM-lista                   | Ange den kommaavgränsade listan över de befintliga virtuella datorerna för att ansluta till den hanterade Azure AD DS-domänen, till exempel *myVM1, myVM2*. |
-    | Användar namn för domän anslutning     | Användar kontot i den hanterade Azure AD DS-domänen som ska användas för att ansluta den virtuella datorn till den hanterade domänen `contosoadmin@aaddscontoso.com`, till exempel. Det här kontot måste ingå i den hanterade domänen för Azure AD DS. |
+    | Location                  | Välj plats för den befintliga virtuella datorn. |
+    | VM-lista                   | Ange den kommaavgränsade listan över de befintliga virtuella datorerna för att ansluta till den hanterade domänen, till exempel *myVM1, myVM2*. |
+    | Användar namn för domän anslutning     | Användar kontot i den hanterade domänen som ska användas för att ansluta den virtuella datorn till den hanterade domänen, till exempel `contosoadmin@aaddscontoso.com` . Det här kontot måste vara en del av den hanterade domänen. |
     | Användar lösen ord för domän anslutning | Lösen ordet för det användar konto som anges i föregående inställning. |
     | Valfri OU-sökväg          | Den anpassade ORGANISATIONSENHETen där den virtuella datorn ska läggas till. Om du inte anger ett värde för den här parametern läggs den virtuella datorn till i ou för *AAD DC-datorer* . |
 
-1. Granska villkoren och markera sedan kryss rutan för **Jag accepterar villkoren ovan**. När du är klar väljer du **köp** för att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen.
+1. Granska villkoren och markera sedan kryss rutan för **Jag accepterar villkoren ovan**. När du är klar väljer du **köp** för att ansluta den virtuella datorn till den hanterade domänen.
 
 > [!WARNING]
 > **Hantera lösen ord med försiktighet.**
-> Mallens parameter fil begär lösen ordet för ett användar konto som är en del av den hanterade domänen i Azure AD DS. Ange inte värden manuellt i filen och lämna den tillgänglig på fil resurser eller andra delade platser.
+> Mallens parameter fil begär lösen ordet för ett användar konto som är en del av den hanterade domänen. Ange inte värden manuellt i filen och lämna den tillgänglig på fil resurser eller andra delade platser.
 
-Det tar en stund innan distributionen har slutförts. När du är färdig är de angivna virtuella Windows-datorerna anslutna till den hanterade domänen i Azure AD DS och kan hanteras eller loggas in i med domän konton.
+Det tar en stund innan distributionen har slutförts. När du är färdig är de angivna virtuella Windows-datorerna anslutna till den hanterade domänen och kan hanteras eller loggas in i med domän konton.
 
 ## <a name="next-steps"></a>Nästa steg
 

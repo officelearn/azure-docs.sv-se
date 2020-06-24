@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22743a1e202ac26d95cf4a48cb58b2a2418e9f0c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743444"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734189"
 ---
-# <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsöka problem med konto utelåsning med en Azure AD Domain Services hanterad domän
+# <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka problem med konto utelåsning med en Azure Active Directory Domain Services hanterad domän
 
-För att förhindra upprepade skadliga inloggnings försök låser Azure AD DS konton efter ett definierat tröskelvärde. Den här konto utelåsning kan också inträffa av en olycka utan en inloggnings attack. Om en användare till exempel ofta anger fel lösen ord eller om en tjänst försöker använda ett gammalt lösen ord, blir kontot utelåst.
+För att förhindra upprepade skadliga inloggnings försök låser Azure Active Directory Domain Services (Azure AD DS) konton efter ett definierat tröskelvärde. Den här konto utelåsning kan också inträffa av en olycka utan en inloggnings attack. Om en användare till exempel ofta anger fel lösen ord eller om en tjänst försöker använda ett gammalt lösen ord, blir kontot utelåst.
 
 Den här fel söknings artikeln beskriver hur konto utelåsning sker och hur du kan konfigurera beteendet och hur du granskar säkerhets granskningar för att felsöka utelåsnings händelser.
 
@@ -33,9 +33,9 @@ Standard tröskelvärdena för konto utelåsning konfigureras med detaljerade l�
 
 ### <a name="fine-grained-password-policy"></a>Detaljerad lösen ords princip
 
-Med detaljerade lösen ords principer (FGPP) kan du använda vissa begränsningar för lösen ord och konto utelåsnings principer för olika användare i en domän. FGPP påverkar endast användare i en Azure AD DS-hanterad domän. Moln användare och domän användare som synkroniseras till den hanterade Azure AD DS-domänen från Azure AD påverkas bara av lösen ords principerna i Azure AD DS. Deras konton i Azure AD eller i en lokal katalog påverkas inte.
+Med detaljerade lösen ords principer (FGPP) kan du använda vissa begränsningar för lösen ord och konto utelåsnings principer för olika användare i en domän. FGPP påverkar endast användare inom en hanterad domän. Moln användare och domän användare som synkroniseras till den hanterade Azure AD DS-domänen från Azure AD påverkas bara av lösen ords principerna i Azure AD DS. Deras konton i Azure AD eller i en lokal katalog påverkas inte.
 
-Principer distribueras via grupp associationen i den hanterade domänen i Azure AD DS, och alla ändringar du gör tillämpas vid nästa användar inloggning. Att ändra principen låser inte upp ett användar konto som redan är låst.
+Principer distribueras via grupp associationen i den hanterade domänen och eventuella ändringar som du gör tillämpas vid nästa användar inloggning. Att ändra principen låser inte upp ett användar konto som redan är låst.
 
 Mer information om detaljerade lösen ords principer och skillnaderna mellan användare som skapats direkt i Azure AD DS jämfört med att synkroniseras i från Azure AD finns i [Konfigurera principer för lösen ord och konto utelåsning][configure-fgpp].
 
@@ -88,7 +88,7 @@ AADDomainServicesAccountManagement
 
 Mer information om detaljerade lösen ords principer för att justera konto utelåsnings tröskelvärden finns i [Konfigurera principer för lösen ord och konto utelåsning][configure-fgpp].
 
-Om du fortfarande har problem med att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen kan du [hitta hjälp och öppna ett support ärende för Azure Active Directory][azure-ad-support].
+Om du fortfarande har problem med att ansluta den virtuella datorn till den hanterade domänen kan du [hitta hjälp och öppna ett support ärende för Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md

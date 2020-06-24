@@ -2,23 +2,22 @@
 title: Publicera lokala appar med Azure AD-programproxy
 description: Ta reda på varför du kan använda Application Proxy för att publicera lokala webb program externt för fjärran vändare. Lär dig mer om arkitektur, anslutningar, autentiseringsmetoder och säkerhets förmåner i Application Proxy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196456"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976514"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -89,7 +88,7 @@ Det finns flera sätt att konfigurera ett program för enkel inloggning och den 
 * Webbprogram
 * Webb-API: er som du vill exponera för rika program på olika enheter
 * Program som finns bakom en fjärr skrivbords-Gateway
-* Rika klient program som är integrerade med Active Directory-autentiseringsbibliotek (ADAL)
+* Rika klient program som är integrerade med [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 App proxy fungerar med appar som använder följande interna autentiseringsprotokoll:
 

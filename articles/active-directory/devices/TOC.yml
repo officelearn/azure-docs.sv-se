@@ -35,6 +35,8 @@
 - name: Anvisningar
   expanded: false
   items:
+    - Name: Planera enhetshanteringen för Azure AD
+      href: plan-device-deployment.md
     - name: Planera implementeringen av Azure AD-anslutningen
       href: azureadjoin-plan.md
     - name: Tilldela lokala administratörer till Azure AD-anslutna enheter

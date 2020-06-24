@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803491"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976073"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metod tips för programutvecklare för att hantera resurser i Azure Kubernetes service (AKS)
 
@@ -76,9 +76,7 @@ Mer information om resurs mått och tilldelningar finns i [hantera beräknings r
 
 **Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av dev Spaces. Den här utvecklings modellen ser till att rollbaserade åtkomst kontroller, nätverk eller lagrings behov implementeras innan appen distribueras till produktion.
 
-Med Azure dev Spaces kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för dev Spaces som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster:
-
-![Felsöka program i ett AKS-kluster med dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Med Azure dev Spaces kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för dev Spaces som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster.
 
 Den här integrerade utvecklings-och test processen med dev-utrymmen minskar behovet av lokala test miljöer, till exempel [minikube][minikube]. I stället kan du utveckla och testa mot ett AKS-kluster. Klustret kan skyddas och isoleras enligt föregående avsnitt om användningen av namn områden för att logiskt isolera ett kluster. När dina appar är klara att distribueras till produktion kan du på ett säkert sätt distribuera allt eftersom din utveckling genomfördes mot ett verkligt AKS-kluster.
 
@@ -94,13 +92,13 @@ Azure dev Spaces är avsett att användas med program som körs på Linux-poddar
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Sök regelbundet efter program problem med Kube-Advisor
 
-**Vägledning för bästa praxis** – kör regelbundet den senaste versionen `kube-advisor` av verktyget för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, `kube-advisor` kör först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
+**Vägledning för bästa praxis** – kör regelbundet den senaste versionen av `kube-advisor` verktyget för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
 
 Verktyget [Kube-Advisor][kube-advisor] är ett associerat AKS-projekt med öppen källkod som söker igenom ett Kubernetes-kluster och rapporterar om problem som hittas. En bra kontroll är att identifiera poddar som inte har resurs begär Anden och begränsningar på plats.
 
 Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i PodSpecs för Windows-program och Linux-program, men Kube-Advisor-verktyget måste vara schemalagt för en Linux-pod. Du kan schemalägga en POD så att den körs på en adresspool med ett särskilt operativ system med hjälp av en [Node-selektor][k8s-node-selector] i pod-konfigurationen.
 
-I ett AKS-kluster som är värd för många utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar att du regelbundet kör `kube-advisor` dina AKS-kluster.
+I ett AKS-kluster som är värd för många utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar `kube-advisor` att du regelbundet kör dina AKS-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -119,7 +117,7 @@ Information om hur du implementerar några av dessa metod tips finns i följande
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

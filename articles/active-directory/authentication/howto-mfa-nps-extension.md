@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f5c93e35b2a9124ac6d480b3719608ee3b4484a5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 681b81fa7f6ce74f7e48eb518a2c951e94c4b00d
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554832"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789540"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar dirigerar autentiseringsbegäranden, så de måste vara medvetna om de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 NPS-tillägget är avsett att fungera med din befintliga infrastruktur. Kontrol lera att du har följande krav innan du börjar.
 
@@ -165,7 +165,7 @@ Använd de här stegen för att få ett test konto startat:
 
 1. [Ladda ned NPS-tillägget](https://aka.ms/npsmfa) från Microsoft Download Center.
 2. Kopiera binärfilen till den nätverks princip server som du vill konfigurera.
-3. Kör *Setup. exe* och följ installations anvisningarna. Om du stöter på fel, kontrol lera att de två biblioteken från avsnittet förutsättning har installerats.
+3. Kör *setup.exe* och följ installations anvisningarna. Om du stöter på fel, kontrol lera att de två biblioteken från avsnittet förutsättning har installerats.
 
 #### <a name="upgrade-the-nps-extension"></a>Uppgradera NPS-tillägget
 
@@ -190,11 +190,20 @@ Om du inte vill använda dina egna certifikat (i stället för de självsignerad
 1. Kör Windows PowerShell som administratör.
 2. Ändra kataloger.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. Kör PowerShell-skriptet som skapats av installations programmet.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > För kunder som använder Azure Government-eller Azure Kina 21Vianet-moln måste du först redigera `Connect-MsolService` cmdletarna i *AzureMfaNpsExtnConfigSetup.ps1* -skriptet för att inkludera *AzureEnvironment* -parametrarna för det moln som krävs. Ange till exempel *-AzureEnvironment USGovernment* eller *-AzureEnvironment AzureChinaCloud*.
+   >
+   > Mer information finns i [referens för Connect-MSOLService-parametern](/powershell/module/msonline/connect-msolservice#parameters).
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. Logga in på Azure AD som administratör.
 5. PowerShell-prompt för klient-ID. Använd det katalog-ID-GUID som du kopierade från Azure Portal i avsnittet krav.
@@ -205,22 +214,30 @@ Upprepa de här stegen på eventuella ytterligare NPS-servrar som du vill konfig
 Om ditt tidigare dator certifikat har upphört att gälla och ett nytt certifikat har skapats, bör du ta bort eventuella utgångna certifikat. Certifikat som har upphört att gälla kan orsaka problem med att NPS-tillägget startar.
 
 > [!NOTE]
-> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN = \<TenantID\> , OU = Microsoft NPS-tillägg**. 
+> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN = \<TenantID\> , OU = Microsoft NPS-tillägg**.
 
-### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government ytterligare steg
+### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Ytterligare steg för Microsoft Azure Government eller Azure Kina 21Vianet
 
-För kunder som använder Azure Government Cloud krävs följande ytterligare konfigurations steg på varje NPS-server.
+För kunder som använder Azure Government-eller Azure Kina 21Vianet-moln krävs följande ytterligare konfigurations steg på varje NPS-server.
 
 > [!IMPORTANT]
-> Konfigurera bara de här register inställningarna om du är Azure Government kund.
+> Konfigurera bara de här register inställningarna om du är en Azure Government eller Azure Kina 21Vianet-kund.
 
-1. Om du är Azure Government kund öppnar du **Registereditorn** på NPS-servern.
-1. Navigera till `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Ange följande nyckel värden:
+1. Om du är en Azure Government eller Azure Kina 21Vianet-kund öppnar du **Registereditorn** på NPS-servern.
+1. Navigera till `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. Ange följande nyckel värden för Azure Government kunder:
 
     | Registernyckel       | Värde |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. För Azure Kina 21Vianet-kunder anger du följande nyckel värden:
+
+    | Registernyckel       | Värde |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Upprepa föregående två steg för att ange register nyckel värden för varje NPS-server.
 1. Starta om NPS-tjänsten för varje NPS-server.
@@ -255,7 +272,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Default |
+| Tangent | Värde | Standard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -269,7 +286,7 @@ Du kan välja att skapa den här nyckeln och ange den som falsk när dina använ
 
 Följande skript är tillgängligt för att utföra grundläggande hälso kontrolls steg när du felsöker NPS-tillägget.
 
-[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -277,7 +294,7 @@ Följande skript är tillgängligt för att utföra grundläggande hälso kontro
 
 Leta efter det självsignerade certifikatet som skapats av installations programmet i certifikat arkivet och kontrol lera att den privata nyckeln har behörighet för användar **nätverks tjänsten**. Certifikatet har ämnes namnet **CN \<tenantid\> , OU = Microsoft NPS-tillägg**
 
-Självsignerade certifikat som genereras av *AzureMfaNpsExtnConfigSetup. ps1* -skriptet har också en giltighets tid på två år. När du verifierar att certifikatet har installerats bör du också kontrol lera att certifikatet inte har upphört att gälla.
+Självsignerade certifikat som genereras av *AzureMfaNpsExtnConfigSetup.ps1* skriptet har också en giltighets tid på två år. När du verifierar att certifikatet har installerats bör du också kontrol lera att certifikatet inte har upphört att gälla.
 
 ---
 
@@ -285,7 +302,7 @@ Självsignerade certifikat som genereras av *AzureMfaNpsExtnConfigSetup. ps1* -s
 
 Öppna PowerShell-Kommandotolken och kör följande kommandon:
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -295,7 +312,7 @@ Dessa kommandon skriver ut alla certifikat som associerar din klient organisatio
 
 Följande kommando skapar en fil med namnet "npscertificate" på enheten "C:" i formatet. cer.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

@@ -2,21 +2,21 @@
 title: Planera en distribution av automatisk användar etablering för Azure Active Directory
 description: Vägledning för att planera och köra automatisk användar etablering
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593547"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781641"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -217,7 +217,7 @@ Tänk på följande för att minska problem efter distributionen:
 
 * Program kan ha särskilda begränsningar och/eller krav som måste uppfyllas för att användar etableringen ska fungera korrekt. Slack trunkerar till exempel värdena för vissa attribut. Information om [automatiska användar etablerings guider](../saas-apps/tutorial-list.md) som är specifika för varje program.
 
-* Bekräfta schema konsekvens mellan käll-och mål systemen. Vanliga problem inkluderar attribut som UPN eller e-post som inte matchar. Till exempel är UPN i Azure AD inställt som *john_smith@contoso.com* och i appen. *jsmith@contoso.com* Mer information finns i [schema referens för användare och grupper](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+* Bekräfta schema konsekvens mellan käll-och mål systemen. Vanliga problem inkluderar attribut som UPN eller e-post som inte matchar. Till exempel är UPN i Azure AD inställt som *john_smith@contoso.com* och i appen *jsmith@contoso.com* . Mer information finns i [schema referens för användare och grupper](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Planera testning och säkerhet
 

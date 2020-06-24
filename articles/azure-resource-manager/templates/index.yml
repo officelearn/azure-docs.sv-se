@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation om ARM-mallar
-summary: Azure Resource Manager-mallar är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt.
+summary: Azure Resource Manager-mallar är JSON-filar (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt.
 metadata:
   title: Dokumentation om ARM-mallar
   description: Lär dig hur du utvecklar Azure Resource Manager-mallar och använder dem för att distribuera Azure-resurser
@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/09/2020
-  ms.openlocfilehash: f05b14039f5b83b4f214d7fa479a3ab809e859c6
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d6c1708543623423c939d03f0510e1abc72cf637
+  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78943234"
+  ms.lasthandoff: 06/23/2020
+  ms.locfileid: "85209206"
 landingContent:
 - title: Om ARM-mallar
   linkLists:
@@ -87,9 +87,9 @@ landingContent:
       url: deploy-powershell.md
     - text: Azure CLI
       url: deploy-cli.md
-    - text: Portal
+    - text: Portalen
       url: deploy-portal.md
-    - text: REST API
+    - text: REST-API
       url: deploy-rest.md
     - text: Konsekvensdistribution
       url: template-deploy-what-if.md
@@ -109,7 +109,7 @@ landingContent:
     links:
     - text: Mallreferens
       url: /azure/templates/
-    - text: REST API
+    - text: REST-API
       url: /rest/api/resources/
     - text: Azure PowerShell
       url: /powershell/module/az.resources

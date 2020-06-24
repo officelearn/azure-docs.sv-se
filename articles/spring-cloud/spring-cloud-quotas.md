@@ -6,34 +6,30 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 8a7ba3c3b9c19b2084b6892b55ac417da38ab047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc4426fc08efff44bc46ba37eb6fbc6fe31f356b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278897"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735446"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Kvoter och service planer för Azure våren Cloud
 
-Alla Azure-tjänster anger standard gränser och kvoter för resurser och funktioner.  Under för hands versions perioden erbjuder Azure våren Cloud bara en tjänste plan.
+Alla Azure-tjänster anger standard gränser och kvoter för resurser och funktioner.   Azure våren Cloud erbjuder två pris nivåer: Basic och standard. Vi kommer att ha detalj begränsningar för båda nivåerna i den här artikeln.
 
-Den här artikeln beskriver de tjänst kvoter som erbjuds under den aktuella för hands perioden.
+## <a name="azure-spring-cloud-service-tiers-and-limits"></a>Azure våren Cloud Service-nivåer och-gränser
 
-## <a name="azure-spring-cloud-service-tiers-and-quotas"></a>Azure våren Cloud Service-nivåer och kvoter
+| Resurs | Basic | Standard
+------- | ------- | -------
+Virtuell processor | 1 per tjänst instans | 4 per tjänst instans
+Minne | 2 GB per tjänst instans | 8 GB per tjänst instans
+Azure våren Cloud Service-instanser per region per prenumeration | 10 | 10
+Totalt antal App-instanser per Azure våren Cloud Service-instans | 25 | 500
+Beständiga volymer | 1 GB/app x 10-appar | 50 GB/app x 10-appar
 
-Under för hands versions perioden erbjuder Azure våren Cloud bara en tjänst nivå.
 
-Resurs | Belopp
-------- | -------
-Virtuell processor | 4 per tjänst instans
-Minne | 8 GBytes per tjänst instans
-Azure våren Cloud Service-instanser per region per prenumeration | 10
-Totalt antal App-instanser per Azure våren Cloud Service-instans | 500
-Totalt antal App-instanser per våren-program | 20
-Beständiga volymer | 10 x 50 GBytes
-
-När du når en kvot får du ett 400-fel som läser: "kvoten överskrider gränsen för prenumeration *på prenumerationen i region* *region där din Azure våren Cloud Service skapas*.
+Under för hands versions perioden erbjuder Azure våren Cloud bara en tjänst nivå. När du når en gräns får du ett 400-fel som läser: "kvoten överskrider gränsen för prenumeration *på prenumerationen i region* *region där din Azure våren Cloud Service skapas*.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vissa standardgränser och kvoter kan ökas. Om din resurs kräver en ökning kan du [skapa en support förfrågan](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Vissa standard gränser kan ökas. Om installationen kräver en ökning skapar du [en support förfrågan](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

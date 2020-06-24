@@ -25,7 +25,7 @@ Anger hur många funktions anrop som ska aggregeras när du [beräknar mått fö
 }
 ```
 
-|Egenskap |Standardvärde  | Beskrivning |
+|Egenskap |Standard  | Beskrivning |
 |---------|---------|---------| 
 |batchSize|1000|Maximalt antal begär Anden som ska aggregeras.| 
 |flushTimeout|00:00:30|Maximal tids period som ska aggregeras.| 

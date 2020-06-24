@@ -2,14 +2,14 @@
 title: Koncept – nätverk i Azure Kubernetes Services (AKS)
 description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusive Kubernetes och Azure CNI Networking, ingress controllers, belastningsutjämnare och statiska IP-adresser.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146062"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789505"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -129,6 +129,8 @@ När du skapar en LoadBalancer-typ tjänst skapas en underliggande resurs för A
 
 I AKS kan du skapa en ingress-resurs med hjälp av något som NGINX, eller använda funktionen för att dirigera HTTP-program. När du aktiverar HTTP-programroutning för ett AKS-kluster skapar Azure-plattformen ingångs styrenheten och en *extern DNS-* styrenhet. När nya ingångs resurser skapas i Kubernetes skapas de DNS-poster som krävs i en klustrad DNS-zon. Mer information finns i [distribuera HTTP-programroutning][aks-http-routing].
 
+Med tillägget Application Gateway ingress Controller (AGIC) kan AKS-kunder använda Azures interna Application Gateway nivå 7-belastningsutjämnare för att exponera moln program vara till Internet. AGIC övervakar det Kubernetes-kluster som det finns på och uppdaterar kontinuerligt en Application Gateway, så att valda tjänster exponeras för Internet. Mer information om AGIC-tillägget för AKS finns i [Vad är Application Gateway ingress-kontrollant?][agic-overview]
+
 En annan vanlig funktion i ingress är SSL/TLS-avslutning. I stora webb program som nås via HTTPS kan TLS-terminering hanteras av den ingående resursen i stället för i själva programmet. För att tillhandahålla automatisk generering och konfiguration av TLS-certifiering kan du konfigurera ingångs resursen så att leverantörer kan använda providers, till exempel för att kryptera. Mer information om hur du konfigurerar en NGINX ingress-styrenhet med att kryptera finns i [ingress och TLS][aks-ingress-tls].
 
 Du kan också konfigurera ingångs styrenheten för att bevara klientens käll-IP på begär anden till behållare i ditt AKS-kluster. När en klients begäran dirigeras till en behållare i ditt AKS-kluster via din ingångs kontroll, kommer den ursprungliga käll-IP: en för den begäran inte att vara tillgänglig för mål behållaren. När du aktiverar *IP-konservering för klient källa*är käll-IP: en för klienten tillgänglig i begär ande huvudet under *X-forwarded-for*. Om du använder IP-konservering för klient källa på din ingångs kontroll kan du inte använda TLS-vidarekoppling. Klient Källans IP-konservering och TLS-vidarekoppling kan användas med andra tjänster, till exempel *Loadbalancer* -typen.
@@ -180,6 +182,7 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md

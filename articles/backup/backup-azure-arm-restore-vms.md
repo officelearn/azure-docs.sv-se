@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 31d318f53dd8e55d3d2740d783be4f4dcae92344
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: e279d08a9c766c95be663cfa959007671ae212de
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416672"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130576"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -161,6 +161,9 @@ Användar upplevelsen för sekundär regions återställning liknar den primära
 
 ![Återställ konfiguration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
+>[!NOTE]
+>Det virtuella nätverket i den sekundära regionen måste tilldelas unikt och kan inte användas för andra virtuella datorer i den resurs gruppen.
+
 ![Avisering om aktivering av återställning pågår](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 - Information om hur du återställer och skapar en virtuell dator finns i [skapa en virtuell dator](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
@@ -183,7 +186,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Scenario** | **Vägledning**
 --- | ---
 **Återställa virtuella datorer med Hybrid Use-förmånen** | Om en virtuell Windows-dator använder [Hybrid Use Benefit (hubb)-licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md), återställer du diskarna och skapar en ny virtuell dator med hjälp av den angivna mallen (med **licens typen** inställd på **Windows_Server**) eller PowerShell.  Den här inställningen kan också användas när du har skapat den virtuella datorn.
-**Återställa virtuella datorer under en Azure Data Center-katastrof** | Om valvet använder GRS och det primära data centret för den virtuella datorn slutar fungera, kan Azure Backup återställa säkerhetskopierade virtuella datorer till det kopplade data centret. Du väljer ett lagrings konto i det kopplade data centret och återställer det som normalt. Azure Backup använder beräknings tjänsten i den kopplade regionen för att skapa den återställda virtuella datorn. [Läs mer](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) om data Center återhämtning.
+**Återställa virtuella datorer under en Azure Data Center-katastrof** | Om valvet använder GRS och det primära data centret för den virtuella datorn slutar fungera, kan Azure Backup återställa säkerhetskopierade virtuella datorer till det kopplade data centret. Du väljer ett lagrings konto i det kopplade data centret och återställer det som normalt. Azure Backup använder beräknings tjänsten i den kopplade regionen för att skapa den återställda virtuella datorn. [Läs mer](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) om data Center återhämtning.<br><br> Om valvet använder GRS kan du välja den nya funktionen, [återställning mellan regioner](#cross-region-restore). På så sätt kan du återställa till en andra region i antingen fullständiga eller delvis avbrotts scenarier, eller även om det inte finns något avbrott.
 **Återställa en virtuell dator med en virtuell domänkontrollant i en enda domän** | Återställ den virtuella datorn som vilken annan virtuell dator som helst. Tänk på följande:<br/><br/> Från ett Active Directory perspektiv är den virtuella Azure-datorn precis som vilken annan virtuell dator som helst.<br/><br/> Återställnings läge för katalog tjänster (DSRM) är också tillgängligt, så alla Active Directory återställnings scenarier är lönsamma. [Läs mer](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps) om säkerhets kopierings-och återställnings överväganden för virtualiserade domänkontrollanter.
 **Återställa flera virtuella datorer i en enda domän** | Om andra domänkontrollanter i samma domän kan nås över nätverket kan domänkontrollanten återställas på samma sätt som vilken virtuell dator som helst. Om det är den sista återstående domänkontrollanten i domänen, eller om en återställning i ett isolerat nätverk utförs, använder du en [skogs återställning](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Återställa flera domäner i en skog** | Vi rekommenderar en [skogs återställning](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).

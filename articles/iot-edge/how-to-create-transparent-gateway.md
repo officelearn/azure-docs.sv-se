@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c1e14fe6764a9f5e850d3b975ef3bcc6cb28bf78
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309160"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782593"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway
 
@@ -34,9 +34,9 @@ Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-
 2. Skapa en enhets identitet för den underordnade enheten så att den kan autentiseras med IoT Hub. Konfigurera den underordnade enheten för att skicka meddelanden via gateway-enheten. Mer information finns i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. Anslut den underordnade enheten till gateway-enheten och börja skicka meddelanden. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
 
-För att en enhet ska fungera som en gateway måste den kunna ansluta till dess underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta gateway-enhetens identitet. Den här identitets kontrollen förhindrar att enheterna ansluter till potentiellt skadliga gatewayer.
+För att en enhet ska fungera som en gateway måste den ansluta till dess underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta gateway-enhetens identitet. Den här identitets kontrollen förhindrar att enheterna ansluter till potentiellt skadliga gatewayer.
 
-En underordnad enhet i ett scenario med transparent Gateway kan vara vilket program eller vilken plattform som helst som har en identitet som skapats med [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) Cloud service. I många fall använder dessa program [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md). I alla praktiska syfte kan en underordnad enhet även vara ett program som körs på själva IoT Edge gateway-enheten. En IoT Edge enhet kan dock inte underordnas IoT Edge Gateway.
+En underordnad enhet kan vara ett program eller en plattform som har en identitet som skapats med [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) Cloud service. De här programmen använder ofta [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md). En underordnad enhet kan även vara ett program som körs på själva IoT Edge gateway-enheten. En IoT Edge enhet kan dock inte underordnas IoT Edge Gateway.
 
 Du kan skapa en certifikat infrastruktur som aktiverar det förtroende som krävs för din enhets-Gateway-topologi. I den här artikeln förutsätter vi samma certifikat inställningar som du använde för att aktivera [x. 509 ca-säkerhet](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, vilket inbegriper ett X. 509 CA-certifikat som är kopplat till en speciell IoT-hubb (IoT Hub rot certifikat utfärdare), en serie med certifikat som har signerats med denna certifikat utfärdare och en certifikat utfärdare för IoT Edges enheten.
 
@@ -45,7 +45,7 @@ Du kan skapa en certifikat infrastruktur som aktiverar det förtroende som kräv
 
 Följande steg vägleder dig genom processen att skapa certifikaten och installera dem på rätt plats på gatewayen. Du kan använda vilken dator som helst för att generera certifikaten och sedan kopiera dem till din IoT Edge-enhet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Linux-eller Windows-enhet med IoT Edge installerat.
 
@@ -72,7 +72,7 @@ För produktions scenarier bör du generera dessa filer med din egen certifikat 
    1. [Skapa rot certifikat för certifikat utfärdare](how-to-create-test-certificates.md#create-root-ca-certificate). I slutet av de här anvisningarna har du en rot certifikat fil för certifikat utfärdare:
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
-   2. [Skapa IoT Edge enhetens CA-certifikat](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). I slutet av de här anvisningarna har du två filer, ett certifikat för enhets certifikat och dess privata nyckel:
+   2. [Skapa IoT Edge enhetens CA-certifikat](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). I slutet av dessa instruktioner har du två filer, ett certifikat för enhets certifikat och dess privata nyckel:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem`särskilt
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
@@ -95,7 +95,7 @@ För produktions scenarier bör du generera dessa filer med din egen certifikat 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Distribuera edgeHub till gatewayen
 
-Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. När du har skapat den första distributionen av mer än en enhet, startas den andra systemmodulen, IoT Edge hubben, också.
+Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. När du har skapat den första distributionen för en enhet startas den andra-systemmodulen, IoT Edge hubben, också.
 
 IoT Edge Hub ansvarar för att ta emot inkommande meddelanden från underordnade enheter och dirigera dem till nästa mål. Om modulen **edgeHub** inte körs på enheten skapar du en första distribution för enheten. Distributionen kommer att se Tom ut eftersom du inte lägger till några moduler, men det ser till att båda systemmodulerna körs.
 

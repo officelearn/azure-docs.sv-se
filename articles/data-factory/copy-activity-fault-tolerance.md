@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658770"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130780"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -72,13 +72,28 @@ När du kopierar binära filer mellan lagrings lager kan du aktivera fel toleran
 ```
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-skipErrorFile | En grupp egenskaper som anger vilka typer av försök som du vill hoppa över under data flytten. | | Inga
-fileMissing | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över filer som tas bort av andra program när ADF kopieras i taget. <br/> – Sant: du vill kopiera resten genom att hoppa över de filer som tas bort av andra program. <br/> -Falskt: du vill avbryta kopierings aktiviteten när filer tas bort från käll arkivet i mitten av data förflyttningen. <br/>Tänk på att den här egenskapen har angetts till true som standard. | Sant (standard) <br/>False | Inga
-fileForbidden | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över de specifika filerna, när ACL: er för dessa filer eller mappar kräver högre behörighets nivå än den anslutning som kon figurer ATS i ADF. <br/> – Sant: du vill kopiera resten genom att hoppa över filerna. <br/> -Falskt: du vill avbryta kopierings aktiviteten en gång när du har problem med att få behörighet till mappar eller filer. | Sant <br/>Falskt (standard) | Inga
-dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data mellan käll-och mål arkivet. <br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data. <br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats. <br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true. | Sant <br/>Falskt (standard) | Inga
-logStorageSettings  | En grupp egenskaper som kan anges när du vill logga de överhoppade objekt namnen. | &nbsp; | Inga
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | Inga
-path | Sökvägen till loggfilerna. | Ange den sökväg som du använder för att lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+skipErrorFile | En grupp egenskaper som anger vilka typer av försök som du vill hoppa över under data flytten. | | No
+fileMissing | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över filer som tas bort av andra program när ADF kopieras i taget. <br/> – Sant: du vill kopiera resten genom att hoppa över de filer som tas bort av andra program. <br/> -Falskt: du vill avbryta kopierings aktiviteten när filer tas bort från käll arkivet i mitten av data förflyttningen. <br/>Tänk på att den här egenskapen har angetts till true som standard. | Sant (standard) <br/>Falskt | No
+fileForbidden | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över de specifika filerna, när ACL: er för dessa filer eller mappar kräver högre behörighets nivå än den anslutning som kon figurer ATS i ADF. <br/> – Sant: du vill kopiera resten genom att hoppa över filerna. <br/> -Falskt: du vill avbryta kopierings aktiviteten en gång när du har problem med att få behörighet till mappar eller filer. | Sant <br/>Falskt (standard) | No
+dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data mellan käll-och mål arkivet. <br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data. <br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats. <br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true. | Sant <br/>Falskt (standard) | No
+logStorageSettings  | En grupp egenskaper som kan anges när du vill logga de överhoppade objekt namnen. | &nbsp; | No
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | No
+path | Sökvägen till loggfilerna. | Ange den sökväg som du använder för att lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | No
+
+> [!NOTE]
+> Följande är förutsättningarna för att aktivera fel tolerans i kopierings aktivitet när du kopierar binära filer.
+> För att hoppa över specifika filer när de tas bort från käll arkivet:
+> - Käll data uppsättningen och mottagar data uppsättningen måste vara i binärformat och det går inte att ange komprimerings typen. 
+> - De data lagrings typer som stöds är Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure-File Storage, fil system, FTP, SFTP, Amazon S3, Google Cloud Storage och HDFS.
+> - Om du anger flera filer i käll data uppsättningen, som kan vara en mapp, jokertecken eller en lista med filer, kan kopierings aktiviteten hoppa över de specifika felfilerna. Om en enskild fil anges i käll data uppsättningen som ska kopieras till målet Miss kopie ras kopierings aktiviteten om något fel uppstår.
+>
+> För att hoppa över specifika filer när deras åtkomst är förbjuden från käll arkivet:
+> - Käll data uppsättningen och mottagar data uppsättningen måste vara i binärformat och det går inte att ange komprimerings typen. 
+> - De typer av data lager som stöds är Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 och HDFS.
+> - Om du anger flera filer i käll data uppsättningen, som kan vara en mapp, jokertecken eller en lista med filer, kan kopierings aktiviteten hoppa över de specifika felfilerna. Om en enskild fil anges i käll data uppsättningen som ska kopieras till målet Miss kopie ras kopierings aktiviteten om något fel uppstår.
+>
+> För att hoppa över specifika filer när de verifieras vara inkonsekventa mellan käll-och mål lagret:
+> - Du kan få mer information från data konsekvens dokument [här](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
 
 ### <a name="monitoring"></a>Övervakning 
 
@@ -109,7 +124,7 @@ Om du konfigurerar för att logga de överhoppade fil namnen kan du hitta logg f
 
 Loggfilerna måste vara CSV-filerna. Logg filens schema är följande:
 
-Kolumn | Description 
+Kolumn | Beskrivning 
 -------- | -----------  
 Tidsstämpel | Tidsstämpeln när ADF hoppar över filen.
 Nivå | Logg nivån för det här objektet. Den kommer att vara i varnings nivån för objektet som visar att filen hoppas över.
@@ -123,7 +138,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-I ovanstående logg kan du se bigfile. csv har hoppats över på grund av att ett annat program har tagit bort den här filen när ADF kopierade den. Och 3_nopermission. txt har hoppats över eftersom ADF inte har tillåtelse att komma åt den på grund av behörighets problem.
+I ovanstående logg kan du se bigfile.csv har hoppats över på grund av att ett annat program har tagit bort den här filen när ADF kopierade den. Och 3_nopermission.txt har hoppats över eftersom ADF inte har tillåtelse att komma åt den på grund av behörighets problem.
 
 
 ## <a name="copying-tabular-data"></a>Kopiera tabell data 
@@ -172,10 +187,10 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Inga
-logStorageSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | Inga
-path | Sökvägen till de loggfiler som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | No
+logStorageSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | No
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | No
+path | Sökvägen till de loggfiler som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | No
 
 ### <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
 När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppades över i resultatet av kopierings aktiviteten:
@@ -198,7 +213,7 @@ Om du konfigurerar för att logga inkompatibla rader kan du hitta logg filen fr�
 
 Loggfilerna är CSV-filerna. Logg filens schema är följande:
 
-Kolumn | Description 
+Kolumn | Beskrivning 
 -------- | -----------  
 Tidsstämpel | Tidsstämpeln när ADF hoppar över inkompatibla rader
 Nivå | Logg nivån för det här objektet. Den kommer att finnas i varnings nivån om det här objektet visar de överhoppade raderna
@@ -246,10 +261,10 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Inga
-redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga
-linkedServiceName | Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnen på en `AzureStorage` eller `AzureDataLakeStore` typ länkad tjänst, som refererar till den instans som du vill använda för att lagra logg filen. | Inga
-path | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | No
+redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | No
+linkedServiceName | Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnen på en `AzureStorage` eller `AzureDataLakeStore` typ länkad tjänst, som refererar till den instans som du vill använda för att lagra logg filen. | No
+path | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | No
 
 ### <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
 När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppades över i resultatet av kopierings aktiviteten:

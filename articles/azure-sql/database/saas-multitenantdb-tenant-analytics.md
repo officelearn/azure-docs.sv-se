@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: ace818adb4c5157675ac3b1d88f5df2ef61d69ee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042206"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249179"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Att förstå hur konsekvent varje klient använder tjänsten ger möjlighet att 
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 

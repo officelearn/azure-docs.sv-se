@@ -3,12 +3,12 @@ title: Logga in på Azure Notebooks för hands version
 description: Konfigurera ditt användar konto för Azure Notebooks att använda ett Microsoft-konto eller ett arbets-eller skol konto.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a19803ec0a621b981fa9198766c58376ba50534
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646304"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125846"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Ditt användar konto för Azure Notebooks för hands version
 
@@ -53,7 +53,7 @@ Om du vill aktivera åtkomst måste en överordnad utföra följande steg:
 
 ## <a name="work-or-school-accounts"></a>Arbets- eller skolkonton
 
-Ett arbets-eller skol konto skapas av en organisations administratör för att ge en medlem i organisationen åtkomst till Microsofts moln tjänster som Office 365 och även som ett konto för att logga in på Windows på en domänansluten dator. Ett arbets-eller skol konto använder vanligt vis en organisations e-postadress any-user@contoso.com, till exempel.
+Ett arbets-eller skol konto skapas av en organisations administratör för att ge en medlem i organisationen åtkomst till Microsofts moln tjänster, till exempel Microsoft 365, och också som ett konto för att logga in på Windows på en domänansluten dator. Ett arbets-eller skol konto använder vanligt vis en organisations e-postadress, till exempel any-user@contoso.com .
 
 Att logga in på Azure Notebooks med ett arbets-eller skol konto kan kräva administratörs medgivande eftersom Azure Notebooks samlar in eller använder (men inte avslöjar) information som kontots e-postadress och användarens webb läsar information. (Webb läsar data används för att optimera funktioner i enlighet med populär användning.)
 

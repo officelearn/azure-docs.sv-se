@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6a4712f88a6f5351845233f4179e82e4b473ded
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 332ce90de334a384ee6017a12781d0ddb2ed4158
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266737"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126152"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -33,12 +33,12 @@ Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-ver
 
 ![VMware-logotyp](./media/partners/vmware.png)
 
-VMwares Horisont moln på Microsoft Azure ger organisationer möjlighet att ansluta sin egen instans av Microsoft Azure till det enkla, intuitiva moln kontroll planet, vilket skapar en säker, omfattande och moln värd lösning för att leverera virtualiserade Windows-program och skriv bord. Med lanseringen av Windows Virtual Desktop har VMware samarbetat med Microsoft för att utöka funktionerna i Windows Virtual Desktop till kunder som använder Horisont moln på Microsoft Azure. Den här funktionen kommer att vara tillgänglig i Tech Preview i slutet av 2019.
- 
-Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utökas till VMwares Horisont moln på Microsoft Azure kunder, inklusive Windows 10 Enterprise för multi-session, Windows 7 med kostnads fria utökade säkerhets uppdateringar i upp till tre år och FSLogix. Dessutom får kunderna företags funktioner i Horisont moln, t. ex. stöd för bred slut punkt. global, molnbaserad service utjämning; flexibla Skriv bords alternativ och konfigurationer; hantering av användar miljö; och stöd för Hybrid miljöer.
+VMwares Horisont moln på Microsoft Azure är en inbyggd moln tjänst som gör det möjligt för organisationer att snabbt distribuera fjärr skrivbord och program från sina befintliga Microsoft Azure prenumerationer samtidigt som de utnyttjar alla funktioner i VMware-horisont. Horisont moln använder Horisont kontroll planet för att tillhandahålla ett enda hanterings gränssnitt för alla Horisont miljöer, lokalt eller i molnet. Detta möjliggör hybrid Skriv bords virtualisering och låter kunderna flytta sina arbets belastningar till Azure i sin egen takt.
 
-- [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+Som en Windows Virtual Desktop-auktoriserad Provider kan VMware hjälpa kunder som vill använda Windows Virtual Desktop samtidigt som de ytterligare funktioner som följer VMware-horisont, till exempel integrerad och lättanvänd energispar funktioner, molnbaserad övervakning och det förstärkta Extreme-protokollet. Dessa funktioner anpassas till att ändra nätverks förhållandena i farten för att ge en konsekvent utmärkt användar upplevelse. VMwares Horisont moln levereras också med VMware app-volymer och dynamisk miljö hanterare, som lägger till avancerade hanterings funktioner för program och användar miljön som fungerar med MSIX-appen Attach och FSLogix.
+
 - [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Läs teknisk dokumentation för VMware-Horisont molnet](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangs
 
 - [Gå till partner webbplatsen](https://devicetrust.com/wvd).
 
+## <a name="ekran-system"></a>Ekran-system
+
+![Ekran system logo typ](./media/partners/ekran.png)
+
+Ekran-systemet är ett Windows Virtual Desktop-värde – Lägg till partner som gör det möjligt för IT-team att övervaka all fjärran vändare på Microsoft Azure virtuella datorer. Med Ekran system kan du spela in en skärms aktivitet för varje användarsession i publicerade program eller virtuella skriv bord samtidigt som du samlar in en rad Sammanhangs beroende metadata, till exempel program namn, aktiva fönster titlar, besökta URL: er och tangenttryckningar. Avancerade funktioner ger djupgående synlighet och snabb incidents svars tider, vilket gör Ekran-systemet till en effektiv hanterings lösning för Insider hot och efterlevnad.  
+
+Den unika flytande slut punkts licensieringen för Ekran system klienter automatiseras för att stödja dynamiskt ändring av virtuella skriv bord. Med Ekran system kan du automatiskt ta bort tilldelning av licenser från borttagna icke-beständiga virtuella datorer och ta bort dem från databasen. Ekran-systemet integreras sömlöst med Azure Active Directory och Azure Sentinel.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Gå till partner sidan](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="flexxible-it"></a>Flexxible IT
+
+![Flexxible IT-logotyp](./media/partners/flexxible.png)
+
+Flexxible det är ett Windows Virtual Desktop-värde – Lägg till partner som erbjuder organisationer möjlighet att snabbt skala, övervaka och effektivt hantera infrastruktur för Windows Virtual Desktop och Citrix-arbetsytan. Flexxible | SUITE gör det möjligt för IT-administratörer att konfigurera och hantera Windows-arbetsbelastningar för virtuella skriv bord lokalt och värdbaserade i Azure.
+ 
+Flexxible IT-tekniken utökar värdet för både inbyggda Windows Virtual Desktop och Citrix-arbetsytan genom att automatisera vanliga processer för att förenkla infrastruktur konfiguration, skriv bords etablering och daglig hantering. Om du inte behöver komplexa PowerShell-skript eller tids krävande manuella processer ger SUITE skalbar Skriv bords distribution, omfattande övervakning och rapportering samt säker delegerad hantering. Med de här funktionerna kan du fokusera på att leverera förbättrade service nivåer och en Windows Virtual Desktop-upplevelse med kvalitet för dina användare.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Gå till partner webbplatsen](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## <a name="hp"></a>HP
 
 ![HP-logotyp](./media/partners/hp.png)
@@ -127,7 +149,7 @@ IGEL OS stöder alla populära virtuella appar, Station ära datorer och klient 
 
 ![Ivanti-logotyp](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager är en Windows-tjänst för virtuella skriv bord som är till för att under lätta Skriv bords distribution och-hantering genom att skilja användar data från Skriv bordet till sömlös portabilitet. Med Ivanti kan användarna leverera komplexa projekt som att migrera till Windows 10, anta Office 365 eller flytta tjänster till molnet snabbare. 
+Ivanti User Workspace Manager är en Windows-tjänst för virtuella skriv bord som är till för att under lätta Skriv bords distribution och-hantering genom att skilja användar data från Skriv bordet till sömlös portabilitet. Med Ivanti kan användarna leverera komplexa projekt som att migrera till Windows 10, anta Microsoft 365 eller flytta tjänster till molnet snabbare. 
 
 När den används med Windows Virtual Desktop ger Ivanti User Workspace Manager enkel kontext hantering av användar Skriv bords miljö, vilket eliminerar långa inloggnings tider och utrotning av Nightmares för grup principer. Ivanti User Workspace Manager är färdiga mallar som fören klar installationen av användare via agenter och den befintliga konsolen. Ivanti User Workspace Manager ger svar, säkra skriv bord som användare älskar, sparar pengar på servrar, hanterar användare effektivare och minskar slut punkts säkerhets risken. 
 
@@ -163,6 +185,7 @@ Liquit program agg regering och leverans program vara gör det möjligt för fö
 
 Som certifierad integrations partner bidrar Liquit till att påskynda över gången till molnet utan en fördröjning för RIP och-ersättning. Windows Virtual Desktop kan enkelt ansluta till en befintlig miljö, skapa en arbets yta och leverera Skriv bordet. Du kan sedan ta din tid att migrera från gamla plattformar och göra ändringar i Server delen utan att användarna märker. Få en konsekvent slut användar upplevelse, flexibel infrastruktur och upprätthålla kontrollen över dina program oavsett var de befinner sig.
 
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Gå till partner webbplatsen](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>Logga in VSI
@@ -235,6 +258,17 @@ RDPSoft är en Windows-partner för virtuella datorer som tillhandahåller kraft
 RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen för virtuella skriv bord. Premium Management-funktioner fören klar delegering av Windows hanterings uppgifter för virtuella skriv bord till support personal genom att tillhandahålla Fjärrhjälp, användarsessionen och process hantering. På samma gång samlar Remote Desktop Commander-sviten omfattande statistik om prestanda och belastning för varje användare, användar aktivitet och granskning, Windows anslutning för virtuella Skriv bords anslutningar (latens och bandbredd), licensiering och säkerhet till en central Azure SQL Database-instans för granskning. Med RDPSoft är utförlig historisk rapportering och omfattande instrument paneler bara ett klick bort.
 
 - [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
+
+## <a name="rimo3"></a>Rimo3
+
+![Rimo3-logotyp](./media/partners/rimo3.png)
+
+Rimo3 förbättrar Windows Virtual Desktop-upplevelsen genom att påskynda distributionen och förbättra den pågående ändrings hanteringen. Rimo3 förser IT-team med den kunskap de behöver för att stödja din program portfölj för Azure migration readiness för program arbets belastningar. Användare kan publicera program och testa dem i deras mål arbets yta för virtuella Windows-datorer snabbt och Painlessly. Användare kan också proaktivt förstå effekten av eventuella ändringar när organisationen samlar in nya program och uppdateringar. Slutligen kan IT-administratörer utnyttja Rimo3's intelligenta rök testnings funktioner och automatisera testning av funktioner utan att avbryta användarsessioner.
+
+Rimo3 erbjuder en skalbar och automatiserad program test plattform som är lätt att använda. Den här plattformen innehåller funktioner för alla tre program testnings grunderna: kompatibilitet, funktioner och prestanda. Det gör det möjligt för organisationer, ledare och team att förbättra affärs kontinuiteten, anta ändringar snabbare och optimera användar upplevelsen.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Gå till partner webbplatsen](https://rimo3.com/outcomes/).
 
 ## <a name="sepago"></a>sepago
 

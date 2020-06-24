@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c84d4f1ca01db07ea432bbf8f9929863a8134cfb
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653990"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976294"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -36,7 +36,7 @@ Det här dokumentet fokuserar på att aktivera FIDO2-säkerhetsnyckel baserad l�
 | Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | Webauthn kräver Windows 10 version 1809 eller senare | X | X |
 | [Azure AD-anslutna enheter](../devices/concept-azure-ad-join.md) kräver Windows 10 version 1903 eller senare | X |   |
-| [Hybrid Azure AD-anslutna enheter](../devices/concept-azure-ad-join-hybrid.md) kräver Windows 10 Insider build 18945 eller högre |   | X |
+| [Hybrid Azure AD-anslutna enheter](../devices/concept-azure-ad-join-hybrid.md) kräver Windows 10 version 2004 eller senare |   | X |
 | Fullständigt korrigerade Windows Server 2016/2019-domänkontrollanter. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 eller senare |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (valfritt) | X | X |
@@ -60,7 +60,7 @@ Följande scenarier stöds inte:
 
 Azure AD-anslutna enheter som du piloterar under för hands versionen av funktionen med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
 
-Hybrid Azure AD-anslutna enheter måste köra Windows 10 Insider build 18945 eller senare.
+Hybrid Azure AD-anslutna enheter måste köra Windows 10 version 2004 eller senare.
 
 ## <a name="enable-security-keys-for-windows-sign-in"></a>Aktivera säkerhets nycklar för Windows-inloggning
 
@@ -81,7 +81,7 @@ Organisationer kan välja att använda en eller flera av följande metoder för 
 Utför följande steg för att aktivera användning av säkerhets nycklar med Intune:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Microsoft Intune** > **enhets registrering** > **Windows-registrering** > **Egenskaper****för Windows Hello för företag** > .
+1. Bläddra till **Microsoft Intune**  >  **enhets registrering**  >  **Windows-registrering**  >  **Egenskaper för Windows Hello för företag**  >  **Properties**.
 1. Under **Inställningar**anger du **Använd säkerhets nycklar för inloggning** till **aktive rad**.
 
 Konfiguration av säkerhets nycklar för inloggning är inte beroende av att konfigurera Windows Hello för företag.
@@ -91,7 +91,7 @@ Konfiguration av säkerhets nycklar för inloggning är inte beroende av att kon
 Om du vill använda specifika enhets grupper för att aktivera Credential-providern använder du följande anpassade inställningar via Intune:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Microsoft Intune** > **enhets konfiguration** > **profiler** > **Skapa profil**.
+1. Bläddra till **Microsoft Intune**  >  **enhets konfiguration**  >  **profiler**  >  **Skapa profil**.
 1. Konfigurera den nya profilen med följande inställningar:
    - Namn: säkerhets nycklar för Windows-inloggning
    - Beskrivning: aktiverar FIDO-säkerhetsnycklar som ska användas vid inloggning i Windows
@@ -111,14 +111,14 @@ Om du vill använda specifika enhets grupper för att aktivera Credential-provid
 För enheter som inte hanteras av Intune kan ett konfigurations paket installeras för att aktivera funktionen. Windows Configuration designer-appen kan installeras från [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Utför följande steg för att skapa ett konfigurations paket:
 
 1. Starta Windows Configuration designer.
-1. Välj **Arkiv** > **nytt projekt**.
+1. Välj **Arkiv**  >  **nytt projekt**.
 1. Ge projektet ett namn och anteckna sökvägen där projektet skapas och välj sedan **Nästa**.
 1. Lämna *etablerings paketet* valt som det **valda projekt arbets flödet** och välj **Nästa**.
 1. Välj *alla versioner av Windows-skrivbordet* under **Välj vilka inställningar du vill visa och konfigurera**och välj sedan **Nästa**.
 1. Välj **Slutför**.
-1. I det nyskapade projektet bläddrar du till **körnings inställningar** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
+1. I det nyskapade projektet bläddrar du till **körnings inställningar**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Ange **UseSecurityKeyForSignIn** till *aktive rad*.
-1. Välj **Exportera** > **etablerings paket**
+1. Välj **Exportera**  >  **etablerings paket**
 1. Lämna standardvärdena i fönstret **build** under **Beskriv etablerings paketet**och välj sedan **Nästa**.
 1. Lämna standardvärdena i fönstret **build** under **Välj säkerhets information för etablerings paketet** och välj **Nästa**.
 1. Anteckna eller ändra sökvägen i **build** Windows under **Välj var du vill spara etablerings paketet** och välj **Nästa**.
@@ -131,7 +131,7 @@ För enheter som inte hanteras av Intune kan ett konfigurations paket installera
 
 ### <a name="enable-with-group-policy"></a>Aktivera med grupprincip
 
-För **hybrid Azure AD-anslutna enheter**kan organisationer konfigurera följande grupprincip inställning för att aktivera Fido-inloggning för säkerhets nycklar. Inställningen finns under **dator konfiguration** > **administrativa mallar** > **system** > **inloggning** > **Aktivera inloggning med säkerhets nyckel**:
+För **hybrid Azure AD-anslutna enheter**kan organisationer konfigurera följande grupprincip inställning för att aktivera Fido-inloggning för säkerhets nycklar. Inställningen finns under **dator konfiguration**  >  **administrativa mallar**  >  **system**  >  **inloggning**  >  **Aktivera inloggning med säkerhets nyckel**:
 
 - När den här principen **är aktive rad** kan användarna logga in med säkerhets nycklar.
 - Om du ställer in principen på **inaktive rad** eller **inte konfigurerad** stoppas användare från att logga in med säkerhets nycklar.
@@ -147,10 +147,10 @@ I exemplet nedan har en användare med namnet Bala Sandhu redan etablerad sin FI
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Hantera säkerhets nyckel bio metrisk, PIN-kod eller återställning säkerhets nyckel
 
 * Windows 10 version 1903 eller senare
-   * Användare kan öppna **Windows-inställningar** på sina enheter >**säkerhets nyckel** för **konton** > 
+   * Användare kan öppna **Windows-inställningar** på sina enheter **Accounts**>  >  **säkerhets nyckel** för konton
    * Användare kan ändra sin PIN-kod, uppdatera biometrik eller återställa sin säkerhets nyckel
 
-## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
+## <a name="troubleshooting-and-feedback"></a>Felsökning och feedback
 
 Om du vill dela feedback eller om du har problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen med hjälp av följande steg:
 

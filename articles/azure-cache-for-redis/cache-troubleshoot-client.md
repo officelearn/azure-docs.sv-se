@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277952"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698201"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Felsöka problem på Azure Cache for Redis-klientsidan
 
@@ -41,17 +41,17 @@ Hög minnes belastning på klienten kan begränsas på flera sätt:
 
 Burst-trafik i kombination med dåliga `ThreadPool` inställningar kan leda till fördröjningar i behandlings data som redan har skickats av Redis-servern men som ännu inte har använts på klient sidan.
 
-Övervaka hur `ThreadPool` statistiken förändras över tid med hjälp av [ett `ThreadPoolLogger`exempel ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan använda `TimeoutException` meddelanden från stackexchange. Redis som nedan för att undersöka:
+Övervaka hur `ThreadPool` statistiken förändras över tid med hjälp av [ett `ThreadPoolLogger` exempel ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan använda `TimeoutException` meddelanden från stackexchange. Redis som nedan för att undersöka:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
 I föregående undantag finns det flera problem som är intressanta:
 
-- `IOCP` Observera att i avsnittet `WORKER` och avsnittet har du ett `Busy` värde som är större än `Min` värdet. Den här skillnaden innebär `ThreadPool` att inställningarna behöver justeras.
-- Du kan också se `in: 64221`. Det här värdet anger att 64 211 byte har mottagits på klientens kernel socket-lager men inte lästs av programmet. Den här skillnaden innebär vanligt vis att ditt program (t. ex. StackExchange. Redis) inte läser data från nätverket så snabbt som servern skickar det till dig.
+- Observera att i `IOCP` avsnittet och `WORKER` avsnittet har du ett `Busy` värde som är större än `Min` värdet. Den här skillnaden innebär att `ThreadPool` inställningarna behöver justeras.
+- Du kan också se `in: 64221` . Det här värdet anger att 64 211 byte har mottagits på klientens kernel socket-lager men inte lästs av programmet. Den här skillnaden innebär vanligt vis att ditt program (t. ex. StackExchange. Redis) inte läser data från nätverket så snabbt som servern skickar det till dig.
 
-Du kan [Konfigurera dina `ThreadPool` inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
+Du kan [Konfigurera dina `ThreadPool` Inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
 
 ## <a name="high-client-cpu-usage"></a>Hög CPU-användning för klienter
 

@@ -64,7 +64,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Ange utgående IP-adresser för belastningsutjämnaren för standard-SKU
 
-När du skapar ett AKS-kluster och anger utgående IP-adresser eller prefix för klustret, tillåts även dessa adresser eller prefix. Ett exempel:
+När du skapar ett AKS-kluster och anger utgående IP-adresser eller prefix för klustret, tillåts även dessa adresser eller prefix. Exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -116,7 +116,7 @@ Du kan också använda *0.0.0.0/32* när du anger *`--api-server-authorized-ip-r
 
 ## <a name="disable-authorized-ip-ranges"></a>Inaktivera auktoriserade IP-intervall
 
-Om du vill inaktivera auktoriserade IP-intervall använder du [AZ AKS Update][az-aks-update] och anger ett tomt intervall för att inaktivera API-serverns auktoriserade IP-intervall. Ett exempel:
+Om du vill inaktivera auktoriserade IP-intervall använder du [AZ AKS Update][az-aks-update] och anger ett tomt intervall för att inaktivera API-serverns auktoriserade IP-intervall. Exempel:
 
 ```azurecli-interactive
 az aks update \

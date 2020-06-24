@@ -1,24 +1,24 @@
 ---
-title: Stäng arbets-eller skol konto i en ohanterad Azure AD-organisation
+title: Stäng ett arbets-eller skol konto i en ohanterad Azure AD-organisation
 description: Hur du stänger ditt arbets-eller skol konto i en ohanterad Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/20/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 3b1a89acdf189e41f3c72ec12fc84920cd0c795d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582548"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731095"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Stäng ditt arbets-eller skol konto i en ohanterad Azure AD-organisation
 

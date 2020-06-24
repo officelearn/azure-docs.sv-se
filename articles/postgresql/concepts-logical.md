@@ -79,7 +79,7 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Utfärda SQL-kommandon. Ett exempel:
+2. Utfärda SQL-kommandon. Exempel:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

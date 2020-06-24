@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: tamram
 ms.service: storage
@@ -28,7 +28,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 6. Välj en plats för ditt lagringskonto eller använd standardplatsen.
 7. Lämna dessa fält med respektive standardvärde:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |

@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 0c0ae6a96a303c1c9d2887e6ed4dfb0d1fed4453
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7841db3138af2f8cb1efc03508b9e7c0bdb71324
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672586"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734647"
 ---
-# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS och skapa villkorliga vidarebefordrare i en Azure AD Domain Services hanterad domän
+# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrera DNS och skapa villkorliga vidarebefordrare i en Azure Active Directory Domain Services hanterad domän
 
 I Azure Active Directory Domain Services (Azure AD DS) är en nyckel komponent DNS (domän namns matchning). Azure AD DS innehåller en DNS-server som tillhandahåller namn matchning för den hanterade domänen. Den här DNS-servern innehåller inbyggda DNS-poster och uppdateringar för de viktiga komponenter som gör att tjänsten kan köras.
 
@@ -36,10 +36,10 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
 * Anslutning från det virtuella Azure AD DS-nätverket till den plats där andra DNS-namnområden finns.
     * Den här anslutningen kan tillhandahållas med en [Azure-ExpressRoute][expressroute] eller [Azure VPN gateway][vpn-gateway] -anslutning.
-* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
+* En virtuell Windows Server Management-dator som är ansluten till den hanterade domänen.
     * Om det behövs, slutför du själv studie kursen för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
@@ -63,17 +63,17 @@ Om du vill skapa och ändra DNS-poster i Azure AD DS måste du installera verkty
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Öppna DNS-hanteringskonsolen för att administrera DNS
 
-Med verktyg för DNS-server installerat kan du administrera DNS-poster på den hanterade domänen i Azure AD DS.
+Med verktyg för DNS-server installerat kan du administrera DNS-poster på den hanterade domänen.
 
 > [!NOTE]
-> Om du vill administrera DNS i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
+> Om du vill administrera DNS i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
 1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *aaddscontoso.com*:
 
-    ![Ansluta till den hanterade Azure AD DS-domänen i DNS-konsolen](./media/manage-dns/connect-dns-server.png)
+    ![Ansluta till den hanterade domänen i DNS-konsolen](./media/manage-dns/connect-dns-server.png)
 
-1. DNS-konsolen ansluter till den angivna Azure AD DS-hanterade domänen. Expandera zoner för **vanlig sökning** eller **zoner för omvänd sökning** för att skapa DNS-poster som krävs eller redigera befintliga poster efter behov.
+1. DNS-konsolen ansluter till den angivna hanterade domänen. Expandera zoner för **vanlig sökning** eller **zoner för omvänd sökning** för att skapa DNS-poster som krävs eller redigera befintliga poster efter behov.
 
     ![DNS-konsol – administrera domän](./media/manage-dns/dns-manager.png)
 
@@ -82,13 +82,13 @@ Med verktyg för DNS-server installerat kan du administrera DNS-poster på den h
 
 ## <a name="create-conditional-forwarders"></a>Skapa villkorliga vidarebefordrare
 
-En DNS-zon i Azure AD DS bör bara innehålla zonen och posterna för den hanterade domänen. Skapa inte fler zoner i Azure AD DS för att lösa namngivna resurser i andra DNS-namnområden. Använd i stället villkorliga vidarebefordrare i den hanterade domänen i Azure AD DS för att ange DNS-servern för att kunna matcha adresser för dessa resurser.
+En DNS-zon i Azure AD DS bör bara innehålla zonen och posterna för den hanterade domänen. Skapa inte fler zoner i Azure AD DS för att lösa namngivna resurser i andra DNS-namnområden. Använd i stället villkorliga vidarebefordrare i den hanterade domänen för att ange den DNS-server som ska användas för att matcha adresser för dessa resurser.
 
-En villkorlig vidarebefordrare är ett konfigurations alternativ i en DNS-server som gör att du kan definiera en DNS-domän, till exempel *contoso.com*, för att vidarebefordra frågor till. I stället för den lokala DNS-servern som försöker matcha frågor för poster i domänen vidarebefordras DNS-frågor till den domän som har kon figurer ATS för DNS. Den här konfigurationen säkerställer att rätt DNS-poster returneras, eftersom du inte skapar en lokal DNS-zon med dubbla poster i den hanterade Azure AD DS-domänen för att avspegla dessa resurser.
+En villkorlig vidarebefordrare är ett konfigurations alternativ i en DNS-server som gör att du kan definiera en DNS-domän, till exempel *contoso.com*, för att vidarebefordra frågor till. I stället för den lokala DNS-servern som försöker matcha frågor för poster i domänen vidarebefordras DNS-frågor till den domän som har kon figurer ATS för DNS. Den här konfigurationen säkerställer att rätt DNS-poster returneras, eftersom du inte skapar en lokal DNS-zon med dubbla poster i den hanterade domänen för att avspegla dessa resurser.
 
-Utför följande steg för att skapa en villkorlig vidarebefordrare i din Azure AD DS-hanterade domän:
+Utför följande steg för att skapa en villkorlig vidarebefordrare i den hanterade domänen:
 
-1. Välj din Azure AD DS DNS-zon, till exempel *aaddscontoso.com*. VB
+1. Välj din DNS-zon, till exempel *aaddscontoso.com*.
 1. Välj **villkorliga vidarebefordrare**, högerklicka och välj **ny villkorlig vidarebefordrare...**
 1. Ange din andra **DNS-domän**, t. ex. *contoso.com*, och ange IP-adresserna för DNS-servrarna för det namn området, som visas i följande exempel:
 
@@ -103,7 +103,7 @@ Utför följande steg för att skapa en villkorlig vidarebefordrare i din Azure 
 
 1. Välj **OK**för att skapa den villkorliga vidarebefordraren.
 
-Namn matchningen för resurserna i andra namn områden från de virtuella datorer som är anslutna till den hanterade Azure AD DS-domänen bör nu lösas korrekt. Frågor för den DNS-domän som kon figurer ATS i den villkorliga vidarebefordraren skickas till relevanta DNS-servrar.
+Namn matchningen för resurserna i andra namn områden från de virtuella datorer som är anslutna till den hanterade domänen bör nu lösas korrekt. Frågor för den DNS-domän som kon figurer ATS i den villkorliga vidarebefordraren skickas till relevanta DNS-servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 

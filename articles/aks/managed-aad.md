@@ -4,24 +4,24 @@ description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 05/11/2020
-ms.openlocfilehash: 67f5f707ad2971551e3c9623dd5c07ad880afcf2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/04/2020
+ms.openlocfilehash: 8d446d82550a6bc790d162ee944b0753979b6546
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211151"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782678"
 ---
-# <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrera Azure AD i Azure Kubernetes service (för hands version)
+# <a name="integrate-aks-managed-azure-ad-preview"></a>Integrera AKS-hanterad Azure AD (för hands version)
 
 > [!Note]
-> Befintliga AKS-kluster med AAD (Azure Active Directory)-integration påverkas inte av den nya AKS-hanterade AAD-upplevelsen.
+> Befintliga AKS-kluster (Azure Kubernetes service) med Azure Active Directory (Azure AD)-integration påverkas inte av den nya AKS-hanterade Azure AD-upplevelsen.
 
-Azure AD-integrering med AKS-hanterad AAD är utformad för att förenkla Azure AD-integrering, där användare tidigare behövde skapa en klient app, en server app och krävde att Azure AD-klienten ska bevilja Läs behörighet för katalogen. I den nya versionen hanterar AKS Resource Provider klient-och Server apparna åt dig.
+Azure AD-integrering med AKS-hanterad Azure AD är utformad för att förenkla Azure AD-integration, där användare tidigare behövde skapa en klient app, en server app och krävde att Azure AD-klienten ska bevilja Läs behörighet för katalogen. I den nya versionen hanterar AKS Resource Provider klient-och Server apparna åt dig.
 
 ## <a name="limitations"></a>Begränsningar
 
-* Du kan för närvarande inte uppgradera ett befintligt AKS AAD-integrerat kluster till den nya AKS-hanterade AAD-upplevelsen.
+* Du kan för närvarande inte uppgradera ett befintligt AKS Azure AD-integrerat kluster till den nya AKS-hanterade Azure AD-upplevelsen.
 
 > [!IMPORTANT]
 > AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
@@ -30,6 +30,8 @@ Azure AD-integrering med AKS-hanterad AAD är utformad för att förenkla Azure 
 > - [Vanliga frågor och svar om support för Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
+* Leta upp ditt Azure-kontos klient-ID genom att gå till Azure Portal och välja Azure Active Directory > egenskaper > katalog-ID
 
 > [!Important]
 > Du måste använda Kubectl med en lägsta version av 1,18
@@ -52,7 +54,7 @@ az extension update --name aks-preview
 az extension list
 ```
 
-Om du vill installera kubectl använder du följande:
+Om du vill installera kubectl använder du följande kommandon:
 
 ```azurecli
 sudo az aks install-cli
@@ -79,37 +81,64 @@ När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.C
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+## <a name="azure-ad-authentication-overview"></a>Översikt över Azure AD-autentisering
+
+Kluster administratörer kan konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) baserat på användarens identitet eller katalog grupp medlemskap. Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][open-id-connect].
+
+Från inifrån Kubernetes-klustret används webhook-token-autentisering för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
+
+## <a name="webhook-and-api-server"></a>Webhook och API-Server
+
+:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="Webhook-och API-serverautentisering":::
+
+Som du ser i bilden ovan anropar API-servern AKS-webhook-servern och utför följande steg:
+
+1. Azure AD-klientprogrammet används av kubectl för att logga in användare med [OAuth 2,0-enhetens Authorization-flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+2. Azure AD tillhandahåller en access_token, id_token och en refresh_token.
+3. Användaren gör en begäran till kubectl med en access_token från kubeconfig.
+4. Kubectl skickar access_token till APIServer.
+5. API-servern konfigureras med auth-webhook-servern för att utföra verifiering.
+6. Autentiserings-webhook-servern bekräftar att JSON Web Token signaturen är giltig genom att kontrol lera Azure AD offentlig signerings nyckel.
+7. Serverprogrammet använder användarspecifika autentiseringsuppgifter för att fråga grupp medlemskap för den inloggade användaren från MS-Graph API.
+8. Ett svar skickas till APIServer med användar information som User Principal Name-anspråk (UPN) för åtkomsttoken och grupp medlemskapet för användaren baserat på objekt-ID: t.
+9. API: et utför ett auktoriserings beslut baserat på Kubernetes-rollen/RoleBinding.
+10. När den är auktoriserad returnerar API-servern ett svar till kubectl.
+11. Kubectl ger användaren feedback.
+
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Skapa ett AKS-kluster med Azure AD aktiverat
 
-Nu kan du skapa ett AKS-kluster med hjälp av följande CLI-kommandon.
+Skapa ett AKS-kluster med hjälp av följande CLI-kommandon.
 
-Börja med att skapa en Azure-resurs grupp:
+Skapa en Azure-resurs grupp:
 
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location centralus
 ```
 
-Skapa sedan ett AKS-kluster:
+Du kan använda en befintlig Azure AD-grupp eller skapa en ny. Du behöver objekt-ID för din Azure AD-grupp.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
+# List existing groups in the directory
+az ad group list
 ```
-Kommandot ovan skapar ett AKS-kluster med tre noder, men användaren, som som skapade klustret, är som standard inte medlem i en grupp som har åtkomst till det här klustret. Användaren måste skapa en Azure AD-grupp, lägga till sig själva som medlem i gruppen och sedan uppdatera klustret så som visas nedan. Följ anvisningarna [här](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-När du har skapat en grupp och lagt till dig själv (och andra) som medlem kan du uppdatera klustret med Azure AD-gruppen med hjälp av följande kommando
+Om du vill kapa en ny Azure AD-grupp för kluster administratörer använder du följande kommando:
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
+# Create an Azure AD group
+az ad group create --display-name MyDisplay --mail-nickname MyDisplay
 ```
-Alternativt, om du först skapar en grupp och lägger till medlemmar, kan du aktivera Azure AD-gruppen vid skapande tid med hjälp av följande kommando.
+
+Skapa ett AKS-kluster och aktivera administrations åtkomst för din Azure AD-grupp
 
 ```azurecli-interactive
+# Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-En lyckad skapande av ett AKS-hanterat AAD-kluster har följande avsnitt i svars texten
+En lyckad skapande av ett AKS Azure AD-kluster har följande avsnitt i svars texten
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
@@ -124,12 +153,17 @@ En lyckad skapande av ett AKS-hanterat AAD-kluster har följande avsnitt i svars
 Klustret skapas inom några minuter.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Åtkomst till ett Azure AD-aktiverat kluster
-Så här hämtar du administratörsautentiseringsuppgifter för att få åtkomst till klustret:
 
+Du behöver den inbyggda rollen [Azure Kubernetes service Cluster-användare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) för att utföra följande steg.
+
+Hämta användarautentiseringsuppgifter för att få åtkomst till klustret:
+ 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
+ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Använd nu kommandot kubectl get Nodes för att Visa noder i klustret:
+Följ anvisningarna för att logga in.
+
+Använd kommandot kubectl get Nodes för att Visa noder i klustret:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -139,22 +173,45 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
+Konfigurera [rollbaserad Access Control (RBAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) för att konfigurera ytterligare säkerhets grupper för dina kluster.
 
-Så här hämtar du autentiseringsuppgifter för att få åtkomst till klustret:
- 
+## <a name="troubleshooting-access-issues-with-azure-ad"></a>Fel sökning av åtkomst problem med Azure AD
+
+> [!Important]
+> Stegen som beskrivs nedan kringgår normal Azure AD-gruppautentisering. Använd dem endast i nödfall.
+
+Om du har blockerat permanent genom att inte ha åtkomst till en giltig Azure AD-grupp med åtkomst till klustret kan du fortfarande få administratörs behörighet för att få åtkomst till klustret direkt.
+
+För att utföra de här stegen måste du ha till gång till den inbyggda rollen [Azure Kubernetes service Cluster admin](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) .
+
 ```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
-Följ anvisningarna för att logga in.
 
-Du får: **du måste vara inloggad på servern (ej behörig)**
+## <a name="non-interactive-login-with-kubelogin"></a>Icke-interaktiv inloggning med kubelogin
 
-Användaren ovan får ett fel meddelande eftersom användaren inte är en del av en grupp som har åtkomst till klustret.
+Det finns vissa icke-interaktiva scenarier, till exempel kontinuerliga integrerings pipeliner, som för närvarande inte är tillgängliga med kubectl. Du kan använda [kubelogin](https://github.com/Azure/kubelogin) för att komma åt klustret i icke-interaktiva scenarier.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [rollbaserad Access Control i Azure AD][azure-ad-rbac].
 * Använd [kubelogin](https://github.com/Azure/kubelogin) för att få åtkomst till funktioner för Azure-autentisering som inte är tillgängliga i kubectl.
+* Använd [Azure Resource Manager arm-mallar][aks-arm-template] för att skapa AKS-hanterade Azure AD-kluster.
+
+<!-- LINKS - external -->
+[kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
 [azure-ad-rbac]: azure-ad-rbac.md
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-group-create]: /cli/azure/group#az-group-create
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-identity]: operator-best-practices-identity.md
+[azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md
+

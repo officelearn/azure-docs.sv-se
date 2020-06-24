@@ -11,12 +11,12 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f1f6f4a6a1d48a0f409d5e5aba644a26653aa7df
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726068"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252142"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -147,7 +147,7 @@ Här är de förväntade värdena:
 
 **Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc` .
 
-Följande Node. js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins` . I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
+Följande Node.js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins` . I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -198,11 +198,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
 
-Följande är installations anvisningarna för kraven.
-
-[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-
 Funktionen i C# för att skapa en säkerhetstoken är:
 
 ```csharp
@@ -235,7 +230,6 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 ```
 
-
 > [!NOTE]
 > Eftersom giltighets tiden för token har verifierats på IoT Hub datorer, måste driften på datorns klocka som genererar token vara minimal.
 
@@ -266,7 +260,7 @@ En token som har skapats för åtkomst till alla enhets funktioner ska till exem
 * inget princip namn,
 * förfallo tid.
 
-Ett exempel på hur du använder föregående Node. js-funktion är:
+Ett exempel som använder föregående Node.js-funktion är:
 
 ```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
@@ -300,7 +294,7 @@ Till exempel skulle en token-tjänst som använder den förskapade principen fö
 * princip namn: `device` ,
 * förfallo tid.
 
-Ett exempel på hur du använder föregående Node. js-funktion är:
+Ett exempel som använder föregående Node.js-funktion är:
 
 ```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
@@ -444,7 +438,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Anteckningar |
+| Behörighet | Kommentarer |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

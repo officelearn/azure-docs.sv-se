@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105734"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734477"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Säker fjärråtkomst till virtuella datorer i Azure Active Directory Domain Services
 
@@ -41,7 +41,7 @@ För att slutföra den här artikeln behöver du följande resurser:
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
 * Ett *arbets belastnings* under nät som skapats i ditt Azure Active Directory Domain Services virtuella nätverk.
     * Om det behövs [konfigurerar du virtuella nätverk för en Azure Active Directory Domain Services hanterad domän][configure-azureadds-vnet].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
@@ -55,16 +55,16 @@ En rekommenderad RDS-distribution innehåller följande två virtuella datorer:
 * *RDGVM01* – kör Server för anslutnings utjämning för fjärr skrivbord, servern för webb åtkomst för fjärr skrivbord och RD Gateway-servern.
 * *RDSHVM01* – kör värd servern för fjärrskrivbordssession.
 
-Se till att de virtuella datorerna distribueras till ett *arbets belastnings* under nät för ditt virtuella Azure AD DS-nätverk och Anslut sedan de virtuella datorerna till den hanterade domänen i Azure AD DS. Mer information finns i så här [skapar och ansluter du en virtuell Windows Server-dator till en hanterad Azure AD DS-domän][tutorial-create-join-vm].
+Se till att de virtuella datorerna distribueras till ett *arbets belastnings* under nät för ditt virtuella Azure AD DS-nätverk och Anslut sedan de virtuella datorerna till den hanterade domänen. Mer information finns i så här [skapar och ansluter du en virtuell Windows Server-dator till en hanterad domän][tutorial-create-join-vm].
 
-Distributionen av fjärr skrivbords miljön innehåller ett antal steg. Den befintliga distributions guiden för fjärr skrivbord kan användas utan några särskilda ändringar som ska användas i en Azure AD DS-hanterad domän:
+Distributionen av fjärr skrivbords miljön innehåller ett antal steg. Den befintliga distributions guiden för fjärr skrivbord kan användas utan några speciella ändringar som ska användas i en hanterad domän:
 
 1. Logga in på virtuella datorer som har skapats för RD-miljön med ett konto som är en del av *Administratörs gruppen för Azure AD DC* , till exempel *contosoadmin*.
 1. Om du vill skapa och konfigurera RDS använder du den befintliga [distributions guiden för fjärr skrivbords miljö][deploy-remote-desktop]. Distribuera Server komponenterna för fjärr skrivbord i dina virtuella Azure-datorer efter behov.
     * Specifika för Azure AD DS – när du konfigurerar fjärr skrivbords licensiering ska du ställa in det på **per enhets** läge, inte **per användare** som anges i distributions guiden.
 1. Om du vill ge åtkomst med hjälp av en webbläsare [konfigurerar du webb klienten för fjärr skrivbord för dina användare][rd-web-client].
 
-Med RD distribuerad till den hanterade Azure AD DS-domänen kan du hantera och använda tjänsten på samma sätt som med en lokal AD DS-domän.
+Med RD distribuerad till den hanterade domänen kan du hantera och använda tjänsten på samma sätt som med en lokal AD DS-domän.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Distribuera och konfigurera NPS och Azure MFA NPS-tillägget
 
@@ -76,7 +76,7 @@ Användare måste vara [registrerade för att använda azure Multi-Factor Authen
 
 Om du vill integrera Azure Multi-Factor Authentication i din Azure AD DS-fjärr skrivbords miljö skapar du en NPS-server och installerar tillägget:
 
-1. Skapa ytterligare en virtuell Windows Server 2016-eller 2019-dator, till exempel *NPSVM01*, som är ansluten till ett under nätverk för *arbets belastningar* i ditt virtuella Azure AD DS-nätverk. Anslut den virtuella datorn till den hanterade domänen i Azure AD DS.
+1. Skapa ytterligare en virtuell Windows Server 2016-eller 2019-dator, till exempel *NPSVM01*, som är ansluten till ett under nätverk för *arbets belastningar* i ditt virtuella Azure AD DS-nätverk. Anslut den virtuella datorn till den hanterade domänen.
 1. Logga in på NPS VM som-konto som är en del av gruppen *Azure AD DC-administratörer* , till exempel *contosoadmin*.
 1. Från **Serverhanteraren**väljer du **Lägg till roller och funktioner**och installerar sedan rollen *nätverks policy och åtkomst tjänster* .
 1. Använd den befintliga instruktions artikeln för att [Installera och konfigurera Azure MFA NPS-tillägget][nps-extension].
@@ -87,9 +87,9 @@ När NPS-servern och Azure-Multi-Factor Authentication NPS-tillägget är instal
 
 Om du vill integrera Azure Multi-Factor Authentication NPS-tillägget använder du den befintliga instruktions artikeln för att [integrera din infrastruktur för fjärr skrivbords-Gateway med hjälp av NPS-tillägget (Network Policy Server) och Azure AD][azure-mfa-nps-integration].
 
-Följande ytterligare konfigurations alternativ krävs för att integrera med en Azure AD DS-hanterad domän:
+Följande ytterligare konfigurations alternativ krävs för att integrera med en hanterad domän:
 
-1. [Registrera inte NPS-servern i Active Directory][register-nps-ad]. Det här steget Miss lyckas i en Azure AD DS-hanterad domän.
+1. [Registrera inte NPS-servern i Active Directory][register-nps-ad]. Det här steget fungerar inte i en hanterad domän.
 1. I [steg 4 konfigurerar du nätverks principen][create-nps-policy], markerar kryss rutan för att **Ignorera egenskaper för användar kontots uppringning**.
 1. Om du använder Windows Server 2019 för NPS-servern och Azure Multi-Factor Authentication NPS-tillägget kör du följande kommando för att uppdatera den säkra kanalen så att NPS-servern kan kommunicera korrekt:
 

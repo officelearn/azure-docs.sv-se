@@ -150,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: Företagsberedskap och säkerhet
       items:
-        - name: Företagssäkerhet
+        - name: Företagssäkerhet och styrning
           items:
             - name: Översikt över Enterprise Security
               displayName: authorization authentication encryption aad azure active directory
@@ -164,8 +164,8 @@
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Skydda webbtjänster med TLS
-              href: how-to-secure-web-service.md
               displayName: ssl
+              href: how-to-secure-web-service.md
             - name: Använda Azure AD-identitet i AKS-distributioner
               href: how-to-use-azure-ad-identity.md
             - name: Återskapa åtkomstnycklar för lagring
@@ -274,19 +274,16 @@
               href: how-to-differential-privacy.md
     - name: Inlärningsmodeller
       items:
+        - name: Konfigurera miljöer för utbildning
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
         - name: Använda uppskattningar för ML
           items:
             - name: Skapa uppskattningar i utbildning
               href: how-to-train-ml-models.md
-            - name: Konfigurera miljöer för utbildning
-              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-              href: how-to-set-up-training-targets.md
             - name: Justering av hyperparametrar
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: Använda Key Vault under träningen
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -295,17 +292,33 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Spåra och övervaka träning
+          items:
+            - name: 'Starta, övervaka eller avbryta körningar'
+              displayName: 'cancel, fail, status, child run'
+              href: how-to-manage-runs.md
+            - name: Loggmått för träningskörningar
+              href: how-to-track-experiments.md
+            - name: Spåra experiment med MLflow
+              displayName: 'log, monitor, metrics, Databricks'
+              href: how-to-use-mlflow.md
+            - name: Visualisera körningar med TensorBoard
+              displayName: 'log, monitor, metrics'
+              href: how-to-monitor-tensorboard.md
+        - name: Tolka och förklara modeller
+          displayName: interpretability
+          items:
+            - name: Tolka ML-modeller
+              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: Förklara automatiska ML-modeller
+              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: Använda Key Vault under träningen
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
         - name: Kunskapsförmedling
           href: how-to-use-reinforcement-learning.md
-    - name: Tolka och förklara modeller
-      displayName: interpretability
-      items:
-        - name: Tolka ML-modeller
-          displayName: 'SDK, interpret, explain, explanability, interpretability'
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: Förklara automatiska ML-modeller
-          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
-          href: how-to-machine-learning-interpretability-automl.md
     - name: Azure-maskininlärning
       displayName: 'automl, auto ml'
       items:
@@ -334,19 +347,6 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Förstå diagram och mått
           href: how-to-understand-automated-ml.md
-    - name: Spåra och övervaka experiment
-      items:
-        - name: 'Starta, övervaka eller avbryta körningar'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: Loggmått för träningskörningar
-          href: how-to-track-experiments.md
-        - name: Spåra experiment med MLflow
-          displayName: 'log, monitor, metrics, Databricks'
-          href: how-to-use-mlflow.md
-        - name: Visualisera körningar med TensorBoard
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
     - name: Distribuera och hantera modeller
       items:
         - name: Var och hur du distribuerar
@@ -413,7 +413,6 @@
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Felsöka pipelines i Application Insights.
-          displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
         - name: Omvandla data i Designer
           displayName: pipeline
@@ -483,7 +482,7 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: Användarforum
-      href: 'https://aka.ms/aml-forum-service'
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Jämför våra ML-produkter

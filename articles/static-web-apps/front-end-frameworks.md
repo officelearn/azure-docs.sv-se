@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 1da2403cc75d979ca34c96caff5ec7cffab7ffb0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680030"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976718"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Konfigurera klient dels ramverk och bibliotek med Azures statiska Web Apps för hands version
 
@@ -37,6 +37,7 @@ Avsikten med tabell kolumnerna förklaras av följande objekt:
 | [Backbone.js](https://backbonejs.org/) | `/` | saknas |
 | [Ember](https://emberjs.com/) | `dist` | saknas |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | saknas |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | saknas |
 | [Hyperapp](https://hyperapp.dev/) | `/` | saknas |

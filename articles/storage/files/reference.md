@@ -1,5 +1,5 @@
 ---
-title: Lagrings referens för Azure-filresurser
+title: Lagringsreferens för Azure-filresurser
 description: Hitta Azure Storage API-referens, README-filer och klient biblioteks paket.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 06/02/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d995e66c2bf3bc1cb1bd0cd93dfc2a0739ab692b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346026"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976531"
 ---
-# <a name="azure-file-shares-storage-reference"></a>Lagrings referens för Azure-filresurser
+# <a name="azure-file-shares-storage-reference"></a>Lagringsreferens för Azure-filresurser
 
 Hitta Azure File reshares Storage API-referens, biblioteks paket, viktigt-filer och komma igång-artiklar.
 
@@ -66,8 +66,8 @@ I följande tabell visas referens och exempel dokumentation för Azure File rese
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Azure-filresursers klient bibliotek V12 för python](/python/api/overview/azure/storage-file-share-readme) | [Paket (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exempel](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2x | [Azure-lagring – fil](/python/api/azure-storage-file/?view=azure-python-previous) | [Paket (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Utveckla för Azure Files med Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 12. x | [Azure Storage klient bibliotek V12 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Paket (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exempel](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2x | [Azure Storage klient bibliotek v2 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Paket (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Utveckla för Azure Files med Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
 
 ## <a name="javascript-client-libraries"></a>Java Script-klient bibliotek
 

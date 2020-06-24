@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272778"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699370"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Hantera Azure HDInsight-kluster med Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "79272778"
 
 Lär dig hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att hantera Azure HDInsight-kluster. Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,7 +42,7 @@ az login
 
 ## <a name="list-clusters"></a>Lista kluster
 
-Använd [AZ HDInsight List](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-list) för att Visa kluster. Redigera kommandona nedan genom att `RESOURCE_GROUP_NAME` ersätta med namnet på din resurs grupp och ange sedan följande kommandon:
+Använd [AZ HDInsight List](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-list) för att Visa kluster. Redigera kommandona nedan genom `RESOURCE_GROUP_NAME` att ersätta med namnet på din resurs grupp och ange sedan följande kommandon:
 
 ```azurecli-interactive
 # List all clusters in the current subscription
@@ -60,7 +60,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>Visa kluster
 
-Använd [AZ HDInsight show](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) för att visa information för ett angivet kluster. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`och med `CLUSTER_NAME` relevant information, och ange sedan kommandot:
+Använd [AZ HDInsight show](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) för att visa information för ett angivet kluster. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME` och `CLUSTER_NAME` med relevant information, och ange sedan kommandot:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -68,7 +68,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>Ta bort kluster
 
-Använd [AZ HDInsight Delete](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) för att ta bort ett angivet kluster. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`och med `CLUSTER_NAME` relevant information, och ange sedan kommandot:
+Använd [AZ HDInsight Delete](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) för att ta bort ett angivet kluster. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME` och `CLUSTER_NAME` med relevant information, och ange sedan kommandot:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -82,7 +82,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Skala kluster
 
-Använd [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) för att ändra storlek på det angivna HDInsight-klustret till den angivna storleken. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`och `CLUSTER_NAME` med relevant information. Ersätt `WORKERNODE_COUNT` med det önskade antalet arbetsnoder för klustret. Mer information om hur du skalar kluster finns i [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md). Ange kommandot:
+Använd [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) för att ändra storlek på det angivna HDInsight-klustret till den angivna storleken. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME` och `CLUSTER_NAME` med relevant information. Ersätt `WORKERNODE_COUNT` med det önskade antalet arbetsnoder för klustret. Mer information om hur du skalar kluster finns i [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md). Ange kommandot:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

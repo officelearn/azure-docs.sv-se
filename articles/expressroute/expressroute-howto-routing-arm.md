@@ -4,15 +4,15 @@ description: Den här artikeln vägleder dig genom stegen för att skapa och eta
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 2c28df35eec862afb5b0078ca7693898e9b58533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab20ae00fd9f275d21bc818e07bdc868944ee689
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264848"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735276"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Skapa och ändra peering för en ExpressRoute-krets med PowerShell
 
@@ -183,7 +183,7 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures 
    Install-Module Az
    ```
 
-   Importera alla AZ.\* modules inom det kända semantiska versions intervallet.
+   Importera alla AZ. \* moduler inom det kända semantiska versions intervallet.
 
    ```azurepowershell-interactive
    Import-Module Az

@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c07167a9f3a9194b7c45932ac749324429943ea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93a142ddca360b3d85519a0531a221794ad3a892
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450130"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808819"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -61,7 +61,7 @@ Under krypteringen genererar klient biblioteket en slumpmässig initierings vekt
 > 
 > 
 
-Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **DownloadTo**/**BlobReadStream** -bekvämlighets metoder. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **DownloadTo** / **BlobReadStream** -bekvämlighets metoder. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
 Genom att ladda ned ett godtyckligt intervall (**DownloadRange** -metoder) i den krypterade blobben måste du justera intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet.
 

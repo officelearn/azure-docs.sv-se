@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0cf4663e8c1b0d1c859cd62c63ab40ae4dceae22
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: b8c649a232baeafeaf1f53753af6653bf9edd9c1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484941"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736194"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med hjälp av portalen
 
@@ -109,7 +109,7 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Serverinformation** |  |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
+    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
     | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Location | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
@@ -143,7 +143,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Instans information** |  |
-    | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
@@ -171,7 +171,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     |||
 
     > [!Note] 
-    > Se konfigurationen av [DNS-zonen för Azure-tjänster](../private-link/private-endpoint-dns.md).
+    > Använd den fördefinierade privata DNS-zonen för din tjänst eller ange önskat DNS-zonnamn. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
@@ -230,7 +230,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Inställningen | Värde |
     | ------- | ----- |
     | Servertyp| Välj **MariaDB**.|
-    | servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
+    | Servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när MariaDB-servern skapas. |
     |lösenordsinställning |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     |SSL|Välj **obligatoriskt**.|

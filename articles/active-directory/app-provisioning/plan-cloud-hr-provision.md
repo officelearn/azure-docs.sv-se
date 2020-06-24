@@ -2,21 +2,21 @@
 title: Planera molnet HR Application för att Azure Active Directory användar etablering
 description: Den här artikeln beskriver distributions processen för att integrera moln HR-system, till exempel Workday och SuccessFactors, med Azure Active Directory. Genom att integrera Azure AD med ditt moln HR-system resulterar det i ett komplett hanterings system för identitets livs cykeln.
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 66a5bceb5b59c0e1b14577176cfed933e4503f31
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014442"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781607"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -52,7 +52,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
 - Använd Office 365 för e-post.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -79,7 +79,7 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) för att konfigurera Azure AD Connect etablerings agenten.
 - Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
@@ -92,7 +92,7 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Videor | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |

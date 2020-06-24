@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9158ad23bf05bf52f879afb1f1d25d2f4ba42cfb
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323645"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124263"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -21,10 +21,11 @@ Den här artikeln hjälper dig att förstå processen med att skapa privata slut
 - Privata slut punkter kan bara skapas för nya Recovery Services-valv (som inte har några registrerade objekt i valvet). Därför måste privata slut punkter skapas innan du försöker skydda några objekt i valvet.
 - Ett virtuellt nätverk kan innehålla privata slut punkter för flera Recovery Services-valv. Ett Recovery Services valv kan också ha privata slut punkter för det i flera virtuella nätverk. Det maximala antalet privata slut punkter som kan skapas för ett valv är dock 12.
 - När en privat slut punkt har skapats för ett valv kommer valvet att låsas upp. Den är inte tillgänglig (för säkerhets kopiering och återställning) från nätverk som skiljer sig från dem som innehåller en privat slut punkt för valvet. Om alla privata slut punkter för valvet tas bort, kommer valvet att vara tillgängligt från alla nätverk.
+- En privat slut punkts anslutning för säkerhets kopiering använder totalt 11 privata IP-adresser i ditt undernät. Det här antalet kan vara högre (upp till 15) för vissa Azure-regioner. Vi föreslår att du har tillräckligt med privata IP-adresser tillgängliga när du försöker skapa privata slut punkter för säkerhets kopiering.
 - Även om ett Recovery Services valv används av (både) Azure Backup och Azure Site Recovery, diskuterar den här artikeln användning av privata slut punkter för enbart Azure Backup.
 - Azure Active Directory stöder för närvarande inte privata slut punkter. IP-adresser och FQDN: er som krävs för att Azure Active Directory ska fungera i en region måste vara tillåtna utgående åtkomst från det skyddade nätverket när du säkerhetskopierar databaser i virtuella Azure-datorer och säkerhets kopiering med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt.
 - Virtuella nätverk med nätverks principer stöds inte för privata slut punkter. Du måste inaktivera nätverks principer innan du fortsätter.
-- Du måste registrera om Recovery Services resurs leverantören med prenumerationen om du registrerade den före den 1 maj 2020. Om du vill registrera providern igen går du till prenumerationen i Azure Portal, navigerar till **resurs leverantören** i det vänstra navigerings fältet och väljer sedan **Microsoft. RecoveryServices** och klickar på **registrera igen**.
+- Du måste registrera om Recovery Services Resource Provider med prenumerationen om du registrerade den innan maj 1 2020. Om du vill registrera providern igen går du till prenumerationen i Azure Portal, navigerar till **resurs leverantören** i det vänstra navigerings fältet och väljer sedan **Microsoft. RecoveryServices** och klickar på **registrera igen**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Rekommenderade och stödda scenarier
 
@@ -41,9 +42,6 @@ Det här avsnittet beskriver de steg som ingår i att skapa och använda privata
 
 >[!IMPORTANT]
 > Vi rekommenderar starkt att du följer stegen i samma ordning som anges i det här dokumentet. Om du inte gör det kan det leda till att valvet återges som inkompatibelt för att använda privata slut punkter och kräver att du startar om processen med ett nytt valv.
-
->[!NOTE]
-> Vissa delar av Azure Portals upplevelsen kanske inte är tillgängliga för tillfället. Se de alternativa upplevelserna i dessa scenarier tills du har full tillgänglighet i din region.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -345,7 +343,7 @@ Du kan använda någon av följande metoder för att skapa roller med nödvändi
 
 Skapa följande JSON-filer och Använd PowerShell-kommandot i slutet av avsnittet för att skapa roller:
 
-PrivateEndpointContributorRoleDef. JSON
+PrivateEndpointContributorRoleDef.jspå
 
 ```json
 {
@@ -363,7 +361,7 @@ PrivateEndpointContributorRoleDef. JSON
 }
 ```
 
-NetworkInterfaceReaderRoleDef. JSON
+NetworkInterfaceReaderRoleDef.jspå
 
 ```json
 {
@@ -381,7 +379,7 @@ NetworkInterfaceReaderRoleDef. JSON
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef. JSON
+PrivateEndpointSubnetContributorRoleDef.jspå
 
 ```json
 {

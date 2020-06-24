@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: c30a7b1e6440cf69f7a4858273b365d885e5ec7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 534d75a5b9009f0febee2746179ab7357a4985e0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77060488"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732879"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Självstudie: konfigurera SAP Cloud Platform Identity Authentication för automatisk användar etablering
 
@@ -58,7 +58,10 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
     ![SAP Cloud Platform Identity Authentication admin-konsol](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
-2.  Skapa en administratörs användare och välj användaren.  
+2.  Tryck på knappen **+ Lägg till** i den vänstra panelen för att lägga till en ny administratör i listan. Välj **Lägg till system** och ange namnet på systemet.   
+
+> [!NOTE]
+> Administratörs-användaren i SAP Cloud Platform Platform Identity Authentication måste vara av typen **system**. Att skapa en normal administratörs användare kan leda till *obehöriga* fel under etableringen.   
 
 3.  Under Konfigurera auktoriseringar växlar du till växlings knappen mot **Hantera användare** och **hantera grupper**.
 

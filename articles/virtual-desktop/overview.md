@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929833"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125812"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop är en Skriv bords-och app Virtualization-tjänst som k�
 Det här kan du göra när du kör Windows Virtual Desktop på Azure:
 
 * Konfigurera en Windows 10-distribution med flera sessioner som ger en fullständig Windows 10 med skalbarhet
-* Virtualisera Office 365 ProPlus och optimera det för att köras i virtuella scenarier med flera användare
+* Virtualisera Microsoft 365 appar för företag och optimera den för att köras i virtuella scenarier med flera användare
 * Tillhandahålla virtuella Windows 7-datorer med kostnads fria utökade säkerhets uppdateringar
 * Ta med dina befintliga Fjärrskrivbordstjänster (RDS) och Windows Server-datorer och appar till valfri dator
 * Virtualisera både Station ära datorer och appar
@@ -109,11 +109,11 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 
 |Adress|Utgående TCP-port|Syfte|Service tag|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autentisering till MS Online Services|Inga|
+|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|Inga|
 |*. events.data.microsoft.com|443|Telemetri-tjänst|Inga|
 |www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inga|
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inga|
-|login.windows.net|443|Logga in på MS Online Services, Office 365|Inga|
+|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|Inga|
 |*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Inga|
 |*. digicert.com|443|Återkallnings kontroll av certifikat|Inga|
 
@@ -126,7 +126,7 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 >Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
 >
 >1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
->2. Öppna **logg boken** och navigera till **Windows-loggar** > **Application** > **WVD-agent** och leta efter händelse-ID 3702.
+>2. Öppna **logg boken** och navigera till **Windows-loggar**  >  **Application**  >  **WVD-agent** och leta efter händelse-ID 3702.
 >3. Vitlista de URL: er som du hittar under händelse-ID 3702. URL: erna under händelse-ID 3702 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a4a0dfaeda18b3f68ddc3c7cc7333b8c994d174
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00ed10ece042446e941832b27c58b0032f852ad9
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684920"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732267"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
@@ -78,7 +78,7 @@ I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver so
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. I Azure Portal går du till**administrations enheter**för **Azure AD** > . 
+1. I Azure Portal går du till **Azure AD**  >  **administrations enheter**för Azure AD. 
 1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort**. 
 1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja**. Den administrativa enheten tas bort.
 

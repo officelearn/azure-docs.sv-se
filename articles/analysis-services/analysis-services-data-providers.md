@@ -4,15 +4,15 @@ description: Beskriver klient bibliotek som krävs för klient program och-verkt
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c02be378febacc4db0b077a3be69339ff9710a0
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bdb9c93e5b5a510e6d89f879f0783fe95910c43
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300917"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976599"
 ---
 # <a name="client-libraries-for-connecting-to-analysis-services"></a>Klient bibliotek för anslutning till Analysis Services
 
@@ -22,19 +22,21 @@ Klient bibliotek krävs för klient program och-verktyg för att ansluta till An
 
 |Ladda ned  |Produktversion  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.42.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.42.26       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   19.2.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    19.2.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.44.24    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.44.24       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   19.4.0.2    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    19.4.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO och ADOMD (NuGet-paket)
 
-Analysis Services Management Objects (AMO) och ADOMD-klient bibliotek är tillgängliga som Installerbara paket från [NuGet.org](https://www.nuget.org/). Vi rekommenderar att du migrerar till NuGet-referenser i stället för att använda Windows Installer. 
+Analysis Services Management Objects (AMO) och ADOMD-klient bibliotek är tillgängliga som Installerbara paket från [NuGet.org](https://www.nuget.org/). Vi rekommenderar att du migrerar till NuGet-referenser i stället för att använda Windows Installer. Från och med juni 2020 är en för hands version av [.net Core](https://docs.microsoft.com/dotnet/core/about) -paket som motsvarar AMO-och ADOMD-klient paketen också tillgänglig. Den här för hands versionen av .NET Core stöder endast molnbaserade servrar.
 
 |Paket  | Produktversion  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    19.2.0.2     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   19.2.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    19.4.0.2     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   19.4.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.NetCore.retail.amd64/19.4.0.2-Preview/)    |    19.4.0.2 (för hands version)    | 
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64/19.4.0.2-Preview/)     |   19.4.0.2 (för hands version)      | 
 
 NuGet paket sammansättningar AssemblyVersion följer semantisk versions hantering: MAJOR. Del. 9.0a. NuGet-referenser läser in den förväntade versionen även om det finns en annan version i GAC (som orsakas av MSI-installation). KORRIGERINGen ökar för varje version. AMO-och ADOMD-versionerna hålls synkroniserade.
 
@@ -74,7 +76,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
   
 1.  Gå till `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Om du har mer än en mapp väljer du det högre talet.
   
-2.  Högerklicka på **MSOLAP. dll**  >  **Egenskaper**  >  **information**. Om fil namnet är msolap140. dll, är det äldre än den senaste versionen och bör uppgraderas.
+2.  Högerklicka på **msolap.dll**  >  **Egenskaper**  >  **information**. Om fil namnet är msolap140.dll är det äldre än den senaste versionen och bör uppgraderas.
     
     ![Information om klient bibliotek](media/analysis-services-data-providers/aas-msolap-details.png)
     

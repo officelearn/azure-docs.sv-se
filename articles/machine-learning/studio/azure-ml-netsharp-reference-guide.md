@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218249"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85129525"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 NET # är ett språk som utvecklats av Microsoft och som används för att definiera komplexa neurala-nätverks arkitekturer som djup neurala nätverk eller convolutions för godtyckliga dimensioner. Du kan använda komplexa strukturer för att förbättra inlärningen på data, till exempel bild, video eller ljud.
 
@@ -87,21 +85,21 @@ En neurala nätverks struktur specifikation består av tre delar: **konstant dek
 
 En konstant deklaration är valfri. Det är ett sätt att definiera värden som används någon annan stans i neurala-nätverks definitionen. Deklarations instruktionen består av en identifierare följt av ett likhets tecken och ett värde uttryck.
 
-Följande uttryck definierar till exempel en konstant `x`:
+Följande uttryck definierar till exempel en konstant `x` :
 
 `Const X = 28;`
 
-Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Ett exempel:
+Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Exempel:
 
 `Const { X = 28; Y = 4; }`
 
-Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Ett exempel:
+Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Exempel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Lager deklaration
 
-Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Ett exempel:
+Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Exempel:
 
 ```Net#
 input Data auto;
@@ -112,7 +110,7 @@ output Result[2] from Hidden all;
 + Dimensionens produkt är antalet noder i lagret. I det här exemplet finns det två dimensioner [5, 20], vilket innebär att det finns 100 noder i skiktet.
 + Lagren kan deklareras i vilken ordning som helst, med ett undantag: om fler än ett inmatnings lager har definierats måste den ordning som de deklareras i vara samma som ordningen på funktionerna i indata.
 
-Om du vill ange att antalet noder i ett lager ska fastställas automatiskt använder du `auto` nyckelordet. `auto` Nyckelordet har olika effekter, beroende på lagret:
+Om du vill ange att antalet noder i ett lager ska fastställas automatiskt använder du `auto` nyckelordet. `auto`Nyckelordet har olika effekter, beroende på lagret:
 
 + I en deklaration för inmatnings lager är antalet noder antalet funktioner i indata.
 + I en deklaration för en dold lager är antalet noder det tal som anges av parametervärdet för **antalet dolda noder**.
@@ -147,13 +145,13 @@ Följande deklaration använder till exempel funktionen **SOFTMAX** :
 
 ## <a name="connection-declaration"></a>Anslutnings deklaration
 
-Direkt efter att du har definierat det tågens skiktet måste du deklarera anslutningar mellan de lager som du har definierat. Deklarationen för anslutnings paket börjar med nyckelordet `from`följt av namnet på paketets käll skikt och vilken typ av anslutnings paket som ska skapas.
+Direkt efter att du har definierat det tågens skiktet måste du deklarera anslutningar mellan de lager som du har definierat. Deklarationen för anslutnings paket börjar med nyckelordet `from` följt av namnet på paketets käll skikt och vilken typ av anslutnings paket som ska skapas.
 
 För närvarande stöds fem typer av anslutnings paket:
 
 + **Fullständiga** paket som anges av nyckelordet`all`
-+ **Filtrerade** paket som anges av nyckelordet `where`följt av ett predikat-uttryck
-+ **(Convolutional** paket som anges av nyckelordet `convolve`följt av convolution-attributen
++ **Filtrerade** paket som anges av nyckelordet `where` följt av ett predikat-uttryck
++ **(Convolutional** paket som anges av nyckelordet `convolve` följt av convolution-attributen
 + **Samlings paket,** angivna med nyckelorden **Max pool** eller **genomsnitts pool**
 + Paket för **svars normalisering** som anges av nyckelordet **Response norm**
 
@@ -171,13 +169,13 @@ hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 ```
 
-+ I predikatet `ByRow`för `s` är en parameter som representerar ett index i den rektangulära matrisen av noder i indatanivå `Pixels`, och `d` är en parameter som representerar ett index i matrisen med noder i det dolda lagret `ByRow`. Typen för båda `s` och `d` är en tupel av heltal med längden två. Konceptuellt, `s` intervall över alla par `0 <= s[0] < 10` heltal med och `0 <= s[1] < 20`och `d` intervall över alla par med heltal, med `0 <= d[0] < 10` och. `0 <= d[1] < 12`
++ I predikatet för `ByRow` `s` är en parameter som representerar ett index i den rektangulära matrisen av noder i indatanivå, `Pixels` och `d` är en parameter som representerar ett index i matrisen med noder i det dolda lagret `ByRow` . Typen för båda `s` och `d` är en tupel av heltal med längden två. Konceptuellt, `s` intervall över alla par heltal med och och `0 <= s[0] < 10` `0 <= s[1] < 20` `d` intervall över alla par med heltal, med `0 <= d[0] < 10` och `0 <= d[1] < 12` .
 
-+ På den högra sidan av predikatet uttryck finns det ett villkor. I det här exemplet finns det en gräns `s` från `d` käll skiktets nod till mål skiktet för varje värde av och så att villkoret är uppfyllt. Detta filter uttryck anger därför att paketet innehåller en anslutning från noden som definieras av `s` till den nod som definieras i `d` i samtliga fall där s [0] är lika med d [0].
++ På den högra sidan av predikatet uttryck finns det ett villkor. I det här exemplet finns det `s` `d` en gräns från käll skiktets nod till mål skiktet för varje värde av och så att villkoret är uppfyllt. Detta filter uttryck anger därför att paketet innehåller en anslutning från noden som definieras av `s` till den nod som definieras i `d` i samtliga fall där s [0] är lika med d [0].
 
 Alternativt kan du ange en uppsättning vikter för ett filtrerat paket. Värdet för attributet **viktning** måste vara en tupel av flytt ALS värden med en längd som matchar antalet anslutningar som definieras av paketet. Som standard genereras vikter slumpmässigt.
 
-Viktnings värden grupperas efter målets index. Det vill säga om den första målnoden är ansluten till K-Källnoden, är de första `K` elementen i **tuplen vikter** för den första målnoden i käll index ordning. Samma gäller för de återstående målnoden.
+Viktnings värden grupperas efter målets index. Det vill säga om den första målnoden är ansluten till K-Källnoden, är de första `K` elementen i tuplen **vikter** för den första målnoden i käll index ordning. Samma gäller för de återstående målnoden.
 
 Det är möjligt att ange vikter direkt som konstanta värden. Om du till exempel har lärt vikten tidigare kan du ange dem som konstanter med följande syntax:
 
@@ -218,11 +216,11 @@ Det finns två uppsättningar egenskaper som styr utfyllnaden. egenskaperna är 
 + **UpperPad** och **LowerPad**: (valfritt) ger bättre kontroll över mängden utfyllnad som ska användas. **Viktigt:** Dessa attribut kan definieras om och endast om egenskapen **utfyllnad** ovan ***inte*** har definierats. Värdena ska vara heltals-värdes par med längd som är aritet för paketet. När de här attributen anges läggs "provdocka"-noder till i de nedre och övre ändarna i varje dimension i Indatakällan. Antalet noder som läggs till i de nedre och övre ändarna i varje dimension bestäms av **LowerPad**[i] respektive **UpperPad**[i].
 
     För att säkerställa att kärnan endast motsvarar "verkliga" noder och inte till "dummy"-noder måste följande villkor vara uppfyllda:
-  - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2`.
-  - Varje komponent i **UpperPad** får inte vara större än `KernelShape[d]/2`.
+  - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2` .
+  - Varje komponent i **UpperPad** får inte vara större än `KernelShape[d]/2` .
   - Standardvärdet för dessa attribut är en tupel med alla komponenter som är lika med 0.
 
-    Inställningen **padding** = True tillåter lika många utfyllnad som behövs för att hålla kärnan i kärnan i "Real"-indatamängden. Detta ändrar det matematiska värdet för att beräkna storleken på utdata. Normalt beräknas utmatnings storleken *D* som `D = (I - K) / S + 1`, där `I` är storleken på indata, `K` är kernel-storleken, `S` är klivet och `/` är en heltals Division (avrunda mot noll). Om du anger UpperPad = [1, 1], är storleken `I` på indatamängden på ett effektivt `D = (29 - 5) / 2 + 1 = 13`sätt 29 och därmed. Men när **utfyllnaden** = True, `I` kommer i huvudsak att bli `K - 1`inhöjd av; Därför `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Genom att ange värden för **UpperPad** och **LowerPad** får du mycket mer kontroll över utfyllnaden än om du bara ställer in **utfyllnad** = True.
+    Inställningen **padding** = True tillåter lika många utfyllnad som behövs för att hålla kärnan i kärnan i "Real"-indatamängden. Detta ändrar det matematiska värdet för att beräkna storleken på utdata. Normalt beräknas utmatnings storleken *D* som `D = (I - K) / S + 1` , där är storleken på `I` indata, `K` är kernel-storleken, `S` är klivet och är en `/` heltals Division (avrunda mot noll). Om du anger UpperPad = [1, 1], är storleken på indatamängden på `I` ett effektivt sätt 29 och därmed `D = (29 - 5) / 2 + 1 = 13` . Men när **utfyllnaden** = True, kommer i själva verket att bli `I` instötande av `K - 1` ; därför `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14` . Genom att ange värden för **UpperPad** och **LowerPad** får du mycket mer kontroll över utfyllnaden än om du bara ställer in **utfyllnad** = True.
 
 Mer information om (convolutional-nätverk och deras program finns i följande artiklar:
 
@@ -246,10 +244,10 @@ hidden P1 [5, 12, 12]
   }
 ```
 
-+ Paketets aritet är 3: det vill säga längden på tuppeln `InputShape`, `KernelShape`och. `Stride`
-+ Antalet noder i käll skiktet är `5 * 24 * 24 = 2880`.
++ Paketets aritet är 3: det vill säga längden på tuppeln `InputShape` , `KernelShape` och `Stride` .
++ Antalet noder i käll skiktet är `5 * 24 * 24 = 2880` .
 + Detta är ett traditionellt lokalt skikt för pooler eftersom **KernelShape** och **kliv** är lika.
-+ Antalet noder i mål lagret är `5 * 12 * 12 = 1440`.
++ Antalet noder i mål lagret är `5 * 12 * 12 = 1440` .
 
 Mer information om pool lager finns i följande artiklar:
 
@@ -261,7 +259,7 @@ Mer information om pool lager finns i följande artiklar:
 
 **Normalisering av svar** är ett lokalt normaliserings schema som först introducerades av Geoffrey Hinton, et al i pappers [ImageNet klassificering med djup (convolutional neurala-nätverk](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar (`α`, `β`, och `k`) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges av följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x**), som definieras av följande (convolutional-struktur:
+Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar ( `α` , `β` , och `k` ) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges av följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x**), som definieras av följande (convolutional-struktur:
 
 ![formel för (convolutional-struktur](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
@@ -274,7 +272,7 @@ Paket för normalisering av svar har stöd för alla (convolutional-attribut fö
 Eftersom paket för normalisering av svar tillämpar en fördefinierad funktion för Källnoden för att fastställa värdet för målnoden, har de inte något tåg tillstånd (vikt eller bias).
 
 > [!NOTE]
-> Noderna i mål lagret motsvarar neurons som är centrala noder i kernelerna. Om `KernelShape[d]` är till exempel udda, `KernelShape[d]/2` motsvarar den centrala kernel-noden. Om `KernelShape[d]` är ens är den centrala noden på `KernelShape[d]/2 - 1`. Om `Padding[d]` är false har den första och de sista `KernelShape[d]/2` noderna därför inte motsvarande noder i mål lagret. Undvik den här situationen genom att definiera **utfyllnad** som [True, true,..., True].
+> Noderna i mål lagret motsvarar neurons som är centrala noder i kernelerna. Om är till exempel `KernelShape[d]` udda, `KernelShape[d]/2` motsvarar den centrala kernel-noden. Om `KernelShape[d]` är ens är den centrala noden på `KernelShape[d]/2 - 1` . Om `Padding[d]` är false har den första och de sista `KernelShape[d]/2` noderna därför inte motsvarande noder i mål lagret. Undvik den här situationen genom att definiera **utfyllnad** som [True, true,..., True].
 
 Förutom de fyra attribut som beskrivits tidigare, stöder svars normaliserings paket även följande attribut:
 
@@ -382,9 +380,9 @@ output Out [10] sigmoid from H all;
 
 Exemplet illustrerar några grundläggande kommandon på följande sätt:
 
-+ Den första raden definierar Indatakällan (Named `Data`). När du använder `auto` nyckelordet, innehåller neurala-nätverket automatiskt alla funktions kolumner i inmatade exempel.
++ Den första raden definierar Indatakällan (Named `Data` ). När du använder `auto` nyckelordet, innehåller neurala-nätverket automatiskt alla funktions kolumner i inmatade exempel.
 + Den andra raden skapar det dolda lagret. Namnet `H` tilldelas det dolda lagret, som har 200 noder. Det här lagret är fullständigt anslutet till indataströmmen.
-+ Den tredje raden definierar utmatnings skiktet `Out`(Named), som innehåller 10 utdata-noder. Om neurala-nätverket används för klassificering, finns det en utmatnings nod per klass. Nyckelordet **sigmoid** anger att output-funktionen används på output-lagret.
++ Den tredje raden definierar utmatnings skiktet (Named `Out` ), som innehåller 10 utdata-noder. Om neurala-nätverket används för klassificering, finns det en utmatnings nod per klass. Nyckelordet **sigmoid** anger att output-funktionen används på output-lagret.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Definiera flera dolda lager: exempel på en dator vision
 
@@ -416,11 +414,11 @@ from MetaData all;
 
 Det här exemplet illustrerar flera funktioner i språket neurala Networks Specification:
 
-+ Strukturen har två ingångs lager `Pixels` och `MetaData`.
-+ `Pixels` Lagret är ett käll skikt för två anslutnings paket, med mål lager `ByRow` och `ByCol`.
++ Strukturen har två ingångs lager `Pixels` och `MetaData` .
++ `Pixels`Lagret är ett käll skikt för två anslutnings paket, med mål lager `ByRow` och `ByCol` .
 + Lagren `Gather` och `Result` är mål lager i flera anslutnings paket.
-+ Utmatnings lagret `Result`, är ett mål lager i två anslutnings paket; en med det dolda lagret `Gather` på den andra nivån som ett mål lager och det andra med Indatakällan `MetaData` som ett mål lager.
-+ De dolda lagren och `ByRow` `ByCol`anger filtrerad anslutning med hjälp av predikat-uttryck. Mer exakt är noden i `ByRow` [x, y] kopplad till noderna i `Pixels` som har den första index koordinaten som är lika med nodens första koordinat, x. På samma sätt är noden i `ByCol` [x, y] kopplad till noderna i `Pixels` som har den andra index koordinaten i en av nodens andra koordinat, y.
++ Utmatnings lagret, `Result` är ett mål lager i två anslutnings paket, ett med det dolda lagret på den andra nivån `Gather` som ett mål lager och det andra med inmatnings lagret `MetaData` som ett mål lager.
++ De dolda lagren `ByRow` och `ByCol` anger filtrerad anslutning med hjälp av predikat-uttryck. Mer exakt är noden i `ByRow` [x, y] kopplad till noderna i `Pixels` som har den första index koordinaten som är lika med nodens första koordinat, x. På samma sätt är noden i `ByCol` [x, y] kopplad till noderna i `Pixels` som har den andra index koordinaten i en av nodens andra koordinat, y.
 
 ### <a name="define-a-convolutional-network-for-multiclass-classification-digit-recognition-example"></a>Definiera ett (convolutional-nätverk för klassificering av multiklasser: tal igenkännings exempel
 
@@ -448,20 +446,20 @@ hidden Hid3 [100] from Conv2 all;
 output Digit [10] from Hid3 all;
 ```
 
-+ Strukturen har ett enda indatamängds lager `Image`.
++ Strukturen har ett enda indatamängds lager `Image` .
 + Nyckelordet `convolve` anger att lagren med namnet `Conv1` och `Conv2` är (convolutional lager. Var och en av dessa lager deklarationer följs av en lista med convolution-attribut.
-+ Nätet har ett tredje dolt lager `Hid3`, som är fullt anslutet till det andra dolda lagret. `Conv2`
-+ Utmatnings lagret `Digit`,, är bara anslutet till det tredje dolda `Hid3`lagret,. Nyckelordet `all` anger att output-lagret är fullständigt anslutet `Hid3`till.
-+ Aritet för convolution är tre: längden på `InputShape`tupelarna, `KernelShape`, `Stride`och. `Sharing`
-+ Antalet vikter per kernel är `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Eller `26 * 50 = 1300`.
++ Nätet har ett tredje dolt lager, `Hid3` som är fullt anslutet till det andra dolda lagret `Conv2` .
++ Utmatnings lagret, `Digit` , är bara anslutet till det tredje dolda lagret, `Hid3` . Nyckelordet `all` anger att output-lagret är fullständigt anslutet till `Hid3` .
++ Aritet för convolution är tre: längden på tupelarna `InputShape` , `KernelShape` , `Stride` och `Sharing` .
++ Antalet vikter per kernel är `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26` . Eller `26 * 50 = 1300` .
 + Du kan beräkna noderna i varje dolt lager enligt följande:
 
     `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Det totala antalet noder kan beräknas med hjälp av skiktets deklarerade dimensionalitet, [50, 5, 5], enligt följande:`MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
-+ Eftersom `Sharing[d]` bara är falskt för `d == 0`är `MapCount * NodeCount\[0] = 10 * 5 = 50`antalet kärnor.
++ Eftersom `Sharing[d]` bara är falskt för `d == 0` är antalet kärnor `MapCount * NodeCount\[0] = 10 * 5 = 50` .
 
-## <a name="acknowledgements"></a>Bekräftelser
+## <a name="acknowledgements"></a>Erkännanden
 
 NET #-språket för anpassning av arkitekturen i neurala-nätverk utvecklades på Microsoft av Shon Katzenberger (arkitekt, Machine Learning) och Alexey Kamenev (program varu tekniker, Microsoft Research). Den används internt för maskin inlärnings projekt och program som sträcker sig från bild identifiering till text analys. Mer information finns i [neurala Garns i Azure Machine Learning Studio – introduktion till net #](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

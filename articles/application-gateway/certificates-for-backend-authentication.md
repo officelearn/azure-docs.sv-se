@@ -5,15 +5,15 @@ description: Den här artikeln innehåller exempel på hur ett TLS/SSL-certifika
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/09/2020
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 010ecc234afd745844b5b7868030d3c4e823872f
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628912"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976548"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
@@ -78,7 +78,7 @@ Ett betrott rot certifikat krävs för att tillåta Server dels instanser i Appl
 
 Med följande steg kan du exportera. CER-filen för certifikatet:
 
-1. Använd stegen 1-9 som nämns i avsnittet **Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)** ovan för att exportera den offentliga nyckeln från Server dels certifikatet.
+1. Använd stegen 1-8 som nämns i föregående avsnitt [Exportera autentiseringscertifikat (för v1 SKU)](#export-authentication-certificate-for-v1-sku) för att exportera den offentliga nyckeln från Server dels certifikatet.
 
 2. När den offentliga nyckeln har exporter ATS öppnar du filen.
 

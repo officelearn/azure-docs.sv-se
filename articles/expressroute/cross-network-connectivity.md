@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75644264"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124961"
 ---
 # <a name="cross-network-connectivity"></a>Anslutning mellan nätverk
 
@@ -20,29 +20,29 @@ Fabrikam Inc. har en stor fysisk närvaro och Azure-distribution i USA, östra. 
 
 Fabrikam Inc. köper contoso Ltd. Efter sammanslagningen vill Fabrikam ansluta nätverken till varandra. Följande bild illustrerar scenariot:
 
- [![1]][1]
+![Program scenariot](./media/cross-network-connectivity/premergerscenario.png)
 
 De streckade pilarna i mitten av figuren ovan visar önskade nätverks anslutningar. Mer specifikt finns det tre typer av korslänkade anslutningar: 1) Fabrikam och contoso virtuella nätverk Cross Connect, 2) korsande regionala lokala och virtuella nätverk kors anslutningar (det vill säga ansluter Fabrikam lokalt nätverk till contoso VNet och ansluta contoso lokalt nätverk till Fabrikam VNet) och 3) Fabrikam och contoso on-premises Network-Interconnect. 
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Contoso Ltd, före fusionen.
 
-[![2]][2]
+![Contoso ExpressRoute Route-tabellen före fusionen](./media/cross-network-connectivity/contosoexr-rt-premerger.png)
 
-I följande tabell visas effektiva vägar för en virtuell dator i Contoso-prenumerationen, före fusionen. Per tabell är den virtuella datorn i VNet medveten om VNet-adressutrymmet och det lokala nätverket Contoso, förutom standardvärdena. 
+I följande tabell visas effektiva vägar för en virtuell dator i Contoso-prenumerationen, före fusionen. Per tabell är den virtuella datorn i VNet medveten om VNet-adressutrymmet och det lokala nätverket Contoso, förutom standardvärdena.
 
-[![4]][4]
+![Contoso VM-vägar före fusion](./media/cross-network-connectivity/contosovm-routes-premerger.png)
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute av Fabrikam Inc. före fusionen.
 
-[![3]][3]
+![Fabrikam ExpressRoute route-tabell före fusion](./media/cross-network-connectivity/fabrikamexr-rt-premerger.png)
 
 I följande tabell visas effektiva vägar för en virtuell dator i den Fabrikam-prenumerationen innan fusionen. Per tabell är den virtuella datorn i VNet medveten om det virtuella nätverkets adress utrymme och det lokala nätverket Fabrikam, förutom standardvärdena.
 
-[![5]][5]
+![Fabrikam VM-vägar före fusion](./media/cross-network-connectivity/fabrikamvm-routes-premerger.png)
 
 I den här artikeln går vi igenom steg för steg och diskuterar hur du uppnår önskade kors anslutningar med följande funktioner i Azure-nätverket:
 
-* [Virtuell nätverkspeering][Virtual network peering] 
+* [Peering för virtuellt nätverk][Virtual network peering] 
 * [ExpressRoute anslutning för virtuellt nätverk][connection]
 * [Global Reach][Global Reach] 
 
@@ -54,15 +54,15 @@ Vi konfigurerar global VNet-peering mellan virtuella nätverk i Contoso och Fabr
 
 Följande bild visar nätverks arkitekturen när du har konfigurerat global VNet-peering.
 
-[![3-6]][6]
+![Arkitekturen efter VNet-peering](./media/cross-network-connectivity/vnet-peering.png )
 
 I följande tabell visas de vägar som är kända för den virtuella Contoso-prenumerationen. Var uppmärksam på den sista posten i tabellen. Den här posten är resultatet av att koppla samman de virtuella nätverken.
 
-[![3,7]][7]
+![Contoso VM-vägar efter VNet-peering](./media/cross-network-connectivity/contosovm-routes-peering.png)
 
 I följande tabell visas de vägar som är kända för den virtuella fabriks prenumerationen. Var uppmärksam på den sista posten i tabellen. Den här posten är resultatet av att koppla samman de virtuella nätverken.
 
-[![7,8]][8]
+![Fabrikam VM-vägar efter VNet-peering](./media/cross-network-connectivity/fabrikamvm-routes-peering.png)
 
 VNet-peering länkar direkt två virtuella nätverk (se det finns inget nästa hopp för *VNetGlobalPeering* -posten i ovanstående två tabeller)
 
@@ -74,23 +74,23 @@ Nu ska vi ansluta Fabrikam ExpressRoute-kretsen till contoso-prenumerationens VN
 
 Följande bild visar nätverks arkitekturen när du har konfigurerat ExpressRoute-Cross-anslutningen till de virtuella nätverken.
 
-[![1.9]][9]
+![Arkitekturen efter ExpressRoute-kors anslutning](./media/cross-network-connectivity/exr-x-connect.png)
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Contoso Ltd., efter att ha kopplat virtuella nätverk över till lokala nätverk via ExpressRoute. Se att routningstabellen har vägar som hör till båda de virtuella nätverken.
 
-[![10]][10]
+![Contoso ExpressRoute route-tabell efter kors anslutning av ExR och virtuella nätverk](./media/cross-network-connectivity/contosoexr-rt-xconnect.png)
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Fabrikam Inc. efter att ha kopplat samman virtuella nätverk till de lokala nätverken via ExpressRoute. Se att routningstabellen har vägar som hör till båda de virtuella nätverken.
 
-[![11.3]][11]
+![Fabrikam ExpressRoute Route Table efter att ha kopplat ExR och virtuella nätverk](./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png)
 
 I följande tabell visas de vägar som är kända för den virtuella Contoso-prenumerationen. Var noga med de *virtuella nätverksgateway* för tabellen. Den virtuella datorn ser vägar för både lokala nätverk.
 
-[![12.5]][12]
+![Contoso VM-vägar efter mellan koppling av ExR och virtuella nätverk](./media/cross-network-connectivity/contosovm-routes-xconnect.png)
 
 I följande tabell visas de vägar som är kända för den virtuella fabriks prenumerationen. Var noga med de *virtuella nätverksgateway* för tabellen. Den virtuella datorn ser vägar för både lokala nätverk.
 
-[![13.4]][13]
+![Fabrikam VM-vägar efter mellan koppling av ExR och virtuella nätverk](./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png)
 
 >[!NOTE]
 >I antingen Fabrikam-och/eller Contoso-prenumerationer kan du också ha eker-virtuella nätverk till respektive hubb-VNet (en nav och eker-design illustreras inte i arkitektur diagrammen i den här artikeln). Kors anslutningarna mellan Hub VNet-gatewayerna till ExpressRoute kommer också att tillåta kommunikation mellan öst-och västra hubbar och ekrar.
@@ -102,39 +102,21 @@ ExpressRoute Global Reach ger anslutning mellan lokala nätverk som är anslutna
 
 Följande bild visar nätverks arkitekturen när du har konfigurerat Global Reach.
 
-[![längre]][14]
+![Arkitekturen efter att du har konfigurerat Global Reach](./media/cross-network-connectivity/globalreach.png)
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Contoso Ltd. efter att du har konfigurerat Global Reach. Se att routningstabellen har vägar som hör till både det lokala nätverket. 
 
-[![15.4]][15]
+![Contoso ExpressRoute Route-tabellen efter Global Reach](./media/cross-network-connectivity/contosoexr-rt-gr.png)
 
 I följande tabell visas routningstabellen för den privata peering-ExpressRoute för Fabrikam Inc. När du har konfigurerat Global Reach. Se att routningstabellen har vägar som hör till både det lokala nätverket.
 
-[![16]][16]
+![Fabrikam ExpressRoute Route Table efter Global Reach]( ./media/cross-network-connectivity/fabrikamexr-rt-gr.png )
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se [vanliga frågor och svar om virtuella nätverk][VNet-FAQ]för ytterligare frågor om VNet och VNET-peering. Se [vanliga][ER-FAQ] frågor och svar om ExpressRoute för ytterligare frågor om ExpressRoute och virtuell nätverks anslutning.
 
 Global Reach distribueras på ett land/en region efter land/region. Se [ExpressRoute Global Reach][Global Reach]för att se om Global Reach är tillgänglig i de länder/regioner som du vill ha.
-
-<!--Image References-->
-[1]: ./media/cross-network-connectivity/premergerscenario.png "program scenariot"
-[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "contoso ExpressRoute Route-tabellen före fusionen"
-[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "Fabrikam ExpressRoute route-tabell före fusion"
-[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "contoso VM-vägar före fusion"
-[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.png "Fabrikam VM-vägar före fusion"
-[6]: ./media/cross-network-connectivity/vnet-peering.png "arkitekturen efter VNet-peering"
-[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "contoso VM-vägar efter VNet-peering"
-[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "Fabrikam virtuella dator vägar efter VNet-peering"
-[9]: ./media/cross-network-connectivity/exr-x-connect.png "arkitekturen efter ExpressRoute-kors anslutning"
-[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "contoso ExpressRoute route-tabell efter kors anslutning av ExR och virtuella nätverk"
-[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "Fabrikam ExpressRoute Route Table efter kors anslutning av ExR och virtuella nätverk"
-[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "contoso VM-vägar efter mellan koppling av ExR och virtuella nätverk"
-[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png "Fabrikam virtuella dator vägar efter anslutning av ExR och virtuella nätverk"
-[14]: ./media/cross-network-connectivity/globalreach.png "arkitekturen när du har konfigurerat Global Reach"
-[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "contoso ExpressRoute route-tabell efter Global Reach"
-[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "Fabrikam ExpressRoute väg tabell efter Global Reach"
 
 <!--Link References-->
 [Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

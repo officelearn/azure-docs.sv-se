@@ -4,15 +4,15 @@ description: 'Den här artikeln visar hur du uppgraderar offentliga Azure-Load B
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f1c85c98b9ea0dcaa6498622a0667bffba080401
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858385"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809343"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uppgradera offentliga Azure-Load Balancer
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -49,7 +49,7 @@ Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös k
 * Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda `Install-Script` alternativet för att köra skriptet.
 * Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
 
-Du kan ta reda på om du har installerat Azure AZ- `Get-InstalledModule -Name az`moduler genom att köra. Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
+Du kan ta reda på om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az` . Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
 ### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
 
@@ -128,7 +128,7 @@ Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Den faktiska trafi
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   
-Du kan skicka ett e- slbupgradesupport@microsoft.compostmeddelande till, öppna ett support ärende med Azure-supporten eller göra båda.
+Du kan skicka ett e-postmeddelande till slbupgradesupport@microsoft.com , öppna ett support ärende med Azure-supporten eller göra båda.
 
 ## <a name="next-steps"></a>Nästa steg
 

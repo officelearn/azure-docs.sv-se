@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ce11e806c514aa4a2074d120cb64ecdce222528
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453735"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735616"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Använd Key Vault referenser för App Service och Azure Functions
 
@@ -28,14 +28,14 @@ För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge d
    > [!NOTE] 
    > Key Vault referenser stöder för närvarande endast systemtilldelade hanterade identiteter. Användare som tilldelats identiteter kan inte användas.
 
-1. Skapa en [åtkomst princip i Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
+1. Skapa en [åtkomst princip i Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` Inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
 
     > [!NOTE]
     > Key Vault referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckel valv med [nätverks begränsningar](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Syntax för referenser
 
-En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})`, där `{referenceString}` ersätts av något av följande alternativ:
+En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})` , där `{referenceString}` ersätts av något av följande alternativ:
 
 > [!div class="mx-tdBreakAll"]
 > | Referens sträng                                                            | Beskrivning                                                                                                                                                                                 |
@@ -43,11 +43,15 @@ En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})
 > | SecretUri =_SecretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex.https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName =_VaultName_; SecretName =_SecretName_; SecretVersion =_SecretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
 
-En fullständig referens med version skulle till exempel se ut så här:
+> [!NOTE] 
+> Versioner är för närvarande nödvändiga. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
+
+En fullständig referens skulle till exempel se ut så här:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 Du kan också:
 
 ```
@@ -176,7 +180,7 @@ Ett exempel på en psuedo-mall för en Function-app kan se ut så här:
 
 ## <a name="troubleshooting-key-vault-references"></a>Felsöka Key Vault referenser
 
-Om en referens inte löses korrekt, används referensvärdet i stället. Det innebär att en miljö variabel skapas vars värde har `@Microsoft.KeyVault(...)` syntaxen för program inställningar. Detta kan orsaka att programmet returnerar fel, eftersom det förväntar sig en hemlighet för en viss struktur.
+Om en referens inte löses korrekt, används referensvärdet i stället. Det innebär att en miljö variabel skapas vars värde har syntaxen för program inställningar `@Microsoft.KeyVault(...)` . Detta kan orsaka att programmet returnerar fel, eftersom det förväntar sig en hemlighet för en viss struktur.
 
 Oftast beror det på en felaktig konfiguration av [Key Vaults åtkomst princip](#granting-your-app-access-to-key-vault). Det kan dock också bero på en hemlighet som inte längre är befintlig eller syntaxfel i själva referensen.
 

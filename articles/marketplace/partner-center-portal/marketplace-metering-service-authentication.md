@@ -6,30 +6,30 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642321"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783409"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategier för att autentisera service för Marketplace-mätning
 
 Marknads mätnings tjänsten har stöd för två olika metoder för autentisering:
 
 * [Azure AD-säkerhetstoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
 
 Vi förklarar när och hur du använder olika autentiserings strategier för att på ett säkert sätt skicka anpassade mätare med Marketplace-avläsning.
 
 ## <a name="using-the-azure-ad-security-token"></a>Använda Azure AD-säkerhetstoken
 
-Tillämpliga erbjudande typer är SaaS och Azure-program med hanterad program plan typ.  
+Tillämpliga erbjudande typer är transactable-SaaS och Azure-program med hanterad program Plans typ.  
 
-Skicka anpassade mätare genom att använda ett fördefinierat fast program-ID för autentisering.
+Skicka anpassade mätare genom att använda ett fördefinierat, fast Azure AD-program-ID för autentisering.
 
-För SaaS-erbjudanden är Azure AD det enda tillgängliga alternativet.
+Detta är det enda tillgängliga alternativet för SaaS-erbjudanden. Det är ett obligatoriskt steg för att publicera ett SaaS-erbjudande som beskrivs i [Registrera ett SaaS-program](./pc-saas-registration.md).
 
 För Azure-program med hanterade program planer bör du överväga att använda den här strategin i följande fall:
 
@@ -68,10 +68,10 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](htt
 
 |  **Egenskaps namn**  |  **Obligatoriskt**  |  **Beskrivning**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   Sant         | Typ av beviljande. Standardvärdet är `client_credentials`. |
+|  `Grant_type`       |   Sant         | Typ av beviljande. Använd `client_credentials`. |
 |  `Client_id`        |   Sant         | Klient/app-identifierare som är associerad med Azure AD-appen.|
-|  `client_secret`    |   Sant         | Det lösen ord som är associerat med Azure AD-appen.  |
-|  `Resource`         |   Sant         | Mål resurs för vilken token begärs. Standardvärdet är `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   Sant         | Hemlighet som är associerad med Azure AD-appen.  |
+|  `Resource`         |   Sant         | Mål resurs för vilken token begärs. Använd `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Svar*
@@ -145,7 +145,7 @@ Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dat
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +156,4 @@ Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dat
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett erbjudande för Azure-program](./create-new-azure-apps-offer.md)
+* [Skapa ett transactable SaaS-erbjudande](./offer-creation-checklist.md)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f8a6e0b9f5cc63f79dcd57765f30c527382d51ca
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193355"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296329"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Använd Query parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du kan dra nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
@@ -290,7 +290,7 @@ I följande observationer används ett Stream Analytics jobb med en tillstånds 
 
 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) utdata från Stream Analytics har uppdaterats för att använda inbyggd integrering under [kompatibilitetsnivå 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Kompatibilitetsnivån 1,2 möjliggör betydligt högre genomflöde och minskar RU-förbrukningen jämfört med 1,1, vilket är standard kompatibilitetsnivån för nya jobb. Lösningen använder CosmosDB-behållare partitionerade på/deviceId och resten av lösningen har kon figurer ATS identiskt.
 
-Alla [strömningar i Azure-exempel](https://github.com/Azure-Samples/streaming-at-scale) använder en Event Hub som matas in genom belastnings simulerings test klienter som indata. Varje indata-händelse är ett 1 KB JSON-dokument, som översätter de konfigurerade inmatnings priserna till data flödes nivåerna (1 MB/s, 5 MB/s och 10 MB/s) enkelt. Händelser simulerar en IoT-enhet som skickar följande JSON-data (i ett förkortat format) för upp till 1 kB-enheter:
+Alla [strömningar i Azure-exempel](https://github.com/Azure-Samples/streaming-at-scale) använder en händelsehubben som indata som matas genom belastnings simulerings test klienter. Varje indata-händelse är ett 1 KB JSON-dokument, som översätter de konfigurerade inmatnings priserna till data flödes nivåerna (1 MB/s, 5 MB/s och 10 MB/s) enkelt. Händelser simulerar en IoT-enhet som skickar följande JSON-data (i ett förkortat format) för upp till 1 kB-enheter:
 
 ```
 {

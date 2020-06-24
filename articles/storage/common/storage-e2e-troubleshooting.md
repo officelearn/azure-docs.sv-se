@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: normesta
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4b0145514a884c43ef18518cf25a2a78b1fc3aa3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680380"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809052"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer
 
@@ -90,11 +90,11 @@ Först måste vi konfigurera Azure Storage loggning och mått, så att vi kan an
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurera loggning av .NET-klient Sidan
 
-Aktivera .NET Diagnostics i programmets konfigurations fil (Web. config eller app. config) om du vill konfigurera loggning på klient sidan för ett .NET-program. Mer information finns i [Logga in på klient sidan med .net-lagrings klient biblioteket](https://msdn.microsoft.com/library/azure/dn782839.aspx) och [loggning på klient sidan med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN.
+Aktivera .NET Diagnostics i programmets konfigurations fil (web.config eller app.config) om du vill konfigurera loggning på klient sidan för ett .NET-program. Mer information finns i [Logga in på klient sidan med .net-lagrings klient biblioteket](https://msdn.microsoft.com/library/azure/dn782839.aspx) och [loggning på klient sidan med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN.
 
 Loggen på klient sidan innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
 
-Lagrings klient biblioteket lagrar logg data på klient sidan på den plats som anges i programmets konfigurations fil (Web. config eller app. config).
+Lagrings klient biblioteket lagrar logg data på klient sidan på den plats som anges i programmets konfigurations fil (web.config eller app.config).
 
 ### <a name="collect-a-network-trace"></a>Samla in ett nätverks spår
 
@@ -309,11 +309,11 @@ Nu när du har lärt dig att använda Message Analyzer för att analysera dina l
 
 | Att undersöka... | Använd filter uttryck... | Uttrycket gäller för loggen (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Client |
+| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Klient |
 | HTTP-ökning i PercentThrottlingError |Inkommande. Response. StatusCode = = 500 &#124;&#124; HTTP. Response. StatusCode = = 503 |Nätverk |
 | Ökning i PercentTimeoutError |Inkommande. Response. StatusCode = = 500 |Nätverk |
 | Ökning i PercentTimeoutError (alla) |* StatusCode = = 500 |Alla |
-| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Client |
+| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Klient |
 | HTTP 403-meddelanden (Förbjudet) |Inkommande. Response. StatusCode = = 403 |Nätverk |
 | HTTP 404-meddelanden (Hittades inte) |Inkommande. Response. StatusCode = = 404 |Nätverk |
 | 404 (alla) |* StatusCode = = 404 |Alla |

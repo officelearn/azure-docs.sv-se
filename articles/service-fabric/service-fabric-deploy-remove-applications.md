@@ -4,11 +4,11 @@ description: Lär dig mer om att ta bort och distribuera program i Azure Service
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282515"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699846"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med PowerShell
 
@@ -64,7 +64,7 @@ Använd cmdleten [test-ServiceFabricApplicationPackage](/powershell/module/servi
 
 Kommandot [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) överför programpaketet till klustrets avbildnings arkiv.
 
-Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio 2015. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet, som innehåller det nödvändiga applikations manifestet, tjänst manifesten och kod/config/data paket, finns i *C:\Users\<username\>\Documents\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
+Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio 2015. Som standard är program typs namnet som anges i ApplicationManifest.xml "MyApplicationType".  Programpaketet, som innehåller det nödvändiga applikations manifestet, tjänst manifesten och kod/config/data paket, finns i *C:\Users \<username\> \Documents\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 Följande kommando visar innehållet i programpaketet:
 
@@ -103,9 +103,9 @@ Om applikations paketet är stort och/eller har många filer kan du [Komprimera 
 Sido effekt är att det går snabbare att registrera och avregistrera program typen. Uppladdnings tiden kan vara långsammare, särskilt om du tar med tiden att komprimera paketet. 
 
 Om du vill komprimera ett paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) -kommando. Komprimering kan göras separat från överföring, med hjälp av `SkipCopy` flaggan eller tillsammans med uppladdnings åtgärden. Det går inte att använda komprimering på komprimerade paket.
-Om du vill expandera ett komprimerat paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) - `UncompressPackage` kommando med växeln.
+Om du vill expandera ett komprimerat paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) -kommando med `UncompressPackage` växeln.
 
-Följande cmdlet komprimerar paketet utan att kopiera det till avbildnings arkivet. Paketet innehåller nu zippade filer för- `Code` och `Config` -paketen. Programmet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder (t. ex. paket delning, namn på program typ och versions extrahering för vissa valideringar). Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
+Följande cmdlet komprimerar paketet utan att kopiera det till avbildnings arkivet. Paketet innehåller nu zippade filer för- `Code` och- `Config` paketen. Programmet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder (t. ex. paket delning, namn på program typ och versions extrahering för vissa valideringar). Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrera programpaketet som kopierats till en extern lagrings plats
 
-Från och med Service Fabric version 6,1, etablera stöd för att ladda ned paketet från en extern lagrings plats. Nedladdnings-URI: n representerar sökvägen till [ `sfpkg` programpaketet](service-fabric-package-apps.md#create-an-sfpkg) där programpaketet kan hämtas med hjälp av http-eller HTTPS-protokoll. Paketet måste ha överförts tidigare till den här externa platsen. URI: n måste tillåta Läs åtkomst så Service Fabric kan ladda ned filen. `sfpkg` Filen måste ha fil namns tillägget. sfpkg. Etablerings åtgärden ska innehålla information om program typ, som finns i applikations manifestet.
+Från och med Service Fabric version 6,1, etablera stöd för att ladda ned paketet från en extern lagrings plats. Nedladdnings-URI: n representerar sökvägen till [ `sfpkg` programpaketet](service-fabric-package-apps.md#create-an-sfpkg) där programpaketet kan hämtas med hjälp av http-eller HTTPS-protokoll. Paketet måste ha överförts tidigare till den här externa platsen. URI: n måste tillåta Läs åtkomst så Service Fabric kan ladda ned filen. `sfpkg`Filen måste ha fil namns tillägget. sfpkg. Etablerings åtgärden ska innehålla information om program typ, som finns i applikations manifestet.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async

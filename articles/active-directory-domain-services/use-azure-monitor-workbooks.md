@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654460"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733406"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure AD Domain Services att använda Azure Monitor arbets böcker
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure Active Directory Domain Services att använda Azure Monitor arbets böcker
 
 För att hjälpa dig att förstå statusen för din Azure Active Directory Domain Services (Azure AD DS)-hanterade domän, kan du aktivera säkerhets gransknings händelser. Dessa säkerhets gransknings händelser kan sedan granskas med Azure Monitor arbets böcker som kombinerar text, analys frågor och parametrar till interaktiva interaktiva rapporter. Azure AD DS innehåller mallar för säkerhet – översikt och konto aktivitet som gör att du kan använda gransknings händelser och hantera din miljö.
 
@@ -31,7 +31,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
 * Säkerhets gransknings händelser som är aktiverade för din Azure Active Directory Domain Services hanterade domän som strömmar data till en Log Analytics arbets yta.
     * Om det behövs [aktiverar du säkerhets granskningar för Azure Active Directory Domain Services][enable-security-audits].
 

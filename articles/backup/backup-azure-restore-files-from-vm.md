@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195754"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124995"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -237,7 +237,7 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
 
 > [!NOTE]
 >
-> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. För exampple: det nedladdade skript namnet börjar med \' VMName \' \_ \' \' -namnet _ \' GUID \' , som *ContosoVM_wcus_12345678*
+> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Exempel: det nedladdade skript namnet börjar med \' VMName \' \_ \' \' -namnet _ \' GUID \' , som *ContosoVM_wcus_12345678*
 > - URL: en skulle vara <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 
@@ -258,7 +258,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
     - Se till att operativ systemet är WS 2012 eller högre.
     - Se till att register nycklarna är inställda enligt rekommendationerna nedan i återställnings servern och var noga med att starta om servern. Antalet bredvid GUID kan vara mellan 0001-0005. I följande exempel är det 0004. Navigera genom sökvägen till register nyckeln tills avsnittet parametrar.
 
-    ![iSCSI-Reg-Key-Changes. png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200

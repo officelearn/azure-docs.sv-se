@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654406"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736661"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -43,7 +43,7 @@ Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillä
 
 | Version för Log Analytics Linux VM-tillägg | Log Analytics agent paket version | 
 |--------------------------------|--------------------------|
-| 1.13.9 | 1.13.3-3 |
+| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0 – 9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -202,7 +202,7 @@ Utökning av utdata loggas i följande fil:
 
 ### <a name="error-codes-and-their-meanings"></a>Felkoder och deras betydelser
 
-| Felkod | Betydelse | Möjlig åtgärd |
+| Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
 | 9 | Aktivera anropad för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
 | 10 | Den virtuella datorn är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbets ytan som anges i tilläggs schemat anger du stopOnMultipleConnections till falskt i offentliga inställningar eller tar bort den här egenskapen. Den här virtuella datorn debiteras en gång för varje arbets yta som den är ansluten till. |

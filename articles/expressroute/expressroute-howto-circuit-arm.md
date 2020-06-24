@@ -4,22 +4,22 @@ description: Skapa, etablera, verifiera, uppdatera, ta bort och avetablera en Ex
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: ab44d5358154c17622eef68205ac2326e81377a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3a0166a5ffb05cff6a38984549db45dbe71d8d7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75770976"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736364"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Skapa och ändra en ExpressRoute-krets med hjälp av PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
@@ -119,7 +119,7 @@ Svaret ser ut ungefär som i följande exempel:
     ServiceKey                        : **************************************
     Peerings                          : []
 
-Du kan hämta den här informationen när som helst genom att `Get-AzExpressRouteCircuit` använda cmdleten. Om du gör anropet utan parametrar visas alla kretsar. Din tjänst nyckel visas i fältet *serviceKey* :
+Du kan hämta den här informationen när som helst genom att använda `Get-AzExpressRouteCircuit` cmdleten. Om du gör anropet utan parametrar visas alla kretsar. Din tjänst nyckel visas i fältet *serviceKey* :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

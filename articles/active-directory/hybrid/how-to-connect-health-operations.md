@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef908429d359020282920d73480a472bfde0aa60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261520"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698636"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health åtgärder
 I det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (Azure AD) Connect Health.
@@ -74,7 +74,7 @@ Azure AD Connect Health för Active Directory Federation Services (AD FS) (AD FS
 2. I åtgärds fältet på bladet **Server** klickar du på **ta bort**.
 ![Skärm bild av Azure AD Connect Health ta bort Server](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Bekräfta genom att skriva Server namnet i bekräftelse rutan.
-4. Klicka på **ta bort**.
+4. Klicka på **Ta bort**.
 
 Azure AD Connect Health för Azure Active Directory Domain Services:
 
@@ -82,7 +82,7 @@ Azure AD Connect Health för Azure Active Directory Domain Services:
 2. Välj den domänkontrollant som ska tas bort.
 3. I åtgärds fältet klickar du på **ta bort markerade**.
 4. Bekräfta åtgärden för att ta bort servern.
-5. Klicka på **ta bort**.
+5. Klicka på **Ta bort**.
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>Ta bort en tjänst instans från Azure AD Connect Health-tjänsten
 I vissa fall kanske du vill ta bort en tjänst instans. Här är vad du behöver veta för att ta bort en tjänst instans från Azure AD Connect Healths tjänsten.
@@ -99,7 +99,7 @@ Tänk på följande när du tar bort en tjänst instans:
 2. Klicka på **ta bort**i åtgärds fältet på bladet **tjänst** . 
 ![Skärm bild av Azure AD Connect Health ta bort tjänst](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Bekräfta genom att skriva tjänst namnet i bekräftelse rutan (till exempel: sts.contoso.com).
-4. Klicka på **ta bort**.
+4. Klicka på **Ta bort**.
    <br><br>
 
 [//]: # (Avsnittet börjar med RBAC)

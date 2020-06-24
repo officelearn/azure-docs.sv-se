@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4a9081b3d3c1c925efb4cc80201e6154752dc628
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926977"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734783"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -58,6 +58,8 @@ Ja. Mer information finns i [så här aktiverar du Azure AD Domain Services i Az
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan jag aktivera Azure AD Domain Services i en federerad Azure AD-katalog? Jag synkroniserar inte lösen ordets hash-värden till Azure AD. Kan jag aktivera Azure AD Domain Services för den här katalogen?
 Nej. För att autentisera användare via NTLM eller Kerberos behöver Azure AD Domain Services åtkomst till hashar för lösen ord för användar konton. I en federerad katalog lagras inte lösen ordets hash-värden i Azure AD-katalogen. Därför fungerar Azure AD Domain Services inte med sådana Azure AD-kataloger.
 
+Men om du använder Azure AD Connect för synkronisering av lösen ords-hash kan du använda Azure AD Domain Services eftersom lösen ordets hash-värden lagras i Azure AD.
+
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan jag göra Azure AD Domain Services tillgängliga i flera virtuella nätverk i min prenumeration?
 Själva tjänsten har inte direkt stöd för det här scenariot. Din hanterade domän är bara tillgänglig i ett virtuellt nätverk i taget. Du kan dock konfigurera anslutningar mellan flera virtuella nätverk för att exponera Azure AD Domain Services till andra virtuella nätverk. Mer information finns i [så här ansluter du virtuella nätverk i Azure med hjälp av VPN-gatewayer](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) eller [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
 
@@ -74,7 +76,7 @@ Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad 
 Nej. Gäst användare som bjudits in till din Azure AD-katalog med [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -beställnings processen synkroniseras med din Azure AD Domain Services hanterade domänen. Lösen ord för dessa användare lagras dock inte i Azure AD-katalogen. Azure AD Domain Services har därför inget sätt att synkronisera NTLM-och Kerberos-hashvärden för dessa användare till din hanterade domän. Sådana användare kan inte logga in eller ansluta datorer till den hanterade domänen.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Kan jag flytta en befintlig Azure AD Domain Services hanterad domän till en annan prenumeration, resurs grupp, region eller virtuellt nätverk?
-Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte flytta instansen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar Azure AD DS-instansen.
+Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte flytta den hanterade domänen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar den hanterade domänen.
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Innehåller Azure AD Domain Services alternativ för hög tillgänglighet?
 
@@ -97,7 +99,7 @@ Ja. Varje Azure AD Domain Services hanterad domän innehåller två domänkontro
 Nej. Du har inte behörighet att ansluta till domänkontrollanter för den hanterade domänen med hjälp av fjärr skrivbord. Medlemmar i gruppen *AAD DC-administratörer* kan administrera den hanterade domänen med hjälp av administrations verktyg för AD, till exempel Active Directory administrations Center (ADAC) eller AD PowerShell. De här verktygen installeras med hjälp av funktionen *verktyg för fjärrserveradministration* på en Windows Server som är ansluten till den hanterade domänen. Mer information finns i [skapa en virtuell hanterings dator för att konfigurera och administrera en Azure AD Domain Services hanterad domän](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Jag har aktiverat Azure AD Domain Services. Vilket användar konto använder jag för att ansluta till domän datorer till den här domänen?
-Alla användar konton som ingår i den hanterade Azure AD DS-domänen kan ansluta till en virtuell dator. Medlemmar i gruppen *AAD DC-administratörer* beviljas fjärr skrivbords åtkomst till datorer som har anslutits till den hanterade domänen.
+Alla användar konton som ingår i den hanterade domänen kan ansluta till en virtuell dator. Medlemmar i gruppen *AAD DC-administratörer* beviljas fjärr skrivbords åtkomst till datorer som har anslutits till den hanterade domänen.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Har jag domän administratörs behörighet för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
 Nej. Du har inte beviljats administratörs behörighet för den hanterade domänen. Behörigheterna *domän administratör* och *företags administratör* är inte tillgängliga för dig i domänen. Medlemmar i grupperna domän administratör eller företags administratör i din lokala Active Directory beviljas inte heller domän-/företags administratörs behörighet på den hanterade domänen.
@@ -158,4 +160,4 @@ Läs [fel söknings guiden](troubleshoot.md) för lösningar på vanliga problem
 
 Mer information om Azure AD Domain Services finns i [Vad är Azure Active Directory Domain Services?](overview.md).
 
-Information om hur du kommer igång finns i [skapa och konfigurera en Azure Active Directory Domain Services-instans](tutorial-create-instance.md).
+Information om hur du kommer igång finns i [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän](tutorial-create-instance.md).

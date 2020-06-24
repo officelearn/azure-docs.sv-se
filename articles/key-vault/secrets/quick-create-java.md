@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 6351a3d27806d791e478999d04922b961949c46a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982844"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125608"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Snabb start: Azure Key Vault klient bibliotek för Java
 
@@ -26,7 +26,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
-[Käll kods](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [API referens dokumentation](https://azure.github.io/azure-sdk-for-java) | [produkt dokumentation](index.yml) | [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+[Käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)  |  [API-referens dokumentation](https://azure.github.io/azure-sdk-for-java)  |  [Produkt dokumentation](index.yml)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +41,7 @@ Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-
 
 ### <a name="create-new-java-console-app"></a>Skapa ny Java-konsol program
 
-I ett konsol fönster använder du `mvn` kommandot för att skapa en ny Java-konsol-app med `akv-java`namnet.
+I ett konsol fönster använder du `mvn` kommandot för att skapa en ny Java-konsol-app med namnet `akv-java` .
 
 ```console
 mvn archetype:generate -DgroupId=com.keyvault.quickstart
@@ -83,7 +83,7 @@ cd akv-java
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
+Öppna *pom.xml* -filen i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
 
 ```xml
     <dependency>
@@ -116,12 +116,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) .
 
-För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Din tjänst princip kräver ett unikt namn i formatet "http://&lt;My-Unique-service-name&gt;".
+För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänstens huvud namn kräver ett unikt namn i formatet "http:// &lt; My-Unique-service-huvud namn &gt; ".
 
-Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
+Skapa ett huvud namn för tjänsten med hjälp av Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommandot:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par. 
@@ -152,9 +152,9 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Ange miljövariabler
 
-DefaultAzureCredential-metoden i programmet är beroende av tre miljövariabler: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`och. `AZURE_TENANT_ID` Använd set-variablerna för de clientId-, clientSecret-och tenantId-värden som du antecknade i steget [skapa ett tjänst huvud namn](#create-a-service-principal) ovan. Använd `export VARNAME=VALUE` formatet för att ställa in miljövariabler. (Den här metoden anger bara variablerna för ditt aktuella gränssnitt och processer som skapats från gränssnittet. om du vill lägga till dessa variabler permanent i miljön `/etc/environment ` redigerar du filen.) 
+DefaultAzureCredential-metoden i programmet är beroende av tre miljövariabler: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` och `AZURE_TENANT_ID` . Använd set-variablerna för de clientId-, clientSecret-och tenantId-värden som du antecknade i steget [skapa ett tjänst huvud namn](#create-a-service-principal) ovan. Använd `export VARNAME=VALUE` formatet för att ställa in miljövariabler. (Den här metoden anger bara variablerna för ditt aktuella gränssnitt och processer som skapats från gränssnittet. om du vill lägga till dessa variabler permanent i miljön redigerar du `/etc/environment ` filen.) 
 
-Du måste också spara nyckel valvets namn som en miljö variabel som kallas `KEY_VAULT_NAME`.
+Du måste också spara nyckel valvets namn som en miljö variabel som kallas `KEY_VAULT_NAME` .
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -188,7 +188,7 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 ### <a name="authenticate-and-create-a-client"></a>Autentisera och skapa en klient
 
-Autentisering till ditt nyckel valv och att skapa en Key Vault-klient beror på miljövariablerna i steget [Ange miljövariabler](#set-environmental-variables) ovan. Namnet på nyckel valvet expanderas till Key Vault-URI: n i formatet `https://<your-key-vault-name>.vault.azure.net`.
+Autentisering till ditt nyckel valv och att skapa en Key Vault-klient beror på miljövariablerna i steget [Ange miljövariabler](#set-environmental-variables) ovan. Namnet på nyckel valvet expanderas till Key Vault-URI: n i formatet `https://<your-key-vault-name>.vault.azure.net` .
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -202,7 +202,7 @@ SecretClient secretClient = new SecretClientBuilder()
 
 ### <a name="save-a-secret"></a>Spara en hemlighet
 
-Nu när ditt program är autentiserat kan du ställa in en hemlighet i ditt nyckel valv med hjälp `secretClient.setSecret` av metoden. Detta kräver ett namn för hemligheten – vi har tilldelat värdet "hemligt" till `secretName` variabeln i det här exemplet.  
+Nu när ditt program är autentiserat kan du ställa in en hemlighet i ditt nyckel valv med hjälp av `secretClient.setSecret` metoden. Detta kräver ett namn för hemligheten – vi har tilldelat värdet "hemligt" till `secretName` variabeln i det här exemplet.  
 
 ```java
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
@@ -222,7 +222,7 @@ Du kan nu hämta det tidigare angivna värdet med- `secretClient.getSecret` meto
 KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
  ```
 
-Du kan nu komma åt värdet för den hämtade hemligheten `retrievedSecret.getValue()`med.
+Du kan nu komma åt värdet för den hämtade hemligheten med `retrievedSecret.getValue()` .
 
 ### <a name="delete-a-secret"></a>Ta bort en hemlighet
 

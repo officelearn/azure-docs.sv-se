@@ -5,17 +5,17 @@ author: rohinkoul
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
-ms.openlocfilehash: 4e017dc940e1d32888ff279904e44d34db1fd5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bf3ee75c9445856fb8a2ce789a3f2f345e720fe
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936888"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701672"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Hantera DNS-poster och post uppsättningar i Azure DNS med Azure CLI
 
@@ -38,7 +38,7 @@ Mer information om DNS-poster i Azure DNS finns i [DNS-zoner och poster](dns-zon
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
-Om du vill skapa en DNS-post `az network dns record-set <record-type> add-record` använder du kommandot `<record-type>` (där är typen av post, dvs. a, SRV, TXT osv.) Mer information finns i `az network dns record-set --help`.
+Om du vill skapa en DNS-post använder du `az network dns record-set <record-type> add-record` kommandot (där `<record-type>` är typen av post, dvs. a, SRV, TXT osv.) Mer information finns i `az network dns record-set --help` .
 
 När du skapar en post måste du ange resursgruppsnamn, zonnamn, postuppsättningsnamn, posttyp och information om posten som skapas. Det angivna post uppsättnings namnet måste vara ett *relativt* namn, vilket innebär att det måste utesluta zon namnet.
 
@@ -52,7 +52,7 @@ Följande exempel skapar en A-post som heter *www* i zonen *contoso.com* i resur
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Om du vill skapa en post som angetts i zonens Apex (i det här fallet "contoso.com") använder du post namnet "\@", inklusive citat tecken:
+Om du vill skapa en post som angetts i zonens Apex (i det här fallet "contoso.com") använder du post namnet " \@ ", inklusive citat tecken:
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -66,25 +66,25 @@ Post uppsättningar skapas med hjälp av `az network dns record-set <record-type
 
 Genom att skapa post uppsättningen kan du uttryckligen ange egenskaper för post uppsättning, till exempel [TTL (Time to Live)](dns-zones-records.md#time-to-live) och metadata. [Metadata för post uppsättningar](dns-zones-records.md#tags-and-metadata) kan användas för att associera programspecifika data med varje post uppsättning som nyckel/värde-par.
 
-I följande exempel skapas en tom post uppsättning av typen "A" med en 60-sekunders-TTL med hjälp `--ttl` av parametern (kort `-l`form):
+I följande exempel skapas en tom post uppsättning av typen "A" med en 60-sekunders-TTL med hjälp av `--ttl` parametern (kort form `-l` ):
 
 ```azurecli
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --ttl 60
 ```
 
-I följande exempel skapas en post uppsättning med två metadata-poster, "avd = ekonomi" och "miljö = produktion", med hjälp `--metadata` av parametern:
+I följande exempel skapas en post uppsättning med två metadata-poster, "avd = ekonomi" och "miljö = produktion", med hjälp av `--metadata` parametern:
 
 ```azurecli
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-När du har skapat en tom post uppsättning kan du lägga till `azure network dns record-set <record-type> add-record` poster med enligt beskrivningen i [skapa en DNS-post](#create-a-dns-record).
+När du har skapat en tom post uppsättning kan du lägga till poster med `azure network dns record-set <record-type> add-record` enligt beskrivningen i [skapa en DNS-post](#create-a-dns-record).
 
 ## <a name="create-records-of-other-types"></a>Skapa poster av andra typer
 
 I följande exempel visas hur du skapar poster med andra post typer som stöds av Azure DNS, om du har sett hur man skapar poster av typen A.
 
-Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `--ipv4-address <IPv4 address>`. Parametrarna för varje post typ kan listas med `az network dns record-set <record-type> add-record --help`.
+Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `--ipv4-address <IPv4 address>`. Parametrarna för varje post typ kan listas med `az network dns record-set <record-type> add-record --help` .
 
 I varje fall visar vi hur du skapar en enskild post. Posten läggs till i den befintliga post uppsättningen, eller så har en post uppsättning skapats implicit. Mer information om hur du skapar post uppsättningar och definierar parameter uppsättnings parameter explicit finns i [skapa en DNS-uppsättning](#create-a-dns-record-set).
 
@@ -105,7 +105,7 @@ az network dns record-set caa add-record --resource-group myresourcegroup --zone
 ### <a name="create-a-cname-record"></a>Skapa en CNAME-post
 
 > [!NOTE]
-> DNS-standarderna tillåter inte CNAME-poster på toppen av en zon (`--Name "@"`), eller så tillåter de inte post uppsättningar som innehåller mer än en post.
+> DNS-standarderna tillåter inte CNAME-poster på toppen av en zon ( `--Name "@"` ), eller så tillåter de inte post uppsättningar som innehåller mer än en post.
 > 
 > Mer information finns i [CNAME-poster](dns-zones-records.md#cname-records).
 
@@ -115,7 +115,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>Skapa en MX-post
 
-I det här exemplet använder vi post uppsättnings namnet "\@" för att skapa MX-posten i zonens Apex (i det här fallet "contoso.com").
+I det här exemplet använder vi post uppsättnings namnet " \@ " för att skapa MX-posten i zonens Apex (i det här fallet "contoso.com").
 
 ```azurecli
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -137,7 +137,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Skapa en SRV-post
 
-När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records)anger du * \_tjänsten* och * \_protokollet* i post uppsättningens namn. Du behöver inte inkludera "\@" i post uppsättnings namnet när du skapar en SRV-postuppsättning på zonens Apex.
+När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records)anger du * \_ tjänsten* och * \_ protokollet* i post uppsättningens namn. Du behöver inte inkludera " \@ " i post uppsättnings namnet när du skapar en SRV-postuppsättning på zonens Apex.
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
@@ -153,7 +153,7 @@ az network dns record-set txt add-record --resource-group myresourcegroup --zone
 
 ## <a name="get-a-record-set"></a>Hämta en post uppsättning
 
-Använd `az network dns record-set <record-type> show`om du vill hämta en befintlig post uppsättning. Om du vill ha hjälp, så gå till `az network dns record-set <record-type> show --help`.
+Använd om du vill hämta en befintlig post uppsättning `az network dns record-set <record-type> show` . Om du vill ha hjälp, så gå till `az network dns record-set <record-type> show --help`.
 
 När du skapar en post eller en post uppsättning måste post uppsättnings namnet vara ett *relativt* namn, vilket innebär att det måste utesluta zon namnet. Du måste också ange post typen, zonen som innehåller post uppsättningen och resurs gruppen som innehåller zonen.
 
@@ -165,7 +165,7 @@ az network dns record-set a show --resource-group myresourcegroup --zone-name co
 
 ## <a name="list-record-sets"></a>List post uppsättningar
 
-Du kan lista alla poster i en DNS-zon med hjälp `az network dns record-set list` av kommandot. Om du vill ha hjälp, så gå till `az network dns record-set list --help`.
+Du kan lista alla poster i en DNS-zon med hjälp av `az network dns record-set list` kommandot. Om du vill ha hjälp, så gå till `az network dns record-set list --help`.
 
 Det här exemplet returnerar alla post uppsättningar i zonen *contoso.com*, i resurs grupp *MyResourceGroup*, oavsett typ av namn eller post:
 
@@ -187,11 +187,11 @@ Mer information finns i [skapa en DNS-post](#create-a-dns-record) och [skapa pos
 
 ## <a name="remove-a-record-from-an-existing-record-set"></a>Ta bort en post från en befintlig post uppsättning.
 
-Om du vill ta bort en DNS-post från en befintlig `az network dns record-set <record-type> remove-record`post uppsättning använder du. Om du vill ha hjälp, så gå till `az network dns record-set <record-type> remove-record -h`.
+Om du vill ta bort en DNS-post från en befintlig post uppsättning använder du `az network dns record-set <record-type> remove-record` . Om du vill ha hjälp, så gå till `az network dns record-set <record-type> remove-record -h`.
 
-Det här kommandot tar bort en DNS-post från en post uppsättning. Om den sista posten i en post uppsättning tas bort, tas även själva post uppsättningen bort. Använd `--keep-empty-record-set` alternativet om du vill behålla den tomma post uppsättningen i stället.
+Det här kommandot tar bort en DNS-post från en post uppsättning. Om den sista posten i en post uppsättning tas bort, tas även själva post uppsättningen bort. Använd alternativet om du vill behålla den tomma post uppsättningen i stället `--keep-empty-record-set` .
 
-Du måste ange den post som ska tas bort och zonen som den ska tas bort från, med samma parametrar som när du skapar en post med `az network dns record-set <record-type> add-record`hjälp av. Dessa parametrar beskrivs i [skapa en DNS-post](#create-a-dns-record) och [skapa poster av andra typer](#create-records-of-other-types) ovan.
+Du måste ange den post som ska tas bort och zonen som den ska tas bort från, med samma parametrar som när du skapar en post med hjälp av `az network dns record-set <record-type> add-record` . Dessa parametrar beskrivs i [skapa en DNS-post](#create-a-dns-record) och [skapa poster av andra typer](#create-records-of-other-types) ovan.
 
 I följande exempel tar bort en post med värdet 1.2.3.4 från post uppsättningen med namnet *www* i zonen *contoso.com*i resurs gruppen *MyResourceGroup*.
 
@@ -214,13 +214,13 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Det går inte att lägga till, ta bort eller ändra posterna i den automatiskt skapade NS-postuppsättningen i`--Name "@"`zonens Apex (inklusive citat tecken). För den här post uppsättningen är de enda tillåtna ändringarna att ändra post uppsättningens TTL och metadata.
+Det går inte att lägga till, ta bort eller ändra posterna i den automatiskt skapade NS-postuppsättningen i zonens Apex ( `--Name "@"` inklusive citat tecken). För den här post uppsättningen är de enda tillåtna ändringarna att ändra post uppsättningens TTL och metadata.
 
 ### <a name="to-modify-a-cname-record"></a>Ändra en CNAME-post
 
 Till skillnad från de flesta andra post typer kan en CNAME-postuppsättning bara innehålla en enda post.  Därför kan du inte ersätta det aktuella värdet genom att lägga till en ny post och ta bort den befintliga posten, som för andra post typer.
 
-Använd `az network dns record-set cname set-record`i stället om du vill ändra en CNAME-post. Mer information finns i`az network dns record-set cname set-record --help`
+Använd i stället om du vill ändra en CNAME-post `az network dns record-set cname set-record` . Mer information finns i`az network dns record-set cname set-record --help`
 
 I exemplet ändras www post set- *www* i zonen *contoso.com*, i resurs grupp *MyResourceGroup*, så att den pekar på "www.fabrikam.net" i stället för dess befintliga värde:
 
@@ -232,7 +232,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 Till skillnad från de flesta andra post typer kan en CNAME-postuppsättning bara innehålla en enda post.  Därför kan du inte ersätta det aktuella värdet genom att lägga till en ny post och ta bort den befintliga posten, som för andra post typer.
 
-Använd `az network dns record-set soa update`i stället om du vill ändra SOA-posten. Om du vill ha hjälp, så gå till `az network dns record-set soa update --help`.
+Använd i stället om du vill ändra SOA-posten `az network dns record-set soa update` . Om du vill ha hjälp, så gå till `az network dns record-set soa update --help`.
 
 I följande exempel visas hur du ställer in egenskapen "e-post" för SOA-posten för zonen *contoso.com* i resurs gruppen *MyResourceGroup*:
 
@@ -256,7 +256,7 @@ az network dns record-set ns add-record --resource-group myresourcegroup --zone-
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Ändra TTL för en befintlig post uppsättning
 
-Om du vill ändra TTL för en befintlig post uppsättning använder `azure network dns record-set <record-type> update`du. Om du vill ha hjälp, så gå till `azure network dns record-set <record-type> update --help`.
+Om du vill ändra TTL för en befintlig post uppsättning använder du `azure network dns record-set <record-type> update` . Om du vill ha hjälp, så gå till `azure network dns record-set <record-type> update --help`.
 
 I följande exempel visas hur du ändrar en post uppsättnings-TTL, i det här fallet till 60 sekunder:
 
@@ -266,7 +266,7 @@ az network dns record-set a update --resource-group myresourcegroup --zone-name 
 
 ### <a name="to-modify-the-metadata-of-an-existing-record-set"></a>Ändra metadata för en befintlig post uppsättning
 
-[Metadata för post uppsättningar](dns-zones-records.md#tags-and-metadata) kan användas för att associera programspecifika data med varje post uppsättning som nyckel/värde-par. Om du vill ändra metadata för en befintlig post uppsättning använder `az network dns record-set <record-type> update`du. Om du vill ha hjälp, så gå till `az network dns record-set <record-type> update --help`.
+[Metadata för post uppsättningar](dns-zones-records.md#tags-and-metadata) kan användas för att associera programspecifika data med varje post uppsättning som nyckel/värde-par. Om du vill ändra metadata för en befintlig post uppsättning använder du `az network dns record-set <record-type> update` . Om du vill ha hjälp, så gå till `az network dns record-set <record-type> update --help`.
 
 I följande exempel visas hur du ändrar en post uppsättning med två metadata-poster, "avd = ekonomi" och "miljö = produktion". Observera att alla befintliga metadata *ersätts* med de värden som anges.
 
@@ -279,7 +279,7 @@ az network dns record-set a update --resource-group myresourcegroup --zone-name 
 Post uppsättningar kan tas bort med hjälp av `az network dns record-set <record-type> delete` kommandot. Om du vill ha hjälp, så gå till `azure network dns record-set <record-type> delete --help`. Om du tar bort en post uppsättning raderas även alla poster i post uppsättningen.
 
 > [!NOTE]
-> Du kan inte ta bort SOA-och NS-postuppsättningarna i`--name "@"`Zone Apex ().  De skapas automatiskt när zonen skapas och tas bort automatiskt när zonen tas bort.
+> Du kan inte ta bort SOA-och NS-postuppsättningarna i Zone Apex ( `--name "@"` ).  De skapas automatiskt när zonen skapas och tas bort automatiskt när zonen tas bort.
 
 I följande exempel tar bort post uppsättningen med namnet *www* av typ A från zonen *contoso.com* i resurs gruppen *MyResourceGroup*:
 
@@ -287,7 +287,7 @@ I följande exempel tar bort post uppsättningen med namnet *www* av typ A från
 az network dns record-set a delete --resource-group myresourcegroup --zone-name contoso.com --name www
 ```
 
-Du uppmanas att bekräfta borttagnings åtgärden. Använd `--yes` växeln för att ignorera den här prompten.
+Du uppmanas att bekräfta borttagnings åtgärden. Använd växeln för att ignorera den här prompten `--yes` .
 
 ## <a name="next-steps"></a>Nästa steg
 

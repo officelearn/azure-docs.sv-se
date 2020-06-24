@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262118"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692163"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare med hjälp av Azure Active Directory
 
@@ -42,9 +42,9 @@ Följ dessa steg om du vill lägga till en ny användare:
 
    - **Namn**. Krävs. Det första och sista namnet på den nya användaren. Till exempel *Mary parker*.
 
-   - **Användar namn**. Krävs. Den nya användarens användar namn. Till exempel `mary@contoso.com`.
+   - **Användar namn**. Krävs. Den nya användarens användar namn. Exempelvis `mary@contoso.com`.
 
-     Domän delen av användar namnet måste antingen använda det initiala standard domän namnet, * \<yourdomainname>. onmicrosoft.com*, eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
+     Domän delen av användar namnet måste antingen använda det inledande standard domän namnet, * \<yourdomainname> . onmicrosoft.com*eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
 
    - **Grupper**. Du kan också lägga till användaren i en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om hur du lägger till användare till grupper finns i [skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](active-directory-groups-create-azure-portal.md).
 

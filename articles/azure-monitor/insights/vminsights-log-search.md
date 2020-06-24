@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396929"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803973"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Så här frågar du efter loggar från Azure Monitor for VMs
 
@@ -26,7 +26,7 @@ Det finns internt genererade egenskaper som du kan använda för att identifiera
 - Dator: Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics arbets yta.
 - Process: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
 
-Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten `| summarize arg_max(TimeGenerated, *) by ResourceId` lägger du till i frågan.
+Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger `| summarize arg_max(TimeGenerated, *) by ResourceId` du till i frågan.
 
 ### <a name="connections-and-ports"></a>Anslutningar och portar
 
@@ -159,7 +159,7 @@ Poster med en typ av *VMComputer* har inventerings data för servrar med beroend
 | Egenskap | Beskrivning |
 |:--|:--|
 |TenantId | Den unika identifieraren för arbets ytan |
-|SourceSystem | *Insights* | 
+|SourceSystem | *Insikter* | 
 |TimeGenerated | Tidsstämpel för posten (UTC) |
 |Dator | Datorns FQDN | 
 |AgentId | Unikt ID för Log Analytics agenten |
@@ -221,7 +221,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 | Egenskap | Beskrivning |
 |:--|:--|
 |TenantId | Den unika identifieraren för arbets ytan |
-|SourceSystem | *Insights* | 
+|SourceSystem | *Insikter* | 
 |TimeGenerated | Tidsstämpel för posten (UTC) |
 |Dator | Datorns FQDN | 
 |AgentId | Unikt ID för Log Analytics agenten |
@@ -437,7 +437,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 | Egenskap | Beskrivning |
 |:--|:--|
 |TenantId | Unikt ID för arbets ytan |
-|SourceSystem | *Insights* | 
+|SourceSystem | *Insikter* | 
 |TimeGenerated | Tid då värdet samlades in (UTC) |
 |Dator | Datorns FQDN | 
 |Ursprung | *vm.azm.ms* |
@@ -454,7 +454,7 @@ De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics
 | Namnområde | Name | Beskrivning | Enhet | Taggar |
 |:---|:---|:---|:---|:---|
 | Dator    | Pulsslag             | Datorns pulsslag                        | | |
-| Minne      | AvailableMB           | Tillgängliga byte för minne                    | Byte          | memorySizeMB – total minnes storlek|
+| Minne      | AvailableMB           | Tillgängliga byte för minne                    | Megabyte      | memorySizeMB – total minnes storlek|
 | Nätverk     | WriteBytesPerSecond   | Skrivna byte för nätverks-byte per sekund            | BytesPerSecond | NetworkDeviceId-ID för enheten<br>Byte-totalt antal skickade byte |
 | Nätverk     | ReadBytesPerSecond    | Nätverks läsnings byte per sekund             | BytesPerSecond | networkDeviceId-ID för enheten<br>Byte-totalt antal mottagna byte |
 | Processor   | UtilizationPercentage | Procent andel processor användning          | Procent        | totalCpus – totalt antal processorer |
@@ -467,7 +467,7 @@ De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics
 | Logisk disk | ReadLatencyMs         | Läs fördröjning för logisk disk i millisekunder     | Millisekunder   | mountId-monterings-ID för enheten |
 | Logisk disk | ReadBytesPerSecond    | Lästa byte per sekund för logisk disk        | BytesPerSecond | mountId-monterings-ID för enheten |
 | Logisk disk | FreeSpacePercentage   | Procent andel ledigt utrymme på logisk disk        | Procent        | mountId-monterings-ID för enheten |
-| Logisk disk | FreeSpaceMB           | Byte i ledigt utrymme på logisk disk             | Byte          | mountId-monterings-ID för enheten<br>diskSizeMB – total disk storlek |
+| Logisk disk | FreeSpaceMB           | Byte i ledigt utrymme på logisk disk             | Megabyte      | mountId-monterings-ID för enheten<br>diskSizeMB – total disk storlek |
 | Logisk disk | BytesPerSecond        | Logiska Disk byte per sekund             | BytesPerSecond | mountId-monterings-ID för enheten |
 
 

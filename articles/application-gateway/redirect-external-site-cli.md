@@ -4,15 +4,15 @@ description: Lär dig hur du skapar en Programgateway som dirigerar om intern we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b671af46d34e3b45796186cd10282d060fa8c537
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74011599"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804673"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med extern omdirigering med hjälp av Azure CLI
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > * Skapa en regel för avlyssning och omdirigering
 > * Skapa en programgateway
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +88,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till den omdirigerings konfiguration som skickar trafik *från\.www-Consoto.org* till lyssnaren *för\.www-contoso.com* till programgatewayen med hjälp av [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
+Lägg till den omdirigerings konfiguration som skickar trafik från *www- \. Consoto.org* till lyssnaren för *www- \. contoso.com* till programgatewayen med hjälp av [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

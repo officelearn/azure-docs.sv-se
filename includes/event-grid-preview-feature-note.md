@@ -28,7 +28,7 @@ I [CloudShell](/azure/cloud-shell/quickstart):
 
 För en lokal installation:
 
-1. [Installera Azure CLI](/cli/azure/install-azure-cli). Kontrol lera att du har den senaste versionen genom att kontrol lera `az --version`med.
+1. [Installera Azure CLI](/cli/azure/install-azure-cli). Kontrol lera att du har den senaste versionen genom att kontrol lera med `az --version` .
 1. Avinstallera tidigare versioner av tillägget`az extension remove -n eventgrid`
 1. Installera `eventgrid` tillägget med`az extension add -n eventgrid`
 

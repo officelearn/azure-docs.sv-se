@@ -3,15 +3,15 @@ title: Flytta en extern Azure-belastningsutjämnare till en annan Azure-region m
 description: Använd en Azure Resource Manager-mall för att flytta en extern belastningsutjämnare från en Azure-region till en annan med hjälp av Azure Portal.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638535"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808713"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Flytta en extern belastningsutjämnare till en annan region med hjälp av Azure Portal
 
@@ -43,9 +43,9 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 2. Leta upp resurs gruppen som innehåller den offentliga käll-IP-adressen och välj den.
-3. Välj **Inställningar** > **Exportera mall**.
+3. Välj **Inställningar**  >  **Exportera mall**.
 4. Välj **distribuera** under **Exportera mall**.
-5. Välj **mall** > **Redigera parametrar** för att öppna filen Parameters. json i online-redigeraren.
+5. Välj **mall**  >  **Redigera parametrar** för att öppna parameters.jspå filen i redigeraren online.
 8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen **Value** under **parametrar** från det offentliga IP-domännamnet till namnet på din mål-offentliga IP. Omge namnet med citat tecken.
 
     ```json
@@ -63,7 +63,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
     Välj **Spara** i redigeraren.
 
-9.  Välj **mall** > **Redigera mall** för att öppna filen Template. json i online-redigeraren.
+9.  Välj **mall**  >  **Redigera mall** för att öppna template.jspå filen i redigeraren online.
 
 10. Om du vill redigera den mål region som den offentliga IP-adressen ska flyttas till ändrar du egenskapen **location** under **resurser**:
 
@@ -95,7 +95,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
     
 12. Du kan också ändra andra parametrar i mallen om du vill eller behöver, beroende på dina krav:
 
-    * **SKU**. Du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller från Basic till standard genom att ändra egenskapen **namn** under **SKU** i filen Template. JSON:
+    * **SKU**. Du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller från Basic till standard genom att ändra egenskapen **namn** under **SKU** i template.jspå filen:
 
         ```json
           "resources": [
@@ -141,11 +141,11 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
  
 13. Välj **Spara** i redigeraren online.
 
-14. Välj **grundläggande** > **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
+14. Välj **grundläggande**  >  **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
 
-15. Välj **BASICS** > **resurs gruppen** grundläggande för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
+15. Välj **BASICS**  >  **resurs gruppen** grundläggande för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
+16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
 
 17. Under **Inställningar**kontrollerar du att namnet matchar namnet som du angav tidigare i parameter redigeraren.
 
@@ -159,9 +159,9 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 2. Leta reda på resurs gruppen som innehåller den externa käll-belastningsutjämnaren och markera den.
-3. Välj **Inställningar** > **Exportera mall**.
+3. Välj **Inställningar**  >  **Exportera mall**.
 4. Välj **distribuera** under **Exportera mall**.
-5. Välj **mall** > **Redigera parametrar** för att öppna filen Parameters. json i online-redigeraren.
+5. Välj **mall**  >  **Redigera parametrar** för att öppna parameters.jspå filen i redigeraren online.
 
 5. Om du vill redigera parametern för den externa belastnings Utjämnings namnet ändrar du egenskapen **Value** för den externa källans namn på den externa belastningsutjämnaren till namnet på den externa mål belastnings utjämningen. Omge namnet med citat tecken.
 
@@ -178,11 +178,11 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
     ```
 
-6.  Om du vill redigera värdet för den offentliga IP-adressen som du flyttade i föregående steg, måste du först hämta resurs-ID: t och klistra in det i filen Parameters. JSON. Hämta ID:
+6.  Om du vill redigera värdet för den offentliga IP-adress som du flyttade i föregående steg, måste du först hämta resurs-ID: t och klistra in det i parameters.jspå filen. Hämta ID:
 
     1. I en annan flik i webbläsaren eller fönstret loggar du in på [Azure Portal](https://portal.azure.com) och väljer **resurs grupper**.
     2. Leta upp mål resurs gruppen som innehåller den offentliga IP-adress som du flyttade i föregående steg. Välj den.
-    3. Välj **Inställningar** > **Egenskaper**.
+    3. Välj **Inställningar**  >  **Egenskaper**.
     4. Markera **resurs-ID** i bladet till höger och kopiera det till Urklipp. Alternativt kan du välja **Kopiera till Urklipp** till höger om sökvägen till **resurs-ID: t** .
     5. Klistra in resurs-ID: t i egenskapen **Value** i **Redigera parameter** redigeraren som är öppen i det andra webbläsarfönstret eller fliken:
 
@@ -202,7 +202,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
     6. Välj **Spara** i redigeraren online.
 
 
-7.  Om du har konfigurerat utgående NAT och utgående regler för belastningsutjämnaren visas en tredje post i den här filen för det externa ID: t för den utgående offentliga IP-adressen. Upprepa föregående steg i **mål regionen** för att hämta ID: t för den utgående offentliga IP-adressen. Klistra in det ID: t i filen parametrar. JSON:
+7.  Om du har konfigurerat utgående NAT och utgående regler för belastningsutjämnaren visas en tredje post i den här filen för det externa ID: t för den utgående offentliga IP-adressen. Upprepa föregående steg i **mål regionen** för att hämta ID: t för den utgående offentliga IP-adressen. Klistra in det ID: t i parameters.jspå filen:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,8 +223,8 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
         },
     ```
 
-8.  Välj **mall** > **Redigera mall** för att öppna filen Template. json i online-redigeraren.
-9.  Om du vill redigera mål regionen som den externa belastnings Utjämnings konfigurationen ska flyttas till, ändrar du egenskapen **location** under **resurser** i filen Template. JSON:
+8.  Välj **mall**  >  **Redigera mall** för att öppna template.jspå filen i redigeraren online.
+9.  Om du vill redigera mål regionen som den externa belastnings Utjämnings konfigurationen ska flyttas till, ändrar du egenskapen **location** under **resurser** i template.jspå filen:
 
     ```json
         "resources": [
@@ -243,7 +243,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 11. Du kan också ändra andra parametrar i mallen om du vill eller behöver, beroende på dina krav:
 
-    * **SKU**. Du kan ändra SKU: n för den externa belastningsutjämnaren i konfigurationen från standard till Basic eller från Basic till standard genom att ändra egenskapen **namn** under **SKU** i filen Template. JSON:
+    * **SKU**. Du kan ändra SKU: n för den externa belastningsutjämnaren i konfigurationen från standard till Basic eller från Basic till standard genom att ändra egenskapen **namn** under **SKU** i template.jspå filen:
 
         ```json
         "resources": [
@@ -259,7 +259,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
         ```
       Information om skillnaderna mellan Basic-och standard-SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-    * **Belastnings Utjämnings regler**. Du kan lägga till eller ta bort belastnings Utjämnings regler i konfigurationen genom att lägga till eller ta bort poster i avsnittet **loadBalancingRules** i filen Template. JSON:
+    * **Belastnings Utjämnings regler**. Du kan lägga till eller ta bort belastnings Utjämnings regler i konfigurationen genom att lägga till eller ta bort poster i **loadBalancingRules** -avsnittet i template.jspå filen:
 
         ```json
         "loadBalancingRules": [
@@ -291,7 +291,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
         ```
        Information om belastnings Utjämnings regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Avsökningar**. Du kan lägga till eller ta bort en avsökning för belastningsutjämnaren i konfigurationen genom att lägga till eller ta bort poster i avsnittet **avsökningar** i filen Template. JSON:
+    * **Avsökningar**. Du kan lägga till eller ta bort en avsökning för belastningsutjämnaren i konfigurationen genom att lägga till eller ta bort poster i avsnittet **avsökningar** i template.jsfilen:
 
         ```json
         "probes": [
@@ -311,7 +311,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
         ```
        Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-    * **Ingående NAT-regler**. Du kan lägga till eller ta bort inkommande NAT-regler för belastningsutjämnaren genom att lägga till eller ta bort poster i avsnittet **inboundNatRules** i filen Template. JSON:
+    * **Ingående NAT-regler**. Du kan lägga till eller ta bort inkommande NAT-regler för belastningsutjämnaren genom att lägga till eller ta bort poster i **inboundNatRules** -avsnittet i template.jspå filen:
 
         ```json
         "inboundNatRules": [
@@ -333,7 +333,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
                     }
                 ]
         ```
-        Om du vill slutföra tillägg eller borttagning av en inkommande NAT-regel måste regeln finnas eller tas bort som en **typ** egenskap i slutet av mallens. JSON-fil:
+        För att slutföra tillägg eller borttagning av en inkommande NAT-regel måste regeln finnas eller tas bort som en **typ** egenskap i slutet av template.jspå filen:
 
         ```json
         {
@@ -359,7 +359,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
         ```
         Information om inkommande NAT-regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Utgående regler**. Du kan lägga till eller ta bort utgående regler i konfigurationen genom att redigera egenskapen **outboundRules** i filen Template. JSON:
+    * **Utgående regler**. Du kan lägga till eller ta bort utgående regler i konfigurationen genom att redigera egenskapen **outboundRules** i template.jspå filen:
 
         ```json
         "outboundRules": [
@@ -389,11 +389,11 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 12. Välj **Spara** i redigeraren online.
 
-13. Välj **grundläggande** > **prenumeration** för att välja den prenumeration där den externa mål belastnings balansen ska distribueras.
+13. Välj **grundläggande**  >  **prenumeration** för att välja den prenumeration där den externa mål belastnings balansen ska distribueras.
 
-15. Välj **BASICS** > **resurs gruppen** grundläggande för att välja resurs gruppen där mål belastnings utjämningen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den externa mål belastnings utjämningen. Eller så kan du välja den befintliga resurs grupp som du skapade tidigare för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga externa käll belastningsutjämnaren.
+15. Välj **BASICS**  >  **resurs gruppen** grundläggande för att välja resurs gruppen där mål belastnings utjämningen ska distribueras. Du kan välja **Skapa ny** för att skapa en ny resurs grupp för den externa mål belastnings utjämningen. Eller så kan du välja den befintliga resurs grupp som du skapade tidigare för den offentliga IP-adressen. Kontrol lera att namnet inte är samma som käll resurs gruppen för den befintliga externa käll belastningsutjämnaren.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den externa belastningsutjämnaren ska distribueras.
+16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att den externa belastningsutjämnaren ska distribueras.
 
 17. Under **Inställningar**kontrollerar du att namnet stämmer överens med det namn som du angav tidigare i parameter redigeraren. Kontrol lera att resurs-ID: n är ifyllda för alla offentliga IP-adresser i konfigurationen.
 

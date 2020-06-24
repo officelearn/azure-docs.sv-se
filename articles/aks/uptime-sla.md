@@ -5,23 +5,30 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b360f36dfc80033ac95e4face438b66eed33cec4
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299561"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945519"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA för Azure Kubernetes service (AKS) drift tid
 
 SLA för drift tid är en valfri funktion för att aktivera ett finansiellt, högre service avtal för ett kluster. SLA för drift tid garanterar 99,95% tillgänglighet för Kubernetes API Server-slutpunkten för kluster som använder [Tillgänglighetszoner][availability-zones] och 99,9% av tillgänglighet för kluster som inte använder Tillgänglighetszoner. AKS använder huvudnoders repliker över uppdaterings-och fel domäner för att säkerställa att SLA-kraven är uppfyllda.
 
-Kunder som behöver ett service avtal för att uppfylla kraven på efterlevnad eller som kräver utökning av ett service avtal för slutanvändarna bör aktivera den här funktionen. Kunder med kritiska arbets belastningar som kommer att ha nytta av ett service avtal med högre drift tid kan också dra nytta av. Med hjälp av SLA-funktionen för drift tid med Tillgänglighetszoner möjliggör en högre tillgänglighet för drift tiden för Kubernetes API-servern.  
+Kunder som behöver ett service avtal för att uppfylla kraven på efterlevnad eller som kräver utökning av ett service avtal för sina slutanvändare bör aktivera den här funktionen. Kunder med kritiska arbets belastningar som kommer att ha nytta av ett service avtal med högre drift tid kan också dra nytta av. Med hjälp av SLA-funktionen för drift tid med Tillgänglighetszoner möjliggör en högre tillgänglighet för drift tiden för Kubernetes API-servern.  
 
 Kunder kan ändå skapa obegränsat antal kostnads fria kluster med ett service nivå mål på 99,5% och välja önskat service nivå mål eller drift tid för service nivå avtal vid behov.
 
 > [!Important]
 > För kluster med utgående låsning, se [begränsa utgående trafik](limit-egress-traffic.md) för att öppna lämpliga portar.
+
+## <a name="region-availability"></a>Regional tillgänglighet
+
+SLA för drift tid är tillgängligt i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government stöds inte för närvarande.
+* Azure Kina 21Vianet stöds inte för närvarande.
 
 ## <a name="sla-terms-and-conditions"></a>Villkor för SLA
 
@@ -29,7 +36,7 @@ SLA för drift tid är en betald funktion och aktive rad per kluster. SLA-priser
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Azure CLI-version 2.7.0 eller senare
+* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.7.0 eller senare
 
 ## <a name="creating-a-cluster-with-uptime-sla"></a>Skapa ett kluster med SLA för drift tid
 

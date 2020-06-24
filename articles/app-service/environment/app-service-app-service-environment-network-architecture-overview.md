@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243853"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701821"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Översikt över nätverks arkitektur i App Service miljöer
 App Service miljöer skapas alltid i ett undernät för ett [virtuellt nätverk][virtualnetwork] – appar som körs i en app service-miljön kan kommunicera med privata slut punkter i samma virtuella nätverk sto pol Ogin.  Eftersom kunder kan låsa delar av sin virtuella nätverks infrastruktur är det viktigt att förstå de typer av nätverks kommunikations flöden som sker med en App Service-miljön.

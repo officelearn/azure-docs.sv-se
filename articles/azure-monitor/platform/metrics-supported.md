@@ -4,15 +4,15 @@ description: Lista över mått som är tillgängliga för varje resurs typ med A
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 09aa3a5febe9ea25d8614a99ec3f832cc2d0309f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456954"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906793"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -165,7 +165,7 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 |TotalUpdateDeploymentMachineRuns|Antal datorspecifika körningar av uppdateringsdistributionen|Antal|Totalt|Total distributions dator för program uppdatering körs i en körning av program uppdaterings distribution|SoftwareUpdateConfigurationName, status, TargetComputer, SoftwareUpdateConfigurationRunId|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.BatCH/batchAccounts
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
@@ -202,7 +202,7 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 |JobTerminateStartEvent|Jobb som avslutar start händelser|Antal|Totalt|Totalt antal jobb som har begärts att avslutas.|jobId|
 
 
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft. BatchAI/arbets ytor
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/arbets ytor
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
@@ -1014,7 +1014,7 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
@@ -2084,17 +2084,6 @@ Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret dä
 <sup>1</sup> det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. 
 
 <sup>2</sup> det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser.
-
-
-## <a name="microsoftsqlservers"></a>Microsoft. SQL/Servers
-
-|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|ElasticPoolResourceId|
-|database_storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|Använt DTU|Antal|Medel|Använt DTU|DatabaseResourceId|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 

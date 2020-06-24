@@ -10,39 +10,75 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/2/2020
+ms.date: 6/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: 89344c38c719a06d8241ec34136a75c96de9f901
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322880"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737469"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+## <a name="june-2020-guest-os"></a>Juni 2020 gäst operativ system
+">[!NOTE]
+>Gäst operativ systemet i juni distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i april gäst operativ system. Den här listan kan ändras. "
+
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Senaste kumulativa uppdateringen (LCU)  |  5,44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Senaste kumulativa uppdateringen (LCU)  |  6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Uppdatering av underhålls stack  |  2,99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Månatlig sammanställning  |  2,99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Uppdatering av underhålls stack  |  3,86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Månatlig sammanställning  |  3,86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Utvecklingsverktyget  |  3,86, 4,79, 5,44, 6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Uppdatering av underhålls stack  |  4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Månatlig sammanställning  |  4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Uppdatering av underhålls stack  |  5,44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Uppdatering av underhålls stack  |  6,20  |  Jun 9, 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
 
 ## <a name="may-2020-guest-os"></a>Maj 2020 gäst operativ system
 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020  |
-|  Rel 20-05   |  [4556813]  |  Senaste kumulativa uppdateringen (LCU)   |  [5,43]  |  12 maj 2020  |
-|  Rel 20-05   |  [4551853]  |  Senaste kumulativa uppdateringen (LCU)   |  [6,19]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552940]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
-|  Rel 20-05   |  [4556836]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
-|  Rel 20-05   |  [4555449]  |  Uppdatering av underhålls stack   |  [2,98]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552920]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552979]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
-|  Rel 20-05   |  [4556840]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552947]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552982]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
-|  Rel 20-05   |  [4552946]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
-|  Rel 20-05   |  [4556846]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
-|  Rel 20-05   |  [4550994]  |  Uppdatering av underhålls stack   |  [5,43]  |  14 apr, 2020  |
-|  Rel 20-05   |  [4552924]  |  Månatlig sammanställning   |  [6,19]  |  12 maj 2020  |
-|  Rel 20-05   |  [4549947]  |  Uppdatering av underhålls stack   |  [6,19]  |  14 apr, 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020  |
+|  Rel 20-05  |  [4556813]  |  Senaste kumulativa uppdateringen (LCU)   |  [5,43]  |  12 maj 2020  |
+|  Rel 20-05  |  [4551853]  |  Senaste kumulativa uppdateringen (LCU)   |  [6,19]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552940]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05  |  [4556836]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05  |  [4555449]  |  Uppdatering av underhålls stack   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552920]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552979]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05  |  [4556840]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552947]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552982]  |  Månatlig sammanställning   |  [3,85]  |  12 maj 2020  |
+|  Rel 20-05  |  [4552946]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
+|  Rel 20-05  |  [4556846]  |  Månatlig sammanställning   |  [4,78]  |  12 maj 2020  |
+|  Rel 20-05  |  [4550994]  |  Uppdatering av underhålls stack   |  [5,43]  |  14 apr, 2020  |
+|  Rel 20-05  |  [4552924]  |  Månatlig sammanställning   |  [6,19]  |  12 maj 2020  |
+|  Rel 20-05  |  [4549947]  |  Uppdatering av underhålls stack   |  [6,19]  |  14 apr, 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -66,6 +102,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
 [5,43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
 [6,19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
 
 ## <a name="april-2020-guest-os"></a>Gäst operativ system april 2020
 
@@ -1375,7 +1412,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | MS16-065 |[3156757] |Säkerhets uppdatering för .NET Framework |4,32, 3,39, 2,51 |10 maj 2016 |
 | MS16-067 |[3155784] |Säkerhets uppdatering för Volume Manager-drivrutin |4,32, 3,39 |10 maj 2016 |
 | Ej tillämpligt |[3148851] |Tids zons ändringar för Ryssland i Windows  |4,32, 3,39, 2,51 |10 maj 2016 |
-| Ej tillämpligt |[3133977] |BitLocker kan inte kryptera enheter på grund av att tjänsten kraschar i processen Svchost. exe i Windows 7 eller Windows Server 2008 R2  |2,51 |10 maj 2016 |
+| Ej tillämpligt |[3133977] |BitLocker kan inte kryptera enheter på grund av att tjänsten kraschar i svchost.exe process i Windows 7 eller Windows Server 2008 R2  |2,51 |10 maj 2016 |
 | Ej tillämpligt |[3133681] |Virtuella datorer svarar inte på din åtgärd i SCVMM i Windows Server 2012 R2  |4,32 |10 maj 2016 |
 | Ej tillämpligt |[3123245] |Uppdateringen förbättrar identifieringen av portens överbelastning i Windows Server 2012 R2  |4,32 |10 maj 2016 |
 | Ej tillämpligt |[Inaktivera RC4] | Microsoft Security Advisory: uppdatering för inaktive ring av RC4  |4,32, 3,39, 2,51 |10 maj 2016 |
@@ -1544,7 +1581,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 ## <a name="april-2015-guest-os"></a>Gäst operativ system april 2015
 | Bulletin-ID | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-| [MS15 – 034] |[3042553] |Säkerhets problem i HTTP. sys möjliggör fjärrkörning av kod |4,19, 3,26, 2,38 |17 april 2015 |
+| [MS15 – 034] |[3042553] |Säkerhets problem i HTTP.sys möjliggör fjärrkörning av kod |4,19, 3,26, 2,38 |17 april 2015 |
 
 ## <a name="march-2015-guest-os"></a>Mars 2015 gäst operativ system
 | Bulletin-ID | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1f7d0d411ffbff6aad7d134711a0190251f68aa8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 3a359e4b3523615623c76d48c1aafd7aa95a5277
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324444"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255049"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,10 +91,11 @@ Fsv2-serien stöds bara i Generell användning nivån.  För regioner där Fsv2-
 - M-serien är ett minnesoptimerade maskin varu alternativ för arbets belastningar som kräver mer minnes-och högre beräknings gränser än vad som anges i Gen5.
 - M-serien tillhandahåller 29 GB per vCore och 128 virtuella kärnor, vilket ökar minnes gränsen i förhållande till Gen5 med 8x till nästan 4 TB.
 
-M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.
+M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.  Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA).  För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
 
-Om du vill aktivera maskin vara i M-serien för en prenumeration och region måste du öppna en supportbegäran. Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA).  Om support förfrågan godkänns, kommer valet och etablerings upplevelsen av M-serien att följa samma mönster som för andra maskin varu generationer. För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Beräknings-och minnes specifikationer
 
@@ -112,7 +113,7 @@ Mer information om resurs gränser finns i [resurs gränser för enskilda databa
 
 ### <a name="selecting-a-hardware-generation"></a>Välja en maskin varu generation
 
-I Azure Portal kan du välja att skapa maskin vara för en databas eller pool i SQL Database vid tidpunkten för skapandet, eller så kan du ändra maskin varu generationen för en befintlig SQL-databas eller-pool.
+I Azure Portal kan du välja maskin varu generering för en databas eller pool i SQL Database vid tidpunkten för skapandet, eller så kan du ändra maskin varu generationen för en befintlig databas eller pool.
 
 **Så här väljer du en maskin varu generering när du skapar en SQL Database eller pool**
 
@@ -193,32 +194,33 @@ Fsv2-serien är tillgänglig i följande regioner: Australien, centrala, Austral
 #### <a name="m-series"></a>M-serien
 
 M-serien är tillgänglig i följande regioner: östra USA, norra Europa, Västeuropa, västra USA 2.
-M-serien kan också ha begränsad tillgänglighet i ytterligare regioner. Du kan begära en annan region än vad som anges här, men det är möjligt att det inte går att utföra en annan region.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Om du vill aktivera tillgänglighet för M-serien i en prenumeration måste du begära det genom att skicka in [en ny supportbegäran](#create-a-support-request-to-enable-m-series).
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Skapa en support förfrågan för att aktivera M-serien: 
+##### Create a support request to enable M-series: 
 
-1. Välj **Hjälp + Support** i portalen.
-2. Välj **Ny supportbegäran**.
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
 
-På sidan **grundläggande** inställningar anger du följande:
+On the **Basics** page, provide the following:
 
-1. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**.
-2. För **prenumeration** = väljer du den prenumeration som du vill aktivera M-serien.
-3. I **typ av kvot**väljer du **SQL-databas**.
-4. Välj **Nästa** för att gå till sidan **information** .
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-På sidan **information** anger du följande:
+On the **Details** page, provide the following:
 
-1. I avsnittet **problem information** väljer du länken **Tillhandahåll information** . 
-2. Välj **M-serien**för **SQL Database kvot typ** .
-3. För **region**väljer du den region där du vill aktivera M-serien.
-    För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-Godkända support ärenden är vanligt vis uppfyllda inom 5 arbets dagar.
-
+Approved support requests are typically fulfilled within 5 business days.
+-->
 
 ## <a name="next-steps"></a>Nästa steg
 

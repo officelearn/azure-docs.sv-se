@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266876"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701889"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
 Du kan få ett särskilt fel meddelande när du använder fjärr skrivbords anslutning till en virtuell Windows-dator i Azure. I den här artikeln beskrivs några av de vanligaste fel meddelandena, tillsammans med fel söknings steg för att lösa dem. Om du har problem med att ansluta till din virtuella dator med hjälp av RDP men inte stöter på ett fel meddelande, se [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md).
@@ -69,7 +69,7 @@ Adress delen av den här RDP-filen har:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ett autentiseringsfel har inträffat. Det går inte att kontakta den lokala säkerhets kontrollen.
 Orsak: den virtuella mål datorn kan inte hitta säkerhets myndigheten i användar namns delen av dina autentiseringsuppgifter.
 
-När ditt användar namn har formatet *SecurityAuthority*\\*användar* namn (exempel: CORP\User1.) är *SecurityAuthority* -delen antingen den virtuella datorns dator namn (för den lokala säkerhets kontrollen) eller ett Active Directory domän namn.
+När ditt användar namn har formatet *SecurityAuthority* \\ *användar* namn (exempel: CORP\User1.) är *SecurityAuthority* -delen antingen den virtuella datorns dator namn (för den lokala säkerhets kontrollen) eller ett Active Directory domän namn.
 
 Möjliga lösningar:
 
@@ -84,8 +84,8 @@ Orsak: den virtuella mål datorn kan inte verifiera ditt konto namn och lösen o
 
 En Windows-baserad dator kan verifiera autentiseringsuppgifterna för antingen ett lokalt konto eller ett domän konto.
 
-* För lokala konton använder du syntaxen *dator*\\namn*användar namn* (exempel: SQL1\Admin4798).
-* För domän konton använder du syntaxen *domän*\\\*användar namn* (exempel: CONTOSO\peterodman).
+* För lokala konton använder du syntaxen *dator*namn \\ *användar namn* (exempel: SQL1\Admin4798).
+* För domän konton använder du syntaxen *domän*\ \\ *användar namn* (exempel: CONTOSO\peterodman).
 
 Om du har uppgraderat den virtuella datorn till en domänkontrollant i en ny Active Directory skog, konverteras det lokala administratörs kontot som du loggade in med till ett motsvarande konto med samma lösen ord i den nya skogen och domänen. Det lokala kontot tas sedan bort.
 

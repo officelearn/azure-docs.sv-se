@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930462"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254930"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning modeller med uppdatering av resurs aktivitet
 
@@ -47,7 +47,7 @@ Med tiden måste de förutsägande modellerna i test experimentet i Azure ML åt
 I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i avsnittet [omträna Machine Learning Studio (klassiska) modeller program mässigt](../../machine-learning/studio/retrain-machine-learning-model.md) .
 
 - **Utbildning-webbtjänst** – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
-- **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika formulär, till exempel en CSV-fil eller rader i en Azure SQL-databas, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 
+- **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika former, till exempel en CSV-fil eller rader i Azure SQL Database, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 
 
 Följande bild illustrerar förhållandet mellan utbildning och poäng slut punkter i Azure ML.
 
@@ -58,7 +58,7 @@ Du kan anropa **utbildnings webb tjänsten** med hjälp av **aktiviteten Azure m
 Du kan anropa **bedömnings webb tjänsten** med hjälp av **resurs aktiviteten Azure ml-uppdatering** för att uppdatera webb tjänsten med den nyligen utbildade modellen. I följande exempel finns länkade tjänst definitioner: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Webb tjänsten poängsättning är en klassisk webb tjänst
-Om bedömnings webb tjänsten är en **klassisk webb tjänst**skapar du den andra **icke-standard-och uppdaterings bara slut punkten** med hjälp av Azure Portal. Se artikeln [skapa slut punkter](../../machine-learning/machine-learning-create-endpoint.md) för steg. När du har skapat den uppdaterings bara slut punkten som inte är standard, utför följande steg:
+Om bedömnings webb tjänsten är en **klassisk webb tjänst**skapar du den andra **icke-standard-och uppdaterings bara slut punkten** med hjälp av Azure Portal. Se artikeln [skapa slut punkter](../../machine-learning/studio/create-endpoint.md) för steg. När du har skapat den uppdaterings bara slut punkten som inte är standard, utför följande steg:
 
 * Klicka på **batch-körning** för att hämta URI-värdet för **mlEndpoint** JSON-egenskapen.
 * Klicka på **Uppdatera resurs** länk för att hämta URI-värdet för **updateResourceEndpoint** JSON-egenskapen. API-nyckeln finns på slut punkts sidan (i det nedre högra hörnet).

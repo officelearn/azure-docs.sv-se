@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300451"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945468"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault (för hands version)
 Azure Monitor för Key Vault (för hands version) tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -158,55 +158,51 @@ Du kan konfigurera översikten över flera prenumerationer och nyckel valv, så 
 
 ## <a name="troubleshooting"></a>Felsökning
 
+Allmän fel söknings vägledning finns i artikeln om dedikerad informations [fel sökning](troubleshoot-workbooks.md)för arbets böcker.
+
 I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för Key Vault (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Lösa prestanda problem eller fel
 
 Information om hur du felsöker viktiga valv relaterade problem som du identifierar med Azure Monitor för Key Vault (för hands version) finns i [Azure Key Vault-dokumentationen](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Varför kan jag bara se 200-nyckel valv?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Varför kan jag bara se 200-nyckel valv
 
 Det finns en gräns på 200 nyckel valv som kan väljas och visas. Oavsett antalet valda prenumerationer har antalet valda nyckel valv en gräns på 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>Vad händer när jag klickar på ett fäst objekt?
-
-När du klickar på ett fäst objekt på instrument panelen öppnas ett av två saker:
-* Om insikterna sparades, öppnas insikts instansen som PIN-koden sparades från.
-* Om insikterna inte har sparats, öppnas en ny standard insikts instans.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Varför visas inte alla mina prenumerationer i prenumerations väljaren?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Varför visas inte alla mina prenumerationer i prenumerations väljaren
 
 Vi visar bara prenumerationer som innehåller nyckel valv, som väljs från det valda prenumerations filtret, som väljs i "katalog + prenumeration" i Azure Portals huvudet.
 
 ![Skärm bild av prenumerations filter](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Jag får ett fel meddelande om att "frågan överskrider det högsta antalet arbets ytor/regioner som tillåts", vad du ska göra nu?
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Jag får ett fel meddelande om att "frågan överskrider det högsta antalet arbets ytor/regioner som tillåts", vad du gör nu
 
 För närvarande finns det en gräns på 25 regioner och 200 arbets ytor för att visa dina data. du måste minska antalet prenumerationer och/eller resurs grupper.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Jag vill göra ändringar eller lägga till ytterligare visualiseringar för att Key Vault insikter, hur gör jag?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Jag vill göra ändringar eller lägga till ytterligare visualiseringar för att Key Vault insikter, hur gör jag för att
 
 Om du vill göra ändringar väljer du "redigerings läge" för att ändra arbets boken. sedan kan du spara arbetet som en ny arbets bok som är knuten till en angiven prenumeration och resurs grupp.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Vad är tids kornigheten när vi fäster någon del av arbets böckerna?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Vad är tids kornen när vi fäster någon del av arbets böckerna
 
 Vi använder "Auto" Time-kornig het, vilket innebär att den är beroende av vilket tidsintervall som väljs.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Vad är tidsintervallet när någon del av arbets boken är fäst?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Vad är tidsintervallet när någon del av arbets boken är fäst
 
 Tidsintervallet beror på instrument panelens inställningar.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Varför visas inte några data för mina Key Vault under avsnittet åtgärder & svars tid?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Varför visas inte några data för mina Key Vault under avsnittet åtgärder & svars tid
 
 Om du vill visa dina loggarbaserade data måste du aktivera loggar för varje nyckel valv som du vill övervaka. Detta kan göras under diagnostikinställningar för varje nyckel valv. Du måste skicka dina data till en angiven Log Analytics-arbetsyta.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Jag har redan aktiverat loggar för min Key Vault, varför kan jag fortfarande inte se mina data under åtgärder & svars tid?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Jag har redan aktiverat loggar för min Key Vault, varför kan jag fortfarande inte se mina data under åtgärder & svars tid
 
 Diagnostikloggar fungerar för närvarande inte retroaktivt, så data kommer bara att börja visas när det har skett åtgärder i nyckel valven. Därför kan det ta lite tid, från timmar till en dag, beroende på hur aktivt nyckel valvet är.
 
 Om du har ett stort antal nyckel valv och-prenumerationer valda kan du dessutom inte Visa dina data på grund av frågans begränsningar. Du kan behöva minska antalet valda prenumerationer eller nyckel valv för att kunna visa dina data. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Vad händer om jag vill se andra data eller göra egna visualiseringar? Hur kan jag göra ändringar i Key Vault Insights?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Vad händer om jag vill se andra data eller göra egna visualiseringar? Hur kan jag göra ändringar i Key Vault Insights
 
 Du kan redigera den befintliga arbets boken genom att använda redigerings läget och sedan spara ditt arbete som en ny arbets bok som kommer att ha alla dina nya ändringar.
 

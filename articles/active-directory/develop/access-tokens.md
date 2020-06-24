@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ebb751826f0495f378c2df4118b3ad2008fd418f
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772241"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905025"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -230,11 +230,13 @@ Ditt programs affärs logik kommer att diktera det här steget, några vanliga a
 
 ## <a name="user-and-application-tokens"></a>Token för användare och program
 
-Ditt program kan ta emot token för en användares räkning (det vanliga flödet) eller direkt från ett program (via klientens Credential Flow ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)). Dessa app-only-token anger att det här anropet kommer från ett program och inte har en användare som säkerhetskopierar det. Dessa tokens hanteras i stor utsträckning, med vissa skillnader:
+Ditt program kan ta emot token för användare (flödet som vanligt vis diskuteras) eller direkt från ett program (via [flödet för klientens autentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md)). Dessa app-only-token anger att det här anropet kommer från ett program och inte har en användare som säkerhetskopierar det. Dessa tokens hanteras i stort sett samma:
 
-* Endast app-token har ett `scp` anspråk och kan i stället ha ett `roles` anspråk. Det är här som program behörigheten (till skillnad från delegerade behörigheter) ska registreras. Mer information om delegerade och program behörigheter finns i behörighet och medgivande ([v 1.0](../azuread-dev/v1-permissions-consent.md), [v 2.0](v2-permissions-and-consent.md)).
-* Många Human-/regionsspecifika anspråk kommer att saknas, till exempel `name` eller `upn` .
-* `sub`Anspråken och är `oid` desamma.
+* Använd `roles` för att se behörigheter som har beviljats ämne för token (tjänstens huvud namn, i stället för en användare i det här fallet).
+* Använd `oid` eller `sub` för att verifiera att den anropande tjänstens huvud namn är det förväntade ett.
+
+Om din app behöver skilja mellan appars åtkomst-tokens och åtkomsttoken för användare använder du det `idtyp` [valfria anspråket](active-directory-optional-claims.md).  Genom att lägga till `idtyp` anspråket i `accessToken` fältet och kontrol lera värdet `app` kan du identifiera endast app-Access-token.  ID-tokens och åtkomsttoken för användare har inte `idtyp` anspråket som ingår.
+
 
 ## <a name="token-revocation"></a>Återkalla token
 

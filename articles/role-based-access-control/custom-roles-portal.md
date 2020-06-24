@@ -7,19 +7,19 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734187"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791205"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure-portalen
 
 Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa egna Azure-anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänst huvud namn i prenumerations-och resurs grupps omfång. Anpassade roller lagras i en Azure Active Directory (Azure AD)-katalog och kan delas mellan prenumerationer. Varje katalog kan ha upp till 5000 anpassade roller. Du kan skapa anpassade roller med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I den här artikeln beskrivs hur du skapar anpassade roller med hjälp av Azure Portal.
 
@@ -196,15 +196,15 @@ Följ dessa steg om du vill lägga till eller ta bort behörigheter för din anp
 
 1. Klicka på **Lägg** till för att lägga till behörigheten i behörighets listan.
 
-    Behörigheten läggs till som en `Actions` eller `DataActions`.
+    Behörigheten läggs till som en `Actions` eller `DataActions` .
 
     ![Tillagd behörighet](./media/custom-roles-portal/permissions-list-add.png)
 
-1. Om du vill ta bort behörigheter klickar du på ikonen Ta bort i slutet av raden. I det här exemplet, eftersom en användare inte behöver kunna skapa support biljetter, kan `Microsoft.Support/*` behörigheten tas bort.
+1. Om du vill ta bort behörigheter klickar du på ikonen Ta bort i slutet av raden. I det här exemplet, eftersom en användare inte behöver kunna skapa support biljetter, `Microsoft.Support/*` kan behörigheten tas bort.
 
 ### <a name="add-wildcard-permissions"></a>Lägg till behörigheter för jokertecken
 
-Beroende på hur du valde att starta kan du ha behörigheter med jokertecken (\*) i listan med behörigheter. Ett jokertecken\*() utökar en behörighet till allt som matchar den sträng som du anger. Anta till exempel att du vill lägga till alla behörigheter som är relaterade till Azure Cost Management och export. Du kan lägga till alla dessa behörigheter:
+Beroende på hur du valde att starta kan du ha behörigheter med jokertecken ( \* ) i listan med behörigheter. Ett jokertecken ( \* ) utökar en behörighet till allt som matchar den sträng som du anger. Anta till exempel att du vill lägga till alla behörigheter som är relaterade till Azure Cost Management och export. Du kan lägga till alla dessa behörigheter:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -224,7 +224,7 @@ Om du vill lägga till en ny behörighet för jokertecken kan du inte lägga til
 
 ### <a name="exclude-permissions"></a>Undanta behörigheter
 
-Om din roll har en jokertecken\*()-behörighet och du vill undanta eller subtrahera vissa behörigheter från den jokertecken kan du undanta dem. Anta till exempel att du har följande behörighet för jokertecken:
+Om din roll har en jokertecken ( \* )-behörighet och du vill undanta eller subtrahera vissa behörigheter från den jokertecken kan du undanta dem. Anta till exempel att du har följande behörighet för jokertecken:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -236,7 +236,7 @@ Om du inte vill tillåta att en export tas bort kan du undanta följande behöri
 Microsoft.CostManagement/exports/delete
 ```
 
-När du undantar en behörighet läggs den till som `NotActions` eller. `NotDataActions` De effektiva hanterings behörigheterna beräknas genom att lägga till alla `Actions` och sedan subtrahera alla `NotActions`. De effektiva data behörigheterna beräknas genom att lägga till alla `DataActions` och sedan subtrahera alla. `NotDataActions`
+När du undantar en behörighet läggs den till som `NotActions` eller `NotDataActions` . De effektiva hanterings behörigheterna beräknas genom att lägga till alla `Actions` och sedan subtrahera alla `NotActions` . De effektiva data behörigheterna beräknas genom att lägga till alla `DataActions` och sedan subtrahera alla `NotDataActions` .
 
 > [!NOTE]
 > Att undanta en behörighet är inte samma sak som neka. Att utesluta behörigheter är helt enkelt ett bekvämt sätt att dra behörighet från en behörighet med jokertecken.
@@ -249,7 +249,7 @@ När du undantar en behörighet läggs den till som `NotActions` eller. `NotData
 
     ![Fönstret exkludera behörighet – behörigheten vald](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    Behörigheten läggs till som `NotActions` eller. `NotDataActions`
+    Behörigheten läggs till som `NotActions` eller `NotDataActions` .
 
     ![Behörighet Exkluderad](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
@@ -269,7 +269,7 @@ På fliken **tilldelnings bara omfattningar** anger du var den anpassade rollen 
 
 ## <a name="step-6-json"></a>Steg 6: JSON
 
-På fliken **JSON** visas din anpassade roll som är FORMATERAD i JSON. Om du vill kan du redigera JSON direkt. Om du vill lägga till en wildcard (\*)-behörighet måste du använda den här fliken.
+På fliken **JSON** visas din anpassade roll som är FORMATERAD i JSON. Om du vill kan du redigera JSON direkt. Om du vill lägga till en wildcard ( \* )-behörighet måste du använda den här fliken.
 
 1. Klicka på **Redigera**om du vill redigera JSON.
 

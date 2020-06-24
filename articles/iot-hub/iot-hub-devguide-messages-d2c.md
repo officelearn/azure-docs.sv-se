@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370465"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790525"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -35,7 +35,15 @@ En IoT-hubb har en inbyggd standard slut punkt (**meddelanden/händelser**) som 
 
 Varje meddelande dirigeras till alla slut punkter vars vägvals frågor det matchar. Med andra ord kan ett meddelande dirigeras till flera slut punkter.
 
-IoT Hub stöder för närvarande följande tjänster som anpassade slut punkter:
+
+Om din anpassade slut punkt har brand Väggs konfiguration, bör du överväga att använda Microsofts betrodda första part undantag för att ge din IoT Hub åtkomst till den aktuella slut punkten – [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) och [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Detta är tillgängligt i SELECT-regioner för IoT Hub med [hanterad tjänst identitet](./virtual-network-support.md).
+
+IoT Hub stöder för närvarande följande slut punkter:
+
+ - Inbyggd slut punkt
+ - Azure Storage
+ - Service Bus köer och Service Bus ämnen
+ - Event Hubs
 
 ### <a name="built-in-endpoint"></a>Inbyggd slut punkt
 
@@ -75,9 +83,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> Om ditt lagrings konto har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
-
 Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-lagrings konto och väljer *aktiverat* i fältet *hierarkisk namnrymd* på fliken **Avancerat** , som du ser i följande bild:
 
 ![Välj Azure date Lake Gen2-lagring](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -87,17 +92,9 @@ Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-l
 
 Service Bus köer och ämnen som används som IoT Hub slut punkter får inte ha **sessioner** eller **dubblettidentifiering** aktiverade. Om något av dessa alternativ är aktiverat visas slut punkten som **ej nåbar** i Azure Portal.
 
-> [!NOTE]
-> Om din Service Bus-resurs har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
-
-
 ### <a name="event-hubs"></a>Event Hubs
 
 Förutom den inbyggda-Event Hubs-kompatibla slut punkten kan du också dirigera data till anpassade slut punkter av typen Event Hubs. 
-
-> [!NOTE]
-> Om din Event Hub-resurs har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
-
 
 ## <a name="reading-data-that-has-been-routed"></a>Läser data som har dirigerats
 
@@ -146,11 +143,9 @@ I de flesta fall är den genomsnittliga ökningen i svars tiden mindre än 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervaka och felsöka
 
-IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotor saken till problem. Använd t. ex. mått **Routning: telemetri ignoreras** eller **D2C. telemetri. utgående. släppt** för att identifiera antalet meddelanden som släpptes när de inte matchade frågor på någon av vägarna och återställnings vägen inaktiverades. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT Hub.
+IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT Hub. Med hjälp av **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md)kan du spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub. Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna. 
 
-Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna. Vi rekommenderar att du använder [IoT Hub mått](iot-hub-metrics.md) som rör svars tiden för routning av meddelanden för att identifiera och felsöka fel när slut punkts hälsan är död eller ohälsosam. För slut punkts typ Event Hubs kan du till exempel övervaka **D2C. endpoints. latens. eventHubs**. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.
-
-Med hjälp av **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md)kan du spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub, till exempel när en slut punkt är död. Dessa diagnostikloggar kan skickas till Azure Monitor loggar, Event Hubs eller Azure Storage för anpassad bearbetning.
+Använd [fel söknings guiden för routning](troubleshoot-message-routing.md) för mer information och stöd för fel sökning av routning.
 
 ## <a name="next-steps"></a>Nästa steg
 

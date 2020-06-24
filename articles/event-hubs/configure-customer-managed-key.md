@@ -6,14 +6,15 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: shvija
+ms.openlocfilehash: 055422f4067b7f27ee046a3a00b168db14d13046
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459142"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297417"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -106,7 +107,7 @@ Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post inneh�
 | category | Definierar klassificeringen för uppgiften. Om nyckeln från ditt nyckel valv till exempel är inaktive rad, är det en informations kategori eller om en nyckel inte kan vara unwrap, kan den falla under fel. |
 | resourceId | Resurs-ID för Azure Resource Manager |
 | keyVault | Fullständigt namn på nyckel valvet. |
-| key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
+| nyckel | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
 | reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
 | kod | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
@@ -155,7 +156,7 @@ I det här avsnittet visas hur du utför följande uppgifter med hjälp av **Azu
 ### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Skapa ett Event Hubs kluster och ett namn område med hanterad tjänst identitet
 I det här avsnittet visas hur du skapar ett Azure Event Hubs-namnområde med hanterad tjänst identitet med hjälp av en Azure Resource Manager mall och PowerShell. 
 
-1. Skapa en Azure Resource Manager-mall för att skapa ett Event Hubs-namnområde med en hanterad tjänst identitet. Ge filen namnet: **CreateEventHubClusterAndNamespace. JSON**: 
+1. Skapa en Azure Resource Manager-mall för att skapa ett Event Hubs-namnområde med en hanterad tjänst identitet. Ge filen namnet: **CreateEventHubClusterAndNamespace.jspå**: 
 
     ```json
     {
@@ -224,7 +225,7 @@ I det här avsnittet visas hur du skapar ett Azure Event Hubs-namnområde med ha
        }
     }
     ```
-2. Skapa en mall med namnet: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+2. Skapa en mall med namnet: **CreateEventHubClusterAndNamespaceParams.jspå**. 
 
     > [!NOTE]
     > Ersätt följande värden: 
@@ -289,7 +290,7 @@ Du har utfört följande steg:
 
 I det här steget ska du uppdatera Event Hubs-namnrymden med Key Vault-information. 
 
-1. Skapa en JSON-fil med namnet **CreateEventHubClusterAndNamespace. JSON** med följande innehåll: 
+1. Skapa en JSON-fil med namnet **CreateEventHubClusterAndNamespace.jspå** med följande innehåll: 
 
     ```json
     {
@@ -361,7 +362,7 @@ I det här steget ska du uppdatera Event Hubs-namnrymden med Key Vault-informati
     }
     ``` 
 
-2. Skapa en mallparameter: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+2. Skapa en mall för mallparameter: **UpdateEventHubClusterAndNamespaceParams.jspå**. 
 
     > [!NOTE]
     > Ersätt följande värden: 
@@ -405,7 +406,7 @@ Vi rekommenderar att du alltid aktiverar loggar som visas i föregående avsnitt
 
 Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är aktiverat.
 
-| Action | Felkod | Resulterande data tillstånd |
+| Åtgärd | Felkod | Resulterande data tillstånd |
 | ------ | ---------- | ----------------------- | 
 | Ta bort behörigheten wrap/unwrap från ett nyckel valv | 403 |    Otillgänglig |
 | Ta bort AAD-rollens medlemskap från ett AAD-huvud som beviljats behörigheten wrap/unwrap | 403 |  Otillgänglig |

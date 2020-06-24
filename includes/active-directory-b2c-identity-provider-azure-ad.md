@@ -20,7 +20,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
-1. Ange ett **namn** för ditt program. Till exempel `Azure AD B2C App`.
+1. Ange ett **namn** för ditt program. Exempelvis `Azure AD B2C App`.
 1. Godkänn standard valet av **konton endast i den här organisations katalogen** för det här programmet.
 1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
@@ -28,7 +28,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    Exempelvis `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Välj **Registrera**. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
@@ -44,5 +44,5 @@ Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du 
 1. I avsnittet **Hantera** väljer du **token-konfiguration**.
 1. Välj **Lägg till valfritt anspråk**.
 1. I **tokentyp**väljer du **ID**.
-1. Välj de valfria anspråk som ska läggas `family_name` till `given_name`och.
+1. Välj de valfria anspråk som ska läggas till `family_name` och `given_name` .
 1. Klicka på **Lägg till**.

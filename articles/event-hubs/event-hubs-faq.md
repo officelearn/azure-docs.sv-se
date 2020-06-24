@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 0ff1f19a30be8c4ca40a980459901fd9224a6626
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cee131030b47320a51e54f8b8bed70b0e4d677b0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996626"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738030"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -97,9 +97,9 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
 2. Anteckna namnet i avsnittet **icke-auktoritativt svar** , vilket är i något av följande format: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
@@ -127,15 +127,15 @@ Aktivera sedan diagnostikloggar för [Event Hubs händelser för virtuella nätv
 Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av befintliga Apache Kafka baserade program. En konfigurations ändring är allt som krävs för att ha PaaS Kafka-upplevelsen. Det är ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder Apache Kafka 1,0 och nyare klient versioner och fungerar med dina befintliga Kafka-program, verktyg och ramverk. Mer information finns i [Event Hubs för Kafka-lagrings platsen](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Vilka konfigurations ändringar måste göras för mitt befintliga program för att prata med Event Hubs?
-Om du vill ansluta till en Event Hub måste du uppdatera Kafka-klientens konfiguration. Det gör du genom att skapa en Event Hubs namnrymd och hämta [anslutnings strängen](event-hubs-get-connection-string.md). Ändra start-. servrarna så att de pekar på Event Hubs-FQDN och porten till 9093. Uppdatera sasl. jaas. config för att dirigera Kafka-klienten till din Event Hubs slut punkt (vilket är den anslutnings sträng du har fått), med korrekt autentisering enligt nedan:
+Om du vill ansluta till en Event Hub måste du uppdatera Kafka-klientens konfiguration. Det gör du genom att skapa en Event Hubs namnrymd och hämta [anslutnings strängen](event-hubs-get-connection-string.md). Ändra start-. servrarna så att de pekar på Event Hubs-FQDN och porten till 9093. Uppdatera sasl.jaas.config för att dirigera Kafka-klienten till din Event Hubs-slutpunkt (vilket är den anslutnings sträng som du har fått), med korrekt autentisering enligt nedan:
 
-Bootstrap. servers = {din. EVENTHUBS. FQDN}: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanismen = PLAIn sasl. jaas. config = org. apache. Kafka. Common. Security. Plaie. PlainLoginModule required-namn = "$ConnectionString" Password = "{YOUR. EVENTHUBS. Anslutningen. STRÄNG} ";
+Bootstrap. servers = {din. EVENTHUBS. FQDN}: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl.jaas.config= org. apache. Kafka. Common. Security. plain. PlainLoginModule required username = "$ConnectionString" Password = "{YOUR. EVENTHUBS. Anslutningen. STRÄNG} ";
 
 Exempel:
 
-Bootstrap. servers = dummynamespace. Service Bus. Windows. net: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl. jaas. config = org. apache. Kafka. Common. Security. plain. PlainLoginModule $ConnectionString required SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
+Bootstrap. servers = dummynamespace. Service Bus. Windows. net: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl.jaas.config= org. apache. Kafka. Common. Security.. PlainLoginModule required username = "$ConnectionString" Password = "slut punkt = SB://dummynamespace.ServiceBus.Windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-OBS! om sasl. jaas. config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användar namnet $ConnectionString och lösen ordet till din Event Hubs anslutnings sträng.
+OBS! om sasl.jaas.config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användar namnet $ConnectionString och lösen ordet till din Event Hubs anslutnings sträng.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Vad är storleken på meddelandet/händelsen för Event Hubs?
 Den maximala meddelande storlek som tillåts för Event Hubs är 1 MB.

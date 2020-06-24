@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681498"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808615"
 ---
 # <a name="convert-models"></a>Konvertera modeller
 
@@ -38,6 +38,11 @@ Det finns mindre skillnader mellan formaten vad gäller omvandling av material e
     - eller genom att tillhandahålla en *signatur för delad åtkomst (SAS)*.
 
 Alla modell data (indata och utdata) lagras i användaren som tillhandahöll Azure Blob Storage. Med Azure Remote rendering får du full kontroll över din till gångs hantering.
+
+## <a name="pricing"></a>Prissättning
+
+Information om priser för konvertering finns på sidan med [priser för Fjärråter givning](https://azure.microsoft.com/pricing/details/remote-rendering) .
+
 
 ## <a name="conversion-parameters"></a>Konverterings parametrar
 

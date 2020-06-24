@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478753"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944329"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -70,7 +70,7 @@ Använd följande egenskaper för Resource Manager-mall för att tillämpa en AC
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Skydda ett Service Fabric kluster certifikat per eget namn
 
-Om du vill skydda ditt Service Fabric kluster `Common Name`med certifikat använder du Resource Manager- [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)på följande sätt:
+Om du vill skydda ditt Service Fabric kluster med certifikat `Common Name` använder du Resource Manager- [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)på följande sätt:
 
 ```json
 "certificateCommonNames": {
@@ -87,16 +87,16 @@ Om du vill skydda ditt Service Fabric kluster `Common Name`med certifikat använ
 > [!NOTE]
 > Service Fabric kluster kommer att använda det första giltiga certifikatet som hittas i värdens certifikat arkiv. I Windows kommer det här certifikatet att vara det senaste förfallo datumet som matchar ditt eget namn och utfärdare tumavtryck.
 
-Azure-domäner, till exempel\<* din under\>domän. cloudapp.Azure.com \<eller din under\>domän. trafficmanager.net, ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
+Azure-domäner, till exempel * \<YOUR SUBDOMAIN\> . cloudapp.Azure.com eller \<YOUR SUBDOMAIN\> . trafficmanager.net, ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
 
 Mer information om hur du konfigurerar DNS-tjänsten för att matcha din domän med en Microsoft-IP-adress finns i så här konfigurerar du [Azure DNS som värd för din domän](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
 > När du har delegerat domän namn servrarna till Azure DNS Zone namnservrar, lägger du till följande två poster i din DNS-zon:
-> - En "A"-post för domän APEX som inte är `Alias record set` en till alla IP-adresser som din anpassade domän kommer att matcha.
-> - En C-post för Microsoft-underordnade domäner som du har angett som inte är `Alias record set`en. Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
+> - En "A"-post för domän APEX som inte är en `Alias record set` till alla IP-adresser som din anpassade domän kommer att matcha.
+> - En C-post för Microsoft-underordnade domäner som du har angett som inte är en `Alias record set` . Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
 
-Uppdatera portalen för att visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"`genom att uppdatera följande mall egenskaper för Service Fabric Cluster Resource Manager:
+Uppdatera portalen för att visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"` genom att uppdatera följande mall egenskaper för Service Fabric Cluster Resource Manager:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -157,12 +157,12 @@ För att ge programmet åtkomst till hemligheter, inkludera certifikatet genom a
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autentisera Service Fabric-program till Azure-resurser med hjälp av Hanterad tjänstidentitet (MSI)
 
-Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric-kluster finns på Virtual Machine Scale Sets, som har stöd för [hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Om du vill hämta en lista över tjänster som MSI kan användas för att autentisera till, se [Azure-tjänster som stöder Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella datorer eller en befintlig skalnings uppsättning `"Microsoft.Compute/virtualMachinesScaleSets"` för virtuella datorer, måste du deklarera följande egenskap:
+Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella datorer eller en befintlig skalnings uppsättning för virtuella datorer, måste du deklarera följande `"Microsoft.Compute/virtualMachinesScaleSets"` egenskap:
 
 ```json
 "identity": { 
@@ -217,7 +217,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Dessa brand Väggs regler kompletterar tillåtna utgående nätverks säkerhets grupper, som innehåller ServiceFabric och lagring, som tillåtna destinationer från det virtuella nätverket.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure rekommenderar](https://azure.microsoft.com/updates/azuretls12/) att alla kunder Slutför migreringen till lösningar som stöder TLS (Transport Layer security) 1,2 och för att se till att TLS 1,2 används som standard.
+
+Azure-tjänster, inklusive [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), har slutfört teknik arbetet för att ta bort beroendet av TLS 1.0/1.1-protokoll och ge fullständig support till kunder som vill ha sina arbets belastningar konfigurerade att godkänna och endast initiera TLS 1,2-anslutningar.
+
+Kunderna bör konfigurera sina Azure-värdbaserade arbets belastningar och lokala program som interagerar med Azure-tjänster för att använda TLS 1,2 som standard. Så här konfigurerar du [Service Fabric klusternoder och program](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) för att använda en speciell TLS-version.
 
 ## <a name="windows-defender"></a>Windows Defender 
 

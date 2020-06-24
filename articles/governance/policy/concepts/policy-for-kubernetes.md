@@ -1,14 +1,14 @@
 ---
 title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: ab18b85fc24deb58a6c65ca038d47120056eaa75
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221143"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791715"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -25,7 +25,7 @@ Azure Policy för Kubernetes har stöd för följande kluster miljöer:
 - [AKS-motor](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Azure Policy för Kubernetes finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade definitionerna för för hands versions principer med **EnforceRegoPolicy** -effekter och den relaterade **Kubernetes tjänste** kategorin är _inaktuella_. Använd i stället den uppdaterade [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -påverkan.
+> Azure Policy för Kubernetes finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade definitionerna för för hands versions princip med **EnforceOPAConstraint** och **EnforceRegoPolicy** och den relaterade **Kubernetes tjänste** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Översikt
 
@@ -370,7 +370,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Princip språk
 
-Azure Policy språk strukturen för att hantera Kubernetes följer de befintliga princip definitionerna. _EnforceOPAConstraint_ används för att hantera dina Kubernetes-kluster och har information om information som är speciell för att arbeta med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) och Gatekeeper v3. Mer information och exempel finns i [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter.
+Azure Policy språk strukturen för att hantera Kubernetes följer de befintliga princip definitionerna. Med ett [resurs leverantörs läge](./definition-structure.md#resource-provider-modes) av `Microsoft.Kubernetes.Data` används effekterna [granskning](./effects.md#audit) och [neka](./effects.md#deny) för att hantera dina Kubernetes-kluster. _Audit_ och _Deny_ måste tillhandahålla **information** egenskaper som är särskilt för att arbeta med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) och Gatekeeper v3.
 
 Som en del av egenskaperna _details. constraintTemplate_ och _information. constraint_ i princip definitionen, Azure policy skickar URI: erna för dessa [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) till tillägget. Rego är det språk som OPA och Gatekeeper stöder för att verifiera en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för Kubernetes-hantering gör Azure Policy att du kan återanvända befintliga regler och koppla dem till Azure Policy för en enhetlig rapporterings upplevelse för moln efterlevnad. Mer information finns i [Vad är Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 

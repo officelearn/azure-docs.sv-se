@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 198cbb9f66ec5c6b84ed3cc4f20898495d8c126f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560832"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297026"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -38,9 +38,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en Service Bus utgående bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
+I följande exempel visas en Service Bus utgående bindning i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -89,9 +89,9 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Service Bus utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
+I följande exempel visas en Service Bus utgående bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -143,7 +143,7 @@ module.exports = function (context, myTimer) {
 
 Följande exempel visar hur du skriver ut till en Service Bus kö i python.
 
-En Service Bus bindnings definition definieras i *Function. JSON* där *Type* har angetts till `serviceBus` .
+En Service Bus bindnings definition definieras i *function.jspå* WHERE- *typ* har angetts till `serviceBus` .
 
 ```json
 {
@@ -278,9 +278,9 @@ Attribut stöds inte av python.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `ServiceBus` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `ServiceBus` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -305,7 +305,7 @@ Använd följande parameter typer för utgående bindning:
 * `out byte[]`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
 * `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
 * `out Message`– Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
-* `ICollector<T>`eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
+* `ICollector<T>`eller `IAsyncCollector<T>` (för asynkrona metoder) – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
 
 När du arbetar med C#-funktioner:
 
@@ -353,12 +353,12 @@ Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-mes
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>Host. JSON-inställningar
+## <a name="hostjson-settings"></a>host.jspå Inställningar
 
-I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exempel filen Host. JSON nedan innehåller bara inställningarna för den här bindningen. Mer information om globala konfigurations inställningar finns i [Host. JSON-referens för Azure Functions version](functions-host-json.md).
+I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet host.jspå filen nedan innehåller bara inställningarna för den här bindningen. Mer information om globala konfigurations inställningar finns i [host.jsreferens för Azure Functions version](functions-host-json.md).
 
 > [!NOTE]
-> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
+> En referens för host.jspå i functions 1. x finns i [host.jsreferens för Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {
@@ -383,7 +383,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 ```
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Default | Description |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|

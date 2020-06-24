@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651130"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944703"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor om Azure Storage-migrering
 
@@ -144,7 +144,7 @@ Följ de här stegen:
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ```
 
-Mer information om hur du distribuerar en virtuell dator från en hanterad disk finns i [CreateVmFromManagedOsDisk. ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Mer information om hur du distribuerar en virtuell dator från en hanterad disk finns [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
 **Hur gör jag för att flytta eller hämta data från ett lagrings konto?**
 
@@ -215,19 +215,20 @@ Det finns ingen lösning för säkerhets kopiering. Azure Files stöder dock äv
 - Från en resurs till en BLOB-behållare i ett lagrings konto eller till ett annat lagrings konto.
 
 Mer information finns i [överföra data med AZCopy i Windows](storage-use-azcopy.md).
+
 ## <a name="configuration"></a>Konfiguration
 
 **Hur gör jag för att ändra den sekundära platsen till regionen Europa för ett lagrings konto?**
 
 När du skapar ett lagrings konto väljer du den primära regionen för kontot. Valet av den sekundära regionen baseras på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): replikering mellan flera regioner för Azure Storage](storage-redundancy.md).
 
-**Var kan jag få mer information om Azure Storage Service Encryption (SSE)?**  
+**Var kan jag få mer information om Azure Storage kryptering?**  
 
 Se följande artiklar:
 
--  [Säkerhetsguide för Azure Storage](../blobs/security-recommendations.md)
-
--  [Azure Storage tjänst kryptering för vilande data](storage-service-encryption.md)
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
+- [Använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](encryption-customer-managed-keys.md)
+- [Ange en krypterings nyckel för en begäran till Blob Storage (för hands version)](encryption-customer-provided-keys.md)
 
 **Hur gör jag för att kryptering av data i ett lagrings konto?**
 
@@ -253,21 +254,21 @@ Om du har virtuella datorer måste du vidta ytterligare åtgärder innan du migr
 
 Ge andra personer åtkomst till lagrings resurserna:
 
--   Använd en signatur för signatur för delad åtkomst (SAS) för att ge åtkomst till en resurs.
+- Använd en signatur för signatur för delad åtkomst (SAS) för att ge åtkomst till en resurs.
 
--   Ange en användare med den primära eller sekundära nyckeln för lagrings kontot. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](storage-account-keys-manage.md).
+- Ange en användare med den primära eller sekundära nyckeln för lagrings kontot. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](storage-account-keys-manage.md).
 
--   Ändra åtkomst principen så att anonym åtkomst tillåts. Mer information finns i [bevilja anonyma användare behörigheter till behållare och blobbar](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+- Ändra åtkomst principen så att anonym åtkomst tillåts. Mer information finns i [bevilja anonyma användare behörigheter till behållare och blobbar](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Var är AzCopy installerat?**
 
--   Om du öppnar AzCopy från kommando raden Microsoft Azure Storage skriver du **AzCopy**. Kommando raden installeras tillsammans med AzCopy.
+- Om du öppnar AzCopy från kommando raden Microsoft Azure Storage skriver du **AzCopy**. Kommando raden installeras tillsammans med AzCopy.
 
--   Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)% \\ Microsoft SDK \\ Azure- \\ AzCopy**.
+- Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)% \\ Microsoft SDK \\ Azure- \\ AzCopy**.
 
--   Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles% \\ Microsoft SDK \\ Azure \\ AzCopy**.
+- Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles% \\ Microsoft SDK \\ Azure \\ AzCopy**.
 
-**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "https: \/ /mystorageaccountname.blob.Core.Windows.net/images/image.gif" visas som "https: \/ /www.contoso.com/images/image.gif"?**
+**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "https: \/ /mystorageaccountname.blob.core.windows.net/images/image.gif" visas som "https: \/ /www.contoso.com/images/image.gif"?**
 
 TLS/SSL stöds för närvarande inte på lagrings konton med anpassade domäner.
 Men du kan använda icke-HTTPS-anpassade domäner. Mer information finns i [Konfigurera ett eget domän namn för din Blob Storage-slutpunkt](../blobs/storage-custom-domain-name.md).
@@ -284,15 +285,15 @@ Geo-redundant lagring med Läs behörighet krävs för att få åtkomst till red
 
 **Hur kommer jag åt data som lagras i den sekundära regionen för ett replikerat lagrings konto (till exempel zon redundant lagring, Geo-redundant lagring eller Geo-redundant lagring med Läs åtkomst)?**
 
--   Om du använder zoner som är redundant lagring eller Geo-redundant lagring, kan du inte komma åt data från den sekundära regionen om du inte initierar en redundansväxling till den regionen. Mer information om redundansväxlingen finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
+- Om du använder zoner som är redundant lagring eller Geo-redundant lagring, kan du inte komma åt data från den sekundära regionen om du inte initierar en redundansväxling till den regionen. Mer information om redundansväxlingen finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 
--   Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd någon av följande metoder:  
+- Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd någon av följande metoder:  
 
-    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Till exempel:  
+  - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Ett exempel:  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **SAS-token**: Använd en SAS-token för att komma åt data från slut punkten. Mer information finns i [använda signaturer för delad åtkomst](storage-sas-overview.md).
+  - **SAS-token**: Använd en SAS-token för att komma åt data från slut punkten. Mer information finns i [använda signaturer för delad åtkomst](storage-sas-overview.md).
 
 **Hur gör jag för att använda FTP för att komma åt data som finns i ett lagrings konto?**
 
@@ -300,6 +301,6 @@ Det finns inget sätt att få åtkomst till ett lagrings konto direkt med hjälp
 
 Om du bara vill hämta data utan att behöva använda Storage Explorer eller ett liknande program, kan du använda en SAS-token. Mer information finns i [använda signaturer för delad åtkomst](storage-sas-overview.md).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
 Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.

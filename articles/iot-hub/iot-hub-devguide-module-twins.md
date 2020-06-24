@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d45da11b26a3c16c2be544fa449bdf36c0bcd25
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303604"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737741"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
-I den här artikeln förutsätter vi att du har läst [förstå och använder enheten dubbla i IoT Hub](iot-hub-devguide-device-twins.md) först. I IoT Hub, under varje enhets identitet, kan du skapa upp till 20 modul identiteter. Varje moduls identitet genererar implicit en modul med dubbla. Precis som enhets dubbla, är modulerna sammanflätade JSON-dokument som lagrar information om modulens tillstånd, inklusive metadata, konfigurationer och villkor. Azure IoT Hub hanterar en modul som är sammanflätad för varje modul som du ansluter till IoT Hub. 
+I den här artikeln förutsätter vi att du har läst [förstå och använder enheten dubbla i IoT Hub](iot-hub-devguide-device-twins.md) först. I IoT Hub kan du under varje enhets identitet skapa upp till 50 modul identiteter. Varje moduls identitet genererar implicit en modul med dubbla. Precis som enhets dubbla, är modulerna sammanflätade JSON-dokument som lagrar information om modulens tillstånd, inklusive metadata, konfigurationer och villkor. Azure IoT Hub hanterar en modul som är sammanflätad för varje modul som du ansluter till IoT Hub. 
 
 På enhets sidan kan du med IoT Hub enhets-SDK: er skapa moduler där var och en öppnar en oberoende anslutning till IoT Hub. Med den här funktionen kan du använda separata namn rymder för olika komponenter på enheten. Du kan till exempel ha en Vending-dator som har tre olika sensorer. Varje sensor styrs av olika avdelningar i företaget. Du kan skapa en modul för varje sensor. På så sätt kan varje avdelning bara skicka jobb eller direkta metoder till den sensor som de styr, undvika konflikter och användar fel.
 
@@ -102,7 +102,7 @@ I följande exempel visas ett moduls dubbla JSON-dokument:
 }
 ```
 
-I rotobjektet finns modulens identitets egenskaper och behållar objekt för `tags` och båda `reported` egenskaperna och `desired` . `properties` Behållaren innehåller`$metadata`skrivskyddade element (, `$etag`och `$version`) som beskrivs i avsnittet om [modulens dubbla metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) och [optimistisk concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
+I rotobjektet finns modulens identitets egenskaper och behållar objekt för `tags` och båda `reported` egenskaperna och `desired` . `properties`Behållaren innehåller skrivskyddade element ( `$metadata` , `$etag` och `$version` ) som beskrivs i avsnittet om [modulens dubbla metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) och [optimistisk concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
 ### <a name="reported-property-example"></a>Exempel på rapporterad egenskap
 
@@ -113,7 +113,7 @@ I det föregående exemplet innehåller modul två en `batteryLevel` egenskap so
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel används `telemetryConfig` modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Ett exempel:
+I föregående exempel `telemetryConfig` används modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Ett exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -128,7 +128,7 @@ I föregående exempel används `telemetryConfig` modulens dubbla önskade och r
     ...
     ```
 
-2. Module-appen meddelas om ändringen omedelbart om den är ansluten, eller vid första åter anslutning. Module-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp `status` av egenskapen). Här är den del av de rapporterade egenskaperna:
+2. Module-appen meddelas om ändringen omedelbart om den är ansluten, eller vid första åter anslutning. Module-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp av `status` egenskapen). Här är den del av de rapporterade egenskaperna:
 
     ```json
     "reported": {
@@ -152,7 +152,7 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
 
 * **Hämta modul dubbla efter ID**. Den här åtgärden returnerar modulens dubbla dokument, inklusive Taggar och önskade och rapporterade system egenskaper.
 
-* **Delvis uppdaterad modul, dubbel**. Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en modul. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. Egenskaperna har angetts `null` till tas bort. I följande exempel skapas en ny önskad egenskap med värde `{"newProperty": "newValue"}`, vilket skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
+* **Delvis uppdaterad modul, dubbel**. Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en modul. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. Egenskaperna har angetts till `null` tas bort. I följande exempel skapas en ny önskad egenskap med värde `{"newProperty": "newValue"}` , vilket skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"` och tar bort `otherOldProperty` . Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
 
     ```json
     {
@@ -168,9 +168,9 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
     }
     ```
 
-* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON- `properties/desired`dokument för.
+* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON-dokument för `properties/desired` .
 
-* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON- `tags`dokument för.
+* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON-dokument för `tags` .
 
 * **Få dubbla meddelanden**. Den här åtgärden gör att lösnings Server delen får ett meddelande när den dubbla ändras. För att göra det måste IoT-lösningen skapa en väg och ange data källan som lika med *twinChangeEvents*. Som standard skickas inga dubbla meddelanden, det vill säga inga sådana vägar. Om ändrings frekvensen är för hög, eller av andra orsaker, t. ex. interna problem, kan IoT Hub bara skicka ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd bör du därför använda meddelanden från enheten till molnet. Det dubbla aviserings meddelandet innehåller egenskaper och brödtext.
 
@@ -191,7 +191,7 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
 
     Meddelande system egenskaper föregås av `$` symbolen.
 
-  - Innehåll
+  - Brödtext
         
     Det här avsnittet innehåller alla dubbla ändringar i JSON-format. Den använder samma format som en korrigering, med skillnaden att den kan innehålla alla dubbla avsnitt: taggar, egenskaper. rapporterade, egenskaper. önskade och innehåller $metadata element. Exempel:
 
@@ -236,7 +236,7 @@ SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att a
 
 Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* **Nycklar**: alla nycklar i JSON-objekt är Skift läges känsliga 64 byte UTF-8 Unicode-strängar. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, SP, och `$`.
+* **Nycklar**: alla nycklar i JSON-objekt är Skift läges känsliga 64 byte UTF-8 Unicode-strängar. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.` , SP, och `$` .
 
 * **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
 
@@ -268,7 +268,7 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 
 ## <a name="module-twin-size"></a>Modulens dubbla storlek
 
-IoT Hub tillämpar en storleks gräns på 8 KB för värdet av `tags`och en storlek på 32 kB som är begränsad till värdet för `properties/desired` och. `properties/reported` Dessa summor är exklusivt för skrivskyddade element som `$etag`, `$version`och. `$metadata/$lastUpdated`
+IoT Hub tillämpar en storleks gräns på 8 KB för värdet av och `tags` en storlek på 32 kB som är begränsad till värdet för `properties/desired` och `properties/reported` . Dessa summor är exklusivt för skrivskyddade element som `$etag` , `$version` och `$metadata/$lastUpdated` .
 
 Den dubbla storleken beräknas på följande sätt:
 
@@ -286,7 +286,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 
 ## <a name="module-twin-metadata"></a>Modul, dubbla metadata
 
-IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i modulen, och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i modulen, och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 Ett exempel:
 
 ```json

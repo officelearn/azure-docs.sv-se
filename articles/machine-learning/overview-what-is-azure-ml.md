@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556820"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738302"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -124,16 +124,11 @@ Ditt Azure Storage-konto, beräknings mål och andra resurser kan användas på 
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Grundläggande & Enterprise-versioner
 
 Azure Machine Learning erbjuder två versioner som är skräddarsydda för dina maskin inlärnings behov:
-+ Basic (allmänt tillgänglig)
-+ Enterprise (för hands version)
++ **Basic**: bra för utveckling med öppen källkod i moln skala med en kod för första upplevelsen.
 
-Dessa versioner avgör vilka Machine Learning-verktyg som är tillgängliga för utvecklare och data experter från deras arbets yta.   
++ **Enterprise**: hela Basic Plus ett webb gränssnitt (Studio) + säker, omfattande ml livs cykel hantering för alla färdighets nivåer.
 
-Med enkla arbets ytor kan du fortsätta att använda Azure Machine Learning och bara betala för de Azure-resurser som förbrukas under Machine Learning-processen. Enterprise Edition-arbetsytor debiteras endast för Azure-förbrukning medan utgåvan är i för hands version. Läs mer om vad som är tillgängligt på [sidan med översikt över Azure Machine Learning edition & prissättning](https://azure.microsoft.com/pricing/details/machine-learning/). 
-
-Du tilldelar versionen varje gång du skapar en arbets yta. Och redan befintliga arbets ytor har konverterats till Basic-versionen åt dig. Basic-versionen innehåller alla funktioner som redan är allmänt tillgängliga från och med oktober 2019. Alla experiment i de arbets ytor som har skapats med Enterprise Edition-funktioner fortsätter att vara tillgängliga för dig i skrivskyddat läge tills du uppgraderar till företag. Lär dig hur du [uppgraderar en grundläggande arbets yta till Enterprise Edition](how-to-manage-workspace.md#upgrade). 
-
-Kunderna är ansvariga för kostnader som uppstår för beräkning och andra Azure-resurser under den här tiden.
+Läs mer om dessa versioner och vilka funktioner de låser upp i [artikeln Azure Machine Learning utgåvor](concept-editions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

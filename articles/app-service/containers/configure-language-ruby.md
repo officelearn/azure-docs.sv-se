@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8daebba840223d050a14b4b99cb6ae15472ee4f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 804e6d562322eff20de8eb7e33caae98418ea3fe
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046330"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905688"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux Ruby-app för Azure App Service
 
@@ -51,11 +51,11 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> Det innebär att ruby-versionen som kon figurer ATS i projektet skiljer sig från den version som är installerad i den behållare som du`2.3.3` kör (i exemplet ovan). I exemplet ovan, kontrol lera både *Gemfile* och *. ruby-versionen* och kontrol lera att ruby-versionen inte har angetts eller har angetts till den version som är installerad i den behållare som du kör (`2.3.3` i exemplet ovan).
+> Det innebär att ruby-versionen som kon figurer ATS i projektet skiljer sig från den version som är installerad i den behållare som du kör ( `2.3.3` i exemplet ovan). I exemplet ovan, kontrol lera både *Gemfile* och *. ruby-versionen* och kontrol lera att ruby-versionen inte har angetts eller har angetts till den version som är installerad i den behållare som du kör ( `2.3.3` i exemplet ovan).
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem med hjälp av standard- [kuvertets ["\<path-Name>"]](https://ruby-doc.org/core-2.3.3/ENV.html) -mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
+I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem med hjälp av standard- [kuvertets [ \<path-name> ]]](https://ruby-doc.org/core-2.3.3/ENV.html) -mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -72,17 +72,17 @@ När du distribuerar en [git-lagringsplats](../deploy-local-git.md?toc=%2fazure%
 
 ### <a name="use---without-flag"></a>Använd--utan flagga
 
-Om du `bundle install` vill köra med flaggan [--utan](https://bundler.io/man/bundle-install.1.html) flagga anger `BUNDLE_WITHOUT` du [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till en kommaavgränsad lista över grupper. Följande kommando ställer till exempel in det till `development,test`.
+Om du vill köra `bundle install` med flaggan [--utan](https://bundler.io/man/bundle-install.1.html) flagga anger du `BUNDLE_WITHOUT` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till en kommaavgränsad lista över grupper. Följande kommando ställer till exempel in det till `development,test` .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
 ```
 
-Om den här inställningen definieras körs `bundle install` distributions motorn med. `--without $BUNDLE_WITHOUT`
+Om den här inställningen definieras körs distributions motorn `bundle install` med `--without $BUNDLE_WITHOUT` .
 
 ### <a name="precompile-assets"></a>Förkompilera till gångar
 
-Stegen efter distributionen förkompilerar inte till gångar som standard. Om du vill aktivera för inkompilering av till `ASSETS_PRECOMPILE` gångar anger du `true` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. Sedan körs kommandot `bundle exec rake --trace assets:precompile` i slutet av stegen efter distribution. Ett exempel:
+Stegen efter distributionen förkompilerar inte till gångar som standard. Om du vill aktivera för inkompilering av till gångar anger du `ASSETS_PRECOMPILE` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true` . Sedan körs kommandot `bundle exec rake --trace assets:precompile` i slutet av stegen efter distribution. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -95,7 +95,7 @@ Mer information finns i [Hantera statiska till gångar](#serve-static-assets).
 Som standard startar ruby-behållaren räler-servern i följande ordning (mer information finns i [Start skriptet](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
 
 1. Generera ett [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security) värde, om det inte redan finns ett. Det här värdet krävs för att appen ska kunna köras i produktions läge.
-1. `RAILS_ENV` Ange miljövariabeln till `production`.
+1. Ange `RAILS_ENV` miljövariabeln till `production` .
 1. Ta bort alla *. pid* -filer i katalogen *tmp/PID* som är kvar av en tidigare igång-räler-Server.
 1. Kontrol lera om alla beroenden är installerade. Annars kan du försöka installera Gems från den lokala katalogen *Vendor/cache* .
 1. Kör `rails server -e $RAILS_ENV`.
@@ -110,8 +110,8 @@ Du kan anpassa start processen på följande sätt:
 
 Räler-servern i ruby-behållaren körs som standard i produktions läge och [förutsätter att till gångar är förkompilerade och betjänas av webb servern](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Om du vill hantera statiska till gångar från räler-servern måste du göra två saker:
 
-- **Förkompilera till gångar** - [förkompilerar de statiska resurserna lokalt](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) och distribuerar dem manuellt. Eller låt distributions motorn hantera den i stället (se [förkompilera till gångar](#precompile-assets).
-- **Aktivera betjäning av statiska filer** – om du vill betjäna statiska resurser från ruby-behållaren [anger du `RAILS_SERVE_STATIC_FILES` appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. `true` Ett exempel:
+- **Förkompilera till gångar**  -  [Förkompilera de statiska till gångarna lokalt](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) och distribuera dem manuellt. Eller låt distributions motorn hantera den i stället (se [förkompilera till gångar](#precompile-assets).
+- **Aktivera betjäning av statiska filer** – om du vill betjäna statiska resurser från ruby-behållaren [anger du `RAILS_SERVE_STATIC_FILES` appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true` . Ett exempel:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -119,13 +119,13 @@ Räler-servern i ruby-behållaren körs som standard i produktions läge och [f�
 
 ### <a name="run-in-non-production-mode"></a>Kör i icke-produktions läge
 
-Räler-servern körs som standard i produktions läge. Om du vill köra i utvecklings läge anger `RAILS_ENV` du till exempel [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. `development`
+Räler-servern körs som standard i produktions läge. Om du vill köra i utvecklings läge anger du till exempel `RAILS_ENV` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `development` .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Den här inställningen gör dock att räler-servern startar i utvecklings läge, som enbart accepterar localhost-begäranden och inte är tillgänglig utanför behållaren. Ange `APP_COMMAND_LINE` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `rails server -b 0.0.0.0`om du vill acceptera förfrågningar om fjärrklienter. Med den här inställningen för appen kan du köra ett anpassat kommando i ruby-behållaren. Ett exempel:
+Den här inställningen gör dock att räler-servern startar i utvecklings läge, som enbart accepterar localhost-begäranden och inte är tillgänglig utanför behållaren. Ange `APP_COMMAND_LINE` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till om du vill acceptera förfrågningar om fjärrklienter `rails server -b 0.0.0.0` . Med den här inställningen för appen kan du köra ett anpassat kommando i ruby-behållaren. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a><a name="set-secret_key_base-manually"></a>Ange secret_key_base manuellt
 
-Om du vill använda `secret_key_base` ett eget värde i stället för att låta App Service generera ett åt `SECRET_KEY_BASE` dig, anger du [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med det värde som du vill använda. Ett exempel:
+Om du vill använda ett eget `secret_key_base` värde i stället för att låta App Service generera ett åt dig, anger du `SECRET_KEY_BASE` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med det värde som du vill använda. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -141,7 +141,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 

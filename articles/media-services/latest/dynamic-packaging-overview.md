@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: ae049d7486007696d8038eb4e6593cf996df659e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80372594"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791613"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
 Microsoft Azure Media Services kan användas för att koda många fil format för medie källan. Den skickar dem via olika strömnings protokoll, med eller utan innehålls skydd, för att komma åt alla större enheter (t. ex. iOS-och Android-enheter). Dessa klienter förstår olika protokoll. Till exempel kräver iOS att strömmar levereras i HTTP Live Streaming-format (HLS) och Android-enheter stöder HLS samt MPEG-streck.
 
-I Media Services representerar en [strömmande slut punkt](streaming-endpoint-concept.md) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren. Det använder ett av de vanliga protokollen för strömmande media som anges i följande avsnitt. Dynamisk paketering är en funktion som finns som standard på alla slutpunkter för direktuppspelning (Standard eller Premium).
+I Media Services representerar en [strömmande slut punkt](streaming-endpoint-concept.md) (ursprung) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren. Det använder ett av de vanliga protokollen för strömmande media som anges i följande avsnitt. *Dynamisk paketering* är en funktion som levereras som standard på alla slut punkter för direkt uppspelning (standard eller Premium).
 
 > [!NOTE]
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-## <a name="to-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Förbereda dina källfiler för leverans
+## <a name="to-prepare-your-source-files-for-delivery"></a>Förbereda dina källfiler för leverans
 
 Om du vill dra nytta av dynamisk paketering måste du [koda](encoding-concept.md) din mezzaninfil (källa) till en uppsättning MP4-filer med flera bit hastigheter (ISO Base 14496-12). Du måste ha en [till gång](assets-concept.md) med de KODAde MP4-och streaming-konfigurationsfiler som krävs för Media Services dynamisk paketering. Från den här uppsättningen MP4-filer kan du använda dynamisk paketering för att leverera video via protokollen för strömnings medier som beskrivs nedan.
 
@@ -69,7 +69,7 @@ Den strömmande klienten kan ange följande Smooth Streaming Format:
 |Protokoll|Anteckningar/exempel| 
 |---|---|
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
-|Smooth Streaming 2,0 (bakåtkompatibelt manifest)|Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare har dock inte stöd för `r-tag`. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
+|Smooth Streaming 2,0 (bakåtkompatibelt manifest)|Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare har dock inte stöd för `r-tag` . Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 > [!NOTE]
 > Smooth Streaming kräver att både ljud och video finns i data strömmen.
@@ -80,12 +80,14 @@ Följande steg visar ett vanligt Media Services strömnings arbets flöde där d
 
 1. Ladda upp en indatafil, till exempel en QuickTime-/MOV-eller MXF-fil. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
 1. [Koda](#encode-to-adaptive-bitrate-mp4s) din mezzaninfil-fil till en inställd H. 264/AAC MP4 anpassad bit hastighet.
-1. Publicera den utgående till gången som innehåller MP4-uppsättningen med anpassad bit hastighet. Du publicerar genom att skapa en strömmande Locator.
-1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). **Slut punkten för direkt uppspelningen** tar hand om att betjäna rätt manifest och begär Anden för alla dessa olika format.
-
+1. Publicera den utgående till gången som innehåller MP4-uppsättningen med anpassad bit hastighet. Du publicerar genom att skapa en [strömmande Locator](streaming-locators-concept.md).
+1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). *Slut punkten för direkt uppspelningen* tar hand om att betjäna rätt manifest och begär Anden för alla dessa olika format.
+    
 I följande diagram visas strömning på begäran med det dynamiska arbets flödet för paketering.
 
 ![Diagram över ett arbets flöde för strömning på begäran med dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+Hämtnings Sök vägen finns på bilden ovan bara för att visa att du kan ladda ned en MP4-fil direkt via *slut punkten för direkt uppspelning* (ursprung) (du anger den nedladdnings bara [streaming-principen](streaming-policy-concept.md) på streaming).<br/>Den dynamiska Paketeraren ändrar inte filen. 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Koda till hastigheter för anpassad bit hastighet
 
@@ -101,7 +103,7 @@ Se listan över standardiserade kodares [format och codec](media-encoder-standar
 
 En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). 
 
-Här är ett vanligt arbets flöde för direktsänd strömning med dynamisk paketering:
+Här är ett vanligt arbets flöde för direktsänd strömning med *dynamisk paketering*:
 
 1. Skapa en [Live-händelse](live-events-outputs-concept.md).
 1. Hämta hämtnings-URL: en och konfigurera din lokala kodare för att använda URL: en för att skicka bidrags flödet.
@@ -111,9 +113,9 @@ Här är ett vanligt arbets flöde för direktsänd strömning med dynamisk pake
 1. Skapa en strömmande lokaliserare med de inbyggda typer av strömmande principer.<br />Om du vill kryptera ditt innehåll granskar du [innehålls skydds översikten](content-protection-overview.md).
 1. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att hämta URL: er som ska användas.
 1. Hämta värd namnet för den strömnings slut punkt som du vill strömma från.
-1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). Slut punkten för direkt uppspelningen tar hand om att betjäna rätt manifest och begär Anden för de olika formaten.
+1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). *Slut punkten för direkt uppspelningen* tar hand om att betjäna rätt manifest och begär Anden för de olika formaten.
 
-Det här diagrammet visar arbets flödet för direktsänd strömning med dynamisk paketering:
+Det här diagrammet visar arbets flödet för direktsänd strömning med *dynamisk paketering*:
 
 ![Diagram över ett arbets flöde för direkt kodning med dynamisk paketering](./media/live-streaming/pass-through.svg)
 
@@ -124,17 +126,17 @@ Information om Direktsänd strömning i Media Services v3 finns i [Översikt öv
 Dynamisk paketering stöder MP4-filer som innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
 
 > [!NOTE]
-> Lösningar på upp till 4K och bild Rute hastigheter på upp till 60 bild rutor per sekund har testats med dynamisk paketering. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265 via äldre v2-API: er.
+> Lösningar på upp till 4K och bild Rute hastigheter på upp till 60 bild rutor per sekund har testats med *dynamisk paketering*. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265 via äldre v2-API: er.
 
-## <a name="audio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Ljud-codec som stöds av dynamisk paketering
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Ljud-codec som stöds av dynamisk paketering
 
 Dynamisk paketering stöder ljud som är kodat med följande protokoll:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 eller HE-AAC v2)
 * [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (utökad AC-3 eller E-AC3)
-* Dolby Atmos<br />
-   Strömmande Dolby Atmos-innehåll stöds för standarder som MPEG-streck-protokollet med antingen common streaming format (CSF) eller common Media Application format (CMAF), fragmenterade MP4 och via HTTP Live Streaming (HLS) med CMAF.
+* Dolby Atmos
 
+   Strömmande Dolby Atmos-innehåll stöds för standarder som MPEG-streck-protokollet med antingen common streaming format (CSF) eller common Media Application format (CMAF), fragmenterade MP4 och via HTTP Live Streaming (HLS) med CMAF.
 * [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)<br />
    DTS-codecenheter som stöds av streck-CSF, streck-CMAF, HLS-M2TS och HLS-CMAF paket format är:  
 
@@ -145,16 +147,24 @@ Dynamisk paketering stöder ljud som är kodat med följande protokoll:
 
 Dynamisk paketering stöder flera ljud spår med bindestreck eller HLS (version 4 eller senare) för strömnings till gångar som har flera ljud spår med flera codecenheter och språk.
 
-### <a name="additional-notes"></a>Ytterligare information
+### <a name="limitations"></a>Begränsningar
 
-Dynamisk paketering stöder inte filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) -ljud (AC3) (det är en äldre codec).
+#### <a name="ios-limitation-on-aac-51-audio"></a>iOS-begränsning på AAC 5,1-ljud
+
+Apple iOS-enheter stöder inte 5,1 AAC audio codec. Flerkanaligt ljud måste kodas med Dolby Digital-eller Dolby Digital Plus-codec.
+
+Detaljerad information finns i [HLS Authoring Specification for Apple Devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
 
 > [!NOTE]
-> [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till Dolby Digital Plus via äldre v2-API: er.
+> Media Services stöder inte kodning av Dolby Digital, Dolby Digital Plus eller Dolby Digital Plus med Dolby Atmos av ljud format för flera kanaler.
+
+#### <a name="dolby-digital-audio"></a>Dolby digitalt ljud
+
+Media Services dynamisk paketering stöder för närvarande inte filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) -ljud (AC3) (eftersom detta betraktas som en äldre codec med Dolby).
 
 ## <a name="manifests"></a>Manifest
 
-I Media Services dynamisk paketering genereras direkt uppspelnings klientens manifest för HLS, MPEG-streck och Smooth Streaming dynamiskt baserat på format väljaren i URL: en.  
+I Media Services *dynamisk paketering*genereras direkt uppspelnings klientens manifest för HLS, MPEG-streck och Smooth Streaming dynamiskt baserat på format väljaren i URL: en.  
 
 En manifest fil innehåller strömmande metadata som spår typ (ljud, video eller text), spår namn, start-och slut tid, bit hastighet (kvalitet), spåra språk, presentations fönster (glidande fönster med fast varaktighet) och video-codec (FourCC). Det instruerar också spelaren att hämta nästa fragment genom att ange information om nästa uppspelnings bara videofragment som är tillgängliga och var de befinner sig. Fragment (eller segment) är de faktiska "segmenten" av video innehåll.
 
@@ -246,7 +256,7 @@ Här är ett exempel på en Smooth Streaming manifest fil:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Namn på spår i manifestet
 
-Om ett ljud spårs namn anges i. ISM-filen, Media Services lägger till `Label` ett-element `AdaptationSet` i ett för att ange information om textural för det specifika ljud spåret. Ett exempel på utmatnings streck manifestet:
+Om ett ljud spårs namn anges i. ISM-filen, Media Services lägger till ett- `Label` element i ett `AdaptationSet` för att ange information om textural för det specifika ljud spåret. Ett exempel på utmatnings streck manifestet:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -262,13 +272,13 @@ Spelaren kan använda `Label` elementet för att visa i sitt användar gränssni
 
 ### <a name="signaling-audio-description-tracks"></a>Signalerar ljud beskrivnings spår
 
-Du kan lägga till en berättarröst i videon för att hjälpa visuellt avbildade klienter att följa videoinspelningen genom att lyssna på berättarrösten. Du måste kommentera ett ljud spår som ljud beskrivning i manifestet. Det gör du genom att lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Du kan till exempel `<param name="accessibility" value="description" />` lägga `<param name="role" value="alternate"` till och till. ISM-filen för ett särskilt ljud spår. 
+Du kan lägga till en berättarröst i videon för att hjälpa visuellt avbildade klienter att följa videoinspelningen genom att lyssna på berättarrösten. Du måste kommentera ett ljud spår som ljud beskrivning i manifestet. Det gör du genom att lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Du kan till exempel lägga till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate"` till. ISM-filen för ett särskilt ljud spår. 
 
 Mer information finns i exempel på [hur du signalerar ett beskrivande ljud spår](signal-descriptive-audio-howto.md) .
 
 #### <a name="smooth-streaming-manifest"></a>Smooth Streaming manifest
 
-Om du spelar upp en Smooth Streaming data ström skulle manifestet ha värden i `Accessibility` och `Role` attribut för det ljud spåret. `Role="alternate" Accessibility="description"` Skulle till exempel läggas till i- `StreamIndex` elementet för att ange att det är en ljud beskrivning.
+Om du spelar upp en Smooth Streaming data ström skulle manifestet ha värden i `Accessibility` och `Role` attribut för det ljud spåret. Skulle till exempel `Role="alternate" Accessibility="description"` läggas till i- `StreamIndex` elementet för att ange att det är en ljud beskrivning.
 
 #### <a name="dash-manifest"></a>STRECK manifest
 
@@ -281,7 +291,7 @@ För streck manifestet skulle följande två element läggas till för att signa
 
 #### <a name="hls-playlist"></a>HLS-spelnings lista
 
-För HLS-v7 och `(format=m3u8-cmaf)`senare skulle spelnings listan `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` medföra att ljud beskrivnings spåret signaleras.
+För HLS-v7 och senare `(format=m3u8-cmaf)` skulle spelnings listan medföra `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` att ljud beskrivnings spåret signaleras.
 
 #### <a name="example"></a>Exempel
 

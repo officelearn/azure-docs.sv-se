@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82975047"
 ---
-Använd- `update` metoden för att uppdatera en webb tjänst. Du kan uppdatera webb tjänsten så att den använder en ny modell, ett nytt registrerings skript eller nya beroenden som kan anges i en konfiguration för en konfiguration. Mer information finns i dokumentationen för [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Använd-metoden för att uppdatera en webb tjänst `update` . Du kan uppdatera webb tjänsten så att den använder en ny modell, ett nytt registrerings skript eller nya beroenden som kan anges i en konfiguration för en konfiguration. Mer information finns i dokumentationen för [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > När du skapar en ny version av en modell måste du manuellt uppdatera varje tjänst som du vill använda.

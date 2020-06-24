@@ -8,17 +8,17 @@ manager: dcscontentpm
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459159"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702847"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visa och ändra värdnamn
 Om du vill att roll instanserna ska refereras av värd namnet måste du ange värdet för värd namnet i tjänst konfigurations filen för varje roll. Det gör du genom att lägga till det önskade värd namnet i **vmName** -attributet för **roll** elementet. Värdet för attributet **vmName** används som bas för värd namnet för varje roll instans. Om **vmName** till exempel är *webrole* och det finns tre instanser av rollen, kommer värd namnen för instanserna att vara *webrole0*, *webrole1*och *webrole2*. Du behöver inte ange ett värdnamn för virtuella datorer i konfigurations filen, eftersom värd namnet för en virtuell dator är ifyllt baserat på namnet på den virtuella datorn. Mer information om hur du konfigurerar en Microsoft Azure-tjänst finns i [konfigurations schema för Azure-tjänsten (. cscfg-fil)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -41,7 +41,7 @@ Följ dessa instruktioner från en REST-klient:
 
 1. Se till att du har ett klient certifikat för att ansluta till Azure Portal. Hämta ett klient certifikat genom att följa stegen i så här [: Hämta och importera publicerings inställningar och prenumerations information](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Ange en sidhuvud post med namnet x-MS-version med värdet 2013-11-01.
-3. Skicka en begäran i följande format:\/https:/Management.Core.Windows.net/\<prenumerationen-ID\>/Services/hostedservices/\<service-name\>? embed-detail = True
+3. Skicka en begäran i följande format: https: \/ /Management.Core.Windows.net/ \<subscrition-id\> /Services/hostedservices/ \<service-name\> ? embed-detail = True
 4. Leta efter **hostname** -elementet för varje **RoleInstance** -element.
 
 > [!WARNING]

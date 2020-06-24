@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282021"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692486"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter tillhandahåller system hälso rapporter på alla entiteter i klustret direkt. [Hälso arkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort entiteter baserat på system rapporter. Den organiserar också dem i en hierarki som fångar interaktionen mellan entiteter.
@@ -639,30 +639,30 @@ HealthEvents          :
 
 Egenskapen och texten visar vilket API som har fastnat. Nästa steg som ska vidtas för olika låsta API: er skiljer sig åt. Alla API: er på *IStatefulServiceReplica* eller *IStatelessServiceInstance* är vanligt vis ett fel i tjänst koden. I följande avsnitt beskrivs hur dessa översätts till [Reliable Services modell](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica. Open**: den här varningen anger att ett `CreateServiceInstanceListeners`anrop `ICommunicationListener.OpenAsync`till, eller om det har `OnOpenAsync` åsidosatts, fastnar.
+- **IStatefulServiceReplica. Open**: den här varningen anger att ett anrop till `CreateServiceInstanceListeners` , `ICommunicationListener.OpenAsync` eller om det har åsidosatts, `OnOpenAsync` fastnar.
 
-- **IStatefulServiceReplica. Close** och **IStatefulServiceReplica. abort**: det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync`. Det kan också vara att `ICommunicationListener.CloseAsync`, eller om det åsidosätts `OnCloseAsync` , fastnat.
+- **IStatefulServiceReplica. Close** och **IStatefulServiceReplica. abort**: det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync` . Det kan också vara att `ICommunicationListener.CloseAsync` , eller om det åsidosätts, `OnCloseAsync` fastnat.
 
-- **IStatefulServiceReplica. ChangeRole (S)** och **IStatefulServiceReplica. ChangeRole (N)**: det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync`. I det här scenariot är den bästa lösningen att starta om repliken.
+- **IStatefulServiceReplica. ChangeRole (S)** och **IStatefulServiceReplica. ChangeRole (N)**: det vanligaste fallet är att en tjänst inte följer den token för uppsägning som skickades till `RunAsync` . I det här scenariot är den bästa lösningen att starta om repliken.
 
-- **IStatefulServiceReplica. ChangeRole (P)**: det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync`.
+- **IStatefulServiceReplica. ChangeRole (P)**: det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync` .
 
-Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exempel:
+Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Exempel:
 
 - **IReplicator. CatchupReplicaSet**: den här varningen anger ett av två saker. Det finns inte tillräckligt med repliker. Se om detta är fallet genom att titta på replikernas replik status i partitionen eller System.FM hälso rapport för en fastnad omkonfiguration. Eller också är replikerna inte åtgärdade. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att bestämma förloppet för alla repliker. Problemet beror på repliker vars `LastAppliedReplicationSequenceNumber` värde ligger bakom det primära `CommittedSequenceNumber` värdet.
 
-- **IReplicator. BuildReplica (\<fjärrreplicaid>)**: den här varningen anger ett problem i build-processen. Mer information finns i [replik livs cykel](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av den replikerade adressen. Mer information finns i [Konfigurera tillstånds känslig Reliable Services](service-fabric-reliable-services-configuration.md) och [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem på fjärrnoden.
+- **IReplicator. BuildReplica ( \<Remote ReplicaId> )**: den här varningen anger ett problem i skapande processen. Mer information finns i [replik livs cykel](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av den replikerade adressen. Mer information finns i [Konfigurera tillstånds känslig Reliable Services](service-fabric-reliable-services-configuration.md) och [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem på fjärrnoden.
 
 ### <a name="replicator-system-health-reports"></a>System hälso rapporter för Replicator
-**Replikerings kön är full:**
-**system. Replicator** rapporterar en varning när målkön är full. I den primära replik kön blir vanligt vis fullständig eftersom en eller flera sekundära repliker är långsamma att bekräfta. På den sekundära inträffar detta vanligt vis när tjänsten är långsam att tillämpa åtgärderna. Varningen rensas när kön inte längre är full.
+**Replikerings kön är full:** 
+ **System. Replicator** rapporterar en varning när målkön är full. I den primära replik kön blir vanligt vis fullständig eftersom en eller flera sekundära repliker är långsamma att bekräfta. På den sekundära inträffar detta vanligt vis när tjänsten är långsam att tillämpa åtgärderna. Varningen rensas när kön inte längre är full.
 
 * **SourceId**: system. Replicator
 * **Property**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på replik rollen.
 * **Nästa steg**: om rapporten finns på den primära kontrollerar du anslutningen mellan noderna i klustret. Om alla anslutningar är felfria kan det finnas minst en långsam sekundär disk med en hög disk fördröjning för att tillämpa åtgärder. Om rapporten finns på den sekundära kontrollerar du disk användning och prestanda på noden först. Kontrol lera sedan den utgående anslutningen från den långsamma noden till den primära.
 
-**RemoteReplicatorConnectionStatus:**
-**system. Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär (Remote) replikerare inte är felfri. Den fjärranslutna replikeringens adress visas i rapportens meddelande, vilket gör det enklare att identifiera om fel konfiguration skickades eller om det finns nätverks problem mellan replikerarna.
+**RemoteReplicatorConnectionStatus:** 
+ **System. Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär (Remote) replikerare inte är felfri. Den fjärranslutna replikeringens adress visas i rapportens meddelande, vilket gör det enklare att identifiera om fel konfiguration skickades eller om det finns nätverks problem mellan replikerarna.
 
 * **SourceId**: system. Replicator
 * **Egenskap**: **RemoteReplicatorConnectionStatus**.
@@ -773,7 +773,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Hämta
+### <a name="download"></a>Ladda ned
 System. hosting rapporterar ett fel om hämtningen av ett program paket Miss lyckas.
 
 * **SourceId**: system. hosting
@@ -851,7 +851,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Hämta
+### <a name="download"></a>Ladda ned
 System. hosting rapporterar ett fel om hämtningen av ett tjänst paket Miss lyckas.
 
 * **SourceId**: system. hosting

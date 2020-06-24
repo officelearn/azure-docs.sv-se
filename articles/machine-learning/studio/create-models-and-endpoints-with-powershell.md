@@ -5,17 +5,17 @@ description: Använd PowerShell för att skapa flera Machine Learning-modeller o
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 145ee5b458927fc4e3cda5277de614383181eed5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 43f797981c6e3d32cdd5083f4ee1e16359667bdd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465702"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696498"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
 
@@ -42,7 +42,7 @@ Använd exemplet på [inlärnings experiment](https://gallery.azure.ai/Experimen
 > 
 > 
 
-Experimentet använder modulen **Importera data** för att importera data uppsättningen *customer001. csv* från ett Azure Storage-konto. Vi antar att du har samlat in inlärnings data uppsättningar från alla cykel uthyrnings platser och lagrat dem på samma Blob Storage-plats med fil namn som sträcker sig från *rentalloc001. csv* till *rentalloc10. csv*.
+Experimentet använder modulen **Importera data** för att importera utbildnings data uppsättningen *customer001.csv* från ett Azure Storage-konto. Vi antar att du har samlat in inlärnings data uppsättningar från alla cykel uthyrnings platser och lagrat dem på samma Blob Storage-plats med fil namn som sträcker sig från *rentalloc001.csv* till *rentalloc10.csv*.
 
 ![Läsar modulen importerar data från en Azure-Blob](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
@@ -54,7 +54,7 @@ Det finns andra sätt som du kan ha gjort. Du kan använda en SQL-fråga med en 
 
 ![En utbildad modell modul ger utdata till en webb tjänst utmatnings modul](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Nu ska vi köra det här övnings experimentet med hjälp av standardvärdet *rental001. csv* som inlärnings data uppsättning. Om du visar utdata från **evaluate** -modulen (klicka på utdata och väljer **visualisera**) kan du se att du får en vettigt prestanda på *AUC* = 0,91. Nu är du redo att distribuera en webb tjänst från det här övnings experimentet.
+Nu ska vi köra det här övnings experimentet med hjälp av standardvärdet *rental001.csv* som inlärnings data uppsättningen. Om du visar utdata från **evaluate** -modulen (klicka på utdata och väljer **visualisera**) kan du se att du får en vettigt prestanda på *AUC* = 0,91. Nu är du redo att distribuera en webb tjänst från det här övnings experimentet.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Distribuera utbildnings-och poängsättnings webb tjänster
 Du distribuerar utbildnings webb tjänsten genom att klicka på knappen **Konfigurera webb tjänst** under experimentets arbets yta och välja **distribuera webb tjänst**. Anropa den här webb tjänsten "cykel uthyrnings utbildning".
@@ -87,7 +87,7 @@ Kör sedan följande PowerShell-kommando:
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Nu har du skapat 10 slut punkter och alla innehåller samma utbildade modell som har tränats på *customer001. csv*. Du kan visa dem i Azure Portal.
+Nu har du skapat 10 slut punkter och alla innehåller samma utbildade modell som har tränats på *customer001.csv*. Du kan visa dem i Azure Portal.
 
 ![Visa listan över tränade modeller i portalen](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 

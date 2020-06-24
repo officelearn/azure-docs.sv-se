@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 680c1b036b9b41edb1115f478fd5dc8f63ea1d02
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688031"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804618"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -43,7 +43,7 @@ Azure Storage stöder tre typer av signaturer för delad åtkomst:
 En signatur för delad åtkomst kan ha ett av två formulär:
 
 - **Ad hoc SAS:** När du skapar en ad hoc SAS, anges start tiden, förfallo tiden och behörigheterna för SAS-URI: n (eller underförstådd, om start tiden utelämnas). Alla typer av SAS kan vara ad hoc SAS.
-- **Tjänstens SAS med lagrad åtkomst princip:** En lagrad åtkomst princip definieras på en resurs behållare, som kan vara en BLOB-behållare, tabell, kö eller fil resurs. Den lagrade åtkomst principen kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst för en tjänst. När du associerar en tjänst-SAS med en lagrad åtkomst princip ärver SAS begränsningarna&mdash;start tiden, förfallo tiden och de behörigheter&mdash;som definierats för den lagrade åtkomst principen.
+- **Tjänstens SAS med lagrad åtkomst princip:** En lagrad åtkomst princip definieras på en resurs behållare, som kan vara en BLOB-behållare, tabell, kö eller fil resurs. Den lagrade åtkomst principen kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst för en tjänst. När du associerar en tjänst-SAS med en lagrad åtkomst princip ärver SAS begränsningarna &mdash; Start tiden, förfallo tiden och de behörigheter som &mdash; definierats för den lagrade åtkomst principen.
 
 > [!NOTE]
 > En användar Delegerings-SAS eller en konto säkerhets Association måste vara ad hoc SAS. Lagrade åtkomst principer stöds inte för användar Delegerings-SAS eller kontots SAS.

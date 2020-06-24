@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267695"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702234"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-enhetens konfiguration
 
@@ -87,7 +87,7 @@ För hög tillgänglighet måste du konfigurera både den primära och sekundär
 
 **Primär DNS-Server** – du använder Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den första installationen. Du kan bara konfigurera om den primära DNS-servern via Windows PowerShell-gränssnittet. Använd `Set-HcsDNSClientServerAddress` cmdleten för att ändra enhetens primära DNS-server. Mer information finns i syntax för cmdleten [set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
 
-**Sekundär DNS-Server** – om du vill ändra den sekundära DNS- `Set-HcsDNSClientServerAddress` servern använder du cmdleten i Windows PowerShell-gränssnittet på bladet enhet eller **nätverks inställningar** i StorSimple-enheten i Azure Portal.
+**Sekundär DNS-Server** – om du vill ändra den sekundära DNS-servern använder du `Set-HcsDNSClientServerAddress` cmdleten i Windows PowerShell-gränssnittet på bladet enhet eller **nätverks inställningar** i StorSimple-enheten i Azure Portal.
 
 Om du vill ändra den sekundära DNS-servern i Azure Portal utför du följande steg.
 

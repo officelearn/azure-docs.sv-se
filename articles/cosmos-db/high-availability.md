@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ae20a0372c5808cc2265a4fae63b79ef2bb71605
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c3f3eddf57b559d9e8f4837db453232308869767
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125510"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118057"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
 Azure Cosmos DB transparent replikera dina data över alla Azure-regioner som är kopplade till ditt Cosmos-konto. Cosmos DB använder flera lager av redundans för dina data som visas i följande bild:
 
-![Fysisk partitionering](./media/high-availability/cosmosdb-data-redundancy.png)
+:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Fysisk partitionering" border="false":::
 
 - Data i Cosmos-behållare är [vågrätt partitionerade](partitioning-overview.md).
 
@@ -32,7 +32,7 @@ Om ditt Cosmos-konto är fördelat i *N* Azure-regioner finns det minst *n* x 4 
 
 Som en globalt distribuerad databas tillhandahåller Cosmos DB omfattande service avtal som omfattar data flöde, svars tid vid 99 percentil, konsekvens och hög tillgänglighet. I tabellen nedan visas garantier för hög tillgänglighet som tillhandahålls av Cosmos DB för enkla och flera region konton. För hög tillgänglighet konfigurerar du alltid dina Cosmos-konton så att de har flera Skriv regioner.
 
-|Åtgärds typ  | Enskild region |Flera regioner (enstaka regions skrivningar)|Flera regioner (skrivningar i flera regioner) |
+|Åtgärdstyp  | Enskild region |Flera regioner (enstaka regions skrivningar)|Flera regioner (skrivningar i flera regioner) |
 |---------|---------|---------|-------|
 |Skriver    | 99,99    |99,99   |99,999|
 |Databasläsningar     | 99,99    |99,999  |99,999|
@@ -128,7 +128,7 @@ az cosmosdb create \
 
 Du kan aktivera Tillgänglighetszoner genom att använda Azure Portal när du skapar ett Azure Cosmos-konto. När du skapar ett konto, se till att aktivera **GEO-redundans**, **flera regioner**och välj en region där Tillgänglighetszoner stöds:
 
-![Aktivera Tillgänglighetszoner med Azure Portal](./media/high-availability/enable-availability-zones-using-portal.png) 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Aktivera Tillgänglighetszoner med Azure Portal"::: 
 
 ## <a name="building-highly-available-applications"></a>Skapa program med hög tillgänglighet
 

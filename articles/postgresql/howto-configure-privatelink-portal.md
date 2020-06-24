@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 188b8949d6cda12617433783a9d81eec6d8fce97
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488383"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736721"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen
 
@@ -113,7 +113,7 @@ I det här avsnittet ska du skapa en Azure Database for PostgreSQL-server i Azur
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Serverinformation** |  |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
+    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
     | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Location | Välj en Azure-region där du vill att PostgreSQL-servern ska finnas. |
@@ -171,7 +171,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     |||
 
     > [!Note] 
-    > Använd den fördefinierade privata DNS-zonen för din tjänst eller skapa en ny. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
+    > Använd den fördefinierade privata DNS-zonen för din tjänst eller ange önskat DNS-zonnamn. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
@@ -229,7 +229,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Inställningen | Värde |
     | ------- | ----- |
     | Servertyp| Välj **postgresql**.|
-    | servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
+    | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
     |lösenordsinställning |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
     |SSL|Välj **obligatoriskt**.|

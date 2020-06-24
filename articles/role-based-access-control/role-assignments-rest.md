@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f9a8b35b07a4149fa2d6b9f8e6698e41f3e6870c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891297"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790854"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API
 
@@ -34,7 +34,7 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 ## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
-I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill lägga till en roll tilldelning använder du [roll tilldelningarna-skapa](/rest/api/authorization/roleassignments/create) REST API och anger säkerhets objekt, roll definition och omfattning. Du måste ha åtkomst till `Microsoft.Authorization/roleAssignments/write` åtgärden för att anropa detta API. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
+I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill lägga till en roll tilldelning använder du [roll tilldelningarna-skapa](/rest/api/authorization/roleassignments/create) REST API och anger säkerhets objekt, roll definition och omfattning. Du måste ha åtkomst till åtgärden för att anropa detta API `Microsoft.Authorization/roleAssignments/write` . Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
 
 1. Använd [roll definitionerna-List](/rest/api/authorization/roledefinitions/list) REST API eller se [inbyggda roller](built-in-roles.md) för att hämta identifieraren för den roll definition som du vill tilldela.
 
@@ -119,7 +119,7 @@ Följande visar ett exempel på utdata:
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning. Om du vill ta bort en roll tilldelning använder du [roll tilldelningarna-ta bort](/rest/api/authorization/roleassignments/delete) REST API. Du måste ha åtkomst till `Microsoft.Authorization/roleAssignments/delete` åtgärden för att anropa detta API. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
+För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning. Om du vill ta bort en roll tilldelning använder du [roll tilldelningarna-ta bort](/rest/api/authorization/roleassignments/delete) REST API. Du måste ha åtkomst till åtgärden för att anropa detta API `Microsoft.Authorization/roleAssignments/delete` . Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
 
 1. Hämta roll tilldelnings identifieraren (GUID). Den här identifieraren returneras när du först skapar roll tilldelningen eller så kan du få den genom att lista roll tilldelningarna.
 

@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en grundläggande NGIN
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: e5b3d1c94de8406c12222eea59beafd7277d646d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561972"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945553"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant i Azure Kubernetes service (AKS)
 
@@ -72,7 +72,7 @@ Inga ingångs regler har skapats ännu. därför visas sidan NGINX ingress Contr
 
 ## <a name="run-demo-applications"></a>Köra demo program
 
-Om du vill se en ingångs kontroll i praktiken kör du två demo program i ditt AKS-kluster. I det här exemplet använder `kubectl apply` du för att distribuera två instanser av ett enkelt *Hello World* -program.
+Om du vill se en ingångs kontroll i praktiken kör du två demo program i ditt AKS-kluster. I det här exemplet använder du `kubectl apply` för att distribuera två instanser av ett enkelt *Hello World* -program.
 
 Skapa en *AKS-HelloWorld-One. yaml-* fil och kopiera i följande exempel yaml:
 
@@ -80,7 +80,7 @@ Skapa en *AKS-HelloWorld-One. yaml-* fil och kopiera i följande exempel yaml:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
@@ -103,7 +103,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
@@ -118,7 +118,7 @@ Skapa en *AKS-HelloWorld-två. yaml-* fil och kopiera i följande exempel yaml:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
@@ -141,7 +141,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
@@ -150,7 +150,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Kör de två demo programmen med `kubectl apply`:
+Kör de två demo programmen med `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -161,16 +161,15 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Båda programmen körs nu på ditt Kubernetes-kluster. Skapa en Kubernetes ingress-resurs för att dirigera trafik till varje program. I ingress-resursen konfigureras de regler som dirigerar trafik till ett av de två programmen.
 
-I följande exempel dirigeras trafik till *EXTERNAL_IP* till tjänsten med namnet `aks-helloworld-one`. Trafik till *EXTERNAL_IP/Hello-World-Two* dirigeras till `aks-helloworld-two` tjänsten. Trafik till *EXTERNAL_IP/static* dirigeras till tjänsten med namnet `aks-helloworld-one` för statiska till gångar.
+I följande exempel dirigeras trafik till *EXTERNAL_IP* till tjänsten med namnet `aks-helloworld-one` . Trafik till *EXTERNAL_IP/Hello-World-Two* dirigeras till `aks-helloworld-two` tjänsten. Trafik till *EXTERNAL_IP/static* dirigeras till tjänsten med namnet `aks-helloworld-one` för statiska till gångar.
 
-Skapa en fil med `hello-world-ingress.yaml` namnet och kopiera i följande exempel yaml.
+Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel yaml.
 
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
-  namespace: ingress-basic
+  name: hello-world-ingress  
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -232,7 +231,7 @@ I den här artikeln används Helm för att installera ingångs komponenter och e
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Ta bort exempel namn området och alla resurser
 
-Om du vill ta bort hela exempel namnområdet `kubectl delete` använder du kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
+Om du vill ta bort hela exempel namnområdet använder du `kubectl delete` kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -240,7 +239,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Ta bort resurser individuellt
 
-Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som skapats. Visar en lista med Helm- `helm list` versioner med kommandot. Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
+Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som skapats. Visar en lista med Helm-versioner med `helm list` kommandot. Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
 
 ```
 $ helm list --namespace ingress-basic

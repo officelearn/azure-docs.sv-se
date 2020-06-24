@@ -4,15 +4,15 @@ description: Beskriver hur du felsöker Server dels hälso problem för Azure Ap
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 626f52aa8a14cd16d36bef8930cfb75654ef3f32
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628783"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808180"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
 ==================================================
@@ -157,7 +157,7 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
     a.  Öppna en kommando tolk (Win + R- \> cmd), ange `netstat` och välj RETUR.
 
-    b.  Kontrol lera om servern lyssnar på den port som har kon figurer ATS. Till exempel:
+    b.  Kontrol lera om servern lyssnar på den port som har kon figurer ATS. Ett exempel:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -257,7 +257,7 @@ Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Ap
 > [!NOTE]
 > Det här felet kan också inträffa om backend-servern inte utbyter hela kedjan av certifikatet, inklusive roten > mellanliggande (om tillämpligt) > löv under TLS-handskakningen. För att verifiera kan du använda OpenSSL-kommandon från vilken klient som helst och ansluta till backend-servern med hjälp av de konfigurerade inställningarna i Application Gateway avsökningen.
 
-Till exempel:
+Ett exempel:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```

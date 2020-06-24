@@ -8,23 +8,23 @@ author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474921"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737367"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utför identifiering av nätverks intrång med Network Watcher och verktyg för öppen källkod
 
 Paket insamlingar är en viktig komponent för att implementera system för identifiering av nätverks intrång (ID) och utföra övervakning av nätverks säkerhet (NSM). Det finns flera ID-verktyg för öppen källkod som bearbetar paket insamlingar och letar efter signaturer för möjliga nätverks intrång och skadlig aktivitet. Genom att använda paket avbildningar som tillhandahålls av Network Watcher kan du analysera nätverket för skadliga intrång eller sårbarheter.
 
-Ett sådant verktyg för öppen källkod är suricata, en ID-motor som använder rulesets för att övervaka nätverks trafik och utlöser aviseringar när misstänkta händelser inträffar. Suricata erbjuder en multi-threaded-motor, vilket innebär att den kan utföra analys av nätverks trafik med ökad hastighet och effektivitet. Mer information om suricata och dess funktioner finns på webbplatsen på https://suricata-ids.org/.
+Ett sådant verktyg för öppen källkod är suricata, en ID-motor som använder rulesets för att övervaka nätverks trafik och utlöser aviseringar när misstänkta händelser inträffar. Suricata erbjuder en multi-threaded-motor, vilket innebär att den kan utföra analys av nätverks trafik med ökad hastighet och effektivitet. Mer information om suricata och dess funktioner finns på webbplatsen på https://suricata-ids.org/ .
 
 ## <a name="scenario"></a>Scenario
 
@@ -125,13 +125,13 @@ Mer information om hur du installerar elastisk sökning finns i sidan [installat
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Nu måste vi konfigurera Logstash för att läsa från utdata från afton. JSON-filen. Skapa en logstash. conf-fil med:
+1. Nu måste vi konfigurera Logstash för att läsa från utdata från eve.jsi filen. Skapa en logstash. conf-fil med:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Lägg till följande innehåll i filen (kontrol lera att sökvägen till filen afton. JSON är korrekt):
+1. Lägg till följande innehåll i filen (kontrol lera att sökvägen till filen eve.jsär korrekt):
 
     ```ruby
     input {
@@ -203,7 +203,7 @@ Mer information om hur du installerar elastisk sökning finns i sidan [installat
     }
     ```
 
-1. Se till att ge rätt behörigheter till filen afton. JSON så att Logstash kan mata in filen.
+1. Se till att ge rätt behörigheter till eve.jspå filen så att Logstash kan mata in filen.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json

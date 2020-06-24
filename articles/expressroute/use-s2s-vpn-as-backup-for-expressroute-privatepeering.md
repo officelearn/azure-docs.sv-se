@@ -4,15 +4,15 @@ description: Den här sidan innehåller arkitektur rekommendationer för att sä
 services: networking
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: a6a22b667bc66d6ee69bfbd7ad1db88f72d8df0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb6ebdcae837216efac5b9333789dee032219251
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687836"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738098"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Använda S2S VPN som säkerhets kopiering för privat ExpressRoute-peering
 
@@ -58,7 +58,7 @@ I följande tabell visas ASN: er i topologin:
 
 | **Autonomt system** | **ASN** |
 | --- | --- |
-| Lokal | 65020 |
+| Lokalt | 65020 |
 | Microsoft Enterprise Edge | 12076 |
 | Virtual Network GW (ExR) | 65515 |
 | Virtual Network GW (VPN) | 65515 |

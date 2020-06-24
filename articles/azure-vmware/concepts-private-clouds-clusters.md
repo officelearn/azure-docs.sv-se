@@ -3,12 +3,12 @@ title: Koncept – privata moln och kluster
 description: Lär dig mer om de viktigaste funktionerna i Azure VMware-programdefinierade Data Center och vSphere-kluster i VMware-lösningar på Azure av VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740387"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906997"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning (AVS) för hands version av privata moln och kluster koncept
 
@@ -61,10 +61,10 @@ De allmänna uppgraderings principerna och processerna för AVS-plattformens pro
 
 Värd underhåll och livs cykel hantering görs utan påverkan på kapaciteten eller prestandan för privata moln kluster. Exempel på automatiserat värd underhåll är uppgraderingar av inbyggd program vara och reparation eller ersättning av maskin vara.
 
-Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-kanter. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt moln privata moln är du ansvarig för NSX-T SDN-konfiguration som nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
+Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt moln privata moln är du ansvarig för NSX-T SDN-konfiguration som nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
 
 > [!IMPORTANT]
-> En AVS-administratör får inte ändra konfigurationen för NSX-T-kanter eller gateway för nivå 0. Detta kan leda till förlust av tjänst.
+> En AVS-administratör får inte ändra konfigurationen för NSX-T Edge eller nivå 0-Gateway. Detta kan leda till förlust av tjänst.
 
 ## <a name="backup-and-restoration"></a>Säkerhets kopiering och återställning
 

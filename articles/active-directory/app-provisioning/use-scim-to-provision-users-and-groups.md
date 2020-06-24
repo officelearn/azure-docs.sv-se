@@ -2,21 +2,21 @@
 title: Utveckla en SCIM-slutpunkt för användar etablering till appar från Azure AD
 description: System för SCIM (Cross-Domain Identity Management) standardiserar automatisk användar etablering. Lär dig att utveckla en SCIM-slutpunkt, integrera ditt SCIM-API med Azure Active Directory och börja automatisera etableringen av användare och grupper i dina moln program.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 712d098ee5a10d0d99319796f24811e5805b7854
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508887"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117326"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -100,7 +100,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 |Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
 | Facsimile – TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
 | förnamn |Name. givenName |
-| Befattning |title |
+| Befattning |rubrik |
 | e-post |e-postmeddelanden [typ EQ "Work"]. värde |
 | mailNickname |externalId |
 | manager |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager |
@@ -1194,7 +1194,8 @@ SCIM-specifikationen definierar inte ett SCIM schema för autentisering och aukt
 |Bevilja OAuth-auktoriseringskod|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd.  En riktig användare måste närvara vid den första auktoriseringen och lägga till en ansvars nivå. |Kräver att en användare är närvarande. Om användaren lämnar organisationen är token ogiltig och auktoriseringen måste slutföras igen.|Stöds för Galleri-appar. Stöd för icke-Gallery-appar pågår.|
 |Beviljande av OAuth-klientautentiseringsuppgifter|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd. Både behörigheten Tillåt och klientens autentiseringsuppgifter skapar samma typ av åtkomsttoken, så att flytta mellan dessa metoder är transparent för API: et.  Etableringen kan vara helt automatiserad och nya token kan utföras tyst utan användar interaktion. ||Stöds inte för Galleri-och appar som inte är gallerier. Support finns i vår efter släpning.|
 
-[!NOTE] Vi rekommenderar inte att du lämnar fältet token tomt i konfigurations gränssnittet för Azure AD-etablering av anpassade appar. Den token som genereras är primärt tillgänglig i test syfte.
+> [!NOTE]
+> Vi rekommenderar inte att du lämnar fältet token tomt i konfigurations gränssnittet för Azure AD-etablering av anpassade appar. Den token som genereras är primärt tillgänglig i test syfte.
 
 **Utfärdande flöde för OAuth-auktoriseringskod:** Etablerings tjänsten har stöd för [beviljande av auktoriseringskod](https://tools.ietf.org/html/rfc6749#page-24). När du har skickat din begäran om att publicera din app i galleriet, kommer vårt team att samar beta med dig för att samla in följande information:
 *  URL för auktorisering: en URL som klienten kan använda för att få behörighet från resurs ägaren via omdirigering av användar agent. Användaren omdirigeras till denna URL för att ge åtkomst. Observera att denna URL för närvarande inte kan konfigureras per klient.

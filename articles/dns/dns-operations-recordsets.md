@@ -4,28 +4,26 @@ description: Hantering av DNS-postuppsättningar och poster på Azure DNS när d
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
-ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07776e0361b8221cf3aca9f06c66478aa6127f53
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76932533"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701791"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och post uppsättningar i Azure DNS med Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Klassisk Azure CLI](dns-operations-recordsets-cli-nodejs.md)
+> * [Klassisk Azure-CLI](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -52,7 +50,7 @@ Om den nya posten har samma namn och typ som en befintlig post måste du [lägga
 
 Du skapar postuppsättningar med hjälp av cmdleten `New-AzDnsRecordSet`. När du skapar en post uppsättning måste du ange post uppsättningens namn, zonen, TTL-värdet (Time to Live), post typen och de poster som ska skapas.
 
-Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. Om du till exempel använder en post uppsättning av typen "A" måste du ange IP-adressen med hjälp av parametern `-IPv4Address`. Andra parametrar används för andra post typer. Se fler exempel på post typer för mer information.
+Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. Om du till exempel använder en post uppsättning av typen "A" måste du ange IP-adressen med hjälp av parametern `-IPv4Address` . Andra parametrar används för andra post typer. Se fler exempel på post typer för mer information.
 
 I följande exempel skapas en post uppsättning med det relativa namnet "www" i DNS-zonen "contoso.com". Det fullständigt kvalificerade namnet på post uppsättningen är ' www.contoso.com '. Post typen är "A" och TTL är 3600 sekunder. Post uppsättningen innehåller en enda post med IP-adressen 1.2.3.4.
 
@@ -60,13 +58,13 @@ I följande exempel skapas en post uppsättning med det relativa namnet "www" i 
 New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Om du vill skapa en post uppsättning på "Apex" för en zon (i det här fallet "contoso.com") använder du post uppsättningens namn\@(exklusive citat tecken):
+Om du vill skapa en post uppsättning på "Apex" för en zon (i det här fallet "contoso.com") använder du post uppsättningens namn \@ (exklusive citat tecken):
 
 ```powershell
 New-AzDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Om du behöver skapa en post uppsättning som innehåller mer än en post måste du först skapa en lokal matris och lägga till posterna och sedan skicka matrisen `New-AzDnsRecordSet` till så här:
+Om du behöver skapa en post uppsättning som innehåller mer än en post måste du först skapa en lokal matris och lägga till posterna och sedan skicka matrisen till `New-AzDnsRecordSet` så här:
 
 ```powershell
 $aRecords = @()
@@ -110,7 +108,7 @@ New-AzDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -Res
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Skapa en CNAME-postuppsättning med en post
 
 > [!NOTE]
-> DNS-standarderna tillåter inte CNAME-poster på toppen av en zon (`-Name '@'`), eller så tillåter de inte post uppsättningar som innehåller mer än en post.
+> DNS-standarderna tillåter inte CNAME-poster på toppen av en zon ( `-Name '@'` ), eller så tillåter de inte post uppsättningar som innehåller mer än en post.
 > 
 > Mer information finns i [CNAME-poster](dns-zones-records.md#cname-records).
 
@@ -121,7 +119,7 @@ New-AzDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.com" 
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Skapa en MX-postuppsättning med en post
 
-I det här exemplet använder vi post uppsättnings namnet\@för att skapa en MX-post i zonens Apex (i det här fallet "contoso.com").
+I det här exemplet använder vi post uppsättnings namnet \@ för att skapa en MX-post i zonens Apex (i det här fallet "contoso.com").
 
 
 ```powershell
@@ -144,7 +142,7 @@ New-AzDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -Resour
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Skapa en SRV-postuppsättning med en post
 
-När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records)anger du * \_tjänsten* och * \_protokollet* i post uppsättningens namn. Du behöver inte ta med\@i post uppsättnings namnet när du skapar en SRV-postuppsättning på zonens Apex.
+När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records)anger du * \_ tjänsten* och * \_ protokollet* i post uppsättningens namn. Du behöver inte ta med \@ i post uppsättnings namnet när du skapar en SRV-postuppsättning på zonens Apex.
 
 ```powershell
 New-AzDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -162,11 +160,11 @@ New-AzDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -Res
 
 ## <a name="get-a-record-set"></a>Hämta en post uppsättning
 
-Använd `Get-AzDnsRecordSet`om du vill hämta en befintlig post uppsättning. Den här cmdleten returnerar ett lokalt objekt som representerar den angivna posten i Azure DNS.
+Använd om du vill hämta en befintlig post uppsättning `Get-AzDnsRecordSet` . Den här cmdleten returnerar ett lokalt objekt som representerar den angivna posten i Azure DNS.
 
-Som med `New-AzDnsRecordSet`måste det angivna namnet för post uppsättningen vara ett *relativt* namn, vilket innebär att det måste utesluta zon namnet. Du måste också ange post typen och zonen som innehåller post uppsättningen.
+Som med `New-AzDnsRecordSet` måste det angivna namnet för post uppsättningen vara ett *relativt* namn, vilket innebär att det måste utesluta zon namnet. Du måste också ange post typen och zonen som innehåller post uppsättningen.
 
-I följande exempel visas hur du hämtar en post uppsättning. I det här exemplet anges zonen med parametrarna `-ZoneName` och. `-ResourceGroupName`
+I följande exempel visas hur du hämtar en post uppsättning. I det här exemplet anges zonen med `-ZoneName` `-ResourceGroupName` parametrarna och.
 
 ```powershell
 $rs = Get-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -181,7 +179,7 @@ $rs = Get-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 
 ## <a name="list-record-sets"></a>List post uppsättningar
 
-Du kan också använda `Get-AzDnsZone` för att lista post uppsättningar i en zon genom att utelämna `-Name` parametrarna och/ `-RecordType` eller.
+Du kan också använda `Get-AzDnsZone` för att lista post uppsättningar i en zon genom att utelämna `-Name` parametrarna och/eller `-RecordType` .
 
 I följande exempel returneras alla post uppsättningar i zonen:
 
@@ -201,7 +199,7 @@ Om du vill hämta alla post uppsättningar med ett angivet namn, mellan post typ
 $recordsets = Get-AzDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
 ```
 
-I alla ovanstående exempel kan zonen anges antingen med hjälp av parametrarna `-ZoneName` och `-ResourceGroupName`(som visas), eller genom att ange ett zon objekt:
+I alla ovanstående exempel kan zonen anges antingen med hjälp av `-ZoneName` `-ResourceGroupName` parametrarna och (som visas), eller genom att ange ett zon objekt:
 
 ```powershell
 $zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -272,21 +270,21 @@ På samma sätt som för att lägga till poster i en post uppsättning kan du oc
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Olika post typer stöds genom att de lämpliga typspecifika parametrarna skickas till `Remove-AzDnsRecordSet`. Parametrarna för varje posttyp är desamma som för `New-AzDnsRecordConfig` cmdleten, som du ser i fler exempel på post typer ovan.
+Olika post typer stöds genom att de lämpliga typspecifika parametrarna skickas till `Remove-AzDnsRecordSet` . Parametrarna för varje posttyp är desamma som för `New-AzDnsRecordConfig` cmdleten, som du ser i fler exempel på post typer ovan.
 
 
 ## <a name="modify-an-existing-record-set"></a>Ändra en befintlig post uppsättning
 
 Stegen för att ändra en befintlig post uppsättning liknar de steg du utför när du lägger till eller tar bort poster från en post uppsättning:
 
-1. Hämta den befintliga post uppsättningen med hjälp `Get-AzDnsRecordSet`av.
+1. Hämta den befintliga post uppsättningen med hjälp av `Get-AzDnsRecordSet` .
 2. Ändra det lokala post uppsättnings objektet genom att:
     * Lägga till eller ta bort poster
     * Ändra parametrarna för befintliga poster
     * Ändra metadata för post uppsättningen och TTL (Time to Live)
 3. Genomför ändringarna med hjälp av `Set-AzDnsRecordSet` cmdleten. Detta *ersätter* den befintliga post uppsättningen i Azure DNS med den angivna post uppsättningen.
 
-När du `Set-AzDnsRecordSet`använder [etag-kontroller](dns-zones-records.md#etags) används för att säkerställa att samtidiga ändringar inte skrivs över. Du kan använda den valfria `-Overwrite` växeln för att ignorera de här kontrollerna.
+När `Set-AzDnsRecordSet` du använder [etag-kontroller](dns-zones-records.md#etags) används för att säkerställa att samtidiga ändringar inte skrivs över. Du kan använda den valfria `-Overwrite` växeln för att ignorera de här kontrollerna.
 
 ### <a name="to-update-a-record-in-an-existing-record-set"></a>Så här uppdaterar du en post i en befintlig post uppsättning
 
@@ -300,7 +298,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-an-soa-record"></a>Ändra en SOA-post
 
-Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (`-Name "@"`inklusive citat tecken). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
+Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex ( `-Name "@"` inklusive citat tecken). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
 
 I följande exempel visas hur du ändrar *e-* postegenskapen för SOA-posten:
 
@@ -352,7 +350,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 Post uppsättningar kan tas bort med hjälp av `Remove-AzDnsRecordSet` cmdleten. Om du tar bort en post uppsättning raderas även alla poster i post uppsättningen.
 
 > [!NOTE]
-> Du kan inte ta bort SOA-och NS-postuppsättningarna i`-Name '@'`Zone Apex ().  Azure DNS skapade dessa automatiskt när zonen skapades och tar bort dem automatiskt när zonen tas bort.
+> Du kan inte ta bort SOA-och NS-postuppsättningarna i Zone Apex ( `-Name '@'` ).  Azure DNS skapade dessa automatiskt när zonen skapades och tar bort dem automatiskt när zonen tas bort.
 
 I följande exempel visas hur du tar bort en post uppsättning. I det här exemplet anges post uppsättnings namnet, post uppsättnings typen, zon namnet och resurs gruppen uttryckligen.
 
@@ -386,7 +384,7 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 
 Cmdletarna `New-AzDnsRecordSet`, `Set-AzDnsRecordSet` och `Remove-AzDnsRecordSet` stöder alla bekräftelsemeddelanden.
 
-Varje cmdlet uppmanas att bekräfta om `$ConfirmPreference` PowerShell-preferensen har värdet `Medium` eller lägre. Eftersom standardvärdet för `$ConfirmPreference` är `High`, anges inte dessa meddelanden när du använder standard-PowerShell-inställningarna.
+Varje cmdlet uppmanas att bekräfta om `$ConfirmPreference` PowerShell-preferensen har värdet `Medium` eller lägre. Eftersom standardvärdet för `$ConfirmPreference` är `High` , anges inte dessa meddelanden när du använder standard-PowerShell-inställningarna.
 
 Du kan åsidosätta den aktuella `$ConfirmPreference`-inställningen med hjälp av parametern `-Confirm`. Om du anger `-Confirm` eller `-Confirm:$True`, så uppmanar cmdleten dig att bekräfta detta innan den körs. Om du anger `-Confirm:$False`, som ber cmdleten dig inte om bekräftelse. 
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 161927e02782a294165b0304c259a63f8336067c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872136"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118142"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Global data distribution med Azure Cosmos DB – under huven
 
 Azure Cosmos DB är en grundläggande tjänst i Azure, så den distribueras i alla Azure-regioner över hela världen, inklusive offentlig, suverän, departementet försvar (DoD) och myndigheter. I ett Data Center distribuerar och hanterar vi Azure Cosmos DB på massiv stämpel av datorer, var och en med dedikerad lokal lagring. I ett Data Center har Azure Cosmos DB distribuerats över flera kluster, som var och en kan köra flera generationer av maskin vara. Datorer i ett kluster sprids vanligt vis över 10-20 fel domäner för hög tillgänglighet inom en region. Följande bild visar Cosmos DB global distribution system sto pol Ogin:
 
-![System sto pol Ogin](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="System sto pol Ogin" border="false":::
 
 **Global distribution i Azure Cosmos DB är nyckel färdiga:** När som helst, med några klick eller program mässigt med ett enda API-anrop, kan du lägga till eller ta bort de geografiska regioner som är kopplade till Cosmos-databasen. En Cosmos-databas, i sin tur, består av en uppsättning Cosmos-behållare. I Cosmos DB fungerar behållare som logiska enheter för distribution och skalbarhet. Samlingarna, tabellerna och graferna som du skapar är (internt) bara Cosmos behållare. Behållare är fullständigt schema-oberoende och anger en omfattning för en fråga. Data i en Cosmos-behållare indexeras automatiskt vid inmatning. Med automatisk indexering kan användare fråga data utan besvär i schema-eller index hantering, särskilt i en globalt distribuerad installation.  
 
@@ -30,7 +30,7 @@ När en app som använder Cosmos DB elastiskt skala data flödet i en Cosmos-beh
 
 Som du ser i följande bild distribueras data i en behållare längs två dimensioner – inom en region och mellan regioner, globalt:  
 
-![fysiska partitioner](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="fysiska partitioner" border="false":::
 
 En fysisk partition implementeras av en grupp repliker, som kallas *replik uppsättning*. Varje dator är värd för hundratals repliker som motsvarar olika fysiska partitioner i en fast uppsättning processer som visas i bilden ovan. Repliker som motsvarar de fysiska partitionerna placeras och bal anse ras dynamiskt på datorerna i ett kluster och data Center inom en region.  
 
@@ -52,7 +52,7 @@ En fysisk partition är materialiserad som en självhanterad och dynamiskt belas
 
 En grupp med fysiska partitioner, en från var och en av de som kon figurer ATS med Cosmos-databas regionerna, är sammansatt för att hantera samma uppsättning nycklar som replikeras i alla konfigurerade regioner. Denna högre samordning är en *partitions uppsättning* – ett geografiskt distribuerat dynamiskt överlägg med fysiska partitioner som hanterar en specifik uppsättning nycklar. Även om en angiven fysisk partition (en replik uppsättning) är begränsad i ett kluster, kan en partitionsuppsättning spänna över kluster, data Center och geografiska regioner som visas på bilden nedan:  
 
-![Partitionsuppsättningar](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Partitionsuppsättningar" border="false":::
 
 Du kan se att en partitionsuppsättning är en geografiskt utspridd "Super Replica-uppsättning", som består av flera replik uppsättningar som äger samma uppsättning nycklar. På samma sätt som en replik uppsättning är en partitions uppsättnings medlemskap också dynamiskt – den varierar baserat på implicita hanterings åtgärder för fysiska partitioner för att lägga till/ta bort nya partitioner i/från en angiven partitionsuppsättning (till exempel när du skalar upp data flödet i en behållare, lägger till/tar bort en region i Cosmos-databasen eller när fel uppstår). Genom att ha var och en av partitionerna (av en partitionsuppsättning) hanterar du medlemskapet för partitionsuppsättningen i sin egen replik uppsättning, är medlemskapet helt decentraliserat och med hög tillgänglighet. Under omkonfigurationen av en partitionsuppsättning upprättas även topologin för överlägget mellan fysiska partitioner. Topologin väljs dynamiskt baserat på konsekvens nivå, geografiskt avstånd och tillgänglig nätverks bandbredd mellan käll-och mål-fysiska partitionerna.  
 

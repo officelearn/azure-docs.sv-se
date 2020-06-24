@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: 0f7e210c0818bd317f8e69ebed28301fd9b06dc0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d169c638869cd9488605117552c9017dfd10c911
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263881"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118332"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
@@ -42,12 +42,12 @@ En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings ko
 
 Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa ett Azure Cosmos DB-konto. Sök efter och välj **Azure Cosmos DB**.
 
-   ![Azure Portal-databasfönstret](./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="Azure Portal-databasfönstret":::
 
 1. Välj **Lägg till**.
 1. Ange de grundläggande inställningarna för det nya Azure Cosmos-kontot på sidan **Skapa Azure Cosmos DB-konto**. 
 
-    |Inställning|Värde|Beskrivning |
+    |Inställningen|Värde|Beskrivning |
     |---|---|---|
     |Prenumeration|Prenumerationens namn|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos-kontot. |
     |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |
@@ -64,17 +64,17 @@ Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa et
 > [!NOTE]
 > Du kan ha upp till en kostnads fri nivå Azure Cosmos DB ett konto per Azure-prenumeration och måste välja när du skapar kontot. Om du inte ser alternativet för att tillämpa rabatten på den kostnads fria nivån innebär det att ett annat konto i prenumerationen redan har Aktiver ATS med den kostnads fria nivån.
    
-   ![Den nya kontosidan för Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Den nya kontosidan för Azure Cosmos DB":::
 
 1. Välj **Granska + skapa**. Du kan hoppa över avsnitten **Nätverk** och **Taggar**.
 
 1. Granska kontoinställningarna och välj sedan **Skapa**. Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar**. 
 
-    ![Meddelandefönstret i Azure-portalen](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Meddelandefönstret i Azure-portalen":::
 
 1. Välj **Gå till resurs** för att gå till sidan för Azure Cosmos DB-kontot. 
 
-    ![Sidan för Azure Cosmos DB-kontot](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Sidan för Azure Cosmos DB-kontot":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Lägg till en databas och en behållare 
@@ -85,11 +85,11 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
     
     Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare** .
     
-    ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
     
 1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
     
-    |Inställning|Föreslaget värde|Beskrivning
+    |Inställningen|Föreslaget värde|Beskrivning
     |---|---|---|
     |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
@@ -107,7 +107,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Expandera **ToDoList** -databasen i **datautforskaren**och expandera behållaren **objekt** . Välj sedan **objekt**och välj sedan **nytt objekt**. 
    
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
    
 1. Lägg till följande struktur till dokumentet till höger i fönstret **dokument** :
 
@@ -123,7 +123,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Välj **Spara**.
    
-   ![Kopiera i JSON-data och välj Spara i Datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Kopiera i JSON-data och välj Spara i Datautforskaren i Azure Portal":::
    
 1. Välj **nytt dokument** igen och skapa och spara ett annat dokument med en unik `id` och andra egenskaper och värden som du vill ha. Dokumenten kan ha vilken struktur som helst, eftersom Azure Cosmos DB inte har något schema för dina data.
 

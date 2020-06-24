@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274143"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691824"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor namngivnings-och terminologi ändringar
 Betydande ändringar har gjorts i Azure Monitor nyligen, med olika tjänster som sammanställs för att förenkla övervakningen av Azure-kunder. I den här artikeln beskrivs nya namn-och terminologi ändringar i Azure Monitor-dokumentationen.

@@ -5,16 +5,16 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 70c36f9a18a85b90bb3a66d4083a71a00f61f14e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aa2b82e70b1a1372076483c7405c32b66da377af
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016380"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974440"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
-När du använder Azure Container Registry (ACR) med Azure Kubernetes service (AKS) måste du upprätta en autentiseringsmekanism. Den här artikeln innehåller exempel på hur du konfigurerar autentisering mellan dessa två Azure-tjänster. 
+När du använder Azure Container Registry (ACR) med Azure Kubernetes service (AKS) måste du upprätta en autentiseringsmekanism. Den här åtgärden implementeras som en del av CLI-och Portal upplevelsen genom att ge de nödvändiga behörigheterna till din ACR. Den här artikeln innehåller exempel på hur du konfigurerar autentisering mellan dessa två Azure-tjänster. 
 
 Du kan ställa in AKS till ACR-integrering i några enkla kommandon med Azure CLI. Den här integrationen tilldelar AcrPull-rollen till det tjänst huvud namn som är associerat med AKS-klustret.
 
@@ -23,7 +23,7 @@ Du kan ställa in AKS till ACR-integrering i några enkla kommandon med Azure CL
 Följande exempel kräver:
 
 * Rollen **ägare** eller **administratör för Azure-konto** på Azure- **prenumerationen**
-* Azure CLI-version 2.0.73 eller senare
+* Azure CLI-version 2.7.0 eller senare
 
 För att undvika att du behöver en **ägare** eller rollen som **administratör för Azure-konto** kan du konfigurera ett huvud namn för tjänsten manuellt eller använda ett befintligt huvud namn för tjänsten för att autentisera ACR från AKS. Mer information finns i [ACR-autentisering med tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md) eller [autentisera från Kubernetes med en pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
 
@@ -142,6 +142,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### <a name="troubleshooting"></a>Felsökning
+* Läs mer om [ACR-diagnostik](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Läs mer om [ACR-hälsa](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create

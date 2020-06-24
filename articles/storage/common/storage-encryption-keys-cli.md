@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6924c324c60261fde9a815072ef001fefd868228
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176353"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804794"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
@@ -134,7 +134,7 @@ az keyvault delete-policy \
 
 ## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
 
-När du inaktiverar Kundhanterade nycklar är ditt lagrings konto återigen krypterat med Microsoft-hanterade nycklar. Om du vill inaktivera Kundhanterade nycklar, anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och `--encryption-key-source parameter` Ställ `Microsoft.Storage`in på, som visas i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+När du inaktiverar Kundhanterade nycklar är ditt lagrings konto återigen krypterat med Microsoft-hanterade nycklar. Om du vill inaktivera Kundhanterade nycklar, anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och Ställ in på `--encryption-key-source parameter` `Microsoft.Storage` , som visas i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage kryptering för vilande data](storage-service-encryption.md) 
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md) 
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

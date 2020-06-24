@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 9612afdb63c6988c0027f003caeacd456b5e50e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40f970478b0dd12f6e53c632713051496d412338
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840952"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736755"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurera flödes loggar för nätverks säkerhets grupper med PowerShell
 
@@ -25,7 +25,7 @@ ms.locfileid: "76840952"
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 
 Flödes loggar för nätverks säkerhets grupper är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. Dessa flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
@@ -91,7 +91,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 Mer information om strukturen för logg besöks [logg översikt över nätverks säkerhets grupp](network-watcher-nsg-flow-logging-overview.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig hur du [visualiserar dina NSG Flow-loggar med PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

@@ -5,15 +5,15 @@ description: Lär dig hur du skapar en Programgateway som dirigerar om intern we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ab1cedf324c0391ce54773202b030b519c3e4766
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681358"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804268"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 

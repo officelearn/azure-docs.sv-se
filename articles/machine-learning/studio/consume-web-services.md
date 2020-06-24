@@ -5,17 +5,17 @@ description: När en Machine Learning-tjänst har distribuerats från Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: c34e0a82858ad588e93bd2aae42943fa2900d7b7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556702"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696634"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Använda en Azure Machine Learning Studio (klassisk)-webb tjänst
 
@@ -296,7 +296,7 @@ printHttpResult(response, result)
 
 ### <a name="javascript-sample"></a>JavaScript-exempel
 
-Om du vill ansluta till en Machine Learning-webbtjänst använder du NPM-paketet för **begäran** i projektet. Du kan också använda `JSON` objektet för att formatera inaktuella inaktuella och analysera resultatet. Installera med `npm install request --save` eller Lägg till `"request": "*"` i Package. JSON under `dependencies` och kör `npm install` .
+Om du vill ansluta till en Machine Learning-webbtjänst använder du NPM-paketet för **begäran** i projektet. Du kan också använda `JSON` objektet för att formatera inaktuella inaktuella och analysera resultatet. Installera med `npm install request --save` eller Lägg till `"request": "*"` i package.jspå under `dependencies` och kör `npm install` .
 
 **Så här kommer en fullständig förfrågan att se ut.**
 ```js

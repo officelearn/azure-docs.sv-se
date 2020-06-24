@@ -3,17 +3,17 @@ title: Använda Azure Maps ritnings fel visualiserare
 description: 'I den här artikeln får du lära dig mer om hur du visualiserar varningar och fel som returneras av skapare konverterings-API: et.'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681951"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791135"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Använda Azure Maps ritnings fel visualiserare
 
@@ -58,16 +58,16 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 I det hämtade zippade paketet från `diagnosticPackageLocation` länken hittar du två filer.
 
-* _VisualizationTool. zip_: innehåller käll koden, mediet och webb sidan för ritnings fel visualiseraren.
-* _ConversionWarningsAndErrors. JSON_: innehåller en formaterad lista med varningar, fel och ytterligare information som används av fel visualiseraren för ritning.
+* _VisualizationTool.zip_: innehåller käll koden, mediet och webb sidan för ritnings fel visualiseraren.
+* _ConversionWarningsAndErrors.jspå_: innehåller en formaterad lista med varningar, fel och ytterligare information som används av fel visualiseraren för ritning.
 
-Zippa upp mappen _VisualizationTool. zip_ . Den innehåller följande objekt:
+Zippa upp _VisualizationTool.zip_ -mappen. Den innehåller följande objekt:
 
 * mappen _till gångar_ : innehåller bilder och mediefiler
 * _statisk_ mapp: käll kod
-* _index. html-_ fil: webb programmet.
+* _index.html_ -fil: webb programmet.
 
-Öppna filen _index. html_ med någon av Webbläsarena nedan, med respektive versions nummer. Du kan använda en annan version, om versionen har ett likvärdigt kompatibelt beteende som den listade versionen.
+Öppna _index.html_ -filen med någon av Webbläsarena nedan, med respektive versions nummer. Du kan använda en annan version, om versionen har ett likvärdigt kompatibelt beteende som den listade versionen.
 
 * Microsoft Edge 80
 * Safari 13
@@ -78,15 +78,15 @@ Zippa upp mappen _VisualizationTool. zip_ . Den innehåller följande objekt:
 
 När du har startat verktyget Rita fel visualiserare visas sidan uppladdning. Överförings sidan innehåller en dra och släpp-ruta. List rutan dra & fungerar också som en knapp som öppnar en dialog ruta i Utforskaren.
 
-![App för att rita fel visualiserare – start sida](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="App för att rita fel visualiserare – start sida":::
 
-Filen _ConversionWarningsAndErrors. JSON_ har placerats i roten för den hämtade katalogen. Om du vill läsa in _ConversionWarningsAndErrors. JSON_ kan du antingen dra & släpper filen i rutan eller klicka på rutan, leta upp filen i dialog rutan för Utforskaren och sedan ladda upp filen.
+_ConversionWarningsAndErrors.jspå_ filen har placerats i roten för den hämtade katalogen. Om du vill läsa in _ConversionWarningsAndErrors.jspå_ kan du antingen dra & släppa filen i rutan eller klicka på rutan, leta upp filen i dialog rutan för Utforskaren och sedan ladda upp filen.
 
-![Att rita fel visualisera appar – dra och släpp för att läsa in data](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Att rita fel visualisera appar – dra och släpp för att läsa in data":::
 
-När _ConversionWarningsAndErrors. JSON_ -filen har lästs in visas en lista över fel och varningar i ritnings paketet. Varje fel eller varning anges av lagret, nivån och ett detaljerat meddelande. Du kan nu navigera till varje fel för att lära dig mer om hur du löser problemet.  
+När _ConversionWarningsAndErrors.js_ när filen har lästs in visas en lista över fel och varningar i ritnings paketet. Varje fel eller varning anges av lagret, nivån och ett detaljerat meddelande. Om du vill visa detaljerad information om ett fel eller en varning klickar du på länken **information** . Ett avsnitt som kan vara störande visas sedan under listan. Du kan nu navigera till varje fel för att lära dig mer om hur du löser problemet.
 
-![Drawing Error-program-fel och varningar](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error-program-fel och varningar":::
 
 ## <a name="next-steps"></a>Nästa steg
 

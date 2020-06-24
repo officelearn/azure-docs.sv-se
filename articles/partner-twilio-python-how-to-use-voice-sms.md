@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: tracking-python
-ms.openlocfilehash: 4722e8adadf59f8a4ad7b36a73fad5a6cff3370f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3b5c48053f7015e2bd46045d376cde27ca07d4a7
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560885"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907048"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Använda Twilio för röst-och SMS-funktioner i python
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -62,10 +62,12 @@ TwiML är en uppsättning XML-baserade instruktioner som baseras på Twilio-verb
 
 Följande TwiML skulle till exempel konvertera texten **Hello World** till tal.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-      <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+  <Response>
+    <Say>Hello World</Say>
+  </Response>
+```
 
 När programmet anropar Twilio-API: t är en av API-parametrarna den URL som returnerar TwiML-svaret. I utvecklings syfte kan du använda Twilio webb adresser för att tillhandahålla de TwiML-svar som används av dina program. Du kan också vara värd för dina egna URL: er för att skapa TwiML-svar och ett annat alternativ är att använda `TwiMLResponse` objektet.
 
@@ -100,17 +102,17 @@ Du kan konfigurera ditt program så att det använder Twilio-biblioteket för py
 
 * Installera Twilio-biblioteket för python som ett pip-paket. Den kan installeras med följande kommandon:
    
-        $ pip install twilio
+  `$ pip install twilio`
 
     ELLER
 
 * Ladda ned Twilio-biblioteket för python från GitHub ( [https://github.com/twilio/twilio-python][twilio_python] ) och installera det så här:
 
-        $ python setup.py install
+  `$ python setup.py install`
 
 När du har installerat Twilio-biblioteket för python kan du sedan använda `import` det i python-filerna:
 
-        import twilio
+  `import twilio`
 
 Mer information finns i [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 

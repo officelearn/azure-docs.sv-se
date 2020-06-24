@@ -4,18 +4,18 @@ description: Skapa frågor för Advisor-data i Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: f8ad8fd450bc004d9caa2699922717f38d38b482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502456"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117843"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Fråga efter Advisor-data i resurs diagram Utforskaren (Azure Resource Graph)
 
 Advisor-resurser registreras nu i [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). Det här är en grund för många i och skalade kund scenarier för Advisor-rekommendationer. Några scenarier som inte var möjliga innan du skulle göra i skala och nu kan uppnås med hjälp av resurs diagram:
 * Ger möjlighet att utföra komplexa frågor för alla dina prenumerationer i Azure Portal
-* Rekommendationer sammanfattas av kategori typer (t. ex. hög tillgänglighet, prestanda) och effekt typer (hög, medel, låg)
+* Rekommendationer sammanfattas efter kategori typer (t. ex. tillförlitlighet, prestanda) och effekt typer (hög, medel, låg)
 * Alla rekommendationer för en viss rekommendations typ
 * Kategorin påverkade resurs antal efter rekommendation
 
@@ -37,7 +37,8 @@ Dessa resurs typer visas under en ny tabell med namnet as AdvisorResources, som 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Azure Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
+* [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

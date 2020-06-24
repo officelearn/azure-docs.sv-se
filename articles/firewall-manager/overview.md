@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366282"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792173"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
 
@@ -22,16 +22,16 @@ För hands versionen av Azure Firewall Manager är en säkerhets hanterings tjä
 
 Brand Väggs hanteraren kan tillhandahålla säkerhets hantering för två typer av nätverks arkitektur:
 
-- **skyddad virtuell hubb**
+- **Skyddad virtuell hubb**
 
    En [virtuell WAN-hubb i Azure](../virtual-wan/virtual-wan-about.md#resources) är en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)*. 
-- **hubb virtuellt nätverk**
+- **Virtuellt hub-nätverk**
 
    Det här är ett standard Azure Virtual Network som du skapar och hanterar själv. När säkerhets principer är associerade med en sådan hubb kallas det ett *nav virtuellt nätverk*. För närvarande stöds endast Azure Firewall-principen. Du kan använda peer-ekrar för virtuella nätverk som innehåller dina arbets belastnings servrar och-tjänster. Du kan också hantera brand väggar i fristående virtuella nätverk som inte är peer-kopplade till ekrar.
 
 En detaljerad jämförelse mellan *skyddade virtuella hubbar* och *virtuella hubbar i hubben* finns i [Vad är arkitektur alternativ för Azure Firewall Manager?](vhubs-and-vnets.md).
 
-![Firewall-Manager](media/overview/firewallmanagerv5.png)
+![Firewall-Manager](media/overview/trusted-security-partners.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Förhands gransknings funktioner i Azure Firewall Manager
 

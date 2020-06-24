@@ -3,12 +3,12 @@ title: Kom igång med Azure Advisor
 description: Kom igång med Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: f40aa9d3177f251787d60f3087c5f85b6d982b6e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509125"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117870"
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -27,7 +27,7 @@ Lär dig hur du får åtkomst till Advisor via Azure Portal, får rekommendation
 
 1. Advisor-instrumentpanelen visar en sammanfattning av dina rekommendationer för alla valda prenumerationer.  Du kan välja de prenumerationer som du vill att rekommendationerna ska visas för i listrutan prenumerationsfilter.
 
-1. Klicka på någon av flikarna för att få rekommendationer för en viss kategori: **hög tillgänglighet**, **säkerhet**, **prestanda**eller **kostnad**. 
+1. Klicka på någon av flikarna om du vill ha rekommendationer för en viss kategori: **tillförlitlighet**, **säkerhet**, **prestanda**eller **kostnad**. 
 
    ![Azure Advisor instrument panel](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ Nedladdnings alternativet respekterar alla filter som du har tillämpat på inst
 Mer information om Advisor finns i:
 
 - [Introduktion till Azure Advisor](advisor-overview.md)
-- [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+- [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 - [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 - [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 - [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+- [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

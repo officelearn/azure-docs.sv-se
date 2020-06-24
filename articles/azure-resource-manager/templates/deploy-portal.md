@@ -3,12 +3,12 @@ title: Distribuera resurser med Azure Portal
 description: Använd Azure Portal och Azure resurs hantering för att distribuera dina resurser till en resurs grupp i din prenumeration.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153445"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255270"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Distribuera resurser med ARM-mallar och Azure Portal
 
@@ -86,7 +86,7 @@ Om du vill köra en distribution men inte använda någon av mallarna i Marketpl
 1. Du ser flera alternativ för att skapa en mall:
 
     - Skapa en **egen mall i redigerings programmet**: skapa en mall med hjälp av redigeraren för Portal mal len.  Redigeraren kan lägga till ett schema för resurs mal len.
-    - **Vanliga mallar**: det finns fyra vanliga mallar för att skapa en virtuell Linux-dator, en virtuell Windows-dator, ett webb program och en Azure SQL-databas.
+    - **Vanliga mallar**: det finns fyra vanliga mallar för att skapa en virtuell Linux-dator, en virtuell Windows-dator, ett webb program och en databas i Azure SQL Database.
     - **Läs in en GitHub snabb starts mall**: Använd en befintlig [snabb starts](https://azure.microsoft.com/resources/templates/)mall.
 
    ![Visnings alternativ](./media/deploy-portal/see-options.png)

@@ -12,33 +12,69 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 06/12/2019
 ms.author: inhenkel
-ms.openlocfilehash: 9481b4ee2f225c7f76337d73b27630e4c67cc780
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193612"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765020"
 ---
 # <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
 
 Azure Media service levererar video, ljud och text i olika protokoll. När du publicerar din Live Stream med MPEG-streck eller HLS/CMAF, tillsammans med video och ljud, levererar vår tjänst den inskrivna texten i IMSC 1.1-kompatibla TTML. Leveransen är paketerad i MPEG-4 del 30 (ISO/IEC 14496-30) fragment. Om du använder leverans via HLS/TS levereras texten som segmenterad VTT.
 
-I den här artikeln beskrivs hur du aktiverar direkt avskrift när du strömmar en Live-händelse med Azure Media Services v3. Innan du fortsätter bör du kontrol lera att du är van att använda Media Services v3 REST-API: er (se [den här självstudien](stream-files-tutorial-with-rest.md) för mer information). Du bör också vara bekant med [Live streaming](live-streaming-overview.md) -konceptet. Vi rekommenderar att du slutför [Stream Live med Media Services](stream-live-tutorial-with-api.md) själv studie kurs.
+Ytterligare avgifter gäller när direkt avskrift har Aktiver ATS. Läs pris informationen i live video-avsnittet på [sidan Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/).
 
-> [!NOTE]
-> Direkt avskrift är för närvarande endast tillgängligt som en förhands gransknings funktion i regionen USA, västra 2. Det stöder avskrift av talade ord på engelska till text. API-referensen för den här funktionen finns nedan – eftersom den är i för hands version. informationen är inte tillgänglig med våra REST-dokument.
+I den här artikeln beskrivs hur du aktiverar direkt avskrift när du strömmar en Live-händelse med Azure Media Services. Innan du fortsätter bör du kontrol lera att du är van att använda Media Services v3 REST-API: er (se [den här självstudien](stream-files-tutorial-with-rest.md) för mer information). Du bör också vara bekant med [Live streaming](live-streaming-overview.md) -konceptet. Vi rekommenderar att du slutför [Stream Live med Media Services](stream-live-tutorial-with-api.md) själv studie kurs.
 
-## <a name="creating-the-live-event"></a>Skapa Live-händelsen
+## <a name="live-transcription-preview-regions-and-languages"></a>Förhands gransknings regioner och språk i Live-avskrift
 
-Om du vill skapa en Live-händelse skickar du åtgärden placera till 2019-05-01 – för hands version, till exempel:
+Direkt avskrift är tillgängligt i följande regioner:
+
+- Sydostasien
+- Europa, västra
+- Europa, norra
+- USA, östra
+- USA, centrala
+- USA, södra centrala
+- USA, västra 2
+- Brasilien, södra
+
+Det här är en lista över tillgängliga språk som kan skrivas över, Använd språk koden i API: et.
+
+| Språk | Språkkod |
+| -------- | ------------- |
+| Katalanska  | ca-ES |
+| Danska (Danmark) | da-DK |
+| Tyska (Tyskland) | de-DE |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Storbritannien) | en-GB |
+| Engelska (Indien) | en-IN |
+| Engelska (Nya Zeeland) | en-NZ |
+| Engelska (USA) | sv-SE |
+| Spanska (Spanien) | es-ES |
+| Spanska (Mexiko) | ES – MX |
+| Finska (Finland) | fi-FI |
+| Franska (Kanada) | fr-CA |
+| Franska (Frankrike) | fr-FR |
+| Italienska (Italien) | it-IT |
+| Nederländska (Nederländerna) | nl-NL |
+| Portugisiska (Brasilien) | pt-BR |
+| Portugisiska (Portugal) | pt-PT |
+| Svenska (Sverige) | sv-SE |
+
+## <a name="create-the-live-event-with-live-transcription"></a>Skapa Live-händelsen med direkt avskrift
+
+Om du vill skapa en Live-händelse med avskriften aktive rad skickar du åtgärden med API-versionen 2019-05-01-Preview, till exempel:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-Åtgärden har följande text (där en direkt sändnings händelse skapas med RTMP som inmatnings protokoll). Observera tillägget av en avskrifts egenskap. Det enda tillåtna värdet för språket är en-US.
+Åtgärden har följande text (där en direkt sändnings händelse skapas med RTMP som inmatnings protokoll). Observera tillägget av en avskrifts egenskap.
 
 ```
 {
@@ -88,14 +124,14 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 }
 ```
 
-Avsök status för direkt sändningen tills den hamnar i tillståndet "körs", vilket innebär att du nu kan skicka ett bidrags-RTMP-flöde. Du kan nu följa samma steg som i den här självstudien, t. ex. kontrol lera förhands visningen och skapa Live-utdata.
+## <a name="start-or-stop-transcription-after-the-live-event-has-started"></a>Starta eller stoppa avskrift efter att Live-händelsen har startat
 
-## <a name="start-transcription-after-live-event-has-started"></a>Starta avskrift när Live-händelsen har startats
+Du kan starta och stoppa direkt avskrift medan Live-händelsen är i körnings läge. Mer information om att starta och stoppa Live-händelser finns i avsnittet långvariga åtgärder i [utveckla med Media Services v3-API: er](media-services-apis-overview.md#long-running-operations).
 
-Direkt avskrift kan startas efter att en Live-händelse har påbörjats. Om du vill aktivera Live-avskrifter ska du uppdatera Live-händelsen så att den innehåller egenskapen "avskrifter". För att inaktivera direkt avskrifter tas egenskapen "avskrifter" bort från Live Event-objektet.
+Om du vill aktivera Live-avskrifter eller uppdatera avskrifts språket, korrigerar du Live-händelsen så att den innehåller egenskapen "avskrifter". Om du vill inaktivera direkt avskrifter tar du bort egenskapen "avskrifter" från Live Event-objektet.  
 
 > [!NOTE]
-> Att aktivera eller inaktivera avskriften mer än en gång under Live-händelsen är inte ett scenario som stöds.
+> Att aktivera eller inaktivera avskriften **mer än en gång** under Live-händelsen är inte ett scenario som stöds.
 
 Det här är exempel anropet för att aktivera Live-avskrifter.
 
@@ -160,10 +196,8 @@ Läs artikeln [Översikt över dynamisk paketering](dynamic-packaging-overview.m
 
 För för hands versionen är följande kända problem med direkt avskriftering:
 
-* Funktionen är endast tillgänglig i USA, västra 2.
-* Apparna måste använda API: erna för för hands versionen som beskrivs i [specifikationen Media Services v3 openapi](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* Det enda språk som stöds är engelska (en-US).
-* Med Content Protection stöds endast kryptering med AES-kuvert.
+- Apparna måste använda API: erna för för hands versionen som beskrivs i [specifikationen Media Services v3 openapi](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+- DRM-skyddet (Digital Rights Management) gäller inte för text spårningen. det går bara att kryptera AES-kuvert.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,21 +2,21 @@
 title: Felsöka program för programproxy – Azure Active Directory | Microsoft Docs
 description: Felsöka problem med Azure Active Directory (Azure AD) Application Proxy-program.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: e944c25f39903f8a78a949206bc8037f34508698
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382078"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764663"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Felsöka problem med programproxy 
 
@@ -31,7 +31,7 @@ Mer information om Application Proxy finns i:
 - [Fjärråtkomst till lokala program via programproxy](application-proxy.md)
 - [Application Proxy-kopplingar](application-proxy-connectors.md)
 - [Installera och registrera ett anslutningsprogram](application-proxy-add-on-premises-application.md)
-- [Felsök problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md)
+- [Felsöka problem med programproxy och felmeddelanden](application-proxy-troubleshoot.md)
 
 ## <a name="flowchart-for-application-issues"></a>Flödes schema för program problem
 

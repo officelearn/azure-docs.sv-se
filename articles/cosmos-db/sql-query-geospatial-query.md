@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77566327"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764986"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Fråga geospatiala data med Azure Cosmos DB
 
@@ -29,14 +29,14 @@ Här är en lista över geospatiala systemfunktioner som är användbara för fr
 |ST_ISVALID| Returnerar ett booleskt värde som anger huruvida det angivna GeoJSON Point-, Polygon- eller LineString-uttrycket är giltigt.|
 | ST_ISVALIDDETAILED| Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna lin Est ring-uttrycket är giltigt. Om detta är ogiltigt returneras orsaken som ett sträng värde.|
 
-Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är ett exempel på en fråga som returnerar alla familje dokument som ligger inom 30 km från den angivna platsen med hjälp `ST_DISTANCE` av den inbyggda funktionen.
+Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är ett exempel på en fråga som returnerar alla familje dokument som ligger inom 30 km från den angivna platsen med hjälp av den `ST_DISTANCE` inbyggda funktionen.
 
 **Söka i data**
 
 ```sql
     SELECT f.id
     FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+    WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
 **Resultat**
@@ -51,7 +51,7 @@ Om du inkluderar rums indexering i din indexerings princip kommer "avstånds fr�
 
 `ST_WITHIN`kan användas för att kontrol lera om en punkt ligger inom en polygon. Vanliga polygoner används för att representera gränser som post nummer, tillstånds gränser eller naturliga formulär. Återigen om du inkluderar rums indexering i din indexerings princip, kommer frågor i frågor att hanteras effektivt genom indexet.
 
-Polygon-argument `ST_WITHIN` i får bara innehålla en enda ring, det vill säga polygonerna får inte innehålla hål i dem.
+Polygon-argument i `ST_WITHIN` får bara innehålla en enda ring, det vill säga polygonerna får inte innehålla hål i dem.
 
 **Söka i data**
 
@@ -59,8 +59,8 @@ Polygon-argument `ST_WITHIN` i får bara innehålla en enda ring, det vill säga
     SELECT *
     FROM Families f
     WHERE ST_WITHIN(f.location, {
-        'type':'Polygon',
-        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        "type":"Polygon",
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 ```
 
@@ -73,7 +73,7 @@ Polygon-argument `ST_WITHIN` i får bara innehålla en enda ring, det vill säga
 ```
 
 > [!NOTE]
-> På samma sätt som för fel matchnings typer fungerar i Azure Cosmos DBs fråga, om det plats värde som anges i båda argumenten är felaktigt eller ogiltigt, utvärderas det som **odefinierat** och det utvärderade dokumentet som ska hoppas över från frågeresultaten. Om frågan inte returnerar några resultat kan du `ST_ISVALIDDETAILED` köra för att felsöka varför den spatiala typen är ogiltig.
+> På samma sätt som för fel matchnings typer fungerar i Azure Cosmos DBs fråga, om det plats värde som anges i båda argumenten är felaktigt eller ogiltigt, utvärderas det som **odefinierat** och det utvärderade dokumentet som ska hoppas över från frågeresultaten. Om frågan inte returnerar några resultat kan `ST_ISVALIDDETAILED` du köra för att felsöka varför den spatiala typen är ogiltig.
 >
 >
 
@@ -84,7 +84,7 @@ Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säg
 ```sql
     SELECT *
     FROM Areas a
-    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+    WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
 **Resultat**
@@ -115,7 +115,7 @@ Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säg
     }]
 ```
 
-Dessa funktioner kan också användas för att validera polygoner. Här använder `ST_ISVALIDDETAILED` vi till exempel för att validera en polygon som inte är stängd.
+Dessa funktioner kan också användas för att validera polygoner. Här använder vi `ST_ISVALIDDETAILED` till exempel för att validera en polygon som inte är stängd.
 
 **Söka i data**
 
@@ -140,7 +140,7 @@ Dessa funktioner kan också användas för att validera polygoner. Här använde
 
 SQL .NET SDK tillhandahåller även stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. SQL LINQ-providern översätter den här metoden anrop till motsvarande SQL-inbyggda funktions anrop (ST_DISTANCE respektive ST_WITHIN).
 
-Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos-behållaren `location` vars värde är inom en radie på 30 km från den angivna punkten med LINQ.
+Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos-behållaren vars `location` värde är inom en radie på 30 km från den angivna punkten med LINQ.
 
 **LINQ-fråga för avstånd**
 
@@ -152,7 +152,7 @@ Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos-
     }
 ```
 
-På samma sätt är det här en fråga för att hitta alla dokument `location` vars befinner sig inom den angivna rutan/polygonen.
+På samma sätt är det här en fråga för att hitta alla dokument vars `location` befinner sig inom den angivna rutan/polygonen.
 
 **LINQ-fråga för inom**
 

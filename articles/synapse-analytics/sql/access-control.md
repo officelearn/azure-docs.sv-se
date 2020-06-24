@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310265"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765088"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -169,14 +169,7 @@ Följ dessa steg om du vill bevilja åtkomst till en användare till en **enda**
 > *db_datareader* och *db_datawriter* kan arbeta med Läs-/Skriv behörighet om beviljandet *db_owner* behörighet är oönskade.
 > För att en spark-användare ska kunna läsa och skriva direkt från Spark till/från en SQL-pool krävs *db_owner* behörighet.
 
-När du har skapat användarna kontrollerar du att SQL på begäran kan fråga lagrings kontot:
-
-- Kör följande kommando för att rikta in **huvud** databasen för SQL på begäran:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+När du har skapat användarna kontrollerar du att SQL på begäran kan fråga lagrings kontot.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Åtkomst kontroll till arbets ytans pipelines körs
 

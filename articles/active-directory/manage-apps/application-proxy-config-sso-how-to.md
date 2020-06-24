@@ -3,32 +3,32 @@ title: Så här konfigurerar du enkel inloggning till en Application Proxy-app
 description: Hur du snabbt kan konfigurera enkel inloggning till programmet för programproxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589b3e51f27147f0a0432b61c22a024c202e388b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76712028"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764952"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett program program för programproxy
 
 Enkel inloggning (SSO) gör att användarna kan komma åt ett program utan att autentisera flera gånger. Den gör det möjligt att utföra en enskild autentisering i molnet, mot Azure Active Directory, och tillåter att tjänsten eller anslutningen imiterar användaren att slutföra eventuella ytterligare autentiseringsbegäranden från programmet.
 
 ## <a name="how-to-configure-single-sign-on"></a>Så här konfigurerar du enkel inloggning
-Om du vill konfigurera SSO måste du först se till att programmet är konfigurerat för förautentisering genom att Azure Active Directory. För att utföra den här konfigurationen går du till **Azure Active Directory**  - &gt; **företags program**  - &gt; **alla program**  - &gt; ** - &gt; program-proxyn**. På den här sidan kan du se fältet "förautentisering" och se till att är inställt på "Azure Active Directory. 
+Om du vill konfigurera SSO måste du först se till att programmet är konfigurerat för förautentisering genom att Azure Active Directory. För att utföra den här konfigurationen går du till **Azure Active Directory**  - &gt; **företags program**  - &gt; **alla program** program-  - &gt; ** - &gt; proxyn**. På den här sidan kan du se fältet "förautentisering" och se till att är inställt på "Azure Active Directory. 
 
 Mer information om metoderna för autentisering finns i steg 4 i [appens publicerings dokument](application-proxy-add-on-premises-application.md).
 

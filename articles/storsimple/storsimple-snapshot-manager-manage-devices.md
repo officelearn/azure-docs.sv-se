@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254695"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694849"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Använda StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter
 ## <a name="overview"></a>Översikt
@@ -166,7 +166,7 @@ Du måste ange ett lösen ord för att autentisera en StorSimple-enhet med StorS
 
 #### <a name="to-change-the-expired-password"></a>Ändra lösen ordet som har upphört att gälla
 1. Starta tjänsten StorSimple Manager i den klassiska Azure-portalen.
-2. Klicka på **enheter** > **Konfigurera** för enheten.
+2. Klicka på **enheter**  >  **Konfigurera** för enheten.
 3. Rulla ned till avsnittet StorSimple Snapshot Manager. Ange ett lösen ord som är 14-15 tecken. Se till att lösen ordet innehåller en blandning av versaler, gemener, siffror och specialtecken.
 4. Bekräfta genom att ange lösen ordet igen.
 5. Klicka på **Spara** längst ned på sidan.

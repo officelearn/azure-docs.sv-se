@@ -3,25 +3,25 @@ title: Anpassad start sida för publicerade appar – Azure AD-programproxy
 description: Beskriver grunderna för Azure AD-programproxy-kopplingar
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1621b273f617955a374ed46d9c215ba99e5b2913
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275604"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764884"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad start sida för publicerade appar med hjälp av Azure AD-programproxy
 
@@ -31,9 +31,9 @@ När en användare startar appen dirigeras de som standard till rot domänens UR
 
 Här är ett scenario som förklarar varför företaget skulle ange en anpassad start sida:
 
-- I företags nätverket går en användare att `https://ExpenseApp/login/login.aspx` logga in och komma åt din app.
+- I företags nätverket går en användare att `https://ExpenseApp/login/login.aspx` Logga in och komma åt din app.
 - Eftersom du har andra till gångar (till exempel bilder) som programproxyn behöver åtkomst till på den översta nivån i mappstrukturen, publicerar du appen med `https://ExpenseApp` som den interna URL: en.
-- Den externa standard-URL `https://ExpenseApp-contoso.msappproxy.net`: en är, som inte tar en extern användare till inloggnings sidan.
+- Den externa standard-URL: en är `https://ExpenseApp-contoso.msappproxy.net` , som inte tar en extern användare till inloggnings sidan.
 - Du vill ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som start sidans URL i stället, så att en extern användare ser inloggnings sidan först.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Innan du anger URL: en för start sidan bör du tänka på följande:
 
 - Den sökväg du anger måste vara en under domäns sökväg till rot domänens URL.
 
-  Om rot domänens URL till exempel är `https://apps.contoso.com/app1/`, måste den URL för start sidan som du konfigurerar starta med. `https://apps.contoso.com/app1/`
+  Om rot domänens URL till exempel är `https://apps.contoso.com/app1/` , måste den URL för start sidan som du konfigurerar starta med `https://apps.contoso.com/app1/` .
 
 - Om du gör en ändring i den publicerade appen kan ändringen återställa värdet för start sidans URL. När du uppdaterar appen i framtiden bör du kontrol lera igen och, om det behövs, uppdatera URL: en för start sidan.
 
@@ -85,7 +85,7 @@ Följ dessa steg för att installera paketet:
    Install-Module -Name AzureAD
    ```
 
-    Använd `-scope currentuser` alternativet om du kör kommandot som icke-administratör.
+    Använd alternativet om du kör kommandot som icke-administratör `-scope currentuser` .
 
 1. Under installationen väljer du **Y** för att installera två paket från NuGet.org. Båda paketen krävs.
 
@@ -105,7 +105,7 @@ Du får appens ObjectId genom att söka efter appen med dess visnings namn eller
    Connect-AzureAD
    ```
 
-1. Hitta appen. I det här exemplet används PowerShell för att hitta ObjectId genom att söka efter appen med visnings namnet `SharePoint`.
+1. Hitta appen. I det här exemplet används PowerShell för att hitta ObjectId genom att söka efter appen med visnings namnet `SharePoint` .
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -127,7 +127,7 @@ Du får appens ObjectId genom att söka efter appen med dess visnings namn eller
 
 ### <a name="update-the-home-page-url"></a>Uppdatera start sidans URL
 
-Skapa URL: en för start sidan och uppdatera din app med det värdet. Fortsätt att använda samma PowerShell-fönster, eller om du använder ett nytt PowerShell-fönster loggar du in på Azure AD-modulen igen `Connect-AzureAD`med. Följ sedan de här stegen:
+Skapa URL: en för start sidan och uppdatera din app med det värdet. Fortsätt att använda samma PowerShell-fönster, eller om du använder ett nytt PowerShell-fönster loggar du in på Azure AD-modulen igen med `Connect-AzureAD` . Följ sedan de här stegen:
 
 1. Skapa en variabel som ska innehålla det ObjectId-värde som du kopierade i föregående avsnitt. (Ersätt det ObjectId-värde som används för i det här SharePoint-exemplet med appens ObjectId-värde.)
 
@@ -147,7 +147,7 @@ Skapa URL: en för start sidan och uppdatera din app med det värdet. Fortsätt 
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-1. Ange start sidans URL till det värde som du vill använda. Värdet måste vara en under domän Sök väg till den publicerade appen. Om du till exempel ändrar Start sidans URL från `https://sharepoint-iddemo.msappproxy.net/` till `https://sharepoint-iddemo.msappproxy.net/hybrid/`, går App-användare direkt till den anpassade start sidan.
+1. Ange start sidans URL till det värde som du vill använda. Värdet måste vara en under domän Sök väg till den publicerade appen. Om du till exempel ändrar Start sidans URL från `https://sharepoint-iddemo.msappproxy.net/` till `https://sharepoint-iddemo.msappproxy.net/hybrid/` , går App-användare direkt till den anpassade start sidan.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"

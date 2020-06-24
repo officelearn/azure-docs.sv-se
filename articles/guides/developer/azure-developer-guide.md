@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245010"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695087"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
@@ -80,7 +80,7 @@ På grund av den kontroll nivå som du har med virtuella datorer kan du köra et
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (utan server)
 
-I stället för att oroa dig för att skapa och hantera ett helt program eller infrastrukturen för att köra din kod, vad gör du om du bara skulle kunna skriva din kod och låta den köras som svar på händelser eller enligt ett schema?  [Azure Functions](../../azure-functions/functions-overview.md) är ett "Server lös"-format som du kan använda för att skriva enbart den kod du behöver. Med Functions kan du utlösa kod körning med HTTP-förfrågningar, Webhooks, moln tjänst händelser eller enligt ett schema. Du kan koda i det utvecklings språk som du väljer, till exempel\#C,\#F, Node. js, python eller php. Med förbruknings-baserad fakturering betalar du bara för den tid som koden körs och Azure skalas efter behov.
+I stället för att oroa dig för att skapa och hantera ett helt program eller infrastrukturen för att köra din kod, vad gör du om du bara skulle kunna skriva din kod och låta den köras som svar på händelser eller enligt ett schema?  [Azure Functions](../../azure-functions/functions-overview.md) är ett "Server lös"-format som du kan använda för att skriva enbart den kod du behöver. Med Functions kan du utlösa kod körning med HTTP-förfrågningar, Webhooks, moln tjänst händelser eller enligt ett schema. Du kan koda i det utvecklings språk som du väljer, till exempel C \# , F \# , Node.js, python eller php. Med förbruknings-baserad fakturering betalar du bara för den tid som koden körs och Azure skalas efter behov.
 
 > **När du ska använda**: Använd Azure Functions när du har kod som utlöses av andra Azure-tjänster, via webbaserade händelser eller enligt ett schema. Du kan också använda funktioner när du inte behöver lägga till ett komplett värdbaserade projekt eller om du bara vill betala för den tid som koden körs. Läs mer i [Azure Functions översikt](../../azure-functions/functions-overview.md).
 >
@@ -96,7 +96,7 @@ Azure Service Fabric är en distribuerad system plattform. Den här plattformen 
 * Deploy
 * Övervakning
 * Uppgradering/uppdatering
-* Rader
+* Tas bort
 
 Appar som körs på en delad pool med datorer kan starta små och skala till hundratals eller tusentals datorer efter behov.
 

@@ -7,20 +7,20 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: fb493154f81eb5ab63ed9593479356fe89552211
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678264"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694716"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Minnesoptimerade Dv2 och Dsv2-serien
 
-Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor. DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell). Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor. DSv2-seriens storlekar körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell). Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 ## <a name="dv2-series-11-15"></a>Dv2-serien 11-15
 
-Dv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell).
+Dv2-seriens storlekar körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell).
 
 ACU: 210–250
 
@@ -41,7 +41,7 @@ Premium Storage caching: stöds inte
 
 ## <a name="dsv2-series-11-15"></a>DSv2-serien 11-15
 
-DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell).
+DSv2-seriens storlekar körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell).
 
 ACU: 210-250 <sup>1</sup>
 

@@ -4,15 +4,15 @@ description: Höjning av nätverksgräns
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76547813"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764273"
 ---
 # <a name="networking-limit-increase"></a>Höjning av nätverksgräns
 
@@ -37,7 +37,7 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
     ![Hjälp + Support](./media/networking-quota-request/help-plus-support.png)
 
-1. Välj **ny supportbegäran**.
+1. Välj **Ny supportbegäran**.
 
     ![Ny supportbegäran](./media/networking-quota-request/new-support-request.png)
 
@@ -69,9 +69,9 @@ Följ instruktionerna nedan om du vill skapa en supportbegäran med **Hjälp + S
 
 Följ de här anvisningarna för att skapa en supportbegäran med hjälp av **användnings** -och kvot i Azure Portal.
 
-1. Från https://portal.azure.comsöker du efter och väljer **prenumerationer**.
+1. Från https://portal.azure.com söker du efter och väljer **prenumerationer**.
 
-    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
+    ![Prenumerationer](./media/networking-quota-request/search-for-suscriptions.png)
 
 1. Välj den prenumeration som behöver en ökad kvot.
 

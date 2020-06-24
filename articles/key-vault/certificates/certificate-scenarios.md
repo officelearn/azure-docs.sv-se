@@ -3,19 +3,18 @@ title: Kom igång med Key Vault-certifikat
 description: I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431948"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765105"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -97,13 +96,19 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
 -   Användaren kan också redigera principen, som fungerar vid tidpunkten för importen, men som innehåller standardinställningar där ingen information har angetts vid import. t.ex. ingen information om utfärdare  
 
 ### <a name="formats-of-import-we-support"></a>Format för import vi stöder
+Azure Key Vault stöder. pem-och. pfx-certifikatfiler för att importera certifikat till Key Vault.
 Vi stöder följande typ av import för fil formatet PEM. Ett enda PEM-kodat certifikat tillsammans med en PKCS # 8-kodad, okrypterad nyckel som har följande
 
 -----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
 -----STARTA PRIVAT NYCKEL----------SLUTEN PRIVAT NYCKEL-----
 
-Vid koppling av certifikat stöder vi 2 PEM-baserade format. Du kan antingen sammanfoga ett enda PKCS # 8-kodat certifikat eller en Base64-kodad P7B-fil. -----BEGIN CERTIFICATE----------END CERTIFICATE-----
+När du importerar certifikatet måste du se till att nyckeln ingår i själva filen. Om du har en privat nyckel separat i ett annat format måste du kombinera nyckeln med certifikatet. Vissa certifikat utfärdare tillhandahåller certifikat i olika format, innan du importerar certifikatet, kontrol lera att de är antingen i. pem eller. PFX-format. 
+
+### <a name="formats-of-merge-csr-we-support"></a>Format för sammanslagen CSR support
+AKV stöder 2 PEM-baserade format. Du kan antingen sammanfoga ett enda PKCS # 8-kodat certifikat eller en Base64-kodad P7B (kedja av certifikat som har signerats av CA) 
+
+-----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
 Vi stöder för närvarande inte EG-nycklar i PEM-format.
 
@@ -123,4 +128,3 @@ Vi stöder för närvarande inte EG-nycklar i PEM-format.
   (4) – din valda CA svarar med ett X509-certifikat.  
 
   (5) – ditt program Slutför den nya skapande av certifikatet med en sammanslagning av X509-certifikatet från din certifikat utfärdare.
-

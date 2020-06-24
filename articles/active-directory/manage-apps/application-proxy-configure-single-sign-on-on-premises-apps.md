@@ -3,25 +3,25 @@ title: SAML enkel inloggning för lokala appar med Azure AD App proxy
 description: Lär dig att tillhandahålla enkel inloggning för lokala program som skyddas med SAML-autentisering. Ge fjärråtkomst till lokala appar med Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803305"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764833"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
@@ -74,7 +74,7 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare**, **svars-URL**och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
 
-3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan bli tillgänglig på Internet via programproxyn. Om din **externa URL** till `https://contosotravel-f128.msappproxy.net` exempel är och den ursprungliga **svars-URL: en** `https://contosotravel.com/acs`var, måste du uppdatera den ursprungliga svars-URL **: en** till. `https://contosotravel-f128.msappproxy.net/acs`
+3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan bli tillgänglig på Internet via programproxyn. Om din **externa URL** till exempel är `https://contosotravel-f128.msappproxy.net` och den ursprungliga **svars-URL: en** var `https://contosotravel.com/acs` , måste du uppdatera den ursprungliga **svars-URL: en** till `https://contosotravel-f128.msappproxy.net/acs` .
 
     ![Ange grundläggande konfigurations data för SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

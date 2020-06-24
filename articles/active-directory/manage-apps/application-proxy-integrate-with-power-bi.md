@@ -3,25 +3,25 @@ title: Få fjärråtkomst till Power BI med Azure AD-programproxy
 description: Beskriver grunderna för hur du integrerar en lokal Power BI med Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 68993a460ba3d6a672a27eb8da5ced85b29d3d12
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610096"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764561"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
@@ -50,7 +50,7 @@ Du kan kontrol lera att SPN har lagts till genom att köra Setspn-kommandot med 
 
 ### <a name="enable-negotiate-authentication"></a>Aktivera Negotiate-autentisering
 
-Om du vill aktivera en rapport Server för att använda Kerberos-autentisering konfigurerar du autentiseringstypen för rapport servern så att den blir RSWindowsNegotiate. Konfigurera den här inställningen med hjälp av filen Rsreportserver. config.
+Om du vill aktivera en rapport Server för att använda Kerberos-autentisering konfigurerar du autentiseringstypen för rapport servern så att den blir RSWindowsNegotiate. Konfigurera den här inställningen med hjälp av rsreportserver.config-filen.
 
 ```xml
 <AuthenticationTypes>
@@ -63,43 +63,43 @@ Om du vill aktivera en rapport Server för att använda Kerberos-autentisering k
 Mer information finns i [Ändra en Reporting Services-konfigurationsfil](https://msdn.microsoft.com/library/bb630448.aspx) och [konfigurera Windows-autentisering på en rapportserver](https://msdn.microsoft.com/library/cc281253.aspx).
 
 ### <a name="ensure-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-reporting-services-application-pool-account"></a>Se till att anslutningen är betrodd för delegering till det SPN som lagts till i repor ting Services-programpoolens konto
-Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar identiteter till repor ting Services-programpoolens konto. Konfigurera KCD genom att aktivera Application Proxy Connector för att hämta Kerberos-biljetter för användare som har autentiserats i Azure AD. Sedan skickar servern kontexten till mål programmet eller repor ting Services i det här fallet.
+Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar identiteter till repor ting Services-programpoolens konto. Konfigurera KCD genom att låta anslutningsprogrammet för programproxy hämta Kerberos-biljetter för användare som har autentiserats i Azure AD. Sedan skickar servern kontexten till mål programmet eller repor ting Services i det här fallet.
 
 Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator:
 
 1. Logga in på en domänkontrollant som domän administratör och öppna sedan **Active Directory användare och datorer**.
 2. Hitta den dator som anslutningen körs på.
-3. Dubbelklicka på datorn och välj sedan fliken **delegering** .
-4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
-5. Välj **Lägg till**och välj sedan **användare eller datorer**.
+3. Dubbelklicka på datorn och välj sedan fliken **Delegering**.
+4. Ställ in inställningarna för delegering på **Den här datorn är endast betrodd för delegering till de tjänster som anges**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
+5. Välj **Lägg till** och välj sedan **Användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto där du har lagt till SPN-namnet i Reporting Services-konfigurationen.
-7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
+7. Klicka på **OK**. Spara ändringarna genom att klicka på **OK** igen.
 
 Mer information finns i [Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>Steg 2: publicera rapport tjänster via Azure AD-programproxy
 
-Nu är du redo att konfigurera Azure AD-programproxy.
+Nu är du redo att konfigurera Azure AD-programproxyn.
 
-1. Publicera rapport tjänster via Application Proxy med följande inställningar. Stegvisa instruktioner om hur du publicerar ett program via programproxy finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **Intern URL**: Ange URL: en till den rapport server som anslutningen kan uppnå i företags nätverket. Kontrol lera att den här URL: en kan kontaktas från den server som anslutningen är installerad på. En bästa praxis är `https://servername/` att använda en toppnivå domän, till exempel för att undvika problem med under Sök vägar som publicerats via programproxyn. Du kan till exempel `https://servername/` använda och `https://servername/reports/` inte `https://servername/reportserver/`eller.
+1. Publicera rapport tjänster via Application Proxy med följande inställningar. Stegvisa instruktioner om hur du publicerar ett program via programproxyn finns i [Publicera program med Azure AD-programproxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   - **Intern URL**: Ange URL: en till den rapport server som anslutningen kan uppnå i företags nätverket. Kontrollera att den här URL:en kan kontaktas från den server som anslutningen är installerad på. Ett bra tips är att använda en toppnivådomän som `https://servername/` för att undvika problem med undersökvägar som publicerats via programproxy. Använd till exempel `https://servername/` och inte `https://servername/reports/` eller `https://servername/reportserver/`.
      > [!NOTE]
-     > Vi rekommenderar att du använder en säker HTTPS-anslutning till rapport servern. Mer information finns i [Konfigurera SSL-anslutningar på en rapport server i enhetligt läge](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) .
-   - **Extern URL**: Ange den offentliga url som Power BI mobilappen ska ansluta till. Det kan till exempel se ut `https://reports.contoso.com` om en anpassad domän används. Om du vill använda en anpassad domän, laddar du upp ett certifikat för domänen och pekar en DNS-post till standard domänen msappproxy.net för ditt program. Detaljerade anvisningar finns [i arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
+     > Vi rekommenderar att du använder en säker HTTPS-anslutning till rapport servern. Mer information finns i [Konfigurera SSL-anslutningar på en rapportserver i enhetligt läge](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017).
+   - **Extern URL**: Ange den offentliga url som Power BI mobilappen ska ansluta till. Det kan till exempel se ut som `https://reports.contoso.com` om en anpassad domän används. Om du vill använda en anpassad domän, laddar du upp ett certifikat för domänen och pekar en DNS-post till standard msappproxy.net-domänen för ditt program. Detaljerade anvisningar finns i [Arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
 
    - **Metod för förautentisering**: Azure Active Directory
 
 2. När din app har publicerats konfigurerar du inställningarna för enkel inloggning med följande steg:
 
-   a. På sidan program i portalen väljer du **enkel inloggning**.
+   a. På sidan program i portalen väljer du **Enkel inloggning**.
 
-   b. För **läge för enkel inloggning**väljer du **integrerad Windows-autentisering**.
+   b. Som **Läge för enkel inloggning** väljer du **Integrerad Windows-autentisering**.
 
-   c. Ange det **interna programmets SPN** till det värde som du angav tidigare.
+   c. Ange **Internt program-SPN** som det värde som du angav tidigare.
 
-   d. Välj den **delegerade inloggnings identitet** för anslutningen som du vill använda för användarens räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Välj **Delegerad inloggningsidentitet** för anslutningen som ska användas för användarnas räkning. Mer information finns i [Arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
-   e. Klicka på **Spara** för att spara ändringarna.
+   e. Klicka på **Spara** för att spara dina ändringar.
 
 Slutför konfigurationen av programmet genom att gå till avsnittet **användare och grupper** och tilldela användare åtkomst till det här programmet.
 
@@ -107,10 +107,10 @@ Slutför konfigurationen av programmet genom att gå till avsnittet **användare
 
 Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du konfigurera program registreringen som skapades automatiskt i steg 2.
 
-1. På sidan Azure Active Directory **Översikt** väljer du **Appregistreringar**.
+1. På sidan **Översikt** i Azure Active Directory väljer du **Appregistreringar**.
 2. Under fliken **alla program** söker du efter det program som du skapade i steg 2.
-3. Välj programmet och välj sedan **autentisering**.
-4. Lägg till följande omdirigerings-URI: er baserat på vilken plattform du använder.
+3. Välj programmet och välj **Autentisering**.
+4. Lägg till följande omdirigerings-URI:er baserat på vilken plattform du använder.
 
    När du konfigurerar appen för Power BI Mobile **iOS**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
@@ -125,7 +125,7 @@ Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du 
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
-   > Omdirigerings-URI: erna måste läggas till för att programmet ska fungera korrekt. Om du konfigurerar appen för både Power BI Mobile iOS och Android lägger du till följande omdirigerings-URI av typen offentlig klient (mobil & Desktop) i listan över omdirigerings-URI: `urn:ietf:wg:oauth:2.0:oob`er som har kon figurer ATS för iOS:.
+   > Omdirigerings-URI:erna måste läggas till för att programmet ska fungera korrekt. Om du konfigurerar appen för både Power BI Mobile iOS och Android lägger du till följande omdirigerings-URI av typen offentlig klient (mobil & Desktop) i listan över omdirigerings-URI: er som har kon figurer ATS för iOS: `urn:ietf:wg:oauth:2.0:oob` .
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>Steg 4: Anslut från Power BI Mobile-appen
 
@@ -135,7 +135,7 @@ Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du 
 
 2. Välj **Anslut**. Du dirigeras till Azure Active Directory inloggnings sida.
 
-3. Ange giltiga autentiseringsuppgifter för användaren och välj **Logga**in. Du ser elementen från din repor ting Services-server.
+3. Ange giltiga autentiseringsuppgifter för användaren och välj **Logga in**. Du ser elementen från din repor ting Services-server.
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Steg 5: Konfigurera Intune-princip för hanterade enheter (valfritt)
 

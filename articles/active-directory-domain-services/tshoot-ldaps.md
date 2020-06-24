@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132171"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733797"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka problem med säker LDAP-anslutning till en Azure Active Directory Domain Services hanterad domän
 
@@ -24,20 +24,20 @@ Program och tjänster som använder LDAP (Lightweight Directory Access Protocol)
 
 Den här artikeln hjälper dig att felsöka problem med säker LDAP-åtkomst i Azure AD DS.
 
-## <a name="common-connection-issues"></a>Vanliga anslutnings problem
+## <a name="common-connection-issues"></a>Vanliga anslutningsproblem
 
-Om du har problem med att ansluta till en Azure AD DS-hanterad domän med säker LDAP kan du läsa följande fel söknings steg. Efter varje fel söknings steg försöker du ansluta till den hanterade Azure AD DS-domänen igen:
+Om du har problem med att ansluta till en Azure AD DS-hanterad domän med säker LDAP kan du läsa följande fel söknings steg. Efter varje fel söknings steg försöker du ansluta till den hanterade domänen igen:
 
 * Utfärdarens kedja av det säkra LDAP-certifikatet måste vara betrodd på klienten. Du kan lägga till rot certifikat utfärdaren (CA) i det betrodda rot certifikat arkivet på klienten för att upprätta förtroendet.
     * Se till att [Exportera och tillämpa certifikatet på klient datorer][client-cert].
 * Kontrol lera att det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i attributen *subject* eller *Alternativt namn på certifikat mottagare* .
     * Granska [kraven för säkra LDAP-certifikat][certs-prereqs] och skapa ett ersättnings certifikat om det behövs.
-* Kontrol lera att LDAP-klienten, till exempel *Ldp. exe* , ansluter till den säkra LDAP-slutpunkten med ett DNS-namn, inte IP-adressen.
-    * Certifikatet som används för den hanterade Azure AD DS-domänen innehåller inte tjänstens IP-adresser, bara DNS-namnen.
-* Kontrol lera DNS-namnet som LDAP-klienten ansluter till. Den måste matcha den offentliga IP-adressen för säker LDAP på den hanterade domänen i Azure AD DS.
+* Kontrol lera att LDAP-klienten, till exempel *ldp.exe* ansluter till en säker LDAP-slutpunkt med ett DNS-namn, inte IP-adressen.
+    * Certifikatet som tillämpas på den hanterade domänen innehåller inte tjänstens IP-adresser, bara DNS-namnen.
+* Kontrol lera DNS-namnet som LDAP-klienten ansluter till. Den måste matcha den offentliga IP-adressen för säker LDAP på den hanterade domänen.
     * Om DNS-namnet matchar den interna IP-adressen uppdaterar du DNS-posten för att matcha den externa IP-adressen.
 * För extern anslutning måste nätverks säkerhets gruppen innehålla en regel som tillåter trafik till TCP-port 636 från Internet.
-    * Om du kan ansluta till den hanterade Azure AD DS-domänen med hjälp av säker LDAP från resurser som är direkt anslutna till det virtuella nätverket, men inte externa anslutningar, kontrollerar du att du [skapar en regel för nätverks säkerhets grupper för att tillåta säker LDAP-trafik][ldaps-nsg].
+    * Om du kan ansluta till den hanterade domänen med hjälp av säker LDAP från resurser som är direkt anslutna till det virtuella nätverket, men inte externa anslutningar, måste du se till att [skapa en regel för nätverks säkerhets grupper för att tillåta säker LDAP-trafik][ldaps-nsg].
 
 ## <a name="next-steps"></a>Nästa steg
 

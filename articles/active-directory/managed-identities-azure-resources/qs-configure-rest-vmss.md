@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hanterade identiteter på Azure-VMSS med REST-Azure AD
-description: Steg för steg-instruktioner för att konfigurera ett system och användare som tilldelats hanterade identiteter på en Azure-VMSS med hjälp av sväng för att göra REST API-anrop.
+title: Konfigurera hanterade identiteter på skalnings uppsättningen för virtuella Azure-datorer med hjälp av REST-Azure AD
+description: Stegvisa instruktioner för att konfigurera ett system-och användarspecifika hanterade identiteter på en skalnings uppsättning för virtuella Azure-datorer på en skalnings uppsättning REST API för virtuella Azure-datorer med hjälp av sväng
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec0744e4a682bd7ef2c9bb6027392eba2bf2322
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253343"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693711"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med hjälp av REST API-anrop
 
@@ -35,7 +35,7 @@ I den här artikeln använder du en sväng för att ringa till Azure Resource Ma
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - För att utföra hanterings åtgärderna i den här artikeln måste ditt konto ha följande Azure Role-baserade åtkomst kontroll tilldelningar:
 
@@ -47,7 +47,7 @@ I den här artikeln använder du en sväng för att ringa till Azure Resource Ma
     - [Hanterad identitet operatörs](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll för att tilldela och ta bort en användardefinierad identitet från och till en skalnings uppsättning för virtuella datorer.
 - Om du använder Windows installerar du Windows- [undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller använder [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure Portal.
 - [Installera den lokala Azure CLI-konsolen](/cli/azure/install-azure-cli)om du använder [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller ett [Linux-distributions operativ system](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Om du använder en lokal Azure CLI-konsol loggar du in på Azure `az login` med med ett konto som är associerat med den Azure-prenumeration som du vill hantera system eller användarens tilldelade hanterade identiteter.
+- Om du använder en lokal Azure CLI-konsol loggar du in på Azure med `az login` med ett konto som är associerat med den Azure-prenumeration som du vill hantera system eller användarens tilldelade hanterade identiteter.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -78,7 +78,7 @@ Om du vill skapa en skalnings uppsättning för virtuella datorer med systemtill
    az account get-access-token
    ``` 
 
-4. Skapa en skalnings uppsättning för virtuella datorer med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en skalnings uppsättning för virtuella datorer med namnet *myVMSS* i *myResourceGroup* med en systemtilldelad hanterad identitet som identifieras i begär ande texten av `"identity":{"type":"SystemAssigned"}`värdet. Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+4. Skapa en skalnings uppsättning för virtuella datorer med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en skalnings uppsättning för virtuella datorer med namnet *myVMSS* i *myResourceGroup* med en systemtilldelad hanterad identitet som identifieras i begär ande texten av värdet `"identity":{"type":"SystemAssigned"}` . Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -170,10 +170,10 @@ Om du vill aktivera systemtilldelad hanterad identitet på en befintlig virtuell
    az account get-access-token
    ```
 
-2. Använd följande spiral kommando för att anropa Azure Resource Manager REST-slutpunkten för att aktivera systemtilldelad hanterad identitet på den virtuella datorns skalnings uppsättning som identifieras i `{"identity":{"type":"SystemAssigned"}` begär ande texten med värdet för en skalnings uppsättning för virtuell dator med namnet *myVMSS*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+2. Använd följande spiral kommando för att anropa Azure Resource Manager REST-slutpunkten för att aktivera systemtilldelad hanterad identitet på den virtuella datorns skalnings uppsättning som identifieras i begär ande texten med värdet `{"identity":{"type":"SystemAssigned"}` för en skalnings uppsättning för virtuell dator med namnet *myVMSS*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
    
    > [!IMPORTANT]
-   > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning, måste du lista de användare som tilldelats hanterade identiteter med hjälp av `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`det här spiral kommandot:. Om du har tilldelade tilldelade hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning som `identity` identifieras i värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du aktiverar systemtilldelad hanterad identitet på den virtuella datorns skal uppsättning.
+   > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning, måste du lista de användare som tilldelats hanterade identiteter med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har tilldelade tilldelade hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning som identifieras i `identity` värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du aktiverar systemtilldelad hanterad identitet på den virtuella datorns skal uppsättning.
 
    ```bash
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -200,11 +200,11 @@ Om du vill aktivera systemtilldelad hanterad identitet på en befintlig virtuell
     }
    ```
 
-3. Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dators skalnings uppsättning med befintliga användarspecifika hanterade identiteter, `SystemAssigned` måste du `type` lägga till värdet.  
+3. Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dators skalnings uppsättning med befintliga användarspecifika hanterade identiteter, måste du lägga till `SystemAssigned` `type` värdet.  
    
    Om den virtuella datorns skalnings uppsättning till exempel har tilldelade hanterade identiteter `ID1` och `ID2` tilldelats den, och du vill lägga till systemtilldelad hanterad identitet i den virtuella datorns skalnings uppsättning, använder du följande Vändnings samtal. Ersätt `<ACCESS TOKEN>` och `<SUBSCRIPTION ID>` med värden som är lämpliga för din miljö.
 
-   API- `2018-06-01` version lagrar användardefinierad hanterade identiteter i `userAssignedIdentities` värdet i ett Dictionary-format i stället för `identityIds` värdet i ett mat ris format som används i API `2017-12-01`-versionen.
+   API-version `2018-06-01` lagrar användardefinierad hanterade identiteter i `userAssignedIdentities` värdet i ett Dictionary-format i stället för `identityIds` värdet i ett mat ris format som används i API-versionen `2017-12-01` .
    
    **API-VERSION 2018-06-01**
 
@@ -273,7 +273,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en befintlig virtuell
 
 ### <a name="disable-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Inaktivera systemtilldelad hanterad identitet från en skalnings uppsättning för virtuell dator
 
-Om du vill inaktivera en systemtilldelad identitet på en befintlig virtuell dators skalnings uppsättning måste du skaffa en åtkomsttoken och sedan använda spiral för att anropa Resource Manager REST-slutpunkten för att `None`uppdatera identitets typen till.
+Om du vill inaktivera en systemtilldelad identitet på en befintlig virtuell dators skalnings uppsättning måste du skaffa en åtkomsttoken och sedan använda spiral för att anropa Resource Manager REST-slutpunkten för att uppdatera identitets typen till `None` .
 
 1. Hämta en Bearer-åtkomsttoken som du kommer att använda i nästa steg i Authorization-huvudet för att skapa din skalnings uppsättning för virtuella datorer med en systemtilldelad hanterad identitet.
 
@@ -281,10 +281,10 @@ Om du vill inaktivera en systemtilldelad identitet på en befintlig virtuell dat
    az account get-access-token
    ```
 
-2. Uppdatera den virtuella datorns skalnings uppsättning med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten för att inaktivera systemtilldelad hanterad identitet.  I följande exempel inaktive ras systemtilldelad hanterad identitet som identifieras i begär ande texten av `{"identity":{"type":"None"}}` värdet från en skalnings uppsättning för virtuell dator med namnet *myVMSS*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+2. Uppdatera den virtuella datorns skalnings uppsättning med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten för att inaktivera systemtilldelad hanterad identitet.  I följande exempel inaktive ras systemtilldelad hanterad identitet som identifieras i begär ande texten av värdet `{"identity":{"type":"None"}}` från en skalnings uppsättning för virtuell dator med namnet *myVMSS*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
 
    > [!IMPORTANT]
-   > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning, måste du lista de användare som tilldelats hanterade identiteter med hjälp av `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`det här spiral kommandot:. Om du har en användardefinierad hanterad identitet som är tilldelad till den virtuella datorns skal uppsättning går du vidare till steg 3 som visar hur du behåller de tilldelade hanterade identiteterna samtidigt som den systemtilldelade hanterade identiteten tas bort från den virtuella datorns skal uppsättning.
+   > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats till den virtuella datorns skalnings uppsättning, måste du lista de användare som tilldelats hanterade identiteter med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har en användardefinierad hanterad identitet som är tilldelad till den virtuella datorns skal uppsättning går du vidare till steg 3 som visar hur du behåller de tilldelade hanterade identiteterna samtidigt som den systemtilldelade hanterade identiteten tas bort från den virtuella datorns skal uppsättning.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -311,7 +311,7 @@ Om du vill inaktivera en systemtilldelad identitet på en befintlig virtuell dat
     }
    ```
 
-   Om du vill ta bort systemtilldelad hanterad identitet från en skalnings uppsättning för virtuella datorer som `SystemAssigned` har tilldelade hanterade identiteter tar du bort från `{"identity":{"type:" "}}` värdet samtidigt som du behåller `UserAssigned` värdet och värdena för `userAssignedIdentities` ord listan om du använder **API version 2018-06-01**. Behåll `identityIds` matrisen om du använder **API version 2017-12-01** eller tidigare.
+   Om du vill ta bort systemtilldelad hanterad identitet från en skalnings uppsättning för virtuella datorer som har tilldelade hanterade identiteter tar `SystemAssigned` du bort från `{"identity":{"type:" "}}` värdet samtidigt som `UserAssigned` du behåller värdet och `userAssignedIdentities` värdena för ord listan om du använder **API version 2018-06-01**. Behåll matrisen om du använder **API version 2017-12-01** eller tidigare `identityIds` .
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
@@ -339,7 +339,7 @@ I det här avsnittet får du lära dig hur du lägger till och tar bort använda
 
 4. Skapa en användardefinierad hanterad identitet med hjälp av anvisningarna här: [skapa en användardefinierad hanterad identitet](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-5. Skapa en skalnings uppsättning för virtuella datorer med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en skalnings uppsättning för virtuella datorer med namnet *myVMSS* i resurs gruppen *myResourceGroup* med en användardefinierad hanterad `ID1`identitet, som identifieras i begär ande texten med värdet `"identity":{"type":"UserAssigned"}`. Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
+5. Skapa en skalnings uppsättning för virtuella datorer med hjälp av vändning för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en skalnings uppsättning för virtuella datorer med namnet *myVMSS* i resurs gruppen *myResourceGroup* med en användardefinierad hanterad identitet `ID1` , som identifieras i begär ande texten med värdet `"identity":{"type":"UserAssigned"}` . Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du begärde en Bearer-åtkomsttoken och `<SUBSCRIPTION ID>` värdet som passar din miljö.
  
    **API-VERSION 2018-06-01**
 
@@ -612,7 +612,7 @@ I det här avsnittet får du lära dig hur du lägger till och tar bort använda
 
    Lägg till den användarspecifika hanterade identiteten i `userAssignedIdentities` värdet för ord listan.
 
-   Om du till exempel har systemtilldelad hanterad identitet och den tilldelade hanterade identiteten `ID1` som för närvarande är kopplad till den virtuella datorns skala, och vill lägga till den tilldelade `ID2` hanterade identiteten i den:
+   Om du till exempel har systemtilldelad hanterad identitet och den tilldelade hanterade identiteten som `ID1` för närvarande är kopplad till den virtuella datorns skala, och vill lägga till den tilldelade hanterade identiteten `ID2` i den:
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -651,7 +651,7 @@ I det här avsnittet får du lära dig hur du lägger till och tar bort använda
 
    Behåll de användare som tilldelats hanterade identiteter som du vill behålla i `identityIds` mat ris värdet när du lägger till den nya användarspecifika hanterade identiteten.
 
-   Om du till exempel har en systemtilldelad identitet och den tilldelade hanterade identitet `ID1` som har tilldelats till den virtuella datorns skalnings uppsättning och vill lägga till den användardefinierade hanterade identiteten `ID2` i den:
+   Om du till exempel har en systemtilldelad identitet och den tilldelade hanterade identitet som har `ID1` tilldelats till den virtuella datorns skalnings uppsättning och vill lägga till den användardefinierade hanterade identiteten `ID2` i den:
 
     ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -708,11 +708,11 @@ I det här avsnittet får du lära dig hur du lägger till och tar bort använda
    
    Om du har hanterade identiteter som har tilldelats den virtuella datorn visas de i svaret i `identity` värdet. 
     
-   Om du t. ex. har tilldelats användarspecifika hanterade `ID1` identiteter `ID2` och har tilldelats till den virtuella datorns skalnings uppsättning och du bara `ID1` vill behålla den tilldelade och behålla den tilldelade hanterade identiteten:
+   Om du t. ex. har tilldelats användarspecifika hanterade identiteter `ID1` och har `ID2` tilldelats till den virtuella datorns skalnings uppsättning och du bara vill behålla `ID1` den tilldelade och behålla den tilldelade hanterade identiteten:
 
    **API-VERSION 2018-06-01**
 
-   Lägg `null` till i den användare-tilldelade hanterade identitet som du vill ta bort:
+   Lägg till i `null` den användare-tilldelade hanterade identitet som du vill ta bort:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"

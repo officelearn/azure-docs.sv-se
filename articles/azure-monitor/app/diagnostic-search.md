@@ -4,11 +4,11 @@ description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275989"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695665"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
@@ -56,12 +56,12 @@ Då startas vyn transaktions detaljer från slut punkt till slut punkt.
 
 Händelse typerna är:
 
-* **Spåra** - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, log4Net, NLog och system. Diagnostics. trace-anrop.
+* **Spåra**  -  [Diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) , inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
 * **Begär** HTTP-förfrågningar som tagits emot av serverprogrammet, inklusive sidor, skript, bilder, formatfiler och data. Dessa händelser används för att skapa översikts diagram över förfrågningar och svar.
-* **Telemetri för sid visning** - som[skickas av webb klienten](../../azure-monitor/app/javascript.md), används för att skapa sid visnings rapporter.
+* **Sid visning**  -  [Telemetri som skickas av webb klienten](../../azure-monitor/app/javascript.md), används för att skapa sid visnings rapporter.
 * **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](../../azure-monitor/app/api-custom-events-metrics.md)kan du söka efter dem här.
 * **Undantag** – ej fångade [undantag på servern](../../azure-monitor/app/asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
-* **Beroende** - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
+* **Beroende**  -  [Anropar från serverprogrammet](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
 * **Tillgänglighet** – resultat av [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrera efter egenskaps värden

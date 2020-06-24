@@ -3,24 +3,24 @@ title: App-sidan visas inte korrekt för Application Proxy-appen | Microsoft Doc
 description: Vägledning när sidan inte visas korrekt i ett program-proxy-program som du har integrerat med Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780847494da0ec5cd4eb8ab76f1e46125b8a7f8a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68381426"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764425"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Program sidan visas inte korrekt för ett Application Proxy-program
 
@@ -31,7 +31,7 @@ När du publicerar en app proxy är det bara sidor under roten som är tillgäng
 
 Du kan kontrol lera om det finns resurser som saknas genom att öppna nätverks spåraren (till exempel Fiddler eller F12-verktyg i Internet Explorer/Microsoft Edge), läsa in sidan och leta efter 404-fel. Det betyder att det inte går att hitta de sidor som för närvarande finns och att du behöver publicera dem.
 
-Som ett exempel på det här fallet förutsätter vi att du har publicerat ett utgifts program med `http://myapps/expenses`hjälp av den interna URL: en `http://myapps/style.css`, men appen använder format mal len. I det här fallet publiceras inte format mal len i ditt program, så inläsningen av modulen utgifter genererar ett 404-fel vid försök att läsa in Style. CSS. I det här exemplet löses problemet genom att publicera programmet med en intern URL `http://myapp/`.
+Som ett exempel på det här fallet förutsätter vi att du har publicerat ett utgifts program med hjälp av den interna URL `http://myapps/expenses` : en, men appen använder format mal len `http://myapps/style.css` . I det här fallet publiceras inte format mal len i ditt program, så inläsningen av modulen utgifter genererar ett 404-fel vid försök att läsa in Style. CSS. I det här exemplet löses problemet genom att publicera programmet med en intern URL `http://myapp/` .
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problem med att publicera som ett program
 

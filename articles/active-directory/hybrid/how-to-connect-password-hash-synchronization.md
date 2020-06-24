@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e37095a964e656160edbbbc4a325feceb1e48e74
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331371"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749631"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync (Implementera synkronisering av lösenordshash med Azure AD Connect-synkronisering)
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -89,14 +89,13 @@ Om en användare är inom omfånget för synkronisering av lösen ords-hash är 
 
 Du kan fortsätta att logga in på dina moln tjänster genom att använda ett synkroniserat lösen ord som har upphört att gälla i din lokala miljö. Ditt moln lösen ord uppdateras nästa gången du ändrar lösen ordet i den lokala miljön.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Offentlig för hands version av funktionen *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 Om det finns synkroniserade användare som bara interagerar med Azure AD-integrerade tjänster och måste också uppfylla en princip för lösen ords giltighet, kan du tvinga dem att följa din Azure AD-princip för lösen ords giltighet genom att aktivera funktionen *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
 När *EnforceCloudPasswordPolicyForPasswordSyncedUsers* är inaktiverat (vilket är standardinställningen) anger Azure AD Connect attributet PasswordPolicies för synkroniserade användare till "DisablePasswordExpiration". Detta görs varje gång en användares lösen ord synkroniseras och instruerar Azure AD att ignorera lösen ordets giltighets princip för lösen ord för den användaren. Du kan kontrol lera värdet för attributet med hjälp av Azure AD PowerShell-modulen med följande kommando:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 Om du vill aktivera funktionen EnforceCloudPasswordPolicyForPasswordSyncedUsers kör du följande kommando med hjälp av MSOnline PowerShell-modulen som visas nedan. Du skulle behöva skriva Ja för parametern aktivera enligt nedan:
 
@@ -110,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-När den är aktive rad går Azure AD inte till varje synkroniserad användare `DisablePasswordExpiration` för att ta bort värdet från PasswordPolicies-attributet. I stället ställs värdet in på `None` under nästa Lösenordssynkronisering för varje användare nästa gång de ändrar sina lösen ord i lokal AD.  
+När den är aktive rad går Azure AD inte till varje synkroniserad användare för att ta bort `DisablePasswordExpiration` värdet från PasswordPolicies-attributet. I stället ställs värdet in på `None` under nästa Lösenordssynkronisering för varje användare nästa gång de ändrar sina lösen ord i lokal AD.  
 
 Vi rekommenderar att du aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers innan du aktiverar synkronisering av lösen ords-hash, så att den inledande synkroniseringen av lösen ords-hashar inte lägger till `DisablePasswordExpiration` värdet i PasswordPolicies-attributet för användarna.
 
@@ -118,7 +117,7 @@ Standard lösen ords principen för Azure AD kräver att användare ändrar sina
 
 Azure AD har stöd för en separat princip för förfallo datum för lösen ord per registrerad domän.
 
-Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte upphör att gälla i Azure AD måste du uttryckligen lägga `DisablePasswordExpiration` till värdet i PasswordPolicies-attributet för användarobjektet i Azure AD.  Det kan du göra genom att köra följande kommando.
+Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte upphör att gälla i Azure AD måste du uttryckligen lägga till `DisablePasswordExpiration` värdet i PasswordPolicies-attributet för användarobjektet i Azure AD.  Det kan du göra genom att köra följande kommando.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
@@ -126,7 +125,7 @@ Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte 
 > Den här funktionen finns nu i offentlig för hands version.
 > PowerShell-kommandot Set-MsolPasswordPolicy fungerar inte på federerade domäner. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Offentlig för hands version av synkronisering av temporära lösen ord och "tvinga lösen ords ändring vid nästa inloggning"
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synkronisera tillfälliga lösen ord och "tvinga lösen ords ändring vid nästa inloggning"
 
 Det är vanligt att tvinga en användare att ändra sina lösen ord under sin första inloggning, särskilt efter att administratörs lösen ordet har återställts.  Det kallas vanligt vis att ange ett "tillfälligt" lösen ord och slutförs genom att markera flaggan "användaren måste byta lösen ord vid nästa inloggning" på ett användar objekt i Active Directory (AD).
   
@@ -216,7 +215,7 @@ Om servern har låsts enligt Federal Information Processing Standard (FIPS) inak
 **Gör så här för att aktivera MD5 för synkronisering av lösen ords-hash:**
 
 1. Gå till%programfiles%\Azure AD Sync\Bin.
-2. Öppna MIIServer. exe. config.
+2. Öppna miiserver.exe.config.
 3. Gå till noden konfiguration/körning i slutet av filen.
 4. Lägg till följande nod:`<enforceFIPSPolicy enabled="false"/>`
 5. Spara ändringarna.

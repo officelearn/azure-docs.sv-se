@@ -4,15 +4,15 @@ description: Den här sidan innehåller anvisningar för hur du skapar, konfigur
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312420"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808130"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Skapa en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -213,7 +213,7 @@ $getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### <a name="step-2"></a>Steg 2
 
-Använd `Stop-AzApplicationGateway` för att stoppa programgatewayen. I det här exemplet `Stop-AzApplicationGateway` visas cmdleten på den första raden, följt av utdata.
+Använd `Stop-AzApplicationGateway` för att stoppa programgatewayen. I det här exemplet visas `Stop-AzApplicationGateway` cmdleten på den första raden, följt av utdata.
 
 ```powershell
 Stop-AzApplicationGateway -ApplicationGateway $getgw  
@@ -263,5 +263,5 @@ Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway f
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure-Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

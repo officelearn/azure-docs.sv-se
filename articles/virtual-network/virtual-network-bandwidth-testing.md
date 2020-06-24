@@ -7,17 +7,17 @@ documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60743093"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708254"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test av bandbredd/data flöde (NTTTCP)
 
@@ -30,7 +30,7 @@ För det här testet ska de två virtuella datorerna finnas i antingen samma mol
 
 Anteckna MOTTAGAREns IP-adress. Vi kallar IP "a. b. c. r"
 
-Anteckna antalet kärnor på den virtuella datorn. Vi kallar "\#antal\_kärnor"
+Anteckna antalet kärnor på den virtuella datorn. Vi kallar " \# antal \_ kärnor"
 
 Kör NTTTCP-testet i 300 sekunder (eller 5 minuter) på den virtuella datorn och mottagarens VM.
 
@@ -54,35 +54,35 @@ Avsändar parametrar: ntttcp-s 10.27.33.7-t 10-n 1-P 1
 
 Hämta den senaste versionen:<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Eller Sök efter den om den har <https://www.bing.com/search?q=ntttcp+download> \< flyttats:-
+Eller Sök efter den om den har flyttats: <https://www.bing.com/search?q=ntttcp+download> \< -
 
-Överväg att placera NTTTCP i separata mappar, t.\\ex. c: verktyg
+Överväg att placera NTTTCP i separata mappar, t. ex. c: \\ verktyg
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Tillåt NTTTCP via Windows-brandväggen
 På mottagaren skapar du en Tillåt-regel i Windows-brandväggen så att NTTTCP-trafiken kan tas emot. Det är enklast att tillåta hela NTTTCP-programmet med namn istället för att tillåta vissa TCP-portar inkommande.
 
 Tillåt ntttcp via Windows-brandväggen så här:
 
-netsh advfirewall Firewall Add Rule program =\<sökväg\>\\ntttcp. exe Name = "ntttcp" Protocol = any dir = in Action = Allow Enable = Ja Profile = any
+netsh advfirewall Firewall Add Rule program = \<PATH\> \\ntttcp.exe Name = "ntttcp" Protocol = any dir = in Action = Allow Enable = Ja Profile = any
 
-Om du till exempel har kopierat ntttcp. exe till mappen "c\\: Tools", är detta kommandot: 
+Om du till exempel har kopierat ntttcp.exe till mappen "c: \\ Tools", är detta kommandot: 
 
-netsh advfirewall Firewall Add Rule program = c:\\tools\\ntttcp. exe Name = "ntttcp" Protocol = any dir = in Action = Allow Enable = Ja Profile = any
+netsh advfirewall Firewall Add Rule program = c: \\ tools \\ntttcp.exe Name = "ntttcp" Protocol = any dir = in Action = Allow Enable = Ja Profile = any
 
 #### <a name="running-ntttcp-tests"></a>Köra NTTTCP-test
 
 Starta NTTTCP på mottagaren (**Kör från cmd**, inte från PowerShell):
 
-ntttcp-r – m [2\*\#NUM\_kärnor],\*, a. b. c. r-t 300
+ntttcp-r – m [2 \* \# NUM \_ kärnor], \* , a. b. c. r-t 300
 
 Om den virtuella datorn har fyra kärnor och en IP-adress för 10.0.0.4, ser det ut så här:
 
-ntttcp-r – m 8,\*, 10.0.0.4-t 300
+ntttcp-r – m 8, \* , 10.0.0.4-t 300
 
 
 Starta NTTTCP på avsändaren (**Kör från cmd**, inte från PowerShell):
 
-ntttcp – s – m 8,\*, 10.0.0.4-t 300 
+ntttcp – s – m 8, \* , 10.0.0.4-t 300 
 
 Vänta på resultaten.
 
@@ -132,13 +132,13 @@ I det här scenariot ska vi aktivera läget No-Sync så att testet kan köras. D
 
 #### <a name="from-linux-to-windows"></a>Från Linux till Windows:
 
-Mottagarens \<Windows->:
+Mottagare \<Windows> :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Avsändarens \<Linux->:
+Avsändare \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Från Windows till Linux:
 
-Mottagarens \<Linux->:
+Mottagare \<Linux> :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Windows \<-avsändare>:
+Avsändare \<Windows> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

@@ -4,15 +4,15 @@ description: I den här artikeln får du lära dig hur du bäddar in Internet An
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74896372"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744059"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Bädda in Internet Analyzer-klienten
 

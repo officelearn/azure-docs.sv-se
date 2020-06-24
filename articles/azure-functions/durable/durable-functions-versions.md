@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152898"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807848"
 ---
 # <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
@@ -50,19 +50,19 @@ Installera version 2. x av [tillägget Durable Functions bindningar](https://www
 
 Durable Functions 2. x introducerar flera avbrytande ändringar. Durable Functions 1. x-program är inte kompatibla med Durable Functions 2. x utan kod ändringar. I det här avsnittet visas några av de ändringar du måste göra när du uppgraderar dina version 1. x-funktioner till 2. x.
 
-#### <a name="hostjson-schema"></a>Host. JSON-schema
+#### <a name="hostjson-schema"></a>Host.jspå schema
 
-Durable Functions 2. x använder ett nytt Host. JSON-schema. Huvud ändringarna från 1. x är:
+Durable Functions 2. x använder en ny host.jsi schemat. Huvud ändringarna från 1. x är:
 
 * `"storageProvider"`(och `"azureStorage"` underavsnittet) för Storage-speciell konfiguration.
 * `"tracing"`för spårnings-och loggnings konfiguration.
 * `"notifications"`(och `"eventGrid"` underavsnittet) för konfiguration av event Grid-meddelanden.
 
-Mer information finns i [referens dokumentationen för Durable Functions Host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
+Mer information finns i [Durable Functions host.jsi referens dokumentationen](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
 #### <a name="default-taskhub-name-changes"></a>Standard namn ändringar för taskhub
 
-I version 1. x, om ett aktivitets nav namn inte har angetts i Host. JSON, var det som standard "DurableFunctionsHub". I version 2. x härleds nu standard namnet för aktivitets navet från namnet på Function-appen. På grund av detta, om du inte har angett ett aktivitets NAVs namn när du uppgraderar till 2. x, kommer din kod att fungera med New Task Hub och all pågående dirigering kommer inte längre att ha något program som bearbetar dem. För att undvika detta kan du antingen uttryckligen ange namnet på ditt aktivitets nav till v1. x-standardvärdet "DurableFunctionsHub", eller så kan du följa vår [distributions vägledning om noll-nedtid](durable-functions-zero-downtime-deployment.md) för att få mer information om hur du hanterar överstigande ändringar för flyg-och Dirigerings åtgärder.
+I version 1. x, om ett aktivitets nav namn inte angavs i host.jspå, var det som standard "DurableFunctionsHub". I version 2. x härleds nu standard namnet för aktivitets navet från namnet på Function-appen. På grund av detta, om du inte har angett ett aktivitets NAVs namn när du uppgraderar till 2. x, kommer din kod att fungera med New Task Hub och all pågående dirigering kommer inte längre att ha något program som bearbetar dem. För att undvika detta kan du antingen uttryckligen ange namnet på ditt aktivitets nav till v1. x-standardvärdet "DurableFunctionsHub", eller så kan du följa vår [distributions vägledning om noll-nedtid](durable-functions-zero-downtime-deployment.md) för att få mer information om hur du hanterar överstigande ändringar för flyg-och Dirigerings åtgärder.
 
 #### <a name="public-interface-changes-net-only"></a>Offentliga gränssnitts ändringar (endast .NET)
 
@@ -77,8 +77,12 @@ Följande tabell representerar huvud ändringarna:
 | `DurableActivityContext` eller `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-Om en abstrakt basklass innehåller virtuella metoder har de här virtuella metoderna ersatts av tilläggs metoder som definierats i `DurableContextExtensions`.
+Om en abstrakt basklass innehåller virtuella metoder har de här virtuella metoderna ersatts av tilläggs metoder som definierats i `DurableContextExtensions` .
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>function. JSON-ändringar (Java Script och C#-skript)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function.jsvid ändringar (Java Script och C#-skript)
 
-I Durable Functions 1. x använder Dirigerings klientens bindning en `type` av. `orchestrationClient` Version 2. x används `durableClient` i stället.
+I Durable Functions 1. x använder Dirigerings klientens bindning en `type` av `orchestrationClient` . Version 2. x används `durableClient` i stället.
+
+#### <a name="raise-event-changes"></a>Generera händelse ändringar
+
+I Durable Functions 1. x anropar API: et för [öknings händelser](durable-functions-external-events.md#send-events) och anger en instans som inte fanns resulterade i ett tyst haveri läge. Från och med 2. x, vilket utlöser en händelse till ett obefintligt Dirigerings resultat resulterar det i ett undantag.

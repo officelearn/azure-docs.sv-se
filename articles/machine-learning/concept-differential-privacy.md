@@ -9,18 +9,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9570724fdff3018c1dbcf76c15a9db8db0d68364
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447836"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982670"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Bevara data sekretessen med hjälp av differentiell sekretess och WhiteNoise-paketet
 
 Lär dig vad differentiell sekretess är och hur WhiteNoise-paketet kan hjälpa dig att implementera Differentiellt privata system.
 
 Eftersom den mängd data som en organisation samlar in och använder för analyser ökar, så kan du läsa sekretess och säkerhet. Analyser kräver data. Normalt är de mer data som används för att träna modeller, desto mer exakta är de. När person uppgifter används för dessa analyser är det särskilt viktigt att data förblir privata under hela användningen.
+
+> [!NOTE]
+> Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
 ## <a name="how-differential-privacy-works"></a>Hur differentiell integritet fungerar
 

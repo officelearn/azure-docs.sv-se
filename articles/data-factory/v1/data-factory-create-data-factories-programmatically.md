@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931320"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248317"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -50,7 +50,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```powershell
     Get-AzSubscription
     ```
-4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
+4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt; NameOfAzureSubscription** &gt; med namnet på din Azure-prenumeration.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -98,9 +98,9 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
-* Klient-ID:t
+* Klientorganisations-ID
 * Prenumerations-ID:t
-* Program-ID:t
+* Program-ID
 * Lösenord (anges i det första kommandot)
 
 ## <a name="walkthrough"></a>Genomgång
@@ -120,7 +120,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 3. I **Package Manager Console** gör du följande steg:
    1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Ersätt innehållet i **app. config** -filen i projektet med följande innehåll: 
+4. Ersätt innehållet i **App.config** -filen i projektet med följande innehåll: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -137,7 +137,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         </appSettings>
     </configuration>
     ```
-5. Uppdatera värden för ** &lt;program-ID&gt;**, ** &lt;lösen ord&gt;**, ** &lt;prenumerations-ID&gt;** och ** &lt;klient-ID&gt; ** med dina egna värden i filen app. config.
+5. I App.Config-filen uppdaterar du värden för ** &lt; program- &gt; ID**, ** &lt; lösen ord &gt; **, ** &lt; prenumerations-ID &gt; **och ** &lt; klient-ID &gt; ** med dina egna värden.
 6. Lägg till följande **using** -uttryck i **program.cs** -filen i projektet.
 
     ```csharp
@@ -453,7 +453,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     John, Doe
     Jane, Doe
     ```
-17. Kör exemplet genom att klicka på **Felsök** -> **Starta fel sökning** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
+17. Kör exemplet genom att klicka på **Felsök**  ->  **Starta fel sökning** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 18. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
     * Länkad tjänst: **AzureStorageLinkedService**
     * Datauppsättning: **DatasetBlobSource** och **DatasetBlobDestination**.
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande exempel för att skapa en pipeline med .NET SDK som kopierar data från en Azure Blob Storage till en Azure SQL-databas: 
+Se följande exempel för att skapa en pipeline med .NET SDK som kopierar data från en Azure Blob Storage till Azure SQL Database: 
 
 - [Skapa en pipeline för att kopiera data från Blob Storage till SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

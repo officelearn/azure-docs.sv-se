@@ -4,15 +4,15 @@ description: I den här artikeln får du lära dig hur du felsöker Azure-skydds
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab4cc288f2a505baaa8f3a70db0a1fe76fb20c96
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619172"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744076"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Felsöka Azure Bastion
 
@@ -39,7 +39,7 @@ Mer information finns i [NSG-vägledning för Azure skydds](bastion-nsg.md).
 
 Du kan till exempel använda följande kommando för att skapa en ny RSA SSH-nyckel:
 
-**ssh-keygen-t RSA-b 4096-C "email@domain.com"**
+**ssh-keygen-t RSA-b 4096-C " email@domain.com "**
 
 Resultat:
 
@@ -71,7 +71,7 @@ The key's randomart image is:
 
 **F:** Jag kan inte ansluta till den virtuella Windows-datorn som är domänansluten.
 
-**A:** Azure skydds stöder domänanslutna VM-inloggning för användar namn – lösen ords baserad domän inloggning. När du anger domänautentiseringsuppgifter i Azure Portal använder du formatet UPN (username@domain) i stället för formatet *domän \ användar namn* för att logga in. Detta stöds för domänanslutna eller hybrid-anslutna (både domänanslutna och Azure AD-anslutna) virtuella datorer. Det finns inte stöd för virtuella Azure AD-anslutna datorer.
+**A:** Azure skydds stöder domänanslutna VM-inloggning för användar namn – lösen ords baserad domän inloggning. När du anger domänautentiseringsuppgifter i Azure Portal använder du formatet UPN () i username@domain stället för formatet *domän \ användar namn* för att logga in. Detta stöds för domänanslutna eller hybrid-anslutna (både domänanslutna och Azure AD-anslutna) virtuella datorer. Det finns inte stöd för virtuella Azure AD-anslutna datorer.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Fil överförings problem
 

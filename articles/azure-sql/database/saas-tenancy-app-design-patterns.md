@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: efb25a16b5a3ae7de831436d255358aca19b828f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042192"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250722"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>SaaS-databas för flera klient organisationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Varje klient databas distribueras som en enskild databas.  Den här modellen ger
 
 #### <a name="vendor-management"></a>Leverantörs hantering
 
-Leverantören har åtkomst till alla databaser i alla fristående App-instanser, även om app-instanserna är installerade i olika klient prenumerationer.  Åtkomsten uppnås via SQL-anslutningar.  Den här kors instans åtkomsten kan göra det möjligt för leverantören att centralisera schema hantering och kors databas frågor för rapporterings-och analys syfte.  Om den här typen av centraliserad hantering önskas måste en katalog distribueras som mappar klient identifierare till databas-URI: er.  Azure SQL Database tillhandahåller ett horisontell partitionering-bibliotek som används tillsammans med en SQL-databas för att tillhandahålla en katalog.  Horisontell partitionering-biblioteket har formellt namnet [Elastic Database-klient biblioteket][docu-elastic-db-client-library-536r].
+Leverantören har åtkomst till alla databaser i alla fristående App-instanser, även om app-instanserna är installerade i olika klient prenumerationer.  Åtkomsten uppnås via SQL-anslutningar.  Den här kors instans åtkomsten kan göra det möjligt för leverantören att centralisera schema hantering och kors databas frågor för rapporterings-och analys syfte.  Om den här typen av centraliserad hantering önskas måste en katalog distribueras som mappar klient identifierare till databas-URI: er.  Azure SQL Database tillhandahåller ett horisontell partitionering-bibliotek som används tillsammans för att tillhandahålla en katalog.  Horisontell partitionering-biblioteket har formellt namnet [Elastic Database-klient biblioteket][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. App för flera klient organisationer med databas per klient
 

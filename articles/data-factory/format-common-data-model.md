@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: daperlov
-ms.openlocfilehash: 1764036413d6e4f634ed156f7cfb441b4a2bb1e6
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604973"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807807"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,11 +35,11 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara`cdm` | ja | `cdm` | format |
-| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du Model. JSON. | Ja | `'manifest'` eller `'model'` | manifestType |
+| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Yes | `'manifest'` eller `'model'` | manifestType |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | Nej | Sträng | manifestName |
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | No | Sträng | manifestName |
 | Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Tidsstämpel | modifiedAfter <br> modifiedBefore | 
 | Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | Ja, om du använder manifest | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om du använder manifest och sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
@@ -53,35 +53,28 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 
 COMMON data service är endast tillgänglig som en infogad data uppsättning och har som standard inte ett associerat schema. Hämta kolumnens metadata genom att klicka på knappen **Importera schema** på fliken **projektion** . Detta gör att du kan referera till kolumn namn och data typer som anges av sökkorpus. Om du vill importera schemat måste en [fel söknings session för data flöde](concepts-data-flow-debug-mode.md) vara aktiv.
 
-![Importera schema](media/format-common-data-model/import-schema-source.png)
 
-### <a name="cdm-source-example"></a>Exempel på common data service-källa
-
-Bilden nedan är ett exempel på en common data service käll konfiguration i mappnings data flöden.
-
-![COMMON data service-källa](media/format-common-data-model/data-flow-source.png)
-
-Det associerade data flödes skriptet är:
+### <a name="cdm-source-data-flow-script-example"></a>Skript exempel för common data service-käll data flöde
 
 ```
 source(output(
-        ServingSizeId as integer,
-        ServingSize as integer,
-        ServingSizeUomId as string,
-        ServingSizeNote as string,
+        ProductSizeId as integer,
+        ProductColor as integer,
+        CustomerId as string,
+        Note as string,
         LastModifiedDate as timestamp
     ),
     allowSchemaDrift: true,
     validateSchema: false,
-    entity: 'ServingSize.cdm.json/ServingSize',
+    entity: 'Product.cdm.json/Product',
     format: 'cdm',
     manifestType: 'manifest',
-    manifestName: 'ServingSizeManifest',
-    entityPath: 'ServingSize',
-    corpusPath: 'ProductAhold_Updated',
+    manifestName: 'ProductManifest',
+    entityPath: 'Product',
+    corpusPath: 'Products',
     corpusStore: 'adlsgen2',
     adlsgen2_fileSystem: 'models',
-    folderPath: 'ServingSizeData',
+    folderPath: 'ProductData',
     fileSystem: 'data') ~> CDMSource
 ```
 
@@ -95,7 +88,7 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-mottag
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | Nej | Sträng | manifestName |
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | No | Sträng | manifestName |
 | Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | ja | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
 | Enhets referens databas | GitHub-lagringsplatsnamn | Ja, om sökkorpus i GitHub | Sträng | github_repository |
@@ -108,24 +101,20 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-mottag
 | Kolumn avgränsare | Om du skriver till DelimitedText, så här begränsar du kolumner | Ja, om du skriver till DelimitedText | Sträng | columnDelimiter |
 | Första raden som rubrik | Om du använder DelimitedText, om kolumn namnen läggs till som en rubrik | nej | `true` eller `false` | columnNamesAsHeader |
 
-### <a name="cdm-sink-example"></a>Exempel på common data service-mottagare
-
-Bilden nedan är ett exempel på en common data service Sink-konfiguration i mappa data flöden.
-
-![COMMON data service-källa](media/format-common-data-model/data-flow-sink.png)
+### <a name="cdm-sink-data-flow-script-example"></a>Exempel på data flödes skript för common data service-mottagare
 
 Det associerade data flödes skriptet är:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
     validateSchema: false,
-    entity: 'ServingSize.cdm.json/ServingSize',
+    entity: 'Product.cdm.json/Product',
     format: 'cdm',
-    entityPath: 'ServingSize',
-    manifestName: 'ServingSizeManifest',
-    corpusPath: 'ProductAhold_Updated',
+    entityPath: 'ProductSize',
+    manifestName: 'ProductSizeManifest',
+    corpusPath: 'Products',
     partitionPath: 'adf',
-    folderPath: 'ServingSizeData',
+    folderPath: 'ProductSizeData',
     fileSystem: 'cdm',
     subformat: 'parquet',
     corpusStore: 'adlsgen2',

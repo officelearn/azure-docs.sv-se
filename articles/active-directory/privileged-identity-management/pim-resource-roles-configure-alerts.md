@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74023073"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743770"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azures resurs roller i Privileged Identity Management
 
@@ -38,9 +38,9 @@ Välj en avisering om du vill visa en rapport som visar de användare eller roll
 
 | Varning | Severity | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
-| **För många ägare har tilldelats till en resurs** |Medel |För många användare har ägar rollen. |Granska användarna i listan och tilldela om några till mindre privilegierade roller. |
-| **För många permanenta ägare har tilldelats till en resurs** |Medel |För många användare tilldelas permanent till en roll. |Granska användarna i listan och tilldela om några för att kräva aktivering för roll användning. |
-| **En duplicerad roll har skapats** |Medel |Flera roller har samma villkor. |Använd endast en av dessa roller. |
+| **För många ägare har tilldelats till en resurs** |Medium |För många användare har ägar rollen. |Granska användarna i listan och tilldela om några till mindre privilegierade roller. |
+| **För många permanenta ägare har tilldelats till en resurs** |Medium |För många användare tilldelas permanent till en roll. |Granska användarna i listan och tilldela om några för att kräva aktivering för roll användning. |
+| **En duplicerad roll har skapats** |Medium |Flera roller har samma villkor. |Använd endast en av dessa roller. |
 
 ### <a name="severity"></a>Severity
 

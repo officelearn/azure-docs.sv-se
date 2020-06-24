@@ -4,22 +4,22 @@ description: Lär dig hur du använder Azure Portal för att konfigurera en Azur
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74012860"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807903"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure Portal
 
 Den här artikeln beskriver hur du använder Azure Portal för att konfigurera en instans av [Application Gateway v2-SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) för att skriva om HTTP-huvudena i begär Anden och svar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -99,7 +99,7 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
    - I listan **operator** väljer du **lika med (=)**.
 
-   - Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Välj **OK**.
 

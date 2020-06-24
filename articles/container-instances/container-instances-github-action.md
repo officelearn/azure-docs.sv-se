@@ -4,14 +4,14 @@ description: Konfigurera en GitHub-åtgärd som automatiserar stegen för att by
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80258047"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744008"
 ---
-# <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurera en GitHub-åtgärd för att skapa en behållar instans
+# <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurera en GitHub-åtgärd för att skapa en containerinstans
 
 [GitHub-åtgärder](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) är en uppsättning funktioner i GitHub för att automatisera dina arbets flöden för program utveckling på samma plats som du lagrar kod och samarbetar om pull-begäranden och-problem.
 
@@ -33,7 +33,7 @@ Den här artikeln visar två sätt att konfigurera arbets flödet:
 
 ## <a name="prerequisites"></a>Krav
 
-* **GitHub-konto** – skapa ett konto https://github.com på om du inte redan har ett.
+* **GitHub-konto** – skapa ett konto på https://github.com om du inte redan har ett.
 * **Azure CLI** – du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra Azure CLI-stegen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 * **Azure Container Registry** – om du inte har ett kan du skapa ett Azure Container Registry på Basic-nivån med hjälp av [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md), [Azure Portal](../container-registry/container-registry-get-started-portal.md)eller andra metoder. Anteckna resurs gruppen som används för distributionen, som används för GitHub-arbetsflödet.
 
@@ -45,7 +45,7 @@ Den här artikeln visar två sätt att konfigurera arbets flödet:
 
   ![Skärmbild av knappen Förgrening (markerad) i GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Se till att åtgärder är aktiverade för din lagrings plats. Navigera till din förgrenade lagrings plats och välj **Inställningar** > **åtgärder**. I **Åtgärds behörigheter**kontrollerar du att **Aktivera lokala och tredje parts åtgärder för den här lagrings platsen** är markerade.
+* Se till att åtgärder är aktiverade för din lagrings plats. Navigera till din förgrenade lagrings plats och välj **Inställningar**  >  **åtgärder**. I **Åtgärds behörigheter**kontrollerar du att **Aktivera lokala och tredje parts åtgärder för den här lagrings platsen** är markerade.
 
 ## <a name="configure-github-workflow"></a>Konfigurera GitHub-arbetsflöde
 
@@ -53,7 +53,7 @@ Den här artikeln visar två sätt att konfigurera arbets flödet:
 
 I GitHub-arbetsflödet måste du ange Azure-autentiseringsuppgifter för att autentisera till Azure CLI. I följande exempel skapas ett huvud namn för tjänsten med deltagar rollen som är begränsad till resurs gruppen för behållar registret.
 
-Börja med att hämta resurs-ID för resurs gruppen. Ersätt namnet på gruppen i följande [AZ Group show][az-acr-show] -kommando:
+Börja med att hämta resurs-ID för resurs gruppen. Ersätt namnet på gruppen i följande [AZ Group show][az-group-show] -kommando:
 
 ```azurecli
 groupId=$(az group show \
@@ -87,7 +87,7 @@ Utdata liknar följande:
 }
 ```
 
-Spara JSON-utdata eftersom det används i ett senare steg. Anteckna också `clientId`, som du måste uppdatera tjänstens huvud namn i nästa avsnitt.
+Spara JSON-utdata eftersom det används i ett senare steg. Anteckna också `clientId` , som du måste uppdatera tjänstens huvud namn i nästa avsnitt.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Uppdatera tjänstens huvud namn för autentisering av registret
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Spara autentiseringsuppgifter till GitHub lagrings platsen
 
-1. I GitHub-användargränssnittet navigerar du till din förgrenade lagrings plats och väljer **Inställningar** > **hemligheter**. 
+1. I GitHub-användargränssnittet navigerar du till din förgrenade lagrings plats och väljer **Inställningar**  >  **hemligheter**. 
 
 1. Välj **Lägg till en ny hemlighet** för att lägga till följande hemligheter:
 
@@ -120,15 +120,15 @@ az role assignment create \
 |---------|---------|
 |`AZURE_CREDENTIALS`     | Hela JSON-utdata från tjänstens huvud namn skapas |
 |`REGISTRY_LOGIN_SERVER`   | Inloggnings Server namnet för registret (alla gemener). Exempel: *myregistry.Azure.CR.io*        |
-|`REGISTRY_USERNAME`     |  `clientId` Från JSON-utdata från det att tjänstens huvud namn skapas       |
-|`REGISTRY_PASSWORD`     |  `clientSecret` Från JSON-utdata från det att tjänstens huvud namn skapas |
+|`REGISTRY_USERNAME`     |  `clientId`Från JSON-utdata från det att tjänstens huvud namn skapas       |
+|`REGISTRY_PASSWORD`     |  `clientSecret`Från JSON-utdata från det att tjänstens huvud namn skapas |
 | `RESOURCE_GROUP` | Namnet på den resurs grupp som du använde för att omfånget av tjänstens huvud namn |
 
 ### <a name="create-workflow-file"></a>Skapa arbets flödes fil
 
-1. I GitHub-användargränssnittet väljer du **åtgärder** > **nytt arbets flöde**.
+1. I GitHub-användargränssnittet väljer du **åtgärder**  >  **nytt arbets flöde**.
 1. Välj **Konfigurera ett arbets flöde själv**.
-1. I **Redigera ny fil**klistrar du in följande yaml-innehåll för att skriva över exempel koden. Godkänn standard namnet `main.yml`eller ange ett fil namn som du väljer.
+1. I **Redigera ny fil**klistrar du in följande yaml-innehåll för att skriva över exempel koden. Godkänn standard namnet `main.yml` eller ange ett fil namn som du väljer.
 1. Välj **Start commit (om**du vill, ange korta och utökade beskrivningar av ditt genomförande) och välj sedan **genomför ny fil**.
 
 ```yml
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Verifiera arbets flöde
 
-När du har bekräftat arbets flödes filen utlöses arbets flödet. Gå till **Åtgärds** > **arbets flöden**för att granska arbets flödets förlopp. 
+När du har bekräftat arbets flödes filen utlöses arbets flödet. Gå till **Åtgärds**  >  **arbets flöden**för att granska arbets flödets förlopp. 
 
 ![Visa arbets flödes förlopp](./media/container-instances-github-action/github-action-progress.png)
 
@@ -203,7 +203,7 @@ När instansen har allokerats navigerar du till behållarens FQDN i webbläsaren
 
 ## <a name="use-deploy-to-azure-extension"></a>Använd distribuera till Azure-tillägg
 
-Du kan också använda [tillägget distribuera till Azure](https://github.com/Azure/deploy-to-azure-cli-extension) i Azure CLI för att konfigurera arbets flödet. `az container app up` Kommandot i tillägget använder indataparametrar från dig för att konfigurera ett arbets flöde för distribution till Azure Container instances. 
+Du kan också använda [tillägget distribuera till Azure](https://github.com/Azure/deploy-to-azure-cli-extension) i Azure CLI för att konfigurera arbets flödet. `az container app up`Kommandot i tillägget använder indataparametrar från dig för att konfigurera ett arbets flöde för distribution till Azure Container instances. 
 
 Arbets flödet som skapats av Azure CLI liknar det arbets flöde som du kan [Skapa manuellt med GitHub](#configure-github-workflow).
 

@@ -5,15 +5,15 @@ description: Den här artikeln innehåller information om hur du felsöker probl
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5acf4ac1ec75d5cec057e4b66e3c6cbd8a463271
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202544"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808017"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka fel vid tillhörighet mellan Azure Application Gateway-session
 
@@ -97,7 +97,7 @@ Det här problemet uppstår eftersom Internet Explorer och andra webbläsare int
 
 #### <a name="resolution"></a>Lösning
 
-Åtgärda problemet genom att ansluta till Application Gateway med hjälp av ett fullständigt domännamn. Använd [http://website.com](https://website.com/) till exempel eller [http://appgw.website.com](http://website.com/) .
+Åtgärda problemet genom att ansluta till Application Gateway med hjälp av ett fullständigt domännamn. Använd till exempel [http://website.com](https://website.com/) eller [http://appgw.website.com](http://website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Ytterligare loggar för fel sökning
 
@@ -161,7 +161,7 @@ Webb fel söknings verktyg som Fiddler, kan hjälpa dig att felsöka webb progra
 
 Använd den webb fel sökare som du väljer. I det här exemplet ska vi använda Fiddler för att avbilda och analysera http-eller HTTPS-trafik genom att följa anvisningarna:
 
-1. Hämta Fiddler-verktyget på <https://www.telerik.com/download/fiddler>.
+1. Hämta Fiddler-verktyget på <https://www.telerik.com/download/fiddler> .
 
     > [!NOTE]
     > Välj Fiddler4 om du har installerat .NET 4 på den insamlade datorn. Annars väljer du Fiddler2.
@@ -174,7 +174,7 @@ Använd den webb fel sökare som du väljer. I det här exemplet ska vi använda
 
     ![Felsök-session-Affinity-Issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Förmodligen är du intresse rad av dekrypterad HTTPS-trafik och du kan aktivera https-dekryptering genom att välja **verktyg** > **Fiddler alternativ**och markera kryss rutan " **dekryptera HTTPS-trafik**".
+4. Förmodligen är du intresse rad av dekrypterad HTTPS-trafik och du kan aktivera https-dekryptering genom att välja **verktyg**  >  **Fiddler alternativ**och markera kryss rutan " **dekryptera HTTPS-trafik**".
 
     ![Felsöka-session-Affinity-Issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Använd den webb fel sökare som du väljer. I det här exemplet ska vi använda
 
     ![Felsök-session-Affinity-Issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. När du har återskapat problemet sparar du filen för granskning genom att välja **Arkiv** > **Spara** > **alla sessioner..**. 
+6. När du har återskapat problemet sparar du filen för granskning genom att välja **Arkiv**  >  **Spara**  >  **alla sessioner..**. 
 
     ![Felsök-session-Affinity-Issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 

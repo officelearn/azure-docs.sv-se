@@ -11,18 +11,18 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271190"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708220"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Hantera data exfiltrering för att Azure Storage konton med tjänst slut punkts principer för virtuella nätverk med hjälp av Azure CLI
 
@@ -37,7 +37,7 @@ I den här artikeln kan du se hur du:
 * Bekräfta åtkomst till det tillåtna lagrings kontot från under nätet.
 * Bekräfta åtkomst nekas till det icke-tillåtna lagrings kontot från under nätet.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Varje nätverks säkerhets grupp innehåller flera [Standard säkerhets regler](security-overview.md#default-security-rules). Regeln nedan åsidosätter en standard säkerhets regel som tillåter utgående åtkomst till alla offentliga IP-adresser. `destination-address-prefix "Internet"` Alternativet nekar utgående åtkomst till alla offentliga IP-adresser. Den föregående regeln åsidosätter den här regeln, på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
+Varje nätverks säkerhets grupp innehåller flera [Standard säkerhets regler](security-overview.md#default-security-rules). Regeln nedan åsidosätter en standard säkerhets regel som tillåter utgående åtkomst till alla offentliga IP-adresser. `destination-address-prefix "Internet"`Alternativet nekar utgående åtkomst till alla offentliga IP-adresser. Den föregående regeln åsidosätter den här regeln, på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -263,7 +263,7 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Spara resurs-URI för det tillåtna lagrings kontot i en variabel. Innan du kör kommandot nedan ersätter * \<du ditt* prenumerations-ID>med det faktiska värdet för ditt prenumerations-ID.
+Spara resurs-URI för det tillåtna lagrings kontot i en variabel. Innan du kör kommandot nedan ersätter du *\<your-subscription-id>* med det faktiska värdet för ditt prenumerations-ID.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
@@ -313,7 +313,7 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den no
 
 ### <a name="confirm-access-to-storage-account"></a>Bekräfta åtkomst till lagringskontot
 
-SSH till den virtuella *myVmPrivate* -datorn. Ersätt * \<publicIpAddress>* med den offentliga IP-adressen för din *myVmPrivate* -VM.
+SSH till den virtuella *myVmPrivate* -datorn. Ersätt *\<publicIpAddress>* med den offentliga IP-adressen för din virtuella *myVmPrivate* -dator.
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,13 +325,13 @@ Skapa en mapp för en monterings punkt:
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Montera Azure-filresursen i den katalog som du skapade. Innan du kör kommandot nedan ersätter * \<du lagrings kontots nyckel>* med värdet *AccountKey* från **$saConnectionString 1**.
+Montera Azure-filresursen i den katalog som du skapade. Innan du kör kommandot nedan ersätter du *\<storage-account-key>* med värdet *AccountKey* från **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Du får `user@myVmPrivate:~$` meddelandet. Azure-filresursen har monterats på */mnt/MyAzureFileShare*.
+Du får meddelandet `user@myVmPrivate:~$` . Azure-filresursen har monterats på */mnt/MyAzureFileShare*.
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>Bekräfta att åtkomst till lagringskontot nekas
 
@@ -343,7 +343,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 Försök att montera Azure-filresursen från lagrings kontots *notallowedstorageacc* till den katalog som du skapade. Den här artikeln förutsätter att du har distribuerat den senaste versionen av Ubuntu. Om du använder tidigare versioner av Ubuntu kan du läsa mer instruktioner om hur du monterar fil resurser i avsnittet [montera på Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . 
 
-Innan du kör kommandot nedan ersätter * \<du lagrings kontots nyckel>* med värdet *AccountKey* från **$saConnectionString 2**.
+Innan du kör kommandot nedan ersätter du *\<storage-account-key>* med värdet *AccountKey* från **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

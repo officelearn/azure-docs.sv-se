@@ -4,15 +4,15 @@ description: Den här artikeln vägleder dig genom att återställa Azure-VPN Ga
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244425"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982908"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 

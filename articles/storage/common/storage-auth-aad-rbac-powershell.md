@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95d25e4f26abc48f2a734cf8456739e6ef55b84
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460581"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807700"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd PowerShell för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
 
@@ -77,7 +77,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>Köa omfång
 
-Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget `--scope` för-parametern. Omfattningen för en kö är i formatet:
+Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget för- `--scope` parametern. Omfattningen för en kö är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
@@ -93,7 +93,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="storage-account-scope"></a>Lagrings konto omfång
 
-Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings `--scope` konto resursen för parametern. Omfånget för ett lagrings konto har formatet:
+Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings konto resursen för `--scope` parametern. Omfånget för ett lagrings konto har formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>Definitions område för resurs grupp
 
-Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
+Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID för `--resource-group` parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

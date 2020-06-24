@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594544"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242072"
 ---
 ## <a name="common-scenarios"></a>Vanliga scenarier
 Följande scenarier kan dra nytta av burst-överföring:
@@ -24,9 +24,11 @@ Följande scenarier kan dra nytta av burst-överföring:
 ## <a name="bursting-flow"></a>Flödes flöde
 Överförings kredit systemet gäller på samma sätt både på den virtuella datorns nivå och på disk nivå. Din resurs, antingen en virtuell dator eller en disk, kommer att börja med helt aktie krediter. Med dessa krediter kan du överföra i 30 minuter till högsta överföringshastighet. De mellanliggande krediterna ackumuleras när din resurs körs under lagrings gränserna för disk utrymme. För alla IOPS och MB/s som resursen använder under den prestanda gräns som du börjar samla in krediter. Om din resurs har upplupna krediter som ska användas för burst och din arbets belastning behöver extra prestanda, kan din resurs använda dessa krediter för att gå över din prestanda gräns för att ge den den disk-IO-prestanda som krävs för att uppfylla behovet.
 
+
+
 ![Burst-Bucket-diagram](media/managed-disks-bursting/bucket-diagram.jpg)
 
-En sak att notera om burst-ackumulering är att den skiljer sig åt för varje resurs eftersom den baseras på oanvända IOPS och MB/s under deras prestanda belopp. Det innebär att högre bas linje prestanda produkter kan periodisera sina burst-mängder snabbare än att sänka bas linje produkter. Till exempel kommer en tom disk tom gång utan aktivitet att Periodisera 120 IOPS per sekund, medan en P20 disk påbörjar 2 300 IOPS per sekund medan Tom gång utan aktivitet.
+Det är upp till att göra upp till och med hur du vill använda de 30 minuters burst-överföringarna. Du kan använda den i 30 minuter i följd eller sporadiskt under dagen. När produkten har distribuerats kommer den att bli full kredit och när krediten tar slut i mindre än en dag för att helt få ut hela krediten igen. Du kan ackumulera och spendera sina mellanliggande krediter och den 30-minuters Bucket behöver inte vara full till burst. En sak att notera om burst-ackumulering är att den skiljer sig åt för varje resurs eftersom den baseras på oanvända IOPS och MB/s under deras prestanda belopp. Det innebär att högre bas linje prestanda produkter kan periodisera sina burst-mängder snabbare än att sänka bas linje produkter. Till exempel kommer en tom disk tom gång utan aktivitet att Periodisera 120 IOPS per sekund, medan en P20 disk påbörjar 2 300 IOPS per sekund medan Tom gång utan aktivitet.
 
 ## <a name="bursting-states"></a>Burst-tillstånd
 Det finns tre tillstånd som din resurs kan vara aktive rad med burst-aktivering:
@@ -70,7 +72,7 @@ Programmet måste sedan bearbeta ett batch-jobb som kräver 192 MB/s. 2 MB/s anv
 - 2 P10 data diskar 
     - Etablerade MB/s: 250
 
- Efter den första starten körs ett program på den virtuella datorn och har en icke-kritisk arbets belastning. Den här arbets belastningen kräver 30 MB/s som sprids jämnt över alla diskar ![: burst-överföring av icke-burst-disk för virtuella datorer](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Efter den första starten körs ett program på den virtuella datorn och har en icke-kritisk arbets belastning. Den här arbets belastningen kräver 30 MB/s som sprids jämnt över alla diskar: ![ burst-överföring av icke-burst-disk för virtuella datorer](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 Programmet måste sedan bearbeta ett batch-jobb som kräver 600 MB/s. Standard_L8s_v2-bursts för att uppfylla det här kravet och sedan begär att diskarna ska spridas jämnt ut till P50 diskar:
 

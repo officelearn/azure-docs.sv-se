@@ -4,15 +4,15 @@ description: Steg för att konfigurera aviseringar för VPN Gateway diagnostiska
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3417d2b6e105626bceb992db088a4d0113aa798f
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127984"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983095"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för resurs logg händelser från VPN Gateway
 
@@ -45,7 +45,7 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 
    ![Information om hur du skapar en arbets yta för Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
 
-4. Hitta din VPN-gateway på bladet **övervaka** > **diagnostikinställningar inställningar** .
+4. Hitta din VPN-gateway på **Monitor**  >  bladet övervaka**diagnostikinställningar inställningar** .
 
    ![Val för att hitta VPN-gatewayen i diagnostikinställningar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
 

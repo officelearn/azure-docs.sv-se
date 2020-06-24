@@ -8,17 +8,17 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147800"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708237"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med PowerShell
 
@@ -92,9 +92,9 @@ Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera
     -SecurityRules $NSGRule
     ```
 
-6. Definiera NÄTVERKSKORTets primära IP-konfiguration. Ändra 10.0.0.4 till en giltig adress i under nätet som du skapade, om du inte använde värdet som definierades tidigare. Innan du tilldelar en statisk IP-adress rekommenderar vi att du först bekräftar att den inte redan används. Ange kommandot `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Om adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt* och en lista med adresser som är tillgängliga. 
+6. Definiera NÄTVERKSKORTets primära IP-konfiguration. Ändra 10.0.0.4 till en giltig adress i under nätet som du skapade, om du inte använde värdet som definierades tidigare. Innan du tilldelar en statisk IP-adress rekommenderar vi att du först bekräftar att den inte redan används. Ange kommandot `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` . Om adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt* och en lista med adresser som är tillgängliga. 
 
-    I följande kommandon **ersätter \<du Ersätt – med-ditt unika namn> med det unika DNS-namnet som ska användas.** Namnet måste vara unikt för alla offentliga IP-adresser inom en Azure-region. Detta är en valfri parameter. Den kan tas bort om du bara vill ansluta till den virtuella datorn med hjälp av den offentliga IP-adressen.
+    I följande kommandon **ersätter \<replace-with-your-unique-name> du med det unika DNS-namn som ska användas.** Namnet måste vara unikt för alla offentliga IP-adresser inom en Azure-region. Detta är en valfri parameter. Den kan tas bort om du bara vill ansluta till den virtuella datorn med hjälp av den offentliga IP-adressen.
 
     ```powershell
     
@@ -242,7 +242,7 @@ Du kan lägga till privata och offentliga IP-adresser i Azure-nätverks gränssn
 
    **Lägg till en privat IP-adress**
 
-   Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress för 10.0.0.7. När du anger en statisk IP-adress måste den vara en oanvänd adress för under nätet. Vi rekommenderar att du först testar adressen för att se till att den är tillgänglig genom att `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` ange kommandot. Om IP-adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt*, och en lista över adresser som är tillgängliga.
+   Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration. Följande kommando skapar en konfiguration med en statisk IP-adress för 10.0.0.7. När du anger en statisk IP-adress måste den vara en oanvänd adress för under nätet. Vi rekommenderar att du först testar adressen för att se till att den är tillgänglig genom att ange `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` kommandot. Om IP-adressen är tillgänglig returnerar utdata *värdet True*. Om den inte är tillgänglig returnerar utdata *falskt*, och en lista över adresser som är tillgängliga.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `

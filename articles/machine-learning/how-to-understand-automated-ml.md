@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: e424163a2fc07d92eee110396cf8cce57e686622
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431696"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214510"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå resultat från automatiserad maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -265,6 +265,9 @@ En lämplig modell har vanligt vis en klock kurva eller fel runt noll.
 ## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Modellens tolknings-och funktions prioritet
 Med automatisk ML får du en instrument panel för maskin inlärnings tolkning för dina körningar.
 Mer information om hur du aktiverar tolknings funktioner finns i [så här aktiverar du](how-to-machine-learning-interpretability-automl.md) tolkning i automatiserade ml experiment.
+
+> [!NOTE]
+> ForecastTCN-modellen stöds för närvarande inte av förklarings klienten. Den här modellen returnerar ingen förklarings instrument panel om den returneras som den bästa modellen och inte stöder förklarings körningar på begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

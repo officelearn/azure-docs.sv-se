@@ -4,15 +4,15 @@ description: Lär dig hur du skapar en frontend-dörr med Omdirigerad trafik fr�
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878008"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743617"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en frontend-dörr med HTTP till HTTPS-omdirigering med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > * Lägg till en anpassad domän med TLS/SSL-certifikat 
 > * Konfigurera HTTPS-omdirigering på den anpassade domänen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Skapa en frontend-dörr med en befintlig Web App-resurs
 
@@ -40,19 +40,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
      ![Konfigurations design för front dörr](./media/front-door-url-redirect/front-door-designer.png)
 
-6. Klicka på ikonen på _klient dels_ värdarna för att skapa en klient dels värd, ange ett globalt unikt namn för din standard klient dels värd för din front`\<**name**\>.azurefd.net`dörr ().**+** Klicka på **Lägg till** för att fortsätta till nästa steg.
+6. Klicka på **+** ikonen på _klient dels_ värdarna för att skapa en klient dels värd, ange ett globalt unikt namn för din standard klient dels värd för din front dörr ( `\<**name**\>.azurefd.net` ). Klicka på **Lägg till** för att fortsätta till nästa steg.
 
      ![Lägg till en klient dels värd](./media/front-door-url-redirect/front-door-create-fehost.png)
 
-7. **+** Klicka på ikonen på _backend-poolerna_ för att skapa en backend-pool. Ange ett namn för backend-poolen och klicka sedan på**Lägg till en server**del.
+7. Klicka på **+** ikonen på _backend-poolerna_ för att skapa en backend-pool. Ange ett namn för backend-poolen och klicka sedan på**Lägg till en server**del.
 8. Välj server dels värd typen som _App Service_. Välj den prenumeration där din webbapp finns och välj sedan den aktuella webbappen i list rutan för **Server dels värdens namn**.
 9. Klicka på **Lägg** till för att spara Server delen och klicka på **Lägg till** igen för att spara konfiguration av backend-poolen.   ![Lägg till en server del i en backend-pool](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
-10. **+** Klicka på ikonen i _routningsregler_ för att skapa en väg. Ange ett namn för vägen, säg "HttpToHttpsRedirect" och ange sedan fältet _accepterade protokoll_ till **"endast http"**. Kontrol lera att rätt _klient dels värd_ är markerad.  
+10. Klicka på **+** ikonen i _routningsregler_ för att skapa en väg. Ange ett namn för vägen, säg "HttpToHttpsRedirect" och ange sedan fältet _accepterade protokoll_ till **"endast http"**. Kontrol lera att rätt _klient dels värd_ är markerad.  
 11. I avsnittet _flödes information_ anger du vilken typ av _routning_ som ska **omdirigeras**, se till att _omdirigerings typen_ är inställd på **found (302)** och _omdirigerings protokollet_ är inställt på **endast https**. 
 12. Klicka på Lägg till för att spara regeln för omdirigering av HTTP till HTTPS.
      ![Lägg till en HTTP till HTTPS-Omdirigerad väg](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. Lägg till en annan routningsprincip för hantering av HTTPS-trafiken. Klicka på signerings**+** _reglerna_ för "" och ange ett namn för vägen, säg "DefaultForwardingRoute" och ange sedan fältet _accepterade protokoll_ till **"endast https"**. Kontrol lera att rätt _klient dels värd_ är markerad.
+13. Lägg till en annan routningsprincip för hantering av HTTPS-trafiken. Klicka på **+** signerings _reglerna_ för "" och ange ett namn för vägen, säg "DefaultForwardingRoute" och ange sedan fältet _accepterade protokoll_ till **"endast https"**. Kontrol lera att rätt _klient dels värd_ är markerad.
 14. I avsnittet flödes information anger du vilken _typ av routning_ som ska **vidarebefordras**, se till att rätt backend-pool är markerad och att _vidarebefordrings protokollet_ är inställt på **endast https**. 
 15. Klicka på Lägg till för att spara regeln för vidarebefordran av förfrågningar.
      ![Lägg till en vidarebefordrande väg för HTTPS-trafik](./media/front-door-url-redirect/front-door-forward-route-example.png)
@@ -63,13 +63,13 @@ Följande steg visar hur du kan lägga till en anpassad domän på en befintlig 
 
 ### <a name="add-a-custom-domain"></a>Lägga till en anpassad domän
 
-I det här exemplet lägger du till en CNAME-post `www` för under domänen (till exempel `www.contosonews.com`).
+I det här exemplet lägger du till en CNAME-post för under `www` domänen (till exempel `www.contosonews.com` ).
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa en under domän till din frontend-standardklient`<name>.azurefd.net`dels värd `<name>` (, där är namnet på din profil för din front dörr).
+Lägg till en CNAME-post för att mappa en under domän till din frontend-standardklient dels värd ( `<name>.azurefd.net` , där `<name>` är namnet på din profil för din front dörr).
 
-För `www.contoso.com` domänen, till exempel, lägger du till en CNAME-post som mappar namnet `www` till `<name>.azurefd.net`.
+För `www.contoso.com` domänen, till exempel, lägger du till en CNAME-post som mappar namnet `www` till `<name>.azurefd.net` .
 
 När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 
@@ -78,7 +78,7 @@ När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 #### <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på din front dörr
 
 1. På fliken front dörr designer klickar du på ikonen "+" i avsnittet klient dels värdar för att lägga till en ny anpassad domän. 
-2. Ange det fullständigt kvalificerade DNS-namnet i fältet namn på anpassad värd, exempel `www.contosonews.com`. 
+2. Ange det fullständigt kvalificerade DNS-namnet i fältet namn på anpassad värd, exempel `www.contosonews.com` . 
 3. När CNAME-mappningen från domänen till din front dörr har verifierats klickar du på **Lägg till** för att lägga till den anpassade domänen.
 4. Klicka på **Spara** för att skicka ändringarna.
 
@@ -94,7 +94,7 @@ När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 4. Klicka på **Uppdatera** efter några minuter och klicka sedan på den anpassade domänen igen för att se förloppet för certifikat etableringen. 
 
 > [!WARNING]
-> Det kan ta flera minuter att aktivera HTTPS för en anpassad domän, och det beror också på verifiering av domän ägarskap om CNAME-filen inte är direkt `<name>.azurefd.net`mappad till värddatorn för din klient. Läs mer om [hur du aktiverar HTTPS för en anpassad domän](./front-door-custom-domain-https.md).
+> Det kan ta flera minuter att aktivera HTTPS för en anpassad domän, och det beror också på verifiering av domän ägarskap om CNAME-filen inte är direkt mappad till värddatorn för din klient `<name>.azurefd.net` . Läs mer om [hur du aktiverar HTTPS för en anpassad domän](./front-door-custom-domain-https.md).
 
 ## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Konfigurera routningsregler för den anpassade domänen
 

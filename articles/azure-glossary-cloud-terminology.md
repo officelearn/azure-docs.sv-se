@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276483"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807765"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -31,7 +31,7 @@ Ord listan Microsoft Azure är en kort ord lista med moln terminologi för Azure
 
 ## <a name="account"></a>konto
 Ett konto som används för att få åtkomst till och hantera en Azure-prenumeration. Det kallas ofta ett Azure-konto även om ett konto kan vara något av följande: ett befintligt arbets-, skol-eller personliga Microsoft-konto eller ett Office 365-användar namn och lösen ord. Du kan också skapa ett konto för att hantera en Azure-prenumeration när du registrerar dig för den [kostnads fria utvärderings versionen](https://azure.microsoft.com).  
-Se [Registrera dig för en Azure-prenumeration med ditt Office 365-konto](cost-management-billing/manage/office-365-account-for-azure-subscription.md) och- [konton som du kan använda för att logga](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)in.
+Se [Registrera dig för en Azure-prenumeration med ditt Microsoft 365 konto](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) och [konton som du kan använda för att logga](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)in.
 
 ## <a name="api-app"></a>API-app
 Ett annat namn för [App Service-appen](#app-service-app).

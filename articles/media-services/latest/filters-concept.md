@@ -26,7 +26,7 @@ När du levererar ditt innehåll till kunder (direkt uppspelnings händelser ell
 
 Filter är regler på Server sidan som gör det möjligt för dina kunder att göra saker som: 
 
-- Spela bara upp en del av en video (i stället för att spela upp hela videon). Ett exempel:
+- Spela bara upp en del av en video (i stället för att spela upp hela videon). Exempel:
   - Minska manifestet för att visa ett under klipp av en live event ("under klipps filtrering") eller
   - Trimma början på en video ("trimma en video").
 - Leverera endast de angivna åter givningarna och/eller angivna språk spår som stöds av enheten som används för att spela upp innehållet ("åter givnings filtrering"). 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 3087b964ff5f9754d6552fc95625541ce94a6535
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82148000"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807861"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
@@ -45,14 +45,14 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*Logic – App-Name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck`_`(), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*Logic – App-Name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) och punkter ( `.` ). I det här exemplet används "min-First-Logic-app". <p><p>**Obs**: namn för logi Kap par måste vara unika i flera regioner. |
    | **Prenumeration** | <*Azure-prenumeration-namn*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". <p><p>**Obs**: namn för resurs grupper måste vara unika i flera regioner. |
    | **Position** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  >  **gå till resurs** för din distribuerade Logic-app.
 
    ![Gå till en nyligen skapad Logic app-resurs](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 

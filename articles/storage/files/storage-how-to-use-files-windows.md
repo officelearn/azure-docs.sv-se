@@ -4,15 +4,15 @@ description: Lär dig hur du använder en Azure-filresurs med Windows och Window
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 014b980470ee8d0a25df2d6c10f9aa37270d83ab
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773108"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214351"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -30,8 +30,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Inga |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Inga |
 
 <sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
 <sup>2</sup> Windows Server, version 1809, 1903 och 1909.  
@@ -41,41 +41,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
 ## <a name="prerequisites"></a>Krav 
-* **Lagrings konto namn**: om du vill montera en Azure-filresurs behöver du namnet på lagrings kontot.
 
-* **Lagrings konto nyckel**: om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagrings nyckeln. SAS-nycklar stöds inte för montering.
-
-* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
-
-    Följande PowerShell-kod förutsätter att du har installerat Azure PowerShell-modulen. mer information finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) . Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
-
-    ```powershell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-    ```
-
-    Om en anslutning upprättades bör du se följande utdata:
-
-    ```
-    ComputerName     : <storage-account-host-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
-    ```
-
-    > [!Note]  
-    > Ovanstående kommando returnerar den aktuella IP-adressen för lagringskontot. Det är inte säkert att IP-adressen förblir densamma, och den kan ändras när som helst. Hårdkoda inte den här IP-adressen i några skript eller i en brandväggskonfiguration. 
+Se till att port 445 är öppen: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrol lera om brand väggen blockerar port 445 med `Test-NetConnection` cmdleten. Information om hur du kan kringgå en blockerad 445-port finns i [Orsak 1: port 445 är blockerat](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) i vår guide för Windows fel sökning.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 Om du vill använda en Azure-filresurs med Windows måste du antingen montera den, vilket innebär att tilldela den en enhetsbeteckning eller en sökväg för monteringspunkt, eller komma åt den via dess [UNC-sökväg](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
@@ -84,97 +51,31 @@ I den här artikeln används lagrings konto nyckeln för att komma åt fil resur
 
 Ett vanligt mönster för lyftning och skiftande av verksamhetsspecifika program som förväntar sig en SMB-filresurs till Azure är att använda en Azure-filresurs som ett alternativ till att köra en dedikerad Windows-filserver i en Azure-dator. En viktig aspekt för en lyckad migrering av ett verksamhetsspecifikt program till att använda en Azure-filresurs är att många verksamhetsspecifika program kör i kontexten för ett dedikerat tjänstkonto med begränsade systembehörigheter i stället för den virtuella datorns administratörskonto. Därför måste du se till att du monterar/sparar autentiseringsuppgifterna för Azure-filresursen från kontexten för tjänstkontot i stället för ditt administratörskonto.
 
-### <a name="persisting-azure-file-share-credentials-in-windows"></a>Spara autentiseringsuppgifterna för Azure-filresurser i Windows  
-Med [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey)-verktyget kan du lagra autentiseringsuppgifterna för lagringskontot i Windows. Det innebär att när du försöker få åtkomst till en Azure-filresurs via dess UNC-sökväg eller montera Azure-filresursen så behöver du inte ange autentiseringsuppgifter. För att spara autentiseringsuppgifterna för ditt lagringskonto kör du följande PowerShell-kommandon och ersätter `<your-storage-account-name>` och `<your-resource-group-name>` där det är lämpligt.
+### <a name="mount-the-azure-file-share"></a>Montera Azure-filresursen
 
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
+Azure Portal ger dig ett skript som du kan använda för att montera fil resursen direkt på en värd. Vi rekommenderar att du använder det här angivna skriptet.
 
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+Så här hämtar du skriptet:
 
-# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
-# consume the appropriate values from the storage account variables. The value given to the add parameter of the
-# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
-# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
-```
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Navigera till lagrings kontot som innehåller den fil resurs du vill montera.
+1. Välj **fil resurser**.
+1. Välj den fil resurs som du vill montera.
 
-Du kan verifiera att cmdkey-verktyget har lagrat autentiseringsuppgifterna för lagringskontot med hjälp av listparametern:
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exempel":::
 
-```powershell
-cmdkey /list
-```
+1. Välj **Anslut**.
 
-Om autentiseringsuppgifterna för din Azure-filresurs har lagrats korrekt är de utdata som förväntas enligt följande (det kan finnas ytterligare nycklar som lagras i listan):
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Skärm bild av anslutnings ikonen för din fil resurs.":::
 
-```
-Currently stored credentials:
+1. Välj den enhets beteckning som resursen ska monteras på.
+1. Kopiera det medföljande skriptet.
 
-Target: Domain:target=<storage-account-host-name>
-Type: Domain Password
-User: AZURE\<your-storage-account-name>
-```
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exempel text":::
 
-Du bör nu kunna montera eller få åtkomst till resursen utan att behöva ange ytterligare autentiseringsuppgifter.
+1. Klistra in skriptet i ett gränssnitt på den värd som du vill montera fil resursen på och kör den.
 
-#### <a name="advanced-cmdkey-scenarios"></a>Avancerade cmdkey-scenarier
-Det finns två ytterligare scenarier att överväga med cmdkey: lagra autentiseringsuppgifter för en annan användare på datorn, till exempel ett tjänstkonto, och lagra autentiseringsuppgifter på en fjärrdator med hjälp av PowerShell-fjärrkommunikation.
-
-Det är enkelt att lagra autentiseringsuppgifterna för en annan användare på datorn: när du är inloggad på ditt konto kör du bara följande PowerShell-kommando:
-
-```powershell
-$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
-```
-
-Då öppnas ett nytt PowerShell-fönster under användarkontexten för ditt tjänstkonto (eller ett användarkonto). Du kan sedan använda cmdkey-verktyget enligt beskrivningen [ovan](#persisting-azure-file-share-credentials-in-windows).
-
-Däremot går det inte att lagra autentiseringsuppgifterna på en fjärrdator med hjälp av PowerShell-fjärrkommunikation, eftersom cmdkey inte tillåter åtkomst, även för tillägg, till dess autentiseringsuppgiftsarkiv när användaren är inloggad via PowerShell-fjärrkommunikation. Vi rekommenderar inloggning på datorn via [Fjärrskrivbord](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
-
-### <a name="mount-the-azure-file-share-with-powershell"></a>Montera Azure-filresursen med PowerShell
-Kör följande kommandon från en vanlig PowerShell-session (inte en upphöjd) för att montera Azure-filresursen. Kom ihåg att ersätta `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` och `<desired-drive-letter>` med rätt information.
-
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-$fileShareName = "<your-file-share-name>"
-
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
-    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
-}
-
-if ($fileShare -eq $null) {
-    throw [System.Exception]::new("Azure file share not found")
-}
-
-# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
-# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
-# hosts for Azure file shares (and other storage resources).
-$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
-New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
-```
-
-> [!Note]  
-> Vid användning av alternativet `-Persist` på `New-PSDrive`-cmdleten kan filresursen endast återmonteras vid start om autentiseringsuppgifterna sparas. Du kan spara autentiseringsuppgifterna med hjälp av cmdkey enligt [tidigare beskrivning](#persisting-azure-file-share-credentials-in-windows). 
-
-Om du vill kan du demontera Azure-filresursen med hjälp av följande PowerShell-cmdlet.
-
-```powershell
-Remove-PSDrive -Name <desired-drive-letter>
-```
+Nu har du monterat Azure-filresursen.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>Montera Azure-filresursen med Utforskaren
 > [!Note]  
@@ -182,7 +83,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Öppna Utforskaren. Du kan göra detta genom att öppna från startmenyn eller använda tangentbordsgenvägen Win+E.
 
-1. Navigera till objektet **Den här datorn** på vänster sida av fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn Dator väljer du **Anslut nätverksenhet**.
+1. Gå till **den här datorn** till vänster i fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn Dator väljer du **Anslut nätverksenhet**.
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -201,7 +102,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. När du är redo att demontera Azure-filresursen kan du göra det genom att högerklicka på posten för resursen under **Nätverksplatser** i Utforskaren och välja **Koppla från**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Komma åt ögonblicksbilder av resurser från Windows
-Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicks bild av en resurs från [Azure Portal](storage-how-to-use-files-portal.md), [Azure POWERSHELL](storage-how-to-use-files-powershell.md)och [Azure CLI](storage-how-to-use-files-cli.md).
+Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicks bild av en resurs med hjälp av [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md)eller [Azure Portal](storage-how-to-use-files-portal.md).
 
 #### <a name="list-previous-versions"></a>Lista över tidigare versioner
 Bläddra till det objekt eller överordnade objekt som behöver återställas. Dubbelklicka för att gå till den önskade katalogen. Högerklicka och välj **Egenskaper** på menyn.

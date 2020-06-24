@@ -7,26 +7,23 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840646"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807670"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera NSG-flödesloggar från Azure Network Watcher med hjälp av verktyg med öppen källkod
 
 Flödes loggar för nätverks säkerhets grupper innehåller information som kan användas för att förstå inkommande och utgående IP-trafik för nätverks säkerhets grupper. I dessa flödes loggar visas utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, 5 tuple-information om flödet (källa/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
 Dessa flödes loggar kan vara svåra att manuellt parsa och få insikter från. Det finns dock flera verktyg för öppen källkod som kan användas för att visualisera dessa data. I den här artikeln får du en lösning för att visualisera dessa loggar med hjälp av den elastiska stacken som gör att du snabbt kan indexera och visualisera flödes loggar på en Kibana-instrumentpanel.
-
-> [!Warning]  
-> Följande steg fungerar med Flow-loggar version 1. Mer information finns i [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfilerna utan ändringar.
 
 ## <a name="scenario"></a>Scenario
 
@@ -138,6 +135,11 @@ Mer information om hur du installerar elastisk sökning finns i [installations a
                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+                   "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+                   "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+                   "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+                   "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}

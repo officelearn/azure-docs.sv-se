@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8db6140789a9e4f46e368b913cacacd21609ccd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529730"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807612"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Auktorisera åtkomst till data i Azure Storage
 
@@ -25,11 +25,11 @@ I följande tabell beskrivs de alternativ som Azure Storage erbjudanden för att
 
 |  |Delad nyckel (lagrings konto nyckel)  |Signatur för delad åtkomst (SAS)  |Azure Active Directory (Azure AD)  |Lokal Active Directory Domain Services (för hands version) |Anonym offentlig Läs behörighet  |
 |---------|---------|---------|---------|---------|---------|
-|Azure-blobar     |[Stöds](/rest/api/storageservices/authorize-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |[Stöds](storage-auth-aad.md)         |Stöds inte|[Stöds](../blobs/storage-manage-access-to-resources.md)         |
-|Azure Files (SMB)     |[Stöds](/rest/api/storageservices/authorize-with-shared-key/)         |Stöds inte         |[Stöds endast med AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Stöds, autentiseringsuppgifterna måste synkroniseras med Azure AD](../files/storage-files-active-directory-overview.md)|Stöds inte         |
-|Azure Files (REST)     |[Stöds](/rest/api/storageservices/authorize-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |Stöds inte         |Stöds inte |Stöds inte         |
-|Azure Queues     |[Stöds](/rest/api/storageservices/authorize-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |[Stöds](storage-auth-aad.md)         |Stöds inte | Stöds inte         |
-|Azure-tabeller     |[Stöds](/rest/api/storageservices/authorize-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |Stöds inte         |Stöds inte| Stöds inte         |
+|Azure-blobar     |[Tillåtna](/rest/api/storageservices/authorize-with-shared-key/)         |[Tillåtna](storage-sas-overview.md)         |[Tillåtna](storage-auth-aad.md)         |Stöds inte|[Tillåtna](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Files (SMB)     |[Tillåtna](/rest/api/storageservices/authorize-with-shared-key/)         |Stöds inte         |[Stöds endast med AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Stöds, autentiseringsuppgifterna måste synkroniseras med Azure AD](../files/storage-files-active-directory-overview.md)|Stöds inte         |
+|Azure Files (REST)     |[Tillåtna](/rest/api/storageservices/authorize-with-shared-key/)         |[Tillåtna](storage-sas-overview.md)         |Stöds inte         |Stöds inte |Stöds inte         |
+|Azure Queues     |[Tillåtna](/rest/api/storageservices/authorize-with-shared-key/)         |[Tillåtna](storage-sas-overview.md)         |[Tillåtna](storage-auth-aad.md)         |Stöds inte | Stöds inte         |
+|Azure-tabeller     |[Tillåtna](/rest/api/storageservices/authorize-with-shared-key/)         |[Tillåtna](storage-sas-overview.md)         |Stöds inte         |Stöds inte| Stöds inte         |
 
 Varje Authorization-alternativ beskrivs kortfattat nedan:
 

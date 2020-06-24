@@ -9,13 +9,13 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: ozgun
+ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127533"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807651"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
 
@@ -36,7 +36,7 @@ För pris information, inklusive en kostnads fri 30-dagars utvärderings version
 
 Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
 
-### <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Starta [Azure Portal](https://portal.azure.com/).
 1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **avancerad säkerhet**.
@@ -84,7 +84,7 @@ Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton
 
     ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
 

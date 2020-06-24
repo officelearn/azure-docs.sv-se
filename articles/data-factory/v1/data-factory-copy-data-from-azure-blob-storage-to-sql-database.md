@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6c8c93c8721527d506847e394a02fc4eb5a98c47
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118590"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248368"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudie: kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 * **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Mer information finns i artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) .
 * **Azure Storage konto**. Du använder Blob Storage som **käll** data lager i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
-* **Azure SQL Database**. Du använder en Azure SQL-databas som **mål** data lager i den här självstudien. Om du inte har en Azure SQL-databas som du kan använda i självstudien, se [så här skapar och konfigurerar du en Azure SQL Database](../../sql-database/sql-database-get-started.md) att skapa en.
+* **Azure SQL Database**. Du använder Azure SQL Database som **mål** data lager i den här självstudien. Om du inte har en databas i Azure SQL Database som du kan använda i självstudien, se [så här skapar och konfigurerar du en databas i Azure SQL Database](../../sql-database/sql-database-get-started.md) för att skapa en.
 * **SQL Server 2012/2014 eller Visual Studio 2013**. Du kan använda SQL Server Management Studio eller Visual Studio för att skapa en exempel databas och Visa resultat data i-databasen.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Samla in Blob Storage-kontots namn och nyckel
@@ -66,7 +66,7 @@ Du behöver konto namnet och konto nyckeln för ditt Azure Storage-konto för at
 7. Stäng alla blad genom att klicka på **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQL Server, databas, användar namn
-Du behöver namnen på den logiska SQL-servern, databasen och användaren för att göra den här självstudien. Anteckna namn på **Server**, **databas**och **användare** för din Azure SQL-databas.
+Du behöver namnen på den logiska SQL-servern, databasen och användaren för att göra den här självstudien. Anteckna namn på **Server**, **databas**och **användare** för Azure SQL Database.
 
 1. Klicka på **alla tjänster** till vänster i **Azure Portal**och välj SQL- **databaser**.
 2. På **bladet SQL-databaser**väljer du den **databas** som du vill använda i den här självstudien. Anteckna namnet på **databasen**.  
@@ -85,7 +85,7 @@ Kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** **är 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Förbereda Blob Storage och SQL Database
 Förbered nu Azure Blob Storage och Azure SQL Database för självstudien genom att utföra följande steg:  
 
-1. Öppna Anteckningar. Kopiera följande text och spara den som **EMP. txt** i mappen **C:\ADFGetStarted** på hård disken.
+1. Öppna Anteckningar. Kopiera följande text och spara den som **emp.txt** till **C:\ADFGetStarted** -mappen på hård disken.
 
     ```
     John, Doe

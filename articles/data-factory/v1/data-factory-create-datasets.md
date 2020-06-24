@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c97c1be81f1aef393f4aa101fc84972e3ae9ac7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193827"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248292"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -38,7 +38,7 @@ En aktivitet kan ta noll eller fler data **uppsättningar**och skapa en eller fl
 
 Innan du skapar en data uppsättning skapar du en **länkad tjänst** för att länka ditt data lager till data fabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Data uppsättningar identifierar data i länkade data lager, till exempel SQL-tabeller, filer, mappar och dokument. Till exempel länkar en Azure Storage länkad tjänst ett lagrings konto till data fabriken. En Azure Blob-datauppsättning representerar BLOB-behållaren och mappen som innehåller de blobar för indata som ska bearbetas.
 
-Här är ett exempel scenario. Om du vill kopiera data från Blob Storage till en SQL-databas skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två data uppsättningar: Azure Blob-datauppsättningen (som refererar till den Azure Storage länkade tjänsten) och data uppsättningen för Azure SQL-tabellen (som refererar till den Azure SQL Database länkade tjänsten). De länkade tjänsterna Azure Storage och Azure SQL Database innehåller anslutnings strängar som Data Factory använder vid körning för att ansluta till dina Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger BLOB-behållaren och blob-mappen som innehåller blobar för indata i blob-lagringen. Data uppsättningen för Azure SQL-tabellen anger den SQL-tabell i SQL-databasen som data ska kopieras till.
+Här är ett exempel scenario. Om du vill kopiera data från Blob Storage till SQL Database skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två data uppsättningar: Azure Blob-datauppsättningen (som refererar till den Azure Storage länkade tjänsten) och data uppsättningen för Azure SQL-tabellen (som refererar till den Azure SQL Database länkade tjänsten). De länkade tjänsterna Azure Storage och Azure SQL Database innehåller anslutnings strängar som Data Factory använder vid körning för att ansluta till dina Azure Storage respektive Azure SQL Database. Azure Blob-datauppsättningen anger BLOB-behållaren och blob-mappen som innehåller blobar för indata i blob-lagringen. Data uppsättningen för Azure SQL-tabellen anger den SQL-tabell i SQL-databasen som data ska kopieras till.
 
 Följande diagram visar relationerna mellan pipeline, aktivitet, data uppsättning och länkad tjänst i Data Factory:
 
@@ -278,10 +278,10 @@ Följande data uppsättning är månatlig och produceras den tredje i varje mån
 **Princip** avsnittet i data uppsättnings definitionen definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
 ### <a name="validation-policies"></a>Validerings principer
-| Principnamn | Description | Tillämpas på | Obligatorisk | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifierar att data i **Azure Blob Storage** uppfyller minimi kraven för storlek (i megabyte). |Azure Blob Storage |No |NA |
-| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL-databas</li><li>Azure-tabell</li></ul> |No |NA |
+| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |No |NA |
 
 #### <a name="examples"></a>Exempel
 **minimumSizeMB:**

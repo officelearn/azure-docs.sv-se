@@ -7,23 +7,23 @@ documentationcenter: virtual-network
 author: RDhillon
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: d26fd2fec5f9d5ab8e9d82ff2c6bd83b11c72e99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77651272"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708186"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstens slut punkts princip med hjälp av Azure Portal
 
 Med tjänst slut punkts principer kan du filtrera virtuell nätverks trafik till vissa Azure-resurser, över tjänst slut punkter. Om du inte är bekant med tjänstens slut punkts principer kan du läsa mer i [Översikt över tjänst slut punkts principer](virtual-network-service-endpoint-policies-overview.md) .
 
- I den här guiden får du lära dig att:
+ I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en princip för tjänst slut punkt
@@ -31,7 +31,7 @@ Med tjänst slut punkts principer kan du filtrera virtuell nätverks trafik till
 > * Skapa ett virtuellt nätverk med ett undernät
 > * Koppla en tjänst slut punkts princip till ett undernät
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 

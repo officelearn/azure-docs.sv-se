@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: 9e168387afce4fb623c89bffddb72eeda5a3d80b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/10/2020
+ms.openlocfilehash: f7606e2cbe6655801903de62ff9080eba8a0dd53
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606181"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708033"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -64,6 +64,9 @@ Det finns dock begränsningar att tänka på:
    Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
 
 ## <a name="create-a-replica"></a>Skapa en replik
+
+> [!IMPORTANT]
+> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
 
 Om en huvud server inte har några befintliga replik servrar startar originalet om första gången för att förbereda sig för replikering.
 
@@ -158,7 +161,7 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 
 Om du vill uppdatera en av parametrarna ovan på huvud servern, tar du bort replik servrar, uppdaterar parametervärdet i huvud servern och återskapar repliker.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MariaDB-replikerings teknik.

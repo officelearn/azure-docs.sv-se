@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684435"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250357"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat-uppdatering av infrastruktur för Red Hat Enterprise Linux virtuella datorer på begäran i Azure
  Med [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kan moln leverantörer, till exempel Azure, spegla innehåll i Red Hat-värdbaserade databaser, skapa anpassade databaser med Azure-särskilt innehåll och göra det tillgängligt för slutanvändarens virtuella datorer.
@@ -83,7 +83,7 @@ EUS-databaser (Extended Update Support) är tillgängliga för kunder som vill l
 >[!NOTE]
 > EUS stöds inte för RHEL-tillägg. Det innebär att om du installerar ett paket som vanligt vis är tillgängligt från RHEL extra-kanalen, kan du inte göra det på EUS. Den Red Hat extra produkt livs cykeln beskrivs [här](https://access.redhat.com/support/policy/updates/extras/).
 
-När detta skrivs är EUS-supporten avslutad för RHEL <= 7,4. Se avsnittet "Red Hat Enterprise Linux längre support tillägg" i [Red Hat-dokumentationen](https://access.redhat.com/support/policy/updates/errata/) för mer information.
+När detta skrivs är EUS-supporten avslutad för RHEL <= 7,4. Mer information finns i avsnittet "Red Hat Enterprise Linux utökad underhåll" i [Red Hat-dokumentationen](https://access.redhat.com/support/policy/updates/errata/#Long_Support) .
 * RHEL 7,4 EUS-support upphör 31 augusti 2019
 * RHEL 7,5 EUS-support upphör 30 april 2020
 * RHEL 7,6 EUS-support upphör den 31 oktober 2020
@@ -164,13 +164,18 @@ Om du använder en nätverks konfiguration för att ytterligare begränsa åtkom
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>De nya Azure amerikanska regeringen-avbildningarna, från och med januari 2020, kommer att använda den offentliga IP-adressen som anges under Azure Global header ovan.
+
+>[!NOTE]
+>Observera också att Azure Germany är föråldrad i de offentliga regionerna i Tyskland. Rekommendationen för Azure Germany-kunder är att börja peka på offentliga RHUI med hjälp av stegen [här](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## <a name="azure-rhui-infrastructure"></a>Azure RHUI-infrastruktur
 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Uppdatera utgången RHUI-klient certifikat på en virtuell dator
 
-Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-URN: `RedHat:RHEL:7.4:7.4.2018010506` ), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget TLS/SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: det går inte att hämta metadata för databas (repomd. xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
+Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-URN: `RedHat:RHEL:7.4:7.4.2018010506` ), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget TLS/SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: det går inte att hämta metadata för databas (repomd.xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'

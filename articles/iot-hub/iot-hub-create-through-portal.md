@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284738"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708118"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT-hubb med hjälp av Azure Portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "79284738"
 
 Den här artikeln beskriver hur du skapar och hanterar IoT-hubbar med hjälp av [Azure Portal](https://portal.azure.com).
 
-Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -86,7 +86,7 @@ Klicka på **Välj en behållare** för att välja lagrings konto och behållare
 
 För **data källa**väljer du meddelanden om enhets telemetri. 
 
-Lägg sedan till en cirkulations fråga. I det här exemplet dirigeras de meddelanden som har en program `level` egenskap som kallas med ett `critical` värde som är lika med till lagrings kontot.
+Lägg sedan till en cirkulations fråga. I det här exemplet dirigeras de meddelanden som har en program egenskap som kallas `level` med ett värde som är lika med till `critical` lagrings kontot.
 
 ![Skärm bild som visar hur du sparar en ny regel för routning](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 
@@ -112,7 +112,7 @@ Här följer två sätt att hitta en speciell IoT-hubb i din prenumeration:
 
 1. Om du känner till resurs gruppen som IoT-hubben tillhör, klickar du på **resurs grupper**och väljer sedan resurs gruppen i listan. På skärmen resurs grupp visas alla resurser i gruppen, inklusive IoT-hubbar. Klicka på den hubb som du vill se.
 
-2. Klicka på **Alla resurser**. I rutan **alla resurser** finns en listruta som är standard för `All types`. Klicka på list rutan och avmarkera `Select all`. Leta `IoT Hub` upp och markera det. Klicka på list rutan för att stänga den, så kommer posterna att filtreras så att de bara visar dina IoT-hubbar.
+2. Klicka på **Alla resurser**. I rutan **alla resurser** finns en listruta som är standard för `All types` . Klicka på list rutan och avmarkera `Select all` . Leta upp `IoT Hub` och markera det. Klicka på list rutan för att stänga den, så kommer posterna att filtreras så att de bara visar dina IoT-hubbar.
 
 ## <a name="delete-the-iot-hub"></a>Ta bort IoT-hubben
 

@@ -4,20 +4,20 @@ description: Lär dig att publicera en rot-eller Apex-domän till en befintlig f
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878892"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743600"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Publicera en rot-eller Apex-domän på din front dörr
 Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Dessutom exponeras inte klient delens IP-adress som är kopplad till din profil för klient delen och du kan därför inte mappa din Apex-domän till en IP-adress, om avsikten är att publicera den till Azures front dörr.
 
-DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Till exempel om din domän är `contoso.com`. Du kan skapa CNAME-poster `somelabel.contoso.com`för; men du kan inte skapa CNAME `contoso.com` för sig själv. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Azures front dörr. Eftersom du måste skapa en CNAME-post när du använder en profil för en frontend-dörr är det inte möjligt att peka på profilen för den främre dörren från zonens Apex.
+DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Om din domän exempelvis är `contoso.com` , kan du skapa CNAME-poster för `somelabel.contoso.com` , men du kan inte skapa CNAME för `contoso.com` sig själv. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Azures front dörr. Eftersom du måste skapa en CNAME-post när du använder en profil för en frontend-dörr är det inte möjligt att peka på profilen för den främre dörren från zonens Apex.
 
 Det här problemet kan lösas med hjälp av Ali Aset-poster på Azure DNS. Till skillnad från CNAME-poster skapas Alian slut poster i zonens Apex och program ägare kan använda den för att peka sin zon spetsig-post till en profil för en front dörr som har offentliga slut punkter. Program ägare pekar på samma profil för front dörren som används för alla andra domäner i DNS-zonen. Till exempel `contoso.com` och `www.contoso.com` kan peka på samma profil för front dörren. 
 
@@ -48,12 +48,12 @@ I den här artikeln kan du se hur du:
 
     ![Aliasresurspost för Zone Apex](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning "afdverify" (exempel `afdverify.contosonews.com`-) `afdverify.<name>.azurefd.net` som ska användas för att registrera domänen på din profil för din front dörr.
+6. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning "afdverify" (exempel- `afdverify.contosonews.com` ) som `afdverify.<name>.azurefd.net` ska användas för att registrera domänen på din profil för din front dörr.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på din front dörr
 
 1. På fliken front dörr designer klickar du på ikonen "+" i avsnittet klient dels värdar för att lägga till en ny anpassad domän.
-2. Ange rot-eller Apex-domän namnet i fältet namn på anpassad värd, `contosonews.com`exempel.
+2. Ange rot-eller Apex-domän namnet i fältet namn på anpassad värd, exempel `contosonews.com` .
 3. När CNAME-mappningen från domänen till din front dörr har verifierats klickar du på **Lägg till** för att lägga till den anpassade domänen.
 4. Klicka på **Spara** för att skicka ändringarna.
 

@@ -9,87 +9,87 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0672b9769feae65c73a6f752a268968a7bad9e4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502989"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749489"
 ---
-# <a name="pca-based-anomaly-detection"></a>PCA-baserad avvikelseidentifiering
+# <a name="pca-based-anomaly-detection-module"></a>PCA-baserad avvikelse identifierings modul
 
-Den här artikeln beskriver hur du använder den **PCA-baserade modulen för avvikelse identifiering** i Azure Machine Learning designer (för hands version) för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
+Den här artikeln beskriver hur du använder den PCA-baserade modulen för avvikelse identifiering i Azure Machine Learning designer (för hands version) för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
 
-Den här modulen hjälper dig att bygga en modell i scenarier där det är enkelt att hämta tränings data från en klass, till exempel giltiga transaktioner, men är svåra att få tillräckligt med exempel på mål avvikelser. 
+Med den här modulen kan du skapa en modell i scenarier där det är enkelt att hämta tränings data från en klass, till exempel giltiga transaktioner, men svårt att få tillräckligt med exempel på mål avvikelser. 
 
-För att till exempel identifiera bedrägliga transaktioner, är det mycket ofta att du inte har tillräckligt många exempel på bedrägerier att träna på, men har många exempel på bra transaktioner. Den **PCA-baserade modulen för avvikelse identifiering** löser problemet genom att analysera tillgängliga funktioner för att fastställa vad som utgör en "normal"-klass och tillämpa avstånds mått för att identifiera fall som representerar avvikelser. På så sätt kan du träna en modell med befintliga obalanserade data.
+För att till exempel identifiera bedrägliga transaktioner har du ofta inte tillräckligt många exempel på bedrägerier att träna på. Men du kan ha många exempel på användbara transaktioner. Den PCA-baserade modulen för avvikelse identifiering löser problemet genom att analysera tillgängliga funktioner för att fastställa vad som utgör en "normal"-klass. Modulen använder sedan avstånds mått för att identifiera fall som representerar avvikelser. Med den här metoden kan du träna en modell med hjälp av befintliga obalanserade data.
 
 ## <a name="more-about-principal-component-analysis"></a>Mer om analys av huvud objekts komponenter
 
-*Huvud komponent analys*, som ofta är förkortat till PCA, är en etablerad teknik i Machine Learning. PCA används ofta i analys av analys av data, eftersom det visar den inre strukturen i data och förklarar var Ian sen i data.
+PCA är en etablerad teknik i Machine Learning. Det används ofta i analys av analys av data, eftersom det visar den inre strukturen för data och förklarar var Ian sen i data.
 
 PCA fungerar genom att analysera data som innehåller flera variabler. Det söker efter korrelationer mellan variablerna och avgör den kombination av värden som bäst samlar in skillnader i resultat. Dessa kombinerade funktions värden används för att skapa ett mer kompakt funktions utrymme som kallas *huvud komponenter*.
 
-Vid avvikelse identifiering analyseras varje ny indata och algoritmen för avvikelse identifiering beräknar projektionen på eigenvectors, tillsammans med ett normaliserat återuppbyggnads fel. Det normaliserade felet används som avvikelse poäng. Ju högre fel, desto mer avvikande är instansen.
+Vid avvikelse identifiering analyseras varje ny Indatatyp. Algoritmen för avvikelse identifiering beräknar projektionen på eigenvectors, tillsammans med ett normaliserat återuppbyggnads fel. Det normaliserade felet används som avvikelse poäng. Ju högre fel, desto mer avvikande är instansen.
 
 Mer information om hur PCA fungerar och om implementeringen av avvikelse identifiering finns i följande dokument:
 
-- [En slumpmässig algoritm för analys av huvud komponenter](https://arxiv.org/abs/0809.2274). Rokhlin, Szlan och Tygert
+- [En slumpmässig algoritm för huvud komponent analys](https://arxiv.org/abs/0809.2274), av Rokhlin, Szlan och Tygert
 
-- [Hitta strukturen med slumpmässig het: Probabilistic-algoritmer för att konstruera ungefärlig mat ris dekompositioner](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF-nedladdning). Halko, Martinsson och tropp.
+- [Hitta strukturen med slumpmässig het: Probabilistic-algoritmer för att konstruera ungefärlig mat ris dekompositioner](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF-nedladdning), av Halko, Martinsson och Tropp
 
-## <a name="how-to-configure-pca-anomaly-detection"></a>Konfigurera PCA-avvikelse identifiering
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Konfigurera PCA-baserad avvikelse identifiering
 
 1. Lägg till modulen **PCA-baserad avvikelse identifiering** i din pipeline i designern. Du hittar den här modulen i kategorin för **avvikelse identifiering** .
 
-2. I den högra panelen i modulen **PCA-baserad avvikelse identifiering** klickar du på alternativet **tränings läge** och anger om du vill träna modellen med en speciell uppsättning parametrar eller använder en parameter svep för att hitta de bästa parametrarna.
+2. I den högra panelen i modulen väljer du alternativet **tränings läge** . Ange om du vill träna modellen med hjälp av en speciell uppsättning parametrar eller Använd en parameter svep för att hitta de bästa parametrarna.
 
-    - **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.
+    Om du vet hur du vill konfigurera modellen väljer du alternativet **enskild parameter** och anger en viss uppsättning värden som argument.
 
-3. **Antal komponenter som ska användas i PCA**: Ange antalet utmatnings funktioner eller komponenter som du vill mata ut.
+3. För **antalet komponenter som ska användas i PCA**anger du antalet utgångs funktioner eller komponenter som du vill använda.
 
-    Beslutet om hur många komponenter som ska ingå är en viktig del av experiment design med hjälp av PCA. Allmän vägledning är att du inte bör inkludera samma antal PCA-komponenter eftersom det finns variabler. I stället bör du börja med ett mindre antal komponenter och öka dem tills vissa villkor är uppfyllda.
+    Beslutet om hur många komponenter som ska ingå är en viktig del av experiment design som använder PCA. Allmän vägledning är att du inte bör inkludera samma antal PCA-komponenter eftersom det finns variabler. I stället bör du börja med ett mindre antal komponenter och öka antalet komponenter tills villkoret är uppfyllt.
 
-    Det bästa resultatet erhålls när antalet utgående komponenter är **mindre än** antalet funktions kolumner som är tillgängliga i data uppsättningen.
+    Det bästa resultatet erhålls när antalet utgående komponenter är *mindre än* antalet funktions kolumner som är tillgängliga i data uppsättningen.
 
 4. Ange mängden översampling som ska utföras under slumpmässig PCA-utbildning. Vid problem med avvikelse identifiering gör disbalanserade data det svårt att tillämpa standard PCA-tekniker. Genom att ange en mängd översampling kan du öka antalet mål instanser.
 
-    Om du anger 1 utförs ingen översampling. Om du anger ett värde som är högre än 1 genereras ytterligare exempel för användning i träna modellen.
+    Om du anger **1**utförs ingen översampling. Om du anger ett värde som är högre än **1**genereras ytterligare exempel för användning i träna modellen.
 
     Det finns två alternativ, beroende på om du använder en parameter Svep eller inte:
 
-    - **Översamplings parameter för slumpmässig PCA**: Skriv ett enda heltal som representerar förhållandet för översampling av klassen minoritet över klassen normal. (Tillgängligt när du använder inlärnings metoden för **en enda parameter** .)
+    - **Översamplings parameter för slumpmässig PCA**: Skriv ett enda heltal som representerar förhållandet för översampling av klassen minoritet över klassen normal. (Det här alternativet är tillgängligt när du använder övnings metoden för **en parameter** .)
 
     > [!NOTE]
-    > Det går inte att visa den översamplade data uppsättningen. Mer information om hur översampling används med PCA finns i [teknisk information](#technical-notes).
+    > Du kan inte visa den översamplade data uppsättningen. Mer information om hur översampling används med PCA finns i [teknisk information](#technical-notes).
 
-5. **Aktivera indatamängds funktion innebär normalisering**: Välj det här alternativet om du vill normalisera alla inmatade funktioner till ett medelvärde på noll. Normalisering eller skalning till noll rekommenderas vanligt vis för PCA, eftersom syftet med PCA är att maximera variansen mellan variabler.
+5. Välj alternativet **Aktivera indatamängds funktion medelvärde** för att normalisera alla inmatade funktioner till ett medelvärde på noll. Normalisering eller skalning till noll rekommenderas vanligt vis för PCA, eftersom syftet med PCA är att maximera variansen mellan variabler.
 
-     Det här alternativet är markerat som standard. Avmarkera det här alternativet om värdena redan har normaliserats med en annan metod eller skala.
+    Det här alternativet är markerat som standard. Avmarkera det om värdena redan har normaliserats genom en annan metod eller skala.
 
-6. Anslut en data uppsättning för Taggad utbildning och en av inlärnings modulerna:
+6. Anslut en data uppsättning för Taggad utbildning och en av inlärnings modulerna.
 
-    - Om du ställer in alternativet **skapa utbildare läge** för **en enskild parameter**använder du modulen [träna avvikelse identifiering modell](train-anomaly-detection-model.md) .
+   Om du ställer in alternativet **skapa utbildare läge** för **en enskild parameter**använder du modulen [träna avvikelse identifiering modell](train-anomaly-detection-model.md) .
 
 7. Skicka pipelinen.
 
 ## <a name="results"></a>Resultat
 
-När inlärningen är klar kan du antingen spara den tränade modellen eller ansluta den till modulen [Poäng modell](score-model.md) för att förutsäga avvikande poäng.
+När inlärningen är klar kan du spara den tränade modellen. Eller så kan du ansluta den till modulen [Poäng modell](score-model.md) för att förutsäga avvikande poäng.
 
-Utvärdering av resultatet av en modell för avvikelse identifiering kräver vissa ytterligare steg:
+Utvärdera resultatet av en modell för avvikelse identifiering:
 
-1. Se till att en score-kolumn är tillgänglig i båda data uppsättningarna
+1. Se till att en poäng kolumn är tillgänglig i båda data uppsättningarna.
 
-    Om du försöker utvärdera en modell för avvikelse identifiering och får felet "det finns ingen Poäng kolumn i den resulterande data uppsättningen som ska jämföras", innebär det att du använder en typisk utvärderings uppsättning som innehåller en etikett kolumn men inga sannolikhets poäng. Du måste välja en data uppsättning som matchar schemats utdata för avvikelse identifierings modeller, som innehåller en **resultat etikett** och en **resultat** kolumn.
+    Om du försöker utvärdera en modell för avvikelse identifiering och får felet "det finns ingen Poäng kolumn i den returnerade data uppsättningen som ska jämföras", använder du en typisk utvärderings uppsättning som innehåller en etikett kolumn men inga sannolikhets poäng. Välj en data mängd som matchar schemats utdata för avvikelse identifierings modeller, som innehåller **Poäng etiketter** och returnerade **sannolikhets** kolumner.
 
-2. Se till att etikett kolumner är markerade
+2. Se till att etikett kolumner är markerade.
 
-    Ibland tas de metadata som är kopplade till etikett-kolumnen bort i pipeline-diagrammet. Om detta inträffar kan du, när du använder modulen [utvärdera modell](evaluate-model.md) för att jämföra resultaten av två avvikelse identifierings modeller, få felet, "det finns ingen etikett kolumn i den returnerade data uppsättningen" eller "det finns ingen etikett kolumn i den returnerade data uppsättningen som ska jämföras".
+    Ibland tas de metadata som är kopplade till etikett-kolumnen bort i pipeline-diagrammet. Om det händer kan du, när du använder modulen [utvärdera modell](evaluate-model.md) för att jämföra resultaten av två avvikelse identifierings modeller, få felet "det finns ingen etikett kolumn i den returnerade data uppsättningen". Eller så kanske du får felet "det finns ingen etikett kolumn i den returnerade data uppsättningen som ska jämföras".
 
-    Du kan undvika det här felet genom att lägga till modulen [Redigera metadata](edit-metadata.md) innan du kan [utvärdera modell](evaluate-model.md) -modulen. Använd kolumn väljaren för att välja klass kolumnen och välj **etikett**i list rutan **fält** .
+    Du kan undvika de här felen genom att lägga till modulen [Redigera metadata](edit-metadata.md) innan du kan [utvärdera modell](evaluate-model.md) -modulen. Använd kolumn väljaren för att välja klass kolumnen och välj sedan **etikett**i listan **fält** .
 
-3. Använd [execute Python-skript](execute-python-script.md) för att justera etikett kolumn kategorier som 1 (positiv, normal) och 0 (negativt, onormalt).
+3. Använd modulen [Kör Python-skript](execute-python-script.md) för att justera etikett kolumn kategorier som **1 (positiv, normal)** och **0 (negativt, onormalt)**.
 
     ````
     label_column_name = 'XXX'
@@ -100,7 +100,9 @@ Utvärdering av resultatet av en modell för avvikelse identifiering kräver vis
     
 ## <a name="technical-notes"></a>Tekniska anteckningar
 
-Den här algoritmen använder PCA för att approximera det under utrymme som innehåller klassen normal. Under utrymmet sträcks av eigenvectors som är associerat med den översta Eigenvalues i matrisen för data kovarians. För varje ny indata beräknar avvikelse detektorn först sin projektion i eigenvectors och beräknar sedan det normaliserade återuppbyggnads felet. Det här felet är avvikelse poängen. Ju högre fel desto mer avviker instansen. Mer information om hur det normala utrymmet beräknas finns i Wikipedia: [huvud komponent analys](https://wikipedia.org/wiki/Principal_component_analysis) 
+Den här algoritmen använder PCA för att approximera det under utrymme som innehåller den normala klassen. Under utrymmet sträcks av eigenvectors som är associerat med den översta Eigenvalues i matrisen för data kovarians. 
+
+För varje ny indata beräknar avvikelse detektorn först sin projektion i eigenvectors och beräknar sedan det normaliserade återuppbyggnads felet. Det här felet är avvikelse poängen. Ju högre fel desto mer avviker instansen. Mer information om hur det normala utrymmet beräknas finns i Wikipedia: [huvud komponent analys](https://wikipedia.org/wiki/Principal_component_analysis). 
 
 
 ## <a name="next-steps"></a>Nästa steg

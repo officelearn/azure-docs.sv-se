@@ -1,23 +1,23 @@
 ---
-title: Azure-front dörr | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
+title: Konfigurera regel motorn – Azure-front dörr
+description: Den här artikeln beskriver hur du konfigurerar dina regel motorer för Azures front dörr
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4574597c0b93f2985953bfbc815cca220ecc4f28
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ed54f26f37617d420fae1aaf3f51853b0439a349
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515603"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743566"
 ---
 # <a name="configure-your-rules-engine"></a>Konfigurera din regel motor 
 
@@ -34,7 +34,7 @@ ms.locfileid: "82515603"
 
 3. Klicka på **Lägg till regel** för att skapa din första regel. Sedan kan du definiera regeln genom att klicka på **Lägg till villkor** eller **Lägg till åtgärd** . 
     
-    *Noter*
+    *OBS:*
     - Om du vill ta bort ett villkor eller en åtgärd från en regel kan du använda pappers korgen till höger om det aktuella villkoret eller åtgärden.
     - Om du vill skapa en regel som gäller för all inkommande trafik ska du inte ange några villkor. 
     - Om du vill sluta utvärdera reglerna när det första matchnings villkoret är uppfyllt kontrollerar du regeln för att **utvärdera**. 
@@ -45,7 +45,7 @@ ms.locfileid: "82515603"
 
 5. När du har skapat en eller flera regler trycker du på **Spara**. Den här åtgärden skapar en regel motor konfiguration. 
 
-6. När du har skapat en eller flera konfigurationer associerar du en regel motor konfiguration med en väg regel. Även om en enskild konfiguration kan tillämpas på många väg regler får en väg regel bara innehålla en regel motor konfiguration. Om du vill skapa en Association går du till**Dirigerings reglerna**för din **front dörr design** > . Välj den flödes regel som du vill lägga till regel motor konfigurationen till, gå till **flödes information** > **regel motor konfiguration**och välj den konfiguration som du vill koppla. 
+6. När du har skapat en eller flera konfigurationer associerar du en regel motor konfiguration med en väg regel. Även om en enskild konfiguration kan tillämpas på många väg regler får en väg regel bara innehålla en regel motor konfiguration. Om du vill skapa en Association går du **Front Door designer**till  >  **Dirigerings reglerna**för din front dörr design. Välj den flödes regel som du vill lägga till regel motor konfigurationen till, gå till **flödes information**  >  **regel motor konfiguration**och välj den konfiguration som du vill koppla. 
 
 ![Hitta regel motor](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 

@@ -4,18 +4,18 @@ description: 'Lär dig hur du felsöker Application Gateway server fel: 502-webb
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801764"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808146"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka felaktig gateway i Application Gateway
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
+
 Lär dig hur du felsöker Felaktiga Gateway-fel (502) som tas emot när du använder Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -93,7 +93,7 @@ I följande tabell visas de värden som är associerade med standard hälso avs�
 
 * Kontrol lera att en standard plats har kon figurer ATS och att den lyssnar på 127.0.0.1.
 * Om BackendHttpSetting anger en annan port än 80, ska standard platsen konfigureras för att lyssna på den porten.
-* Anropet till `http://127.0.0.1:port` ska returnera en http-resultat kod på 200. Detta bör returneras inom 30 sekunders tids period.
+* Anropet till `http://127.0.0.1:port` ska returnera en HTTP-resultat kod på 200. Detta bör returneras inom 30 sekunders tids period.
 * Kontrol lera att den konfigurerade porten är öppen och att det inte finns några brand Väggs regler eller Azure-nätverks säkerhets grupper, som blockerar inkommande eller utgående trafik på den konfigurerade porten.
 * Om de klassiska virtuella Azure-datorerna eller moln tjänsten används med ett fullständigt domän namn eller en offentlig IP-adress kontrollerar du att motsvarande [slut punkt](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) är öppen.
 * Om den virtuella datorn har kon figurer ATS via Azure Resource Manager och är utanför det virtuella nätverk där programgatewayen distribueras, måste en [nätverks säkerhets grupp](../virtual-network/security-overview.md) konfigureras för att tillåta åtkomst på önskad port.
@@ -111,7 +111,7 @@ Följande ytterligare egenskaper läggs till:
 | Name |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har kon figurer ATS på Application Gateway. Detta skiljer sig från värd namnet för den virtuella datorn. |
-| Sökväg |Den relativa sökvägen för avsökningen. Den giltiga sökvägen börjar från/. Avsökningen skickas till \<Protocol\>://\<Host\>:\<port\>\<Sök väg\> |
+| Sökväg |Den relativa sökvägen för avsökningen. Den giltiga sökvägen börjar från/. Avsökningen skickas till \<protocol\> :// \<host\> :\<port\>\<path\> |
 | Intervall |Avsöknings intervall i sekunder. Detta är ett tidsintervall mellan två på varandra följande avsökningar. |
 | Timeout |Timeout för avsökning i sekunder. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. |
 | Tröskelvärde för ej felfri |Antal nya försök för avsökning. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
@@ -121,8 +121,8 @@ Följande ytterligare egenskaper läggs till:
 Kontrol lera att den anpassade hälso avsökningen är korrekt konfigurerad som föregående tabell. Förutom föregående fel söknings steg kontrollerar du också följande:
 
 * Se till att avsökningen anges korrekt enligt [hand boken](application-gateway-create-probe-ps.md).
-* Om programgatewayen har kon figurer ATS för en enda plats, som standard, ska värd namnet anges `127.0.0.1`som, om inget annat anges i anpassad avsökning.
-* Se till att ett anrop till\<http://\>-\<värden\>\<:\> port Sök väg returnerar en http-resultat kod på 200.
+* Om programgatewayen har kon figurer ATS för en enda plats, som standard, ska värd namnet anges som `127.0.0.1` , om inget annat anges i anpassad avsökning.
+* Se till att ett anrop till http:// \<host\> : \<port\> \<path\> returnerar en http-resultat kod på 200.
 * Se till att intervallet, tids gränsen och UnhealtyThreshold ligger inom de acceptabla intervallen.
 * Om du använder en HTTPS-avsökning kontrollerar du att backend-servern inte kräver SNI genom att konfigurera ett återställnings certifikat på backend-servern.
 

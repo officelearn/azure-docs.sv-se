@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64fb692c7ef896e643db603a6fbc3948cc4b3a11
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77647487"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749644"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 
@@ -23,7 +23,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som är u
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Migrera databaser till Azure med välbekanta verktyg
 
-Azure Database Migration Service integrerar några av funktionerna hos våra befintliga verktyg och tjänster. Den ger kunderna en omfattande lösning med hög tillgänglighet. Tjänsten använder [Data Migration Assistant](https://aka.ms/dma) för att generera utvärderings rapporter som ger rekommendationer för att vägleda dig genom de ändringar som krävs innan migreringen utförs. Det är upp till dig att utföra alla åtgärder som krävs. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg. Du kan tryggt starta och sedan glömma dina migreringsprojekt i vetskap om att processen sker enligt Microsofts bästa praxis.
+Azure Database Migration Service integrerar några av funktionerna hos våra befintliga verktyg och tjänster. Den ger kunderna en omfattande lösning med hög tillgänglighet. Tjänsten använder [Data Migration Assistant](https://aka.ms/dma) för att generera utvärderings rapporter som ger rekommendationer för att vägleda dig genom de ändringar som krävs innan migreringen utförs. Det är upp till dig att utföra alla åtgärder som krävs. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg. Du kan tryggt starta och sedan glömma dina migreringsprojekt i vetskap om att processen sker enligt Microsofts bästa praxis. 
 
 > [!NOTE]
 > Om du använder Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans utifrån pris nivån Premium.

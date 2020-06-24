@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 32543dffa492770d7217fb07652e41baf603ebcc
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195547"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250918"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ I det här avsnittet lär du dig hur du konfigurerar en [grupp för automatisk r
 
 Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure Portal eller PowerShell.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Överväg följande krav:
 
@@ -196,7 +196,7 @@ Redundansväxla till den sekundära servern:
 
 Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azure Portal eller PowerShell.  
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Överväg följande krav:
 
@@ -295,7 +295,7 @@ Redundansväxla din redundansväxling till den sekundära servern och växla sed
 1. Välj **redundans** från åtgärds fönstret för att Redundansväxla din redundansväxling som innehåller den elastiska poolen.
 1. Välj **Ja** i varningen som meddelar dig att TDS-sessioner kommer att kopplas bort.
 
-   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Redundansväxla din redundanskonfiguration som innehåller din databas](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Granska vilken server som är primär, vilken server som är sekundär. Om redundansväxlingen lyckades måste de två servrarna ha växlade roller.
 1. Välj **redundans** igen om du vill att redundans-gruppen ska växla tillbaka till de ursprungliga inställningarna.
@@ -348,7 +348,7 @@ Skapa en grupp för redundans mellan två hanterade instanser i Azure SQL-hanter
 
 Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje SQL-hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Överväg följande krav:
 

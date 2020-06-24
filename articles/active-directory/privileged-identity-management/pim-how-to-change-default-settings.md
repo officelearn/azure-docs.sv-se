@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205032"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743957"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -44,7 +44,7 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 gt
-1. Öppna **Azure AD Privileged Identity Management** &gt; **roll inställningar**för **Azure AD-roller** &gt; .
+1. Öppna **Azure AD Privileged Identity Management** &gt; roll inställningar för **Azure AD-roller** &gt; **Role settings**.
 
     ![Sidan roll inställningar visar Azure AD-roller](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -131,7 +131,7 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Välj **Azure AD-roller**.
 
-1. Välj **Inställningar**.
+1. Välj **inställningar**.
 
     ![Azure AD-roller – inställningar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -167,7 +167,7 @@ Använd växeln **incident/begär biljett** för att kräva att berättigade adm
 
 Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva att användarna verifierar sin identitet med MFA innan de kan aktivera sina roller. De behöver bara verifiera sin identitet en gång per session, inte varje gång de aktiverar en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
-- Användare som har Microsoft-konton för sina e-postadresser @outlook.com(vanligt vis, men inte alltid) kan inte registreras för Azure Multi-Factor Authentication. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera Multi-Factor Authentication för rollen.
+- Användare som har Microsoft-konton för sina e-postadresser (vanligt vis @outlook.com , men inte alltid) kan inte registreras för Azure Multi-Factor Authentication. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera Multi-Factor Authentication för rollen.
 - Det går inte att inaktivera Azure-Multi-Factor Authentication för mycket privilegierade roller för Azure AD och Office 365. Den här säkerhetsfunktionen hjälper till att skydda följande roller:  
   
   - Azure Information Protection administratör
@@ -186,7 +186,7 @@ Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva 
   - Säkerhetsadministratör
   - SharePoint-administratör
   - Skype for Business-administratör
-  - Användar administratör
+  - Användaradministratör
 
 Mer information finns i [Multi-Factor Authentication och Privileged Identity Management](pim-how-to-require-mfa.md).
 

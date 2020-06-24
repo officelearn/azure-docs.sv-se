@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om hur du exponerar en AK
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 2f3f871ccd29456b086d939277d94b5e4eac23c6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795575"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807935"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponera en AKS-tjänst via HTTP eller HTTPS med hjälp av Application Gateway 
 
@@ -27,7 +27,7 @@ De här självstudierna illustrerar användningen av [Kubernetes ingress-resurse
 
 ## <a name="deploy-guestbook-application"></a>Distribuera `guestbook` program
 
-Gäst programmet är ett kanoniskt Kubernetes-program som består av en webb GRÄNSSNITTs-frontend, en server del och en Redis-databas. Som standard `guestbook` exponeras programmet via en tjänst med namnet `frontend` på porten. `80` Utan en Kubernetes ingress-resurs kan tjänsten inte nås utanför AKS-klustret. Vi använder programmet och installationen inleder resurser för att komma åt programmet via HTTP och HTTPS.
+Gäst programmet är ett kanoniskt Kubernetes-program som består av en webb GRÄNSSNITTs-frontend, en server del och en Redis-databas. Som standard `guestbook` exponeras programmet via en tjänst med namnet `frontend` på porten `80` . Utan en Kubernetes ingress-resurs kan tjänsten inte nås utanför AKS-klustret. Vi använder programmet och installationen inleder resurser för att komma åt programmet via HTTP och HTTPS.
 
 Följ anvisningarna nedan för att distribuera gäst programmet.
 
@@ -38,7 +38,7 @@ Följ anvisningarna nedan för att distribuera gäst programmet.
   kubectl apply -f guestbook-all-in-one.yaml
   ```
 
-`guestbook` Programmet har nu distribuerats.
+`guestbook`Programmet har nu distribuerats.
 
 ## <a name="expose-services-over-http"></a>Exponera tjänster över HTTP
 
@@ -60,9 +60,9 @@ spec:
           servicePort: 80
 ```
 
-Den här ingången kommer `frontend` att exponera tjänsten `guestbook-all-in-one` för distributionen som en standard Server del av Application Gateway.
+Den här ingången kommer att exponera `frontend` tjänsten för `guestbook-all-in-one` distributionen som en standard Server del av Application Gateway.
 
-Spara ovanstående ingress-resurs som `ing-guestbook.yaml`.
+Spara ovanstående ingress-resurs som `ing-guestbook.yaml` .
 
 1. Distribuera `ing-guestbook.yaml` genom att köra:
 
@@ -72,7 +72,7 @@ Spara ovanstående ingress-resurs som `ing-guestbook.yaml`.
 
 1. Kontrol lera loggen för ingångs styrenheten för distributions status.
 
-Nu ska `guestbook` programmet vara tillgängligt. Du kan kontrol lera detta genom att besöka Application Gatewayens offentliga adress.
+Nu `guestbook` ska programmet vara tillgängligt. Du kan kontrol lera detta genom att besöka Application Gatewayens offentliga adress.
 
 ## <a name="expose-services-over-https"></a>Exponera tjänster över HTTPS
 
@@ -107,7 +107,7 @@ Om du inte anger värd namnet är gäst tjänsten tillgänglig på alla värd na
     ```
 
     > [!NOTE] 
-    > Ersätt `<guestbook-secret-name>` i ovanstående ingress-resurs med namnet på din hemlighet. Lagra ovanstående ingress-resurs i ett fil namn `ing-guestbook-tls.yaml`.
+    > Ersätt `<guestbook-secret-name>` i ovanstående ingress-resurs med namnet på din hemlighet. Lagra ovanstående ingress-resurs i ett fil namn `ing-guestbook-tls.yaml` .
 
 1. Distribuera ing-gäst-TLS. yaml genom att köra
 
@@ -117,7 +117,7 @@ Om du inte anger värd namnet är gäst tjänsten tillgänglig på alla värd na
 
 1. Kontrol lera loggen för ingångs styrenheten för distributions status.
 
-Nu kommer `guestbook` programmet att vara tillgängligt på både http och https.
+Nu `guestbook` kommer programmet att vara tillgängligt på både http och https.
 
 ### <a name="with-specified-hostname"></a>Med angivet värdnamn
 
@@ -156,7 +156,7 @@ Genom att ange hostname, är gäst tjänsten bara tillgänglig på den angivna v
 
 1. Kontrol lera loggen för ingångs styrenheten för distributions status.
 
-`guestbook` Programmet är nu endast tillgängligt på både http och https på den angivna värden (`<guestbook.contoso.com>` i det här exemplet).
+Programmet är nu `guestbook` endast tillgängligt på både http och https på den angivna värden ( `<guestbook.contoso.com>` i det här exemplet).
 
 ## <a name="integrate-with-other-services"></a>Integrera med andra tjänster
 

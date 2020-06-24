@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/30/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 380e65d3f3d659d8fa6f339a9dfd45263f711541
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325903"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296873"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Vanliga frågor om ARM-mallar
 
@@ -128,7 +128,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Kan jag fortfarande använda anpassade skript tillägg och önskad tillstånds konfiguration (DSC)?**
 
-  Dessa alternativ är fortfarande tillgängliga och har inte ändrats. Distributions skript är utformade för att utföra åtgärder som inte är relaterade till den virtuella datorns gäst. Om du behöver köra ett skript på ett värd operativ system på en virtuell dator, skulle kundens skript tillägg och/eller DSC vara ett bättre alternativ. Distributions skript har dock fördelar, till exempel timeout-varaktighet.
+  Dessa alternativ är fortfarande tillgängliga och har inte ändrats. Distributions skript är utformade för att utföra åtgärder som inte är relaterade till den virtuella datorns gäst. Om du behöver köra ett skript på ett värd operativ system på en virtuell dator är det anpassade skript tillägget och/eller DSC ett bättre alternativ. Distributions skript har dock fördelar, till exempel timeout-varaktighet.
 
 * **Stöds distributions skript i Azure Government?**
 

@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 manager: ''
 ms.author: spelluru
-ms.date: 03/31/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: b4d9dc51451a06b2c87ddce78547655b51c6fabd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7486c251784b345351669bda6f0eb2309977728
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729631"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297468"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Apache Kafka Developer Guide för Azure Event Hubs
 Den här artikeln innehåller länkar till artiklar som beskriver hur du integrerar dina Apache Kafka-program med Azure Event Hubs. 
@@ -53,7 +53,7 @@ Se följande självstudier på GitHub:
 | [Anslut](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) | Det här dokumentet beskriver hur du integrerar Kafka med Azure Event Hubs och distribuerar grundläggande FileStreamSource-och FileStreamSink-kopplingar. Även om dessa anslutningar inte är avsedda för användning i produktion, visar de ett Kafka-scenario från slut punkt till slut punkt där Azure Event Hubs imiteras som en Kafka-Broker.| 
 | [Filebeat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/filebeat) | Det här dokumentet beskriver hur du integrerar Filebeat och Event Hubs via Filebeat Kafka-utdata. | 
 | [Flink](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink) | I den här självstudien visas hur du ansluter Apache Flink till Kafka-aktiverade Event Hubs utan att ändra protokoll klienter eller köra egna kluster. | 
-| [Fluent](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Det här dokumentet beskriver hur `out_kafka` du integrerar det och Event Hubs med hjälp av plugin-programmet för utdata. |
+| [Fluent](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Det här dokumentet beskriver hur du integrerar det och Event Hubs med hjälp av `out_kafka` plugin-programmet för utdata. |
 | [Interop](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | Den här självstudien visar hur du utbyter händelser mellan konsumenter och producenter som använder olika protokoll. |
 | [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Den här självstudien vägleder dig genom integrering av Logstash med Kafka-aktiverade Event Hubs med hjälp av Logstash-Kafka för in-och utdata. | 
 | [MirrorMaker](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | Den här självstudien visar hur en Event Hub-och Kafka-MirrorMaker kan integrera en befintlig Kafka-pipeline i Azure genom att spegla Kafka-indataströmmen i Event Hubss tjänsten. |
@@ -65,7 +65,7 @@ Se följande självstudier på GitHub:
 ### <a name="tutorials-in-docs"></a>Självstudier i dokument
 Se även självstudien: [Process Apache Kafka för Event Hubs händelser som använder Stream Analytics](event-hubs-kafka-stream-analytics.md) i den här innehålls uppsättningen, som visar hur data strömmas till Event Hubs och bearbetas med Azure Stream Analytics.
 
-## <a name="how-to-guides"></a>Instruktionsguider
+## <a name="how-to-guides"></a>Anvisningar
 Se följande instruktions guider i vår dokumentation:
 
 | Artikel | Beskrivning | 

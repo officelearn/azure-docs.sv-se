@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 971ec1fcda87a9db61147133604dd0e28cc4d102
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714057"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976174"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714057"
 
 > [!NOTE]
 > Hanterade identiteter för Azure-resurser är det nya namnet på tjänsten som tidigare hade namnet Hanterad tjänstidentitet (MSI).
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Hur kan du hitta resurser som har en hanterad identitet?
+
+Du kan hitta listan över resurser som har en systemtilldelad hanterad identitet med hjälp av följande Azure CLI-kommando: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>Har Managed identiteter ett säkerhetskopierat app-objekt?
+
+Nej. Hanterade identiteter och Azure AD App registreringar är inte samma sak i katalogen. 
+
+Appregistreringar har två komponenter: ett program objekt och ett huvud objekt för tjänsten. Hanterade identiteter för Azure-resurser har bara en av dessa komponenter: ett huvud objekt för tjänsten. 
+
+Hanterade identiteter har inget program objekt i katalogen, vilket är det som ofta används för att bevilja app-behörigheter för MS Graph. I stället måste MS Graph-behörigheter för hanterade identiteter beviljas direkt till tjänstens huvud namn.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Fungerar hanterade identiteter för Azure-resurser med Azure Cloud Services?
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71258054"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735038"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Kända problem: säkert LDAP aviseringar i Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar med s�
 
 ### <a name="resolution"></a>Lösning
 
-När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler som begränsar inkommande LDAPs åtkomst till vissa IP-adresser. De här reglerna skyddar den hanterade domänen i Azure AD DS från brute force-attacker. Utför följande steg för att uppdatera nätverks säkerhets gruppen så att den begränsar TCP-port 636-åtkomst för säker LDAP:
+När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler som begränsar inkommande LDAPs åtkomst till vissa IP-adresser. Reglerna skyddar den hanterade domänen från brute force-attacker. Utför följande steg för att uppdatera nätverks säkerhets gruppen så att den begränsar TCP-port 636-åtkomst för säker LDAP:
 
 1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
 1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*, och välj sedan **inkommande säkerhets regler**
@@ -43,7 +43,7 @@ När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler 
 1. Ange regelns prioritet och ange sedan ett namn som *RestrictLDAPS*.
 1. När du är klar väljer du **Lägg till** för att skapa regeln.
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 > [!TIP]
 > TCP-port 636 är inte den enda regeln som krävs för att Azure AD DS ska kunna köras smidigt. Mer information finns i [nätverks säkerhets grupper för Azure AD DS och de portar som krävs](network-considerations.md#network-security-groups-and-required-ports).

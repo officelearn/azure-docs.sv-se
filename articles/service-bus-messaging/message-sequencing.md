@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261663"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699047"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Ordningsföljd och tidsstämplar för meddelanden
 
@@ -51,5 +51,5 @@ Eftersom funktionen är förankrad på enskilda meddelanden och meddelanden bara
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

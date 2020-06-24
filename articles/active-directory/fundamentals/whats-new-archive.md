@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8fa352d81a6df70634c00978a3db155d5fb0d7e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d2242dc3a80287b36554298fa1a15afb894c9ac1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217007"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976208"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -1658,7 +1658,7 @@ Följande fält ändras i gransknings schemat:
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
 |Kategori|Detta är **tjänstens namn** fält. Nu är fältet **gransknings kategorier** . **Tjänst namnet** har bytt namn till fältet **loggedByService** .|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösen ords återställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Hantering av appar</li></ul>|
-|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
+|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som skapade gransknings loggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
 |Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
@@ -2094,8 +2094,6 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 **Typ:** Ändrade funktions **tjänst kategori:** **produkt funktion** för App-proxy: Access Control
 
 Med vår uppdatering från OpenID ansluter du till protokollet OAuth 2,0 Code Grant för vårt pre-Authentication-protokoll, behöver du inte längre göra någon ytterligare konfiguration för att använda Tableau med Application Proxy. Protokoll ändringen hjälper också till att programproxy bättre stöder fler moderna appar genom att bara använda HTTP-omdirigeringar som ofta stöds i Java Script-och HTML-taggar.
-
-Mer information om vårt inbyggda stöd för Tableau finns i [Azure AD-programproxy nu med inbyggt stöd för Tableau](https://blogs.technet.microsoft.com/applicationproxyblog/2018/08/14/azure-ad-application-proxy-now-with-native-tableau-support).
 
 ---
 
@@ -3032,7 +3030,7 @@ Den här versionen har följande uppdateringar och ändringar:
 
 - Ett fel har åtgärd ATS där certifikat med SAN-jokertecken inte har förskotts kontroll.
 
-- Ett fel som gör att MIIServer. exe kraschar under export av AAD Connector har åtgärd ATS.
+- En bugg har åtgärd ATS som orsakar miiserver.exe krasch under AAD Connector-exporten.
 
 - En bugg har åtgärd ATS där ett felaktigt lösen ord som är inloggat på DOMÄNKONTROLLANT vid körning orsakade av AAD Connect-guiden för att ändra konfigurationen
 

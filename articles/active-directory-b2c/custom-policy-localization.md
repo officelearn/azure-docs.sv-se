@@ -252,7 +252,7 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 1. Välj den princip som du överförde och välj sedan **Kör nu**.
 1. Du bör kunna se den lokaliserade registrerings-eller inloggnings sidan.
 1. Klicka på registrerings länken och du bör kunna se den lokaliserade anmälnings sidan.
-1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Ett exempel: 
+1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Exempel: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

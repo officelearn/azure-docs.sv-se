@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1acb01ceb9747fa833e998bd5501ce8a8a51babb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674361"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119468"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -25,7 +25,7 @@ Med hjälp av [Azure Cosmos DB Analytical Store](analytical-store-introduction.m
 
 Följande bild visar Azure Synapse Link integration med Azure Cosmos DB och Azure Synapse Analytics: 
 
-![Arkitektur diagram för integrering med Azure Synapse Analytics med Azure Cosmos DB](./media/synapse-link/synapse-analytics-cosmos-db-architecture.png)
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Arkitektur diagram för integrering med Azure Synapse Analytics med Azure Cosmos DB" border="false":::
 
 ## <a name="benefits"></a><a id="synapse-link-benefits"></a>Funktioner
 
@@ -105,7 +105,7 @@ Mer information om stöd för Azure Synapse Analytics runtime för Azure Cosmos 
 
 Synapse-länk rekommenderas i följande fall:
 
-* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Till exempel:
+* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Exempel:
 
   * Om du kör Analytics eller BI på Azure Cosmos DB operativa data direkt med hjälp av separata anslutningar idag, eller
 
@@ -126,7 +126,7 @@ Synapse-länk rekommenderas inte om du söker efter traditionella informations l
 
 * Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår med hjälp av Azure Cosmos DB analys lager och Synapse Runtime. Mer information finns i artikeln om priser för [Azure Cosmos DB analys lager](analytical-store-introduction.md#analytical-store-pricing) och [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
 
@@ -134,12 +134,12 @@ I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår
 
 Mer information finns i följande dokument:
 
-* [Översikt över Azure Cosmos DB analys lager](analytical-store-introduction.md)
+* [Översikt över Azure Cosmos DB-analysarkiv](analytical-store-introduction.md)
 
-* [Kom igång med Azure Synapse-länken för Azure Cosmos DB](configure-synapse-link.md)
+* [Kom igång med Azure Synapse Link för Azure Cosmos DB](configure-synapse-link.md)
  
-* [Vad stöds i körnings tiden för Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
+* [Vad stöds i Azure Synapse Analytics-körning](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
-* [Vanliga frågor och svar om Azure Synapse-länken för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Azure Synapse-länk för Azure Cosmos DB användnings fall](synapse-link-use-cases.md)
+* [Användningsfall för Azure Synapse Link för Azure Cosmos DB](synapse-link-use-cases.md)

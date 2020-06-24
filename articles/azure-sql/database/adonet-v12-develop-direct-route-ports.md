@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
-ms.date: 04/03/2019
-ms.openlocfilehash: 867db23521ea08641f538efe5279408343373336
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+author: stevestein
+ms.author: sstein
+ms.reviewer: genemi
+ms.date: 06/11/2020
+ms.openlocfilehash: 85d8d288a8b2d0f256294b0c8975afc367e6e381
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047897"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736058"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,7 @@ Se till att port intervallen för 11000-11999 på Azure-klientdatorn lämnas til
 * I synnerhet måste portarna i intervallet vara fria från andra utgående blockerare.
 * På din virtuella Azure-dator kontrollerar **Windows-brandväggen med avancerad säkerhet** port inställningarna.
   
-  * Du kan använda [brand väggens användar gränssnitt](https://msdn.microsoft.com/library/cc646023.aspx) för att lägga till en regel för vilken du anger **TCP** -protokollet tillsammans med ett port intervall med syntaxen som **11000-11999**.
+  * Du kan använda [brand väggens användar gränssnitt](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) för att lägga till en regel för vilken du anger **TCP** -protokollet tillsammans med ett port intervall med syntaxen som **11000-11999**.
 
 ## <a name="version-clarifications"></a>Versions klargöranden
 
@@ -81,6 +81,6 @@ I det här avsnittet klargöras de monikers som refererar till produkt versioner
 
 * Anslut till Azure SQL Database V12 via omdirigeringhttps://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Lista över TDS-protokoll](https://www.freetds.org/userguide/tdshistory.htm)
+* [Lista över TDS-protokoll](https://www.freetds.org/)
 * [Översikt över SQL Database utveckling](develop-overview.md)
 * [Azure SQL Database brand vägg](firewall-configure.md)

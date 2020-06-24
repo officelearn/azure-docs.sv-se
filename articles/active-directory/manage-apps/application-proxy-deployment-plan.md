@@ -3,8 +3,8 @@ title: Planera en Azure Active Directory-programproxy distribution
 description: En komplett guide för att planera distributionen av programproxyn i din organisation
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: kenwith
+ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169516"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975579"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
 
@@ -34,7 +33,7 @@ Den här artikeln innehåller de resurser som du behöver för att planera, hant
 
 I följande avsnitt får du en översikt över de viktigaste planerings elementen som du kan använda för att få en effektiv distribution.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav, i den här [självstudien](application-proxy-add-on-premises-application.md).
 
@@ -254,7 +253,7 @@ Läs [enkel inloggning till program i Azure AD](what-is-single-sign-on.md) för 
 
 ###  <a name="working-with-other-types-of-applications"></a>Arbeta med andra typer av program
 
-Azure AD-programproxy kan också stödja program som har utvecklats för att använda Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Den har stöd för interna klient program genom att använda Azure AD-utfärdade token som tagits emot i huvud informationen för klientbegäran för att utföra förautentisering för användarens räkning.
+Azure AD-programproxy kan också stödja program som har utvecklats för att använda [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). Den har stöd för interna klient program genom att använda Azure AD-utfärdade token som tagits emot i huvud informationen för klientbegäran för att utföra förautentisering för användarens räkning.
 
 Läs om [interna publicerings-och mobilappar och klient](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) [program och anspråksbaserad program](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) för att lära dig mer om tillgängliga konfigurationer av programproxy.
 

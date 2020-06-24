@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257061"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699557"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
@@ -31,7 +31,7 @@ Artikeln förutsätter att du redan har:
 
 1. Välj valvets namn i **Recovery Services-valv**. I det här scenariot använder vi namnet **ContosoVMVault**.
 2. I **Komma igång** väljer du Site Recovery. Välj sedan **Förbered infrastrukturen**.
-3. I **skydds mål** > **där**finns datorerna väljer du **lokalt**.
+3. I **skydds mål**  >  **där**finns datorerna väljer du **lokalt**.
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
 5. I **Är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere Hypervisor**. Välj sedan **OK**.
 

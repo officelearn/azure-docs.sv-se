@@ -38,7 +38,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 
 Du kan ändra SKU: er upp eller ned efter att den hanterade domänen har distribuerats. Men om du använder en resurs skog (för närvarande i för hands version) och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
 
-Ett exempel:
+Exempel:
 
 * Om du har skapat två skogs förtroenden på *Premium* -SKU: n kan du inte ändra till *standard* -SKU: n. *Standard* -SKU: n har inte stöd för skogs förtroenden.
 * Eller, om du har skapat sju förtroenden på *Premium* -SKU: n, kan du inte ändra till *företags* -SKU: n. *Enterprise* -SKU: n stöder högst fem förtroenden.

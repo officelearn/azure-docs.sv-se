@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344211"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736092"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
+
+### <a name="june-2020"></a>Juni 2020
+
+Azure Machine Learning skicklighet är en ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Portal upplevelsen stöder identifiering och integrering av din Azure Machine Learning-slutpunkt i en Kognitiv sökning färdigheter. Identifieringen kräver att din Kognitiv sökning och Azure ML-tjänsterna distribueras i samma prenumeration. Registrera dig för för hands versionen av AML-kompetensen genom att [fylla i formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257529"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699064"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Köra ett redundanstest (haveri beredskap) till Azure 
 
@@ -28,7 +28,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 ![Testa redundans](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. I Site Recovery i Azure Portal klickar du på **återställnings planer** > *recoveryplan_name* > **testa redundans**.
+1. I Site Recovery i Azure Portal klickar du på **återställnings planer**  >  *recoveryplan_name*  >  **testa redundans**.
 2. Välj en **återställnings punkt** som redundansen ska utföras på. Du kan välja något av följande alternativ:
     - **Senast bearbetad**: det här alternativet växlar över alla virtuella datorer i planen till den senaste återställnings punkten som bearbetats av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
     - **Senaste program – konsekvent**: det här alternativet växlar över alla virtuella datorer i planen till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna.
@@ -105,7 +105,7 @@ Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans föl
 
 **Redundans** | **Position** | **Åtgärder**
 --- | --- | ---
-**Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen** > **tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen** -> **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
+**Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen**  ->  **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
 **Virtuell Azure-dator som kör Windows** | Virtuell Azure-dator efter redundans |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och läser igenom de här [fel söknings tipsen](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuell Azure-dator som kör Linux** | Lokal dator före redundans | Kontrol lera att Secure Shell-tjänsten på den virtuella datorn är inställd på att starta automatiskt vid system start.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
 **Virtuell Azure-dator som kör Linux** | Virtuell Azure-dator efter redundans | Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Kontrol lera **startdiagnostiken** för en skärm bild av den virtuella datorn.<br/><br/>

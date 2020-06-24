@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
-ms.openlocfilehash: e9755c8a895dc441fc037a07dd36a1d1c07ce5fa
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 06/17/2020
+ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324563"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976820"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regler för Azure SQL Database-och Azure Synapse-IP-brandvägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -103,6 +103,14 @@ Om du vill att program som finns i Azure ska kunna ansluta till din SQL Server m
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brand väggen så att den tillåter alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet ser du till att dina inloggnings-och användar behörigheter begränsar åtkomsten till behöriga användare.
 
+## <a name="permissions"></a>Behörigheter
+
+För att kunna skapa och hantera IP-brandväggens regler för Azure-SQL Server måste du antingen vara:
+
+- i rollen [SQL Server Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+- i [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) -rollen
+- ägaren till den resurs som innehåller Azure-SQL Server
+
 ## <a name="create-and-manage-ip-firewall-rules"></a>Skapa och hantera IP-brandväggens regler
 
 Du kan skapa den första brand Väggs inställningen på server nivå med hjälp av [Azure Portal](https://portal.azure.com/) eller program mässigt genom att använda [Azure POWERSHELL](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule)eller en Azure- [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Du skapar och hanterar ytterligare IP-brandvägg på server nivå med hjälp av dessa metoder eller Transact-SQL.
@@ -144,7 +152,7 @@ Sidan översikt för servern öppnas. Det visar det fullständigt kvalificerade 
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Använd Transact-SQL för att hantera IP-brandväggens regler
 
-| Katalogvy eller lagrad procedur | Nivå | Description |
+| Katalogvy eller lagrad procedur | Nivå | Beskrivning |
 | --- | --- | --- |
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |Server |Visar aktuella regler för IP-brandvägg på server nivå |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |Server |Skapar eller uppdaterar IP-brandväggens regler på server nivå |
@@ -178,7 +186,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all utveckling är nu för AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-och AzureRm-modulerna är i stort sett identiska.
 
-| Cmdlet | Nivå | Description |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna på servernivå |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Skapar en ny brandväggsregel på servernivå |
@@ -200,7 +208,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Använd CLI för att hantera IP-brandväggs regler på server nivå
 
-| Cmdlet | Nivå | Description |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 |[AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en server-IP-brandväggsregel|
 |[AZ SQL Server Firewall-Rule List](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över IP-brandväggens regler på en server|
@@ -222,7 +230,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Använd en REST API för att hantera IP-brandvägg på server nivå
 
-| API | Nivå | Description |
+| API | Nivå | Beskrivning |
 | --- | --- | --- |
 | [Visa lista över brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visar aktuella regler för IP-brandvägg på server nivå |
 | [Skapa eller uppdatera brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Skapar eller uppdaterar IP-brandväggens regler på server nivå |

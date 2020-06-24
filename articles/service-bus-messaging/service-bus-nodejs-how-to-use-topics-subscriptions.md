@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Service Bus ämnen med Azure/Service-Bus Node. js-paketet
-description: Lär dig hur du använder Service Bus ämnen och prenumerationer i Azure från en Node. js-app med hjälp av Azure/Service-Bus-paketet.
+title: Använda Azure Service Bus ämnen med Azure/Service-Bus Node.js-paketet
+description: Lär dig hur du använder Service Bus ämnen och prenumerationer i Azure från en Node.js-app med hjälp av Azure/Service-Bus-paketet.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,20 +14,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78330454"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976565"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node. js och Azure-SB-paketet
-I den här självstudien får du lära dig hur du skapar Node. js-program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus-prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder [Azure-modulen](https://www.npmjs.com/package/azure) Node. js som används internt `azure-sb` av paketet.
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure-SB-paketet
+I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som använder `azure-sb` paketet internt.
 
 > [!IMPORTANT]
 > [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). 
 > 
-> Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node. js @azure/service-bus och paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+> Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node.js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
 De scenarier som beskrivs här är:
 
@@ -44,13 +44,13 @@ Mer information om ämnen och prenumerationer finns i avsnittet [Nästa steg](#n
 - Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 
     > [!NOTE]
-    > Du kommer att skapa ett **ämne** och en **prenumeration** på avsnittet med hjälp av **Node. js** i den här snabb starten. 
+    > Du kommer att skapa ett **ämne** och en **prenumeration** på avsnittet med hjälp av **Node.js** i den här snabb starten. 
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
-Skapa ett tomt Node. js-program. Instruktioner för hur du skapar ett Node. js-program finns i [skapa och distribuera ett Node. js-program till en Azure-webbplats], [Node. js-moln tjänst][Node.js Cloud Service] med Windows PowerShell eller webbplats med WebMatrix.
+Skapa ett tomt Node.js-program. Anvisningar om hur du skapar ett Node.js program finns i [skapa och distribuera ett Node.js program till en Azure-webbplats], [Node.js moln tjänst][Node.js Cloud Service] med Windows PowerShell eller webbplats med WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
-Om du vill använda Service Bus hämtar du Node. js Azure-paketet. Det här paketet innehåller en uppsättning bibliotek som kommunicerar med Service Bus REST-tjänsterna.
+Hämta Node.js Azure-paketet om du vill använda Service Bus. Det här paketet innehåller en uppsättning bibliotek som kommunicerar med Service Bus REST-tjänsterna.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Hämta paketet med hjälp av Node Pack Manager (NPM)
 1. Öppna ett kommando rads gränssnitt, till exempel **PowerShell** (Windows), **Terminal** (Mac) eller **bash** (UNIX).
@@ -70,30 +70,30 @@ Om du vill använda Service Bus hämtar du Node. js Azure-paketet. Det här pake
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node\_-moduler** har skapats. I den mappen hittar du **Azure** -paketet som innehåller de bibliotek som du behöver för att komma åt Service Bus ämnen.
+3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node- \_ moduler** har skapats. I den mappen hittar du **Azure** -paketet som innehåller de bibliotek som du behöver för att komma åt Service Bus ämnen.
 
 ### <a name="import-the-module"></a>Importera modulen
-Använd anteckningar eller något annat text redigerings program och Lägg till följande överst i filen **Server. js** i programmet:
+Använd anteckningar eller något annat text redigerings program och Lägg till följande överst i **server.js** -filen för programmet:
 
 ```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Konfigurera en Service Bus anslutning
-Azure-modulen läser miljövariabeln `AZURE_SERVICEBUS_CONNECTION_STRING` för anslutnings strängen som du hämtade från föregående steg, "hämta autentiseringsuppgifterna". Om miljövariabeln inte har angetts måste du ange konto informationen när du anropar `createServiceBusService`.
+Azure-modulen läser miljövariabeln `AZURE_SERVICEBUS_CONNECTION_STRING` för den anslutnings sträng som du har fått som en del av [förutsättningarna](#prerequisites). Om du behöver instruktioner för att hämta anslutnings strängen igen läser [du hämta anslutnings strängen](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). Om miljövariabeln inte har angetts måste du ange konto informationen när du anropar `createServiceBusService` .
 
 Ett exempel på hur du anger miljövariabler för en Azure Cloud service finns i [Ange miljövariabler](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
-Med **ServiceBusService** -objektet kan du arbeta med ämnen. Följande kod skapar ett **ServiceBusService** -objekt. Lägg till det nära överst i filen **Server. js** , efter instruktionen att importera Azure-modulen:
+Med **ServiceBusService** -objektet kan du arbeta med ämnen. Följande kod skapar ett **ServiceBusService** -objekt. Lägg till den högst upp i **server.js** -filen, efter att instruktionen importera Azure-modulen:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Om du anropar `createTopicIfNotExists` **ServiceBusService** -objektet returneras det angivna avsnittet (om det finns), eller så skapas ett nytt avsnitt med det angivna namnet. Följande kod används `createTopicIfNotExists` för att skapa eller ansluta till ämnet med namnet `MyTopic`:
+Om du anropar `createTopicIfNotExists` **ServiceBusService** -objektet returneras det angivna avsnittet (om det finns), eller så skapas ett nytt avsnitt med det angivna namnet. Följande kod används `createTopicIfNotExists` för att skapa eller ansluta till ämnet med namnet `MyTopic` :
 
 ```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
@@ -104,7 +104,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-`createTopicIfNotExists` Metoden stöder också ytterligare alternativ, vilket gör att du kan åsidosätta standard ämnes inställningar, till exempel meddelande tid till Live eller maximal ämnes storlek. 
+`createTopicIfNotExists`Metoden stöder också ytterligare alternativ, vilket gör att du kan åsidosätta standard ämnes inställningar, till exempel meddelande tid till Live eller maximal ämnes storlek. 
 
 I följande exempel anges den maximala ämnes storleken till 5 GB med en tid på en minut:
 
@@ -128,13 +128,13 @@ Valfria filtrerings åtgärder kan tillämpas på åtgärder som utförs med hj�
 function handle (requestOptions, next)
 ```
 
-Efter att du utfört förbearbetningen av begär ande alternativen anropar `next`metoden och skickar ett motanrop med följande signatur:
+Efter att du utfört förbearbetningen av begär ande alternativen anropar metoden `next` och skickar ett motanrop med följande signatur:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-I det här återanropet, och `returnObject` efter bearbetning av (svaret från begäran till servern), måste återanropet antingen anropa Next (om det finns) för att fortsätta att bearbeta andra filter `finalCallback` , eller anropa för att avsluta tjänst anropet.
+I det här återanropet, och efter bearbetning av `returnObject` (svaret från begäran till servern), måste återanropet antingen anropa Next (om det finns) för att fortsätta att bearbeta andra filter, eller anropa `finalCallback` för att avsluta tjänst anropet.
 
 Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. Följande kod skapar ett **ServiceBusService** -objekt som använder **ExponentialRetryPolicyFilter**:
 
@@ -147,7 +147,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Ämnes prenumerationer skapas också med **ServiceBusService** -objektet. Prenumerationer namnges och kan ha ett valfritt filter som begränsar den uppsättning meddelanden som skickas till prenumerationens virtuella kö.
 
 > [!NOTE]
-> Som standard är prenumerationerna beständiga tills de eller de avsnitt som de är kopplade till tas bort. Om programmet innehåller logik för att skapa en prenumeration bör du först kontrol lera om prenumerationen finns med hjälp av `getSubscription` -metoden.
+> Som standard är prenumerationerna beständiga tills de eller de avsnitt som de är kopplade till tas bort. Om programmet innehåller logik för att skapa en prenumeration bör du först kontrol lera om prenumerationen finns med hjälp av- `getSubscription` metoden.
 >
 > Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
@@ -174,7 +174,7 @@ Filter kan läggas till i en prenumeration med hjälp av `createRule` metoden f�
 >
 >
 
-I följande exempel skapas en prenumeration med `HighMessages` namnet med en **SqlFilter** som endast väljer meddelanden som har en `messagenumber` anpassad egenskap som är större än 3:
+I följande exempel skapas en prenumeration `HighMessages` med namnet med en **SqlFilter** som endast väljer meddelanden som har en anpassad egenskap som är `messagenumber` större än 3:
 
 ```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
@@ -244,14 +244,14 @@ var rule={
 }
 ```
 
-När ett meddelande nu skickas `MyTopic`till levereras det till mottagare som prenumererar på `AllMessages` ämnes prenumerationen och är selektivt levererade till mottagare som prenumererar på prenumerationer på `HighMessages` och `LowMessages` ämne (beroende på meddelandets innehåll).
+När ett meddelande nu skickas till `MyTopic` levereras det till mottagare som prenumererar på `AllMessages` ämnes prenumerationen och är selektivt levererade till mottagare som prenumererar på `HighMessages` prenumerationer på och `LowMessages` ämne (beroende på meddelandets innehåll).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Så här skickar du meddelanden till ett ämne
 Om du vill skicka ett meddelande till ett Service Bus ämne måste programmet använda `sendTopicMessage` metoden för **ServiceBusService** -objektet.
 Meddelanden som skickas till Service Bus ämnen är **BrokeredMessage** -objekt.
-**BrokeredMessage** -objekt har en uppsättning standard egenskaper (till exempel `Label` och `TimeToLive`), en ord lista som används för att lagra anpassade programspecifika egenskaper och en text i sträng data. Ett program kan ange meddelandets brödtext genom att skicka ett sträng värde till `sendTopicMessage` och alla obligatoriska standard egenskaper fylls med standardvärden.
+**BrokeredMessage** -objekt har en uppsättning standard egenskaper (till exempel `Label` och `TimeToLive` ), en ord lista som används för att lagra anpassade programspecifika egenskaper och en text i sträng data. Ett program kan ange meddelandets brödtext genom att skicka ett sträng värde till `sendTopicMessage` och alla obligatoriska standard egenskaper fylls med standardvärden.
 
-Följande exempel visar hur du skickar fem test meddelanden till `MyTopic`. `messagenumber` Egenskap svärdet för varje meddelande varierar beroende på loopens iteration (den här egenskapen avgör vilka prenumerationer som får det):
+Följande exempel visar hur du skickar fem test meddelanden till `MyTopic` . `messagenumber`Egenskap svärdet för varje meddelande varierar beroende på loopens iteration (den här egenskapen avgör vilka prenumerationer som får det):
 
 ```javascript
 var message = {
@@ -275,14 +275,14 @@ for (i = 0;i < 5;i++) {
 Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som lagras i ett ämne, men det finns en gräns för den totala storleken på de meddelanden som innehas av ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB.
 
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Meddelanden tas emot från en prenumeration med hjälp `receiveSubscriptionMessage` av metoden på **ServiceBusService** -objektet. Som standard tas meddelanden bort från prenumerationen när de läses. Du kan dock ange den valfria parametern `isPeekLock` till **True** för att läsa (PEEK) och låsa meddelandet utan att ta bort det från prenumerationen.
+Meddelanden tas emot från en prenumeration med hjälp av `receiveSubscriptionMessage` metoden på **ServiceBusService** -objektet. Som standard tas meddelanden bort från prenumerationen när de läses. Du kan dock ange den valfria parametern `isPeekLock` till **True** för att läsa (PEEK) och låsa meddelandet utan att ta bort det från prenumerationen.
 
 Standard beteendet för att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande när det uppstår ett fel. För att förstå det här beteendet bör du överväga ett scenario där klienten utfärdar Receive-begäran och sedan kraschar innan den bearbetas. Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
 
 Om `isPeekLock` parametern är inställd på **Sant**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera missade meddelanden. När Service Bus tar emot en begäran hittar den nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det till programmet.
 När programmet bearbetar meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa metoden **deleteMessage** och skickar meddelandet som ska tas bort som en parameter. **DeleteMessage** -metoden markerar meddelandet som förbrukat och tar bort det från prenumerationen.
 
-Följande exempel visar hur meddelanden kan tas emot och bearbetas `receiveSubscriptionMessage`med hjälp av. Exemplet tar först emot och tar bort ett meddelande från prenumerationen "LowMessages" och tar emot ett meddelande från "HighMessages"-prenumerationen `isPeekLock` med set to True. Den tar sedan bort meddelandet med `deleteMessage`hjälp av:
+Följande exempel visar hur meddelanden kan tas emot och bearbetas med hjälp av `receiveSubscriptionMessage` . Exemplet tar först emot och tar bort ett meddelande från prenumerationen "LowMessages" och tar emot ett meddelande från "HighMessages"-prenumerationen med `isPeekLock` set to True. Den tar sedan bort meddelandet med hjälp av `deleteMessage` :
 
 ```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
@@ -310,11 +310,11 @@ Service Bus innehåller funktioner som hjälper dig att återställa fel i progr
 
 Det finns också en tids gräns som är kopplad till ett meddelande som är låst i prenumerationen. Om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar) låser Service Bus automatiskt upp meddelandet och gör det tillgängligt för att tas emot igen.
 
-I händelse av att programmet kraschar när meddelandet har bearbetats men `deleteMessage` innan metoden anropas, skickas meddelandet vidare till programmet när det startas om. Det här beteendet kallas ofta *minst en gång*. Det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör du lägga till logik till ditt program för att hantera duplicerad meddelande leverans. Du kan använda meddelandets **messageid** -egenskap, som är konstant över leverans försök.
+I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage` metoden anropas, skickas meddelandet vidare till programmet när det startas om. Det här beteendet kallas ofta *minst en gång*. Det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör du lägga till logik till ditt program för att hantera duplicerad meddelande leverans. Du kan använda meddelandets **messageid** -egenskap, som är konstant över leverans försök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
 Ämnen och prenumerationer är permanenta om inte [autoDeleteOnIdle-egenskapen](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) har angetts och måste uttryckligen tas bort antingen via [Azure Portal][Azure portal] eller program mässigt.
-Följande exempel visar hur du tar bort ämnet med namnet `MyTopic`:
+Följande exempel visar hur du tar bort ämnet med namnet `MyTopic` :
 
 ```javascript
 serviceBusService.deleteTopic('MyTopic', function (error) {
@@ -324,7 +324,7 @@ serviceBusService.deleteTopic('MyTopic', function (error) {
 });
 ```
 
-Om du tar bort ett ämne så tar du även bort alla prenumerationer som är registrerade på det ämnet. Prenumerationer kan även tas bort separat. I följande exempel visas hur du tar bort en prenumeration `HighMessages` med namnet `MyTopic` från avsnittet:
+Om du tar bort ett ämne så tar du även bort alla prenumerationer som är registrerade på det ämnet. Prenumerationer kan även tas bort separat. I följande exempel visas hur du tar bort en prenumeration med namnet `HighMessages` från `MyTopic` avsnittet:
 
 ```javascript
 serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
@@ -350,6 +350,6 @@ Nu när du har lärt dig grunderna om Service Bus ämnen kan du följa dessa lä
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Skapa och distribuera ett Node. js-program till en Azure-webbplats]: ../app-service/app-service-web-get-started-nodejs.md
+[Skapa och distribuera ett Node.js-program till en Azure-webbplats]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 

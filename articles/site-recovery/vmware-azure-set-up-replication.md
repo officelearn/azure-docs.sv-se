@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257126"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699608"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurera och hantera replikeringsprinciper för katastrof återställning i VMware
 
 Den här artikeln beskriver hur du konfigurerar en replikeringsprincip när du replikerar virtuella VMware-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="create-a-policy"></a>Skapa en policy
+## <a name="create-a-policy"></a>Skapa en princip
 
-1. Välj **Hantera** > **Site Recovery infrastruktur**.
+1. Välj **Hantera**  >  **Site Recovery infrastruktur**.
 2. I **för VMware och fysiska datorer**väljer du **replikeringsprinciper**.
 3. Klicka på **+ replikeringsprincip**och ange namnet på principen.
 4. I **tröskelvärdet för RPO** anger du RPO (mål för återställningspunkt)-gränsen. Aviseringar genereras när kontinuerlig replikering överskrider den här gränsen.
@@ -49,7 +49,7 @@ Du kan ändra en replikeringsprincip när du har skapat den.
 - Om du vill associera replikerade datorer med en annan replikeringsprincip måste du inaktivera och återaktivera skyddet för de aktuella datorerna.
 
 Redigera en princip på följande sätt:
-1. Välj **Hantera** > **principer för replikering**av**Site Recovery infrastruktur** > .
+1. Välj **Hantera**  >  principer för replikering av**Site Recovery infrastruktur**  >  **Replication Policies**.
 2. Välj den replikeringsprincip som du vill ändra.
 3. Klicka på **Redigera inställningar**och uppdatera tröskelvärdena för återställnings punktens tröskel/återställnings punkts antal timmar/för programkonsekventa ögonblicks bilder vid behov.
 4. Om du vill inaktivera genereringen av program konsekvens punkter väljer du "off" i list rutan för fältet **app-konsekvent ögonblicks bild frekvens**.

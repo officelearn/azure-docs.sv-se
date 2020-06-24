@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: bca8ccaf06fb63b9029b93a8c59a6304139c8ff1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628665"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976888"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktioner och terminologi i Azure Event Hubs
 
@@ -56,7 +56,7 @@ Event Hubs garanterar att alla händelser som delar samma partitionsnyckelvärde
 Med händelsehubbar får du granulär kontroll över utgivare via *utgivarprinciper*. Utfärdarprinciper är körningsfunktioner som utformats för att ge stöd för ett stort antal oberoende utfärdare. Med utgivarprinciper använder varje utgivare sin egen unika identifierare vid publicering av händelser på en händelsehubb med hjälp av följande mekanism:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token som används när du publicerar en händelse för att garantera oberoende utgivaridentiteter. När du använder utgivarprinciper ställs **PartitionKey**-värdet in på utgivarens namn. Dessa värden måste matcha för att fungera korrekt.
@@ -85,12 +85,13 @@ Inom en arkitektur för strömbearbetning utgör varje nedströms program en kon
 
 Det får finnas högst 5 samtidiga läsare på en partition per konsument grupp. **vi rekommenderar dock att det bara finns en aktiv mottagare på en partition per konsument grupp**. Varje läsare tar emot alla meddelanden inom en enda partition. Om du har flera läsare på samma partition behandlar du duplicerade meddelanden. Du måste hantera detta i din kod, vilket inte kan vara trivialt. Det är dock en giltig metod i vissa scenarier.
 
+Vissa klienter som erbjuds av Azure SDK: er är intelligenta konsument agenter som automatiskt hanterar information om att se till att varje partition har en enda läsare och att alla partitioner för en Event Hub läses från. På så sätt kan din kod fokusera på bearbetning av de händelser som läses från händelsehubben så att det går att ignorera många av information om partitionerna. Mer information finns i [ansluta till en partition](#connect-to-a-partition).
 
-Följande är exempel på URI-konventionen för konsumentgrupper:
+I följande exempel visas URL-konventionen för konsument gruppen:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 Följande bild visar strömhanteringsarkitekturen i Event Hubs:
@@ -122,7 +123,12 @@ Alla Event Hubs konsumenter ansluter via en AMQP 1,0-session, en tillstånds med
 
 #### <a name="connect-to-a-partition"></a>Ansluta till en partition
 
-När du ansluter till partitioner är det vanligt att använda en leasingmekanism till att samordna läsaranslutningar till specifika partitioner. På det sättet är det möjligt för varje partition i en konsumentgrupp att bara ha en aktiv läsare. Hanteringen av kontrollpunkter, leasing och läsare blir enklare med klassen [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) för .NET-klienter. Värden för händelsebearbetning är en smart konsumentagent.
+När du ansluter till partitioner är det vanligt att använda en operationell mekanism för att koordinera läsar anslutningar till vissa partitioner. På så sätt är det möjligt att varje partition i en konsument grupp bara har en aktiv läsare. Kontroll punkter, leasing och hantering av läsare förenklas med hjälp av klienterna i Event Hubs SDK: er som fungerar som intelligenta konsument agenter. Dessa är:
+
+- [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) för .net
+- [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) för Java
+- [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) för python
+- [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) för Java Script/typescript
 
 #### <a name="read-events"></a>Läsa händelser
 
@@ -131,7 +137,7 @@ När en AMQP 1.0-session och -länk har öppnats för en specifik partition, lev
 Händelsedata:
 * Offset
 * Sekvensnummer
-* Innehåll
+* Brödtext
 * Användaregenskaper
 * Systemegenskaper
 
@@ -142,13 +148,11 @@ Det är ditt ansvar att hantera positionen (offset).
 Besök följande länkar för mer utförlig information om Event Hubs:
 
 - Kom igång med händelsehubbar
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Programmerings guide för Event Hubs](event-hubs-programming-guide.md)
 * [Tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
-* [Event Hubs exempel][]
-
-[Event Hubs exempel]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+* [Event Hubs exempel](event-hubs-samples.md)

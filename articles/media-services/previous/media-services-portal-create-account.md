@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3839efecc1f5c645e8365ca6441731868412371e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331510"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976854"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med hjälp av Azure-portalen
 
@@ -27,8 +27,6 @@ ms.locfileid: "78331510"
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure-portalen är ett sätt att snabbt skapa ett Azure Media Services-konto (AMS). Du kan använda ditt konto för att få åtkomst till Media Services för att lagra, kryptera, koda, hantera och strömma medieinnehåll i Azure. När du skapar ett Media Services-konto skapar du också ett associerat lagringskonto (eller använder ett befintligt). Om du tar bort ett Media Services-konto raderas inte blobbarna på ditt relaterade lagringskonto.
-
-Du kan ha Generell användning v1 eller Generell användning v2 som primärt lagringskonto. För närvarande kan du bara välja v1 i Azure Portal, men du kan lägga till v2 när du skapar kontot med hjälp av API:t eller Powershell. Mer information om lagringskontotyper finns i [Om Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar starkt att du använder lagringskonton på samma plats som Media Services-kontot för att undvika extra kostnader för latens och utgående datatrafik.
 
@@ -46,7 +44,7 @@ Du behöver ett Azure-konto för att genomföra kursen. Mer information om den k
 Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **+ skapa en resurs** > **medie** > **Media Services**.
+2. Klicka på **+ skapa en resurs**  >  **medie**  >  **Media Services**.
 3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
 
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257880"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699931"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurations servern för haveri beredskap för fysiska servrar till Azure
 
@@ -36,7 +36,7 @@ I följande tabell visas minimi kraven för maskin vara, program vara och nätve
 ## <a name="choose-your-protection-goals"></a>Välj skydds mål
 
 1. I Azure Portal går du till bladet **Recovery Services** valv och väljer ditt valv.
-2. I menyn **resurs** för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbered infrastruktur** > **skydds mål**.
+2. I menyn **resurs** för valvet klickar du på **komma igång**  >  **Site Recovery**  >  **steg 1: Förbered infrastruktur**  >  **skydds mål**.
 
     ![Välja mål](./media/physical-azure-set-up-source/choose-goals.png)
 3. I **skydds mål**väljer **du till Azure** och **inte virtualiserat/övrigt**och klickar sedan på **OK**.

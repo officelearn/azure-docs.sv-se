@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 0fad77f4704b9cbd8c2a37e39c09a334b08766ef
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860672"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193552"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -64,21 +64,11 @@ Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och te
 > [!IMPORTANT]
 > Använd permanent borttagnings åtgärd för arbets ytor med försiktighet eftersom den inte kan återställas och att du inte kan återställa din arbets yta och dess data.
 
-Om du vill ta bort arbets ytan permanent använder du [arbets ytorna – ta bort](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) rest-begäran med en tvingande tagg:
+Lägg till taggen-Force för att ta bort arbets ytan permanent:
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Du kan också köra åtgärden från webbplatsen för Azure REST-dokumentation:
-1.  Navigera till [arbets ytor – ta bort](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST API och klicka på **testa**. 
-2.  Ange information om arbets ytan som du vill ta bort permanent
-3.  E en ny parameter *Force* med värdet *True*
-4.  Klicka på ikonen "+" till höger om värdet. Detta lägger till *Force = True* i URI: n i begäran
-5.  Klicka på knappen *Kör*
-
-Svaret ska vara 200 OK
 
 ## <a name="recover-workspace"></a>Återställ arbets yta
 När du tar bort en Log Analytics arbets yta oavsiktligt eller avsiktligt, placerar tjänsten arbets ytan i ett mjuk borttagnings tillstånd, vilket gör att den inte är tillgänglig för någon åtgärd. Namnet på den borttagna arbets ytan bevaras under perioden för mjuk borttagning och kan inte användas för att skapa en ny arbets yta. Efter den mjuka borttagnings perioden går det inte att återskapa arbets ytan, den är schemalagd för permanent borttagning och dess namn som den släppts och kan användas för att skapa en ny arbets yta.
@@ -114,7 +104,7 @@ Arbets ytan och alla dess data tas tillbaka efter återställnings åtgärden. L
 > [!NOTE]
 > * När du återskapar en arbets yta under den mjuka borttagnings perioden visas en indikation på att namnet på arbets ytan redan används. 
  
-### <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsökning
 Du måste ha minst *Log Analytics deltagar* behörighet för att kunna ta bort en arbets yta.<br>
 Om du får ett fel meddelande *är namnet på arbets ytan redan används eller är i* *konflikt* när du skapar en arbets yta. det kan vara sedan:
 * Namnet på arbets ytan är inte tillgängligt och används av någon i din organisation eller av en annan kund.

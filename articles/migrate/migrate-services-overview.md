@@ -4,23 +4,21 @@ description: Läs mer om tjänsten Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193583"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771265"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
 Den här artikeln ger en snabb översikt över Azure Migrates tjänsten.
 
-Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera till lokala Azure-servrar, infrastruktur, program och data.
-
-Azure Migrate innehåller följande funktioner:
+Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera till lokala Azure-servrar, infrastruktur, program och data. Det ger följande:
 
 - **Plattform för enhetlig migrering**: en enda portal för att starta, köra och spåra migreringen till Azure.
-- **Olika verktyg**: en uppsättning verktyg för utvärdering och migrering. Bland verktygen finns Azure Migrate: Server utvärdering och Azure Migrate: Server-migrering. Azure Migrate integreras med andra Azure-tjänster och med andra verktyg och oberoende program varu leverantörer (ISV)-erbjudanden.
+- **Olika verktyg**: en uppsättning verktyg för utvärdering och migrering. Azure Migrate verktyg inkluderar Server utvärdering och Azure Migrate: Server-migrering. Azure Migrate integreras också med andra Azure-tjänster och-verktyg och med oberoende program varu leverantörer (ISV)-erbjudanden.
 - **Utvärdering och migrering**: i Azure Migrate hubb kan du utvärdera och migrera:
     - **Servrar**: utvärdera lokala servrar och migrera dem till virtuella Azure-datorer.
     - **Databaser**: utvärdera lokala databaser och migrera dem till Azure SQL Database eller till SQL-hanterad instans.
@@ -82,15 +80,12 @@ Server utvärderingen använder en förenklad [Azure Migrate](migrate-appliance.
 
 Med verktyget Azure Migrate: Migreringsverktyg kan du migrera till Azure:
 
-- Lokala virtuella VMware-datorer
-- Hyper-V:s virtuella datorer
-- Fysiska servrar
-- Andra virtualiserade datorer
-- Virtuella datorer i offentliga moln
+**Migrera** | **Information**
+--- | ---
+Lokala virtuella VMware-datorer | Migrera virtuella datorer till Azure med hjälp av en agent utan agent eller en agent-baserad migrering.<br/><br/> Vid migrering utan Agent använder Server Migration en Azure Migrate-enhet som du distribuerar lokalt. Det är samma typ av apparat som du använder för Server utvärdering.<br/><br/> För agent-baserad migrering använder Server utvärdering en replikeringsprincip.
+Lokala virtuella Hyper-V-datorer | Migrera virtuella datorer till Azure.<br/><br/> Server utvärderingen använder leverantörs agenter som är installerade på Hyper-V-värden för migreringen.
+Lokala fysiska servrar | Du kan migrera fysiska datorer till Azure. Du kan också migrera andra virtualiserade datorer och virtuella datorer från andra offentliga moln genom att behandla dem som virtuella datorer i syfte att migrera. | Server utvärderingen använder en replikeringsfil för migreringen.
 
-Du kan migrera datorer efter att du har bedömt dem eller migrerat dem utan en utvärdering.
-
-Vid migrering utan agent för virtuella VMware-datorer och migrering av virtuella Hyper-V-datorer använder Server Migration en Azure Migrate-enhet som du distribuerar lokalt. Enheten används också om du konfigurerar Server utvärdering. Den beskrivs i föregående avsnitt.
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Välja verktyg för bedömning och migrering
 

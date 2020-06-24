@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b3d77a84aa5206257f82bc5d634e1a3eae1a7790
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c8ab5bc5072612edd3eaabbd13468567a92f42e4
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996437"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296397"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics-data integrerings partner
 
@@ -36,8 +36,8 @@ Om du vill skapa en informations lager lösning med hjälp av Synapse för SQL-p
 | ![Informations byggare](./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png) |**Informations byggare (Omni-GEN Datahantering)**<br>Informations verktygets Omni-generations plattform för data hantering ger data integrering, data kvalitet och hanterings lösningar för huvud data. Det gör det enkelt att komma åt, flytta och blanda alla data oavsett format, plats, volym eller svars tid.|[Produkt sida](https://www.informationbuilders.com/3i-platform)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm) |
 | ![Matillion](./media/sql-data-warehouse-partner-data-integration/matillion-logo.png) |**Matillion**<br>Matillion är program vara för datatransformering av data lager i molnet. Endast Matillion för Azure Synapse gör det möjligt för företag att uppnå nya nivåer av enkelhet, hastighet, skalning och besparingar. Matillion-produkter är mycket klassificerade och betrodda av företag i alla storlekar för att uppfylla sina behov av data integrering och transformering. Lär dig mer om hur du kan låsa upp potentialen hos dina data med Matillion molnbaserade metoder för datatransformering.| [Produkt sida](https://www.matillion.com/technology/cloud-data-warehouse/microsoft-azure-synapse/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/matillion.matillion-etl-azure-synapse?tab=Overview) |
 | ![oh22 HEDDA. I/O](./media/sql-data-warehouse-partner-data-integration/heddaiowhitebg-logo.png) |**oh22-HEDDA <span></span> . I/O**<br>oh22's-HEDDA <span></span> . IO är en kunskaps driven data kvalitets produkt som skapats för Microsoft Azure. Det gör att du kan skapa en kunskaps bas och använda den för att utföra en mängd kritiska data kvalitets uppgifter, inklusive korrigering, berikning och standardisering av dina data. HEDDA <span></span> . I i/o kan du också rensa data genom att använda molnbaserade referens data tjänster som tillhandahålls av referens data leverantörer eller som du utvecklar och tillhandahåller.| [Produkt sida](https://hedda.io)<br> [Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oh22.hedda-io) |
-| ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole tillhandahåller en moln intern plattform som gör det möjligt för användare att utföra ETL-, analys-och AI/ML-arbetsbelastningar. Det stöder olika typer av motorer med öppen källkod – Apache Spark, TensorFlow, Presto, luft flöde, Hadoop, Hive med mera. Det tillhandahåller lättanvända verktyg för slutanvändare för data bearbetning från SQL-frågeläge, till antecknings böcker och instrument paneler som utnyttjar kraftfulla motorer med öppen källkod.|[Produkt sida](https://www.qubole.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
-| ![Segment](./media/sql-data-warehouse-partner-data-integration/segment_logo.png) |**Sektion**<br>Segment är en lösning för data hantering och analys som hjälper dig att förstå kund information från olika källor. Det gör att du kan ansluta dina data till över 200-verktyg för att skapa bättre beslut, produkter och upplevelser. Segmentet transformerar och läser in flera data källor i ditt lager så att du kan använda de inbyggda data kopplingarna|[Produkt sida](https://segment.com/)<br> |
+| ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole tillhandahåller en moln intern plattform som gör det möjligt för användare att utföra ETL-, analys-och AI/ML-arbetsbelastningar. Det stöder olika typer av motorer med öppen källkod – Apache Spark, TensorFlow, Presto, luft flöde, Hadoop, Hive med mera. Det tillhandahåller lättanvända verktyg för slutanvändare för data bearbetning från SQL-frågeläge, till antecknings böcker och instrument paneler som utnyttjar kraftfulla motorer med öppen källkod.|[Produkt sida](https://www.qubole.com/company/partners/partners-microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
+| ![Segment](./media/sql-data-warehouse-partner-data-integration/segment_logo.png) |**Segment**<br>Segment är en lösning för data hantering och analys som hjälper dig att förstå kund information från olika källor. Det gör att du kan ansluta dina data till över 200-verktyg för att skapa bättre beslut, produkter och upplevelser. Segmentet transformerar och läser in flera data källor i ditt lager så att du kan använda de inbyggda data kopplingarna|[Produkt sida](https://segment.com/)<br> |
 | ![Skyvia](./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png) |**Skyvia (data integrering)**<br>Skyvia data integration tillhandahåller en guide som automatiserar data importer. Med den här guiden kan du migrera data mellan olika typer av källor – CRMs, program databas, CSV-filer med mera. |[Produkt sida](https://skyvia.com/)<br> |
 | ![SnapLogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png) |**SnapLogic**<br>SnapLogic-plattformen gör det möjligt för kunder att snabbt överföra data till och från ett Azure Synapse-informations lager. Det ger möjlighet att integrera hundratals program, tjänster och IoT-scenarier i en lösning.|[Produkt sida](https://www.snaplogic.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/snaplogic.snaplogic-elastic-integration-windows)<br> |
 | ![StreamSets](./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png) |**StreamSets**<br>StreamSets tillhandahåller en data integrerings plattform för DataOps. Det operationalizes den fullständiga design-Deploy-driver-processen för att integrera data i ett data lager för Azure Synapse. Du kan snabbt mata in och integrera data till och från lagret, via strömnings-, batch-eller data överförings metoder för data insamling. Du kan också säkerställa kontinuerlig drift med Smart datapipelines som ger insyn och återhämtning från slut punkt till slut punkt för data flödet.|[Produkt sida](https://streamsets.com/partners/microsoft)|
@@ -48,4 +48,4 @@ Om du vill skapa en informations lager lösning med hjälp av Synapse för SQL-p
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om andra partner finns i [Business Intelligence-partner](sql-data-warehouse-partner-business-intelligence.md) och [datahantering partner](sql-data-warehouse-partner-data-management.md).
+Mer information om andra partner finns i [Business Intelligence-partner](sql-data-warehouse-partner-business-intelligence.md), [Datahantering partners](sql-data-warehouse-partner-data-management.md) och [Machine Learning-och AI-partner](sql-data-warehouse-partner-machine-learning-ai.md).

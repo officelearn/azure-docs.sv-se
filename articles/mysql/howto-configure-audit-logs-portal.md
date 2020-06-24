@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: d6d037f3d45216b81d2c5fdcb67ea48b4252a889
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380289"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100998"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL i Azure Portal
 
@@ -27,6 +27,9 @@ För att gå igenom den här instruktions guiden behöver du:
 - [Azure Database for MySQL Server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
+
+>[!NOTE]
+> Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
 
 Aktivera och konfigurera gransknings loggning.
 
@@ -53,7 +56,7 @@ Aktivera och konfigurera gransknings loggning.
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
 
-1. Klicka på "+ Lägg till diagnostisk inställning ![" Lägg till diagnostikinställningar](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Klicka på "+ Lägg till diagnostisk inställning" ![ Lägg till diagnostikinställningar](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Ange ett namn på en diagnostisk inställning.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 06889f3df0200535e9b011fd87378e6f7803e668
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6759f7769d106e9adca5fcd01a454195a758634f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552292"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204467"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,12 +58,10 @@ Klassificering | Regression | Prognostisering för tidsserier
 [Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN-klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN linjär klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linjär modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[Linjär modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast linjär modellerings regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[Brantaste modellerings regressor för online-gradient](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Brantaste modellerings regressor för online-gradient](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* ||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
 Använd `task` parametern i `AutoMLConfig` konstruktorn för att ange din experiment typ.
 
@@ -117,13 +115,14 @@ Se [instruktionen How-to](how-to-train-with-datasets.md#mount-files-to-remote-co
 
 ## <a name="train-and-validation-data"></a>Träna och verifiera data
 
-Du kan ange separata tåg-och validerings uppsättningar direkt i `AutoMLConfig` konstruktorn.
+Du kan ange separata tåg-och validerings uppsättningar direkt i `AutoMLConfig` konstruktorn med följande alternativ. Läs mer om [hur du konfigurerar data delningar och kors validering](how-to-configure-cross-validation-data-splits.md) för dina AutoML experiment. 
 
 ### <a name="k-folds-cross-validation"></a>Kors validering med K-vikning
 
 Använd `n_cross_validations` inställningen för att ange antalet kors valideringar. Träning-datauppsättningen är slumpmässigt uppdelad i `n_cross_validations` vikning av samma storlek. Under varje kors validerings avrundning används en av vik stegen för att verifiera modellen som tränas på återstående vikning. Den här processen upprepas för `n_cross_validations` avrundade tills varje vikning används en gång som validerings uppsättningen. Genomsnitts poängen för alla `n_cross_validations` avrundning rapporteras och motsvarande modell kommer att omtränas på hela inlärnings data uppsättningen.
 
 Lär dig mer om hur autoML använder kors validering för att [förhindra överanpassning av modeller](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo kors validering (upprepad slumpmässig under sampling)
 
 Används för `validation_size` att ange procent andelen av den tränings data uppsättning som ska användas för verifiering och används för `n_cross_validations` att ange antalet kors valideringar. Under varje kors validerings avrundning väljs en delmängd av storleken `validation_size` slumpmässigt för att verifiera den modell som har tränats på återstående data. Slutligen rapporteras genomsnitts poängen för alla `n_cross_validations` avrundning, och motsvarande modell kommer att omtränas på hela inlärnings data uppsättningen. Monte Carlo stöds inte för tids serie prognoser.
@@ -200,7 +199,7 @@ I varje automatiserad maskin inlärnings experiment [skalas dina data automatisk
 
 När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-|Funktionalisering-konfiguration | Description |
+|Funktionalisering-konfiguration | Beskrivning |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|
@@ -511,6 +510,9 @@ Med modell tolkning kan du förstå varför dina modeller har gjort förutsägel
 Se anvisningar [för kod exempel för hur](how-to-machine-learning-interpretability-automl.md) du aktiverar tolknings funktioner specifikt inom automatiserade maskin inlärnings experiment.
 
 Allmän information om hur modell förklaringar och funktions prioritet kan aktive ras på andra områden i SDK utanför Automatisk maskin inlärning finns i avsnittet [begrepp](how-to-machine-learning-interpretability.md) om tolkning.
+
+> [!NOTE]
+> ForecastTCN-modellen stöds för närvarande inte av förklarings klienten. Den här modellen returnerar ingen förklarings instrument panel om den returneras som den bästa modellen och inte stöder förklarings körningar på begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

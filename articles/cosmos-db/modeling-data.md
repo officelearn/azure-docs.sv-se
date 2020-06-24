@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4125d7ea17c6ebab28ef8e5fde5af5475d07002d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72755019"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113389"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Data modellering i Azure Cosmos DB
 
@@ -33,7 +33,7 @@ När du börjar att modellera data i Azure Cosmos DB försöker hantera dina ent
 
 För jämförelse ska vi först se hur vi kan modellera data i en Relations databas. I följande exempel visas hur en person kan lagras i en Relations databas.
 
-![Relations databas modell](./media/sql-api-modeling-data/relational-data-model.png)
+:::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Relations databas modell" border="false":::
 
 När du arbetar med relations databaser, är strategin att normalisera alla dina data. Att normalisera dina data innebär vanligt vis att ta en entitet, till exempel en person, och dela upp den i diskreta komponenter. I exemplet ovan kan en person ha flera kontakt informations poster, samt flera adress poster. Kontakt uppgifter kan delas vidare genom att ytterligare extrahera vanliga fält som en typ. Samma sak gäller för adress, varje post kan vara av typen *Start* eller *företag*.
 
@@ -282,7 +282,8 @@ I exemplet ovan har vi släppt den obegränsade samlingen i utgivar dokumentet. 
 
 I en Relations databas *många: många* relationer modelleras ofta med kopplings tabeller som bara kopplar ihop poster från andra tabeller.
 
-![Koppla tabeller](./media/sql-api-modeling-data/join-table.png)
+
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Koppla tabeller" border="false":::
 
 Du kanske är frestad att replikera samma sak som med dokument och skapar en data modell som ser ut ungefär så här.
 
@@ -373,7 +374,7 @@ Baserat på programmets specifika användnings mönster och arbets belastningar 
 
 Här har vi (främst) följt den inbäddade modellen, där data från andra entiteter är inbäddade i dokumentet på den översta nivån, men andra data refereras till.
 
-Om du tittar på bok dokumentet kan vi se några intressanta fält när vi tittar på matrisen med författare. Det finns ett `id` fält som är det fält vi använder för att referera till ett författar dokument, standard praxis i en normaliserad modell, men det finns även `name` och. `thumbnailUrl` Vi kunde ha fastnat `id` med och lämnat programmet för att få ytterligare information som behövs från respektive författar dokument med hjälp av länken "länk", men eftersom appens författare visar författarens namn och en miniatyr bild med varje bok som visas kan vi spara en tur och retur-begäran till servern per bok i en lista genom att avnormalisera **vissa** data från författaren.
+Om du tittar på bok dokumentet kan vi se några intressanta fält när vi tittar på matrisen med författare. Det finns ett `id` fält som är det fält vi använder för att referera till ett författar dokument, standard praxis i en normaliserad modell, men det finns även `name` och `thumbnailUrl` . Vi kunde ha fastnat med `id` och lämnat programmet för att få ytterligare information som behövs från respektive författar dokument med hjälp av länken "länk", men eftersom appens författare visar författarens namn och en miniatyr bild med varje bok som visas kan vi spara en tur och retur-begäran till servern per bok i en lista genom att avnormalisera **vissa** data från författaren.
 
 Om författarens namn har ändrats eller om han ville uppdatera sitt foto måste vi gå och uppdatera varje bok som de någonsin publicerat, men för vår app, baserat på antagandet att författare inte ändrar sina namn ofta, är detta ett acceptabelt design beslut.  
 
@@ -383,7 +384,7 @@ Möjligheten att ha en modell med förberäknade fält görs möjlig eftersom Az
 
 ## <a name="distinguishing-between-different-document-types"></a>Skilja mellan olika dokument typer
 
-I vissa fall kanske du vill blanda olika dokument typer i samma samling. Detta är vanligt vis fallet när du vill att flera, relaterade dokument ska sitta i samma [partition](partitioning-overview.md). Du kan till exempel skicka både böcker och bok granskningar i samma samling och partitionera den av `bookId`. I sådana fall vill du vanligt vis lägga till dokument med ett fält som identifierar deras typ för att skilja dem åt.
+I vissa fall kanske du vill blanda olika dokument typer i samma samling. Detta är vanligt vis fallet när du vill att flera, relaterade dokument ska sitta i samma [partition](partitioning-overview.md). Du kan till exempel skicka både böcker och bok granskningar i samma samling och partitionera den av `bookId` . I sådana fall vill du vanligt vis lägga till dokument med ett fält som identifierar deras typ för att skilja dem åt.
 
     Book documents:
     {

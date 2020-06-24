@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548cd488bc811ad16cd84950ce3819f2e1f3ddbb
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72792985"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080719"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Uppgradera till Azure Search .NET SDK version 3
 
@@ -25,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-Om du använder version 2,0 – för hands version eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera ditt program till att använda version 3.
+Om du använder version 2,0 – för hands version eller äldre av [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 3.
 
 En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -41,7 +41,7 @@ Version 3 av Azure Search .NET SDK innehåller vissa ändringar från tidigare v
 ## <a name="whats-new-in-version-3"></a>Vad är nytt i version 3
 Version 3 av Azure Search .NET SDK är riktad mot den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2016-09-01. Detta gör det möjligt att använda många nya funktioner i Azure Search från ett .NET-program, inklusive följande:
 
-* [Anpassade analysverktyg](https://aka.ms/customanalyzers)
+* [Anpassade analysverktyg](index-add-custom-analyzers.md)
 * Stöd för [azure Blob Storage](search-howto-indexing-azure-blob-storage.md) och [Azure Table Storage](search-howto-indexing-azure-tables.md) -indexeraren
 * Indexerare-anpassning via [fält mappningar](search-indexer-field-mappings.md)
 * ETags-stöd för att möjliggöra säker samtidig uppdatering av index definitioner, indexerare och data källor
@@ -51,7 +51,7 @@ Version 3 av Azure Search .NET SDK är riktad mot den senaste allmänt tillgäng
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
-Först uppdaterar du din NuGet-referens `Microsoft.Azure.Search` för med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
+Först uppdaterar du din NuGet-referens för `Microsoft.Azure.Search` med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
 
 När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. Beroende på hur koden är strukturerad kan den återskapas. I så fall är det dags att sätta igång!
 
@@ -71,7 +71,7 @@ När du har åtgärdat eventuella build-fel kan du göra ändringar i programmet
 Det finns ett litet antal avbryter ändringar i version 3 som kan kräva kod ändringar förutom att återskapa ditt program.
 
 ### <a name="indexesgetclient-return-type"></a>Index. GetClient returnerar typ
-`Indexes.GetClient` Metoden har en ny returtyp. Tidigare returnerades `SearchIndexClient`den, men detta ändrades till `ISearchIndexClient` i version 2,0 – för hands version och denna ändring överför till version 3. Detta är att stödja kunder som vill modellera `GetClient` metoden för enhets tester genom att returnera en modell implementering `ISearchIndexClient`av.
+`Indexes.GetClient`Metoden har en ny returtyp. Tidigare returnerades den `SearchIndexClient` , men detta ändrades till `ISearchIndexClient` i version 2,0 – för hands version och denna ändring överför till version 3. Detta är att stödja kunder som vill modellera `GetClient` metoden för enhets tester genom att returnera en modell implementering av `ISearchIndexClient` .
 
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
@@ -87,7 +87,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>AnalyzerName, datatype och andra är inte längre implicit konverterbara till strängar
-Det finns många typer i Azure Search .NET SDK som härleds från `ExtensibleEnum`. Tidigare var dessa typer alla implicit konverterbara till Type `string`. Men en bugg identifierades i `Object.Equals` implementeringen för dessa klasser och korrigerar den bugg som krävs för att inaktivera denna implicita konvertering. Explicit konvertering till `string` tillåts fortfarande.
+Det finns många typer i Azure Search .NET SDK som härleds från `ExtensibleEnum` . Tidigare var dessa typer alla implicit konverterbara till Type `string` . Men en bugg identifierades i `Object.Equals` implementeringen för dessa klasser och korrigerar den bugg som krävs för att inaktivera denna implicita konvertering. Explicit konvertering till `string` tillåts fortfarande.
 
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
@@ -130,7 +130,7 @@ index.Analyzers = new Analyzer[]
 
 Du kan se build-fel relaterade till metoder eller egenskaper som marker ATS som föråldrade i version 2,0 – för hands version och sedan tas bort i version 3. Gör så här om du stöter på sådana fel:
 
-- Om du använder den här konstruktorn `ScoringParameter(string name, string value)`: använder du den här i stället:`ScoringParameter(string name, IEnumerable<string> values)`
+- Om du använder den här konstruktorn: `ScoringParameter(string name, string value)` använder du den här i stället:`ScoringParameter(string name, IEnumerable<string> values)`
 - Om du använder `ScoringParameter.Value` egenskapen använder du `ScoringParameter.Values` egenskapen eller `ToString` metoden i stället.
 - Om du använder `SearchRequestOptions.RequestId` egenskapen använder du `ClientRequestId` egenskapen i stället.
 

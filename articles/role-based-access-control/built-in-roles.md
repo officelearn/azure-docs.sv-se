@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/04/2020
-ms.openlocfilehash: 909485ea3c4e143ce93579d1bfea5e13cf94c575
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/18/2020
+ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660045"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080740"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
 
@@ -26,7 +26,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 ## <a name="all"></a>Alla
 
 > [!div class="mx-tableFixed"]
-> | Inbyggd roll | Description | ID |
+> | Inbyggd roll | Beskrivning | ID |
 > | --- | --- | --- |
 > | **Allmänt** |  |  |
 > | [Deltagare](#contributor) | Låter dig hantera allt, förutom att bevilja åtkomst till resurser. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -1168,6 +1168,7 @@ Kan skapa och hantera ett AVERT vFXT-kluster. [Läs mer](../avere-vfxt/avere-vfx
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
 > | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/*/Read |  |
 > | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/proximityPlacementGroups/* |  |
 > | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* |  |
 > | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/disks/* |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/*/Read |  |
@@ -1207,6 +1208,7 @@ Kan skapa och hantera ett AVERT vFXT-kluster. [Läs mer](../avere-vfxt/avere-vfx
         "Microsoft.Authorization/*/read",
         "Microsoft.Compute/*/read",
         "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/proximityPlacementGroups/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/disks/*",
         "Microsoft.Network/*/read",
@@ -2767,7 +2769,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/certificates/* | Skapa och hantera webbplats certifikat |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/Read | Hämta namn på platser tilldelade till värdnamn. |
-> | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action |  |
+> | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action | Kopplar en App Service plan |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Read | Hämta egenskaperna för en App Service plan |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/Sites/* | Skapa och hantera webbplatser (webbplats skapande kräver även Skriv behörighet till den associerade App Service planen) |
 > | **NotActions** |  |
@@ -2812,7 +2814,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -5623,7 +5625,7 @@ Låter dig hantera Logi Kap par, men ändra inte åtkomsten till dem. [Läs mer]
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Skapa och hantera en anslutnings-Gateway. |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/Connections/* | Skapa och hantera en anslutning. |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/customApis/* | Skapar och hanterar en anpassad API. |
-> | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action |  |
+> | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action | Kopplar en App Service plan |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/serverFarms/Read | Hämta egenskaperna för en App Service plan |
 > | [Microsoft. Web-](resource-provider-operations.md#microsoftweb)/Sites/Functions/listSecrets/Action | Visa en lista över funktions hemligheter. |
 > | **NotActions** |  |
@@ -6342,7 +6344,7 @@ Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar,
 
 ### <a name="devtest-labs-user"></a>DevTest Labs-användare
 
-Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. [Läs mer](../lab-services/devtest-lab-add-devtest-user.md)
+Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. [Läs mer](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6446,7 +6448,7 @@ Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i di
 
 ### <a name="lab-creator"></a>Labb skapare
 
-Gör att du kan skapa, hantera och ta bort dina hanterade labb under dina Azure Lab-konton. [Läs mer](../lab-services/classroom-labs/add-lab-creator.md)
+Gör att du kan skapa, hantera och ta bort dina hanterade labb under dina Azure Lab-konton. [Läs mer](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |

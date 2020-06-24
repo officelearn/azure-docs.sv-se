@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b6b5e43ed0baed8cd84078809c5eb0fe146b0ecb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636299"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105931"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
 
@@ -20,8 +20,10 @@ Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets
 Den här artikeln beskriver hur du hanterar åtkomst till loggar och administrerar de arbets ytor som innehåller dem, inklusive hur du beviljar åtkomst till: 
 
 * Arbets ytan med hjälp av arbets ytans behörigheter.
-* Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure.
+* Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) – även kallat [resurs kontext](design-logs-deployment.md#access-mode)
 * Användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
+
+Om du vill lära dig begrepp som rör RBAC-och åtkomst strategier läser du [utforma Azure Monitor loggar distribution](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Konfigurera åtkomst kontrol läge
 
@@ -104,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Anteckningar |
+|Åtgärd |Azure-behörigheter krävs |Kommentarer |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -298,7 +300,7 @@ En annan metod för att hantera åtkomst till anpassade loggar är att tilldela 
 
 Ibland kommer anpassade loggar från källor som inte är direkt kopplade till en speciell resurs. I det här fallet skapar du en resurs grupp för att bara hantera åtkomst till dessa loggar. Resurs gruppen kostar ingen kostnad, men ger dig ett giltigt resurs-ID för att kontrol lera åtkomsten till de anpassade loggarna. Om en speciell brand vägg exempelvis skickar anpassade loggar, skapar du en resurs grupp med namnet "MyFireWallLogs" och ser till att API-begärandena innehåller resurs-ID: t "MyFireWallLogs". Logg posterna för brand väggen är sedan tillgängliga enbart för användare som har beviljats åtkomst till antingen MyFireWallLogs eller med fullständig åtkomst till arbets ytan.          
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.

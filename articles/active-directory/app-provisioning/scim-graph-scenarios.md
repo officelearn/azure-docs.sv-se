@@ -2,21 +2,21 @@
 title: Använd SCIM, Microsoft Graph och Azure AD för att etablera användare och utöka appar med data
 description: Använda SCIM och Microsoft Graph tillsammans för att tillhandahålla användare och förbättra ditt program med de data som krävs.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/26/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626198"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781692"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Använda SCIM och Microsoft Graph tillsammans för att etablera användare och förbättra ditt program med de data som krävs
 

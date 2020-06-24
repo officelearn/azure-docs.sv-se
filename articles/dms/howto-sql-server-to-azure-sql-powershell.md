@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: Migrera SQL Server till SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Lär dig att migrera en datagbase från SQL Server till Azure SQL Database genom att använda Azure PowerShell med Azure Database Migration Service.
+description: Lär dig att migrera en databas från SQL Server till Azure SQL Database med hjälp av Azure PowerShell med Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192648"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253417"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrera en SQL Server databas till Azure SQL Database med Azure PowerShell
 
-I den här artikeln migrerar du **Adventureworks2012** -databasen som återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en SQL Server instans till Azure SQL Database genom att använda `Az.DataMigration` modulen i Microsoft Azure PowerShell.
+I den här artikeln migrerar du **Adventureworks2012** -databasen som återställs till en lokal instans av SQL Server 2016 eller senare för Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en SQL Server instans till Azure SQL Database genom att använda `Az.DataMigration` modulen i Microsoft Azure PowerShell.
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
@@ -31,14 +31,14 @@ I den här artikeln kan du se hur du:
 > * Skapa ett migreringsjobb i en Azure Database Migration Service-instans.
 > * Köra migreringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra de här stegen:
 
 * [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (vilken utgåva som helst)
 * För att aktivera TCP/IP-protokollet, som är inaktiverat som standard med SQL Server Express installation. Aktivera TCP/IP-protokollet genom att följa artikeln [Aktivera eller inaktivera ett Server nätverks protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Konfigurera Windows- [brandväggen för åtkomst till databas motorn](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa informationen i artikeln [skapa en Azure SQL-databas i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa informationen i artikeln [skapa en databas i Azure SQL Database i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 eller senare.
 * För att skapa en Microsoft Azure Virtual Network med hjälp av Azure Resource Manager distributions modell, som förser Azure Database Migration Service med plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * För att slutföra utvärderingen av din lokala databas och schema migrering med hjälp av Data Migration Assistant som beskrivs i artikeln [utföra en utvärdering av SQL Server migrering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
@@ -96,7 +96,7 @@ När du har skapat en Azure Database Migration Service-instans skapar du ett mig
 Du kan skapa ett informations objekt för databas anslutning med hjälp av `New-AzDmsConnInfo` cmdleten. Denna cmdlet förväntar sig följande parametrar:
 
 * *ServerType*. Vilken typ av databas anslutning som begärdes, till exempel SQL, Oracle eller MySQL. Använd SQL för SQL Server och Azure SQL.
-* *Data källa*. Namnet eller IP-adressen för en SQL Server instans eller Azure SQL-databas.
+* *Data källa*. Namnet eller IP-adressen för en SQL Server instans eller Azure SQL Database.
 * *AuthType*. Autentiseringstypen för anslutning, som kan vara antingen SqlAuthentication eller WindowsAuthentication.
 * Parametern *TrustServerCertificate* anger ett värde som anger om kanalen är krypterad och kringgår certifikat kedjan för att verifiera förtroende. Värdet kan vara sant eller falskt.
 

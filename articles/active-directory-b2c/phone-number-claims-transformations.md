@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ece49d0c1537e345b1ccb1f44f907252a5a7b4e1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738769"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203902"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
 
@@ -30,14 +30,14 @@ Den här artikeln innehåller en referens och exempel på hur du kan använda an
 
 Konverterar en datatyp `phoneNumber` till en `string` datatyp.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | phoneNumber |  ClaimType som ska konverteras till en sträng. |
 | OutputClaim | phoneNumberString | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 I det här exemplet konverteras cellPhoneNumber-anspråket med värde typen `phoneNumber` till ett mobilt anspråk med värde typen `string` .
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -60,7 +60,7 @@ I det här exemplet konverteras cellPhoneNumber-anspråket med värde typen `pho
 
 Den här anspråks omvandlingen verifierar formatet för telefonnumret. Om det är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte har ett giltigt format returneras ett fel meddelande.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. Om indata `country` -anspråk anges, är telefonnumret i lokalt format (utan lands-/region kod). |
 | InputClaim | land | sträng | Valfritt Sträng anspråket för lands-/regionkoden för telefonnumret i ISO3166-format (ISO-3166 land/region-kod). |
@@ -72,7 +72,7 @@ Omvandlingen av **ConvertStringToPhoneNumberClaim** -anspråk körs alltid från
 
 Du kan använda den här anspråks omvandlingen för att se till att det angivna sträng anspråket är ett giltigt telefonnummer. Annars genereras ett fel meddelande. I följande exempel kontrol leras att **phoneString** -claimType faktiskt är ett giltigt telefonnummer och returnerar sedan telefonnumret i standardformatet för Azure AD B2C. Annars genereras ett fel meddelande.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ Du kan använda den här anspråks omvandlingen för att se till att det angivna
 
 Den självkontrollerade tekniska profilen som anropar den tekniska verifierings profilen som innehåller den här anspråks omvandlingen kan definiera fel meddelandet.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -115,7 +115,7 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 
 Detta extraherar lands-/regionkoden och det nationella numret från det inskickade anspråket och returnerar ett undantag om det angivna telefonnumret inte är giltigt.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. |
 | InputParameter | throwExceptionOnFailure | boolean | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |
@@ -132,7 +132,7 @@ Du kan använda den här anspråks omvandlingen för att dela upp ett fullständ
 
 I följande exempel försöker du dela telefonnumret i det nationella numret och land/region-koden. Om telefonnumret är giltigt kommer telefonnumret att åsidosättas av det nationella numret. Om telefonnumret inte är giltigt, genereras inget undantag och telefonnumret har fortfarande sitt ursprungliga värde.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ I följande exempel försöker du dela telefonnumret i det nationella numret och
 
 Den självkontrollerade tekniska profilen som anropar den tekniska verifierings profilen som innehåller den här anspråks omvandlingen kan definiera fel meddelandet.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

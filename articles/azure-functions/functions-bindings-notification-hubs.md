@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277289"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697416"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs utgående bindning för Azure Functions
 
@@ -35,7 +35,7 @@ Den här bindningen är inte tillgänglig i functions 2. x och högre.
 
 ## <a name="example---template"></a>Exempel-mall
 
-De meddelanden som du skickar kan vara interna meddelanden eller [mal meddelanden](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Interna meddelanden riktar sig till en specifik klient plattform enligt `platform` konfigurationen i egenskapen för utgående bindning. Ett mal Lav besked kan användas för att rikta in flera plattformar.   
+De meddelanden som du skickar kan vara interna meddelanden eller [mal meddelanden](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Interna meddelanden riktar sig till en specifik klient plattform enligt konfigurationen i `platform` egenskapen för utgående bindning. Ett mal Lav besked kan användas för att rikta in flera plattformar.   
 
 Se språkspecifika exempel:
 
@@ -43,12 +43,12 @@ Se språkspecifika exempel:
 * [C#-skript – asynkron](#c-script-template-example---asynchronous)
 * [C#-skript – JSON](#c-script-template-example---json)
 * [C#-skript – biblioteks typer](#c-script-template-example---library-types)
-* [B #](#f-template-example)
+* [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
 ### <a name="c-script-template-example---out-parameter"></a>Exempel på skript mal len C#-parameter
 
-Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `message` en plats hållare i mallen.
+Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` plats hållare i mallen.
 
 ```cs
 using System;
@@ -71,7 +71,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---asynchronous"></a>Exempel på C#-skript mal len – asynkron
 
-Om du använder asynkron kod tillåts inte out-parametrar. I det här fallet `IAsyncCollector` använder du för att returnera meddelandet från en mall. Följande kod är ett asynkront exempel på koden ovan. 
+Om du använder asynkron kod tillåts inte out-parametrar. I det här fallet använder `IAsyncCollector` du för att returnera meddelandet från en mall. Följande kod är ett asynkront exempel på koden ovan. 
 
 ```cs
 using System;
@@ -96,7 +96,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---json"></a>C#-skript mal len exempel – JSON
 
-Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `message` en plats hållare i mallen med en giltig JSON-sträng.
+Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller en `message` plats hållare i mallen med en giltig JSON-sträng.
 
 ```cs
 using System;
@@ -135,7 +135,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>Exempel på F #-mall
 
-Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som `location` innehåller `message`och.
+Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message` .
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -144,7 +144,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>Exempel på JavaScript-mall
 
-Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som `location` innehåller `message`och.
+Det här exemplet skickar ett meddelande för en [mall registrering](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) som innehåller `location` och `message` .
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -245,12 +245,12 @@ Attributets konstruktor parametrar och egenskaper beskrivs i [konfigurations](#c
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `NotificationHub` attributet:
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `NotificationHub` attributet:
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp** |saknas| Måste anges till `notificationHub`. |
-|**riktning** |saknas| Måste anges till `out`. | 
+|**bastyp** |saknas| Måste anges till `notificationHub` . |
+|**position** |saknas| Måste anges till `out` . | 
 |**Namn** |saknas| Variabel namn som används i funktions koden för Notification Hub-meddelandet. |
 |**tagExpression** |**TagExpression** | Med tagg uttryck kan du ange att meddelanden ska skickas till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikett uttrycket.  Mer information finns i avsnittet om [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Namnet på resursen för Notification Hub i Azure Portal. |
@@ -259,9 +259,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-### <a name="functionjson-file-example"></a>exempel på function. JSON-fil
+### <a name="functionjson-file-example"></a>function.jspå fil exempel
 
-Här är ett exempel på en Notification Hubs-bindning i en *Function. JSON* -fil.
+Här är ett exempel på en Notification Hubs-bindning i en *function.jspå* en fil.
 
 ```json
 {
@@ -290,7 +290,7 @@ Så här konfigurerar du anslutnings strängen till en befintlig Notification Hu
     ![Kopiera anslutnings strängen för Notification Hub](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
 1. Navigera till din Function-app i Azure Portal, Välj **program inställningar**, Lägg till en nyckel, till exempel **MyHubConnectionString**, klistra in den kopierade *DefaultFullSharedAccessSignature* för Notification Hub som värde och klicka sedan på **Spara**.
 
-Namnet på den här program inställningen är vad som händer i anslutnings inställningen för utgående bindning i *Function. JSON* eller .NET-attributet. Se [konfigurations avsnittet](#configuration) tidigare i den här artikeln.
+Namnet på den här program inställningen är vad som händer i anslutnings inställningen för utgående bindning i *function.jspå* eller .NET-attributet. Se [konfigurations avsnittet](#configuration) tidigare i den här artikeln.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

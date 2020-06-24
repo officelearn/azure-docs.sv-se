@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170672"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100811"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MySQL
 
@@ -102,7 +102,7 @@ Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-8
 > I vissa fall finns Azure Database for MySQL och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
 > - Båda prenumerationerna måste vara i samma Azure Active Directory-klient.
 > - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänst slut punkter och lägga till ett VNet-undernät till den aktuella servern.
-> - Se till att båda prenumerationerna har **Microsoft. SQL** -lagringsprovidern registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
+> - Se till att både prenumerationen **Microsoft. SQL** och **Microsoft. DBforMySQL** Resource provider har registrerats. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Begränsningar
 

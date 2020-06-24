@@ -8,20 +8,24 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549016"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081101"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Design mönster för SaaS-program med flera innehavare och Azure Kognitiv sökning
+
 Ett program för flera innehavare är ett program som tillhandahåller samma tjänster och funktioner för alla klienter som inte kan se eller dela data för någon annan klient organisation. I det här dokumentet beskrivs strategier för klient isolering för program med flera klienter som skapats med Azure Kognitiv sökning.
 
 ## <a name="azure-cognitive-search-concepts"></a>Azure Kognitiv sökning-koncept
-Som en Sök-som-tjänst-lösning gör Azure Kognitiv sökning att utvecklare kan lägga till omfattande Sök upplevelser i program utan att behöva hantera en infrastruktur eller bli expert på informations hämtning. Data överförs till tjänsten och lagras sedan i molnet. Med hjälp av enkla begär anden till Azure Kognitiv sökning API: et kan data sedan ändras och genomsökas. Du hittar en översikt över tjänsten i [den här artikeln](https://aka.ms/whatisazsearch). Innan du diskuterar design mönster är det viktigt att förstå vissa begrepp i Azure Kognitiv sökning.
+Som en Sök-som-tjänst-lösning gör [Azure kognitiv sökning](search-what-is-azure-search.md) att utvecklare kan lägga till omfattande Sök upplevelser i program utan att behöva hantera en infrastruktur eller bli expert på informations hämtning. Data överförs till tjänsten och lagras sedan i molnet. Med hjälp av enkla begär anden till Azure Kognitiv sökning API: et kan data sedan ändras och genomsökas. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Sök tjänster, index, fält och dokument
+
+Innan du diskuterar design mönster är det viktigt att du förstår några grundläggande begrepp.
+
 När du använder Azure Kognitiv sökning en prenumeration på en *Sök tjänst*. När data överförs till Azure Kognitiv sökning lagras de i ett *index* i Sök tjänsten. Det kan finnas ett antal index i en enskild tjänst. Om du vill använda de välkända koncepten för databaser kan Sök tjänsten likened till en databas medan indexen i en tjänst kan vara likened till tabeller i en databas.
 
 Varje index i en Sök tjänst har sitt eget schema, vilket definieras av ett antal anpassningsbara *fält*. Data läggs till i ett Azure Kognitiv sökning-index i form av enskilda *dokument*. Varje dokument måste överföras till ett visst index och måste passa det indexets schema. När du söker efter data med hjälp av Azure Kognitiv sökning utfärdas full text Sök frågorna mot ett visst index.  Om du vill jämföra dessa begrepp med databaserna i en databas kan du likened kolumner i en tabell och dokument kan likened till rader.
@@ -127,5 +131,5 @@ Den här metoden kan användas för att uppnå funktioner i separata användar k
 ## <a name="next-steps"></a>Nästa steg
 Azure Kognitiv sökning är ett övertygande val för många program. När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för att skräddarsy Azure-kognitiv sökning så att den passar program arbets belastningar och arkitekturer i alla storlekar.
 
-Alla frågor om Azure Kognitiv sökning och scenarier med flera innehavare kan dirigeras azuresearch_contact@microsoft.comtill.
+Alla frågor om Azure Kognitiv sökning och scenarier med flera innehavare kan dirigeras till azuresearch_contact@microsoft.com .
 

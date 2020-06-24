@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559594"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203188"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ För att definiera användar resan som stöds av principen läggs ett **UserJour
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för en användar resa som kan användas för att referera till den från andra element i principen. **DefaultUserJourney** -elementet för den [förlitande part-principen](relyingparty.md) pekar på det här attributet. |
+| Id | Yes | En identifierare för en användar resa som kan användas för att referera till den från andra element i principen. **DefaultUserJourney** -elementet för den [förlitande part-principen](relyingparty.md) pekar på det här attributet. |
 
 **UserJourney** -elementet innehåller följande element:
 
@@ -63,10 +63,10 @@ Om du vill ange den sorterade listan över Orchestration-steg läggs ett **Orche
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Order` | Ja | Ordningen för Orchestration-stegen. |
-| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande `InputClaims` parten via dess konfiguration.</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
-| ContentDefinitionReferenceId | Inga | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: `ClaimsProviderSelection` eller `CombinedSignInAndSignUp`så måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
-| CpimIssuerTechnicalProfileReferenceId | Inga | Typen av Orchestration-steg är `SendClaims`. Den här egenskapen definierar den tekniska profil identifieraren för den anspråks leverantör som utfärdar token för den förlitande parten.  Om inget används skapas ingen förlitande parts-token. |
+| `Order` | Yes | Ordningen för Orchestration-stegen. |
+| `Type` | Yes | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande parten via dess `InputClaims` konfiguration.</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
+| ContentDefinitionReferenceId | No | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: eller så `ClaimsProviderSelection` `CombinedSignInAndSignUp` måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
+| CpimIssuerTechnicalProfileReferenceId | No | Typen av Orchestration-steg är `SendClaims` . Den här egenskapen definierar den tekniska profil identifieraren för den anspråks leverantör som utfärdar token för den förlitande parten.  Om inget används skapas ingen förlitande parts-token. |
 
 
 **OrchestrationStep** -elementet kan innehålla följande element:
@@ -92,21 +92,21 @@ Elementet **villkor** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Ja | Typ av kontroll eller fråga som ska utföras för det här villkoret. Värdet kan vara **ClaimsExist**, som anger att åtgärderna ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller **ClaimEquals**, vilket anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
-| `ExecuteActionsIf` | Ja | Använd ett sant-eller falskt-test för att avgöra om åtgärderna i villkoret ska utföras. |
+| `Type` | Yes | Typ av kontroll eller fråga som ska utföras för det här villkoret. Värdet kan vara **ClaimsExist**, som anger att åtgärderna ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller **ClaimEquals**, vilket anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| `ExecuteActionsIf` | Yes | Använd ett sant-eller falskt-test för att avgöra om åtgärderna i villkoret ska utföras. |
 
 **Villkors** elementen innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | Värde | 1: n | En ClaimTypeReferenceId som ska frågas efter. Ett annat värde element innehåller det värde som ska kontrol leras.</li></ul>|
-| Action | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep`, ska den `OrchestrationStep` associerade inte utföras. |
+| Åtgärd | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep` , ska den associerade `OrchestrationStep` inte utföras. |
 
 #### <a name="preconditions-examples"></a>Exempel på villkor
 
 Följande villkor kontrollerar om användarens objectId finns. Användaren har valt att logga in med ett lokalt konto i användar resan. Om objectId finns hoppar du över det här Orchestration-steget.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -123,7 +123,7 @@ Följande villkor kontrollerar om användarens objectId finns. Användaren har v
 
 Följande villkor kontrollerar om användaren har loggat in med ett socialt konto. Ett försök görs att hitta användar kontot i katalogen. Om användaren loggar in eller registrerar sig med ett lokalt konto kan du hoppa över det här steget för att dirigera.
 
-```XML
+```xml
 <OrchestrationStep Order="3" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
@@ -140,7 +140,7 @@ Följande villkor kontrollerar om användaren har loggat in med ett socialt kont
 
 Villkor kan kontrol lera flera villkor. I följande exempel kontrol leras om "objectId" eller "e-post" finns. Om det första villkoret är sant hoppar resan till nästa steg för att dirigera.
 
-```XML
+```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
   <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -172,20 +172,20 @@ Ett Dirigerings steg av typen `ClaimsProviderSelection` eller `CombinedSignInAnd
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DisplayOption| Inga | Styr beteendet för ett ärende där ett enda val av anspråks leverantör är tillgängligt. Möjliga värden: `DoNotShowSingleProvider` (standard), användaren omdirigeras omedelbart till den federerade identitets leverantören. Eller `ShowSingleProvider` Azure AD B2C visar inloggnings sidan med valet för enskild identitetsprovider. Om du vill använda det här attributet måste [innehålls definitions versionen](page-layout.md) vara `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` och högre.|
+| DisplayOption| No | Styr beteendet för ett ärende där ett enda val av anspråks leverantör är tillgängligt. Möjliga värden:  `DoNotShowSingleProvider`   (standard), användaren omdirigeras omedelbart till den federerade identitets leverantören. Eller  `ShowSingleProvider`   Azure AD B2C visar inloggnings sidan med valet för enskild identitetsprovider. Om du vill använda det här attributet måste [innehålls definitions versionen](page-layout.md) vara  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` och högre.|
 
 **ClaimsProviderSelection** -elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Inga | Identifieraren för anspråks utbytet, som körs i nästa Dirigerings steg för valet av anspråks leverantör. Det här attributet eller attributet ValidationClaimsExchangeId måste anges, men inte båda. |
-| ValidationClaimsExchangeId | Inga | ID för anspråk utbytet, som körs i det aktuella Orchestration-steget för att verifiera valet av anspråks leverantör. Det här attributet eller attributet TargetClaimsExchangeId måste anges, men inte båda. |
+| TargetClaimsExchangeId | No | Identifieraren för anspråks utbytet, som körs i nästa Dirigerings steg för valet av anspråks leverantör. Det här attributet eller attributet ValidationClaimsExchangeId måste anges, men inte båda. |
+| ValidationClaimsExchangeId | No | ID för anspråk utbytet, som körs i det aktuella Orchestration-steget för att verifiera valet av anspråks leverantör. Det här attributet eller attributet TargetClaimsExchangeId måste anges, men inte båda. |
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection-exempel
 
 I följande Orchestration-steg kan användaren välja att logga in med Facebook, LinkedIn, Twitter, Google eller ett lokalt konto. Om användaren väljer en av sociala identitets leverantörer körs det andra Orchestration-steget med det valda anspråks utbytet som anges i `TargetClaimsExchangeId` attributet. Det andra Orchestration-steget omdirigerar användaren till den sociala identitets leverantören för att slutföra inloggnings processen. Om användaren väljer att logga in med det lokala kontot Azure AD B2C stanna kvar på samma Dirigerings steg (samma registrerings sida eller inloggnings sida) och hoppar över det andra Orchestration-steget.
 
-```XML
+```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
     <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
@@ -230,5 +230,5 @@ I följande Orchestration-steg kan användaren välja att logga in med Facebook,
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för steget anspråk Exchange. Identifieraren används för att referera till anspråks utbytet från en anspråks leverantör urvals steg i principen. |
-| TechnicalProfileReferenceId | Ja | Identifieraren för den tekniska profil som ska köras. |
+| Id | Yes | En identifierare för steget anspråk Exchange. Identifieraren används för att referera till anspråks utbytet från en anspråks leverantör urvals steg i principen. |
+| TechnicalProfileReferenceId | Yes | Identifieraren för den tekniska profil som ska köras. |

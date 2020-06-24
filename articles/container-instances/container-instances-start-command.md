@@ -4,15 +4,15 @@ description: Ange en kommando rad för att åsidosätta EntryPoint i en behålla
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247129"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693064"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ange kommando raden i en behållar instans för att åsidosätta standard kommando rads åtgärden
 
-När du skapar en behållar instans kan du, om du vill, ange ett kommando som åsidosätter standard kommando rads instruktionen bakade till behållar avbildningen. Detta fungerar på samma sätt som `--entrypoint` kommando rads argumentet för `docker run`.
+När du skapar en behållar instans kan du, om du vill, ange ett kommando som åsidosätter standard kommando rads instruktionen bakade till behållar avbildningen. Detta fungerar på samma sätt som `--entrypoint` kommando rads argumentet för `docker run` .
 
 Som att ställa in [miljövariabler](container-instances-environment-variables.md) för behållar instanser, är det praktiskt att ange en start kommando rad för batch-jobb där du måste förbereda varje behållare dynamiskt med en speciell konfiguration.
 
@@ -40,11 +40,11 @@ Som att ställa in [miljövariabler](container-instances-environment-variables.m
 
 Kommando rads koden varierar beroende på vilket Azure-API eller verktyg som används för att skapa instanserna. Om du anger en gränssnitts miljö, ser du även syntaxen för kommandosyntaxen i gränssnittet.
 
-* [AZ container Create][az-container-create] -kommando: skicka en sträng med `--command-line` parametern. Exempel: `--command-line "python myscript.py arg1 arg2"`).
+* [AZ container Create][az-container-create] -kommando: skicka en sträng med `--command-line` parametern. Exempel: `--command-line "python myscript.py arg1 arg2"` ).
 
 * [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: skicka en sträng med `-Command` parametern. Exempel: `-Command "echo hello"`.
 
-* Azure Portal: Ange en kommaavgränsad lista med strängar, utan citat tecken, i egenskapen **kommando åsidosättning** för container konfigurationen. Exempel: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: Ange en kommaavgränsad lista med strängar, utan citat tecken, i egenskapen **kommando åsidosättning** för container konfigurationen. Exempel: `python, myscript.py, arg1, arg2` ). 
 
 * Resource Manager-mall eller YAML-fil eller något av Azure SDK: erna: ange kommando rads egenskapen som en sträng mat ris. Exempel: JSON-matrisen `["python", "myscript.py", "arg1", "arg2"]` i en Resource Manager-mall. 
 

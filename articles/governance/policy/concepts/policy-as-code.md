@@ -3,12 +3,12 @@ title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 04ec27216a3e9d59da21ef80948ef8620234e575
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684265"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194424"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -19,7 +19,7 @@ När du fortskrider på resan med moln styrning vill du byta från manuellt hant
 
 Princip som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
 
-Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift teamen upptäcka om deras ändringar inte är av klagomål, långa innan det är för sent och de försöker distribuera i produktion.
+Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift grupper upptäcka om deras ändringar inte är kompatibla, långa innan de är för sent och de försöker distribuera i produktion.
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 

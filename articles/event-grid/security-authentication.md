@@ -2,18 +2,17 @@
 title: Azure Event Grid säkerhet och autentisering
 description: I den här artikeln beskrivs olika sätt att autentisera åtkomst till dina Event Grid-resurser (webhook, prenumerationer, anpassade ämnen)
 services: event-grid
-author: femila
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: femila
-ms.openlocfilehash: 8335d5a41dc2f322623c163e08f8a4a2c1be8360
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.author: spelluru
+ms.openlocfilehash: d028367b82e8529d5260c086f2e4afa609582b00
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559000"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100223"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autentisera åtkomst till Azure Event Grid resurser
 Den här artikeln innehåller information om följande scenarier:  
@@ -85,8 +84,21 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 Alla händelser eller data som skrivs till disk av tjänsten Event Grid krypteras av en Microsoft-hanterad nyckel som garanterar att den är krypterad i vila. Dessutom är den längsta tids perioden som händelser eller data kvarhålls vara 24 timmar i enlighet med principen för [Event Grid återförsök](delivery-and-retry.md). Event Grid tar automatiskt bort alla händelser eller data efter 24 timmar, eller händelsens tids till Live, beroende på vilket som är mindre.
 
+## <a name="use-system-assigned-identities-for-event-delivery"></a>Använd systemtilldelade identiteter för händelse leverans
+Du kan aktivera en systemtilldelad hanterad identitet för ett ämne eller en domän och använda identiteten för att vidarebefordra händelser till destinationer som stöds, till exempel Service Bus köer och ämnen, Event Hub och lagrings konton.
+
+Här är stegen: 
+
+1. Skapa ett ämne eller en domän med en tilldelad identitet eller uppdatera ett befintligt ämne eller en befintlig domän för att aktivera identitet. 
+1. Lägg till identiteten i en lämplig roll (till exempel Service Bus data avsändare) på målet (till exempel en Service Bus kö).
+1. När du skapar händelse prenumerationer kan du aktivera användningen av identiteten för att leverera händelser till målet. 
+
+Detaljerade steg-för-steg-instruktioner finns i [händelse leverans med en hanterad identitet](managed-service-identity.md).
+
+
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Autentisera slut punkter för händelse leverans till webhook
 I följande avsnitt beskrivs hur du autentiserar händelse leverans till webhook-slutpunkter. Du måste använda en mekanism för validerings hand skakning oavsett vilken metod du använder. Mer information finns i avsnittet om att [leverera webhook-händelser](webhook-event-delivery.md) . 
+
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Använda Azure Active Directory (Azure AD)
 Du kan skydda webhook-slutpunkten som används för att ta emot händelser från Event Grid med hjälp av Azure AD. Du måste skapa ett Azure AD-program, skapa en roll-och tjänst-huvudobjekt i ditt program som auktoriserar Event Grid och konfigurera händelse prenumerationen så att den använder Azure AD-programmet. Lär dig hur du [konfigurerar Azure Active Directory med event Grid](secure-webhook-delivery.md).

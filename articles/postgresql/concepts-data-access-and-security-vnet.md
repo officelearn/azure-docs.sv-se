@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965832"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099654"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Använd Virtual Network tjänst slut punkter och regler för Azure Database for PostgreSQL-enskild server
 
@@ -45,7 +45,7 @@ En regel för virtuella nätverk instruerar Azure Database for PostgreSQL server
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
 
@@ -69,7 +69,7 @@ Om din **Microsoft. SQL** -Server var en nod i ett undernät i det virtuella nä
 
 Men från och med augusti 2018 är Azure Database for PostgreSQL tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
@@ -89,8 +89,8 @@ Varje virtuell nätverks regel gäller hela Azure Database for PostgreSQL-server
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp; aktivera slut punkten.
-- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for PostgreSQL servern.
+- **Nätverks administratör:** &nbsp; Aktivera slut punkten.
+- **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for PostgreSQL servern.
 
 *RBAC-alternativ:*
 
@@ -102,7 +102,7 @@ Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-8
 > I vissa fall finns Azure Database for PostgreSQL och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
 > - Båda prenumerationerna måste vara i samma Azure Active Directory-klient.
 > - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänst slut punkter och lägga till ett VNet-undernät till den aktuella servern.
-> - Se till att båda prenumerationerna har **Microsoft. SQL** -lagringsprovidern registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
+> - Se till att både prenumerationen **Microsoft. SQL** och **Microsoft. DBforPostgreSQL** Resource provider har registrerats. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Begränsningar
 

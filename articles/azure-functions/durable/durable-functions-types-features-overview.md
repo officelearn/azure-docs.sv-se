@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277887"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697715"
 ---
 # <a name="durable-functions-types-and-features"></a>Durable Functions typer och funktioner
 
@@ -36,7 +36,7 @@ Till skillnad från Orchestrator Functions är aktivitets funktioner inte begrä
 > [!NOTE]
 > Eftersom aktivitets funktioner endast garanterar *minst en gång* , rekommenderar vi att du gör din aktivitets funktions logik *idempotenta* närhelst det är möjligt.
 
-Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions tar `DurableActivityContext` emot en som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade `<activity trigger binding name>` [ `context.bindings` objekt](../functions-reference-node.md#bindings)via egenskapen på objektet. Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
+Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions tar emot en `DurableActivityContext` som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade `<activity trigger binding name>` objekt via egenskapen på [ `context.bindings` objektet](../functions-reference-node.md#bindings). Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
 
 > [!NOTE]
 > Du kan endast utlösa en aktivitets funktion från en Orchestrator-funktion.

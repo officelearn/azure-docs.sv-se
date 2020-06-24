@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: d8eb4abb600e1164e6de00d3abca190d019be011
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 44b9b060be7ec707444ddf409848be1a16addb83
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560612"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298624"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP-utlösare
 
@@ -56,9 +56,9 @@ public static async Task<IActionResult> Run(
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -132,9 +132,9 @@ public class Person {
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -181,9 +181,9 @@ module.exports = function(context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *function.jsi* filen och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -478,9 +478,9 @@ Ett fullständigt exempel finns i [utlösaren exempel](#example).
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `HttpTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `HttpTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 | **bastyp** | saknas| Required-måste anges till `httpTrigger` . |
 | **position** | saknas| Required-måste anges till `in` . |
@@ -500,7 +500,7 @@ Som standard när du skapar en funktion för en HTTP-utlösare kan funktionen ad
 
     http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 
-Du kan anpassa den här vägen med hjälp av den valfria `route` egenskapen i HTTP-utlösaren inkommande bindning. Som exempel definierar följande *Function. JSON* -fil en `route` egenskap för en http-utlösare:
+Du kan anpassa den här vägen med hjälp av den valfria `route` egenskapen i HTTP-utlösaren inkommande bindning. Följande *function.jsi* filen definierar till exempel en `route` egenskap för en http-utlösare:
 
 ```json
 {
@@ -635,7 +635,7 @@ public class HttpTriggerJava {
 
 ---
 
-Som standard har alla funktions vägar prefixet med *API*. Du kan också anpassa eller ta bort prefixet med hjälp av `extensions.http.routePrefix` egenskapen i [Host. JSON](functions-host-json.md) -filen. I följande exempel tas *API* -väg-prefixet bort med en tom sträng för prefixet i *Host. JSON* -filen.
+Som standard har alla funktions vägar prefixet med *API*. Du kan också anpassa eller ta bort prefixet med hjälp av `extensions.http.routePrefix` egenskapen i [host.js](functions-host-json.md) i filen. I följande exempel tar vi bort *API* -prefixet genom att använda en tom sträng för prefixet i *host.js* filen.
 
 ```json
 {
@@ -752,9 +752,6 @@ Den autentiserade användaren är tillgänglig via [http-huvuden](../app-service
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Funktions åtkomst nycklar
 
-> [!IMPORTANT]
-> Även om nycklar kan hjälpa dig att obfuscate dina HTTP-slutpunkter under utvecklingen, är de inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Hämta nycklar
@@ -813,9 +810,9 @@ Webhook-auktoriseringen hanteras av komponenten webhook receiver, en del av HTTP
 * **Frågesträng**: providern överför nyckel namnet i `clientid` parametern frågesträng, till exempel `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Begär ande huvud**: providern överför nyckel namnet i `x-functions-clientid` rubriken.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
-Längden på HTTP-begäran är begränsad till 100 MB (104 857 600 byte) och URL-längden är begränsad till 4 KB (4 096 byte). Dessa gränser anges av `httpRuntime` elementet i [filen Web. config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config)för körning.
+Längden på HTTP-begäran är begränsad till 100 MB (104 857 600 byte) och URL-längden är begränsad till 4 KB (4 096 byte). De här gränserna anges av `httpRuntime` elementet i körningens [Web.config fil](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
 
 Om en funktion som använder HTTP-utlösaren inte slutförs inom 230 sekunder, tids gränsen [uppAzure load BALANCERS](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) och returnerar ett HTTP 502-fel. Funktionen fortsätter att köras men kan inte returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer asynkrona mönster och returnerar en plats där du kan pinga status för begäran. Information om hur länge en funktion kan köras finns i [plan för skalning och värd förbrukning](functions-scale.md#timeout).
 

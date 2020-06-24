@@ -2,21 +2,21 @@
 title: Problem med att konfigurera användar etablering i en Azure AD-Galleri-app
 description: Så här felsöker du vanliga problem med att konfigurera användar etablering till ett program som redan finns med i Azure AD-programgalleriet
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: e6fb5fbecc9b2917f4fde2d1ccb76d6962a0af18
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593972"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782134"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användar etablering i ett Azure AD Gallery-program
 
@@ -30,7 +30,7 @@ När tjänsten har kon figurer ATS kan de flesta insikter om driften av tjänste
 
 -   **Etablerings loggar (för hands version)** – [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registrerar alla åtgärder som utförs av etablerings tjänsten, inklusive frågor om Azure AD för tilldelade användare som omfattas av etableringen. Fråga appen mål för att söka efter dessa användare, och jämför användar objekt mellan systemet. Lägg sedan till, uppdatera eller inaktivera användar kontot i mål systemet baserat på jämförelsen. Du kan komma åt etablerings loggarna i Azure Portal genom att välja **Azure Active Directory** &gt; etablerings loggar för **företags appar** &gt; **(för hands version)** i avsnittet **aktivitet** .
 
--   **Aktuell status –** En sammanfattning av den senaste etablerings körningen för en specifik app visas i avsnittet **Azure Active Directory &gt; företags Apps &gt; \[program\] &gt;namns etablering** , längst ned på skärmen under tjänst inställningarna. Avsnittet aktuell status visar om en etablerings cykel har börjat att tillhandahålla användar konton. Du kan se förloppet för cykeln, se hur många användare och grupper som har etablerats och se hur många roller som skapas. Om det finns några fel kan du hitta information i [etablerings loggarna (.. /Reports-Monitoring/Concept-Provisioning-logs.MD? context = Azure/Active-Directory/hantera – appar/kontext/hantera-Apps-context).
+-   **Aktuell status –** En sammanfattning av den senaste etablerings körningen för en specifik app visas i avsnittet **Azure Active Directory &gt; företags Apps &gt; \[ program namns \] &gt; etablering** , längst ned på skärmen under tjänst inställningarna. Avsnittet aktuell status visar om en etablerings cykel har börjat att tillhandahålla användar konton. Du kan se förloppet för cykeln, se hur många användare och grupper som har etablerats och se hur många roller som skapas. Om det finns några fel kan du hitta information i [etablerings loggarna (.. /Reports-Monitoring/Concept-Provisioning-logs.MD? context = Azure/Active-Directory/hantera – appar/kontext/hantera-Apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Allmänna problemområden med etablering att överväga
 
@@ -42,7 +42,7 @@ Nedan visas en lista över allmänna problemområden som du kan detaljgranska i 
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Etablerings tjänsten verkar inte starta
 
-Om du ställer in **etablerings statusen** **på** i avsnittet ** &gt; Azure Active Directory företags &gt; \[Apps program\] &gt;namns etablering** i Azure Portal. Ingen annan statusinformation visas på den sidan efter efterföljande omläsningar. Det är troligt att tjänsten körs men inte har slutfört en första cykel ännu. Kontrol lera **etablerings loggarna** som beskrivs ovan för att avgöra vilka åtgärder tjänsten utför, och om det finns några fel.
+Om du ställer in **etablerings statusen** **på** i avsnittet **Azure Active Directory &gt; företags Apps &gt; \[ program namns \] &gt; etablering** i Azure Portal. Ingen annan statusinformation visas på den sidan efter efterföljande omläsningar. Det är troligt att tjänsten körs men inte har slutfört en första cykel ännu. Kontrol lera **etablerings loggarna** som beskrivs ovan för att avgöra vilka åtgärder tjänsten utför, och om det finns några fel.
 
 >[!NOTE]
 >En första cykel kan ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Efterföljande synkroniseringar efter den första cykeln går snabbare, eftersom etablerings tjänsten lagrar vattenstämplar som representerar båda systemens tillstånd efter den första cykeln, vilket förbättrar prestandan för efterföljande synkroniseringar.

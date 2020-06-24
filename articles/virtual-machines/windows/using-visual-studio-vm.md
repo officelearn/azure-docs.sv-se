@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: VisualStudio
-ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652672"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105992"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -31,7 +31,7 @@ Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studi
 | Version                                                                                                                                                | Utgåvor              | Produktversion   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: senaste (version 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.5.4    |
-| Visual Studio 2019: RTW                         | Stora företag | Version 16.0.13    |
+| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.13    |
 | Visual Studio 2017: senaste (version 15,9)           | Enterprise, community | Version 15.9.22   |
 | Visual Studio 2017: RTW                             | Enterprise, community | Version 15.0.28  |
 | Visual Studio 2015: senaste (uppdatering 3)               | Enterprise, community | Version 14.0.25431.01 |
@@ -104,7 +104,7 @@ Mer information finns i [skapa en hanterad avbildning av en generaliserad virtue
 > [!NOTE]
 > Du får fortfarande lite kostnad för lagring av avbildningarna, men den ökade kostnaden kan vara obetydlig jämfört med kostnaderna för att återskapa den virtuella datorn från grunden för varje grupp medlem som behöver en. Till exempel kostar det några dollar att skapa och lagra en 127 GB-avbildning för en månad som kan återanvändas av hela teamet. Dessa kostnader är dock obetydliga jämfört med timmar som varje medarbetare investerar för att bygga ut och validera en korrekt konfigurerad dev box för deras enskilda användning.
 
-Dessutom kan utvecklings uppgifterna eller teknikerna behöva större skalning, t. ex. sorters utvecklings konfigurationer och flera datorkonfigurationer. Du kan använda Azure DevTest Labs för att skapa _recept_ som automatiserar skapandet av "gyllene bilder". Du kan också använda DevTest Labs för att hantera principer för gruppens virtuella datorer som körs. Att [använda Azure DevTest Labs för utvecklare](/azure/devtest-lab/devtest-lab-developer-lab) är den bästa källan för mer information om DevTest Labs.
+Dessutom kan utvecklings uppgifterna eller teknikerna behöva större skalning, t. ex. sorters utvecklings konfigurationer och flera datorkonfigurationer. Du kan använda Azure DevTest Labs för att skapa _recept_ som automatiserar skapandet av "gyllene bilder". Du kan också använda DevTest Labs för att hantera principer för gruppens virtuella datorer som körs. Att [använda Azure DevTest Labs för utvecklare](../../devtest-labs/devtest-lab-developer-lab.md) är den bästa källan för mer information om DevTest Labs.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du vet om de förkonfigurerade Visual Studio-avbildningarna är nästa steg att skapa en ny virtuell dator:

@@ -3,8 +3,8 @@ title: Publicera Azure Stack virtuella datorer i Azure Security Center
 description: Den här snabb starten visar hur du etablerar tillägget Azure Monitor, uppdatering och konfigurations hantering för virtuella datorer på en Azure Stack virtuella datorer.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
+author: memildin
+manager: rkarlin
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
-ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: memildin
+ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73686523"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771163"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabb start: publicera dina Azure Stack virtuella datorer i Security Center
 När du har publicerat din Azure-prenumeration kan du aktivera Security Center för att skydda dina virtuella datorer som körs på Azure Stack genom att lägga till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer från Azure Stack Marketplace.

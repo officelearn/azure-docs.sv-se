@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996320"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771129"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
-Azure HDInsight erbjuder ett antal metoder för att lösa företagets säkerhets behov. De flesta av dessa lösningar är inte aktiverade som standard. Med den här flexibiliteten kan du välja de säkerhetsfunktioner som är viktigast för dig. Och hjälper dig att undvika att betala för funktioner som du inte vill ha. Den här flexibiliteten innebär också att det är ditt ansvar att se till att rätt lösningar är aktiverade för din installation och miljö.
+Azure HDInsight erbjuder ett antal metoder för att lösa företagets säkerhets behov. De flesta av dessa lösningar är inte aktiverade som standard. Med den här flexibiliteten kan du välja de säkerhetsfunktioner som är viktigast för dig och hjälpa dig att undvika att betala för funktioner som du inte vill ha. Den här flexibiliteten innebär också att det är ditt ansvar att se till att rätt lösningar är aktiverade för din installation och miljö.
 
 Den här artikeln beskriver säkerhetslösningar genom att dela upp säkerhetslösningar i fyra traditionella säkerhets pelare: perimeter säkerhet, autentisering, auktorisering och kryptering.
 
@@ -53,7 +53,7 @@ Granskning av kluster resurs åtkomst är nödvändig för att spåra obehörig 
 
 Administratören kan visa och rapportera all åtkomst till HDInsight-kluster resurser och data. Administratören kan visa och rapportera ändringar i principerna för åtkomst kontroll.
 
-[Aktivera Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)för att få åtkomst till Apache Ranger och Ambari gransknings loggar och SSH Access-loggar. Och Visa de tabeller som innehåller gransknings poster.
+För att komma åt Apache Ranger och Ambari gransknings loggar och SSH-åtkomst loggar [aktiverar Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) och visar de tabeller som innehåller gransknings poster.
 
 ### <a name="encryption"></a>Kryptering
 
@@ -89,8 +89,8 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

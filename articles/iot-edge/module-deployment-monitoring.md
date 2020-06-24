@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127609"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194798"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala
 
@@ -61,7 +61,7 @@ Mål villkoret utvärderas kontinuerligt under hela livs längden för distribut
 
 Du kan till exempel ha en distribution med en Target condition-taggar. miljö = ' Prod '. När du startar distributionen finns det 10 produktions enheter. Modulerna har installerats på de här 10 enheterna. IoT Edge agent status visar totalt 10 enheter, 10 lyckade svar, 0 felsvar och 0 väntande svar. Nu lägger du till fem fler enheter med taggar. miljö = ' Prod '. Tjänsten identifierar ändringen och IoT Edge agentens status blir 15 enheter, 10 lyckade svar, 0 felsvar och 5 väntande svar när den distribueras till de fem nya enheterna.
 
-Använd booleska villkor på enhetens dubbla taggar, enhetens dubbla rapporterade egenskaper eller deviceId för att välja mål enheter. Om du vill använda villkor med taggar måste du lägga till avsnittet "Taggar":{} i enheten i dubbla under samma nivå som egenskaper. [Lär dig mer om taggar i enhets dubbla](../iot-hub/iot-hub-devguide-device-twins.md)
+Använd booleska villkor på enhetens dubbla taggar, enhetens dubbla rapporterade egenskaper eller deviceId för att välja mål enheter. Om du vill använda villkor med taggar måste du lägga till avsnittet "Taggar": {} i enheten i dubbla under samma nivå som egenskaper. [Lär dig mer om taggar i enhets dubbla](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exempel på mål villkor:
 
@@ -69,15 +69,15 @@ Exempel på mål villkor:
 * Taggar. miljö = ' Prod '
 * Taggar. Environment = ' Prod ' och taggar. location = ' väst '
 * Taggar. Environment = ' Prod ' eller taggar. location = ' väst '
-* Taggar. operator = ' John ' och taggar. miljö = ' Prod ' inte deviceId = ' linuxprod1 '
+* Taggar. operator = ' John ' och taggar. miljö = ' Prod ' och inte deviceId = ' linuxprod1 '
 * egenskaper. redevicemodel = ' 4000x '
 
 Tänk på följande begränsningar när du skapar ett mål villkor:
 
 * I enhet, kan du bara bygga ett mål villkor med hjälp av taggar, rapporterade egenskaper eller deviceId.
 * Dubbla citat tecken tillåts inte i någon del av mål villkoret. Använd enkla citat tecken.
-* Enkla citat tecken representerar värdena för mål villkoret. Därför måste du undanta det enkla citatet med ett annat enkelt citat tecken om det är en del av enhets namnet. Till exempel för att rikta in en enhet `operator'sDevice`som kallas `deviceId='operator''sDevice'`, skriva.
-* Siffror, bokstäver och följande tecken tillåts i mål villkors värden: `-:.+%_#*?!(),=@;$`.
+* Enkla citat tecken representerar värdena för mål villkoret. Därför måste du undanta det enkla citatet med ett annat enkelt citat tecken om det är en del av enhets namnet. Till exempel för att rikta in en enhet som kallas `operator'sDevice` , skriva `deviceId='operator''sDevice'` .
+* Siffror, bokstäver och följande tecken tillåts i mål villkors värden: `-:.+%_#*?!(),=@;$` .
 
 ### <a name="priority"></a>Prioritet
 
@@ -142,7 +142,7 @@ I en standard distribution kan du till exempel lägga till modulen simulerad tem
 }
 ```
 
-I en lager distribution som är riktad mot en eller flera av samma enheter kan du lägga till en egenskap som anger att den simulerade sensorn skickar 1000 meddelanden och sedan stoppar. Du vill inte skriva över de befintliga egenskaperna, så du skapar ett nytt avsnitt i önskade egenskaper som kallas `layeredProperties`, som innehåller den nya egenskapen:
+I en lager distribution som är riktad mot en eller flera av samma enheter kan du lägga till en egenskap som anger att den simulerade sensorn skickar 1000 meddelanden och sedan stoppar. Du vill inte skriva över de befintliga egenskaperna, så du skapar ett nytt avsnitt i önskade egenskaper `layeredProperties` som kallas, som innehåller den nya egenskapen:
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -166,7 +166,7 @@ En enhet som har båda distributioner tillämpat kommer att avspegla följande e
 }
 ```
 
-Om du ställer in modulens `properties.desired` fält i en lager distribution skrivs de önskade egenskaperna för modulen över i alla distributioner med lägre prioritet.
+Om du ställer in `properties.desired` modulens fält i en lager distribution skrivs de önskade egenskaperna för modulen över i alla distributioner med lägre prioritet.
 
 ## <a name="phased-rollout"></a>Stegvis distribution
 
@@ -174,7 +174,7 @@ En stegvis distribution är en övergripande process där en operatör distribue
 
 En stegvis distribution körs i följande faser och steg:
 
-1. Upprätta en test miljö för IoT Edge enheter genom att etablera dem och ställa in en enhets dubbla Taggar `tag.environment='test'`som.Test miljön bör spegla produktions miljön som distributionen kommer att ta slut.
+1. Upprätta en test miljö för IoT Edge enheter genom att etablera dem och ställa in en enhets dubbla taggar som `tag.environment='test'` .Test miljön bör spegla produktions miljön som distributionen kommer att ta slut.
 2. Skapa en distribution inklusive önskade moduler och konfigurationer. Mål villkoret ska vara mål för test IoT Edge enhets miljön.
 3. Verifiera den nya modul konfigurationen i test miljön.
 4. Uppdatera distributionen så att den innehåller en delmängd av produktions IoT Edge enheter genom att lägga till en ny tagg till mål villkoret. Kontrol lera också att prioriteten för distributionen är högre än andra distributioner som för närvarande är riktade till enheterna

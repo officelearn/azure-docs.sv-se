@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b85859e6294fa24731bc13e9edd5fe2610e8fb6
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77612744"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733967"
 ---
-# <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsöka konto inloggnings problem med en Azure AD Domain Services hanterad domän
+# <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka konto inloggnings problem med en Azure Active Directory Domain Services hanterad domän
 
-De vanligaste orsakerna till ett användar konto som inte kan logga in på en hanterad Azure AD DS-domän är följande scenarier:
+De vanligaste orsakerna till ett användar konto som inte kan logga in till en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän innehåller följande scenarier:
 
 * [Kontot är inte synkroniserat med Azure AD DS ännu.](#account-isnt-synchronized-into-azure-ad-ds-yet)
 * [Azure AD DS har inte lösen ordets hash-värden för att tillåta kontot att logga in.](#azure-ad-ds-doesnt-have-the-password-hashes)
@@ -47,19 +47,19 @@ Azure AD genererar eller lagrar inte lösen ordets hash-värden i det format som
 
 ### <a name="hybrid-environments-with-on-premises-synchronization"></a>Hybrid miljöer med lokal synkronisering
 
-För Hybrid miljöer som använder Azure AD Connect för att synkronisera från en lokal AD DS-miljö kan du lokalt generera och synkronisera de obligatoriska NTLM-eller Kerberos-hashvärden i Azure AD. När du har skapat din Azure AD DS-hanterade domän [aktiverar du Azure Active Directory Domain Services med hash-synkronisering av lösen ord][azure-ad-connect-phs]. Det går inte att logga in på ett konto med Azure AD DS utan att slutföra det här steget för synkronisering av lösen ord. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa dessa steg igen.
+För Hybrid miljöer som använder Azure AD Connect för att synkronisera från en lokal AD DS-miljö kan du lokalt generera och synkronisera de obligatoriska NTLM-eller Kerberos-hashvärden i Azure AD. När du har skapat din hanterade domän [aktiverar du Azure Active Directory Domain Services med hash-synkronisering av lösen ord][azure-ad-connect-phs]. Det går inte att logga in på ett konto med Azure AD DS utan att slutföra det här steget för synkronisering av lösen ord. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa dessa steg igen.
 
 Mer information finns i [så här fungerar hash-synkronisering av lösen ord för Azure AD DS][phs-process].
 
 ### <a name="cloud-only-environments-with-no-on-premises-synchronization"></a>Miljöer med enbart moln utan lokal synkronisering
 
-Azure AD DS-hanterade domäner utan lokal synkronisering, det är bara konton i Azure AD som måste generera nödvändiga NTLM-eller Kerberos-hashvärden. Om ett moln konto inte kan logga in, har en process för lösen ords ändring slutförts för kontot när Azure AD DS har Aktiver ATS?
+Hanterade domäner utan lokal synkronisering, endast konton i Azure AD, måste också generera nödvändiga NTLM-eller Kerberos-hashvärden. Om ett moln konto inte kan logga in, har en process för lösen ords ändring slutförts för kontot när Azure AD DS har Aktiver ATS?
 
 * **Nej, lösen ordet har inte ändrats.**
     * [Ändra lösen ordet för kontot][enable-user-accounts] för att generera nödvändiga lösen ords-hashar och vänta sedan i 15 minuter innan du försöker logga in igen.
     * Om du inaktiverar Azure AD DS och sedan aktiverar igen måste varje konto följa stegen igen för att ändra lösen ordet och generera nödvändiga lösen ords-hashar.
 * **Ja, lösen ordet har ändrats.**
-    * Försök att logga in med *UPN* -formatet, t `AADDSCONTOSO\deeriley`. `driley@aaddscontoso.com`ex. i stället för *sAMAccountName* -formatet.
+    * Försök att logga in med *UPN* -formatet, t `driley@aaddscontoso.com` . ex. i stället för *sAMAccountName* - `AADDSCONTOSO\deeriley` formatet.
     * *SAMAccountName* kan genereras automatiskt för användare vars UPN-prefix är över långt eller samma som en annan användare på den hanterade domänen. *UPN* -formatet garanterar att det är unikt i en Azure AD-klient.
 
 ## <a name="the-account-is-locked-out"></a>Kontot är utelåst
@@ -72,7 +72,7 @@ Mer information och hur du löser problem med konto utelåsning finns i [Felsök
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du fortfarande har problem med att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen kan du [hitta hjälp och öppna ett support ärende för Azure Active Directory][azure-ad-support].
+Om du fortfarande har problem med att ansluta den virtuella datorn till den hanterade domänen kan du [hitta hjälp och öppna ett support ärende för Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md

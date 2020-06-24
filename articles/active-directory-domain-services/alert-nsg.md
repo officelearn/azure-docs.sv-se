@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6d0cde3d3615350658a06cf118ff38cebf8952c9
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257991"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735021"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar om nätverks konfiguration i Azure Active Directory Domain Services
 
@@ -30,11 +30,11 @@ Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar för k
 
 *Microsoft kan inte komma åt domän kontrol Lanterna för den här hanterade domänen. Detta kan inträffa om en nätverks säkerhets grupp (NSG) som kon figurer ATS i ditt virtuella nätverk blockerar åtkomsten till den hanterade domänen. En annan möjlig orsak är om det finns en användardefinierad väg som blockerar inkommande trafik från Internet.*
 
-Ogiltiga regler för nätverks säkerhets grupper är den vanligaste orsaken till nätverks fel för Azure AD DS. Nätverks säkerhets gruppen för det virtuella nätverket måste tillåta åtkomst till vissa portar och protokoll. Om dessa portar blockeras kan Azure-plattformen inte övervaka eller uppdatera den hanterade domänen. Synkroniseringen mellan Azure AD-katalogen och den hanterade domänen i Azure AD DS påverkas också. Se till att du behåller standard portarna öppna för att undvika avbrott i tjänsten.
+Ogiltiga regler för nätverks säkerhets grupper är den vanligaste orsaken till nätverks fel för Azure AD DS. Nätverks säkerhets gruppen för det virtuella nätverket måste tillåta åtkomst till vissa portar och protokoll. Om dessa portar blockeras kan Azure-plattformen inte övervaka eller uppdatera den hanterade domänen. Synkroniseringen mellan Azure AD-katalogen och Azure AD DS påverkas också. Se till att du behåller standard portarna öppna för att undvika avbrott i tjänsten.
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 
-Följande standard säkerhets regler för inkommande och utgående trafik tillämpas på nätverks säkerhets gruppen för en hanterad Azure AD DS-domän. De här reglerna skyddar Azure AD DS och ger Azure-plattformen möjlighet att övervaka, hantera och uppdatera den hanterade domänen. Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps].
+Följande standard säkerhets regler för inkommande och utgående trafik tillämpas på nätverks säkerhets gruppen för en hanterad domän. De här reglerna skyddar Azure AD DS och ger Azure-plattformen möjlighet att övervaka, hantera och uppdatera den hanterade domänen. Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps].
 
 ### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
@@ -68,7 +68,7 @@ För att kontrol lera de befintliga säkerhets reglerna och se till att standard
 
     Granska reglerna för inkommande och utgående trafik och jämför med listan över nödvändiga regler i föregående avsnitt. Om det behövs markerar du och tar bort eventuella anpassade regler som blockerar nödvändig trafik. Om någon av de nödvändiga reglerna saknas lägger du till en regel i nästa avsnitt.
 
-    När du har lagt till eller tagit bort regler för att tillåta den nödvändiga trafiken uppdateras Azure AD DS-hanterad domän hälsa automatiskt inom två timmar och aviseringen tas bort.
+    När du har lagt till eller tagit bort regler för att tillåta den nödvändiga trafiken uppdaterar den hanterade domänens hälsa automatiskt inom två timmar och tar bort aviseringen.
 
 ### <a name="add-a-security-rule"></a>Lägg till en säkerhetsregel
 

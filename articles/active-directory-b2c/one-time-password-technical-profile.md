@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c94e0f7e2f39eb6002bc2fd1076b78f4579fbe01
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900382"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203989"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -28,15 +28,15 @@ Den tekniska profilen för eng ång slö sen ord kan också returnera ett fel me
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C:
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C:
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 I följande exempel visas en teknisk profil för eng ång slö sen ord:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -53,7 +53,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| beteckning | Ja | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| identifier | Yes | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
@@ -63,7 +63,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| otpGenerated | Ja | Den genererade koden vars session hanteras av Azure AD B2C. |
+| otpGenerated | Yes | Den genererade koden vars session hanteras av Azure AD B2C. |
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -73,18 +73,18 @@ Följande inställningar kan användas för att konfigurera läget för kodgener
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60`; Max: `1200`; Standard: `600`. |
-| CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
-| CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
-| NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode`. |
-| ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
+| CodeExpirationInSeconds | No | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . |
+| CodeLength | No | Längden på koden. Standardvärdet är `6`. |
+| CharacterSet | No | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Exempelvis `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
+| NumRetryAttempts | No | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| Åtgärd | Yes | Åtgärden som ska utföras. Möjligt värde: `GenerateCode` . |
+| ReuseSameCode | No | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="example"></a>Exempel
 
 Följande exempel `TechnicalProfile` används för att generera en kod:
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -115,8 +115,8 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Nedan vi
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| beteckning | Ja | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
-| otpToVerify | Ja | Verifierings koden som anges av användaren. |
+| identifier | Yes | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| otpToVerify | Yes | Verifierings koden som anges av användaren. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
@@ -132,7 +132,7 @@ Följande inställningar kan användas för kod verifierings läge:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `VerifyCode`. |
+| Åtgärd | Yes | Åtgärden som ska utföras. Möjligt värde: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
@@ -141,17 +141,17 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | Inga | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
-| UserMessageIfMaxRetryAttempted | Inga | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
-| UserMessageIfInvalidCode | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
-| UserMessageIfVerificationFailedRetryAllowed | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod, och användaren får ange rätt kod.  |
-|UserMessageIfSessionConflict|Inga| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
+| UserMessageIfSessionDoesNotExist | No | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
+| UserMessageIfMaxRetryAttempted | No | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
+| UserMessageIfInvalidCode | No | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
+| UserMessageIfVerificationFailedRetryAllowed | No | Meddelandet som ska visas för användaren om de har angett en ogiltig kod, och användaren får ange rätt kod.  |
+|UserMessageIfSessionConflict|No| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
 
 ### <a name="example"></a>Exempel
 
 Följande exempel `TechnicalProfile` används för att verifiera en kod:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

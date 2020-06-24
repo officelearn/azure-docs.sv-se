@@ -2,21 +2,21 @@
 title: Fel uppsättning användare tillhandahålls till en Azure AD-Galleri-app
 description: Lär dig hur du tar reda på varför en annan uppsättning användare är etablerade i ett program än de du förväntar dig
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 21b61fc26a5bd063c0b440ac22eba852911d1ecc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594006"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782219"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program
 

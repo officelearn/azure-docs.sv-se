@@ -2,21 +2,21 @@
 title: Status för program etablering för karantän | Microsoft Docs
 description: När du har konfigurerat ett program för automatisk användar etablering, lär du dig vad en etablerings status för karantän innebär och hur du avmarkerar den.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d8b50bfdd894d36b96fb3a53eab7c43c5b1fe11a
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593938"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782117"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -28,11 +28,11 @@ I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag
 
 Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure Portal navigerar du till **Azure Active Directory** > *program namns*&gt; > **etablering** för**företags program** > &lt;och granskar förlopps indikatorn för ett karantän meddelande.   
+- I Azure Portal navigerar du till **Azure Active Directory**  >  **Enterprise applications**  >  &lt; *program namns* &gt;  >  **etablering** för företags program och granskar förlopps indikatorn för ett karantän meddelande.   
 
   ![Status fältet för etablering visar karantän status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- I Azure Portal navigerar du till **Azure Active Directory** > **gransknings loggar** > filtrera på **aktivitet: karantän** och granska karantän historiken. Vyn i förlopps indikatorn enligt beskrivningen ovan visar om etableringen för närvarande finns i karantän, men gransknings loggarna gör att du kan se karantän historiken för ett program. 
+- I Azure Portal navigerar du till **Azure Active Directory**  >  **gransknings loggar** > filtrera på **aktivitet: karantän** och granska karantän historiken. Vyn i förlopps indikatorn enligt beskrivningen ovan visar om etableringen för närvarande finns i karantän, men gransknings loggarna gör att du kan se karantän historiken för ett program. 
 
 - Använd Microsoft Graph begäran [Hämta synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) för att program mässigt Hämta status för etablerings jobbet:
 

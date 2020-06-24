@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du återställer data som
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652089"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764442"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 
@@ -51,7 +51,7 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
    > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser alternativet **enskilda filer och mappar** måste du uppgradera .NET Framework till version 4.5.2 eller senare och försöka igen.
 
    > [!TIP]
-   > Alternativet **enskilda filer och mappar** ger snabb åtkomst till återställnings punkt data. Det är lämpligt för att återställa enskilda filer, med storlekar som totalt inte är större än 80 GB, och erbjuder överförings-eller kopierings hastigheter upp till 6 MBps under återställningen. Alternativet **volym** återställer alla säkerhetskopierade data på en angiven volym. Det här alternativet ger snabbare överförings hastigheter (upp till 60 Mbit/s), vilket är idealiskt för att kunna återskapa stora data mängder eller hela volymer.
+   > Alternativet **enskilda filer och mappar** ger snabb åtkomst till återställnings punkt data. Det är lämpligt för att återställa enskilda filer, med storlekar som totalt inte är större än 80 GB, och erbjuder överförings-eller kopierings hastigheter upp till 6 MBps under återställningen. Alternativet **volym** återställer alla säkerhetskopierade data på en angiven volym. Det här alternativet ger snabbare överförings hastigheter (upp till 40 Mbit/s), vilket är idealiskt för att kunna återskapa stora data mängder eller hela volymer.
 
 5. På sidan **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
 

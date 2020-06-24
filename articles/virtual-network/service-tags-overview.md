@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 42fd1a6c17ddbf06715a9f814bc214db3f34e1ad
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263218"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100171"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk
 <a name="network-service-tags"></a>
@@ -139,6 +139,8 @@ Du kan ladda ned JSON-filer som innehåller den aktuella listan över tjänst Ta
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure Kina](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+IP-adressintervallet i de här filerna finns i CIDR-format. 
 
 > [!NOTE]
 >En delmängd av den här informationen har publicerats i XML-filer för [Azure offentlig](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Kina](https://www.microsoft.com/download/details.aspx?id=42064)och [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). Dessa XML-nedladdningar kommer att bli föråldrade den 30 juni 2020 och kommer inte längre att vara tillgängliga efter det datumet. Du bör migrera till med hjälp av identifierings-API: t eller JSON-filens nedladdningar enligt beskrivningen i föregående avsnitt.

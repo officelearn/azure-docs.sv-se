@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 9b577b12250f1a600c91776e64ecaf65be5d8476
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063820"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100897"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Gransknings loggar i Azure Database for MariaDB
 
@@ -22,15 +22,19 @@ I Azure Database for MariaDB är gransknings loggen tillgänglig för användare
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
-Som standard är gransknings loggen inaktive rad. Om du vill aktivera det `audit_log_enabled` anger du till på.
+>[!NOTE]
+> Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
+
+Som standard är gransknings loggen inaktive rad. Om du vill aktivera det anger `audit_log_enabled` du till på.
 
 Andra parametrar som du kan justera är:
 
 - `audit_log_events`: styr vilka händelser som ska loggas. Se nedanstående tabell för vissa gransknings händelser.
-- `audit_log_include_users`: MariaDB användare som ska ingå i loggningen. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet än `audit_log_exclude_users`. Parameterns max längd är 512 tecken.
-> [!Note]
-> `audit_log_include_users`har högre prioritet än `audit_log_exclude_users`. Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser`, kommer användaren att inkluderas i gransknings loggarna `audit_log_include_users` eftersom har högre prioritet.
+- `audit_log_include_users`: MariaDB användare som ska ingå i loggningen. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet än `audit_log_exclude_users` . Parameterns max längd är 512 tecken.
 - `audit_log_exclude_users`: MariaDB användare undantas från loggning. Tillåter för högst fyra användare. Parameterns max längd är 256 tecken.
+
+> [!Note]
+> `audit_log_include_users`har högre prioritet än `audit_log_exclude_users` . Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser` , kommer användaren att inkluderas i gransknings loggarna eftersom `audit_log_include_users` har högre prioritet.
 
 | **Händelse** | **Beskrivning** |
 |---|---|
@@ -70,7 +74,7 @@ I följande avsnitt beskrivs vad som är utdata från MariaDB gransknings loggar
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
 | `connection_id_d` | Unikt anslutnings-ID genererat av MariaDB |
-| `host_s` | Blank |
+| `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MariaDB |
 | `user_s` | Namn på användaren som kör frågan |
 | `db_s` | Namnet på databasen som är ansluten till |
@@ -79,6 +83,9 @@ I följande avsnitt beskrivs vad som är utdata från MariaDB gransknings loggar
 ### <a name="general"></a>Allmänt
 
 Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT, DML, DDL, DCL och ADMIN.
+
+> [!NOTE]
+> För `sql_text` kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
@@ -100,7 +107,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `event_time` | Frågans start-sekunder i UNIX-tidsstämpel |
 | `error_code_d` | Felkod om frågan misslyckades. `0`innebär inget fel |
 | `thread_id_d` | ID för tråd som körde frågan |
-| `host_s` | Blank |
+| `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MariaDB |
 | `user_s` | Namn på användaren som kör frågan |
 | `sql_text_s` | Fullständig frågetext |

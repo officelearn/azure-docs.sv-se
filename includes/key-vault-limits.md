@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 065365ec2dc429013732725ccb22f73c519b6c0e
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768771"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85200169"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Nyckel transaktioner (maximalt antal transaktioner som tillåts om 10 sekunder, per valv per region<sup>1</sup>):
 
@@ -28,7 +28,7 @@ ms.locfileid: "81768771"
 >
 > Tröskelvärdena för begränsningen viktas och tvången är på deras summa. Som du ser i föregående tabell när du utför åtgärder på RSA HSM-nycklar, är det till exempel åtta gånger dyrare att använda 4 096-bitars nycklar jämfört med 2 048-bitars nycklar. Det beror på att 1000/125 = 8.
 >
-> I ett angivet intervall på 10 sekunder kan en Azure Key Vault-klient *bara utföra en* av följande åtgärder innan den påträffar en `429` begränsning för http-status kod:
+> I ett angivet intervall på 10 sekunder kan en Azure Key Vault-klient *bara utföra en* av följande åtgärder innan den påträffar en begränsning för `429` http-status kod:
 > - 2 000 RSA 2 048-bitars program varu nyckel Hämta transaktioner
 > - 1 000 RSA 2 048-bitars HSM-nyckel Hämta transaktioner
 > - 125 RSA 4 096-bitars HSM-nyckel Hämta transaktioner
@@ -46,7 +46,10 @@ Information om hur du hanterar begränsning när gränserna överskrids finns i 
 
 ### <a name="azure-private-link-integration"></a>Azure Private Link-integrering
 
+> [!NOTE]
+> Antalet nyckel valv med privata slut punkter som har Aktiver ATS per prenumeration är en justerbar gräns. Den gräns som visas nedan är standard gränsen. Skicka ett e-postmeddelande till om du vill begära en större gräns för tjänsten akv-privatelink@microsoft.com . Vi kommer att godkänna dessa förfrågningar från fall till fall.
+
 | Resurs | Gräns |
 | -------- | ----- |
 | Privata slut punkter per nyckel valv | 64 |
-| Nyckel valv med privata slut punkter per prenumeration | 64 |
+| Nyckel valv med privata slut punkter per prenumeration | 400 |

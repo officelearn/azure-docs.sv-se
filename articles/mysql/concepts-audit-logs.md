@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 00e4ef2452d2048f386d48e994ba1051ca81ec75
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062547"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100954"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Gransknings loggar i Azure Database for MySQL
 
@@ -22,18 +22,19 @@ I Azure Database for MySQL är gransknings loggen tillgänglig för användare. 
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
-Som standard är gransknings loggen inaktive rad. Om du vill aktivera det `audit_log_enabled` anger du till på.
+>[!NOTE]
+> Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
+
+Som standard är gransknings loggen inaktive rad. Om du vill aktivera det anger `audit_log_enabled` du till på.
 
 Andra parametrar som du kan justera är:
 
 - `audit_log_events`: styr vilka händelser som ska loggas. Se nedanstående tabell för vissa gransknings händelser.
-- `audit_log_include_users`: MySQL-användare ska inkluderas för loggning. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet än `audit_log_exclude_users`. Parameterns max längd är 512 tecken.
-> [!Note]
-> `audit_log_include_users`har högre prioritet än `audit_log_exclude_users`. Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser`, kommer användaren att inkluderas i gransknings loggarna `audit_log_include_users` eftersom har högre prioritet.
+- `audit_log_include_users`: MySQL-användare ska inkluderas för loggning. Standardvärdet för den här parametern är tomt, som innehåller alla användare som ska loggas. Detta har högre prioritet än `audit_log_exclude_users` . Parameterns max längd är 512 tecken.
 - `audit_log_exclude_users`: MySQL-användare ska undantas från loggning. Parameterns max längd är 512 tecken.
 
-> [!Note]
-> För `sql_text`kommer loggen att trunkeras om den överskrider 2048 tecken.
+> [!NOTE]
+> `audit_log_include_users`har högre prioritet än `audit_log_exclude_users` . Till exempel, om `audit_log_include_users`  =  `demouser` och `audit_log_exclude_users`  =  `demouser` , kommer användaren att inkluderas i gransknings loggarna eftersom `audit_log_include_users` har högre prioritet.
 
 | **Händelse** | **Beskrivning** |
 |---|---|
@@ -73,9 +74,9 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (endast tillgängligt för MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (endast tillgängligt för MySQL 5,7) |
 | `connection_id_d` | Unikt anslutnings-ID som genererats av MySQL |
-| `host_s` | Blank |
+| `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MySQL |
 | `user_s` | Namn på användaren som kör frågan |
 | `db_s` | Namnet på databasen som är ansluten till |
@@ -84,6 +85,9 @@ I följande avsnitt beskrivs vad som utdata av MySQLs gransknings loggar baserat
 ### <a name="general"></a>Allmänt
 
 Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT, DML, DDL, DCL och ADMIN.
+
+> [!NOTE]
+> För `sql_text` kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
@@ -101,11 +105,11 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (endast tillgängligt för MySQL 5,6) |
+| `event_subclass_s` | `LOG`, `ERROR` , `RESULT` (endast tillgängligt för MySQL 5,6) |
 | `event_time` | Frågans start tid i UTC-tidsstämpel |
 | `error_code_d` | Felkod om frågan misslyckades. `0`innebär inget fel |
 | `thread_id_d` | ID för tråd som körde frågan |
-| `host_s` | Blank |
+| `host_s` | Tom |
 | `ip_s` | IP-adressen för klienten som ansluter till MySQL |
 | `user_s` | Namn på användaren som kör frågan |
 | `sql_text_s` | Fullständig frågetext |
@@ -114,7 +118,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 ### <a name="table-access"></a>Tabell åtkomst
 
 > [!NOTE]
-> Tabell åtkomst loggar är bara utdata för MySQL 5,7.
+> Tabell åtkomst loggar är bara utdata för MySQL 5,7.<br>För `sql_text` kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
@@ -132,7 +136,7 @@ Schemat nedan gäller för händelse typerna allmänt, DML_SELECT, DML_NONSELECT
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Namnet på servern |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`eller`DELETE` |
+| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` eller`DELETE` |
 | `connection_id_d` | Unikt anslutnings-ID som genererats av MySQL |
 | `db_s` | Namnet på databasen som används |
 | `table_s` | Namnet på tabellen har öppnats |

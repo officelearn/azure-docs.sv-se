@@ -4,15 +4,15 @@ description: Aktivera GPU-accelererad åter givning och kodning i Windows Virtua
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: cf602a858d74e4038cddc463b159f100afe2263f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 33bc63887b73adaf570b385d2a289fcd97ff1632
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614985"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206112"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -52,7 +52,7 @@ Som standard återges appar och skriv bord som körs i konfigurationer med flera
 
 1. Anslut till Skriv bordet för den virtuella datorn med ett konto med lokal administratörs behörighet.
 2. Öppna Start-menyn och skriv "gpedit. msc" för att öppna grupprincip redigeraren.
-3. Navigera i trädet till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **fjärr skrivbord** > -**fjärrsessions miljö**.
+3. Navigera i trädet till **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **fjärr skrivbord**-  >  **fjärrsessions miljö**.
 4. Välj princip **Använd maskin varans standard grafik kort för alla Fjärrskrivbordstjänster sessioner** och ange att den här principen **är aktive rad** för att aktivera GPU-rendering i fjärrsessionen.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
@@ -77,7 +77,7 @@ Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett
 
 Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
 
-* För virtuella Azure-datorer med en NVIDIA-GPU `nvidia-smi` använder du verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera GPU-belastningen när du kör dina appar.
+* För virtuella Azure-datorer med en NVIDIA-GPU använder du `nvidia-smi` verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera GPU-belastningen när du kör dina appar.
 * I operativ system versioner som stöds kan du använda aktivitets hanteraren för att kontrol lera GPU-användningen. Välj GPU på fliken "prestanda" för att se om appar använder GPU: n.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Kontrol lera att GPU-accelererad ram kodning
@@ -85,7 +85,7 @@ Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova n
 Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 
 1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
-2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
+2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operational**
 3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1" används GPU-kodning.
 4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
 

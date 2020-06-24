@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 07aa9ade25d1d986833b6da2f3907d07b752b662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71a1a97c3cb6df4c1498940738fe070819fba1b5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655431"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734817"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurera Kerberos-begränsad delegering (KCD) i Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ För att slutföra den här artikeln behöver du följande resurser:
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs kan du slutföra självstudien för att [skapa en virtuell Windows Server-dator och ansluta den till en hanterad domän och][create-join-windows-vm] sedan [Installera hanterings verktygen för AD DS][tutorial-create-management-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
@@ -46,7 +46,7 @@ Kerberos-begränsad delegering (KCD) begränsar de tjänster eller resurser som 
 
 Traditionella KCD har också några problem. I tidigare operativ system hade tjänst administratören till exempel inget användbart sätt att veta vilka front-end-tjänster som delegerats till de resurs tjänster som de äger. Alla frontend-tjänster som kan delegera till en resurs tjänst var en potentiell angrepps punkt. Om en server som är värd för en frontend-tjänst som kon figurer ATS för att delegera till resurs tjänster komprometterades, kunde resurs tjänsterna också komprometteras.
 
-I en Azure AD DS-hanterad domän har du inte domän administratörs behörighet. Därför kan traditionella kontobaserade KCD inte konfigureras i en hanterad domän i Azure AD DS. Resursbaserade KCD kan i stället användas, vilket också är säkrare.
+I en hanterad domän har du inte domän administratörs behörighet. Därför kan traditionella kontobaserade KCD inte konfigureras i en hanterad domän. Resursbaserade KCD kan i stället användas, vilket också är säkrare.
 
 ### <a name="resource-based-kcd"></a>Resursbaserade KCD
 
@@ -58,8 +58,8 @@ Resource-baserad KCD har kon figurer ATS med PowerShell. Du använder cmdletarna
 
 I det här scenariot antar vi att du har en webbapp som körs på datorn med namnet *contoso-webapp.aaddscontoso.com*. Webb programmet måste ha åtkomst till ett webb-API som körs på datorn med namnet *contoso-API.aaddscontoso.com* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
 
-1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS.
-1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm], både den som kör webbappen och den som kör webb-API: t till den hanterade domänen i Azure AD DS. Skapa dessa dator konton i den anpassade ORGANISATIONSENHETen från föregående steg.
+1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen.
+1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm], både den som kör webbappen och den som kör webb-API: t till den hanterade domänen. Skapa dessa dator konton i den anpassade ORGANISATIONSENHETen från föregående steg.
 
     > [!NOTE]
     > Dator kontona för webbappen och webb-API: et måste vara i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Du kan inte konfigurera resursbaserade KCD för ett dator konto i den inbyggda behållaren för *AAD DC-datorer* .
@@ -75,8 +75,8 @@ I det här scenariot antar vi att du har en webbapp som körs på datorn med nam
 
 I det här scenariot antar vi att du har en webbapp som körs som ett tjänst konto med namnet *appsvc*. Webb programmet måste ha åtkomst till ett webb-API som körs som ett tjänst konto med namnet *backendsvc* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
 
-1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS.
-1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm] som kör Server delens webb-API/resurs till den hanterade domänen i Azure AD DS. Skapa sitt dator konto inom den anpassade ORGANISATIONSENHETen.
+1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen.
+1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm] som kör Server dels webb-API: n/resursen till den hanterade domänen. Skapa sitt dator konto inom den anpassade ORGANISATIONSENHETen.
 1. Skapa tjänst kontot (till exempel ' appsvc ') som används för att köra webbappen i den anpassade ORGANISATIONSENHETen.
 
     > [!NOTE]

@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 32f8f157abaf5076911c3908a83be4a644e09656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655589"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734970"
 ---
-# <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Ändra SKU: n för en befintlig Azure AD Domain Services hanterad domän
+# <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Ändra SKU: n för en befintlig Azure Active Directory Domain Services hanterad domän
 
 I Azure Active Directory Domain Services (Azure AD DS) baseras tillgängliga prestanda och funktioner på SKU-typen. Dessa funktions skillnader omfattar säkerhets kopierings frekvensen eller det maximala antalet enkelriktade utgående skogs förtroenden (för närvarande i för hands version). Du väljer en SKU när du skapar den hanterade domänen och du kan växla SKU: er upp eller ned när ditt företags behov ändras efter att den hanterade domänen har distribuerats. Ändringar i affärs kraven kan omfatta behovet av mer frekventa säkerhets kopieringar eller för att skapa ytterligare skogs förtroenden. Mer information om begränsningar och priser för olika SKU: er finns i [Azure AD DS-koncept][concepts-sku] och pris sidor för [Azure AD DS][pricing] .
 
@@ -32,11 +32,11 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs kan du slutföra självstudien för att [skapa och konfigurera en hanterad domän][create-azure-ad-ds-instance].
 
 ## <a name="sku-change-limitations"></a>Begränsningar för SKU-ändringar
 
-Du kan ändra SKU: er upp eller ned när den hanterade Azure AD DS-domänen har distribuerats. Men om du använder en resurs skog (för närvarande i för hands version) och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
+Du kan ändra SKU: er upp eller ned efter att den hanterade domänen har distribuerats. Men om du använder en resurs skog (för närvarande i för hands version) och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
 
 Ett exempel:
 
@@ -47,14 +47,14 @@ Mer information om dessa begränsningar finns i [funktioner och begränsningar f
 
 ## <a name="select-a-new-sku"></a>Välj en ny SKU
 
-Utför följande steg för att ändra SKU: n för en Azure AD DS-hanterad domän med hjälp av Azure Portal:
+Utför följande steg för att ändra SKU: n för en hanterad domän med hjälp av Azure Portal:
 
 1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj den hanterade domänen i listan, till exempel *aaddscontoso.com*.
 1. På menyn till vänster på sidan Azure AD DS väljer du **inställningar > SKU**.
 
     ![Välj meny alternativet SKU för din Azure AD DS-hanterade domän i Azure Portal](media/change-sku/overview-change-sku.png)
 
-1. I den nedrullningsbara menyn väljer du den SKU som du vill använda för din Azure AD DS-hanterade domän. Om du har en resurs skog kan du inte välja *standard* -SKU som skogs förtroenden endast är tillgängliga på *företags* -SKU: n eller högre.
+1. I den nedrullningsbara menyn väljer du den SKU som du vill använda för din hanterade domän. Om du har en resurs skog kan du inte välja *standard* -SKU som skogs förtroenden endast är tillgängliga på *företags* -SKU: n eller högre.
 
     Välj den SKU som du vill använda på den nedrullningsbara menyn och välj sedan **Spara**.
 

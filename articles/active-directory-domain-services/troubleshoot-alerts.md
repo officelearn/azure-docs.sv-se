@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: ed791ea10c072308c16baac9fa469a46b19ec648
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654504"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734069"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller felsöknings information för vanliga aviseringar 
 
 Det här felet uppstår vanligt vis när en Azure-prenumeration flyttas till en ny Azure AD-katalog och den gamla Azure AD-katalogen som är associerad med Azure AD DS tas bort.
 
-Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den i din nya katalog. Om du har problem med att ta bort den hanterade domänen i Azure AD DS kan du [öppna en support förfrågan för Azure][azure-support] för ytterligare fel söknings hjälp.
+Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den i din nya katalog. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C körs i den här katalogen
 
@@ -48,11 +48,11 @@ Azure AD DS synkroniseras automatiskt med en Azure AD-katalog. Om Azure AD-katal
 
 Om du vill använda Azure AD DS måste du återskapa den hanterade domänen i en katalog utan Azure AD B2C med hjälp av följande steg:
 
-1. [Ta bort den hanterade Azure AD DS-domänen](delete-aadds.md) från din befintliga Azure AD-katalog.
+1. [Ta bort den hanterade domänen](delete-aadds.md) från din befintliga Azure AD-katalog.
 1. Skapa en ny Azure AD-katalog som inte är en Azure AD B2C katalog.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md).
+1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md).
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: adressen finns i ett offentligt IP-adressintervall
 
@@ -69,18 +69,18 @@ I ett virtuellt nätverk kan virtuella datorer göra förfrågningar till Azure-
 > [!NOTE]
 > Om du äger IP-adressintervallet i Internet som har kon figurer ATS i det virtuella nätverket kan den här aviseringen ignoreras. Azure AD Domain Services kan dock inte genomföra [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] med den här konfigurationen eftersom den kan leda till oförutsägbara fel.
 
-För att lösa den här aviseringen tar du bort din befintliga Azure AD DS-hanterade domän och återskapar den i ett virtuellt nätverk med ett privat IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen i Azure AD DS inte är tillgänglig och alla anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
+För att lösa den här aviseringen tar du bort din befintliga hanterade domän och återskapar den i ett virtuellt nätverk med ett privat IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen inte är tillgänglig och eventuella anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
 
-1. [Ta bort den Azure AD DS-hanterade domänen](delete-aadds.md) från katalogen.
+1. [Ta bort den hanterade domänen](delete-aadds.md) från katalogen.
 1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverk för Azure AD DS som felaktigt har en offentlig IP-adressintervall angiven.
 1. Under **Inställningar**väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är i ett privat IP-adressintervall. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
 1. Uppdatera eller ange ett privat IP-adressintervall och **Spara** ändringarna.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett privat IP-adressintervall.
+1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett privat IP-adressintervall.
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: din Azure-prenumeration hittades inte
 
@@ -90,11 +90,11 @@ Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och t
 
 ### <a name="resolution"></a>Lösning
 
-Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan prenumeration. Om Azure-prenumerationen som den hanterade domänen för Azure AD DS var kopplad till tas bort, måste du återskapa en Azure-prenumeration och en Azure AD DS-hanterad domän.
+Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan prenumeration. Om den Azure-prenumeration som den hanterade domänen var associerad med tas bort måste du återskapa en Azure-prenumeration och en hanterad domän.
 
 1. [Skapa en Azure-prenumeration](../cost-management-billing/manage/create-subscription.md).
-1. [Ta bort den hanterade Azure AD DS-domänen](delete-aadds.md) från din befintliga Azure AD-katalog.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md).
+1. [Ta bort den hanterade domänen](delete-aadds.md) från din befintliga Azure AD-katalog.
+1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md).
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: din Azure-prenumeration har inaktiverats
 
@@ -104,12 +104,12 @@ Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan pr
 
 ### <a name="resolution"></a>Lösning
 
-Azure AD DS kräver en aktiv prenumeration. Om Azure-prenumerationen som den hanterade domänen för Azure AD DS var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
+Azure AD DS kräver en aktiv prenumeration. Om den Azure-prenumeration som den hanterade domänen var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
 
 1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. När prenumerationen har förnyats kan du återaktivera den hanterade domänen med en Azure AD DS-avisering.
 
-När den hanterade domänen är aktive rad uppdaterar Azure AD DS-hanterad domän hälsa automatiskt inom två timmar och tar bort aviseringen.
+När den hanterade domänen är aktive rad uppdateras den hanterade domänens hälsa automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="aadds108-subscription-moved-directories"></a>AADDS108: flyttade prenumerations kataloger
 
@@ -119,7 +119,7 @@ När den hanterade domänen är aktive rad uppdaterar Azure AD DS-hanterad domä
 
 ### <a name="resolution"></a>Lösning
 
-Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan prenumeration. Om Azure-prenumerationen som den hanterade domänen i Azure AD DS var kopplad till flyttas flyttar du tillbaka prenumerationen till föregående katalog eller [tar bort din hanterade domän](delete-aadds.md) från den befintliga katalogen och [skapar en ERSÄTTNINGS Azure AD DS-hanterad domän i den valda prenumerationen](tutorial-create-instance.md).
+Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan prenumeration. Om den Azure-prenumeration som den hanterade domänen var kopplad till flyttas flyttar du tillbaka prenumerationen till föregående katalog eller [tar bort din hanterade domän](delete-aadds.md) från den befintliga katalogen och [skapar en ersättande hanterad domän i den valda prenumerationen](tutorial-create-instance.md).
 
 ## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: det går inte att hitta resurser för din hanterade domän
 
@@ -133,12 +133,12 @@ Azure AD DS skapar ytterligare resurser för att fungera korrekt, till exempel o
 
 Den här aviseringen skapas när en av de nödvändiga resurserna tas bort. Om resursen har tagits bort under 4 timmar sedan, finns det en risk att Azure-plattformen automatiskt kan återskapa den borttagna resursen. Följande steg beskriver hur du kontrollerar hälso status och tidsstämpel för borttagning av resurser:
 
-1. Sök efter och välj **domän tjänster**i Azure Portal. Välj din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*.
+1. Sök efter och välj **domän tjänster**i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. I det vänstra navigerings fältet väljer du **hälsa**.
 1. På sidan hälsa väljer du aviseringen med ID- *AADDS109*.
 1. Aviseringen har en tidsstämpel för första gången den hittades. Om tidsstämpeln är mindre än 4 timmar sedan kan Azure-plattformen automatiskt återskapa resursen och lösa själva aviseringen.
 
-    Om aviseringen är mer än 4 timmar gammal, är den hanterade Azure AD DS-domänen i ett oåterkalleligt tillstånd. [Ta bort den hanterade domänen i Azure AD DS](delete-aadds.md) och [skapa sedan en ersättande hanterad domän](tutorial-create-instance.md).
+    Om aviseringen är mer än 4 timmar gammal, är den hanterade domänen i ett oåterkalleligt tillstånd. [Ta bort den hanterade domänen](delete-aadds.md) och [skapa sedan en ersättande hanterad domän](tutorial-create-instance.md).
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: det undernät som är associerat med din hanterade domän är fullt
 
@@ -150,7 +150,7 @@ Den här aviseringen skapas när en av de nödvändiga resurserna tas bort. Om r
 
 Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som Azure AD DS.
 
-Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen i Azure AD DS kan du [öppna en support förfrågan för Azure][azure-support] för ytterligare fel söknings hjälp.
+Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: tjänstens huvud namn tillåts inte
 
@@ -160,7 +160,7 @@ Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort
 
 ### <a name="resolution"></a>Lösning
 
-Vissa automatiskt genererade tjänstens huvud namn används för att hantera och skapa resurser för en hanterad Azure AD DS-domän. Om åtkomst behörigheterna för något av dessa tjänst huvud namn ändras kan inte domänen hantera resurser på rätt sätt. Följande steg visar hur du förstår och ger åtkomst behörighet till ett huvud namn för tjänsten:
+Vissa automatiskt genererade tjänstens huvud namn används för att hantera och skapa resurser för en hanterad domän. Om åtkomst behörigheterna för något av dessa tjänst huvud namn ändras kan inte domänen hantera resurser på rätt sätt. Följande steg visar hur du förstår och ger åtkomst behörighet till ett huvud namn för tjänsten:
 
 1. Läs om [rollbaserad åtkomst kontroll och hur du beviljar åtkomst till program i Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Granska åtkomsten till tjänstens huvud namn med ID- *abba844e-bc0e-44b0-947a-dc74e5d09022* och bevilja åtkomst som nekades vid ett tidigare datum.
@@ -175,18 +175,18 @@ Vissa automatiskt genererade tjänstens huvud namn används för att hantera och
 
 Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som Azure AD DS.
 
-För att lösa den här aviseringen tar du bort din befintliga Azure AD DS-hanterade domän och återskapar den i ett virtuellt nätverk med ett stort tillräckligt IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen i Azure AD DS inte är tillgänglig och alla anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
+För att lösa den här aviseringen tar du bort din befintliga hanterade domän och återskapar den i ett virtuellt nätverk med ett stort tillräckligt IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen inte är tillgänglig och eventuella anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
 
-1. [Ta bort den Azure AD DS-hanterade domänen](delete-aadds.md) från katalogen.
+1. [Ta bort den hanterade domänen](delete-aadds.md) från katalogen.
 1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för Azure AD DS som har det lilla IP-adressintervallet.
 1. Under **Inställningar**väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är tillräckligt stort för intervallet för Azure AD DS-undernät. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
 1. Uppdatera eller ange ett stort tillräckligt IP-adressintervall och **Spara** sedan ändringarna.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett tillräckligt stort IP-adressintervall.
+1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett tillräckligt stort IP-adressintervall.
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: resurserna kan inte återställas
 
@@ -196,7 +196,7 @@ Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och t
 
 ### <a name="resolution"></a>Lösning
 
-Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen i Azure AD DS kan du [öppna en support förfrågan för Azure][azure-support] för ytterligare fel söknings hjälp.
+Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114: undernät är ogiltigt
 
@@ -206,7 +206,7 @@ Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort
 
 ### <a name="resolution"></a>Lösning
 
-Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen i Azure AD DS kan du [öppna en support förfrågan för Azure][azure-support] för ytterligare fel söknings hjälp.
+Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115: resurserna är låsta
 
@@ -248,10 +248,10 @@ Utför följande steg för att kontrol lera om det finns tillämpade principer p
 
 [Kontrol lera Azure AD DS-hälsan](check-health.md) för alla aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Problem med nätverks konfigurationen kan blockera synkroniseringen från Azure AD. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts.
 
-Följande vanliga orsaker leder till att synkronisering stoppas i en Azure AD DS-hanterade domäner:
+Följande vanliga orsaker leder till att synkronisering stoppas i en hanterad domän:
 
 * Nödvändig nätverks anslutning har blockerats. Mer information om hur du kontrollerar det virtuella Azure-nätverket efter problem och vad som krävs finns i [Felsöka nätverks säkerhets grupper](alert-nsg.md) och [nätverks kraven för Azure AD Domain Services](network-considerations.md).
-*  Lösenordssynkronisering har inte kon figurer ATS eller slutförts när den hanterade Azure AD DS-domänen distribuerades. Du kan ställa in Lösenordssynkronisering för [endast molnbaserade användare](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) eller [Hybrid användare från lokal](tutorial-configure-password-hash-sync.md).
+*  Lösenordssynkronisering har inte kon figurer ATS eller slutförts när den hanterade domänen distribuerades. Du kan ställa in Lösenordssynkronisering för [endast molnbaserade användare](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) eller [Hybrid användare från lokal](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: en säkerhets kopia har inte gjorts på ett tag
 
@@ -272,14 +272,14 @@ Följande vanliga orsaker leder till att synkronisering stoppas i en Azure AD DS
 ### <a name="resolution"></a>Lösning
 
 > [!WARNING]
-> Om en Azure AD DS-hanterad domän har pausats under en längre tid, finns det en risk för att den tas bort. Lös orsaken till uppskjutningen så snabbt som möjligt. Mer information finns i [förstå pausade tillstånd för Azure AD DS](suspension.md).
+> Om en hanterad domän har inaktiverats under en längre tid, finns det en risk för att den tas bort. Lös orsaken till uppskjutningen så snabbt som möjligt. Mer information finns i [förstå pausade tillstånd för Azure AD DS](suspension.md).
 
-Azure AD DS kräver en aktiv prenumeration. Om Azure-prenumerationen som den hanterade domänen för Azure AD DS var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
+Azure AD DS kräver en aktiv prenumeration. Om den Azure-prenumeration som den hanterade domänen var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
 
 1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. När prenumerationen har förnyats kan du återaktivera den hanterade domänen med en Azure AD DS-avisering.
 
-När den hanterade domänen är aktive rad uppdaterar Azure AD DS-hanterad domän hälsa automatiskt inom två timmar och tar bort aviseringen.
+När den hanterade domänen är aktive rad uppdateras den hanterade domänens hälsa automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: SUS Pension på grund av en ogiltig konfiguration
 
@@ -290,9 +290,9 @@ När den hanterade domänen är aktive rad uppdaterar Azure AD DS-hanterad domä
 ### <a name="resolution"></a>Lösning
 
 > [!WARNING]
-> Om en Azure AD DS-hanterad domän har pausats under en längre tid, finns det en risk för att den tas bort. Lös orsaken till uppskjutningen så snabbt som möjligt. Mer information finns i [förstå pausade tillstånd för Azure AD DS](suspension.md).
+> Om en hanterad domän har inaktiverats under en längre tid, finns det en risk för att den tas bort. Lös orsaken till uppskjutningen så snabbt som möjligt. Mer information finns i [förstå pausade tillstånd för Azure AD DS](suspension.md).
 
-[Kontrol lera Azure AD DS-hälsan](check-health.md) för aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts. När du är klar kan du [öppna en Azure-supportbegäran][azure-support] för att återaktivera den hanterade domänen i Azure AD DS.
+[Kontrol lera Azure AD DS-hälsan](check-health.md) för aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts. När du är klar [öppnar du en support förfrågan för Azure][azure-support] för att återaktivera den hanterade domänen.
 
 ## <a name="next-steps"></a>Nästa steg
 

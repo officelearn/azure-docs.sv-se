@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afbf0bee86a3d600892ed562ee939d48168ddfdc
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501461"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112947"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 
@@ -75,9 +75,9 @@ HTTP Status 429,
 
 ### <a name="retry-logic-in-sdks"></a>Omprövnings logik i SDK: er 
 
-De ursprungliga SDK: erna (.NET/.NET Core, Java, Node. js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
+De ursprungliga SDK: erna (.NET/.NET Core, Java, Node.js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och försök sedan utföra begäran igen. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök, som för närvarande är 9, inte räcker. I sådana fall genererar klienten en `RequestRateTooLargeException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa in `RetryOptions` på ConnectionPolicy-instansen. Som standard returneras `RequestRateTooLargeException` med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök, som för närvarande är 9, inte räcker. I sådana fall genererar klienten en `RequestRateTooLargeException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa in `RetryOptions` på ConnectionPolicy-instansen. Som standard `RequestRateTooLargeException` returneras med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
 
@@ -117,7 +117,7 @@ Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för varje pos
 
 Du kan övervaka det totala antalet ru: er som tillhandahålls, antalet avgiftsbelagda begär Anden samt antalet ru: er som du har förbrukat i Azure Portal. Följande bild visar ett exempel på användnings mått:
 
-![Övervaka enheter för programbegäran i Azure Portal](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Övervaka enheter för programbegäran i Azure Portal":::
 
 Du kan också ställa in aviseringar för att kontrol lera om antalet avgiftsbelagda begär Anden överskrider ett visst tröskelvärde. Mer information finns i [övervaka Azure Cosmos DB](use-metrics.md) -artikeln. De här aviseringarna kan skicka ett e-postmeddelande till konto administratörer eller anropa en anpassad HTTP-webhook eller en Azure-funktion för att automatiskt öka det etablerade data flödet. 
 
@@ -139,7 +139,7 @@ Du kan använda följande steg för att fastställa det etablerade data flödet 
 
 2. Vi rekommenderar att du skapar behållarna med högre data flöde än förväntat och sedan skalar ned efter behov. 
 
-3. Vi rekommenderar att du använder en av de interna Azure Cosmos DB SDK: er för att dra nytta av automatiska återförsök när begär Anden får en begränsad hastighet. Om du arbetar på en plattform som inte stöds och använder Cosmos DB REST API, implementerar du din egen princip för `x-ms-retry-after-ms` återförsök med hjälp av rubriken. 
+3. Vi rekommenderar att du använder en av de interna Azure Cosmos DB SDK: er för att dra nytta av automatiska återförsök när begär Anden får en begränsad hastighet. Om du arbetar på en plattform som inte stöds och använder Cosmos DB REST API, implementerar du din egen princip för återförsök med hjälp av `x-ms-retry-after-ms` rubriken. 
 
 4. Kontrol lera att program koden har stöd för fallet när alla återförsök inte fungerar. 
 

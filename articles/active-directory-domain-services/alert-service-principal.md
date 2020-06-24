@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845975"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735004"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar för tjänstens huvud namn i Azure Active Directory Domain Services
 
-[Tjänstens huvud namn](../active-directory/develop/app-objects-and-service-principals.md) är program som Azure-plattformen använder för att hantera, uppdatera och underhålla en Azure AD DS-hanterad domän. Om ett huvud namn för tjänsten tas bort påverkas funktionen i den hanterade Azure AD DS-domänen.
+[Tjänstens huvud namn](../active-directory/develop/app-objects-and-service-principals.md) är program som Azure-plattformen använder för att hantera, uppdatera och underhålla en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän. Om ett huvud namn för tjänsten tas bort påverkas funktionerna i den hanterade domänen.
 
 Den här artikeln hjälper dig att felsöka och lösa tjänstens huvud namn för konfigurations aviseringar.
 
@@ -30,7 +30,7 @@ Den här artikeln hjälper dig att felsöka och lösa tjänstens huvud namn för
 
 *Ett huvud namn för tjänsten som krävs för att Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts förmåga att övervaka, hantera, uppdatera och synkronisera din hanterade domän.*
 
-Om ett obligatoriskt huvud namn för tjänsten tas bort kan Azure-plattformen inte utföra automatiserade hanterings uppgifter. Den hanterade domänen i Azure AD DS kan inte tillämpa uppdateringar eller göra säkerhets kopior på rätt sätt.
+Om ett obligatoriskt huvud namn för tjänsten tas bort kan Azure-plattformen inte utföra automatiserade hanterings uppgifter. Den hanterade domänen kan inte tillämpa uppdateringar eller göra säkerhets kopior på rätt sätt.
 
 ### <a name="check-for-missing-service-principals"></a>Sök efter saknade tjänst huvud namn
 
@@ -64,18 +64,18 @@ Om program-ID *2565bd9d-DA50-47d4-8b85-4c97f669dc36* saknas i Azure AD-katalogen
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Registrera Microsoft AAD-namnrymden igen
 
 Om program-ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*eller *d87dcbc6-a371-462e-88e3-28ad15ec4e64* saknas i Azure AD-katalogen utför du följande steg för att registrera *Microsoft. AAD* -resurs leverantören på nytt:
 
 1. Sök efter och välj **prenumerationer**i Azure Portal.
-1. Välj den prenumeration som är kopplad till din Azure AD DS-hanterade domän.
+1. Välj den prenumeration som är kopplad till din hanterade domän.
 1. Välj **resurs leverantörer**i det vänstra navigerings fältet.
 1. Sök efter *Microsoft. AAD*och välj sedan **registrera igen**.
 
-Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: programmet för Lösenordssynkronisering är inaktuellt
 
@@ -105,7 +105,7 @@ Om du vill återskapa Azure AD-programmet som används för synkronisering av au
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-När du har tagit bort båda programmen återskapas automatiskt Azure-plattformen och försök görs att återuppta Lösenordssynkronisering. Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
+När du har tagit bort båda programmen återskapas automatiskt Azure-plattformen och försök görs att återuppta Lösenordssynkronisering. Den hanterade domänens hälsa uppdateras automatiskt inom två timmar och aviseringen tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

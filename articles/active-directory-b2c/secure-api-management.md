@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b5d1f44b35b89607fecf6875b1e56be97f37d0fa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298881"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203647"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
 Lär dig hur du begränsar åtkomsten till ditt Azure API Management-API (APIM) till klienter som har autentiserats med Azure Active Directory B2C (Azure AD B2C). Följ stegen i den här artikeln för att skapa och testa en inkommande princip i APIM som begränsar åtkomsten till de begär Anden som innehåller en giltig Azure AD B2C-utfärdad åtkomsttoken.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -73,7 +73,7 @@ Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD 
 
     Du använder det här värdet i nästa avsnitt när du konfigurerar ditt API i Azure API Management.
 
-Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Till exempel:
+Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Ett exempel:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -154,7 +154,7 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 
 När du har registrerat åtkomst-token och APIM prenumerations nyckel är du nu redo att testa om du har konfigurerat säker åtkomst till API: et korrekt.
 
-1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Till exempel:
+1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Ett exempel:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
@@ -171,7 +171,7 @@ När du har registrerat åtkomst-token och APIM prenumerations nyckel är du nu 
 
 1. Klicka på knappen **Skicka** i Postman för att köra begäran. Om du har konfigurerat allting korrekt, bör du se ett JSON-svar med en samling konferens högtalare (visas här trunkerade):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Nu när du har gjort en lyckad begäran kan du testa fel fallet för att säkers
 
 1. Klicka på knappen **Skicka** för att köra begäran. Med en ogiltig token är det förväntade resultatet en `401` otillåten status kod:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Om du ser `401` status koden har du verifierat att endast anropare med en giltig
 
 Flera program interagerar vanligt vis med en enda REST API. Om du vill aktivera API: et för att acceptera token som är avsedda för flera program, lägger du till deras program-ID i `<audiences>` elementet i den inkommande APIM-principen.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Flera program interagerar vanligt vis med en enda REST API. Om du vill aktivera 
 
 På samma sätt kan du lägga till slut punkts-URI: er till `<issuers>` elementet i APIM inkommande princip för att ge stöd för flera token-utfärdare.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Du kan följa den här allmänna processen för att utföra en mellanlagrad migr
 
 I följande exempel APIM inkommande princip visas hur du accepterar tokens som utfärdats av både b2clogin.com och login.microsoftonline.com. Dessutom stöder den API-begäranden från två program.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

@@ -1,0 +1,74 @@
+---
+title: Visa och använda en virtuell dators Azure Resource Manager mall
+description: Lär dig hur du använder Azure Resource Manager-mallen från en virtuell dator för att skapa andra virtuella datorer
+services: devtest-lab,virtual-machines,lab-services
+documentationcenter: na
+author: spelluru
+manager: femila
+editor: ''
+ms.assetid: a759d9ce-655c-4ac6-8834-cb29dd7d30dd
+ms.service: lab-services
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/16/2020
+ms.author: spelluru
+ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84898516"
+---
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med hjälp av en Azure Resource Manager mall 
+
+När du skapar en virtuell dator (VM) i DevTest Labs via [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)kan du Visa Azure Resource Manager mal len innan du sparar den virtuella datorn. Mallen kan sedan användas som grund för att skapa fler labb virtuella datorer med samma inställningar.
+
+I den här artikeln beskrivs flera virtuella datorer jämfört med en Resource Manager-mall för virtuella datorer och hur du visar och sparar en mall när du skapar en virtuell dator.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Resource Manager-mallar för flera virtuella datorer kontra Single-VM
+Det finns två sätt att skapa virtuella datorer i DevTest Labs med en Resource Manager-mall: etablera Microsoft. DevTestLab/Labs/virtualmachines-resursen eller etablera resursen Microsoft. Compute/virtualmachines. Varje används i olika scenarier och kräver olika behörigheter.
+
+- Resource Manager-mallar som använder en Microsoft. DevTestLab/Labs/virtualmachines-resurs typ (enligt vad som anges i egenskapen "resurs" i mallen) kan etablera enskilda virtuella labb datorer. Varje virtuell dator visas sedan som ett enskilt objekt i DevTest Labs Virtual Machines List:
+
+   ![Lista över virtuella datorer som enskilda objekt i DevTest Labs Virtual Machines List](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+
+   Den här typen av Resource Manager-mall kan tillhandahållas via Azure PowerShell kommandot **New-AzResourceGroupDeployment** eller via Azure CLI-kommandot **AZ Group Deployment Create**. Det krävs administratörs behörighet, så användare som har tilldelats en användar roll för DevTest Labs kan inte utföra distributionen. 
+
+- Resource Manager-mallar som använder en resurs typ av typen Microsoft. Compute/virtualmachines kan etablera flera virtuella datorer som en enda miljö i DevTest Labs Virtual Machines List:
+
+   ![Lista över virtuella datorer som enskilda objekt i DevTest Labs Virtual Machines List](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-environment.png)
+
+   Virtuella datorer i samma miljö kan hanteras tillsammans och delas med samma livs cykel. Användare som har tilldelats en användar roll för DevTest Labs kan skapa miljöer med dessa mallar så länge som administratören har konfigurerat labbet på det sättet.
+
+I resten av den här artikeln beskrivs Resource Manager-mallar som använder Microsoft. DevTestLab/Labs/virtualmachines. Dessa används av labb administratörer för att automatisera skapandet av virtuella labb datorer (till exempel virtuella datorer som kan krävas) eller en gyllene avbildnings generation (till exempel bild fabrik).
+
+[Metod tips för att skapa Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) ger många rikt linjer och förslag som hjälper dig att skapa Azure Resource Manager mallar som är pålitliga och enkla att använda.
+
+## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visa och spara en virtuell dators Resource Manager-mall
+1. Följ stegen i [skapa din första virtuella dator i ett labb](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) för att börja skapa en virtuell dator.
+1. Ange den information som krävs för den virtuella datorn och Lägg till eventuella artefakter som du vill använda för den här virtuella datorn.
+1. Swtich till fliken **Avancerade inställningar** . 
+1. Längst ned i fönstret Konfigurera inställningar väljer du **Visa arm-mall**.
+1. Kopiera och spara Resource Manager-mallen och Använd den senare för att skapa en annan virtuell dator.
+
+   ![Resource Manager-mall som ska sparas för senare användning](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+
+När du har sparat Resource Manager-mallen måste du uppdatera avsnittet parametrar i mallen innan du kan använda det. Du kan skapa en parameter.jspå som bara anpassar parametrarna, utanför den aktuella Resource Manager-mallen. 
+
+![Anpassa parametrar med en JSON-fil](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+
+Nu kan du använda Resource Manager-mallen för att [skapa en virtuell dator](devtest-lab-create-environment-from-arm.md).
+
+## <a name="set-expiration-date"></a>Ange förfallo datum
+I scenarier som utbildning, demonstrationer och test versioner kanske du vill skapa virtuella datorer och ta bort dem automatiskt efter en fast varaktighet så att du inte debiteras onödiga kostnader. Du kan skapa en virtuell labb dator med ett förfallo datum genom att ange egenskapen **expirationDate** för den virtuella datorn. Kolla in samma Resource Manager-mall i [vår GitHub-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
+
+
+### <a name="next-steps"></a>Nästa steg
+* Lär dig hur du [skapar miljöer för flera virtuella datorer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
+* [Distribuera en Resource Manager-mall för att skapa en virtuell dator](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
+* Utforska fler starter Resource Manager-mallar för DevTest Labs automation från den [offentliga DevTest Labs GitHub lagrings platsen](https://github.com/Azure/azure-quickstart-templates).

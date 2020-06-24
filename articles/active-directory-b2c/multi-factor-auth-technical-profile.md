@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c9ed0e329b498112feafaf21c34e85ea436cbb77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1b5d6787a41e59511267dd9e7f9048a0431e26a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332809"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204123"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure MFA Technical-profil i en Azure AD B2C anpassad princip
 
@@ -34,7 +34,7 @@ Den här tekniska profilen:
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C:
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C:
 
 ```
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 I följande exempel visas en teknisk profil för Azure MFA:
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -59,10 +59,10 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| userPrincipalName | Ja | Identifieraren för den användare som äger telefonnumret. |
-| phoneNumber | Ja | Telefonnumret som en SMS-kod ska skickas till. |
-| companyName | Inga |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
-| språk | Inga | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
+| userPrincipalName | Yes | Identifieraren för den användare som äger telefonnumret. |
+| phoneNumber | Yes | Telefonnumret som en SMS-kod ska skickas till. |
+| companyName | No |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
+| locale | No | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure MFA-tjänsten.
 
@@ -76,7 +76,7 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Måste vara **OneWaySMS**.  |
+| Åtgärd | Yes | Måste vara **OneWaySMS**.  |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
@@ -84,16 +84,16 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfCouldntSendSms | Inga | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
-| UserMessageIfInvalidFormat | Inga | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
-| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| Inga | Användar fel meddelande om en begäran har begränsats.|
+| UserMessageIfCouldntSendSms | No | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
+| UserMessageIfInvalidFormat | No | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
+| UserMessageIfServerError | No | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| No | Användar fel meddelande om en begäran har begränsats.|
 
 ### <a name="example-send-an-sms"></a>Exempel: Skicka ett SMS
 
 I följande exempel visas en teknisk Azure MFA-profil som används för att skicka en kod via SMS.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
   <DisplayName>Send Sms</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -121,8 +121,8 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Följand
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- | ----------- |
-| phoneNumber| Ja | Samma telefonnummer som tidigare användes för att skicka en kod. Den används också för att hitta en fjärrstyrningssession. |
-| verificationCode  | Ja | Verifierings koden som anges av användaren som ska verifieras |
+| phoneNumber| Yes | Samma telefonnummer som tidigare användes för att skicka en kod. Den används också för att hitta en fjärrstyrningssession. |
+| verificationCode  | Yes | Verifierings koden som anges av användaren som ska verifieras |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan du anropar tjänsten Azure MFA.
 
@@ -136,7 +136,7 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Måste **Verifiera** |
+| Åtgärd | Yes | Måste **Verifiera** |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
@@ -144,16 +144,16 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfMaxAllowedCodeRetryReached| Inga | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
-| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| Inga | Användar fel meddelande om begäran är begränsad.|
-| UserMessageIfWrongCodeEntered| Inga| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
+| UserMessageIfMaxAllowedCodeRetryReached| No | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
+| UserMessageIfServerError | No | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| No | Användar fel meddelande om begäran är begränsad.|
+| UserMessageIfWrongCodeEntered| No| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
 
 ### <a name="example-verify-a-code"></a>Exempel: verifiera en kod
 
 I följande exempel visas en teknisk Azure MFA-profil som används för att verifiera koden.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

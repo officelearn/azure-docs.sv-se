@@ -5,17 +5,17 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 69c7c7f361a930ab1dc2e0437365d2f4457b57e2
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168006"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101063"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Händelse leverans med en hanterad identitet
-I den här artikeln beskrivs hur du aktiverar en [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för ett Azure Event Grid ämne eller en domän. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
+I den här artikeln beskrivs hur du aktiverar en [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure Event Grid-ämnen eller-domäner. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
 
 Här följer de steg som beskrivs i detalj i den här artikeln:
 1. Skapa ett ämne eller en domän med en tilldelad identitet eller uppdatera ett befintligt ämne eller en befintlig domän för att aktivera identitet. 
@@ -45,12 +45,15 @@ I föregående avsnitt har du lärt dig hur du aktiverar en Systemhanterad ident
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 1. Gå till [Azure Portal](https://portal.azure.com).
-2. Sök efter **händelse rutnäts ämnen** i Sök fältet.
+2. Sök efter **händelse rutnäts ämnen** i Sök fältet högst upp.
 3. Välj det **avsnitt** som du vill aktivera den hanterade identiteten för. 
 4. Växla till fliken **identitet** . 
-5. Aktivera växeln för att aktivera identiteten. 
+5. Aktivera **växeln** för att aktivera identiteten. 
+1. Spara inställningen genom att välja **Spara** i verktygsfältet. 
 
-Du kan använda liknande steg för att aktivera en identitet för en Event Grid domän.
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Sidan identitet för ett ämne"::: 
+
+Du kan använda liknande steg för att aktivera en identitet för en Event Grid-domän.
 
 ### <a name="use-the-azure-cli"></a>Använda Azure CLI
 Använd `az eventgrid topic update` kommandot med `--identity` inställningen för att `systemassigned` Aktivera systemtilldelad identitet för ett befintligt ämne. Ange som värde om du vill inaktivera identiteten `noidentity` . 
@@ -65,7 +68,7 @@ Kommandot för att uppdatera en befintlig domän är liknande ( `az eventgrid do
 ## <a name="supported-destinations-and-rbac-roles"></a>Destinationer och RBAC-roller som stöds
 När du har aktiverat identitet för ditt event Grid-ämne eller-domän skapas automatiskt en identitet i Azure Active Directory i Azure. Lägg till den här identiteten i lämpliga roller som baseras på rollbaserad åtkomst kontroll (RBAC) så att ämnet eller domänen kan vidarebefordra händelser till stödda destinationer. Du kan till exempel lägga till identiteten i rollen **azure Event Hubs data avsändare** för ett Azure Event Hubs-namnområde så att avsnittet Event Grid kan vidarebefordra händelser till händelse nav i det namn området. 
 
-Azure Event Grid stöder för närvarande ämnen eller domäner som kon figurer ATS med en systemtilldelad hanterad identitet för att vidarebefordra händelser till följande mål. I den här tabellen får du också de roller som identiteten ska vara i så att avsnittet kan vidarebefordra händelserna.
+För närvarande stöder Azure Event Grid ämnen eller domäner som kon figurer ATS med en systemtilldelad hanterad identitet för att vidarebefordra händelser till följande destinationer. I den här tabellen får du också de roller som identiteten ska vara i så att avsnittet kan vidarebefordra händelserna.
 
 | Mål | RBAC-roll | 
 | ----------- | --------- | 
@@ -93,7 +96,7 @@ I följande exempel läggs en hanterad identitet för ett event Grid-ämne med n
 Stegen är liknande för att lägga till en identitet för andra roller som anges i tabellen. 
 
 ### <a name="use-the-azure-cli"></a>Använda Azure CLI
-Exemplet i det här avsnittet visar hur du använder Azure CLI för att lägga till en identitet i en RBAC-roll. Exempel kommandona är för ämnen i Event Grid. Kommandona för Event Grid domäner liknar varandra. 
+Exemplet i det här avsnittet visar hur du använder Azure CLI för att lägga till en identitet i en RBAC-roll. Exempel kommandona är för ämnen i Event Grid. Kommandona för events Grid-domäner liknar varandra. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Hämta ägar-ID för ämnets system identitet 
 Börja med att hämta huvud-ID för ämnets systemhanterade identitet och tilldela identiteten till lämpliga roller.

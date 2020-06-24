@@ -1,14 +1,14 @@
 ---
 title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 05/22/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1d482eeb8b3da94e8af0a597ade1a1d834ccf6a0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d91804b91b50ee1ba4015456438c9f153ed12ada
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677789"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201726"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -121,6 +121,9 @@ Ett vanligt exempel är en uppgift för att kopiera filer till en Compute-nod. E
 
 Aktiviteter som bara körs för en till två sekunder är inte idealiska. Du bör försöka göra en stor mängd arbete i en enskild uppgift (10 sekunders tid på upp till timmar eller dagar). Om varje aktivitet körs i en minut (eller mer) är tids gränsen för schemaläggningen som en bråkdel av den totala beräknings tiden liten.
 
+### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Använd pool-scope för korta uppgifter på Windows-noder
+
+När du schemalägger en aktivitet på batch-noder kan du välja om du vill köra den med aktivitets omfånget eller poolens omfång. Om aktiviteten bara ska köras under en kort tid, kan uppgifts omfattningen vara ineffektiv på grund av de resurser som krävs för att skapa det automatiska användar kontot för den aktiviteten. För ökad effektivitet bör du överväga att ställa in dessa uppgifter till poolens omfång. Mer information finns i [köra en aktivitet som en automatisk användare med pool-scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## <a name="nodes"></a>Noder
 
@@ -158,7 +161,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 

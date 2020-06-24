@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: e0e5dde246dbcd5e5cb2e4ae923872a59a539d87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f34ba9b9ebdc395338ef65b696fa9748417e20e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476401"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734919"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Principer och funktioner för resurs skogar för Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) är en inloggnings upplevelse för äldre, lokala, branschspecifika program. Användare, grupper och lösenords-hashar för lokala och moln användare synkroniseras med den hanterade Azure AD DS-domänen. Dessa synkroniserade lösen ords-hashar är vad som ger användare en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Office 365 och Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) är en inloggnings upplevelse för äldre, lokala, branschspecifika program. Användare, grupper och lösenords-hashar för lokala och moln användare synkroniseras med den hanterade Azure AD DS-domänen. Dessa synkroniserade lösen ords-hashar är vad som ger användare en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Office 365 och Azure Active Directory.
 
 Även om det är säkert och ger ytterligare säkerhets förmåner, kan vissa organisationer inte synkronisera dessa hashar för användar lösen ord till Azure AD eller Azure AD DS. Användare i en organisation kanske inte känner till sitt lösen ord eftersom de bara använder autentisering med smartkort. De här begränsningarna förhindrar att vissa organisationer använder Azure AD DS för att lyfta och byta lokala klassiska program till Azure.
 
-För att lösa dessa behov och begränsningar kan du skapa en Azure AD DS-hanterad domän som använder en resurs skog. I den här konceptuella artikeln förklaras vad skogar är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod. Azure AD DS resurs skogar är för närvarande en för hands version.
+För att lösa dessa behov och begränsningar kan du skapa en hanterad domän som använder en resurs skog. I den här konceptuella artikeln förklaras vad skogar är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod. Azure AD DS resurs skogar är för närvarande en för hands version.
 
 > [!IMPORTANT]
 > Azure AD DS-resurs skogar har för närvarande inte stöd för Azure HDInsight eller Azure Files. Standard användar skogar i Azure AD DS stöder båda dessa ytterligare tjänster.
@@ -34,7 +34,7 @@ En *skog* är en logisk konstruktion som används av Active Directory Domain Ser
 
 I Azure AD DS innehåller skogen bara en domän. Lokala AD DS-skogar innehåller ofta många domäner. I stora organisationer, särskilt efter sammanslagning och förvärv, kan du få flera lokala skogar som var och en innehåller flera domäner.
 
-Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot Azure AD DS-hanterad domän, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
+Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot den hanterade domänen, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
 
 I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till Azure AD DS. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS resurs skogar är för närvarande en för hands version.
 

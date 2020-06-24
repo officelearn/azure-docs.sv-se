@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 058a438d722454368f3275216c92d0a2692b359c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e60dc12b1f710fe771b90352872eb7113951a65d
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324325"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080514"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -24,7 +24,7 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 fysiska servrar i ett enda [Azure Migrate projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom fysiska servrar kan ett projekt inkludera virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
-**Identifikation** | Azure Migrates apparaten kan identifiera upp till 250 fysiska servrar.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 1000 fysiska servrar.
 **Beskrivningar** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -54,7 +54,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 **Enhet** | **Anslutning**
 --- | ---
 **Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för enhets hantering med URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
-**Fysiska servrar** | **Windows:** Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (TCP) för att hämta konfigurations-och prestanda-metadata från Linux-servrar. |
+**Fysiska servrar** | **Windows:** Inkommande anslutning på WinRM-port 5985 (HTTP) för att hämta konfigurations-och prestanda metadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (TCP) för att hämta konfigurations-och prestanda-metadata från Linux-servrar. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Krav för agent-baserade beroende analyser
 

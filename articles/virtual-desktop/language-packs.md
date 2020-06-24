@@ -4,16 +4,16 @@ description: Så här installerar du språk paket för Windows 10-virtuella dato
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d05c1222ff43537ab8dad34588b80fe537fd0a1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80634040"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200417"
 ---
 # <a name="install-language-packs"></a>Installera språkpaket
 
@@ -32,7 +32,7 @@ Installera språk paket:
 
 1. Logga in som administratör.
 2. Kontrol lera att du har installerat alla de senaste uppdateringarna för Windows och Windows Store.
-3. Gå till **Inställningar** > **tid & språk** > **region**.
+3. Gå till **Inställningar**  >  **tid & språk**  >  **region**.
 4. Under **land eller region**väljer du önskat land eller region i den nedrullningsbara menyn.
     I det här exemplet ska vi välja **Frankrike**, som du ser i följande skärm bild:
 
@@ -40,7 +40,7 @@ Installera språk paket:
 
 5. Sedan väljer du **språk**och sedan **Lägg till ett språk**. Välj det språk som du vill installera i listan och välj sedan **Nästa**.
 6. När fönstret **Installera språk funktioner** öppnas markerar du kryss rutan **Installera språk paket och anger som mitt visnings språk för Windows**.
-7. Välj **Installera**.
+7. Välj **installera**.
 8. Om du vill lägga till flera språk samtidigt väljer du **Lägg till ett språk**och upprepar sedan processen för att lägga till ett språk i steg 5 och 6. Upprepa processen för varje språk som du vill installera. Du kan dock bara ange ett språk som visnings språk i taget.
 
     Vi går igenom en snabb visuell demonstration. Följande bilder visar hur du installerar de franska och nederländska språk paketen och anger franska som visnings språk.
@@ -57,7 +57,7 @@ Installera språk paket:
 
 9. Om ett fönster visas där du uppmanas att logga ut från din session. Logga ut och logga sedan in igen. Ditt visnings språk bör nu vara det språk som du har valt.
 
-10.  Gå till **kontroll panelens** > **klocka och region** > **region**.
+10.  Gå till **kontroll panelens**  >  **klocka och region**  >  **region**.
 
 11.  När fönstret **region** öppnas, Välj fliken **Administration** och välj sedan **Kopiera inställningar**.
 
@@ -67,7 +67,7 @@ Installera språk paket:
 
 14.  Ett fönster öppnas och du uppmanas att starta om sessionen. Välj **starta om nu**.
 
-15.  När du har loggat in igen går du tillbaka till **kontroll panelens** > **klocka och region** > **region**.
+15.  När du har loggat in igen går du tillbaka till **kontroll panelens**  >  **klocka och region**  >  **region**.
 
 16.  Välj fliken **Administration** .
 
@@ -89,13 +89,13 @@ För att Sysprep datorn:
 
 1. Öppna PowerShell som administratör.
 2. Kör följande cmdlet för att gå till rätt katalog:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Kör sedan följande cmdlet:
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -109,7 +109,7 @@ För att Sysprep datorn:
 
 Om du ser ett fel meddelande under Sysprep-processen gör du följande:
 
-1. Öppna **enhet C** och gå till **Windows** > **system32 Sysprep** > -**Panther**och öppna **Setuperr** -filen.
+1. Öppna **enhet C** och gå till **Windows**  >  **system32 Sysprep**  >  -**Panther**och öppna **Setuperr** -filen.
 
    Texten i felfilen meddelar dig att du måste avinstallera ett särskilt språk paket, som du ser i följande bild. Kopiera språk paket namnet för nästa steg.
 

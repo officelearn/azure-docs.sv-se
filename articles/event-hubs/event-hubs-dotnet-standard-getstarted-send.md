@@ -4,21 +4,18 @@ description: Den här artikeln innehåller en genom gång av hur du skapar en .N
 services: event-hubs
 documentationcenter: na
 author: spelluru
-editor: ''
 ms.assetid: ''
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 2a3b14acad4990059a27201b7e1e6b9e93123194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: shvija
+ms.openlocfilehash: abe6a5d2cd4432b5b9dc387940a4d48f4be2aa92
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025177"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296584"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core (Microsoft. Azure. EventHubs)
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Microsoft. Azure. EventHubs** .net Core Library.
@@ -201,7 +198,7 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 ## <a name="receive-events"></a>Ta emot händelser
 Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med hjälp av [händelse bearbetnings värden](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare.
 > [!NOTE]
-> Du kan hämta den här snabb starten som ett exempel [från GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), `EventHubConnectionString` ersätta `EventHubName`och `StorageAccountName`, `StorageAccountKey`,, `StorageContainerName` och strängar med Event Hub-värdena och köra den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
+> Du kan hämta den här snabb starten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), ersätta `EventHubConnectionString` och,,, `EventHubName` `StorageAccountName` `StorageAccountKey` och `StorageContainerName` strängar med Event Hub-värdena och köra den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 

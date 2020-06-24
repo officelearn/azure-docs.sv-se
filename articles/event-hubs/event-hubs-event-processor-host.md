@@ -3,23 +3,19 @@ title: Ta emot händelser med hjälp av händelse processor värden – Azure Ev
 description: I den här artikeln beskrivs händelse bearbetnings värden i Azure Event Hubs, vilket fören klar hanteringen av kontroll punkter, leasing och läsning av händelser Jon parallellt.
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
+author: spelluru
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: f3d6a5e77c3c1c5e8b8dceb44e5bcbe9cb5f93ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372232"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299304"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]
@@ -109,10 +105,10 @@ I det här exempel scenariot antar vi att 16 partitioner har allokerats till 5 *
 I följande lista sammanfattas följande exempel:
 
 - 16 Event Hubs partitioner.
-- 5 virtuella datorer, 1 konsument app (till exempel Consumer. exe) i varje virtuell dator.
-- 5 EPH instanser registrerades, 1 i varje virtuell dator per konsument. exe.
+- 5 virtuella datorer, 1 konsument app (till exempel Consumer.exe) i varje virtuell dator.
+- 5 EPH instanser registrerade, 1 i varje virtuell dator med Consumer.exe.
 - 16 `SimpleEventProcessor` objekt som skapats av 5 EPH-instanser.
-- 1 Consumer. exe-appen kan innehålla `SimpleEventProcessor` 4 objekt, eftersom 1 EPH-instansen kan äga fyra partitioner.
+- 1 Consumer.exe app kan innehålla 4 `SimpleEventProcessor` objekt, eftersom 1 EPH-instansen kan äga fyra partitioner.
 
 ## <a name="partition-ownership-tracking"></a>Spåra ägarskap för partition
 
@@ -120,12 +116,12 @@ I följande lista sammanfattas följande exempel:
 
 | **Konsumentgruppens namn** | **Partitions-ID** | **Värdnamn (ägare)** | **Förvärvad tid för lån (eller ägarskap)** | **Förskjutning i partition (kontroll punkt)** |
 | --- | --- | --- | --- | --- |
-| $Default | 0 | Konsument\_VM3 | 2018-04-15T01:23:45 | 156 |
-| $Default | 1 | Konsument\_VM4 | 2018-04-15T01:22:13 | 734 |
-| $Default | 2 | Konsument\_VM0 | 2018-04-15T01:22:56 | 122 |
+| $Default | 0 | Konsument \_ VM3 | 2018-04-15T01:23:45 | 156 |
+| $Default | 1 | Konsument \_ VM4 | 2018-04-15T01:22:13 | 734 |
+| $Default | 2 | Konsument \_ VM0 | 2018-04-15T01:22:56 | 122 |
 | : |   |   |   |   |
 | : |   |   |   |   |
-| $Default | 15 | Konsument\_VM3 | 2018-04-15T01:22:56 | 976 |
+| $Default | 15 | Konsument \_ VM3 | 2018-04-15T01:22:56 | 976 |
 
 Här skaffar varje värd ägarskapet för en partition under en viss varaktighet (låne tiden). Om en värd Miss lyckas (den virtuella datorn stängs av) upphör lånet att gälla. Andra värdar försöker bli ägare till partitionen och en av värdarna lyckas. Den här processen återställer lånet på partitionen med en ny ägare. På så sätt kan bara en enda läsare i taget läsa från en viss partition i en konsument grupp.
 
@@ -206,7 +202,7 @@ Nu när du är bekant med händelsens processor värd kan du läsa mer om Event 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Programmerings guide för Event Hubs](event-hubs-programming-guide.md)
 * [Tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

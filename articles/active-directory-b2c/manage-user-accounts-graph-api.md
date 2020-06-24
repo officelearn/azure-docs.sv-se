@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 249acaad66bdfd8b5d6b8420d22a9090e44beb41
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637330"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204106"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
@@ -46,7 +46,7 @@ Följande användar hanterings åtgärder är tillgängliga i [Microsoft Graph A
 
 ### <a name="display-name-property"></a>Egenskapen visnings namn
 
-`displayName` Är namnet som ska visas i Azure Portal användar hantering för användaren och i åtkomsttoken Azure AD B2C återgår till programmet. Den här egenskapen är obligatorisk.
+`displayName`Är namnet som ska visas i Azure Portal användar hantering för användaren och i åtkomsttoken Azure AD B2C återgår till programmet. Den här egenskapen är obligatorisk.
 
 ### <a name="identities-property"></a>Identiteter-egenskapen
 
@@ -57,17 +57,17 @@ Ett kund konto, som kan vara en konsument, partner eller medborgare, kan associe
 
 En användare med ett kund konto kan logga in med flera identiteter. Till exempel användar namn, e-post, medarbetar-ID, myndighets-ID och andra. Ett enda konto kan ha flera identiteter, både lokala och sociala, med samma lösen ord.
 
-I Microsoft Graph API lagras både lokala och federerade identiteter i attributet User `identities` , som är av typen [objectIdentity][graph-objectIdentity]. `identities` Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
+I Microsoft Graph API lagras både lokala och federerade identiteter i `identities` attributet User, som är av typen [objectIdentity][graph-objectIdentity]. `identities`Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
 | Egenskap   | Typ |Beskrivning|
 |:---------------|:--------|:----------|
-|signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto: `emailAddress`, `emailAddress1` `emailAddress2` `emailAddress3` `userName`,,, eller någon annan typ som du vill ha. Socialt konto måste anges till `federated`.|
-|utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte `federated`är det) är den här egenskapen namnet på den lokala B2C-klientens standard `contoso.onmicrosoft.com`domän, till exempel. För sociala identiteter ( **signInType** där signInType `federated`är) är värdet namnet på utfärdaren, till exempel`facebook.com`|
-|issuerAssignedId|sträng|Anger den unika identifierare som användaren har tilldelats av utfärdaren. Kombinationen av **utfärdare** och **issuerAssignedId** måste vara unik inom din klient organisation. För lokalt konto, när **signInType** är `emailAddress` inställt `userName`på eller, representerar det inloggnings namnet för användaren.<br>När **signInType** är inställt på: <ul><li>`emailAddress`(eller börjar med `emailAddress` like `emailAddress1`) **issuerAssignedId** måste vara en giltig e-postadress</li><li>`userName`(eller något annat värde) måste **issuerAssignedId** vara en giltig [lokal del av en e-postadress](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`representerar **issuerAssignedId** det federerade kontots unika identifierare</li></ul>|
+|signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto:,,,, `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3` `userName` eller någon annan typ som du vill ha. Socialt konto måste anges till `federated` .|
+|utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte är `federated` det) är den här egenskapen namnet på den lokala B2C-klientens standard domän, till exempel `contoso.onmicrosoft.com` . För sociala identiteter (där **signInType** är `federated` ) är värdet namnet på utfärdaren, till exempel`facebook.com`|
+|issuerAssignedId|sträng|Anger den unika identifierare som användaren har tilldelats av utfärdaren. Kombinationen av **utfärdare** och **issuerAssignedId** måste vara unik inom din klient organisation. För lokalt konto, när **signInType** är inställt på `emailAddress` eller `userName` , representerar det inloggnings namnet för användaren.<br>När **signInType** är inställt på: <ul><li>`emailAddress`(eller börjar med `emailAddress` gilla `emailAddress1` ) **issuerAssignedId** måste vara en giltig e-postadress</li><li>`userName`(eller något annat värde) måste **issuerAssignedId** vara en giltig [lokal del av en e-postadress](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`representerar **issuerAssignedId** det federerade kontots unika identifierare</li></ul>|
 
 Följande **identiteter** -egenskap, med en lokal konto identitet med ett inloggnings namn, en e-postadress som inloggning och med en social identitet. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -91,11 +91,11 @@ För federerade identiteter, beroende på identitets leverantören, är **issuer
 
 ### <a name="password-profile-property"></a>Egenskap för lösen ords profil
 
-För en lokal identitet är egenskapen **passwordProfile** obligatorisk och innehåller användarens lösen ord. `forceChangePasswordNextSignIn` Egenskapen måste anges till `false`.
+För en lokal identitet är egenskapen **passwordProfile** obligatorisk och innehåller användarens lösen ord. `forceChangePasswordNextSignIn`Egenskapen måste anges till `false` .
 
 För en federerad (social) identitet krävs inte egenskapen **passwordProfile** .
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -106,9 +106,9 @@ För en federerad (social) identitet krävs inte egenskapen **passwordProfile** 
 
 Azure AD B2C lösen ords princip (för lokala konton) baseras på principen för Azure Active Directory [stark lösen ords styrka](../active-directory/authentication/concept-sspr-policy.md) . Principerna Azure AD B2C för registrering eller inloggning och lösen ords återställning kräver den här starka lösen ords styrkan och upphör aldrig att gälla lösen ord.
 
-Om de konton som du vill migrera har en mindre lösen ords styrka än den [starka lösen ords styrkan](../active-directory/authentication/concept-sspr-policy.md) som tillämpas av Azure AD B2C, kan du inaktivera kravet på starkt lösen ord i scenarier med användar migrering. Ange `passwordPolicies` egenskapen till `DisableStrongPassword`om du vill ändra standard lösen ords principen. Du kan till exempel ändra begäran om att skapa användare på följande sätt:
+Om de konton som du vill migrera har en mindre lösen ords styrka än den [starka lösen ords styrkan](../active-directory/authentication/concept-sspr-policy.md) som tillämpas av Azure AD B2C, kan du inaktivera kravet på starkt lösen ord i scenarier med användar migrering. Ange egenskapen till om du vill ändra standard lösen ords principen `passwordPolicies` `DisableStrongPassword` . Du kan till exempel ändra begäran om att skapa användare på följande sätt:
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -116,9 +116,9 @@ Om de konton som du vill migrera har en mindre lösen ords styrka än den [stark
 
 Varje kundriktad app har unika krav för att informationen ska samlas in. Din Azure AD B2C klient har en inbyggd uppsättning information som lagras i egenskaper, t. ex. namn, efter namn, stad och post nummer. Med Azure AD B2C kan du utöka uppsättningen med egenskaper som lagras i varje kund konto. Mer information om hur du definierar anpassade attribut finns i [anpassade attribut (användar flöden)](user-flow-custom-attributes.md) och [anpassade attribut (anpassade principer)](custom-policy-custom-attributes.md).
 
-Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationObjectID_attributename`. Ett exempel:
+Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationObjectID_attributename` . Ett exempel:
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -135,7 +135,7 @@ När du har fått kod exemplet konfigurerar du det för din miljö och skapar se
 
 1. Öppna projektet i [Visual Studio](https://visualstudio.microsoft.com) eller [Visual Studio Code](https://code.visualstudio.com).
 1. Öppna `src/appsettings.json`.
-1. `appSettings` I avsnittet ersätter `your-b2c-tenant` du med namnet på din klient och `Application (client) ID` och `Client secret` med värdena för registreringen av hanterings programmet (se avsnittet [Registrera ett hanterings program](#register-a-management-application) i den här artikeln).
+1. I `appSettings` avsnittet ersätter du `your-b2c-tenant` med namnet på din klient och `Application (client) ID` och `Client secret` med värdena för registreringen av hanterings programmet (se avsnittet [Registrera ett hanterings program](#register-a-management-application) i den här artikeln).
 1. Öppna ett konsol fönster i din lokala klon av lagrings platsen, växla till `src` katalogen och skapa projektet:
     ```console
     cd src
@@ -155,9 +155,9 @@ Exempel koden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/s
 
 Alla begär anden till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett gränssnitts scenario baserat på Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
 
-`RunAsync` Metoden i _program.cs_ -filen:
+`RunAsync`Metoden i _program.cs_ -filen:
 
-1. Läser program inställningar från filen _appSettings. JSON_
+1. Läser program inställningar från _appsettings.jspå_ filen
 1. Initierar auth-providern med hjälp av [OAuth 2,0-klientens autentiseringsuppgifter för tilldelnings](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flöde. Med hjälp av flödet för tilldelning av klientautentiseringsuppgifter kan appen Hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
 1. Konfigurerar Microsoft Graph tjänst klienten med auth-providern:
 
@@ -202,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Gör API-anrop med hjälp av Microsoft Graph SDK: er](https://docs.microsoft.com/graph/sdks/create-requests) innehåller information om hur du läser och skriver information `$select` från Microsoft Graph, använder för att kontrol lera de egenskaper som returneras, tillhandahålla `$filter` anpassade `$orderBy` frågeparametrar och använda parametrarna och.
+[Gör API-anrop med hjälp av Microsoft Graph SDK: er](https://docs.microsoft.com/graph/sdks/create-requests) innehåller information om hur du läser och skriver information från Microsoft Graph, använder `$select` för att kontrol lera de egenskaper som returneras, tillhandahålla anpassade frågeparametrar och använda `$filter` `$orderBy` parametrarna och.
 
 ## <a name="next-steps"></a>Nästa steg
 

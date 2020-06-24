@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277783"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697698"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera säkerheten och tillförlitligheten för Azure Functions
 
@@ -24,7 +24,7 @@ Följande är metod tips för hur du skapar och utvecklar lösningar utan server
 
 Stora, långvariga funktioner kan orsaka oväntade timeout-problem. Om du vill veta mer om tids gränsen för en specifik värd plan, se [funktion appens timeout-varaktighet](functions-scale.md#timeout). 
 
-En funktion kan bli stor på grund av många Node. js-beroenden. Att importera beroenden kan också orsaka ökade inläsnings tider som leder till oväntade tids gränser. Beroenden läses in både explicit och implicit. En enda modul som läses in av koden kan läsa in sina egna ytterligare moduler. 
+En funktion kan bli stor på grund av många Node.js beroenden. Att importera beroenden kan också orsaka ökade inläsnings tider som leder till oväntade tids gränser. Beroenden läses in både explicit och implicit. En enda modul som läses in av koden kan läsa in sina egna ytterligare moduler. 
 
 När det är möjligt kan åter förfalla stora funktioner till mindre funktions uppsättningar som arbetar tillsammans och returnerar svar snabbt. En webhook-eller HTTP-utlösnings funktion kan till exempel kräva ett bekräftelse svar inom en viss tids gräns. Det är vanligt att webhookar kräver omedelbara svar. Du kan skicka HTTP-utlösaren till en kö som ska bearbetas av en funktion i en Queue-utlösare. Med den här metoden kan du skjuta upp det faktiska arbetet och returnera ett omedelbart svar.
 
@@ -92,7 +92,7 @@ Använd inte utförlig loggning i produktions kod, vilket ger en negativ inverka
 
 Asynkron programmering är en rekommenderad metod, särskilt när du blockerar I/O-åtgärder.
 
-I C# ska du alltid undvika att referera `Result` till egenskapen eller `Wait` anropa metoden på `Task` en instans. Den här metoden kan leda till tråd överbelastning.
+I C# ska du alltid undvika att referera till `Result` egenskapen eller anropa `Wait` metoden på en `Task` instans. Den här metoden kan leda till tråd överbelastning.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -104,17 +104,17 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Ta emot meddelanden i batch när det är möjligt
 
-Vissa utlösare som Event Hub aktiverar att ta emot en batch med meddelanden på ett enda anrop.  Batching-meddelanden har mycket bättre prestanda.  Du kan konfigurera Max storleken för batch i `host.json` filen enligt beskrivningen i [Host. JSON-referens dokumentation](functions-host-json.md)
+Vissa utlösare som Event Hub aktiverar att ta emot en batch med meddelanden på ett enda anrop.  Batching-meddelanden har mycket bättre prestanda.  Du kan konfigurera Max storleken för batch i `host.json` filen enligt beskrivningen i [host.jsi referens dokumentation](functions-host-json.md)
 
-För C#-funktioner kan du ändra typen till en starkt angiven matris.  I stället för `EventData sensorEvent` metoden Signature kan till exempel vara `EventData[] sensorEvent`.  För andra språk måste du uttryckligen ange egenskapen kardinalitet i din `function.json` till `many` för att aktivera batchbearbetning [som det visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+För C#-funktioner kan du ändra typen till en starkt angiven matris.  I stället för `EventData sensorEvent` metoden Signature kan till exempel vara `EventData[] sensorEvent` .  För andra språk måste du uttryckligen ange egenskapen kardinalitet i din `function.json` till för `many` att aktivera batchbearbetning [som det visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Konfigurera värd beteenden för att bättre hantera samtidighet
 
-`host.json` Filen i Function-appen möjliggör konfiguration av värd körning och utlösnings beteenden.  Förutom batching-beteenden kan du hantera samtidighet för ett antal utlösare. Att justera värdena i dessa alternativ kan ofta hjälpa varje instans skala på lämpligt sätt för kraven hos de anropade funktionerna.
+`host.json`Filen i Function-appen möjliggör konfiguration av värd körning och utlösnings beteenden.  Förutom batching-beteenden kan du hantera samtidighet för ett antal utlösare. Att justera värdena i dessa alternativ kan ofta hjälpa varje instans skala på lämpligt sätt för kraven hos de anropade funktionerna.
 
-Inställningarna i Host. JSON-filen tillämpas på alla funktioner i appen, inom en *enda instans* av funktionen. Om du till exempel har en Function-app med två HTTP-funktioner [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) och begär Anden som har angetts till 25, räknas en begäran till http-utlösaren mot de delade 25 samtidiga förfrågningarna.  När den här funktionen är skalad till 10 instanser, tillåter de två funktionerna att 250 samtidiga begär Anden på ett effektivt sätt (10 instanser * 25 samtidiga begär Anden per instans). 
+Inställningarna i host.jspå filen gäller för alla funktioner i appen, inom en *enda instans* av funktionen. Om du till exempel har en Function-app med två HTTP-funktioner och [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) begär Anden som har angetts till 25, räknas en begäran till HTTP-utlösaren mot de delade 25 samtidiga förfrågningarna.  När den här funktionen är skalad till 10 instanser, tillåter de två funktionerna att 250 samtidiga begär Anden på ett effektivt sätt (10 instanser * 25 samtidiga begär Anden per instans). 
 
-Andra värd konfigurations alternativ finns i [artikeln Host. JSON-konfiguration](functions-host-json.md).
+Andra värd konfigurations alternativ finns i [artikelnhost.jsi konfigurations artikeln](functions-host-json.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

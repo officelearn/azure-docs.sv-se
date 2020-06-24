@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72793030"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080405"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 
-Om du använder version 4,0 – för hands version eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera ditt program till att använda version 5.
+Om du använder version 4,0 – för hands version eller äldre av [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 5.
 
 En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -35,14 +35,14 @@ Version 5 av Azure Search .NET SDK innehåller vissa ändringar från tidigare v
 Version 5 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2017-11-11. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
 
 * [Synonymer](search-synonyms.md).
-* Du kan nu program mässigt komma åt varningar i körnings historiken för Indexer `Warning` (se `IndexerExecutionResult` egenskapen för i [.net-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) för mer information).
+* Du kan nu program mässigt komma åt varningar i körnings historiken för Indexer (se `Warning` egenskapen för `IndexerExecutionResult` i [.net-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) för mer information).
 * Stöd för .NET Core 2.
 * Den nya paket strukturen stöder bara de delar av SDK: n som du behöver (se [bryta ändringar i version 5](#ListOfChanges) för mer information).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
-Först uppdaterar du din NuGet-referens `Microsoft.Azure.Search` för med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
+Först uppdaterar du din NuGet-referens för `Microsoft.Azure.Search` med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
 
 När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. Beroende på hur koden är strukturerad kan den återskapas. I så fall är det dags att sätta igång!
 
@@ -77,14 +77,14 @@ Det finns ett litet antal andra ändringar i version 5 som kan kräva kod ändri
 
 ### <a name="change-to-suggesters"></a>Ändra till förslag 
 
-`Suggester` Konstruktorn har inte längre någon `enum` parameter för `SuggesterSearchMode`. Den här uppräkningen hade bara ett värde och var därför redundant. Om du ser build-fel som ett resultat av detta tar du bara bort referenser `SuggesterSearchMode` till parametern.
+`Suggester`Konstruktorn har inte längre någon `enum` parameter för `SuggesterSearchMode` . Den här uppräkningen hade bara ett värde och var därför redundant. Om du ser build-fel som ett resultat av detta tar du bara bort referenser till `SuggesterSearchMode` parametern.
 
 ### <a name="removed-obsolete-members"></a>Borttagna föråldrade medlemmar
 
 Du kan se build-fel som rör metoder eller egenskaper som marker ATS som föråldrade i tidigare versioner och sedan tagits bort i version 5. Gör så här om du stöter på sådana fel:
 
-- Om du använde `IndexingParametersExtensions.IndexStorageMetadataOnly` metoden använder `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` du i stället.
-- Om du använde `IndexingParametersExtensions.SkipContent` metoden använder `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` du i stället.
+- Om du använde `IndexingParametersExtensions.IndexStorageMetadataOnly` metoden använder du `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` i stället.
+- Om du använde `IndexingParametersExtensions.SkipContent` metoden använder du `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` i stället.
 
 ### <a name="removed-preview-features"></a>Borttagna för hands versions funktioner
 

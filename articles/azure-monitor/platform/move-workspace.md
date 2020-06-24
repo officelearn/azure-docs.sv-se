@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731720"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770806"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -38,6 +38,8 @@ Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation
 - Starta/stoppa virtuella datorer utanför arbetstid
 - Azure Security Center
 
+>[!IMPORTANT]
+> - När den har Aktiver ATS på en arbets yta stöder Azure Sentinel **inte** flytten av arbets ytan till andra resurs grupper eller prenumerationer. Kontakta [Azure Sentinel](mailto:AzureSentinel@microsoft.com)om du behöver flytta arbets ytan.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Ta bort lösningar i Azure Portal
 Använd följande procedur för att ta bort lösningarna med hjälp av Azure Portal:

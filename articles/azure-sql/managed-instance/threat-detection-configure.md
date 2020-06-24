@@ -3,7 +3,7 @@ title: Konfigurera Advanced Threat Protection
 titleSuffix: Azure SQL Managed Instance
 description: Avancerat skydd identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot till databasen i Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 5cc5adf54b522f9209b386fa1fbb457ef6a3e8ff
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322353"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686355"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Konfigurera Avancerat skydd i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Du kan få meddelanden om identifierade hot via [e-postmeddelanden](../database/
 
 [Avancerat skydd](../database/threat-detection-overview.md) är en del av det [avancerade data säkerhets](../database/advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Advanced Threat Protection kan nås och hanteras via den centrala SQL ADS-portalen.
 
-##  <a name="azure-portal"></a>Azure-portalen
+##  <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Gå till konfigurations sidan för instansen av SQL-hanterad instans som du vill skydda. På sidan **Inställningar** väljer du **Avancerad data säkerhet**.

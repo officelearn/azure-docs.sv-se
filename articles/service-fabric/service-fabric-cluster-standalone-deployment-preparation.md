@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610071"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079342"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda din Service Fabric fristående kluster distribution
 
@@ -22,7 +22,7 @@ Du håller på att skapa ett Service Fabric-kluster på datorer som du "äger", 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Fastställa antalet fel domäner och uppgraderings domäner
 En [ *feldomän* (fd)](service-fabric-cluster-resource-manager-cluster-description.md) är en fysisk felkod som är direkt relaterad till den fysiska infrastrukturen i data centren. En feldomän består av maskin varu komponenter (datorer, växlar, nätverk med mera) som delar en enskild felpunkt. Även om det inte finns någon 1:1-mappning mellan fel domäner och rack, kan du lösa problemet genom att betrakta varje rack som en feldomän.
 
-När du anger fd i ClusterConfig. JSON kan du välja namnet för varje FD. Service Fabric stöder hierarkisk fd, så att du kan återspegla din infrastruktur sto pol Ogin i dem.  Till exempel är följande fd giltiga:
+När du anger fd i ClusterConfig.jspå, kan du välja namnet för varje FD. Service Fabric stöder hierarkisk fd, så att du kan återspegla din infrastruktur sto pol Ogin i dem.  Till exempel är följande fd giltiga:
 
 * "Faulydomain": "fd:/Room1/Rack1/machine1"
 * "Faulydomain": "fd:/FD1"
@@ -32,7 +32,7 @@ En *uppgraderings domän* (UD) är en logisk enhet med noder. Under Service Fabr
 
 Det enklaste sättet att tänka på dessa begrepp är att överväga fd som enhet för oplanerat haveri och UDs som enhet för planerat underhåll.
 
-När du anger UDs i ClusterConfig. JSON kan du välja namnet för varje UD. Följande namn är till exempel giltiga:
+När du anger UDs i ClusterConfig.jspå, kan du välja namnet för varje UD. Följande namn är till exempel giltiga:
 
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
@@ -51,7 +51,7 @@ Test kluster som kör tillstånds känsliga arbets belastningar ska ha tre noder
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Förbereda de datorer som ska fungera som noder
 
-Här är några rekommenderade specifikationer för varje dator som du vill lägga till i klustret:
+Här är rekommenderade specifikationer för datorer i ett Service Fabric kluster:
 
 * Minst 16 GB RAM-minne
 * Minst 40 GB ledigt disk utrymme
@@ -61,20 +61,22 @@ Här är några rekommenderade specifikationer för varje dator som du vill läg
 * [.NET Framework 4.5.1 eller senare](https://www.microsoft.com/download/details.aspx?id=40773), fullständig installation
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * [RemoteRegistry-tjänsten](https://technet.microsoft.com/library/cc754820) ska köras på alla datorer
-* Service Fabric installations enhet måste vara NTFS-filsystem
+* **Service Fabric installations enhet måste vara NTFS-filsystem**
+* **Prestanda loggar för Windows-tjänster *&-aviseringar* och *Windows-händelseloggen* måste [vara aktiverade](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
 
-Kluster administratören som distribuerar och konfigurerar klustret måste ha [administratörs behörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på var och en av datorerna. Du kan inte installera Service Fabric på en domänkontrollant.
+> [!IMPORTANT]
+> Kluster administratören som distribuerar och konfigurerar klustret måste ha [administratörs behörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på var och en av datorerna. Du kan inte installera Service Fabric på en domänkontrollant.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Hämta det fristående Service Fabric-paketet för Windows Server
 [Hämta länk-Service Fabric fristående paket – Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) och packa upp paketet, antingen till en distributions dator som inte ingår i klustret eller till en av de datorer som ska ingå i klustret.
 
 ## <a name="modify-cluster-configuration"></a>Ändra kluster konfiguration
-Om du vill skapa ett fristående kluster måste du skapa en fristående kluster konfiguration ClusterConfig. JSON-fil som beskriver kluster specifikationen. Du kan basera konfigurations filen på mallarna som finns på länken nedan. <br>
+Om du vill skapa ett fristående kluster måste du skapa en fristående kluster konfiguration ClusterConfig.jspå en fil som beskriver klusterets specifikation. Du kan basera konfigurations filen på mallarna som finns på länken nedan. <br>
 [Fristående klusterkonfigurationer](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 Mer information om avsnitten i den här filen finns i [konfigurations inställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md).
 
-Öppna en av ClusterConfig. JSON-filerna från paketet som du laddade ned och ändra följande inställningar:
+Öppna en av ClusterConfig.jspå filer från paketet som du laddade ned och ändra följande inställningar:
 
 | **Konfigurations inställning** | **Beskrivning** |
 | --- | --- |
@@ -115,21 +117,21 @@ När en kluster administratör konfigurerar ett Service Fabric fristående klust
 
 | **Undantagna Antivirus processer** |
 | --- |
-| Fabric. exe |
-| Fabrichost returnerar. exe |
-| FabricInstallerService. exe |
-| FabricSetup. exe |
-| FabricDeployer. exe |
-| ImageBuilder. exe |
-| FabricGateway. exe |
-| FabricDCA. exe |
-| FabricFAS. exe |
-| FabricUOS. exe |
-| FabricRM. exe |
-| FileStoreService. exe |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>Verifiera miljö med TestConfiguration-skript
-Du hittar skriptet TestConfiguration. ps1 i det fristående paketet. Den används som en Best Practices Analyzer för att validera några av kriterierna ovan och ska användas som en Sanity för att kontrol lera om ett kluster kan distribueras i en viss miljö. Om det uppstår ett fel, se listan under [miljö inställningar](service-fabric-cluster-standalone-deployment-preparation.md) för fel sökning.
+Du hittar TestConfiguration.ps1-skriptet i det fristående paketet. Den används som en Best Practices Analyzer för att validera några av kriterierna ovan och ska användas som en Sanity för att kontrol lera om ett kluster kan distribueras i en viss miljö. Om det uppstår ett fel, se listan under [miljö inställningar](service-fabric-cluster-standalone-deployment-preparation.md) för fel sökning.
 
 Det här skriptet kan köras på alla datorer som har administratörs åtkomst till alla datorer som listas som noder i kluster konfigurations filen. Datorn som skriptet körs på behöver inte vara en del av klustret.
 

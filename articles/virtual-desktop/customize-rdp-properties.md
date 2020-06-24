@@ -4,23 +4,23 @@ description: Anpassa RDP-egenskaperna för virtuella Windows-datorer med PowerSh
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 66b76fcdd9729b2a92ea2d561c740dbe148e0bbe
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611559"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207217"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
 >[!IMPORTANT]
 >Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 >
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Genom att anpassa en värd Pools egenskaper för Remote Desktop Protocol (RDP), till exempel flera skärmar och omdirigering av ljud, kan du leverera en optimal upplevelse för dina användare utifrån deras behov. Du kan anpassa RDP-egenskaperna i Windows Virtual Desktop genom att antingen använda Azure Portal eller genom att använda parametern *-CustomRdpProperty* i cmdleten **Update-AzWvdHostPool** .
@@ -37,7 +37,7 @@ Som standard innehåller publicerade RDP-filer följande egenskaper:
 
 |RDP-egenskaper | Stationära datorer | RemoteApp |
 |---|---| --- |
-| Läge för flera övervakare | Enabled | E.t. |
+| Läge för flera övervakare | Enabled | Ej tillämpligt |
 | Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
 | Fjärr ljud läge | Spela lokalt | Spela lokalt |
 
@@ -47,16 +47,16 @@ De anpassade egenskaper som du definierar för poolen åsidosätter dessa standa
 
 Konfigurera RDP-egenskaperna i Azure Portal:
 
-1. Logga in på Azure på <https://portal.azure.com>.
+1. Logga in på Azure på <https://portal.azure.com> .
 2. Ange **det virtuella Windows-skrivbordet** i Sök fältet.
 3. Under tjänster väljer du **virtuellt Windows-skrivbord**.
 4. På sidan Windows Virtual Desktop väljer du **lagringspooler** på menyn till vänster på skärmen.
 5. Välj **namnet på den modempool** som du vill uppdatera.
 6. Välj **Egenskaper** på menyn på vänster sida av skärmen.
-7. Välj **RDP-inställningar** för att börja redigera RDP-egenskaperna.
+7. På fliken **Egenskaper** går du till **RDP-inställningar** för att börja redigera RDP-egenskaperna. Egenskaperna ska vara i ett semikolonavgränsat format som PowerShell-exemplen.
 8. När du är klar väljer du **Spara** för att spara ändringarna.
 
-Om det finns en inställning som du vill redigera som du inte ser på menyn RDP-inställningar måste du redigera den manuellt genom att köra cmdlets i PowerShell. I nästa avsnitt får du veta hur du redigerar anpassade RDP-egenskaper manuellt i PowerShell.
+I nästa avsnitt får du veta hur du redigerar anpassade RDP-egenskaper manuellt i PowerShell.
 
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Lägga till eller redigera en enskild anpassad RDP-egenskap
 
@@ -89,14 +89,14 @@ CustomRdpProperty : audiocapturemode:i:1;
 Om du vill lägga till eller redigera flera anpassade RDP-egenskaper kör du följande PowerShell-cmdletar genom att ange de anpassade RDP-egenskaperna som en semikolonavgränsad sträng:
 
 ```powershell
-$properties="<property1>;<property2>;<property3>" 
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties 
+$properties="<property1>;<property2>;<property3>"
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
 Du kan kontrol lera att RDP-egenskapen har lagts till genom att köra följande cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
 Name              : <hostpoolname>
 CustomRdpProperty : <customRDPpropertystring>
@@ -105,9 +105,9 @@ CustomRdpProperty : <customRDPpropertystring>
 Baserat på vårt tidigare cmdlet-exempel, skulle din cmdlet se ut så här om du konfigurerar flera RDP-egenskaper på 0301HP-adresspoolen:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty
 
-Name              : 0301HP 
+Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
@@ -122,9 +122,9 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 Kontrol lera att du har tagit bort inställningen genom att ange denna cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
-Name              : <hostpoolname> 
+Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 

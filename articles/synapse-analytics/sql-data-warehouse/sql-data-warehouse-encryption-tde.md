@@ -6,17 +6,17 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c6fc0cdba4607bba55383f2662257322ef23aa2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745239"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212249"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Kom igång med transparent datakryptering (TDE)
 
@@ -38,9 +38,9 @@ Om du vill aktivera TDE följer du stegen nedan:
 1. Öppna databasen i [Azure Portal](https://portal.azure.com)
 2. Klicka på knappen **Inställningar** i bladet databas
 3. Välj Portal inställningar för **transparent data krypterings** alternativ ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Välj **på** att ställa ![in Portal inställningar på](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
-5. Välj **Spara**
-   ![Portal inställningar Spara](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+4. Välj **på** att ställa in ![ Portal inställningar på](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
+5. Välj **Spara** 
+    ![ Portal inställningar Spara](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
 ## <a name="disabling-encryption"></a>Inaktiverar kryptering
 
@@ -49,9 +49,9 @@ Om du vill inaktivera TDE följer du stegen nedan:
 1. Öppna databasen i [Azure Portal](https://portal.azure.com)
 2. Klicka på knappen **Inställningar** i bladet databas
 3. Välj Portal inställningar för **transparent data krypterings** alternativ ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Välj **inaktivera** inställnings ![Portal inställningar av](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
-5. Välj **Spara**
-   ![Portal inställning Spara 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+4. Välj **inaktivera** inställnings ![ Portal inställningar av](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
+5. Välj **Spara** 
+    ![ Portal inställning Spara 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
 ## <a name="encryption-dmvs"></a>Kryptering DMV: er
 

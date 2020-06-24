@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du skapar en FSLogix profil behåll
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7159eac0e71819fd75abef07cae979d5425fc07c
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484619"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207319"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
@@ -41,7 +41,7 @@ Så här lägger du till en administratör:
 
 ## <a name="set-up-an-azure-storage-account"></a>Konfigurera ett Azure Storage konto
 
-Nu är det dags att aktivera Azure AD DS-autentisering över Server Message Block (SMB). 
+Nu är det dags att aktivera Azure AD DS-autentisering över Server Message Block (SMB).
 
 Så här aktiverar du autentisering:
 
@@ -108,8 +108,8 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Ett exempel:  
-  
+    Ett exempel:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +124,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
 
     Ett exempel:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,7 +137,7 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 1. Logga in på den virtuella dator som du konfigurerade i början av den här artikeln och [Ladda ned och installera FSLogix-agenten](/fslogix/install-ht/).
 
-2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64**  >  -**versioner**och öppna sedan **FSLogixAppsSetup. exe**.
+2. Zippa upp FSLogix agent-filen som du laddade ned och gå till **x64**  >  -**versioner**och öppna **FSLogixAppsSetup.exe**.
 
 3. När installations programmet har startat väljer **du jag accepterar licens villkoren.** Ange en ny nyckel om det är tillämpligt.
 
@@ -203,13 +203,13 @@ Så här tilldelar du användare:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 

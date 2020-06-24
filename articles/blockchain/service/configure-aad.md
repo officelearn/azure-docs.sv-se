@@ -2,14 +2,14 @@
 title: Konfigurera Azure Active Directory åtkomst – Azure blockchain-tjänsten
 description: Så här konfigurerar du Azure blockchain service med Azure Active Directory åtkomst
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455866"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208781"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Så här konfigurerar du Azure Active Directory åtkomst för Azure blockchain-tjänsten
 
@@ -37,7 +37,7 @@ Bevilja behörighet på medlems nivå.
     |-----------------|---------|
     | Azure AD-användare   | `kim@contoso.onmicrosoft.com` |
     | Azure AD-grupp  | `sales@contoso.onmicrosoft.com` |
-    | Program-ID:t  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
+    | Program-ID  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
     ![Lägg till rolltilldelning](./media/configure-aad/add-role-assignment.png)
 
@@ -63,7 +63,7 @@ Följ anvisningarna i avsnittet snabb start i **README** för att bygga anslutni
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Anslut med ett användar konto i Azure AD
 
-1. Kör följande kommando för att autentisera med ett användar konto i Azure AD. Ersätt \<myAADDirectory\> med en Azure AD-domän. Till exempel `yourdomain.onmicrosoft.com`.
+1. Kör följande kommando för att autentisera med ett användar konto i Azure AD. Ersätt \<myAADDirectory\> med en Azure AD-domän. Exempelvis `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Mer information om hur du registrerar ett program i Azure AD finns i [så här g
 
 För en mobil enhet eller text baserad webbläsare där popup-visningen av Azure AD-autentisering inte är möjlig, genererar Azure AD ett eng ång slö sen ord. Du kan kopiera lösen ordet och fortsätta med Azure AD-autentisering i en annan miljö.
 
-Om du vill generera lösen ordet ersätter du **aadauthcode** med **aaddevice**. Ersätt \<myAADDirectory\> med en Azure AD-domän. Till exempel `yourdomain.onmicrosoft.com`.
+Om du vill generera lösen ordet ersätter du **aadauthcode** med **aaddevice**. Ersätt \<myAADDirectory\> med en Azure AD-domän. Exempelvis `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

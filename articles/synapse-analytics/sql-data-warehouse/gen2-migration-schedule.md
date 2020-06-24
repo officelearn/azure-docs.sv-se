@@ -9,14 +9,15 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: synapse-analytics
 ms.topic: article
+ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631572"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207727"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Uppgradera SQL-poolen till Gen2
 
@@ -37,8 +38,8 @@ I följande tabell sammanfattas efter region när den nedre Gen2 beräknings niv
 | Kina, östra |\* |\* |
 | Kina, norra |\* |\* |
 | Tyskland, centrala |\* |\* |
-| Tyskland, västra centrala |Tillgängligt |Den 1 maj 2020 |
-| Indien, västra |Tillgängligt |Den 1 maj 2020  |
+| Tyskland, västra centrala |Tillgänglig |Den 1 maj 2020 |
+| Indien, västra |Tillgänglig |Den 1 maj 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderings process
 

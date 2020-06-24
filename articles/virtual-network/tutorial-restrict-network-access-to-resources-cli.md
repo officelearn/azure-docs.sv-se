@@ -11,18 +11,18 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186406"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689341"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverks åtkomsten till PaaS-resurser med tjänst slut punkter för virtuella nätverk med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ Med tjänstslutpunkter för virtuellt nätverk kan du begränsa nätverksåtkoms
 * Bekräfta åtkomst till en resurs från ett undernät
 * Bekräfta att åtkomst nekas för en resurs från ett undernät och internet
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Varje nätverks säkerhets grupp innehåller flera [Standard säkerhets regler](security-overview.md#default-security-rules). Regeln nedan åsidosätter en standard säkerhets regel som tillåter utgående åtkomst till alla offentliga IP-adresser. `destination-address-prefix "Internet"` Alternativet nekar utgående åtkomst till alla offentliga IP-adresser. Den föregående regeln åsidosätter den här regeln, på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
+Varje nätverks säkerhets grupp innehåller flera [Standard säkerhets regler](security-overview.md#default-security-rules). Regeln nedan åsidosätter en standard säkerhets regel som tillåter utgående åtkomst till alla offentliga IP-adresser. `destination-address-prefix "Internet"`Alternativet nekar utgående åtkomst till alla offentliga IP-adresser. Den föregående regeln åsidosätter den här regeln, på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +272,7 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den no
 
 ## <a name="confirm-access-to-storage-account"></a>Bekräfta åtkomst till lagringskontot
 
-SSH till den virtuella *myVmPrivate* -datorn. Ersätt * \<publicIpAddress>* med den offentliga IP-adressen för din *myVmPrivate* -VM.
+SSH till den virtuella *myVmPrivate* -datorn. Ersätt *\<publicIpAddress>* med den offentliga IP-adressen för din virtuella *myVmPrivate* -dator.
 
 ```bash 
 ssh <publicIpAddress>
@@ -290,7 +290,7 @@ Montera Azure-filresursen i den katalog som du skapade. Innan du kör följande 
 sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Du får `user@myVmPrivate:~$` meddelandet. Azure-filresursen har monterats på */mnt/MyAzureFileShare*.
+Du får meddelandet `user@myVmPrivate:~$` . Azure-filresursen har monterats på */mnt/MyAzureFileShare*.
 
 Bekräfta att den virtuella datorn inte har någon utgående anslutning till någon annan offentlig IP-adress:
 

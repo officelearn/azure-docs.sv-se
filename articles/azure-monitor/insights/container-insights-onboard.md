@@ -2,13 +2,13 @@
 title: Så här aktiverar du Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 06/15/2020
+ms.openlocfilehash: a765c601682eb594d40ba98b8b4ef1853f35fb37
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147910"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886015"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -24,6 +24,8 @@ Den här artikeln innehåller en översikt över tillgängliga alternativ för a
 
 - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4. x
 
+- [Arc-aktiverat Kubernetes-kluster](../../azure-arc/kubernetes/overview.md)
+
 Azure Monitor för behållare kan aktive ras för nya eller en eller flera befintliga distributioner av Kubernetes med hjälp av följande metoder:
 
 - Från Azure Portal, Azure PowerShell eller med Azure CLI
@@ -32,23 +34,23 @@ Azure Monitor för behållare kan aktive ras för nya eller en eller flera befin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har följande innan du börjar:
 
 - **En Log Analytics-arbetsyta.**
 
-    Azure Monitor for containers stöder en Log Analytics arbets yta i de regioner som anges i Azure- [produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Azure Monitor for containers stöder en Log Analytics arbets yta i de regioner som anges i Azure- [produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
-    Du kan skapa en arbets yta när du aktiverar övervakning av ditt nya AKS-kluster eller låta onboarding-upplevelsen skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen. Om du väljer att skapa den själv kan du skapa den via [Azure Resource Manager](../platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../learn/quick-create-workspace.md). En lista över de mappnings par som stöds för standard arbets ytan finns i [region mappning för Azure Monitor för behållare](container-insights-region-mapping.md).
+   Du kan skapa en arbets yta när du aktiverar övervakning av ditt nya AKS-kluster eller låta onboarding-upplevelsen skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen. Om du väljer att skapa den själv kan du skapa den via [Azure Resource Manager](../platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../learn/quick-create-workspace.md). En lista över de mappnings par som stöds för standard arbets ytan finns i [region mappning för Azure Monitor för behållare](container-insights-region-mapping.md).
 
 - Du är medlem i **rollen Log Analytics Contributor** för att aktivera övervakning av behållare. Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns i [hantera arbets ytor](../platform/manage-access.md).
 
 - Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+   [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Prometheus mått samlas inte in som standard. Innan du [konfigurerar agenten](container-insights-prometheus-integration.md) för att samla in dem är det viktigt att du läser Prometheus- [dokumentationen](https://prometheus.io/) för att förstå vad som kan vara inkasserat och vilka metoder som stöds.
+- Prometheus mått samlas inte in som standard. Innan du [konfigurerar agenten](container-insights-prometheus-integration.md) för att samla in dem är det viktigt att du läser Prometheus- [dokumentationen](https://prometheus.io/) för att förstå vad som kan vara inkasserat och vilka metoder som stöds.
 
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
 
@@ -63,27 +65,27 @@ Informationen i följande tabell visar den konfigurations information för proxy
 
 |Agentresurs|Portar |
 |--------------|------|
-| *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 |
-| dc.services.visualstudio.com | 443 |
-| *. monitoring.azure.com | 443 |
-| login.microsoftonline.com | 443 |
+| `*.ods.opinsights.azure.com` | 443 |  
+| `*.oms.opinsights.azure.com` | 443 |
+| `dc.services.visualstudio.com` | 443 |
+| `*.monitoring.azure.com` | 443 |
+| `login.microsoftonline.com` | 443 |
 
-Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure Kina.
+Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure Kina 21Vianet.
 
-|Agentresurs|Portar |Description | 
+|Agentresurs|Portar |Beskrivning | 
 |--------------|------|-------------|
-| *. ods.opinsights.azure.cn | 443 | Datainhämtning |
-| *. oms.opinsights.azure.cn | 443 | OMS-onboarding |
-| dc.services.visualstudio.com | 443 | För för agent-telemetri med Azures offentliga moln Application Insights. |
+| `*.ods.opinsights.azure.cn` | 443 | Datainhämtning |
+| `*.oms.opinsights.azure.cn` | 443 | OMS-onboarding |
+| `dc.services.visualstudio.com` | 443 | För för agent-telemetri med Azures offentliga moln Application Insights. |
 
 Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure amerikanska myndigheter.
 
-|Agentresurs|Portar |Description | 
+|Agentresurs|Portar |Beskrivning | 
 |--------------|------|-------------|
-| *. ods.opinsights.azure.us | 443 | Datainhämtning |
-| *. oms.opinsights.azure.us | 443 | OMS-onboarding |
-| dc.services.visualstudio.com | 443 | För att kunna använda agenten i Azures offentliga moln Application Insights. |
+| `*.ods.opinsights.azure.us` | 443 | Datainhämtning |
+| `*.oms.opinsights.azure.us` | 443 | OMS-onboarding |
+| `dc.services.visualstudio.com` | 443 | För att kunna använda agenten i Azures offentliga moln Application Insights. |
 
 ## <a name="components"></a>Komponenter
 
@@ -101,18 +103,19 @@ När en ny version av agenten släpps, uppgraderas den automatiskt i hanterade K
 
 Du aktiverar Azure Monitor för behållare genom att använda någon av följande metoder som beskrivs i följande tabell.
 
-| Distributions tillstånd | Metod | Description |
+| Distributions tillstånd | Metod | Beskrivning |
 |------------------|--------|-------------|
-| Nytt AKS Kubernetes-kluster | [Skapa AKS-kluster med Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Du kan aktivera övervakning av ett nytt AKS-kluster som du skapar med Azure CLI. |
+| Nytt Kubernetes-kluster | [Skapa AKS-kluster med Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Du kan aktivera övervakning av ett nytt AKS-kluster som du skapar med Azure CLI. |
 | | [Skapa AKS-kluster med terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Du kan aktivera övervakning av ett nytt AKS-kluster som du skapar med hjälp av terraform med öppen källkod. |
 | | [Skapa ett OpenShift-kluster med en Azure Resource Manager mall](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Du kan aktivera övervakning av ett nytt OpenShift-kluster som du skapar med en förkonfigurerad Azure Resource Manager-mall. |
 | | [Skapa OpenShift-kluster med Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Du kan aktivera övervakning när du distribuerar ett nytt OpenShift-kluster med Azure CLI. |
-| Befintligt AKS Kubernetes-kluster | [Aktivera för AKS-kluster med Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med Azure CLI. |
+| Befintligt Kubernetes-kluster | [Aktivera för AKS-kluster med Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med Azure CLI. |
 | |[Aktivera för AKS-kluster med terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med hjälp av terraform med öppen källkod. |
 | | [Aktivera för AKS-kluster från Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Du kan aktivera övervakning av ett eller flera AKS-kluster som redan har distribuerats från sidan med flera kluster i Azure Monitor. |
 | | [Aktivera från AKS-kluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Du kan aktivera övervakning direkt från ett AKS-kluster i Azure Portal. |
 | | [Aktivera för AKS-kluster med hjälp av en Azure Resource Manager mall](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Du kan aktivera övervakning av ett AKS-kluster med en förkonfigurerad Azure Resource Manager-mall. |
 | | [Aktivera för Hybrid Kubernetes-kluster](container-insights-hybrid-setup.md) | Du kan aktivera övervakning av en AKS-motor som finns i Azure Stack eller för Kubernetes som finns lokalt. |
+| | [Aktivera för Arc-aktiverat Kubernetes-kluster](container-insights-enable-arc-enabled-clusters.md). | Du kan aktivera övervakning av Kubernetes-kluster som finns utanför Azure och som är aktiverade med Azure Arc. |
 | | [Aktivera för OpenShift-kluster med en Azure Resource Manager mall](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Du kan aktivera övervakning av ett befintligt OpenShift-kluster med en förkonfigurerad Azure Resource Manager-mall. |
 | | [Aktivera för OpenShift-kluster från Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Du kan aktivera övervakning av ett eller flera OpenShift-kluster som redan har distribuerats från sidan med flera kluster i Azure Monitor. |
 

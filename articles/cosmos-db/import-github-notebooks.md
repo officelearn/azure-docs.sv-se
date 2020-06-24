@@ -4,14 +4,14 @@ description: Lär dig hur du ansluter till GitHub och importerar antecknings bö
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ce65d316b8236b83435388d2c1883cb9b89b03a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691385"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262896"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importera antecknings böcker från en GitHub-lagrings platsen till Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Du kan ansluta till dina egna GitHub-databaser eller andra offentliga GitHub-dat
 
 1. En flik öppnas där du kan välja att endast ansluta till **offentliga databaser** eller **offentliga och privata databaser**.  När du har valt alternativet som krävs väljer du **ge åtkomst**. Auktorisering krävs för att Azure Cosmos DB ska kunna komma åt databaserna i ditt GitHub-konto.
 
-   ![Ge Azure Cosmos DB åtkomst till dina GitHub-databaser](./media/import-github-notebooks/authorize-access-github.png)
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Ge Azure Cosmos DB åtkomst till dina GitHub-databaser":::
 
 1. Du omdirigeras till webb sidan "github.com" där du kan bekräfta auktoriseringen. Välj knappen **auktorisera AzureCosmosDBNotebooks** och ange lösen ordet för ditt GitHub-konto i prompten.
 
@@ -37,7 +37,7 @@ Du kan ansluta till dina egna GitHub-databaser eller andra offentliga GitHub-dat
 
 1. När du har valt den nödvändiga lagrings platsen flyttas posten lagrings platsen från avsnittet **databaser** till **fästa databaser** . Om det behövs kan du även välja en speciell gren av den lagrings platsen som du vill importera antecknings böckerna från.
 
-   ![Välj en lagrings plats och en gren](./media/import-github-notebooks/choose-repo-branch.png)
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Välj en lagrings plats och en gren":::
 
 1. Klicka på **OK** för att slutföra importen. Alla antecknings böcker som är tillgängliga i den valda grenen av dina lagrings platsen importeras till ditt Azure Cosmos-konto.
 
@@ -53,7 +53,7 @@ När du har redigerat en befintlig antecknings bok väljer du **Spara**. En dial
 
 I det vanliga GitHub-flödet efter att du har genomfört ändringarna, skickar du normalt ändringar till en fjärr anslutning. I det här fallet kan du dock använda alternativet "mellanlagring, genomförande och överföring" av dina uppdateringar till GitHub.
 
-![Redigera antecknings böcker och genomför ändringar i GitHub](./media/import-github-notebooks/commit-changes-github.png)
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Redigera antecknings böcker och genomför ändringar i GitHub":::
 
 ## <a name="next-steps"></a>Nästa steg
 

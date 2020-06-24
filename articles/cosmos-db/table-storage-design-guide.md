@@ -3,17 +3,17 @@ title: Design Azure Cosmos DB tabeller för skalning och prestanda
 description: 'Design Guide för Azure Table Storage: skalbara och utförda tabeller i Azure Cosmos DB och Azure Table Storage'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: beb80390bdeacd6775ccfb0b712fe6dd260fbce0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651917"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261094"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabell design guide för Azure Table Storage: skalbara och genomförda tabeller
 
@@ -630,7 +630,7 @@ För det här alternativet använder du indexerade entiteter som lagrar följand
 
 ![Bild som visar en anställds entitet, med en sträng som innehåller en lista med anställnings-ID med samma efter namn][15]
 
-`EmployeeIDs`Egenskapen innehåller en lista med anställnings-ID för anställda med efter namnet som lagras i `RowKey` .  
+`EmployeeIDs`Egenskapen innehåller en lista med anställnings-ID för anställda med efter namnet som lagras i `RowKey` och `PartitionKey` .  
 
 Du kan inte använda EGTs för att upprätthålla konsekvens eftersom index entiteterna finns i en separat partition från de anställdas entiteter. Se till att index entiteterna är konsekventa med de anställdas entiteter.  
 
@@ -663,7 +663,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 ![Bild av avdelnings enhet och entitet för anställd][16]
 
 #### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Till exempel:  
+I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Ett exempel:  
 
 ![Bild av avnormaliserad och kombinerad avdelnings enhet][17]
 

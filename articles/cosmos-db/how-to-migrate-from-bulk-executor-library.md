@@ -3,15 +3,15 @@ title: Migrera från bulk utförar-biblioteket till Mass stödet i Azure Cosmos 
 description: Lär dig hur du migrerar ditt program från att använda utförar-biblioteket för Mass support i Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146298"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261434"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrera från bulk utförar-biblioteket till Mass stödet i Azure Cosmos DB .NET v3 SDK
 
@@ -33,7 +33,7 @@ Om din första Indatatyp till exempel är en lista med objekt där varje objekt 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Om du vill göra Mass import (liknar att använda BulkExecutor. BulkImportAsync) måste du ha samtidiga anrop till `CreateItemAsync`. Ett exempel:
+Om du vill göra Mass import (liknar att använda BulkExecutor. BulkImportAsync) måste du ha samtidiga anrop till `CreateItemAsync` . Ett exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
@@ -41,7 +41,7 @@ Om du vill göra en Mass *uppdatering* (liknar att använda [BulkExecutor. BulkU
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Och om du vill utföra Mass *borttagning* (liknar att använda [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)) måste du ha samtidiga anrop till `DeleteItemAsync`med `id` och-partitionerings nyckeln för varje objekt. Ett exempel:
+Och om du vill utföra Mass *borttagning* (liknar att använda [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)) måste du ha samtidiga anrop till `DeleteItemAsync` med och- `id` partitionerings nyckeln för varje objekt. Ett exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -51,7 +51,7 @@ I föregående kod exempel har vi skapat en samtidig lista med aktiviteter och a
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
-`OperationResponse` Där deklareras som:
+Där `OperationResponse` deklareras som:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="OperationResult":::
 
@@ -61,7 +61,7 @@ Vi använder den här hjälp klassen för att spåra omfattningen av hela listan
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
 
-`ExecuteAsync` Metoden väntar tills alla åtgärder har slutförts och du kan använda den så här:
+`ExecuteAsync`Metoden väntar tills alla åtgärder har slutförts och du kan använda den så här:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
@@ -71,7 +71,7 @@ Föregående kod väntar tills alla åtgärder har slutförts och beräknar den 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
-`BulkOperationResponse` Innehåller:
+`BulkOperationResponse`Innehåller:
 
 1. Den totala tid det tar att bearbeta listan över åtgärder via Mass stöd.
 1. Antalet lyckade åtgärder.
@@ -80,7 +80,7 @@ Föregående kod väntar tills alla åtgärder har slutförts och beräknar den 
 
 ## <a name="retry-configuration"></a>Försök att konfigurera igen
 
-Bulk utförar Library hade en [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) som nämndes att `MaxRetryWaitTimeInSeconds` ange `MaxRetryAttemptsOnThrottledRequests` och för [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) för `0` att delegera kontroll till biblioteket.
+Bulk utförar Library hade en [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) som nämndes att ange `MaxRetryWaitTimeInSeconds` och `MaxRetryAttemptsOnThrottledRequests` för [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) för `0` att delegera kontroll till biblioteket.
 
 Det finns inget dolt beteende för Mass support i .NET SDK. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
@@ -91,7 +91,7 @@ Det finns inget dolt beteende för Mass support i .NET SDK. Du kan konfigurera a
 
 Precis som med andra åtgärder med .NET SDK ger data Ströms-API: erna bättre prestanda och undviker onödig serialisering. 
 
-Det går bara att använda Stream-API: er om de data som du använder matchar data strömmens data strömmar (till exempel fil strömmar). I sådana fall ökar det data `CreateItemStreamAsync`flöde `ReplaceItemStreamAsync`som kan `DeleteItemStreamAsync` uppnås genom att `ResponseMessage` använda metoderna, `ItemResponse`, eller och arbeta med (i stället för).
+Det går bara att använda Stream-API: er om de data som du använder matchar data strömmens data strömmar (till exempel fil strömmar). I sådana fall `CreateItemStreamAsync` `ReplaceItemStreamAsync` `DeleteItemStreamAsync` `ResponseMessage` `ItemResponse` ökar det data flöde som kan uppnås genom att använda metoderna,, eller och arbeta med (i stället för).
 
 ## <a name="next-steps"></a>Nästa steg
 

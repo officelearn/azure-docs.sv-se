@@ -3,16 +3,16 @@ title: Prestanda-och skalnings testning med Azure Cosmos DB
 description: Lär dig hur du kan skala och testa prestanda med Azure Cosmos DB. Du kan sedan utvärdera funktionerna i Azure Cosmos DB för högpresterande program scenarier.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4b2394f48f9bf3ec436cda92e87fd99ad915474
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76313764"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262573"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda-och skalnings testning med Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Det snabbaste sättet att komma igång är att kompilera och köra .NET-exemplet
 
 **Steg 1:** Hämta projektet från [Azure Cosmos DB exempel på prestandatest](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)eller förgrening av GitHub-lagringsplatsen.
 
-**Steg 2:** Ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i app. config.
+**Steg 2:** Ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i App.config.
 
 > [!NOTE]
 > Innan du etablerar samlingar med högt data flöde, se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) för att beräkna kostnaderna per samling. Azure Cosmos DB räkningar lagring och data flöde oberoende av varje timme. Du kan spara kostnader genom att ta bort eller minska genomflödet för dina Azure Cosmos-behållare efter testning.

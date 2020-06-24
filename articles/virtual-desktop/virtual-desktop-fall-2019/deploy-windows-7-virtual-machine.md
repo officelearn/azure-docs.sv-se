@@ -4,16 +4,16 @@ description: Så här konfigurerar och distribuerar du en virtuell Windows 7-dat
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0cb5b2ee8b8391dc4fcb78cc1d3bd212c44f1803
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eafe2050f834fdd9aecba492c7121be9c1e121e2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615414"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206010"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
 
@@ -32,28 +32,29 @@ När du har genomfört kraven är du redo att konfigurera din virtuella Windows 
 
 Konfigurera en virtuell Windows 7-dator på Windows Virtual Desktop:
 
-1. Logga in på Azure Portal och Sök antingen efter Windows 7 Enterprise-avbildningen eller ladda upp din egen anpassade Windows 7 Enterprise-avbildning (x64).  
+1. Logga in på Azure Portal och Sök antingen efter Windows 7 Enterprise-avbildningen eller ladda upp din egen anpassade Windows 7 Enterprise-avbildning (x64).
 2. Distribuera en eller flera virtuella datorer med Windows 7 Enterprise som värd operativ system. Se till att de virtuella datorerna tillåter Remote Desktop Protocol (RDP) (TCP/3389-porten).
-3. Anslut till Windows 7 Enterprise-värden med hjälp av RDP och autentisera med de autentiseringsuppgifter som du definierade när du konfigurerade distributionen. 
+3. Anslut till Windows 7 Enterprise-värden med hjälp av RDP och autentisera med de autentiseringsuppgifter som du definierade när du konfigurerade distributionen.
 4. Lägg till det konto som du använde när du anslöt till värden med RDP till gruppen "fjärr skrivbords användare". Om du inte gör det kanske du inte kan ansluta till den virtuella datorn när du har anslutit den till din Active Directory-domän.
 5. Gå till Windows Update på den virtuella datorn.
 6. Installera alla Windows-uppdateringar i den viktiga kategorin.
 7. Installera alla Windows-uppdateringar i den valfria kategorin (exklusive språk paket). Detta installerar Remote Desktop Protocol 8,0-uppdateringen ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387)) som du behöver för att slutföra de här instruktionerna.
-8. Öppna redigerare för lokalt grupprincipobjekt och navigera till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **fjärrskrivbordssessionen** > för**fjärrskrivbordssessioner.**
+8. Öppna redigerare för lokalt grupprincipobjekt och navigera till **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **fjärrskrivbordssessionen**  >  **Remote Session Environment**för fjärrskrivbordssessioner.
 9. Aktivera Remote Desktop Protocol 8,0-principen.
 10. Anslut den här virtuella datorn till din Active Directory-domän.
 11. Starta om den virtuella datorn genom att köra följande kommando:
-    
+
      ```cmd
      shutdown /r /t 0
      ```
-    
+
 12. Följ anvisningarna [här](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) för att hämta en registrerings-token.
 13. [Hämta Windows Virtual Desktop-agenten för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Ladda ned Windows Virtual Desktop Agent Manager för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Öppna installations programmet för Windows Virtual Desktop agent och följ instruktionerna. När du uppmanas till det, ger du registrerings nyckeln som du skapade i steg 12.
-16. Öppna installations programmet för Windows Virtual Desktop och följ anvisningarna.
+16. Öppna Windows Virtual Desktop Agent Manager och följ anvisningarna.
 17. Du kan också blockera TCP/3389-porten för att ta bort direkt Remote Desktop Protocol åtkomst till den virtuella datorn.
+18. Du kan också kontrol lera att .NET Framework är minst version 4.7.2. Detta är särskilt viktigt om du skapar en anpassad avbildning.
 
 ## <a name="next-steps"></a>Nästa steg
 

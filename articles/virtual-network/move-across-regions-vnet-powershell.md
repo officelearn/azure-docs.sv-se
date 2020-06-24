@@ -3,15 +3,15 @@ title: Flytta ett virtuellt Azure-nätverk till en annan Azure-region med hjälp
 description: Flytta ett virtuellt Azure-nätverk från en Azure-region till en annan med hjälp av en Resource Manager-mall och Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646718"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711467"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure PowerShell
 
@@ -60,7 +60,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Den hämtade filen har samma namn som resurs gruppen som resursen exporterades från. Leta upp * \<resurs grupps namnet>. JSON-* filen som du exporterade med kommandot och öppna den i redigeraren:
+1. Den hämtade filen har samma namn som resurs gruppen som resursen exporterades från. Leta upp * \<resource-group-name> JSON* -filen som du exporterade med kommandot och öppna den i din redigerare:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     Get-AzLocation | format-table
     ```
 
-1. Valfritt Du kan också ändra andra parametrar i * \<resurs grupps namnet>. JSON-* fil, beroende på dina krav:
+1. Valfritt Du kan också ändra andra parametrar i * \<resource-group-name> . JSON* -filen, beroende på dina krav:
 
-    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **Resources** > **addressSpace** och ändra egenskapen **addressPrefixes** :
+    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **Resources**  >  **addressSpace** och ändra egenskapen **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -193,7 +193,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
          ]
         ```
 
-1. Spara * \<resurs grupps namnet>. JSON-* fil.
+1. Spara * \<resource-group-name> . JSON* -filen.
 
 1. Skapa en resurs grupp i mål regionen för det virtuella mål nätverket som ska distribueras med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuera det redigerade * \<resurs grupps namnet>. JSON-* filen till resurs gruppen som du skapade i föregående steg genom att använda [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuera den redigerade * \<resource-group-name> . JSON* -filen till resurs gruppen som du skapade i föregående steg genom att använda [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

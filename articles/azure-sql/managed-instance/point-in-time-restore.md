@@ -3,7 +3,7 @@ title: Återställning av tidpunkt (PITR)
 titleSuffix: Azure SQL Managed Instance
 description: Återställ en databas på en hanterad Azure SQL-instans till en tidigare tidpunkt.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 379d5e59024174c8f6cfbc185b3514287b7d5031
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310180"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708688"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Återställa en databas i en Azure SQL-hanterad instans till en tidigare tidpunkt
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -47,7 +47,7 @@ I följande tabell visas tidpunkter för återställnings scenarier för SQL-han
 |           |Återställ befintlig databas till samma instans av SQL-hanterad instans| Återställa en befintlig databas till en annan SQL-hanterad instans|Återställ utelämnad databas till samma SQL-hanterade instans|Återställ utelämnad databas till en annan SQL-hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
 |**Azure Portal**| Yes|No |Yes|No|
-|**Azure CLI**|Ja |Ja |Nej|Nej|
+|**Azure CLI**|Ja |Ja |Inga|Inga|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 
 ## <a name="restore-an-existing-database"></a>Återställa en befintlig databas

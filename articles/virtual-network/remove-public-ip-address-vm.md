@@ -8,17 +8,17 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: allensu
-ms.openlocfilehash: f29e29f809faeeb486e5b6b9bacc84a61380a012
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b171699a0c578b3761e58f6e0e977199369864a8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144461"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709971"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Koppla bort en offentlig IP-adress från en virtuell Azure-dator 
 
@@ -44,7 +44,7 @@ Du kan använda [Azure Portal](#azure-portal), Azures [kommando rads gränssnitt
 
 Installera [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)eller Använd Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj knappen **prova** i CLI-kommandona som följer. Om du väljer **försök** anropas ett Cloud Shell som du kan logga in på ditt Azure-konto med.
 
-1. Om du använder CLI lokalt i bash loggar du in på Azure med `az login`.
+1. Om du använder CLI lokalt i bash loggar du in på Azure med `az login` .
 2. En offentlig IP-adress är kopplad till en IP-konfiguration för ett nätverks gränssnitt som är kopplat till en virtuell dator. Använd kommandot [AZ Network NIC-IP-config Update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) för att koppla bort en offentlig IP-adress från en IP-konfiguration. I följande exempel kopplas en offentlig IP-adress med namnet *myVMPublicIP* från IP-konfigurationen med namnet *ipconfigmyVM* för ett befintligt nätverks gränssnitt med namnet *myVMVMNic* som är kopplat till en virtuell dator med namnet *MyVM* i en resurs grupp med namnet *myResourceGroup*.
   
    ```azurecli-interactive
@@ -86,7 +86,7 @@ Installera [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netwo
 
 Installera [PowerShell](/powershell/azure/install-az-ps)eller Använd Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt gränssnitt som du kan köra direkt i Azure-portalen. Den har PowerShell förinstallerat och konfigurerat för användning med ditt konto. Välj knappen **testa** i PowerShell-kommandona som följer. Om du väljer **försök** anropas ett Cloud Shell som du kan logga in på ditt Azure-konto med.
 
-1. Om du använder PowerShell lokalt loggar du in på Azure `Connect-AzAccount`med.
+1. Om du använder PowerShell lokalt loggar du in på Azure med `Connect-AzAccount` .
 2. En offentlig IP-adress är kopplad till en IP-konfiguration för ett nätverks gränssnitt som är kopplat till en virtuell dator. Använd kommandot [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) för att hämta ett nätverks gränssnitt. Ange värdet null för den offentliga IP-adressen och Använd sedan kommandot [set-AzNetworkInterface](/powershell/module/Az.Network/Set-AzNetworkInterface) för att skriva den nya IP-konfigurationen till nätverks gränssnittet.
 
    I följande exempel kopplas en offentlig IP-adress med namnet *myVMPublicIP* från ett nätverks gränssnitt med namnet *myVMVMNic* som är kopplat till en virtuell dator med namnet *myVM*. Alla resurser finns i en resurs grupp med namnet *myResourceGroup*.

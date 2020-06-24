@@ -3,20 +3,19 @@ title: Aktivera resurs loggning i Azure Traffic Manager
 description: Lär dig hur du aktiverar resurs loggning för din Traffic Manager profil och hur du kommer åt loggfilerna som skapas som ett resultat.
 services: traffic-manager
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133908"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711688"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Aktivera resurs loggning i Azure Traffic Manager
 
@@ -58,7 +57,7 @@ Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.co
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Navigera till ditt Azure Storage-konto i portalen.
 2. På sidan **Översikt** på ditt Azure Storage-konto, under **tjänster** väljer du **blobbar**.
-3. För **behållare**väljer du **Insights-logs-probehealthstatusevents**och navigerar till PT1H. JSON-filen och klickar på **Ladda ned** för att ladda ned och spara en kopia av logg filen.
+3. För **behållare**väljer du **Insights-logs-probehealthstatusevents**och går till PT1H.jspå filen och klickar på **Ladda ned** för att ladda ned och spara en kopia av logg filen.
 
     ![Komma åt loggfiler för din Traffic Manager profil från en blob-lagring](./media/traffic-manager-logs/traffic-manager-logs.png)
 

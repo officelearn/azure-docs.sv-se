@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 607afa4b8411af9b960a251d5f9d4688d3edeb10
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479285"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686910"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Nätverks säkerhet för Azure Service Bus 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Service Bus: 
@@ -37,6 +37,9 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
 
+
+> [!NOTE]
+> Du kan endast använda service märken för **Premium** -namnområden. Om du använder ett **standard** namn område använder du den IP-adress som du ser när du kör följande kommando: `nslookup <host name for the namespace>` . Exempel: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
 Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .

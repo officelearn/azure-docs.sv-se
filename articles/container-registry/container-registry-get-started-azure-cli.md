@@ -2,14 +2,14 @@
 title: Snabb start – skapa register – Azure CLI
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure CLI.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682754"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752467"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure CLI
 
@@ -38,7 +38,8 @@ I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadso
 Skapa en ACR-instans med hjälp av kommandot [az acr create][az-acr-create]. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel används *myContainerRegistry007*. Uppdatera det här till ett unikt värde.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 När registret har skapats ser utdata ut ungefär så här:
@@ -64,14 +65,14 @@ När registret har skapats ser utdata ut ungefär så här:
 }
 ```
 
-Anteckna `loginServer` i utdata, vilket är de fullständigt kvalificerade registernamnet (endast gemener). I resten av den här snabbstarten använder du `<acrName>` som platshållare för namnet på containerregistret.
+Anteckna `loginServer` i utdata, vilket är de fullständigt kvalificerade registernamnet (endast gemener). I resten av den här snabb starten `<registry-name>` är en plats hållare för behållar register namnet och `<login-server>` är en plats hållare för registrerings serverns inloggnings Server namn.
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
 Innan du skickar och hämtar containeravbildningar måste du logga in i registret. Det gör du med hjälp av kommandot [az acr login][az-acr-login].
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 Kommandot returnerar meddelandet `Login Succeeded` när det har slutförts.
@@ -83,7 +84,7 @@ Kommandot returnerar meddelandet `Login Succeeded` när det har slutförts.
 I följande exempel visas lagringsplatserna i ditt register:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Resultat:
@@ -97,7 +98,7 @@ hello-world
 I följande exempel visas taggarna i databasen **Hello-World** .
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Resultat:
@@ -123,7 +124,10 @@ az group delete --name myResourceGroup
 I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI, push-överförde en containeravbildning till registret och hämtade och körde avbildningen från registret. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
-> [Självstudier för Azure Container Registry][container-registry-tutorial-quick-task]
+> [Självstudier för Azure Container Registry][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Azure Container Registry uppgifter – självstudier][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +147,4 @@ I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI, p
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

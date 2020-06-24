@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2cf997cbe16f7ff4bfe75f90d3797ec97e7d5069
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660024"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808766"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -105,7 +105,7 @@ Om dessa två steg inte var hjälp, krävs det att ta reda på om video ramar ta
 
 **Modellen överskrider gränserna för den valda virtuella datorn, särskilt det maximala antalet polygoner:**
 
-Se vissa [begränsningar för VM-storlek](../reference/limits.md#overall-number-of-polygons).
+Se vissa [storleks gränser för virtuella datorer](../reference/limits.md#overall-number-of-polygons).
 
 **Modellen finns inte i kamerans Frustum:**
 
@@ -146,6 +146,10 @@ Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komp
 
 ![Unity Frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Schack rutigt mönster återges efter inläsning av modell
+
+Om den renderade bilden ser ut så här: ![ schack rutor, ](../reference/media/checkerboard.png) träffar åter givnings funktionen [polygonens gränser för den virtuella datorns standard storlek](../reference/vm-sizes.md). Du kan undvika detta genom att antingen växla till storlek på **Premium-VM** eller minska antalet synliga polygoner.
+
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Den renderade bilden i Unity är upp-ned
 
 Se till att följa [installations guiden för projektet](../tutorials/unity/project-setup.md) exakt. En upp-ned-bild anger att Unity krävs för att skapa en rendering-mål på skärmen. Det här beteendet stöds inte för närvarande och skapar en enorm prestanda påverkan på HoloLens 2.
@@ -168,6 +172,10 @@ Vi har sett spurious-felen vid försök att kompilera Unity-exempel (snabb start
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Arm64 build for Unition Projects Miss Miss Missing eftersom AudioPluginMsHRTF.dll saknas
+
+`AudioPluginMsHRTF.dll`For-Arm64 lades till i *Windows Mixed Reality* -paketet *(com. Unit. XR. windowsmr. Metro)* i version 3.0.1. Se till att du har version 3.0.1 eller senare installerad via paket hanteraren för Union. Från meny raden i Unity går du till *Window > Package Manager* och letar efter *Windows Mixed Reality* -paketet.
+
 ## <a name="unstable-holograms"></a>Instabila hologram
 
 Om återgivna objekt ser ut att flyttas tillsammans med huvud förflyttningar, kan det hända att du stöter på problem med LSR ( *sent Stage-projektion* ). Se avsnittet om [omprojektion av sena steg](../overview/features/late-stage-reprojection.md) för vägledning om hur du kan använda en sådan situation.

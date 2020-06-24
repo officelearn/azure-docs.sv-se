@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: c0c4849d76676cf165dbb051fbd904c28a98fa3b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873574"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207965"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med PowerShell
 
@@ -19,7 +19,7 @@ Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att d
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes-koncept. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -60,7 +60,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 Följande exempelutdata visar den resursgrupp som skapats:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -119,7 +119,7 @@ kubectl get nodes
 
 I följande exempel på utdata visas alla noder i klustret. Kontrol lera att status för alla noder är **klar**:
 
-```Output
+```plaintext
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
@@ -187,7 +187,7 @@ kubectl apply -f sample.yaml
 
 Följande exempel på utdata visar att distributionen och tjänsten har skapats:
 
-```Output
+```plaintext
 deployment.apps/sample created
 service/sample created
 ```
@@ -205,14 +205,14 @@ kubectl get service sample --watch
 
 Inlednings vis visas den **externa IP-adressen** för **exempel** tjänsten som **väntar**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 När **EXTERNAL-IP**-adressen ändras från **väntande** till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
-```Output
+```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

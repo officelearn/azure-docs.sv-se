@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 30bf5d3eaa034c033cf32e26c3229a028f036313
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613140"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261366"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 En viktig egenskap för Azure Digitals dubbla är möjligheten att definiera en egen vokabulär och skapa ett dubbel diagram i de självdefinierade villkoren i din verksamhet. Den här funktionen tillhandahålls genom användardefinierade **modeller**. Du kan tänka på modeller som Substantiv i en beskrivning av din värld. 
 
@@ -197,7 +200,7 @@ Det utökade gränssnittet kan inte ändra någon av definitionerna för de öve
 
 ## <a name="validating-models"></a>Validerar modeller
 
-Det finns ett exempel som kan användas för att validera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket och är språk-oberoende. Hitta detta: [DTDL Verification-exempel](https://github.com/Azure-Samples/DTDL-Validator).
+Det finns ett exempel som kan användas för att validera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket och är språk-oberoende. Hitta detta: [DTDL Verification-exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Om du vill ha mer information om parsar biblioteket, inklusive ett exempel på hur du använder det direkt, se [anvisningar: parsa och validera modeller](how-to-use-parser.md).
 

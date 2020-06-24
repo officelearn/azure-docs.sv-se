@@ -2,8 +2,8 @@
 title: 'Snabb start: skapa en hanterad instans av SQL-hanterad instans (portal)'
 description: Skapa en hanterad instans, nätverks miljö och virtuell klient dator för åtkomst med hjälp av Azure Portal i den här snabb starten.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e00736c734b3e6f6ba6b188061ec2ffb59a5b169
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659750"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708900"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Snabb start: skapa en hanterad instans av SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Följ dessa steg om du vill skapa en hanterad instans:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj **Azure SQL** på den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och anger sedan **Azure SQL** i sökrutan.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information om Azure SQL-hanterad instans genom att välja **Visa information** på panelen **SQL-hanterad instans** .
 1. Välj **Skapa**.
@@ -51,7 +51,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställningen| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration. | En prenumeration som ger dig behörighet att skapa nya resurser. |
    | **Resursgrupp** | En ny eller befintlig resursgrupp.|Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
@@ -74,7 +74,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställningen| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Virtuellt nätverk** | Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om ett nätverk eller undernät inte är tillgängligt, måste det [ändras för att uppfylla nätverks kraven](vnet-existing-add-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverks miljön för SQL-hanterad instans finns i [Konfigurera ett virtuellt nätverk för SQL-hanterad instans](connectivity-architecture-overview.md). |
    | **Anslutnings typ** | Välj mellan en proxy och en Anslutnings typ för omdirigering.|Mer information om anslutnings typer finns i [Anslutnings typ för Azure SQL-hanterad instans](../database/connectivity-architecture.md#connection-policy).|
@@ -91,7 +91,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställningen| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom `SELECT SERVERPROPERTY(N'Collation')` att använda och använda det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Tidszon** | Välj den tidszon som den hanterade instansen ska observera.|Mer information finns i [tids zoner](timezones-overview.md).|

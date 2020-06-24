@@ -5,12 +5,12 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 056c96807fed7d5acca85635440c8fe4d989c933
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 4f3b9966e1d146479ef6aa57e13cbb4ddadb415f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592407"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205857"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -26,8 +26,8 @@ För att slutföra den här självstudien installerar du <a href="https://www.vi
 
 Om du redan har installerat Visual Studio 2019:
 
-- Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp** > **sökning efter uppdateringar**.
-- Lägg till arbets belastningen genom att välja **verktyg** > **Hämta verktyg och funktioner**.
+- Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
+- Lägg till arbets belastningen genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp<a name="create-and-publish-the-web-app"></a>
 
@@ -47,7 +47,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
    ![Skapa ASP.NET-webbprogram](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
 
-6. Från Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra webbappen lokalt.
+6. Från Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra webbappen lokalt.
 
    ![Kör appen lokalt](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
@@ -83,12 +83,12 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    | Inställningen | Föreslaget värde | Beskrivning |
    |-|-|-|
    | Värdplan| myAppServicePlan | Namnet på App Service-planen. |
-   | Plats | Europa, västra | Datacenter som är värd för webbappen. |
+   | Location | Europa, västra | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. I **namn**anger du ett unikt namn för appen som bara innehåller giltiga tecken är `a-z`, `A-Z` `0-9`, och `-`. Du kan acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn.
+1. I **namn**anger du ett unikt namn för appen som bara innehåller giltiga tecken är `a-z` , `A-Z` , `0-9` och `-` . Du kan acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn.
 
 2. Välj **Skapa** för att börja skapa Azure-resurser.
 
@@ -100,17 +100,17 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
     ![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-Namnet på appen som anges i **App Service Skapa ny** sida används som URL-prefix i formatet `http://<app-name>.azurewebsites.net`.
+Namnet på appen som anges i **App Service Skapa ny** sida används som URL-prefix i formatet `http://<app-name>.azurewebsites.net` .
 
 **Grattis!** Din ASP.NET-webbapp körs Live i Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>Uppdatera och distribuera om appen
 
-1. I **Solution Explorer**, under projektet, öppnar du **vyer** > **Start** > **index. cshtml**.
+1. I **Solution Explorer**, under projektet, öppnar du **vyer**  >  **Start**  >  **index. cshtml**.
 
 1. Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -145,3 +145,6 @@ Namnet på appen som anges i **App Service Skapa ny** sida används som URL-pref
 
 > [!div class="nextstepaction"]
 > [ASP.NET med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera ASP.NET-app](configure-language-dotnet-framework.md)

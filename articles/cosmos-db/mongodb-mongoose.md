@@ -1,22 +1,22 @@
 ---
-title: Anslut ett Node. js Mongoose-program till Azure Cosmos DB
+title: Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
 description: Lär dig hur du använder Mongoose-ramverket för att lagra och hantera data i Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: ff4455571aa5cfa5c9214bdf18af1853b0cef352
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05298ac0b76f93ba8249cc72910d33b58a9889e4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585418"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263134"
 ---
-# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Anslut ett Node. js Mongoose-program till Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
 
 Den här självstudien visar hur du använder [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Cosmos dB. Vi använder Azure Cosmos DBs API för MongoDB för den här genom gången. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
@@ -28,11 +28,11 @@ Cosmos DB är Microsofts globalt distribuerade databas tjänst för flera modell
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-[Node. js](https://nodejs.org/) version v 0.10.29 eller högre.
+[Node.js](https://nodejs.org/) version v 0.10.29 eller senare.
 
 ## <a name="create-a-cosmos-account"></a>Skapa ett Cosmos-konto
 
-Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda kan du gå vidare till Konfigurera Node.js-programmet. Om du använder Azure Cosmos DB emulatorn följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) för att konfigurera emulatorn och gå vidare till konfigurera Node. js-programmet.
+Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda kan du gå vidare till Konfigurera Node.js-programmet. Om du använder Azure Cosmos DB emulatorn följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) för att konfigurera emulatorn och gå vidare till konfigurera ditt Node.js program.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -40,7 +40,7 @@ Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda
 I det här programmet kommer vi att gå igenom två sätt att skapa samlingar i Azure Cosmos DB: 
 - **Lagring av varje objekt modell i en separat samling**: Vi rekommenderar att du [skapar en databas med dedikerat data flöde](set-throughput.md#set-throughput-on-a-database). Med den här kapacitets modellen får du bättre kostnads effektivitet.
 
-    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node. js-självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB-konto, för användning med Mongoose Node-modulen":::
+    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB konto, för användning med Mongoose Node-modulen":::
 
 - **Lagra alla objekt modeller i en enda Cosmos DB samling**: om du vill lagra alla modeller i en enda samling kan du bara skapa en ny databas utan att välja alternativet Tillhandahåll data flöde. Genom att använda den här kapacitets modellen skapas varje samling med sin egen data flödes kapacitet för varje objekt modell.
 
@@ -88,7 +88,7 @@ När du har skapat databasen använder du namnet i `COSMOSDB_DBNAME` miljö vari
    COSMOSDB_PORT=10255
     ```
 
-6. Anslut till Cosmos DB med Mongoose-ramverket genom att lägga till följande kod i slutet av index. js.
+6. Anslut till Cosmos DB med Mongoose-ramverket genom att lägga till följande kod i slutet av index.js.
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
@@ -194,7 +194,7 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DBs API för
 
 1. Nu ska du gå till den Azure Portal. du märker två samlingar som skapats i Cosmos DB.
 
-    ![Node. js-självstudie – skärm bild av Azure Portal, som visar ett Azure Cosmos DB konto, med flera samlings namn markerade – nod databas][multiple-coll]
+    ![Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med flera samlings namn markerade – nod databas][multiple-coll]
 
 1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
@@ -299,7 +299,7 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
 
 1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 
-    ![Node. js-självstudie – skärm bild av Azure Portal, som visar ett Azure Cosmos DB konto, med samlings namnet markerat – nod databas][alldata]
+    ![Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med samlings namnet markerat – Node Database][alldata]
 
 1. Lägg också märke till att varje objekt har ytterligare ett attribut som heter ```__type```, som hjälper till att skilja mellan de två olika objektmodellerna.
 

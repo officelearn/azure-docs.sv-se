@@ -1,28 +1,28 @@
 ---
-title: Fråga mappar och flera CSV-filer med SQL på begäran (för hands version)
+title: Fråga mappar och flera filer med SQL på begäran (för hands version)
 description: SQL på begäran (för hands version) stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235416"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207639"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Fråga mappar och flera CSV-filer  
+# <a name="query-folders-and-multiple-files"></a>Efterfråga mappar och flera filer  
 
 I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics.
 
 SQL på begäran stöder läsning av flera filer/mappar med jokertecken som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 

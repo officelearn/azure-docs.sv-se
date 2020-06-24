@@ -2,13 +2,13 @@
 title: Kluster versioner som stöds i Azure Service Fabric
 description: Lär dig mer om kluster versioner i Azure Service Fabric, inklusive en länk till de senaste versionerna från Service Fabric teamets blogg.
 ms.topic: troubleshooting
-ms.date: 06/01/2020
-ms.openlocfilehash: 5dc3835bd58670a66968448fa798c547bb06e340
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.date: 06/15/2020
+ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449710"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808918"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric versioner som stöds
 
@@ -42,7 +42,7 @@ I följande tabell visas de versioner av Service Fabric och deras support slutda
 | 7.0.470.* | 7.0.466.* |Mindre än eller lika med version 4,0 |Den 1 augusti 2020  |
 | 7.0.472.* | 7.0.466.* |Mindre än eller lika med version 4,0 |Den 1 augusti 2020  |
 | 7.1.409.* | 7.0.466.* |Mindre än eller lika med version 4,0 |Aktuell version, så inget slutdatum |
-| 7.1.416.* | 7.0.466.* |Mindre än eller lika med version 4,0 |Aktuell version, så inget slutdatum |
+| 7.1.417.* | 7.0.466.* |Mindre än eller lika med version 4,0 |Aktuell version, så inget slutdatum |
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -112,4 +112,4 @@ I följande tabell visas versions namnen för Service Fabric och deras motsvaran
 | 7,0 CU4 | 7.0.470.9590 | 7.0.469.1 |
 | 7,0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7,1 RTO | 7.1.409.9590 | 7.1.410.1 |
-| 7,1 CU1 | 7.1.416.9590 | 7.1.418.1 |
+| 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |

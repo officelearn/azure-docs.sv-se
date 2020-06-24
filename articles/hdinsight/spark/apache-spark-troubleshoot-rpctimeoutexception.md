@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b15ac80295a0113eb0c384e1cc3185f3304c39c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a29d36c5ba6fdd51de27afa3ab4dfe1258332200
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894273"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208424"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Scenario: RpcTimeoutException för Apache Spark Thrift-server i Azure HDInsight
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs fel söknings steg och möjliga lösningar på prob
 
 ## <a name="issue"></a>Problem
 
-Spark-programmet Miss lyckas `org.apache.spark.rpc.RpcTimeoutException` med ett undantag och ett `Futures timed out`meddelande:, som i följande exempel:
+Spark-programmet Miss lyckas med ett `org.apache.spark.rpc.RpcTimeoutException` undantag och ett meddelande: `Futures timed out` , som i följande exempel:
 
 ```
 org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [120 seconds]. This timeout is controlled by spark.rpc.askTimeout
@@ -36,13 +36,13 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## <a name="cause"></a>Orsak
 
-Dessa fel orsakas av brist på minnes resurser under data bearbetning. Om Java skräp insamlings processen startar kan det leda till att Spark-programmet låser sig. Frågorna börjar ta slut och stoppa bearbetningen. `Futures timed out` Felet indikerar ett kluster under allvarlig stress.
+Dessa fel orsakas av brist på minnes resurser under data bearbetning. Om Java-insamlings processen startar kan det leda till att Spark-programmet slutar svara. Frågorna börjar ta slut och stoppa bearbetningen. `Futures timed out`Felet indikerar ett kluster under allvarlig stress.
 
 ## <a name="resolution"></a>Lösning
 
 Öka kluster storleken genom att lägga till fler arbetsnoder eller öka minnes kapaciteten för de befintliga klusternoderna. Du kan också justera data pipelinen för att minska mängden data som bearbetas samtidigt.
 
-`spark.network.timeout` Kontrollerar tids gränsen för alla nätverks anslutningar. Om du ökar nätverks tids gränsen kan det ta längre tid för vissa kritiska åtgärder att slutföras, men problemet löses inte helt och hållet.
+`spark.network.timeout`Kontrollerar tids gränsen för alla nätverks anslutningar. Om du ökar nätverks tids gränsen kan det ta längre tid för vissa kritiska åtgärder att slutföras, men problemet löses inte helt och hållet.
 
 ## <a name="next-steps"></a>Nästa steg
 

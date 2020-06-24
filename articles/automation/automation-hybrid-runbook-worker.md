@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Hybrid Runbook Worker
 description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/05/2019
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9305d0d6443c923c680af0d5fafc58887dadb902
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bad64d030f3a5fd6c32ab82702ecd861fe4049a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835299"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206843"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -22,14 +22,14 @@ Följande bild visar den här funktionen:
 
 En Hybrid Runbook Worker kan köra antingen Windows eller Linux-operativsystemet. För övervakning kräver det att Azure Monitor och en Log Analytics-Agent används för det operativ system som stöds. Mer information finns i [Azure Monitor](automation-runbook-execution.md#azure-monitor).
 
-Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet. Varje dator kan vara värd för en hybrid Worker-rapportering till ett Automation-konto. 
+Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet. Varje dator kan vara värd för en hybrid Worker-rapportering till ett Automation-konto.
 
 När du startar en Runbook på en Hybrid Runbook Worker anger du den grupp som den körs på. Varje anställd i gruppen avsöker Azure Automation för att se om några jobb är tillgängliga. Om ett jobb är tillgängligt tar den första arbets tagaren att hämta jobbet. Bearbetnings tiden för jobb kön beror på maskin varu profilen för Hybrid Worker och belastningen. Du kan inte ange en viss arbetare. 
 
 Använd en Hybrid Runbook Worker i stället för ett [Azure-sandbox](automation-runbook-execution.md#runbook-execution-environment) eftersom det inte har många av de begränsade [begränsningarna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) för disk utrymme, minne eller nätverks platser. Gränserna för en hybrid arbetare är bara relaterade till arbetarnas egna resurser. 
 
 > [!NOTE]
-> Hybrid Runbook Worker begränsas inte av den [verkliga delnings](automation-runbook-execution.md#fair-share) tiden som Azure-sandbox har. 
+> Hybrid Runbook Worker begränsas inte av den [verkliga delnings](automation-runbook-execution.md#fair-share) tiden som Azure-sandbox har.
 
 ## <a name="hybrid-runbook-worker-installation"></a>Hybrid Runbook Worker installation
 
@@ -51,46 +51,15 @@ För att Hybrid Runbook Worker ska kunna ansluta till och registrera med Azure A
 Följande port och URL-adresser krävs för Hybrid Runbook Worker:
 
 * Port: endast TCP 443 krävs för utgående Internet åtkomst
-* Global URL: *. azure-automation.net
-* Global URL för US Gov, Virginia: –*.azure-automation.us
-* Agent tjänst: https:// \< workspaceId \> . agentsvc.Azure-Automation.net
+* Global URL:`*.azure-automation.net`
+* Global URL för US Gov, Virginia:`*.azure-automation.us`
+* Agent tjänst:`https://<workspaceId>.agentsvc.azure-automation.net`
 
-Vi rekommenderar att du använder de adresser som anges när du definierar [undantag](automation-runbook-execution.md#exceptions). För IP-adresser kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen.
-
-### <a name="dns-records-per-region"></a>DNS-poster per region
-
-Om du har ett Automation-konto som har definierats för en viss region kan du begränsa Hybrid Runbook Worker kommunikation till det regionala data centret. Följande tabell innehåller DNS-posten för varje region.
-
-| **Region** | **DNS-post** |
-| --- | --- |
-| Australien, centrala |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
-| Australien, östra |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
-| Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Kanada, centrala |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov, Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-| USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| USA, västra 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
-
-Om du vill ha en lista över regions-IP-adresser i stället för region namn laddar du ned XML-filen för [Azure datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center En uppdaterad IP-serveradress har publicerats varje vecka. 
-
-IP-adress filen visar de IP-adressintervall som används i Microsoft Azure Data Center. Den innehåller beräknings-, SQL-och lagrings intervall och återspeglar för närvarande distribuerade intervall och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka.
-
-Det är en bra idé att ladda ned den nya IP-adressen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. 
-
-> [!NOTE]
-> Om du använder Azure ExpressRoute måste du komma ihåg att IP-adressutrymmet används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
+Om du har ett Automation-konto som har definierats för en viss region kan du begränsa Hybrid Runbook Worker kommunikation till det regionala data centret. Granska [DNS-posterna som används av Azure Automation](how-to/automation-region-dns-records.md) för de DNS-poster som krävs.
 
 ### <a name="proxy-server-use"></a>Använd proxyserver
 
-Om du använder en proxyserver för kommunikation mellan Azure Automation och Log Analytics-agenten måste du se till att lämpliga resurser är tillgängliga. Tids gränsen för begär Anden från Hybrid Runbook Worker-och automation-tjänsterna är 30 sekunder. Efter tre försök Miss lyckas en begäran. 
+Om du använder en proxyserver för kommunikation mellan Azure Automation och datorer som kör Log Analytics agent, måste du se till att lämpliga resurser är tillgängliga. Tids gränsen för begär Anden från Hybrid Runbook Worker-och automation-tjänsterna är 30 sekunder. Efter tre försök Miss lyckas en begäran.
 
 ### <a name="firewall-use"></a>Brand Väggs användning
 
@@ -98,7 +67,7 @@ Om du använder en brand vägg för att begränsa åtkomsten till Internet, mås
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Uppdateringshantering på Hybrid Runbook Worker
 
-När Azure Automation [uppdateringshantering](automation-update-management.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar. 
+När Azure Automation [uppdateringshantering](automation-update-management.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar.
 
 En dator som kon figurer ATS på det här sättet är inte registrerad med några Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto. Du kan lägga till datorn i en Hybrid Runbook Worker grupp, men du måste använda samma konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
@@ -108,9 +77,9 @@ Utöver de standard adresser och portar som krävs i Hybrid Runbook Worker behö
 
 |Azure, offentlig  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     | *. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
+|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation tillstånds konfiguration på en Hybrid Runbook Worker
 

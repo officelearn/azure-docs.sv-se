@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 0eabb3c226a444d872e6f3e5c85ae1a9fa377de3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465770"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263552"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
 
@@ -45,7 +45,7 @@ Det anpassade verktyget använder bulk utförar-biblioteket och har stöd för s
 Följande bild beskriver migreringsprocessen med det här anpassade verktyget. Verktyget körs på en uppsättning virtuella datorer och varje virtuell dator frågar spårnings samlingen i Azure Cosmos DB för att erhålla ett lån på en av datapartitionerna. När detta görs läses käll data partitionen av verktyget och matas in i Azure Cosmos DB med hjälp av utförar-biblioteket. Sedan uppdateras spårnings samlingen för att registrera förloppet för data inhämtningen och eventuella fel som påträffas. När en datapartition har bearbetats försöker verktyget fråga efter nästa tillgängliga källmapp. Den fortsätter att bearbeta nästa käll partition tills alla data har migrerats. Käll koden för verktyget finns [här](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
-![Installation av Migreringsverktyg](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Installation av Migreringsverktyg" border="false":::
  
 
  
@@ -145,7 +145,7 @@ När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmo
 ## <a name="contact-the-azure-cosmos-db-team"></a>Kontakta Azure Cosmos DB-teamet
 Även om du kan följa den här guiden för att migrera stora data mängder till Azure Cosmos DB för storskaliga migreringar, rekommenderar vi att du når Azure Cosmos DB produkt teamet för att verifiera data modellen och en allmän arkitektur granskning. Efter din data uppsättning och arbets belastning kan produkt teamet även föreslå andra prestanda-och kostnads optimeringar som kan vara tillgängliga för dig. Om du vill kontakta Azure Cosmos DB-teamet för att få hjälp med storskaliga migreringar kan du öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ (se nedan).
 
-![Avsnittet migration support](./media/migrate-cosmosdb-data/supporttopic.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Avsnittet migration support":::
 
 
 ## <a name="next-steps"></a>Nästa steg

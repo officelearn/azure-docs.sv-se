@@ -4,23 +4,23 @@ description: Så här använder du Log Analytics med funktionen Windows-diagnost
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 05bb7274fe598df45ce14bfc89b606aec3f869c9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615544"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205976"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../diagnostics-log-analytics.md).
 
-Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Den här funktionen loggar diagnostikinformation när någon har tilldelat en virtuell Windows-dator roll som använder tjänsten. Varje logg innehåller information om vilken Windows-roll för virtuella skriv bord som ingick i aktiviteten, eventuella fel meddelanden som visas under sessionen, klient information och användar information. Funktionen diagnostik skapar aktivitets loggar för både användar-och administrations åtgärder. Varje aktivitets logg faller under tre huvud kategorier: 
+Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Den här funktionen loggar diagnostikinformation när någon har tilldelat en virtuell Windows-dator roll som använder tjänsten. Varje logg innehåller information om vilken Windows-roll för virtuella skriv bord som ingick i aktiviteten, eventuella fel meddelanden som visas under sessionen, klient information och användar information. Funktionen diagnostik skapar aktivitets loggar för både användar-och administrations åtgärder. Varje aktivitets logg faller under tre huvud kategorier:
 
 - Flödes prenumerations aktiviteter: när en användare försöker ansluta till sin feed genom att Microsoft Fjärrskrivbord program.
 - Anslutnings aktiviteter: när en användare försöker ansluta till en stationär eller RemoteApp via Microsoft Fjärrskrivbord-program.
@@ -36,37 +36,37 @@ Vi rekommenderar att du använder Log Analytics för att analysera diagnostikdat
 
 Innan du kan använda Log Analytics med funktionen diagnostik måste du [skapa en arbets yta](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-När du har skapat arbets ytan följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) för att få följande information: 
+När du har skapat arbets ytan följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) för att få följande information:
 
 - Arbetsyte-ID
 - Den primära nyckeln för din arbets yta
 
 Du behöver den här informationen senare i installations processen.
 
-## <a name="push-diagnostics-data-to-your-workspace"></a>Skicka diagnostikdata till din arbets yta 
+## <a name="push-diagnostics-data-to-your-workspace"></a>Skicka diagnostikdata till din arbets yta
 
 Du kan skicka diagnostikdata från din Windows-klient för virtuella datorer till Log Analytics för din arbets yta. Du kan ställa in den här funktionen direkt när du först skapar din klient genom att länka arbets ytan till din klient organisation, eller så kan du ställa in den senare med en befintlig klient.
 
-Om du vill länka din klient till din Log Analytics arbets yta när du konfigurerar din nya klient kör du följande cmdlet för att logga in på Windows Virtual Desktop med ditt TenantCreator-användar konto: 
+Om du vill länka din klient till din Log Analytics arbets yta när du konfigurerar din nya klient kör du följande cmdlet för att logga in på Windows Virtual Desktop med ditt TenantCreator-användar konto:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
+Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-Om du ska länka en befintlig klient i stället för en ny klient kör du denna cmdlet i stället: 
+Om du ska länka en befintlig klient i stället för en ny klient kör du denna cmdlet i stället:
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Du måste köra dessa cmdlets för varje klient som du vill länka till Log Analytics. 
+Du måste köra dessa cmdlets för varje klient som du vill länka till Log Analytics.
 
 >[!NOTE]
->Om du inte vill länka Log Analytics arbets ytan när du skapar en klient kör du `New-RdsTenant` cmdleten i stället. 
+>Om du inte vill länka Log Analytics arbets ytan när du skapar en klient kör du `New-RdsTenant` cmdleten i stället.
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Takt för att skicka diagnostiska händelser
 
-Diagnostiska händelser skickas till Log Analytics när de är klara.  
+Diagnostiska händelser skickas till Log Analytics när de är klara.
 
 ## <a name="example-queries"></a>Exempelfrågor
 
@@ -75,65 +75,65 @@ Följande exempel frågor visar hur Diagnostics-funktionen genererar en rapport 
 I det första exemplet visas anslutnings aktiviteter som initieras av användare med stöd för fjärr skrivbords klienter:
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Connection" 
+| where Type_s == "Connection"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
 
 I nästa exempel fråga visas hanterings aktiviteter av administratörer på klienterna:
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Management" 
+| where Type_s == "Management"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
- 
-## <a name="stop-sending-data-to-log-analytics"></a>Sluta skicka data till Log Analytics 
+
+## <a name="stop-sending-data-to-log-analytics"></a>Sluta skicka data till Log Analytics
 
 Om du vill stoppa sändningen av data från en befintlig klient organisation till Log Analytics kör du följande cmdlet och anger tomma strängar:
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Du måste köra denna cmdlet för varje klient som du vill sluta skicka data från. 
+Du måste köra denna cmdlet för varje klient som du vill sluta skicka data från.
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 Se [identifiera och diagnostisera problem](diagnostics-role-service-2019.md#common-error-scenarios)för att granska vanliga fel scenarier som kan identifieras av diagnostikprogrammet.

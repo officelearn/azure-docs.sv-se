@@ -4,24 +4,24 @@ description: Lär dig hur du skapar en virtuell nätverks-peering mellan virtuel
 services: virtual-network
 documentationcenter: ''
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 318e51f12653b5cbe6bd47b9c48a57d72286a4a7
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023267"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710056"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa en virtuell nätverks-peering-olika distributions modeller, samma prenumeration
 
@@ -84,7 +84,7 @@ Du kan använda Azure Portal, Azure [Command-Line Interface](#cli) (CLI), Azure 
 
 Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. Du kan slutföra stegen från Azure Cloud Shell genom att välja knappen **prova** i något av följande steg, eller genom att installera den [klassiska CLI](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) och [CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) och köra kommandona på den lokala datorn.
 
-1. Om du använder Cloud Shell går du vidare till steg 2, eftersom Cloud Shell automatiskt loggar in dig på Azure. Öppna en kommando-session och logga in på Azure med `azure login` hjälp av kommandot.
+1. Om du använder Cloud Shell går du vidare till steg 2, eftersom Cloud Shell automatiskt loggar in dig på Azure. Öppna en kommando-session och logga in på Azure med hjälp av `azure login` kommandot.
 2. Kör CLI i Service Management-läge genom att ange `azure config mode asm` kommandot.
 3. Ange följande kommando för att skapa det virtuella nätverket (klassiskt):
 
@@ -110,7 +110,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
      --address-prefix 10.0.0.0/16
    ```
 
-5. Skapa en virtuell nätverks-peering mellan de två virtuella nätverk som skapats via olika distributions modeller med hjälp av CLI. Kopiera följande skript till en text redigerare på din dator. Ersätt `<subscription id>` med ditt PRENUMERATIONS-ID. Om du inte känner till ditt prenumerations-ID `az account show` anger du kommandot. Värdet för **ID** i utdata är ditt PRENUMERATIONS-ID. Klistra in det ändrade skriptet i till CLI-sessionen och tryck sedan `Enter`på.
+5. Skapa en virtuell nätverks-peering mellan de två virtuella nätverk som skapats via olika distributions modeller med hjälp av CLI. Kopiera följande skript till en text redigerare på din dator. Ersätt `<subscription id>` med ditt prenumerations-ID. Om du inte känner till ditt prenumerations-ID anger du `az account show` kommandot. Värdet för **ID** i utdata är ditt PRENUMERATIONS-ID. Klistra in det ändrade skriptet i till CLI-sessionen och tryck sedan på `Enter` .
 
    ```azurecli-interactive
    # Get the ID for VNet1.
@@ -128,7 +128,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
      --allow-vnet-access
    ```
 
-6. När skriptet har körts granskar du peering för det virtuella nätverket (Resource Manager). Kopiera följande kommando, klistra in det i CLI-sessionen och tryck sedan på `Enter`:
+6. När skriptet har körts granskar du peering för det virtuella nätverket (Resource Manager). Kopiera följande kommando, klistra in det i CLI-sessionen och tryck sedan på `Enter` :
 
    ```azurecli-interactive
    az network vnet peering list \
@@ -165,8 +165,8 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
 
     > [!WARNING]
     > Om du importerar en ändrad nätverks konfigurations fil kan det orsaka ändringar i befintliga virtuella nätverk (klassisk) i din prenumeration. Se till att du bara lägger till det tidigare virtuella nätverket och att du inte ändrar eller tar bort befintliga virtuella nätverk från din prenumeration.
-5. Logga in på Azure för att skapa det virtuella nätverket (Resource Manager) genom att `Connect-AzAccount` ange kommandot. Det konto som du loggar in med måste ha de behörigheter som krävs för att skapa en virtuell nätverks-peering. En lista över behörigheter finns i [behörigheter för virtuella nätverks-peering](virtual-network-manage-peering.md#requirements-and-constraints).
-6. Skapa en resurs grupp och ett virtuellt nätverk (Resource Manager). Kopiera skriptet, klistra in det i PowerShell och tryck sedan på `Enter`.
+5. Logga in på Azure för att skapa det virtuella nätverket (Resource Manager) genom att ange `Connect-AzAccount` kommandot. Det konto som du loggar in med måste ha de behörigheter som krävs för att skapa en virtuell nätverks-peering. En lista över behörigheter finns i [behörigheter för virtuella nätverks-peering](virtual-network-manage-peering.md#requirements-and-constraints).
+6. Skapa en resurs grupp och ett virtuellt nätverk (Resource Manager). Kopiera skriptet, klistra in det i PowerShell och tryck sedan på `Enter` .
 
     ```powershell
     # Create a resource group.
@@ -180,7 +180,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
       -Location eastus
     ```
 
-7. Skapa en virtuell nätverks-peering mellan de två virtuella nätverk som skapats via de olika distributions modellerna. Kopiera följande skript till en text redigerare på din dator. Ersätt `<subscription id>` med ditt PRENUMERATIONS-ID. Om du inte känner till ditt prenumerations-ID `Get-AzSubscription` anger du kommandot för att visa det. Värdet för **ID** i det returnerade resultatet är ditt PRENUMERATIONS-ID. Om du vill köra skriptet kopierar du det ändrade skriptet från text redigeraren, högerklickar sedan i PowerShell-sessionen och trycker sedan på `Enter`.
+7. Skapa en virtuell nätverks-peering mellan de två virtuella nätverk som skapats via de olika distributions modellerna. Kopiera följande skript till en text redigerare på din dator. Ersätt `<subscription id>` med ditt prenumerations-ID. Om du inte känner till ditt prenumerations-ID anger du `Get-AzSubscription` kommandot för att visa det. Värdet för **ID** i det returnerade resultatet är ditt PRENUMERATIONS-ID. Om du vill köra skriptet kopierar du det ändrade skriptet från text redigeraren, högerklickar sedan i PowerShell-sessionen och trycker sedan på `Enter` .
 
     ```powershell
     # Peer VNet1 to VNet2.
@@ -190,7 +190,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
       -RemoteVirtualNetworkId /subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2
     ```
 
-8. När skriptet har körts granskar du peering för det virtuella nätverket (Resource Manager). Kopiera följande kommando, klistra in det i PowerShell-sessionen och tryck sedan på `Enter`:
+8. När skriptet har körts granskar du peering för det virtuella nätverket (Resource Manager). Kopiera följande kommando, klistra in det i PowerShell-sessionen och tryck sedan på `Enter` :
 
     ```powershell
     Get-AzVirtualNetworkPeering `

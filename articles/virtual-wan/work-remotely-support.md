@@ -4,15 +4,15 @@ description: Den här sidan beskriver hur du kan utnyttja Azure Virtual WAN för
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337128"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753769"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN och stöd för fjärran sluten arbete
 
@@ -51,12 +51,12 @@ Basic Virtual WAN tillhandahåller endast plats-till-plats-VPN. För att fjärra
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Ytterligare information
 
-Virtuellt WAN stöder ett hubb per region/plats. Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) . Varje hubb har stöd för upp till 10 000 fjärran vändare, 1 000 gren anslutning, fyra ExpressRoute-kretsar och upp till 500 Virtual Network anslutningar. När du skalar upp fjärranslutna användare, om du har några frågor, behöver du inte ovilliga för att söka efter azurevirtualwan@microsoft.comhjälp genom att skicka ett e-postmeddelande till. Om du behöver teknisk support måste du öppna ett support ärende från Azure Portal så kommer hjälpen att vara på väg.
+Virtuellt WAN stöder ett hubb per region/plats. Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) . Varje hubb har stöd för upp till 10 000 fjärran vändare, 1 000 gren anslutning, fyra ExpressRoute-kretsar och upp till 500 Virtual Network anslutningar. När du skalar upp fjärranslutna användare, om du har några frågor, behöver du inte ovilliga för att söka efter hjälp genom att skicka ett e-postmeddelande till azurevirtualwan@microsoft.com . Om du behöver teknisk support måste du öppna ett support ärende från Azure Portal så kommer hjälpen att vara på väg.
 
 ## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information om virtuellt WAN finns i [Översikt över virtuella WAN](virtual-wan-about.md)

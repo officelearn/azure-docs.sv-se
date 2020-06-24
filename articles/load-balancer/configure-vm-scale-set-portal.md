@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en skalnings uppsättning för en virt
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: b2a83b226a4b2ddbbd554783de6a2b5c85c92f0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349714"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809445"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Konfigurera en skalnings uppsättning för en virtuell dator med en befintlig Azure Load Balancer med hjälp av Azure Portal
 
@@ -36,13 +36,13 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
 > [!NOTE]
 > Följande steg förutsätter att ett virtuellt nätverk med namnet **myVNet** och en Azure-belastningsutjämnare med namnet **myLoadBalancer** har distribuerats tidigare.
 
-1. Klicka på**Compute** >  **skapa en** > **skalnings uppsättning för virtuell dator** på den övre vänstra sidan på skärmen eller Sök efter skalnings uppsättning för **virtuella datorer** i Marketplace-sökningen.
+1. Klicka på **skapa en**  >  **Compute**  >  **skalnings uppsättning för virtuell dator** på den övre vänstra sidan på skärmen eller Sök efter skalnings uppsättning för **virtuella datorer** i Marketplace-sökningen.
 
 2. Välj **Skapa**.
 
 3. I **skapa en skalnings uppsättning för virtuell dator**anger eller väljer du den här informationen på fliken **grundläggande** :
 
-    | Inställning                        | Värde                                                                                                 |
+    | Inställningen                        | Värde                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **Projekt information**            |                                                                                                       |
     | Prenumeration                   | Välj din Azure-prenumeration                                                                        |
@@ -68,7 +68,7 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
 
 5. Ange eller Välj den här informationen på fliken **nätverk** :
 
-     Inställning                           | Värde                                                    |
+     Inställningen                           | Värde                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network konfiguration** |                                                          |
     | Virtuellt nätverk                   | Välj **myVNet** eller ditt befintliga virtuella nätverk.      |
@@ -94,4 +94,4 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
 I den här artikeln har du distribuerat en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer.  Mer information om skalnings uppsättningar för virtuella datorer och belastningsutjämnare finns i:
 
 - [Vad är Azure Load Balancer?](load-balancer-overview.md)
-- [Vad är VM-skalningsuppsättningar?](../virtual-machine-scale-sets/overview.md)
+- [Vad är skalningsuppsättningar för virtuella datorer?](../virtual-machine-scale-sets/overview.md)

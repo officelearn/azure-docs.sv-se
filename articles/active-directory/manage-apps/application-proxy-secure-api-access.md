@@ -2,22 +2,21 @@
 title: 'Få åtkomst till lokala API: er med Azure AD-programproxy'
 description: 'Azure Active Directoryens programproxy tillåter inbyggda appar säker åtkomst till API: er och affärs logik som du är värd för lokalt eller på virtuella datorer i molnet.'
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: has-adal-ref
-ms.openlocfilehash: c3efd94e741124d5e662ac17e9c1daaf66d4c1c5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168817"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206452"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD-programproxy
 
@@ -35,11 +34,11 @@ Följande diagram visar hur du kan använda Azure-AD-programproxy för att publi
 
 ![Azure AD-programproxy API-åtkomst](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Azure AD-programproxy bildar lösningens stamnät, arbetar som en offentlig slut punkt för API-åtkomst och tillhandahåller autentisering och auktorisering. Du kan komma åt dina API: er från en mängd olika plattformar med hjälp av [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) -biblioteken.
+Azure AD-programproxy bildar lösningens stamnät, arbetar som en offentlig slut punkt för API-åtkomst och tillhandahåller autentisering och auktorisering. Du kan komma åt dina API: er från en mängd olika plattformar med hjälp av [MSAL-biblioteken (Microsoft Authentication Library)](/azure/active-directory/develop/active-directory-authentication-libraries) .
 
 Eftersom Azure AD-programproxy-autentisering och-auktorisering bygger på Azure AD kan du använda villkorlig åtkomst för Azure AD för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join eller Azure AD hybrid anslutet för Station ära datorer och Intune Hanterat för enheter. Du kan också dra nytta av Azure Active Directory Premium funktioner som Azure Multi-Factor Authentication och datorn inlärnings skydd för [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa den här genom gången behöver du:
 
@@ -137,7 +136,7 @@ Nu har du registrerat AppProxyNativeAppSample-appen i Azure Active Directory. S�
 
 ## <a name="configure-the-native-app-code"></a>Konfigurera koden för den inbyggda appen
 
-Det sista steget är att konfigurera den inbyggda appen. Följande kodfragment från *Form1.cs* -filen i NativeClient-exempel appen gör att ADAL-biblioteket hämtar token för att begära API-anropet och kopplar det som innehavare till app-huvudet.
+Det sista steget är att konfigurera den inbyggda appen. Följande kodfragment från *Form1.cs* -filen i NativeClient-exempel appen gör att MSAL-biblioteket hämtar token för att begära API-anropet och kopplar det som innehavare till app-huvudet.
 
    ```
    // Acquire Access Token from AAD for Proxy Application
@@ -172,7 +171,7 @@ if (authResult != null)
  }
 ```
 
-Om du vill konfigurera den interna appen så att den ansluter till Azure Active Directory och anropa API app proxy, uppdaterar du plats hållarnas värden i filen *app. config* i NativeClient-exempel appen med värden från Azure AD:
+Om du vill konfigurera den interna appen så att den ansluter till Azure Active Directory och anropa API app proxy, uppdaterar du plats hållarnas värden i *App.config* -filen för NativeClient-exempel appen med värden från Azure AD:
 
 - Klistra in **-ID: t för katalogen (klient)** i `<add key="ida:Tenant" value="" />` fältet. Du kan hitta och kopiera det här värdet (ett GUID) från sidan **Översikt** i någon av dina appar.
 

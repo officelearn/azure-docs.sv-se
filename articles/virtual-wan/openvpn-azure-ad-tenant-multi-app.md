@@ -4,24 +4,24 @@ description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure A
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: af5ff5817ee9ae7e6d7432fe281ecb440bf25b9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1471226bcc22373904e65f95d0c07c2d5041f55
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060704"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749839"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
 När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder det öppna VPN-protokollet kan du också använda Azure Active Directory autentisering. Om du vill att en annan uppsättning användare ska kunna ansluta till olika gatewayer kan du registrera flera appar i AD och länka dem till olika gatewayer.
 
 Den här artikeln hjälper dig att skapa en Azure AD-klient för P2S OpenVPN-autentisering och skapa och registrera flera appar i Azure AD för att ge olika åtkomst till olika användare och grupper.
 
 > [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN&reg; -protokoll anslutningar.
+> Azure AD-autentisering stöds bara för OpenVPN- &reg; protokoll anslutningar.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
@@ -83,14 +83,14 @@ Använd VPN-profilen för att konfigurera dina klienter.
 
 6. Bläddra till mappen unzippad "AzureVPN".
 
-7. Anteckna platsen för filen "azurevpnconfig. xml". Azurevpnconfig. xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
+7. Anteckna platsen för filen "azurevpnconfig.xml". azurevpnconfig.xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
 
 ## <a name="9-configure-user-vpn-clients"></a>9. Konfigurera användares VPN-klienter
 
 För att ansluta måste du ladda ned Azure VPN-klienten och importera VPN-klienttjänsten som hämtades i föregående steg på varje dator som vill ansluta till det virtuella nätverket.
 
 > [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN&reg; -protokoll anslutningar.
+> Azure AD-autentisering stöds bara för OpenVPN- &reg; protokoll anslutningar.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Ladda ned Azure VPN-klienten

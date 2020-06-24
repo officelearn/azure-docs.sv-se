@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259076"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711042"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Hantera ett Azure Service Fabric-program med hjälp av Azure Service Fabric CLI (sfctl)
 
@@ -85,7 +85,7 @@ sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app
 
 `app-name`är det namn som du vill använda för program instansen. Du kan hämta ytterligare parametrar från det tidigare etablerade applikations manifestet.
 
-Program namnet måste börja med prefixet `fabric:/`.
+Program namnet måste börja med prefixet `fabric:/` .
 
 ### <a name="create-services-for-the-new-application"></a>Skapa tjänster för det nya programmet
 
@@ -112,7 +112,7 @@ sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-Felfria tjänster och program har `HealthState` värdet `Ok`.
+Felfria tjänster och program har `HealthState` värdet `Ok` .
 
 ## <a name="remove-an-existing-application"></a>Ta bort ett befintligt program
 
@@ -156,7 +156,7 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 
 Uppgraderingar åsidosätter befintliga parametrar med vilken uppsättning som anges. Program parametrarna ska skickas som argument till uppgraderings kommandot vid behov. Program parametrarna ska vara kodade som JSON-objekt.
 
-Om du vill hämta de parametrar som angetts tidigare kan du `sfctl application info` använda kommandot.
+Om du vill hämta de parametrar som angetts tidigare kan du använda `sfctl application info` kommandot.
 
 När en program uppgradering pågår kan statusen hämtas med hjälp av `sfctl application upgrade-status` kommandot.
 

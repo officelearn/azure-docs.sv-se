@@ -11,18 +11,24 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309188"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987242"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
 Den här artikeln innehåller svar på vanliga frågor om Azure Media Services v3.
 
 ## <a name="general"></a>Allmänt
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Vilka Azure Portal begränsningar för Media Services v3?
+
+Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 Live-händelser, Visa v3-till gångar och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. <br/>För alla andra hanterings aktiviteter (till exempel hantering av transformeringar och jobb eller analys av v3-innehåll) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+
+Om din video tidigare har laddats upp till Media Services kontot med hjälp av Media Services v3 API eller om innehållet genererades baserat på Live-utdata, visas inte knapparna **koda**, **analysera**eller **kryptera** i Azure Portal. Använd Media Services v3-API: erna för att utföra dessa uppgifter.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Vilka Azure-roller kan utföra åtgärder på Azure Media Services resurser? 
 
@@ -95,7 +101,7 @@ DRM-system som PlayReady, Widevine och FairPlay ger alla ytterligare krypterings
 
 Du behöver inte använda någon speciell token-provider som Azure Active Directory (Azure AD). Du kan skapa en egen [JWT](https://jwt.io/) -Provider (so-kallas Secure token service) eller STS genom att använda asymmetrisk nyckel kryptering. I din anpassade STS kan du lägga till anspråk baserat på din affärs logik.
 
-Se till att utfärdaren, mål gruppen och alla anspråk matchar exakt mellan vad som är i JWT och `ContentKeyPolicyRestriction` värdet som används i. `ContentKeyPolicy`
+Se till att utfärdaren, mål gruppen och alla anspråk matchar exakt mellan vad som är i JWT och värdet som `ContentKeyPolicyRestriction` används i `ContentKeyPolicy` .
 
 Mer information finns i [skydda ditt innehåll med hjälp av Media Services dynamisk kryptering](content-protection-overview.md).
 
@@ -109,7 +115,7 @@ Ett exempel på att köra STS med antingen en symmetrisk nyckel eller en asymmet
 
 ### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hur gör jag för att tillåta förfrågningar om att strömma videor med AES-kryptering?
 
-Den korrekta metoden är att använda Secure token service. I STS, beroende på användar profilen, lägger du till olika anspråk (till exempel "Premium användare", "grundläggande användare," "kostnads fri utvärderings användare"). Med olika anspråk i ett JWT kan användaren se olika innehåll. För olika innehåll och till gångar `ContentKeyPolicyRestriction` får motsvarande `RequiredClaims` värde.
+Den korrekta metoden är att använda Secure token service. I STS, beroende på användar profilen, lägger du till olika anspråk (till exempel "Premium användare", "grundläggande användare," "kostnads fri utvärderings användare"). Med olika anspråk i ett JWT kan användaren se olika innehåll. För olika innehåll och till gångar får `ContentKeyPolicyRestriction` motsvarande `RequiredClaims` värde.
 
 Använd Azure Media Services-API: er för att konfigurera licens-/nyckel leverans och kryptera dina till gångar (som visas i [det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
@@ -140,7 +146,7 @@ Du kan använda exakt samma design och implementering för att skydda Direktsän
 Kunder har ofta investerat i en licens Server grupp, antingen i ett eget Data Center eller i en värd av DRM-tjänst leverantörer. Med Media Services innehålls skydd kan du arbeta i hybrid läge. Innehåll kan vara värd för och dynamiskt skyddas i Media Services, medan DRM-licenser levereras av servrar utanför Media Services. I det här fallet bör du tänka på följande ändringar:
 
 * STS måste utfärda token som är acceptabla och kan verifieras av licens Server gruppen. Till exempel kräver Widevine-licensservern som tillhandahålls av Axinom ett speciellt JWT som innehåller ett rättighets meddelande. Du måste ha en STS för att kunna utfärda ett JWT. 
-* Du behöver inte längre konfigurera licens leverans tjänsten i Media Services. Du måste ange URL: er för licens hämtning (för PlayReady, Widevine och FairPlay) när du konfigurerar `ContentKeyPolicy`.
+* Du behöver inte längre konfigurera licens leverans tjänsten i Media Services. Du måste ange URL: er för licens hämtning (för PlayReady, Widevine och FairPlay) när du konfigurerar `ContentKeyPolicy` .
 
 > [!NOTE]
 > Widevine är en tjänst som tillhandahålls av Google och omfattas av villkoren i tjänste-och sekretess policyn för Google.
@@ -159,7 +165,7 @@ För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transfo
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile-koncept i v3?
 
-`AssetFile` Konceptet togs bort från Media Services API för att separera Media Services från Storage SDK-beroendet. Nu Azure Storage, inte Media Services, behåller den information som ingår i Storage SDK: n. 
+`AssetFile`Konceptet togs bort från Media Services API för att separera Media Services från Storage SDK-beroendet. Nu Azure Storage, inte Media Services, behåller den information som ingår i Storage SDK: n. 
 
 Mer information finns i [migrera till Media Services v3](media-services-v2-vs-v3.md).
 
@@ -191,13 +197,13 @@ Eftersom FPS Server SDK version 4 har det här dokumentet slagits samman i progr
 
 #### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Vad är den nedladdade/offline-filstrukturen på iOS-enheter?
 
-Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. `_keys` Mappen lagrar hämtade fps-licenser med en lagrings fil för varje licens tjänst värd. `.movpkg` Mappen lagrar ljud-och video innehåll. 
+Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. `_keys`Mappen lagrar hämtade fps-licenser med en lagrings fil för varje licens tjänst värd. `.movpkg`Mappen lagrar ljud-och video innehåll. 
 
-Den första mappen med ett namn som slutar med ett streck följt av ett tal innehåller video innehåll. Det numeriska värdet är video åter givningarnas högsta bandbredd. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen `Data` innehåller huvud spelnings listan för innehållet i FPS. Slutligen innehåller Boot. XML en fullständig beskrivning av innehållet i `.movpkg` mappen. 
+Den första mappen med ett namn som slutar med ett streck följt av ett tal innehåller video innehåll. Det numeriska värdet är video åter givningarnas högsta bandbredd. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen `Data` innehåller huvud spelnings listan för innehållet i FPS. Slutligen boot.xml ger en fullständig beskrivning av innehållet i `.movpkg` mappen. 
 
 ![Fil struktur offline för FairPlay iOS-exempelprogrammet](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-Här är en exempel-Boot. XML-fil:
+Här är ett exempel på en boot.xml fil:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,10 +237,10 @@ Här är en exempel-Boot. XML-fil:
 
 #### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Hur kan jag leverera beständiga licenser (offline aktiverat) för vissa klienter/användare och icke-beständiga licenser (offline-inaktive rad) för andra? Måste jag duplicera innehållet och använda separata innehålls nycklar?
 
-Eftersom Media Services v3 tillåter att en till gång har `StreamingLocator` flera instanser kan du ha:
+Eftersom Media Services v3 tillåter att en till gång har flera `StreamingLocator` instanser kan du ha:
 
-* En `ContentKeyPolicy` instans med `license_type = "persistent"`, `ContentKeyPolicyRestriction` med anspråk på `"persistent"`och dess `StreamingLocator`.
-* En `ContentKeyPolicy` annan instans `license_type="nonpersistent"`med `ContentKeyPolicyRestriction` , med anspråk `"nonpersistent`på "och dess `StreamingLocator`.
+* En `ContentKeyPolicy` instans med `license_type = "persistent"` , `ContentKeyPolicyRestriction` med anspråk på `"persistent"` och dess `StreamingLocator` .
+* En annan `ContentKeyPolicy` instans med `license_type="nonpersistent"` , `ContentKeyPolicyRestriction` med anspråk på `"nonpersistent` "och dess `StreamingLocator` .
 * Två `StreamingLocator` instanser som har olika `ContentKey` värden.
 
 Beroende på affärs logik för anpassad STS utfärdas olika anspråk i JWT-token. Med token kan endast motsvarande licens hämtas, och endast motsvarande URL kan spelas upp.
@@ -243,7 +249,7 @@ Beroende på affärs logik för anpassad STS utfärdas olika anspråk i JWT-toke
 
 Översikt över Googles "Widevine DRM-arkitektur" definierar tre säkerhets nivåer. [Azure Media Services-dokumentationen i Widevine-licensservern](widevine-license-template-overview.md) beskriver dock fem säkerhets nivåer (krav för klient stabilitet för uppspelning). I det här avsnittet beskrivs hur säkerhets nivåer kartan.
 
-Båda uppsättningarna med säkerhets nivåer definieras av Google Widevine. Skillnaden är i användnings nivå: arkitektur eller API. De fem säkerhets nivåerna används i Widevine-API: et. `content_key_specs` Objektet som innehåller `security_level`deserialiseras och skickas till den globala Widevine-leverans tjänsten av tjänsten Azure Media Services Widevine License. I följande tabell visas mappningen mellan de två uppsättningarna med säkerhets nivåer.
+Båda uppsättningarna med säkerhets nivåer definieras av Google Widevine. Skillnaden är i användnings nivå: arkitektur eller API. De fem säkerhets nivåerna används i Widevine-API: et. `content_key_specs`Objektet som innehåller `security_level` deserialiseras och skickas till den globala Widevine-leverans tjänsten av tjänsten Azure Media Services Widevine License. I följande tabell visas mappningen mellan de två uppsättningarna med säkerhets nivåer.
 
 | **Säkerhets nivåer som definieras i Widevine-arkitekturen** |**Säkerhets nivåer som används i Widevine-API**|
 |---|---| 

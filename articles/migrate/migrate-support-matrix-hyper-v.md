@@ -2,13 +2,13 @@
 title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 5ba7e74624f719feb6efbb3fb58dd3375250d649
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/14/2020
+ms.openlocfilehash: c2df23b1566b4d793f4511499fd82d7912d0520f
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266788"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051921"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
 
@@ -40,7 +40,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 | **Hyper-V-replikering**       | Om du använder Hyper-V-replikering (eller om du har flera virtuella datorer med samma VM-identifierare), och du identifierar både de ursprungliga och replikerade virtuella datorerna med hjälp av Azure Migrate, kan det hända att utvärderingen som genereras av Azure Migrate inte är korrekt. |
 
 
-## <a name="hyper-v-vm-requirements"></a>Krav för virtuell Hyper-V-dator
+## <a name="vm-requirements"></a>Krav för virtuell dator
 
 | **Support**                  | **Information**               
 | :----------------------------- | :------------------- |
@@ -63,7 +63,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 **Enhet** | **Anslutning**
 --- | ---
 **Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
-**Hyper-V-värd/-kluster** | Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta metadata och prestanda data för virtuella Hyper-V-datorer med en Common Information Model CIM-session.
+**Hyper-V-värd/-kluster** | Inkommande anslutning på WinRM-port 5985 (HTTP) för att hämta metadata och prestanda data för virtuella Hyper-V-datorer med en Common Information Model-session (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Krav för agent-baserade beroende analyser
 

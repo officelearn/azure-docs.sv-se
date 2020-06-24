@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: c45d0a9195a719d830753a9614cfa7efb6f1c23d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260283"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887577"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Läsa in tillgångar för en Azure CDN-slutpunkt i förväg
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -44,7 +44,7 @@ Den här självstudien vägleder dig genom förladdningen av cachelagrat innehå
     **Inläsnings** fönstret öppnas.
    
     ![Inläsnings fönster för CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. För **innehålls Sök väg**anger du den fullständiga sökvägen till varje till gång som du vill läsa in ( `/pictures/kitten.png`till exempel).
+4. För **innehålls Sök väg**anger du den fullständiga sökvägen till varje till gång som du vill läsa in (till exempel `/pictures/kitten.png` ).
    
    > [!TIP]
    > När du har påbörjat ange text visas text rutorna för **innehålls Sök vägen** så att du kan skapa en lista över flera till gångar. Om du vill ta bort till gångar från listan väljer du knappen med tre punkter (...) och väljer sedan **ta bort**.

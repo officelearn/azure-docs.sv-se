@@ -3,15 +3,15 @@ title: Flytta Azures nätverks säkerhets grupp (NSG) till en annan Azure-region
 description: Använd Azure Resource Manager mall för att flytta Azures nätverks säkerhets grupp från en Azure-region till en annan med hjälp av Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75641521"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688457"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Flytta Azures nätverks säkerhets grupp (NSG) till en annan region med hjälp av Azure PowerShell
 
@@ -61,7 +61,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
    ```
 
-4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot ** \<resurs grupp-namn>. JSON** och öppna den i valfritt redigerings program:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot med namnet ** \<resource-group-name> . JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -106,9 +106,9 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
     Get-AzLocation | format-table
     
     ```
-8. Du kan också ändra andra parametrar i ** \<resurs grupps namnet>. JSON** om du väljer, och är valfria beroende på dina krav:
+8. Du kan också ändra andra parametrar i ** \<resource-group-name> . JSON** om du väljer och är valfria beroende på dina krav:
 
-    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i ** \<resurs grupps namnet>. JSON** -fil:
+    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i ** \<resource-group-name> JSON** -filen:
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             
         ```
 
-        Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG, måste du också redigera anpassade regel typer i slutet av ** \<resurs grupps namnet>. JSON-** fil i formatet i exemplet nedan:
+        Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG måste du också redigera anpassade regel typer i slutet av ** \<resource-group-name> . JSON** -filen i formatet i exemplet nedan:
 
         ```json
            {
@@ -171,7 +171,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
         ```
 
-9. Spara ** \<resurs grupps namnet>. JSON-** fil.
+9. Spara ** \<resource-group-name> . JSON** -filen.
 
 10. Skapa en resurs grupp i mål regionen som mål-NSG ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -179,7 +179,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Distribuera det redigerade ** \<resurs grupps namnet>. JSON-** filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuera den redigerade ** \<resource-group-name> . JSON** -filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

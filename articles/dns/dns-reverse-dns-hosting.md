@@ -3,16 +3,16 @@ title: Värd zoner för omvänd DNS-sökning i Azure DNS
 description: Lär dig hur du använder Azure DNS för att vara värd för zoner för omvänd DNS-sökning för dina IP-intervall
 author: rohinkoul
 ms.service: dns
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 78fc3428274be5e1998abe9189bea996f15e278c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454269"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709206"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värd zoner för omvänd DNS-sökning i Azure DNS
 
@@ -29,7 +29,7 @@ Den här artikeln vägleder dig genom stegen för att skapa din första DNS-zon 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Skapa en DNS-zon för omvänd sökning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. På menyn **hubb** väljer du **nytt** > **nätverk**och väljer sedan **DNS-zon**.
+1. På menyn **hubb** väljer du **nytt**  >  **nätverk**och väljer sedan **DNS-zon**.
 
    ![Val av DNS-zon](./media/dns-reverse-dns-hosting/figure1.png)
 
@@ -37,16 +37,16 @@ Den här artikeln vägleder dig genom stegen för att skapa din första DNS-zon 
 
 ### <a name="ipv4"></a>IPv4
 
-Namnet på en IPv4-zon för omvänd sökning baseras på det IP-adressintervall som den representerar. Den bör ha följande format: `<IPv4 network prefix in reverse order>.in-addr.arpa`. Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv4).
+Namnet på en IPv4-zon för omvänd sökning baseras på det IP-adressintervall som den representerar. Den bör ha följande format: `<IPv4 network prefix in reverse order>.in-addr.arpa` . Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> När du skapar klassbaserade zoner för omvänd DNS-sökning i Azure DNS måste du använda ett bindestreck (`-`) i stället för ett snedstreck (`/`) i zon namnet.
+> När du skapar klassbaserade zoner för omvänd DNS-sökning i Azure DNS måste du använda ett bindestreck ( `-` ) i stället för ett snedstreck ( `/` ) i zon namnet.
 >
-> För IP-intervallet 192.0.2.128/26 måste du till exempel använda `128-26.2.0.192.in-addr.arpa` som zonnamn i stället för. `128/26.2.0.192.in-addr.arpa`
+> För IP-intervallet 192.0.2.128/26 måste du till exempel använda `128-26.2.0.192.in-addr.arpa` som zonnamn i stället för `128/26.2.0.192.in-addr.arpa` .
 >
-> Även om DNS-standarder stöder båda metoderna stöder Azure DNS inte DNS-zonnamn som innehåller för snedstreck (`/`).
+> Även om DNS-standarder stöder båda metoderna stöder Azure DNS inte DNS-zonnamn som innehåller för snedstreck ( `/` ).
 
-I följande exempel visas hur du skapar en omvänd DNS-zon för klass `2.0.192.in-addr.arpa` C som heter i Azure DNS via Azure Portal:
+I följande exempel visas hur du skapar en omvänd DNS-zon för klass C `2.0.192.in-addr.arpa` som heter i Azure DNS via Azure Portal:
 
  ![Fönstret "skapa DNS-zon" med ifyllda rutor](./media/dns-reverse-dns-hosting/figure2.png)
 
@@ -74,10 +74,10 @@ az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>IPv6
 
-Namnet på en IPv6-zon för omvänd sökning ska ha följande format: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv6).
+Namnet på en IPv6-zon för omvänd sökning ska ha följande format: `<IPv6 network prefix in reverse order>.ip6.arpa` .  Exempel finns i [Översikt över omvänd DNS och support i Azure](dns-reverse-dns-overview.md#ipv6).
 
 
-I följande exempel visas hur du skapar en IPv6-zon för omvänd DNS `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` -sökning som heter i Azure DNS via Azure Portal:
+I följande exempel visas hur du skapar en IPv6-zon för omvänd DNS-sökning som heter `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` i Azure DNS via Azure Portal:
 
  ![Fönstret "skapa DNS-zon" med ifyllda rutor](./media/dns-reverse-dns-hosting/figure3.png)
 

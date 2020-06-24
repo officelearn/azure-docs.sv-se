@@ -2,13 +2,13 @@
 title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrate
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: cec0f655a5b3c71b58e5d0622e020568bf9aee68
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.date: 06/09/2020
+ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447874"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079422"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -27,7 +27,7 @@ Granska de geografiska områden som stöds för [offentliga moln](migrate-suppor
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer kan jag identifiera med en apparat?
 
-Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 250 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)eller [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
+Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 1000 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)eller [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Jag kan inte se vissa typer av virtuella datorer i Azure Government
 
@@ -99,7 +99,7 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 
 **Krav** | **Utan agent** | **Agent-baserad**
 --- | --- | ---
-Support | Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) operativ system som stöds. | Allmän tillgänglighet (GA).
+Support | Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds. | Allmän tillgänglighet (GA).
 Agent | Du behöver inte installera agenter på datorer som du vill kryssa för. | Agenter som ska installeras på varje lokal dator som du vill analysera: [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)och [beroende agenten](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Krav | [Granska](concepts-dependency-visualization.md#agentless-analysis) kraven och distributions kraven. | [Granska](concepts-dependency-visualization.md#agent-based-analysis) kraven och distributions kraven.
 Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) -lösningen i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) för beroende visualisering. [Läs mer](concepts-dependency-visualization.md#agent-based-analysis).

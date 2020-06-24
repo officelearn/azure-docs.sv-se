@@ -1,5 +1,5 @@
 ---
-title: Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer
+title: Avsluta avisering för instanser i skalningsuppsättningar med virtuella Azure-datorer
 description: Lär dig hur du aktiverar uppsägnings meddelanden för instanser av skalnings uppsättningar för virtuella Azure-datorer
 author: avirishuv
 ms.author: avverma
@@ -9,14 +9,14 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125187"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207523"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Avsluta avisering för instanser i skalningsuppsättningar med virtuella Azure-datorer
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. Lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på fördröjningen som anges av användarna i deras skal uppsättnings modell konfigurationer.
 
 När du har registrerat i funktionen behöver inte skalnings uppsättnings instanserna vänta tills tids gränsen har gått ut innan instansen tas bort. När du har tagit emot ett avslutnings meddelande kan instansen välja att tas bort när som helst innan timeout-värdet upphör att gälla.
@@ -178,7 +178,7 @@ Nedan förväntas JSON i POSTens brödtext. Begäran bör innehålla en lista ö
 
 Se till att varje virtuell dator i skalnings uppsättningen bara godkänner EventID som är relevant för den virtuella datorn. En virtuell dator kan hämta sitt eget VM-namn [via instansens metadata](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Det här namnet använder formatet "{Scale-set-Name} _ {instance-ID}" och visas i avsnittet "resurser" i svars frågan som beskrivs ovan.
 
-Du kan också referera till exempel skript för frågor och svar på händelser med hjälp av [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) och [python](../virtual-machines/linux/scheduled-events.md#python-sample).
+Du kan också referera till exempel skript för frågor och svar på händelser [python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Tips och regelverk
 -   Avsluta endast meddelanden på Delete-åtgärder – alla borttagnings åtgärder (manuell borttagning eller autoskalning initierad skalning-i) genererar avslutande händelser om skalnings uppsättningen har *scheduledEventsProfile* aktive rad. Andra åtgärder, t. ex. omstart, avbildning, omdistribution och stoppa/frigör genererar inte avslutande händelser. Det går inte att aktivera meddelanden för virtuella datorer med låg prioritet.

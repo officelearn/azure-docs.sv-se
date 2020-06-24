@@ -8,19 +8,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e6d754b02566c3026b908ab0a3254db3113cd225
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582694"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727440"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -56,7 +56,7 @@ I följande avsnitt får du en beskrivning av varje möjligt problem och hur du 
 
 **Problem:** Det finns inte tillräckligt många tillgängliga licenser för en av de produkter som anges i gruppen. Du behöver köpa fler licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
 
-Om du vill se hur många licenser som är tillgängliga går du till **Azure Active Directory** > **licenser** > **alla produkter**.
+Om du vill se hur många licenser som är tillgängliga går du till **Azure Active Directory**  >  **licenser**  >  **alla produkter**.
 
 Om du vill se vilka användare och grupper som använder licenser väljer du en produkt. Under **licensierade användare**visas en lista över alla användare som har haft licenser som tilldelats direkt eller via en eller flera grupper. Under **licensierade grupper**visas alla grupper som har tilldelats dessa produkter.
 
@@ -87,7 +87,7 @@ För att lösa det här problemet måste du kontrol lera att den nödvändiga pl
 
 ## <a name="usage-location-isnt-allowed"></a>Användnings platsen är inte tillåten
 
-**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar** > **profil** > **Inställningar** i Azure Portal.
+**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar**  >  **profil**  >  **Inställningar** i Azure Portal.
 
 När Azure AD försöker tilldela en grupp licens till en användare vars användnings plats inte stöds, Miss lyckas den och registrerar ett fel för användaren.
 

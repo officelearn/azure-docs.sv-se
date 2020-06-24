@@ -3,16 +3,16 @@ title: Översikt över massexecutor-biblioteket i Azure Cosmos DB
 description: 'Utför Mass åtgärder i Azure Cosmos DB via Mass import och Mass uppdaterings-API: er som erbjuds av bulk utförar-biblioteket.'
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985600"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260618"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över massexecutor-biblioteket i Azure Cosmos DB
  
@@ -42,11 +42,11 @@ Massexecutor-biblioteket hjälper dig att dra nytta av det omfattande dataflöde
 
 När en Mass åtgärd för import eller uppdatering av dokument utlöses med en batch med entiteter, grupperas de först i buckets som motsvarar deras Azure Cosmos DB partitionsnyckel. I varje Bucket som motsvarar ett nyckel intervall är de uppdelade i mini-batchar och varje mini-batch fungerar som en nytto last som bekräftas på Server sidan. Bulk utförar-biblioteket har byggts i optimeringar för samtidig körning av dessa mini-batchar både inom och över partitionerings nyckel intervall. Följande bild illustrerar hur Mass utförar batcherar data i olika partitionsnyckel:  
 
-![Mass utförar-arkitektur](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Mass utförar-arkitektur" :::
 
 I bulk utförar-biblioteket ser du till att maximally använder det data flöde som allokerats till en samling. Den använder en [AIMD för överbelastnings kontroll](https://tools.ietf.org/html/rfc5681) för varje Azure Cosmos DB partitionsnyckel för att effektivt hantera hastighets begränsning och tids gränser. 
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Efterföljande moment 
   
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
 * Kolla in utförar SDK-information och viktig information i [.net](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).

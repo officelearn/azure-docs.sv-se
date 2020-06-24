@@ -2,13 +2,13 @@
 title: Mallens funktioner – datum
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med datum.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 22bb3c80acb504649e4f5485c4d78dcd04277ec0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/22/2020
+ms.openlocfilehash: e1d9c354c53404bddc31d565b45e608567b218d6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678009"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205177"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
 
@@ -25,7 +25,7 @@ Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | base | Yes | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
 | varaktighet | Yes | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
@@ -142,7 +142,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | format |No |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
@@ -150,7 +150,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
+Om du använder [alternativet för att återställa vid fel](rollback-on-error.md) till en tidigare lyckad distribution, och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern om. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
 
 Var noga med att distribuera om en mall som förlitar sig på utcNow-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
 

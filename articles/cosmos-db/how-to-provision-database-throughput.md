@@ -3,15 +3,15 @@ title: Etablera dataflöde för en databas i Azure Cosmos DB
 description: 'Lär dig hur du etablerar data flöde på databas nivå i Azure Cosmos DB att använda Azure Portal, CLI, PowerShell och andra SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655320"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263647"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera standard (manuell) genom strömning på en databas i Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du etablerar standard-genomflödet (manuell) i e
    * Ange ett dataflöde (till exempel 1000 RU:er).
    * Välj **OK**.
 
-    ![Skärmbild av dialogrutan Ny databas](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Skärmbild av dialogrutan Ny databas":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Etablera data flöde med hjälp av Azure CLI eller PowerShell
 

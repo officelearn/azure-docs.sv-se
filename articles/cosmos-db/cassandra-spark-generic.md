@@ -6,14 +6,14 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70241243"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260499"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API:et från Spark
 
@@ -22,7 +22,7 @@ Den här artikeln är en serie artiklar om Azure Cosmos DB API för Cassandra-in
 ## <a name="prerequisites"></a>Krav
 * [Etablera ett Azure Cosmos DB API för Cassandra konto.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Tillhandahåll ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Andra].
+* Tillhandahåll ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Andra].
 
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
 * **Spark-anslutning för Cassandra:** Spark-anslutningen används för att ansluta till Azure Cosmos DB API för Cassandra.  Identifiera och Använd den version av anslutningen som finns i [maven Central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark-och Scala-versionerna av Spark-miljön.
@@ -42,13 +42,13 @@ I följande tabell visas Azure Cosmos DB API för Cassandra-specificerade data f
 
 | **Egenskapsnamn** | **Standardvärde** | **Beskrivning** |
 |---------|---------|---------|
-| Spark. Cassandra. output. batch. size. Rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre data flöde för stora arbets belastningar. |
-| Spark. Cassandra. Connection. connections_per_executor_max  | Ingen | Maximalt antal anslutningar per nod per utförar. 10 * n motsvarar 10 anslutningar per nod i ett Cassandra-kluster med n-nod. Så om du kräver 5 anslutningar per nod per utförar för ett Cassandra-kluster med fem noder, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körningar som dina Spark-jobb har kon figurer ATS för.   |
+| spark.cassandra.output.batCH. size. Rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre data flöde för stora arbets belastningar. |
+| Spark. Cassandra. Connection. connections_per_executor_max  | Inga | Maximalt antal anslutningar per nod per utförar. 10 * n motsvarar 10 anslutningar per nod i ett Cassandra-kluster med n-nod. Så om du kräver 5 anslutningar per nod per utförar för ett Cassandra-kluster med fem noder, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körningar som dina Spark-jobb har kon figurer ATS för.   |
 | Spark. Cassandra. output. samtidig. skrivningar  |  100 | Definierar antalet parallella skrivningar som kan ske per utförar. Eftersom du ställer in "batch. size. Rows" på 1, måste du skala upp det här värdet efter detta. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning. |
 | Spark. Cassandra. samtidig. läsningar |  512 | Definierar antalet parallella läsningar som kan ske per utförar. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning  |
-| Spark. Cassandra. output. throughput_mb_per_sec  | Ingen | Definierar det totala Skriv data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.   |
-| Spark. Cassandra. inmatat. reads_per_sec| Ingen   | Definierar det totala Läs data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.  |
-| Spark. Cassandra. output. batch. Grouping. Buffer. size |  1000  | Definierar antalet batchar per enskild Spark-aktivitet som kan lagras i minnet innan de skickas till API för Cassandra |
+| Spark. Cassandra. output. throughput_mb_per_sec  | Inga | Definierar det totala Skriv data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.   |
+| Spark. Cassandra. inmatat. reads_per_sec| Inga   | Definierar det totala Läs data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.  |
+| spark.cassandra.output.batCH. Grouping. Buffer. size |  1000  | Definierar antalet batchar per enskild Spark-aktivitet som kan lagras i minnet innan de skickas till API för Cassandra |
 | Spark. Cassandra. Connection. keep_alive_ms | 60000 | Definierar efter hur lång tid som oanvända anslutningar är tillgängliga. | 
 
 Justera data flödet och graden av parallellitet för dessa parametrar baserat på den arbets belastning du förväntar dig för dina Spark-jobb och det data flöde som du har allokerat för ditt Cosmos DB-konto.

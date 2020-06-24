@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: ebbb0dd059ce2bcf4a3bc260ed6d426d5be09dfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260266"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887301"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Rensa en Azure CDN-slutpunkt
 ## <a name="overview"></a>Översikt
@@ -52,15 +52,15 @@ Den här självstudien vägleder dig genom att rensa till gångar från alla Edg
    > 
    > 
 4. Välj vilka till gångar du vill rensa från Edge-noderna.  Om du vill rensa alla till gångar klickar du på kryss rutan **Rensa alla** .  Annars skriver du sökvägen till varje till gång som du vill tömma i text rutan **sökväg** . Under formaten stöds i sökvägen.
-    1. **Enkel URL-rensning**: rensa enskilda till gångar genom att ange den fullständiga URL: en, med eller utan fil namns tillägget, t. ex.`/pictures/strasbourg.png``/pictures/strasbourg`
-    2. **Jokertecken**: asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt `/*` med sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av `/*`, t. ex`/pictures/*`.,.  Observera att det inte finns stöd för att rensa jokertecken i Azure CDN från Akamai. 
+    1. **Enkel URL-rensning**: rensa enskilda till gångar genom att ange den fullständiga URL: en, med eller utan fil namns tillägget, t `/pictures/strasbourg.png` . ex.`/pictures/strasbourg`
+    2. **Jokertecken**: asterisk ( \* ) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med `/*` sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av `/*` , t. ex., `/pictures/*` .  Observera att det inte finns stöd för att rensa jokertecken i Azure CDN från Akamai. 
     3. **Rot domän rensning**: Rensa roten för slut punkten med "/" i sökvägen.
    
    > [!TIP]
    > Sökvägar måste anges för rensning och måste vara en relativ URL som passar följande [reguljära uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Rensa alla** och **Rensa jokertecken** stöds inte av **Azure CDN från Akamai** för närvarande.
    > > Ta bort enskild URL`@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Frågesträng`@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Jokertecken `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`har rensats. 
+   > > Jokertecken har rensats `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` . 
    > 
    > Text rutor med fler **sökvägar** visas när du har angett text så att du kan skapa en lista över flera till gångar.  Du kan ta bort till gångar från listan genom att klicka på knappen med tre punkter (...).
    > 

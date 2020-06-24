@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243957"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690072"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Mallar för användar profiler i Azure API Management
 Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
@@ -105,7 +105,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  
@@ -326,7 +326,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  
@@ -489,7 +489,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  

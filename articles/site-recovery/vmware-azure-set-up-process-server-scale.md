@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257152"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711960"
 ---
 # <a name="scale-with-additional-process-servers"></a>Skala med ytterligare process servrar
 
@@ -52,9 +52,9 @@ Kraven för den ytterligare processervern sammanfattas i följande tabell.
 Ladda ned installations filen för processervern enligt följande:
 
 1. Logga in på Azure Portal och bläddra till Recovery Services-valvet.
-2. Öppna **Site Recovery infrastruktur** > **VMware och** > **konfigurations servrar** för fysiska datorer (under för VMware & fysiska datorer).
+2. Öppna **Site Recovery infrastruktur**  >  **VMware och**  >  **konfigurations servrar** för fysiska datorer (under för VMware & fysiska datorer).
 3. Välj konfigurations servern för att öka detalj nivån i Server informationen. Klicka sedan på **+ processerver**.
-4. I **Lägg till processerver** >  **väljer du var du vill distribuera processervern**och väljer **distribuera en skalbar processerver lokalt**.
+4. I **Lägg till processerver**  >   **väljer du var du vill distribuera processervern**och väljer **distribuera en skalbar processerver lokalt**.
 
    ![Sidan Lägg till servrar](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Klicka på **hämta Microsoft Azure Site Recovery enhetlig installation**. Detta laddar ned den senaste versionen av installations filen.

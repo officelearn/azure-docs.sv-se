@@ -498,7 +498,7 @@
           items:
             - name: Migrera till SQL Database
               href: database/migrate-to-database-from-sql-server.md
-            - name: Hantera SQL-databas efter migrering
+            - name: Hantera SQL Database efter migrering
               href: database/manage-data-after-migrating-to-database.md
             - name: Importera/exportera (tillåt inaktiverade Azure-tjänster)
               href: database/database-import-export-azure-services-off.md
@@ -664,12 +664,15 @@
     - name: Snabbstarter
       href: managed-instance/quickstart-content-reference-guide.md
       items:
-        - name: Skapa
+        - name: Skapa hanterad SQL-instans
           items:
-            - name: Använda Azure Portal
+            - name: Azure Portal
               href: managed-instance/instance-create-quickstart.md
-            - name: Använda PowerShell
+            - name: PowerShell
               href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+            - name: ARM-mall
+              displayName: Resource Manager
+              href: managed-instance/create-template-quickstart.md
             - name: Skapa instanspooler
               href: managed-instance/instance-pools-configure.md
         - name: Konfigurera

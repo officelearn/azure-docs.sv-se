@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: b41435cb0b337edc2d73820c75da847913326315
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3f124e94398e53e3ab8ff7eb4b054d252129128b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015989"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987005"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -127,6 +127,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 - Läs mer om reservationer för tjänstplaner:
     - [Virtual Machines med Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB-resurser med reserverad Azure Cosmos DB-kapacitet](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md) Läs mer om reservationer för programvaruplaner:
+    - [SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
+    - [Azure Cache for Redis-resurser med reserverad kapacitet för Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Läs mer om reservationer för programvaruplaner:
     - [Red Hat-programvaruplaner från Azure-reservationer](../../virtual-machines/linux/prepay-rhel-software-charges.md)
     - [SUSE-programvaruplaner från Azure-reservationer](../../virtual-machines/linux/prepay-suse-software-charges.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747681"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944975"
 ---
 ::: zone target="docs"
 
@@ -159,7 +159,7 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
 
 ### <a name="in-self-managed"></a>[I egenhanterade](#tab/in-selfmanaged)
 
-Om du använder Data Box Disk i Japan, Singapore, Korea och Europa, västra, och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar. 
+Om du använder Data Box Disk i Japan, Singapore, Sydkorea, Europa, västra eller Indien och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar. 
 
 1. Gå till bladet **Översikt** för din beställning i Azure Portal. Gå igenom de instruktioner som visas när du väljer **Schemalägg hämtning**. Du bör se en auktoriseringskod som används vid tidpunkten för avlämning av ordern.
 

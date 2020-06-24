@@ -69,6 +69,8 @@
         - name: Distribuera en princip som kan åtgärdas
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Sentinel-integrering
+      href: ./how-to/manage-sentinel-workspaces.md
     - name: Kundåtgärder
       items:
         - name: Visa och hantera tjänstleverantörer

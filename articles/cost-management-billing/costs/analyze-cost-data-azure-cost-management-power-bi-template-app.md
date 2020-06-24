@@ -3,16 +3,16 @@ title: Analysera Azure-kostnader med Power BI-appen
 description: Den här artikeln beskriver hur du installerar och använder Azure Cost Management Power BI-appen.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461607"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888193"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysera kostnader med Azure Cost Management Power BI-appen för Enterprise-avtal (EA)
 
@@ -127,6 +127,27 @@ Mer information om hur du använder rapporten finns i avsnittet [VM RI-täckning
 ## <a name="troubleshoot-problems"></a>Felsöka problem
 
 Följande felsökningsinformation kan hjälpa dig om du har problem med Power BI-appen.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Fel vid bearbetningen av informationen i datauppsättningen
+
+Du kan få ett felmeddelande som säger:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Ett tabellnamn visas i stället för `<TableName>`.
+
+#### <a name="cause"></a>Orsak
+
+Standardvärdet för **omfång** för `Enrollment Number` ändrades i anslutningen till Cost Management.
+
+#### <a name="solution"></a>Lösning
+
+Återanslut till Cost Management och ange värdet för **omfång** till `Enrollment Number`. Ange inte organisationens registreringsnummer. Skriv i stället `Enrollment Number` exakt som det visas i följande bild.
+
+![Ange EA-registreringsinformation](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>BudgetAmount-fel
 

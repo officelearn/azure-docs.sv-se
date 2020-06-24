@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Säkerhetsbaslinje för Application Gateway
       href: ../../application-gateway/security-baseline.md
+    - name: Säkerhetsbaslinje för automatisering
+      href: ../../automation/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Säkerhetsbaslinje för säkerhetskopiering
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Säkerhetsbaslinje för databox
+      href: ../../databox/security-baseline.md
     - name: Säkerhetsbaslinje för datautforskaren
       href: /azure/data-explorer/security-baseline
     - name: Säkerhetsbaslinje för Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Säkerhetsbaslinje för Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Säkerhetsbaslinje för Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: ExpressRoute-säkerhetsbaslinje
+      href: ../../expressroute/security-baseline.md
     - name: Säkerhetsbaslinje för Functions
       href: ../../azure-functions/security-baseline.md
     - name: Säkerhetsbaslinje för HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Säkerhetsbaslinje för Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Logic Apps-säkerhetsbaslinje
+      href: ../../logic-apps/security-baseline.md
     - name: Säkerhetsbaslinje för MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Säkerhetsbaslinje för MySQL
       href: ../../mysql/security-baseline.md
+    - name: Network Watcher-säkerhetsbaslinje
+      href: ../../network-watcher/security-baseline.md
     - name: Säkerhetsbaslinje för PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Säkerhetsöversikt för SQL Database

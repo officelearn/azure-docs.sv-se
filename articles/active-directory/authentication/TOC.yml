@@ -36,6 +36,8 @@
       items:
         - name: Så här fungerar MFA
           href: concept-mfa-howitworks.md
+        - name: Prompter och sessionslivslängd
+          href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
         - name: Dataplacering
           href: concept-mfa-data-residency.md
         - name: Licenser

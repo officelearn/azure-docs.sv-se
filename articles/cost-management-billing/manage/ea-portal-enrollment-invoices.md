@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298133"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807803"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -224,7 +224,7 @@ För de tjänster där zon och region påverkar prissättningen visar följande 
 | Zon 2 | Östra stillahavsområdet i Asien <br> Sydöstra stillahavsområdet i Asien <br> Japan, östra <br> Japan, västra <br> Australien, östra <br> Australien, sydöstra | Asien och stillahavsområdet <br> Japan <br> Latinamerika <br> Mellanöstern/Afrika <br> Australien, östra <br> Australien, sydöstra |
 | Zon 3 | Brasilien, södra |   |
 
-Det finns inga kostnader för utgående data mellan tjänster i samma datacenter. Till exempel Office 365 och Azure.
+Det finns inga kostnader för utgående data mellan tjänster i samma datacenter. Till exempel Microsoft 365 och Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Ekonomiskt åtagande och ej fakturerad användning
 

@@ -58,6 +58,10 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
+    - name: Överflödig DNS och övertagande av underdomäner
+      href: subdomain-takeover.md
+    - name: DDoS Protection-säkerhetsbaslinje
+      href: ddos-protection-security-baseline.md
     - name: Skydda hybridnätverksarkitektur
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
 - name: IaaS-säkerhet
@@ -94,6 +98,8 @@
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Customer Lockbox
       href: customer-lockbox-overview.md
+    - name: Säkerhetsbaslinje för Customer Lockbox
+      href: customer-lockbox-security-baseline.md
 - name: Program
   items:
     - name: PaaS
@@ -139,3 +145,5 @@
       href: event-support-ticket.md
     - name: Penntestning
       href: pen-testing.md
+    - name: Azure-domäner
+      href: azure-domains.md

@@ -102,7 +102,7 @@
       href: monitor-container-security.md
     - name: Skydda dina servrar med Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Använd avancerad datasäkerhet för SQL på virtuella Azure-datorer
+    - name: Använd avancerad datasäkerhet för SQL-datorer
       href: security-center-iaas-advanced-data.md
     - name: Skydda dina program med App Service
       href: security-center-app-services.md

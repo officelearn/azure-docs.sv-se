@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Windows-uppdateringen har fastnat
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Oväntad omstart eller fel
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: VM-uppstarten har fastnat
           href: troubleshoot-vm-boot-configure-update.md
         - name: Den virtuella datorn kan inte starta på grund av Windows Boot Manager

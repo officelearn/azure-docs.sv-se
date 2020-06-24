@@ -16,6 +16,8 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Skala ett privat moln
       href: tutorial-scale-private-cloud.md
+    - name: 6 – Skapa innehållsbibliotek för att distribuera virtuell dator
+      href: tutorial-deploy-vm-content-library.md
 - name: Begrepp
   items:
     - name: Privata moln och kluster
@@ -28,6 +30,8 @@
       href: concepts-identity.md
     - name: Uppgraderingar för privata moln
       href: concepts-upgrades.md
+    - name: API-hantering för virtuella AVS-datorer
+      href: concepts-api-management.md
 - name: Anvisningar
   items:
     - name: Konfigurera HCX

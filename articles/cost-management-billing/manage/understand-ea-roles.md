@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295311"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678026"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -27,6 +27,10 @@ Azure-kunder med ett Enterprise-avtal (EA) kan tilldela fem olika administratör
 <sup>1</sup> Faktureringskontakten för EA-kontraktet har den här rollen.
 
 <sup>2</sup> Det går inte att lägga till eller ändra faktureringskontakten på Azure EA-portalen. Den läggs till i EA-registreringen baserat på användaren som anges som faktureringskontakt på avtalsnivå. Om du vill ändra faktureringskontakten måste en begäran göras via en partner eller programvarurådgivare till det regionala driftcentret (ROC, Regional Operations Center).
+
+Den första registreringsadministratören som konfigureras under registreringsetableringen bestämmer autentiseringstypen för kontot för faktureringskontakt. När faktureringskontakten läggs till i EA-portalen som en skrivskyddad administratör får de Microsoft-kontoautentisering. 
+
+Om till exempel den inledande autentiseringstypen har ställts in som Blandat, läggs EA till som ett Microsoft-konto och faktureringskontakten har endast skrivskyddade EA-administratörsprivilegier. Om EA-administratören inte godkänner Microsoft-kontoauktorisering för en befintlig faktureringskontakt, kan EA-administratören ta bort användaren i fråga och be kunden att lägga till användaren igen som en skrivskyddad administratör med ett arbets- eller skolkonto som bara anges på registreringsnivå i EA-portalen.
 
 De här rollerna gäller särskilt för hantering av Azure Enterprise-avtal och används utöver de fördefinierade roller som används till att styra åtkomsten till resurser i Azure. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 

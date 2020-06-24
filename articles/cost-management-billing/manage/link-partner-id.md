@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 77abfcf300decb3a19da4268d7feb7de1f41f3b5
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778829"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743923"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -160,4 +160,17 @@ Ja, du kan länka ditt partner-ID för Azure Stack.
 **Hur gör jag för att länka mitt partner-ID om mitt företag använder [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) för att komma åt kundresurser?**
 
 Om du registrerar kunder i Azure-delegerad resurshantering genom att [publicera ett erbjudande om hanterade tjänster på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers) associeras ditt MPN-ID automatiskt. Om du [registrerar kunder genom att distribuera Azure Resource Manager-mallar](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer) måste du associera ditt MPN-ID (Microsoft Partner Network) med minst ett användarkonto som har åtkomst till var och en av dina registrerade prenumerationer. Observera att du måste göra detta i klientorganisationen för din tjänstleverantör. För enkelhetens skull rekommenderar vi att du skapar ett tjänstobjektskonto i din klientorganisation som är kopplat till ditt MPN-ID och att du ger det läsåtkomst för alla kunder som du registrerar. I det här exemplet används rollen RBAC Reader. Det är en av de roller som inte är berättigade till intjänad partnerkredit. Mer information om roller finns i [Roller och behörigheter för intjänad partnerkredit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+
+
+**Hur förklarar jag partneradministratörslänken (PAL) för min kund?**
+
+Med hjälp av partneradministratörslänken (PAL) kan Microsoft identifiera och uppmärksamma de partner som hjälper kunder att uppnå affärsmål och skapa värde i molnet. Kunderna måste först ge en partner åtkomst till sin Azure-resurs. När åtkomst beviljas associeras partnerns Microsoft Partner Network-ID (MPN-ID). Den här associationen hjälper Microsoft att förstå ekosystemet av IT-tjänstleverantörer och att utveckla de verktyg och program som behövs för att på bästa sätt stöda våra gemensamma kunder.
+
+**Vilka data samlas in av PAL?**
+
+PAL-associationen för befintliga autentiseringsuppgifter tillhandahåller inga nya kunddata till Microsoft. Den tillhandahåller helt enkelt telemetrin till Microsoft där en partner är aktivt engagerad i en kunds Azure-miljö. Microsoft kan tillräkna påverkan och Azure-intäktsförbrukning från kundmiljön till partnerorganisationen baserat på kontots behörigheter (RBAC-roll) och omfång (hanteringsgrupp, prenumeration, resursgrupp och resurs) som tillhandahålls till partnern av kunden. 
+
+**Påverkar det här säkerheten i kundens Azure-miljö?**
+
+PAL-associationen lägger endast till partnerns MPN-ID till de autentiseringsuppgifter som redan registrerats och det varken ändrar behörigheter (RBAC-roll) eller tillhandahåller ytterligare Azure-tjänstdata till partnern eller Microsoft. 
 

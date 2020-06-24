@@ -5,18 +5,18 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: banders
-ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: bbc4ed254d0b193d7cf328b95fc9dffbfcced380
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692325"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753417"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Få faktureringsägarskap för Azure-prenumerationer från andra konton
 
-Du vill kanske ta över ägarskapet för Azure-prenumerationer om den befintliga faktureringsägaren lämnar din organisation eller om du vill betala för prenumerationerna via ditt faktureringskonto. Om du tar över ägarskapet överförs faktureringsansvar för prenumerationer till ditt konto.
+Du vill kanske ta över ägarskapet för Azure-prenumerationer om den befintliga faktureringsägaren lämnar din organisation, eller när du vill betala för prenumerationerna via ditt faktureringskonto. Om du tar över ägarskapet överförs faktureringsansvar för prenumerationer till ditt konto.
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-for-access).
 
@@ -25,77 +25,48 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 ## <a name="request-billing-ownership"></a>Begära faktureringsägarskap
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som fakturaavsnittsägare eller -deltagare för ett faktureringskonto för Microsoft-kundavtal.
-
-2. Sök efter **Kostnadshantering + fakturering**.
-
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-
-3. På sidan för faktureringsomfång väljer du det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.
-
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/list-of-scopes.png)
-
+1. På sidan för faktureringsomfång väljer du det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.  
+    [![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
-    >
     > Azure-portalen kommer ihåg det senaste faktureringsomfånget som du använder och visar omfånget nästa gång du kommer till sidan Kostnadshantering + fakturering. Sidan för faktureringsomfång visas inte om du har besökt sidan Kostnadshantering + fakturering. I så fall kontrollerar du att du befinner dig i [rätt omfång](#check-for-access). Annars [byter du omfång](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) och väljer faktureringskontot för ett Microsoft-kundavtal.
-
-4. Välj **Faktureringsprofiler** till vänster.
-
-    ![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
-
+1. Välj **Faktureringsprofiler** till vänster.  
+    [![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
     > [!Note]
-    >
     > Om du inte ser Faktureringsprofiler beror det på att du inte är i rätt faktureringsomfång. Du måste välja ett faktureringskonto för ett Microsofts-kundavtal och sedan välja Faktureringsprofiler. Information om hur du byter omfång finns i avsnittet om hur du [byter faktureringsomfång på Azure-portalen](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
-
-5. Välj en **faktureringsprofil** i listan. När du tar över ägarskapet av prenumerationerna kommer deras användning att debiteras till den här faktureringsprofilen.
-
-6. Välj **Fakturaavsnitt** på den vänstra sidan.
-
-    ![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
-
-7. Välj ett fakturaavsnitt i listan. När du tar över ägarskapet av prenumerationerna tilldelas användningen till det här avsnittet i faktureringsprofilens faktura.
-
-8. Välj **Överföringsbegäranden** nere till vänster och välj sedan **Lägg till en ny begäran**.
-
-    ![Skärmbild som visar val av överföringsbegäranden](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)
-
-9. Ange e-postadressen till den användare som du begär faktureringsägarskap från. Användaren måste vara kontoadministratör på ett faktureringskonto för Microsoft Online Service-program eller kontoägare för ett Enterprise-avtal. Mer information finns i [visa dina faktureringskonton i Azure-portalen](view-all-accounts.md). Välj **Skicka överföringsbegäran**.
-
-    ![Skärmbild som visar sändning av en överföringsbegäran](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)
-
-10. Användaren får ett e-postmeddelande med instruktioner för att granska din överföringsförfrågan.
-
+1. Välj en **faktureringsprofil** i listan. När du tar över ägarskapet av prenumerationerna kommer deras användning att debiteras till den här faktureringsprofilen.
+1. Välj **Fakturaavsnitt** på den vänstra sidan.  
+    [![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
+1. Välj ett fakturaavsnitt i listan. När du tar över ägarskapet av prenumerationerna tilldelas användningen till det här avsnittet i faktureringsprofilens faktura.
+1. Välj **Överföringsbegäranden** nere till vänster och välj sedan **Lägg till en ny begäran**.  
+    [![Skärmbild som visar val av överföringsbegäranden](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
+1. Ange e-postadressen till den användare som du begär faktureringsägarskap från. Användaren måste vara kontoadministratör på ett faktureringskonto för Microsoft Online Service-program eller kontoägare för ett Enterprise-avtal. Mer information finns i [visa dina faktureringskonton i Azure-portalen](view-all-accounts.md). Välj **Skicka överföringsbegäran**.  
+    [![Skärmbild som visar sändning av en överföringsbegäran](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
+1. Användaren får ett e-postmeddelande med instruktioner för att granska din överföringsförfrågan.  
     ![Skärmbild som visar granskning av e-postmeddelande med överföringsbegäran](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
-
-11. För att godkänna överföringsbegäran väljer användaren länken i e-postmeddelandet och följer anvisningarna.
-
-    ![Skärmbild som visar granskning av e-postmeddelande med överföringsbegäran](./media/mca-request-billing-ownership/mca-review-transfer-request.png)
+1. För att godkänna överföringsbegäran väljer användaren länken i e-postmeddelandet och följer anvisningarna.
+    [![Skärmbild som visar granskning av e-postmeddelande med överföringsbegäran](./media/mca-request-billing-ownership/review-transfer-requests.png)](./media/mca-request-billing-ownership/review-transfer-requests.png#lightbox) Användaren kan välja det faktureringskonto de vill överföra Azure-produkter från. När det har valts visas valbara produkter som kan överföras. **Obs!** Inaktiverade prenumerationer kan inte överföras och visas i listan ”Ej överföringsbara Azure-produkter” om tillämpligt. När du har valt de Azure-produkter som ska överföras väljer du **Validera**.
+1. Området **Resultat av överföringvalidering** visar effekten på de Azure-produkter som ska överföras. Följande tillstånd är möjliga:
+    * **Godkändes** – Valideringen för den här Azure-produkten har godkänts och kan överföras.
+    * **Varning** – Det finns en varning för den markerade Azure-produkten. Produkten kan fortfarande överföras, men om det görs kan det ha en effekt som användaren behöver vara medveten om ifall användaren vill vidta åtgärder mot det. Till exempel kan Azure-prenumerationen som överförs dra fördel av en reserverad instans. Efter överföringen får prenumerationen inte längre den fördelen. Om du vill maximera besparingarna ser du till att den reserverade instansen associeras med en annan prenumeration som kan dra nytta av dess fördelar. Användaren kan också välja att gå tillbaka till sidan med prenumerationsval och avmarkera den här Azure-prenumerationen.
+    * **Misslyckades** – Den markerade Azure-produkten kan inte överföras på grund av ett fel. Användaren måste gå tillbaka till sidan med prenumerationsval och avmarkera den här produkten för att överföra de andra markerade Azure-produkterna.  
+    ![Skärmbild som visar valideringsmiljön](./media/mca-request-billing-ownership/validate-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>Kontrollera statusen för överföringsbegäran
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-
-2. Sök efter **Kostnadshantering + fakturering**.
-
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-
-3. På sidan för faktureringsomfång väljer du det faktureringskonto som överföringsbegäran skickades för.
-
-4. Välj **Faktureringsprofiler** till vänster.
-
-    ![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
-
-5. Välj den **faktureringsprofil** som överföringsbegäran skickades för.
-
-6. Välj **Fakturaavsnitt** på den vänstra sidan.
-
-    ![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
-
-7. Välj det fakturaavsnitt i listan som överföringsbegäran skickades för.
-
-8. Välj **Överföringsbegäranden** på den nedre vänstra sidan. På sidan Överföringsbegäranden visas följande information:
-
-    ![Skärmbild som visar lista med överföringsbegäranden](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
-
+1. På sidan för faktureringsomfång väljer du det faktureringskonto som överföringsbegäran skickades för.
+1. Välj **Faktureringsprofiler** till vänster.  
+    [![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)](./media/mca-request-billing-ownership/mca-select-profiles.png#lightbox)
+1. Välj den **faktureringsprofil** som överföringsbegäran skickades för.
+1. Välj **Fakturaavsnitt** på den vänstra sidan.  
+    [![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)](./media/mca-request-billing-ownership/mca-select-invoice-sections.png#lightbox)   
+1. Välj det fakturaavsnitt i listan som överföringsbegäran skickades för.
+1. Välj **Överföringsbegäranden** på den nedre vänstra sidan. På sidan Överföringsbegäranden visas följande information:  
+    [![Skärmbild som visar lista med överföringsbegäranden](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
    |Kolumn|Definition|
    |---------|---------|
    |Datum för begäran|Det datum då överföringsbegäran skickades|
@@ -115,13 +86,12 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
    |Avbrutna|Någon med åtkomst till överföringsbegäran avbröt begäran|
    |Nekad|Användaren nekade överföringsbegäran|
 
-9. Välj en överföringsbegäran för att visa information. På sidan för överföringsbegäran visas följande information:
-
-    ![Skärmbild som visar en lista med överförda prenumerationer](./media/mca-request-billing-ownership/mca-transfer-completed.png)
+1. Välj en överföringsbegäran för att visa information. På sidan för överföringsbegäran visas följande information:  
+    [![Skärmbild som visar en lista med överförda prenumerationer](./media/mca-request-billing-ownership/mca-transfer-completed.png)](./media/mca-request-billing-ownership/mca-transfer-completed.png#lightbox)
 
    |Kolumn  |Definition|
    |---------|---------|
-   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda supportbegäran|
+   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda ärendet|
    |Överföringen begärdes den|Det datum då överföringsbegäran skickades|
    |Överföringen begärdes av|E-postadressen för den användare som skickade överföringsbegäran|
    |Överföringsbegäran upphör den| Det datum då överföringsbegäran upphör|
@@ -142,6 +112,7 @@ Du kan begära faktureringsägarskap för de prenumerationstyper som anges nedan
 - [Microsoft Azure-plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Microsoft Azure-sponsrat erbjudande](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Microsoft-kundavtal](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
 - [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
 - [Visual Studio Enterprise-prenumeranter (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
@@ -153,7 +124,6 @@ Du kan begära faktureringsägarskap för de prenumerationstyper som anges nedan
 \* Eventuell kredit som är tillgänglig i prenumerationen kommer inte att vara tillgänglig i det nya kontot efter överföringen.
 
 \*\* Stöds endast för prenumerationer i konton som skapas vid registrering på Azure-webbplatsen.
-
 
 ## <a name="additional-information"></a>Ytterligare information
 
@@ -177,7 +147,7 @@ Azure Marketplace-produkter överförs tillsammans med sina respektive prenumera
 
 ### <a name="azure-reservations-transfer"></a>Överföring av Azure-reservationer
 
-Om du överför EA-prenumerationer (Enterprise-avtal) flyttas inte Azure-reservationerna automatiskt med prenumerationerna. [Kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att flytta reservationer.
+Om du överför EA-prenumerationer (Enterprise-avtal) eller Microsoft-kundavtal flyttas inte Azure-reservationerna automatiskt med prenumerationerna. [Kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att flytta reservationer.
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 

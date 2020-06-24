@@ -394,30 +394,64 @@
       items:
         - name: Vad är röstassistent?
           href: voice-assistants.md
-    - name: Anpassade kommandon (förhandsversion)
+    - name: Anpassade kommandon
       items:
         - name: Vad är anpassade kommandon?
           href: custom-commands.md
         - name: Snabbstarter
           items:
             - name: Skapa en app för anpassade kommandon
-              href: quickstart-custom-speech-commands-create-new.md
-            - name: Skapa ett anpassat kommando med parametrar
-              href: quickstart-custom-speech-commands-create-parameters.md
-            - name: Använda anpassade kommandon med Anpassad röst
-              href: quickstart-custom-speech-commands-select-custom-voice.md
-            - name: Använda anpassade kommandon med Speech SDK
-              href: quickstart-custom-speech-commands-speech-sdk.md
+              href: quickstart-custom-commands-application.md
         - name: Anvisningar
           items:
-            - name: Utföra kommandon från en klient
-              href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Lägga till parametervalidering
-              href: how-to-custom-speech-commands-validations.md
-            - name: Lägga till en bekräftelse
-              href: how-to-custom-speech-commands-confirmations.md
-            - name: Lägga till en korrigering i ett steg
-              href: how-to-custom-speech-commands-one-step-correction.md
+            - name: Utveckla
+              items:
+                - name: Skapa program med enkla kommandon
+                  href: how-to-custom-commands-create-application-with-simple-commands.md
+                - name: Lägga till parametrar till kommandon
+                  href: how-to-custom-commands-add-parameters-to-commands.md
+                - name: Lägga till konfigurationer i parametrar för kommandon
+                  href: how-to-custom-commands-add-parameter-configuration.md
+                - name: Lägga till interaktionsregler
+                  href: how-to-custom-commands-add-interaction-rules.md
+                - name: Lägga till mallar för att skapa språk för talsvar
+                  href: how-to-custom-commands-add-language-generation-templates.md
+            - name: Integrera
+              items:
+                - name: Integrera med en klientapp med hjälp av Speech SDK
+                  href: how-to-custom-commands-setup-speech-sdk.md
+                - name: Skicka aktivitet till klientprogram
+                  href: how-to-custom-commands-send-activity-to-client.md
+                - name: Konfigurera webbslutpunkter
+                  href: how-to-custom-commands-setup-web-endpoints.md
+            - name: Distribuera
+              items:
+                - name: Kontinuerlig distribution med Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+            - name: Testa
+              items:
+                - name: Testa din app för anpassade kommandon
+                  href: how-to-custom-commands-developer-flow-test.md
+            - name: Felsökning
+              items:
+                - name: Felsökningsfel vid redigering av appen
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Felsökningsfel vid körning av appen
+                  href: how-to-custom-commands-debug-runtime.md
+            - name: Referenser
+              items:
+                - name: Begrepp för anpassade kommandon
+                  href: custom-commands-references.md
+        - name: Resurser
+          items:
+            - name: Exempel på anpassade kommandon (GitHub)
+              href: 'https://aka.ms/speech/cc-samples'
+            - name: Röstassistentexempel (GitHub)
+              href: 'http://aka.ms/speech/va-samples'
+            - name: Vanliga frågor och svar om röstassistenter
+              href: faq-voice-assistants.md
+            - name: Speech SDK
+              href: speech-sdk.md
     - name: Direct Line Speech
       items:
         - name: Vad är Direct Line Speech?

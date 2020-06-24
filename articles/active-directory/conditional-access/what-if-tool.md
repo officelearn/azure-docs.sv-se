@@ -4,19 +4,19 @@ description: Lär dig hur du kan förstå effekten av dina principer för villko
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620689"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253145"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i villkorlig åtkomst
 
@@ -30,9 +30,9 @@ Med **verktyget för what if princip för villkorlig åtkomst** kan du förstå 
 
 **What If** -verktyget är ett sätt att snabbt fastställa de principer som gäller för en speciell användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.    
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-I **What If verktyget för villkorlig åtkomst**måste du först konfigurera inställningarna för det inloggnings scenario som du vill simulera. Några exempel på inställningar är:
+I **What If verktyget för villkorlig åtkomst**måste du först konfigurera inställningarna för det inloggnings scenario som du vill simulera. Inställningarna omfattar:
 
 - Den användare som du vill testa 
 - De molnappar som användaren försöker få åtkomst till
@@ -40,7 +40,7 @@ I **What If verktyget för villkorlig åtkomst**måste du först konfigurera ins
      
 Som nästa steg kan du starta en simulerings körning som utvärderar dina inställningar. Endast principer som är aktiverade är en del av en utvärderings körning.
 
-När utvärderingen är färdig genererar verktyget en rapport över de berörda principerna.
+När utvärderingen är färdig genererar verktyget en rapport över de berörda principerna. Om du vill samla in mer information om en princip för villkorlig åtkomst kan du ange ytterligare information om principer i läget endast rapport och de principer som är aktiverade för [att få mer](howto-conditional-access-insights-reporting.md) information om principer i läget för enbart rapporter.
 
 ## <a name="running-the-tool"></a>Köra verktyget
 
@@ -104,6 +104,5 @@ I listan över principer som inte gäller för din användare kan du även se va
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
-- Om du vill migrera klassiska principer, se [migrera klassiska principer i Azure Portal](policy-migration.md)  
+- Mer information om principer för villkorlig åtkomst finns i princip läget endast rapport läge med hjälp av [villkorlig åtkomst insikter och rapportering](howto-conditional-access-insights-reporting.md).
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md). 

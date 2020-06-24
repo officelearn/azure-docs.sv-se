@@ -4,15 +4,15 @@ description: Lär dig hur du skapar en anpassad avsökning för Application Gate
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312561"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807294"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökning för Azure Application Gateway (klassisk) med hjälp av PowerShell
 
@@ -136,32 +136,32 @@ I följande exempel visas hur du använder en konfigurations fil för att konfig
 > [!IMPORTANT]
 > Protokollobjekten Http och Https är skiftlägeskänsliga.
 
-En ny konfigurations \<objekts avsökning\> har lagts till för att konfigurera anpassade avsökningar.
+Ett nytt konfigurations objekt \<Probe\> läggs till för att konfigurera anpassade avsökningar.
 
 Konfigurations parametrarna är:
 
 |Parameter|Beskrivning|
 |---|---|
 |**Namn** |Referens namn för anpassad avsökning. |
-| **Protokollhanterare** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
-| **Värd** och **sökväg** | Fullständig URL-sökväg som anropas av Application Gateway för att fastställa instansens hälso tillstånd. Om du till exempel har en webbplats http:\//contoso.com/, kan den anpassade avsökningen konfigureras för "http:\//contoso.com/Path/custompath.htm" för avsöknings kontroller för att få ett lyckat http-svar.|
+| **Protokoll** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
+| **Värd** och **sökväg** | Fullständig URL-sökväg som anropas av Application Gateway för att fastställa instansens hälso tillstånd. Om du till exempel har en webbplats http: \/ /contoso.com/, kan den anpassade avsökningen konfigureras för "http: \/ /contoso.com/Path/custompath.htm" för avsöknings kontroller för att få ett lyckat http-svar.|
 | **Intervall** | Konfigurerar avsöknings intervallet i sekunder.|
-| **Standardvärde** | Definierar avsöknings tids gränsen för en HTTP-svars kontroll.|
+| **Tidsgräns** | Definierar avsöknings tids gränsen för en HTTP-svars kontroll.|
 | **UnhealthyThreshold** | Antalet misslyckade HTTP-svar som krävs för att flagga backend-instansen som *ohälsosam*.|
 
-Avsöknings namnet refereras till i \<BackendHttpSettings\> -konfigurationen för att tilldela vilken backend-pool som använder anpassade avsöknings inställningar.
+Avsöknings namnet refereras till i \<BackendHttpSettings\> konfigurationen för att tilldela vilken backend-pool som använder anpassade avsöknings inställningar.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Lägga till en anpassad avsökning i en befintlig Application Gateway
 
 Att ändra den aktuella konfigurationen av en Application Gateway kräver tre steg: hämta den aktuella XML-konfigurationsfilen, ändra till att ha en anpassad avsökning och konfigurera programgatewayen med de nya XML-inställningarna.
 
-1. Hämta XML-filen med hjälp `Get-AzureApplicationGatewayConfig`av. Denna cmdlet exporterar konfigurations-XML som ska ändras för att lägga till en avsöknings inställning.
+1. Hämta XML-filen med hjälp av `Get-AzureApplicationGatewayConfig` . Denna cmdlet exporterar konfigurations-XML som ska ändras för att lägga till en avsöknings inställning.
 
    ```powershell
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. Öppna XML-filen i en text redigerare. Lägg till `<probe>` ett avsnitt `<frontendport>`efter.
+1. Öppna XML-filen i en text redigerare. Lägg till ett `<probe>` avsnitt efter `<frontendport>` .
 
    ```xml
    <Probes>
@@ -192,7 +192,7 @@ Att ändra den aktuella konfigurationen av en Application Gateway kräver tre st
 
    Spara XML-filen.
 
-1. Uppdatera Application Gateway-konfigurationen med den nya XML-filen med `Set-AzureApplicationGatewayConfig`hjälp av. Den här cmdleten uppdaterar programgatewayen med den nya konfigurationen.
+1. Uppdatera Application Gateway-konfigurationen med den nya XML-filen med hjälp av `Set-AzureApplicationGatewayConfig` . Den här cmdleten uppdaterar programgatewayen med den nya konfigurationen.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

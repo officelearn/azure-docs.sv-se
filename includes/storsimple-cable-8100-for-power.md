@@ -25,7 +25,7 @@ ms.locfileid: "67187380"
    
     **Ström kablar på en 8100-enhet**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Kontrollant 1 |

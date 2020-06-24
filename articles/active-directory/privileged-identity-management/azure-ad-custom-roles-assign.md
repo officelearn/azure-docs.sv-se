@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499238"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84742989"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Tilldela en anpassad Azure AD-roll i Privileged Identity Management
 
@@ -74,7 +74,7 @@ Privileged Identity Management kan hantera anpassade roller som du kan skapa i A
 1. Om den **permanenta** kryss rutan finns tillgänglig och tillgänglig (beroende på roll inställningar) kan du ange om tilldelningen är permanent. Markera kryss rutan om du vill göra tilldelningen permanent eller permanent tilldelad. Avmarkera kryss rutan om du vill ange en tilldelnings varaktighet.
 1. Skapa den nya roll tilldelningen genom att klicka på **Spara** och sedan på **Lägg till**. Ett meddelande om tilldelnings processens status visas.
 
-För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelningar** > **tilldela** och kontrollerar att roll tilldelningen identifieras korrekt som giltig eller aktiv.
+För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelningar**  >  **tilldela** och kontrollerar att roll tilldelningen identifieras korrekt som giltig eller aktiv.
 
  ![Kontrol lera om roll tilldelningen är synlig som giltig eller aktiv](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

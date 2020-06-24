@@ -4,17 +4,17 @@ description: Använd den här vägledningen för R-programmering för att komma 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 2c481fc2f435695b4b99b86411a2fcca27e97ab4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117863"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706289"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
 
@@ -141,7 +141,7 @@ Den fullständiga koden för det här avsnittet är i [MachineLearningSamples-No
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Läs in data uppsättningen
 
-Vi börjar med att läsa in filen **csdairydata. csv** i Azure Machine Learning Studio (klassisk).
+Vi börjar med att läsa in **csdairydata.csv** -filen i Azure Machine Learning Studio (klassisk).
 
 1. Starta din Azure Machine Learning Studio (klassiska) miljö.
 1. Välj **+ ny** längst ned till vänster på skärmen och välj **data uppsättning**.
@@ -156,11 +156,11 @@ Nu när vi har några data i Machine Learning Studio (klassisk) måste vi skapa 
 
 1. Välj **+ ny** längst ned till vänster och välj **experiment**och sedan **Tom experiment**.
 1. Du kan namnge experimentet genom att välja, och ändra, **experimentet som skapades på...** title överst på sidan. Du kan till exempel ändra den till **ca mejeri analyser**.
-1. Till vänster på experiment-sidan, expandera **sparade data uppsättningar**och sedan **mina data uppsättningar**. Du bör se **cadairydata. csv** som du laddade upp tidigare.
-1. Dra och släpp **csdairydata. csv-datauppsättningen** till experimentet.
+1. Till vänster på experiment-sidan, expandera **sparade data uppsättningar**och sedan **mina data uppsättningar**. Du bör se **cadairydata.csv** som du överförde tidigare.
+1. Dra och släpp **csdairydata.csv data uppsättningen** på experimentet.
 1. I rutan **Sök efter experiment objekt** längst upp i det vänstra fönstret skriver du [Kör R-skript][execute-r-script]. Du ser att modulen visas i Sök listan.
 1. Dra och släpp modulen [Kör R-skript][execute-r-script] på din lastpall.  
-1. Anslut utdata från **csdairydata. csv-datauppsättningen** till indata-datauppsättningen till vänster (**Dataset1**) för [execute R-skriptet][execute-r-script].
+1. Anslut utdata fråncsdairydata.csv data uppsättningen till indata- **datauppsättningen** till vänster (**Dataset1**) för [execute R-skriptet][execute-r-script].
 1. **Glöm inte att välja "Spara"!**  
 
 Nu bör experimentet se ut ungefär som bild 3.
@@ -171,11 +171,11 @@ Nu bör experimentet se ut ungefär som bild 3.
 
 #### <a name="check-on-the-data"></a>Kontrol lera data
 
-Låt oss ta en titt på de data vi har läst in i vårt experiment. I experimentet väljer du utdata från **data uppsättningen cadairydata. csv** och väljer **visualisera**. Du bör se något som liknar bild 4.  
+Låt oss ta en titt på de data vi har läst in i vårt experiment. I experimentet väljer du utdata från den **cadairydata.csv data uppsättningen** och väljer **visualisera**. Du bör se något som liknar bild 4.  
 
-![Sammanfattning av data uppsättningen cadairydata. csv](./media/r-quickstart/fig4.png)
+![Sammanfattning av cadairydata.csv data uppsättningen](./media/r-quickstart/fig4.png)
 
-*Bild 4. Översikt över data uppsättningen cadairydata. csv.*
+*Bild 4. Sammanfattning av cadairydata.csv data uppsättningen.*
 
 I den här vyn ser vi mycket värdefull information. Vi kan se de första flera raderna i data uppsättningen. Om vi väljer en kolumn, visas mer information om kolumnen i statistik avsnittet. Till exempel visar raden typ av data typer Azure Machine Learning Studio (klassisk) som har tilldelats till kolumnen. Se till att det här är en korrekt Sanity-kontroll innan vi börjar göra seriöst arbete.
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/29/2020
-ms.openlocfilehash: 9ac85299311c1fd233988c6472d6325934dd42dd
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 6/10/2020
+ms.openlocfilehash: eff70d193674877b3b9453319197b60569399968
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614543"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707109"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med PowerShell
 
@@ -29,7 +29,7 @@ För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande `Install-Module -Name Az.MySql -AllowPrerelease`kommando:.
+> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > När AZ. MySql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-moduler och är tillgängliga internt från Azure Cloud Shell.
 
 Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
@@ -41,6 +41,9 @@ Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto m
 
 ### <a name="create-a-read-replica"></a>Skapa en Läs replik
 
+> [!IMPORTANT]
+> När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
+
 Du kan skapa en Läs replik server med följande kommando:
 
 ```azurepowershell-interactive
@@ -48,7 +51,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-`New-AzMySqlServerReplica` Kommandot kräver följande parametrar:
+`New-AzMySqlServerReplica`Kommandot kräver följande parametrar:
 
 | Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -77,7 +80,7 @@ Om du vill visa alla repliker för en specifik huvud server kör du följande ko
 Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-`Get-AzMySqlReplica` Kommandot kräver följande parametrar:
+`Get-AzMySqlReplica`Kommandot kräver följande parametrar:
 
 | Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -86,7 +89,7 @@ Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 
-Du kan ta bort en Läs replik Server genom att `Remove-AzMySqlServer` köra cmdleten.
+Du kan ta bort en Läs replik Server genom att köra `Remove-AzMySqlServer` cmdleten.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
@@ -97,7 +100,7 @@ Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegrou
 > [!IMPORTANT]
 > Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Om du vill ta bort en huvud server kan du `Remove-AzMySqlServer` köra cmdleten.
+Om du vill ta bort en huvud server kan du köra `Remove-AzMySqlServer` cmdleten.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

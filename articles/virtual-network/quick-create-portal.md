@@ -12,11 +12,11 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240074"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707420"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure-portalen
 
@@ -32,16 +32,16 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**. På Azure Marketplace väljer du **nätverk** > **virtuellt nätverk**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. På Azure Marketplace väljer du **nätverk**  >  **virtuellt nätverk**.
 
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
     | Name | Ange *myVirtualNetwork*. |
-    | Plats | Välj **USA, östra**.|
+    | Location | Välj **USA, östra**.|
 
 1. Välj **Nästa: IP-adresser**och för **IPv4-adress utrymme**anger du *10.1.0.0/16*.
 
@@ -59,11 +59,11 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-1. På Azure Marketplace väljer du **Compute** > **Windows Server 2019 Data Center**. Välj **Skapa**.
+1. På Azure Marketplace väljer du **Compute**  >  **Windows Server 2019 Data Center**. Välj **Skapa**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **Projekt information** | |
     | Prenumeration | Välj din prenumeration. |
@@ -90,7 +90,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Standardvärdet är **myVirtualNetwork**. |
     | Undernät | Standardvärdet är **myVirtualSubnet (10.1.0.0/24)**. |
@@ -105,7 +105,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 1. I **Skapa lagringskonto** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange *myvmstorageaccount*. Om det här namnet tas skapar du ett unikt namn.|
     | Typ av konto | Standardvärdet **lagring (generell användning v1)**. |
@@ -144,7 +144,7 @@ När du har skapat *myVm1*ansluter du till Internet.
 1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
     > [!NOTE]
-    > Du kan behöva välja **fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+    > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 

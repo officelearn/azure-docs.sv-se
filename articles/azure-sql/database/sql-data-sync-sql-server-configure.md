@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 4c0ae83a0ed3a7f9fc550af2d64d5fcd1f42c998
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 609b5903d02e9265e211cf25606ae3852e03e913
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324685"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254029"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Självstudie: Konfigurera SQL Data Sync mellan databaser i Azure SQL Database och SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,18 +36,18 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 
 1. Gå till [Azure Portal](https://portal.azure.com) för att hitta din databas i SQL Database. Sök efter och välj **SQL-databaser**.
 
-    ![Sök efter SQL-databaser Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
+    ![Sök efter databaser, Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
 1. Välj den databas som du vill använda som hubb databas för datasynkronisering.
 
-    ![Välj från SQL Database-listan Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+    ![Välj i databas listan Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
 
     > [!NOTE]
     > Hub-databasen är en central slut punkt för synkronisering, där en synkroniserad grupp har flera databas slut punkter. Alla andra medlems databaser med slut punkter i Sync-gruppen synkroniseras med Hub-databasen.
 
 1. På **SQL Database** -menyn för den valda databasen väljer du **synkronisera till andra databaser**.
 
-    ![Synkronisera till andra databaser, SQL Database, Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    ![Synkronisera till andra databaser, Microsoft Azure-portalen](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
 
 1. På sidan **synkronisera till andra databaser** väljer du **ny Sync-grupp**. Sidan **ny synkroniseringsresurs** öppnas med **Skapa sync-grupp (steg 1)** markerat.
 
@@ -171,7 +171,7 @@ När de nya medlemmarna i Sync-gruppen har skapats och distribuerats, är **Konf
 
     ![Manuell synkronisering](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Hur ofta kan datasynkronisering synkronisera mina data?**
 

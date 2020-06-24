@@ -4,11 +4,11 @@ description: Innehåller en översikt över arkitekturen, komponenterna och proc
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273623"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707931"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -95,8 +95,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
-Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
+Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 

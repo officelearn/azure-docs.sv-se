@@ -10,21 +10,22 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: 1d384bf4919589675dd6947fcb083585ebaf7e18
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344602"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254063"
 ---
-# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Översikt över program utveckling – SQL Database & SQL-hanterad instans 
+# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Översikt över program utveckling – SQL Database & SQL-hanterad instans
+
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Den här artikeln går igenom de grundläggande överväganden som en utvecklare bör vara medveten om när de skriver kod för att ansluta till din databas i Azure. Den här artikeln gäller för Azure SQL Database och Azure SQL-hanterad instans.
 
 ## <a name="language-and-platform"></a>Språk och plattform
 
-Du kan använda olika [programmeringsspråk och plattformar](connect-query-content-reference-guide.md) för att ansluta och fråga Azure SQL Database. Du kan hitta [exempel program](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) som du kan använda för att ansluta till Azure SQL-databasen.
+Du kan använda olika [programmeringsspråk och plattformar](connect-query-content-reference-guide.md) för att ansluta och fråga Azure SQL Database. Du kan hitta [exempel program](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) som du kan använda för att ansluta till databasen.
 
 Du kan utnyttja verktyg med öppen källkod som [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda API: erna Azure Portal, PowerShell och REST för att få ytterligare produktivitet.
 
@@ -44,7 +45,7 @@ Undvik tids krävande transaktioner eftersom en infrastruktur eller ett anslutni
 
 ## <a name="resiliency"></a>Återhämtning
 
-Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan moln enheter. Även om Azure SQL Database är elastisk på de transitiva infrastruktur felen kan dessa problem påverka din anslutning. När ett tillfälligt fel uppstår när du ansluter till SQL Database, ska koden [försöka anropa igen](troubleshoot-common-connectivity-issues.md). Vi rekommenderar att logiken för omprövning använder backoff Logic, så att den inte överbelastar SQL-databasen med flera klienter och försöker igen samtidigt. Omprövnings logik är beroende av [fel meddelanden för SQL Database klient program](troubleshoot-common-errors-issues.md).
+Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan moln enheter. Även om Azure SQL Database är elastisk på de transitiva infrastruktur felen kan dessa problem påverka din anslutning. När ett tillfälligt fel uppstår när du ansluter till SQL Database, ska koden [försöka anropa igen](troubleshoot-common-connectivity-issues.md). Vi rekommenderar att logiken för omprövning använder backoff Logic, så att den inte överbelastar tjänsten med att flera klienter försöker igen samtidigt. Omprövnings logik är beroende av [fel meddelanden för SQL Database klient program](troubleshoot-common-errors-issues.md).
 
 Mer information om hur du förbereder för planerade underhålls händelser på Azure SQL Database finns i [Planera för Azure underhålls händelser i Azure SQL Database](planned-maintenance.md).
 

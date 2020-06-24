@@ -28,7 +28,7 @@ ms.locfileid: "67671210"
    OS.UpdateRdmaDriver=y
    ```
 
-3. Lägg till eller ändra följande minnes inställningar i KB i/etc/Security/Limits.conf-filen. Du behöver rot åtkomst för att redigera den här filen. I test syfte kan du ange Memlock till obegränsad. Till exempel: `<User or group name>   hard    memlock   unlimited`.
+3. Lägg till eller ändra följande minnes inställningar i KB i/etc/Security/Limits.conf-filen. Du behöver rot åtkomst för att redigera den här filen. I test syfte kan du ange Memlock till obegränsad. Exempel: `<User or group name>   hard    memlock   unlimited`.
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>

@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240767"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704989"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera ett problem med nätverks trafik filter för virtuella datorer
 
@@ -79,7 +79,7 @@ Trots att de effektiva säkerhets reglerna har visats via den virtuella datorn k
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att logga in på Azure med ett konto som har de behörigheter som [krävs](virtual-network-network-interface.md#permissions)].
+Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions)].
 
 Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic*, som finns i en resurs grupp med namnet *myResourceGroup*:
 
@@ -113,7 +113,7 @@ I föregående utdata är nätverks gränssnittets namn *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostisera med Azure CLI
 
-Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de behörigheter som [krävs](virtual-network-network-interface.md#permissions).
+Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
 Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [AZ Network NIC List-effektiv-NSG](/cli/azure/network/nic#az-network-nic-list-effective-nsg). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic* som finns i en resurs grupp med namnet *myResourceGroup*:
 
@@ -175,7 +175,7 @@ Oavsett om du använder Azure- [portalen](#diagnose-using-azure-portal), [POWERS
 | Mål             | IP-adressen för den virtuella datorn, ett intervall med IP-adresser eller alla adresser i under nätet. |
 | Målportintervall | 80                                                                                 |
 | Protokoll                | TCP                                                                                |
-| Action                  | Tillåt                                                                              |
+| Åtgärd                  | Tillåt                                                                              |
 | Prioritet                | 100                                                                                |
 | Name                    | Tillåt-HTTP-alla                                                                     |
 

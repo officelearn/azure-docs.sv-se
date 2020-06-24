@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du konfigurerar komponenterna i Azu
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996405"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254675"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -25,7 +25,7 @@ Den här bilden illustrerar ett program som har tre lyssnare. De första två ä
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Virtuellt Azure-nätverk och dedikerat undernät
 
@@ -307,7 +307,7 @@ Observera att standard tillhörighets-Cookiens namn är *ApplicationGatewayAffin
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
-Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistrering av instanser på grund av en Gateway-hanterad session tillhörighet och fortsätter att vidarebefordras till Avregistrerings instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
+Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool genom att aktivera anslutning som töms på HTTP-inställningen. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistrering av instanser på grund av en Gateway-hanterad session tillhörighet och fortsätter att vidarebefordras till Avregistrerings instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
 ### <a name="protocol"></a>Protokoll
 

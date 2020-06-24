@@ -5,23 +5,23 @@ description: Lär dig hur du omtränar en modell och uppdaterar en klassisk webb
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 877697893b377007c812def00858b7300356f5e4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 659011a13be310512ace68d2e020eaebff9a10ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117773"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706043"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
 Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
      

@@ -4,12 +4,12 @@ description: Använd Azure Functions för att schemalägga en aktivitet som ansl
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 18e310559cb0b88aac53b1020172847968616f97
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020344"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254284"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
@@ -17,17 +17,17 @@ Den här artikeln visar hur du använder Azure Functions för att skapa ett sche
 
 Om det är första gången du arbetar med C#-funktioner bör du läsa [referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är riktad mot version 2. x eller en senare version av körnings miljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 
-+ Den här artikeln visar ett Transact-SQL-kommando som kör en Mass rensnings åtgärd i **SalesOrderHeader** -tabellen i AdventureWorksLT-exempel databasen. Skapa AdventureWorksLT-exempel databasen genom att följa anvisningarna i artikeln [skapa en Azure SQL-databas i Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
++ Den här artikeln visar ett Transact-SQL-kommando som kör en Mass rensnings åtgärd i **SalesOrderHeader** -tabellen i AdventureWorksLT-exempel databasen. Skapa AdventureWorksLT-exempel databasen genom att följa anvisningarna i artikeln [skapa en databas i Azure SQL Database med hjälp av Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 + Du måste lägga till en [brand Väggs regel på server nivå](../sql-database/sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen för den dator som du använder för den här snabb starten. Den här regeln krävs för att kunna komma åt SQL Database-instansen från den lokala datorn.  
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-Du måste hämta anslutnings strängen för den databas som du skapade när du har skapat [en Azure SQL-databas i Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
+Du måste hämta anslutnings strängen för databasen som du skapade när du slutförde [skapandet av en databas i Azure SQL Database med hjälp av Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -51,11 +51,11 @@ Du måste ha publicerat din app tidigare på Azure. [Publicera din Function-app 
 
     ![Lägg till inställningen för SQL-anslutningssträng.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
-    Anslutnings strängarna lagras krypterade i Azure (**fjärr**). För att förhindra att hemligheter läcker, ska den lokala. Settings. JSON-projektfilen (**lokal**) uteslutas från käll kontroll, till exempel genom att använda en. gitignore-fil.
+    Anslutnings strängarna lagras krypterade i Azure (**fjärr**). För att förhindra att hemligheter används bör local.settings.jspå projekt filen (**lokal**) uteslutas från käll kontroll, till exempel med hjälp av en. gitignore-fil.
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Lägg till SqlClient-paketet i projektet
 
-Du måste lägga till NuGet-paketet som innehåller SqlClient-biblioteket. Det här data åtkomst biblioteket krävs för att ansluta till en SQL-databas.
+Du måste lägga till NuGet-paketet som innehåller SqlClient-biblioteket. Det här data åtkomst biblioteket krävs för att ansluta till SQL Database.
 
 1. Öppna det lokala projektet för Function-appen i Visual Studio 2019.
 

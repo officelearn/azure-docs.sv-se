@@ -7,17 +7,17 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201874"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703952"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Lägga till eller ta bort en under näts delegering
 
@@ -33,16 +33,16 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 I det här avsnittet skapar du ett virtuellt nätverk och under nätet som du senare delegerar till en Azure-tjänst.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **virtuellt nätverk**.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **virtuellt nätverk**.
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Plats | Välj **öster**.|
+    | Location | Välj **öster**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
     |||
@@ -50,7 +50,7 @@ I det här avsnittet skapar du ett virtuellt nätverk och under nätet som du se
 
 ### <a name="permissions"></a>Behörigheter
 
-Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write`.
+Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 Den inbyggda rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) innehåller även de behörigheter som krävs.
 
@@ -103,7 +103,7 @@ Skapa det virtuella nätverket **myVnet** med undernätet **mySubnet** i **myRes
 ```
 ### <a name="permissions"></a>Behörigheter
 
-Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write`.
+Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 Den inbyggda rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) innehåller även de behörigheter som krävs.
 
@@ -202,7 +202,7 @@ Skapa ett virtuellt nätverk med namnet **myVnet** med ett undernät med namnet 
 ```
 ### <a name="permissions"></a>Behörigheter
 
-Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write`.
+Om du inte skapade det undernät som du vill delegera till en Azure-tjänst behöver du följande behörighet: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 Den inbyggda rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) innehåller även de behörigheter som krävs.
 

@@ -4,12 +4,12 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700769"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254794"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -304,7 +304,7 @@ I procent av begär Anden och antalet användare som påverkas kan du bestämma 
 
 I många fall kommer du att kunna diagnostisera problemet snabbt från namn, undantag, beroende fel och spårnings data som tillhandahålls.
 
-I det här exemplet inträffade ett undantag från SQL Database på grund av att gränsen för begäran har uppnåtts.
+I det här exemplet uppstod ett undantag från SQL Database på grund av att gränsen för begäran har uppnåtts.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 

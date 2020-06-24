@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885471"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253128"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: daemon-program som anropar webb-API: er
 
@@ -38,7 +38,7 @@ Här följer några exempel på användnings fall för daemon-appar:
 - Skriv bords program (t. ex. Windows-tjänster på Windows-eller daemon-processer i Linux) som utför batch-jobb eller en tjänst för operativ system som körs i bakgrunden
 - Webb-API: er som behöver manipulera kataloger, inte vissa användare
 
-Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs under sin egen identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i Azure Key Vault eller en Azure SQL-databas för cache.
+Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs under sin egen identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i Azure Key Vault eller Azure SQL Database för en cache.
 
 Program som hämtar en token för sina egna identiteter:
 

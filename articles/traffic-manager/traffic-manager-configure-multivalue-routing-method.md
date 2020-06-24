@@ -4,20 +4,19 @@ description: Den här artikeln förklarar hur du konfigurerar Traffic Manager f�
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
-ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938770"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706825"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetod för multivärde i Traffic Manager
 
@@ -38,16 +37,16 @@ Skapa en resurs grupp för Traffic Manager profilen.
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 Skapa en Traffic Manager profil som dirigerar användar trafiken genom att skicka dem till slut punkten med lägsta latens.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Traffic Manager profil** > **skapa**.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 2. I **skapa Traffic Manager profil**, ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **skapa**:
     
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
     | Routningsmetod          | Välj routningsmetod för **multivärde** .                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj *myResourceGroupTM1*. |
-    | Plats                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
+    | Location                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
    |        |           | 
   
    ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -60,7 +59,7 @@ Lägg till två IP-adresser som externa slut punkter i Traffic Manager profilen 
 2. I **Traffic Manager-profilen** går du till avsnittet **Inställningar** och klickar på **Slutpunkter** och klickar sedan på **Lägg till**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Extern slut punkt                                   |
     | Name           | myEndpoint1                                        |

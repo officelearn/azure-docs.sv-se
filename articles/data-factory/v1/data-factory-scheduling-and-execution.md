@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281072"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707165"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory schemaläggning och körning
 > [!NOTE]
@@ -61,7 +61,7 @@ En aktivitet i en Data Factory pipeline kan ta noll eller fler data **uppsättni
 
 **Frekvens** i avsnittet **tillgänglighet** anger tidsenheten. De tillåtna värdena för frekvens är: minut, timme, dag, vecka och månad. Egenskapen **Interval** i avsnittet tillgänglighet anger en multiplikator för frekvens. Exempel: om frekvensen är inställd på dag och intervall är inställt på 1 för en data uppsättning för utdata skapas utdata varje dag. Om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15. 
 
-I följande exempel är indata tillgängliga varje timme och utdata skapas varje timme (`"frequency": "Hour", "interval": 1`). 
+I följande exempel är indata tillgängliga varje timme och utdata skapas varje timme ( `"frequency": "Hour", "interval": 1` ). 
 
 **Data mängd för indata:** 
 
@@ -182,16 +182,16 @@ Du har sett användningen av frekvens-och intervall egenskaper i avsnittet tillg
 ### <a name="dataset-availability"></a>Tillgänglighet för data uppsättning 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet **tillgänglighet** :
 
-| Egenskap | Beskrivning | Krävs | Default |
+| Egenskap | Beskrivning | Obligatorisk | Standard |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
-| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |Ej tillämpligt |
-| stil |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |Inga |EndOfInterval |
-| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b>om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Om <b>intervallet</b> exempelvis är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b>, ignoreras de <b>minuter och sekunder</b> som delar av AnchorDateTime. |Inga |01/01/0001 |
-| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Inga |Ej tillämpligt |
+| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Yes |NA |
+| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Yes |NA |
+| stil |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |No |EndOfInterval |
+| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b>om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Om <b>intervallet</b> exempelvis är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b>, ignoreras de <b>minuter och sekunder</b> som delar av AnchorDateTime. |No |01/01/0001 |
+| offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |No |NA |
 
 ### <a name="offset-example"></a>förskjutnings exempel
-Som standard börjar de dagliga`"frequency": "Day", "interval": 1`sektorerna () med 12 am UTC-tid (midnatt). Om du vill att start tiden ska vara 6 UTC-tid i stället anger du förskjutningen enligt följande kodfragment: 
+Som standard börjar de dagliga `"frequency": "Day", "interval": 1` sektorerna () med 12 am UTC-tid (midnatt). Om du vill att start tiden ska vara 6 UTC-tid i stället anger du förskjutningen enligt följande kodfragment: 
 
 ```json
 "availability":
@@ -214,7 +214,7 @@ I följande exempel skapas data uppsättningen en gång var 23: e timme. Den fö
 ```
 
 ### <a name="offsetstyle-example"></a>Exempel på offset/format
-Följande data uppsättning är en månatlig data uppsättning och produceras den tredje i varje månad med 8:00 AM (`3.08:00:00`):
+Följande data uppsättning är en månatlig data uppsättning och produceras den tredje i varje månad med 8:00 AM ( `3.08:00:00` ):
 
 ```json
 "availability": {
@@ -230,10 +230,10 @@ En data uppsättning kan ha en definierad validerings princip som anger hur data
 
 I **princip** avsnittet i data uppsättnings definitionen definieras villkoren eller villkoret som data uppsättnings sektorerna måste uppfylla. I följande tabell beskrivs de egenskaper som du kan använda i **princip** avsnittet:
 
-| Principnamn | Beskrivning | Tillämpas på | Krävs | Default |
+| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standard |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |Inga |Ej tillämpligt |
-| minimumRows | Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |Ej tillämpligt |
+| minimumSizeMB | Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |No |NA |
+| minimumRows | Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |No |NA |
 
 #### <a name="examples"></a>Exempel
 **minimumSizeMB:**
@@ -695,7 +695,7 @@ Här är exempel på pipeline-JSON:
 
 Observera att i exemplet anges utdata-datauppsättningen för den första kopierings aktiviteten (Dataset2) som indata för den andra aktiviteten. Den andra aktiviteten körs därför bara när data uppsättningen för utdata från den första aktiviteten är klar.  
 
-I exemplet kan CopyActivity2 ha olika ingångar, t. ex. Dataset3, men du anger Dataset2 som indatamängd för CopyActivity2, så aktiviteten körs inte förrän CopyActivity1 har slutförts. Ett exempel:
+I exemplet kan CopyActivity2 ha olika ingångar, t. ex. Dataset3, men du anger Dataset2 som indatamängd för CopyActivity2, så aktiviteten körs inte förrän CopyActivity1 har slutförts. Exempel:
 
 CopyActivity1
 

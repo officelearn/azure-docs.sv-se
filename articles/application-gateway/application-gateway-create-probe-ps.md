@@ -5,15 +5,15 @@ description: Lär dig hur du skapar en anpassad avsökning för Application Gate
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a244cd17ecf1f6165936d86791f9b2e320666c2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312591"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807160"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökning för Azure Application Gateway med hjälp av PowerShell för Azure Resource Manager
 
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
-Skapa en offentlig IP- **publicIP01** i resurs gruppen **appgw-RG** för regionen USA, västra. I det här exemplet används en offentlig IP-adress för klient delens IP-adress för Application Gateway.  Application Gateway kräver att den offentliga IP-adressen har ett dynamiskt skapat DNS-namn `-DomainNameLabel` och kan därför inte anges när den offentliga IP-adressen skapas.
+Skapa en offentlig IP- **publicIP01** i resurs gruppen **appgw-RG** för regionen USA, västra. I det här exemplet används en offentlig IP-adress för klient delens IP-adress för Application Gateway.  Application Gateway kräver att den offentliga IP-adressen har ett dynamiskt skapat DNS-namn och `-DomainNameLabel` kan därför inte anges när den offentliga IP-adressen skapas.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic

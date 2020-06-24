@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265823"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707148"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -57,14 +57,14 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för SAP HANA länkade tjänsten.
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-server | Namnet på den server där SAP HANA-instansen finns. Om servern använder en anpassad port anger `server:port`du. | sträng | Ja
-authenticationType | Typ av autentisering. | nollängd. "Basic" eller "Windows" | Ja 
-användarnamn | Namnet på den användare som har åtkomst till SAP-servern | sträng | Ja
-password | Lösenordet för användaren. | sträng | Ja
-gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP HANA-instansen. | sträng | Ja
-encryptedCredential | Krypterad Credential-sträng. | sträng | Inga
+server | Namnet på den server där SAP HANA-instansen finns. Om servern använder en anpassad port anger du `server:port` . | sträng | Yes
+authenticationType | Typ av autentisering. | nollängd. "Basic" eller "Windows" | Yes 
+användarnamn | Namnet på den användare som har åtkomst till SAP-servern | sträng | Yes
+password | Lösenordet för användaren. | sträng | Yes
+gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP HANA-instansen. | sträng | Yes
+encryptedCredential | Krypterad Credential-sträng. | sträng | No
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
@@ -79,9 +79,9 @@ De egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten
 
 När källan i kopierings aktiviteten är av typen **RelationalSource** (som innehåller SAP HANA) finns följande egenskaper i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
+| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-exempel: kopiera data från SAP HANA till Azure-Blob
 Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Det här exemplet visar hur du kopierar data från en lokal SAP HANA till en Azure-Blob Storage. Data kan dock kopieras **direkt** till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.  
@@ -287,8 +287,8 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | Enkel
-DOUBLE | Enkel
+REAL | Enskilt
+DOUBLE | Enskilt
 DECIMAL | Decimal
 BOOLESKT | Byte
 VARCHAR | Sträng

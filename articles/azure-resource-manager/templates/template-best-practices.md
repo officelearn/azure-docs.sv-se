@@ -2,25 +2,21 @@
 title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: c00a3a1162ffec4ce89c43ef2f76796fb5943438
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156420"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254097"
 ---
 # <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
-Den här artikeln ger rekommendationer om hur du skapar din Azure Resource Manager-mall (ARM). Dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en ARM-mall för att distribuera en lösning.
-
-Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure Enterprise Autogenerera: preskripte-styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-Rekommendationer om hur du skapar mallar som fungerar i alla moln miljöer i Azure finns i [utveckla Azure Resource Manager mallar för moln konsekvens](templates-cloud-consistency.md).
+Den här artikeln visar hur du använder rekommenderade metoder när du konstruerar ARM-mallen. Dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en ARM-mall för att distribuera en lösning.
 
 ## <a name="template-limits"></a>Mall gränser
 
-Begränsa storleken på din mall till 4 MB och varje parameter fil till 64 KB. Gränsen på 4 MB gäller för mallens slutliga tillstånd när den har utökats med iterativa resurs definitioner och värden för variabler och parametrar. 
+Begränsa storleken på din mall till 4 MB och varje parameter fil till 64 KB. Gränsen på 4 MB gäller för mallens slutliga tillstånd när den har utökats med iterativa resurs definitioner och värden för variabler och parametrar.
 
 Du är också begränsad till:
 
@@ -114,13 +110,13 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
    }
    ```
 
-* Ange inte standardvärden för användar namn, lösen ord eller något värde som kräver `secureString` en typ.
+* Ange inte standardvärden för användar namn, lösen ord eller något värde som kräver en `secureString` typ.
 
 * Ange inte standardvärden för egenskaper som ökar programmets angrepps yta.
 
 ### <a name="location-recommendations-for-parameters"></a>Plats rekommendationer för parametrar
 
-* Använd en parameter för att ange plats för resurser och ange standardvärdet till `resourceGroup().location`. Genom att ange en plats parameter kan användare av mallen ange en plats som de har behörighet att distribuera till.
+* Använd en parameter för att ange plats för resurser och ange standardvärdet till `resourceGroup().location` . Genom att ange en plats parameter kan användare av mallen ange en plats som de har behörighet att distribuera till.
 
    ```json
    "parameters": {
@@ -134,7 +130,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
    },
    ```
 
-* Ange `allowedValues` inte för parametern location. De platser som du anger kanske inte är tillgängliga i alla moln.
+* Ange inte `allowedValues` för parametern location. De platser som du anger kanske inte är tillgängliga i alla moln.
 
 * Använd värdet för parametern location för resurser som troligen är på samma plats. Den här metoden minimerar antalet gånger som användarna uppmanas att ange plats information.
 
@@ -164,7 +160,7 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 
 När du bestämmer vilka [beroenden](define-resource-dependency.md) som ska anges använder du följande rikt linjer:
 
-* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett `dependsOn` explicit element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
+* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett explicit `dependsOn` element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
 
 * Ange en underordnad resurs som beroende av dess överordnade resurs.
 
@@ -236,7 +232,7 @@ Följande information kan vara till hjälp när du arbetar med [resurser](templa
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Tillåt extern åtkomst till din virtuella Linux-dator med hjälp av Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* Egenskapen **domainNameLabel** för offentliga IP-adresser måste vara unik. **DomainNameLabel** -värdet måste vara mellan 3 och 63 tecken långt och följer reglerna som anges i detta reguljära uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Eftersom **uniqueString** -funktionen genererar en sträng som är 13 tecken lång, är **dnsPrefixString** -parametern begränsad till 50 tecken:
+* Egenskapen **domainNameLabel** för offentliga IP-adresser måste vara unik. **DomainNameLabel** -värdet måste vara mellan 3 och 63 tecken långt och följer reglerna som anges i detta reguljära uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Eftersom **uniqueString** -funktionen genererar en sträng som är 13 tecken lång, är **dnsPrefixString** -parametern begränsad till 50 tecken:
 
    ```json
    "parameters": {
@@ -275,7 +271,12 @@ Följande information kan vara till hjälp när du arbetar med [resurser](templa
    > [!NOTE]
    > För att säkerställa att hemligheter krypteras när de skickas som parametrar till virtuella datorer och tillägg, använder du egenskapen **protectedSettings** för relevanta tillägg.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>Använd test Toolkit
+
+ARM-mallens test verktyg är ett skript som kontrollerar om mallen använder rekommenderade metoder. När mallen inte är kompatibel med rekommenderade metoder returnerar den en lista med varningar med föreslagna ändringar. Test Toolkit kan hjälpa dig att lära dig hur du implementerar bästa praxis i mallen.
+
+När du har slutfört mallen kan du köra test Toolkit för att se om det finns några sätt att förbättra IT-implementeringen. Mer information finns i [test Toolkit för ARM-mallar](test-toolkit.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

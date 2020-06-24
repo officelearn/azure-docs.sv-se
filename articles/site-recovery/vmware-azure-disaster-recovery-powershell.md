@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257204"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704394"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera katastrof återställning av virtuella VMware-datorer till Azure med PowerShell
 
@@ -37,7 +37,7 @@ Innan du börjar:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](vmware-azure-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
-- Du har Azure PowerShell `Az` -modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+- Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logga in på Azure
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Ange valv kontexten med cmdleten Set-ASRVaultContext. När du har angett utförs efterföljande Azure Site Recovery åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
 
 > [!TIP]
-> Azure Site Recovery PowerShell-modulen (AZ. RecoveryServices Module) har lätt att använda alias för de flesta cmdletar. Cmdletarna i modulen tar formulär * \<åtgärden>-**AzRecoveryServicesAsr**\<-objektet>* och har motsvarande alias som tar formulär * \<åtgärden>-**ASR**\<-objekt>*. Du kan ersätta cmdlet-aliasen för enkel användning.
+> Azure Site Recovery PowerShell-modulen (AZ. RecoveryServices Module) har lätt att använda alias för de flesta cmdletar. Cmdletarna i modulen har formatet * \<Operation> - **AzRecoveryServicesAsr** \<Object> * och har motsvarande alias som gör att formatet * \<Operation> - **ASR** \<Object> *fungerar. Du kan ersätta cmdlet-aliasen för enkel användning.
 
 I exemplet nedan används valv informationen från variabeln $vault för att ange valv kontexten för PowerShell-sessionen.
 
@@ -351,7 +351,7 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Replikera nu följande virtuella datorer med de inställningar som anges i den här tabellen
 
 
-|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Princip           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
+|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Policy           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |Ej tillämpligt| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |
 |Win2K12VM1       |Skalnings-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |   

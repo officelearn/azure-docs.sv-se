@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267955"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707403"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
@@ -28,7 +28,7 @@ Informationen i dessa självstudiekurser förutsätter att du har granskat säke
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
 
 > [!NOTE]
-> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter med 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
+> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter med 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Distributionssteg

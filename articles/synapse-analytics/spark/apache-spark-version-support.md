@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: reference
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: d69f9c8cf24cbab154aa5c91fe194edbc8f21d58
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8914f081196c41dccf3acbed9cf87bd63df8b92c
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696760"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193965"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Språk-och körnings versioner som stöds för Apache Spark och beroende komponenter  
 

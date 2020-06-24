@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/26/2020
-ms.openlocfilehash: 4854518d77ca3eb0c978a0ca3462535e17ad3fcd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 6/10/2020
+ms.openlocfilehash: 0280d69dc552b776457ff28d19968f6494a846ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052034"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707957"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med PowerShell
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa och hantera Läs repliker med PowerShell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -40,6 +40,9 @@ Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto m
 > Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
 
 ### <a name="create-a-read-replica"></a>Skapa en Läs replik
+
+> [!IMPORTANT]
+> När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
 
 Du kan skapa en Läs replik server med följande kommando:
 

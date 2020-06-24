@@ -1,6 +1,6 @@
 ---
 title: Avancerad data säkerhet för IaaS i Azure Security Center | Microsoft Docs
-description: " Lär dig hur du aktiverar avancerad data säkerhet för IaaS i Azure Security Center. "
+description: Lär dig hur du aktiverar avancerad data säkerhet för SQL-datorer i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,155 +11,127 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c269ad13072ae4dcff9caba892ccc0643647e5c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282736"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254229"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines (för hands version)
-Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den här förhands gransknings funktionen innehåller funktioner för att identifiera och åtgärda potentiella databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på hot mot databasen. 
+# <a name="advanced-data-security-for-sql-machines-preview"></a>Avancerad data säkerhet för SQL-datorer (för hands version)
 
-Det här säkerhets erbjudandet för virtuella Azure-datorer med SQL-servrar baseras på samma grundläggande teknik som används i [Azure SQL Database Advanced Data Security-paketet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Azure Security Center avancerad data säkerhet för SQL-datorer skyddar SQL-servrar som finns i Azure, i andra moln miljöer och till och med lokala datorer. Detta utökar skydds inställningarna för dina Azure-inhemska SQL-servrar för att fullt stödja hybrid miljöer.
+
+Den här förhands gransknings funktionen innehåller funktioner för att identifiera och åtgärda potentiella databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på hot mot databasen: 
+
+* **Sårbarhets bedömning** – genomsöknings tjänsten för att identifiera, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Utvärderings genomsökningar ger en översikt över säkerhets läget för SQL-datorer och information om eventuella säkerhets brister.
+
+* [Avancerat skydd](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) – identifierings tjänsten som kontinuerligt övervakar dina SQL-servrar för hot som SQL-inmatning, brute-force-attacker och behörighets missbruk. Den här tjänsten innehåller åtgärds lösa säkerhets aviseringar i Azure Security Center med information om den misstänkta aktiviteten, vägledning om hur du minimerar hoten och alternativ för att fortsätta med din undersökning med Azure Sentinel.
+
+>[!TIP]
+> Avancerad data säkerhet för SQL-datorer är ett tillägg till Azure Security Center [avancerade data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), redan tillgängligt för Azure SQL-databaser, Synapse-och SQL-hanterade instanser.
 
 
-## <a name="overview"></a>Översikt
+## <a name="set-up-advanced-data-security-for-sql-machines"></a>Konfigurera avancerad data säkerhet för SQL-datorer 
 
-Avancerad data säkerhet ger en uppsättning avancerade SQL-säkerhetsfunktioner, som består av sårbarhets bedömning och Avancerat skydd.
+Att ställa in Azure Security Center avancerade data säkerhet för SQL-datorer innefattar två steg:
 
-* [Sårbarhets bedömning](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) är ett enkelt sätt att konfigurera en tjänst som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger insyn i ditt säkerhets tillstånd och innehåller stegen för att lösa säkerhets problem och förbättra din databas Fortifications.
-* [Avancerat skydd](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din SQL Server. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och tillhandahåller åtgärds säkerhets aviseringar om avvikande databas åtkomst mönster. De här aviseringarna ger information om misstänkta aktiviteter och rekommenderade åtgärder för att undersöka och minimera hotet.
+* Etablera Log Analytics-agenten på SQL Server-värden. Detta ger anslutningen till Azure.
 
-## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Kom igång med avancerad data säkerhet för SQL på virtuella Azure-datorer
+* Aktivera det valfria paketet på Security Center pris-och inställnings sida.
 
-Följande steg hjälper dig att komma igång med avancerad data säkerhet för SQL på Azure VM: ar offentlig för hands version.
+Båda beskrivs nedan.
 
-### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Konfigurera avancerad data säkerhet för SQL på virtuella Azure-datorer
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Steg 1. Etablera Log Analytics-agenten på SQL Server-värden:
 
-Aktivera avancerad data säkerhet för SQL-servrar på Virtual Machines på prenumerations-/arbets ytans nivå:
- 
+- **SQL Server på Azure VM** – om din SQL-dator finns på en virtuell Azure-dator kan du [etablera Log Analytics-agenten automatiskt](security-center-enable-data-collection.md#workspace-configuration). Alternativt kan du följa den manuella proceduren för [att lägga till en virtuell Azure-dator](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
+
+- **SQL Server på Azure-bågen** – om SQL Server finns på en [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) -dator kan du distribuera Log Analytics agenten med hjälp av Security Center rekommendationen Log Analytics Agent installeras på dina Windows-baserade Azure Arc-datorer (för hands version) ". Du kan också följa den manuella proceduren i [Azure Arc-dokumentationen](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+- **SQL Server lokal** – om din SQL Server finns på en lokal Windows-dator utan Azure ARC har du två alternativ för att ansluta den till Azure:
+    
+    - **Distribuera Azure-båge** – du kan ansluta en Windows-dator till Security Center. Azure-bågen ger dock djupare integrering i *hela* Azure-miljön. Om du konfigurerar Azure Arc visas sidan **SQL Server – Azure-båge** i portalen. dina säkerhets aviseringar visas på en särskild **säkerhets** flik på sidan. Det första och rekommenderade alternativet är att [Konfigurera Azure-bågen på värden](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) och följa anvisningarna för **SQL Server på Azure-bågen**ovan.
+        
+    - **Anslut Windows-datorn utan Azure-båge** – om du väljer att ansluta en SQL Server som körs på en Windows-dator utan att använda Azure-bågen följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
+
+### <a name="step-2-enable-the-optional-bundle-in-security-centers-pricing-and-settings-page"></a>Steg 2. Aktivera det valfria paketet på Security Center pris-och inställnings sida:
+
 1. Från Security Centerens marginal List öppnar du sidan **Inställningar för pris &** .
 
-1. Välj den prenumeration eller arbets yta för vilken du vill aktivera avancerad data säkerhet för SQL på virtuella Azure-datorer.
+    - Om du använder **Azure Security Center standard arbets ytan** (med namnet "defaultworkspace-[ditt prenumerations-ID]-[region]") väljer du den relevanta **prenumerationen**.
 
-1. Växla alternativet för **SQL-servrar på virtuell dator (för hands version)** till aktive rad. 
+    - Om du använder **en arbets yta som inte är standard**väljer du relevant **arbets yta** (ange arbets ytans namn i filtret om det behövs):
 
-    (Klicka på skärm bilden för att expandera)
-
-    [![Security Center rekommendationer och aviseringar som visas i administrations Center för Windows](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
-
-    Avancerad data säkerhet för SQL-servrar kommer att aktive ras på alla SQL-servrar som är anslutna till den valda arbets ytan eller standard arbets ytan för den valda prenumerationen.
-
-    >[!NOTE]
-    > Lösningen är helt aktiv efter den första omstarten av SQL Server. 
-
-Skapa en ny arbets yta genom att följa anvisningarna i [skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-
-Du ansluter SQL Servers värd till en arbets yta genom att följa anvisningarna i [Anslut Windows-datorer till Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+        ![rubrik](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
-## <a name="set-up-email-notification-for-security-alerts"></a>Konfigurera e-postavisering om säkerhets aviseringar 
+1. Växla alternativet för **SQL-servrar på datorer (för hands version)** till aktive rad. 
 
-Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Security Center aviseringar genereras. E-postmeddelandet innehåller en direkt länk till aviseringen i Azure Security Center med all relevant information. 
+    [![Sidan Security Center prissättning med valfria paket](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-1. Gå till **Security Center** > **priser & inställningar** och klicka på den aktuella prenumerationen
+    Avancerad data säkerhet för SQL-servrar på datorer kommer att aktive ras på alla SQL-servrar som är anslutna till den valda arbets ytan. Skyddet aktive ras fullständigt efter den första omstarten av SQL Server. 
 
-    ![Prenumerations inställningar](./media/security-center-advanced-iaas-data/subscription-settings.png)
+    >[!TIP] 
+    > Skapa en ny arbets yta genom att följa anvisningarna i [skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. Klicka på **e-postmeddelanden**på menyn Inställningar. 
-1. I text rutan **e-postadress** anger du de e-postadresser som ska ta emot meddelandena. Du kan ange mer än en e-postadress genom att avgränsa e-postadresserna med kommatecken (,).  Till exempel admin1@mycompany.comadmin2@mycompany.com,admin3@mycompany.com
 
-    ![E-postinställningar](./media/security-center-advanced-iaas-data/email-settings.png)
+1. Du kan också konfigurera e-postavisering om säkerhets aviseringar. 
+    Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Security Center aviseringar genereras. E-postmeddelandet innehåller en direkt länk till aviseringen i Azure Security Center med all relevant information. Mer information finns i [Konfigurera e-postaviseringar för säkerhets aviseringar](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 
-1. I inställningar för **e-postavisering** anger du följande alternativ:
-  
-    * **Skicka e-postmeddelande för aviseringar med hög allvarlighets grad**: i stället för att skicka e-postmeddelanden för alla aviseringar skickar du bara för aviseringar med hög allvarlighets grad.
-    * **Skicka också e-postmeddelanden till prenumerations ägare**: skicka meddelanden till prenumerations ägarna.
 
-1. Klicka på **Spara**överst på skärmen med **e-postaviseringar** .
-
-  > [!NOTE]
-  > Se till att klicka på **Spara** innan du stänger fönstret, annars sparas inte de nya inställningarna för **e-postaviseringar** .
 
 ## <a name="explore-vulnerability-assessment-reports"></a>Utforska rapporter om sårbarhets bedömning
 
-Instrument panelen för sårbarhets bedömning ger en översikt över dina utvärderings resultat över alla dina databaser. Du kan visa distributionen av databaser enligt SQL Server version, tillsammans med en sammanfattning av misslyckade jämfört med att skicka databaser och en översikt över misslyckade kontroller efter risk distribution.
+Tjänsten sårbarhets bedömning söker igenom dina databaser en gång i veckan. Genomsökningarna körs samma dag i veckan då du aktiverade tjänsten.
+
+Instrument panelen för sårbarhets bedömning ger en översikt över dina utvärderings resultat över alla dina databaser, tillsammans med en sammanfattning av felfria och felaktiga databaser, och en översikt över misslyckade kontroller efter risk distribution.
 
 Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
-1. Från Security Centerens marginal List, under resurs säkerhets HYGIEN, väljer du **Data & lagring**.
+1. Från Security Centerens marginal List öppnar du sidan **rekommendationer** och väljer **säkerhets risker på SQL Database-servrarna på datorerna bör åtgärdas (för hands version)**. Mer information finns i [Security Center rekommendationer](security-center-recommendations.md). 
 
-1. Välj **säkerhets risker för SQL-databaser i virtuella datorer som ska åtgärdas (för hands version)**. Mer information finns i [Security Center rekommendationer](security-center-recommendations.md). 
 
-    [![* * Säkerhets risker i SQL-databaser i virtuella datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![* * Säkerhets risker i SQL-databaser på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     Den detaljerade vyn för den här rekommendationen visas.
 
-    [![Detaljerad vy för * *-sårbarheter på dina SQL-databaser i virtuella datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Detaljerad vy för * *-sårbarheter på dina SQL-databaser på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-1. För att öka detalj nivån för mer information:
+1. Mer information finns i öka detalj nivån:
 
-    * En översikt över scannade resurser (databaser) och en lista över säkerhets kontroller som har testats får du genom att klicka på Server.
-    [![Sårbarheter grupperade efter SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
+    * Om du vill ha en översikt över scannade resurser (databaser) och en lista över säkerhets kontroller som har testats väljer du Server av intresse.
 
-    * En översikt över sårbarheter grupperade efter en speciell SQL-databas får du genom att klicka på databasens intresse.
-    [![Sårbarheter grupperade efter SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
+    * En översikt över sårbarheter grupperade efter en speciell SQL-databas får du genom att välja databasens intresse.
 
     I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avancerat skydd för SQL-servrar i Azure VM-aviseringar
-Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-servrar. Dessa händelser kan utlösa följande aviseringar:
+## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Avancerade hot skydd för SQL-servrar på dator aviseringar
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet aviseringar för SQL Database och SQL Data Warehouse på referens sidan aviseringar](alerts-reference.md#alerts-sql-db-and-warehouse).
 
-### <a name="anomalous-access-pattern-alerts-preview"></a>Varningar om avvikande åtkomst mönster (förhands granskning)
-
-* **Åtkomst från ovanlig plats:** Den här aviseringen utlöses när åtkomst mönstret ändras till SQL Server, där någon har loggat in på SQL-servern från en ovanlig geografisk plats. Möjliga orsaker:
-    * En angripare eller tidigare skadlig anslutning har till gång till din SQL Server.
-    * En legitim användare har använt din SQL Server från en ny plats.
-* **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. Möjliga orsaker:
-    * En angripare försöker att göra en överträdelse av SQL med vanliga angrepps verktyg.
-    * En legitim inträngande testning i praktiken.
-* **Access from unfamiliar principal** (Åtkomst från ovanligt huvudkonto): Den här aviseringen utlöses när åtkomstmönstret till SQL-servern ändras, där någon har loggat in på SQL-servern med ett ovanligt huvudkonto (SQL-användare). Möjliga orsaker:
-    * En angripare eller tidigare skadlig anslutning har till gång till din SQL Server. 
-    * En legitim användare har använt din SQL Server från med ett nytt huvud konto.
-* **Brute force SQL credentials** (Nyckelsökningsattack mot SQL-autentiseringsuppgifter): Den här aviseringen utlöses när det sker ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter. Möjliga orsaker:
-    * En angripare försöker få en överträdelse av SQL med brute force.
-    * En legitim inträngande testning i praktiken.
-
-### <a name="potential-sql-injection-attacks-supported-in-sql-server-2019"></a>Möjliga SQL-injektering-attacker (stöds i SQL Server 2019)
-
-* **Sårbarhet för SQL-inmatning**: den här aviseringen utlöses när ett program genererar en felaktig SQL-instruktion i databasen. Aviseringen kan tyda på en eventuell sårbarhet för SQL-inmatningsattacker. Möjliga orsaker:
-    * Ett fel i programkoden konstruktioner den felaktiga SQL-instruktionen
-    * Programkod eller lagrade procedurer rensar inte indata från användare när den felaktiga SQL-instruktionen skapas, och det här kan utnyttjas för SQL-inmatning
-* **Potential SQL injection** (Potentiell SQL-inmatning): Den här aviseringen utlöses när en aktiv sårbarhet utnyttjas mot ett program som är sårbart för SQL-inmatning. Det innebär att angriparen försöker mata in skadliga SQL-instruktioner med hjälp av den sårbara programkoden eller lagrade procedurer.
-
-
-### <a name="unsafe-command-supported-in-sql-server-2019"></a>Osäkert kommando (stöds i SQL Server 2019)
-
-* **Potentiellt osäker åtgärd**: den här aviseringen utlöses när ett starkt privilegierat och eventuellt osäkert kommando körs. Möjliga orsaker:
-    * Kommandot som rekommenderas att inaktive ras för bättre säkerhet position är aktiverat.
-    * En angripare försöker utnyttja SQL-åtkomst eller eskalera privilegier.   
 
 
 ## <a name="explore-and-investigate-security-alerts"></a>Utforska och undersök säkerhets aviseringar
 
-Dina data säkerhets aviseringar är tillgängliga i Security Center sidan aviseringar, på resursens säkerhets flik eller via den direkta länken i e-postaviseringarna.
+Säkerhets aviseringar är tillgängliga på Security Center sidan aviseringar, på resursens säkerhets flik eller via den direkta länken i e-postaviseringarna.
 
-1. För att visa aviseringar:
-
-    * I Security Center klickar du på **säkerhets aviseringar** från sid panelen och väljer en avisering.
-    * I resurs omfånget – öppna den relevanta resurs sidan och klicka på **säkerhet**från sido panelen. 
+1. Om du vill visa aviseringar väljer du **säkerhets aviseringar** från Security Centers marginal list och väljer en avisering.
 
 1. Aviseringar är utformade för att vara fristående, med detaljerade åtgärds steg och information om undersökningar i var och en. Du kan undersöka ytterligare med hjälp av andra Azure Security Center-och Azure Sentinel-funktioner för en bredare vy:
 
-    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse.
+    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse. [Läs mer om SQL Server granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * Använd Security Center rekommendationer för värddatorn som anges i varje avisering för att förbättra din säkerhets position. Detta minskar risken för framtida attacker. 
+
+    [Lär dig mer om att hantera och svara på aviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om relaterade material finns i följande artikel:
 
-- [Så här åtgärdar du rekommendationer](security-center-remediate-recommendations.md)
+- [Säkerhets aviseringar för SQL Database och SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md)
+- [Läs mer om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+- [Azure Security Centers avancerade data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

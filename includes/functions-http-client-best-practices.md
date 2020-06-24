@@ -13,4 +13,4 @@ ms.locfileid: "67187111"
 ---
 > [!TIP]
 >
-> Om du planerar att använda HTTP-eller webhook-bindningarna bör du planera för att undvika att port överbelastningen kan orsakas av `HttpClient`felaktig instansiering av. Mer information finns i [hantera anslutningar i Azure Functions](../articles/azure-functions/manage-connections.md).
+> Om du planerar att använda HTTP-eller webhook-bindningarna bör du planera för att undvika att port överbelastningen kan orsakas av felaktig instansiering av `HttpClient` . Mer information finns i [hantera anslutningar i Azure Functions](../articles/azure-functions/manage-connections.md).

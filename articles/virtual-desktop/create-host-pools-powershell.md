@@ -4,23 +4,23 @@ description: Så här skapar du en adresspool i Windows Virtual Desktop med Powe
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c9c9a7d1845875fd80471ad2380a1ec7933cfb3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6b064c6e4107da5695e2a9945240e4276ac795b8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607677"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211858"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
 >[!IMPORTANT]
 >Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 >
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan associeras med flera RemoteApp-grupper, en Skriv bords grupp och flera värdbaserade sessioner.
@@ -34,10 +34,10 @@ Den här artikeln förutsätter att du redan har följt instruktionerna i [Konfi
 Kör följande cmdlet för att logga in på Windows-miljön för virtuella skriv bord:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
 ```
 
-Den här cmdleten skapar den värdbaserade poolen, arbets ytan och skriv bords gruppen. Dessutom registrerar den Skriv bords gruppen på arbets ytan. Du kan antingen skapa en arbets yta med denna cmdlet eller använda en befintlig arbets yta. 
+Den här cmdleten skapar den värdbaserade poolen, arbets ytan och skriv bords gruppen. Dessutom registrerar den Skriv bords gruppen på arbets ytan. Du kan antingen skapa en arbets yta med denna cmdlet eller använda en befintlig arbets yta.
 
 Kör nästa cmdlet för att skapa en registrerings-token för att auktorisera en sessions värd att ansluta till värddatorn och spara den till en ny fil på din lokala dator. Du kan ange hur länge registrerings-token är giltig med hjälp av parametern-ExpirationHours.
 
@@ -48,16 +48,16 @@ Kör nästa cmdlet för att skapa en registrerings-token för att auktorisera en
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
-Om du till exempel vill skapa en token som upphör att gälla om två timmar kör du denna cmdlet: 
+Om du till exempel vill skapa en token som upphör att gälla om två timmar kör du denna cmdlet:
 
 ```powershell
-New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')) 
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
 Därefter kör du denna cmdlet för att lägga till Azure Active Directory användare till standard gruppen för Skriv bords appar för poolen.
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Kör den här nästa cmdlet för att lägga till Azure Active Directory användar grupper i standard gruppen för Skriv bords appar för den aktuella värd poolen:
@@ -69,7 +69,7 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 Kör följande cmdlet för att exportera registrerings-token till en variabel, som du kommer att använda senare i [registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
-$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> 
+$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Skapa virtuella datorer för den värdbaserade poolen
@@ -85,7 +85,7 @@ Du kan skapa en virtuell dator på flera sätt:
 >[!NOTE]
 >Om du distribuerar en virtuell dator med Windows 7 som värd operativ system, är processen för att skapa och distribuera lite annorlunda. Mer information finns i [distribuera en virtuell Windows 7-dator på Windows Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-När du har skapat en sessions värd för virtuella datorer ska du [tillämpa en Windows-licens på en virtuell dator för en fjärrskrivbordssession](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) för att köra Windows-eller Windows Server-datorer utan att betala någon annan licens. 
+När du har skapat en sessions värd för virtuella datorer ska du [tillämpa en Windows-licens på en virtuell dator för en fjärrskrivbordssession](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) för att köra Windows-eller Windows Server-datorer utan att betala någon annan licens.
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Förbereda de virtuella datorerna för Windows Virtual Desktop agent-installationer
 

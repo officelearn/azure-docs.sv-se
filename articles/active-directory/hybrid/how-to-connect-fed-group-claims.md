@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd9a8366e64d41efac509a1cd611abbff774fe3f
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854147"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193489"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurera grupp anspråk för program med Azure Active Directory
 
@@ -84,7 +84,7 @@ Använd alternativ knapparna för att välja vilka grupper som ska ingå i token
 
 ![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Val | Beskrivning |
+| Urval | Beskrivning |
 |----------|-------------|
 | **Alla grupper** | Skapar säkerhets grupper och distributions listor och roller.  |
 | **Säkerhetsgrupper** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
@@ -140,14 +140,14 @@ Grupp anspråk kan också konfigureras i avsnittet [valfria anspråk](../../acti
 
 Giltiga värden är:
 
-| Val | Beskrivning |
+| Urval | Beskrivning |
 |----------|-------------|
 | **Vissa** | Skapar säkerhets grupper, distributions listor och roller |
 | **"SecurityGroup"** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
 | **"DirectoryRole** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
 | **"Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 
-   Exempel:
+   Ett exempel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -222,6 +222,6 @@ Så här genererar du grupp namn som ska returneras i netbiosDomain\samAccountNa
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tilldela en användare eller grupp till en företags app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Konfigurera rollanspråk](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Lägg till auktorisering med grupper & grupp anspråk till en ASP.NET Core webbapp (kod exempel)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Tilldela en användare eller grupp till en företags app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Konfigurera rollanspråk](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241446"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707471"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av PowerShell
 
@@ -132,7 +132,7 @@ Get-AzPublicIpAddress `
   | Select IpAddress
 ```
 
-Öppna en kommandotolk på den lokala datorn. Kör `mstsc`-kommandot. Ersätt `<publicIpAddress>` med den offentliga IP-adress som returnerades från det senaste steget:
+Öppna en kommandotolk på den lokala datorn. Kör kommandot `mstsc`. Ersätt `<publicIpAddress>` med den offentliga IP-adress som returnerades från det senaste steget:
 
 > [!NOTE]
 > Om du har kört dessa kommandon från en PowerShell-kommandotolk på din lokala dator, och du använder version 1.0 av Az PowerShell-modulen eller senare, kan du fortsätta i det gränssnittet.
@@ -145,7 +145,7 @@ mstsc /v:<publicIpAddress>
 1. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn.
 
     > [!NOTE]
-    > Du kan behöva välja **fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+    > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 

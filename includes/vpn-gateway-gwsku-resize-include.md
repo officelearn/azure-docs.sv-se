@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "73495739"
 ---
-Du kan använda `Resize-AzVirtualNetworkGateway` PowerShell-cmdleten för att uppgradera eller nedgradera en Generation1-eller GENERATION2-SKU (alla VpnGw SKU: er kan ändra storlek förutom grundläggande SKU: er). Om du använder den grundläggande Gateway-SKU: n [använder du de här anvisningarna i stället](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) för att ändra storlek på din gateway.
+Du kan använda `Resize-AzVirtualNetworkGateway` PowerShell-cmdleten för att uppgradera eller nedgradera en Generation1-eller Generation2-SKU (alla VpnGw SKU: er kan ändra storlek förutom grundläggande SKU: er). Om du använder den grundläggande Gateway-SKU: n [använder du de här anvisningarna i stället](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) för att ändra storlek på din gateway.
 
 I följande PowerShell-exempel visas en gateway-SKU som ändrar storlek till VpnGw2.
 

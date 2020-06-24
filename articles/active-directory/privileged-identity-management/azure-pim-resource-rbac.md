@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329646"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743158"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
@@ -88,7 +88,7 @@ Resurs granskning ger dig en översikt över alla roll aktiviteter för en resur
 
 1. För **gransknings typ**väljer du **Aktivera (tilldelad + aktive rad)**.
 
-    [![Resurs gransknings listan filtrerad genom att aktivera](media/azure-pim-resource-rbac/rbac-audit-activity.png "Resurs gransknings lista filtrerad efter aktivering")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![gransknings typen resurs gransknings lista som är filtrerad genom att aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![Resurs gransknings listan filtrerad efter aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png "Resurs gransknings lista filtrerad efter aktivering")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ Resurs gransknings lista som filtrerats efter aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Under **åtgärd**klickar du på **(aktivitet)** för en användare för att se användarens aktivitets information i Azure-resurser.
 
@@ -116,7 +116,7 @@ I min granskning kan du Visa din personliga roll aktivitet.
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Hämta orsak, god kännare och biljett nummer för godkännande händelser
 
 1. Logga in på [Azure Portal](https://aad.portal.azure.com) med roll behörigheten privilegierad roll administratör och öppna Azure AD.
-1. Välj **gransknings loggar**.
+1. Välj **Granskningsloggar**.
 1. Använd **tjänst** filtret om du endast vill visa gransknings händelser för tjänsten Privileged Identity Management. På sidan **gransknings loggar** kan du:
 
     - Se orsaken till en gransknings händelse i kolumnen **status orsak** .

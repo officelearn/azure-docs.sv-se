@@ -11,19 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d94f7219c5a29de9a707aa9ae4ed25ac4b2bf03e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042983"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254318"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här självstudien distribuerar och utforskar du Wingtip-biljetterna SaaS Database-per klient program (Wingtip). Appen använder en databas per klient mönster för att lagra data för flera klienter. Appen är utformad för att demonstrera funktioner i Azure SQL Database som fören klar hur du aktiverar SaaS-scenarier.
 
-Fem minuter efter att du har valt **distribuera till Azure**har du ett SaaS-program för flera innehavare. Appen innehåller en SQL-databas som körs i molnet. Appen distribueras med tre exempel klienter, var och en med sin egen databas. Alla databaser distribueras till en elastisk SQL-pool. Appen distribueras till din Azure-prenumeration. Du har fullständig åtkomst till att utforska och arbeta med de enskilda komponenterna i appen. Application C#-källkoden och hanterings skripten är tillgängliga i [WingtipTicketsSaaS-DbPerTenant GitHub lagrings platsen][github-wingtip-dpt].
+Fem minuter efter att du har valt **distribuera till Azure**har du ett SaaS-program för flera innehavare. Appen innehåller en databas som körs i Azure SQL Database. Appen distribueras med tre exempel klienter, var och en med sin egen databas. Alla databaser distribueras till en elastisk SQL-pool. Appen distribueras till din Azure-prenumeration. Du har fullständig åtkomst till att utforska och arbeta med de enskilda komponenterna i appen. Application C#-källkoden och hanterings skripten är tillgängliga i [WingtipTicketsSaaS-DbPerTenant GitHub lagrings platsen][github-wingtip-dpt].
 
 I den här guiden lär du dig:
 
@@ -37,7 +38,7 @@ I den här guiden lär du dig:
 
 Det finns en [serie relaterade självstudier](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) för att utforska olika SaaS design-och hanterings mönster. Självstudierna bygger vidare på den här inledande distributionen. När du använder självstudierna kan du undersöka de angivna skripten för att se hur de olika SaaS-mönstren implementeras. Skripten visar hur funktionerna i SQL Database fören klar utvecklingen av SaaS-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att Azure PowerShell är installerat för att slutföra den här självstudien. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -87,7 +88,7 @@ När programmet distribueras kan du ladda ned käll koden och hanterings skripte
 1. Bläddra till [WingtipTicketsSaaS-DbPerTenant GitHub-lagrings platsen][github-wingtip-dpt].
 1. Välj **Klona eller ladda ned**.
 1. Välj **Hämta zip**och spara sedan filen.
-1. Högerklicka på filen **WingtipTicketsSaaS-DbPerTenant-Master. zip** och välj sedan **Egenskaper**.
+1. Högerklicka på **WingtipTicketsSaaS-DbPerTenant-master.zip** -filen och välj sedan **Egenskaper**.
 1. På fliken **Allmänt** väljer du **avblockera**  >  **Använd**.
 1. Välj **OK**och extrahera filerna
 
@@ -107,7 +108,7 @@ Dessa värden refereras till i nästan alla skript.
 
 I appen demonstreras platser som är värdar för händelser. Plats typerna omfattar konsert salar, Jazz klöver och idrotts klubbar. I Wingtip-biljetter registreras platser som klienter. Att vara en klient organisation ger ett enkelt sätt att lista händelser och sälja biljetter till sina kunder. Varje plats får en anpassad webbplats där de kan lista sina händelser och sälja biljetter.
 
-Internt i appen får varje klient en SQL-databas distribuerad till en elastisk SQL-pool.
+Internt i appen hämtar varje klient organisation en databas som distribueras till en elastisk pool.
 
 En **Hubbs** sida för centrala händelser innehåller en lista över länkar till klienterna i distributionen.
 
@@ -153,7 +154,7 @@ Nu när appen har distribuerats kan vi placera den att fungera.
 
 PowerShell *-skriptet demo-LoadGenerator* startar en arbets belastning som körs mot alla klient databaser. Den verkliga belastningen på många SaaS-appar är sporadisk och oförutsägbar. För att simulera den här typen av belastning skapar generatorn en belastning med slumpmässiga toppar eller burst-överföringar för varje klient. Burst-överföringarna sker med slumpmässiga intervall. Det tar flera minuter innan belastnings mönstret uppträder. Låt generatorn köras i minst tre eller fyra minuter innan du övervakar belastningen.
 
-1. I PowerShell ISE öppnar du... \\ Learning modules- \\ verktyg \\ *demo-LoadGenerator. ps1* -skript.
+1. I PowerShell ISE öppnar du... \\ Verktyg för inlärnings moduler \\ \\ *Demo-LoadGenerator.ps1* skript.
 2. Tryck på F5 för att köra skriptet och starta belastnings generatorn. Lämna standardvärdena för parameter för tillfället.
 3. Logga in på ditt Azure-konto och välj den prenumeration som du vill använda, om det behövs.
 
@@ -167,17 +168,17 @@ Om du vill kontrol lera och övervaka bakgrunds jobben använder du följande cm
 - `Receive-Job`
 - `Stop-Job`
 
-### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator. ps1-åtgärder
+### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 åtgärder
 
-*Demo-LoadGenerator. ps1* imiterar en aktiv arbets belastning för kund transaktioner. Följande steg beskriver den sekvens med åtgärder som *demo-LoadGenerator. ps1* initierar:
+*Demo-LoadGenerator.ps1* imiterar en aktiv arbets belastning för kund transaktioner. I följande steg beskrivs en sekvens med åtgärder som *Demo-LoadGenerator.ps1* initieras:
 
-1. *Demo-LoadGenerator. ps1* startar *LoadGenerator. ps1* i förgrunden.
+1. *Demo-LoadGenerator.ps1* börjar *LoadGenerator.ps1* i förgrunden.
 
     - Både. ps1-filer lagras under verktygen i Learning modules för mappar \\ \\ .
 
-2. *LoadGenerator. ps1* -loopar via alla klient databaser i katalogen.
+2. *LoadGenerator.ps1* slingor via alla klient databaser i katalogen.
 
-3. *LoadGenerator. ps1* startar ett bakgrunds-PowerShell-jobb för varje klient databas:
+3. *LoadGenerator.ps1* startar ett bakgrunds-PowerShell-jobb för varje klient databas:
 
     - Som standard körs bakgrunds jobben i 120 minuter.
     - Varje jobb orsakar en CPU-baserad belastning på en klient databas genom att köra *sp_CpuLoadGenerator*. Belastningens intensitet och varaktighet varierar beroende på `$DemoScenario` .
@@ -199,7 +200,7 @@ Innan du fortsätter med nästa avsnitt måste du lämna belastnings generatorn 
 Den första distributionen skapar tre exempel klienter. Nu skapar du en annan klient för att se hur det distribuerade programmet påverkar. I Wingtip-appen förklaras arbets flödet för att etablera nya klienter i [själv studie kursen om etablering och katalog](saas-dbpertenant-provision-and-catalog.md). I det här steget skapar du en ny klient, som tar mindre än en minut.
 
 1. Öppna en ny PowerShell ISE.
-2. Öppna... \\ Learning Modules\Provision och Catalog \\ *provisionandcatalog. ps1*.
+2. Öppna... \\ Lär dig Modules\Provision och katalog \\ *Demo-ProvisionAndCatalog.ps1*.
 3. Tryck på F5 för att köra skriptet. Lämna standardvärdena för tillfället.
 
    > [!NOTE]
@@ -239,7 +240,7 @@ Nu när du har börjat köra en belastning mot samlingen av klienter kan vi titt
 
 ## <a name="monitor-the-pool"></a>Övervaka poolen
 
-När *LoadGenerator. ps1* körs i flera minuter bör det finnas tillräckligt med data för att börja titta på vissa övervaknings funktioner. Dessa funktioner är inbyggda i pooler och databaser.
+När *LoadGenerator.ps1* körts i flera minuter bör det finnas tillräckligt med data för att kunna börja titta på vissa övervaknings funktioner. Dessa funktioner är inbyggda i pooler och databaser.
 
 Bläddra till servern **tenants1-DPT- &lt; User &gt; **och välj **Pool1** för att Visa resursutnyttjande för poolen. I följande diagram kördes belastnings generatorn i en timme.
 

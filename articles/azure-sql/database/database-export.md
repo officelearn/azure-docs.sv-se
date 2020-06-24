@@ -1,7 +1,7 @@
 ---
 title: Exportera en Azure SQL Database till en BACPAC-fil (Azure Portal)
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Exportera en Azure SQL-databas till en BACPAC-fil med hjälp av Azure Portal.
+description: Exportera en databas till en BACPAC-fil med hjälp av Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,20 +11,20 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22dd4286b77fd93ca595d48706cf5760808428a9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: a8fb5675f086402bd5e5970fd856fce51220e8f4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322982"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253519"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 När du behöver exportera en databas för arkivering eller för att flytta till en annan plattform kan du exportera databasens schema och data till en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -fil. En BACPAC-fil är en ZIP-fil med en utökning av BACPAC som innehåller metadata och data från databasen. En BACPAC-fil kan lagras i Azure Blob Storage eller i lokal lagring på en lokal plats och senare importeras tillbaka till Azure SQL Database, Azure SQL-hanterad instans eller en SQL Server instans.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 - För att en export ska kunna utföras konsekvent måste du se till att ingen Skriv aktivitet inträffar under exporten eller att du exporterar från en [transaktions konsekvent kopia](database-copy.md) av databasen.
 - Om du exporterar till Blob Storage är den maximala storleken för en BACPAC-fil 200 GB. För att arkivera en större BACPAC-fil, exportera till lokal lagring.
@@ -44,7 +44,7 @@ När du behöver exportera en databas för arkivering eller för att flytta till
 Det finns för närvarande inte stöd för att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) med hjälp av Azure Portal. Använd SQL Server Management Studio eller SQLPackage i stället.
 
 > [!NOTE]
-> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
+> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
 
 1. Om du vill exportera en databas med hjälp av [Azure Portal](https://portal.azure.com)öppnar du sidan för din databas och klickar på **Exportera** i verktygsfältet.
 
@@ -66,7 +66,7 @@ Om du vill exportera en databas i SQL Database med hjälp av kommando rads verkt
 
 Vi rekommenderar att du använder SQLPackage-verktyget för skalning och prestanda i de flesta produktions miljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 
-Det här exemplet visar hur du exporterar en databas med hjälp av SqlPackage. exe med Active Directory Universal Authentication:
+Det här exemplet visar hur du exporterar en databas med hjälp av SqlPackage.exe med Active Directory Universal Authentication:
 
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"

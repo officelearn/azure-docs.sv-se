@@ -1,5 +1,5 @@
 ---
-title: 'Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster '
+title: Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 description: Lär dig hur du använder Azure Data Lake Storage Gen2 med Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd41c162d44320fc19af904118f202423e68e96a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a9a3aaecc854ddb710f19bcb3d455c63b3a8bef
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195357"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706179"
 ---
-# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster 
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
 Azure Data Lake Storage Gen2 är en moln lagrings tjänst avsedd för stor data analys som bygger på Azure Blob Storage. Data Lake Storage Gen2 kombinerar funktionerna i Azure Blob Storage och Azure Data Lake Storage Gen1. Den resulterande tjänsten erbjuder funktioner från Azure Data Lake Storage Gen1. Dessa funktioner är: semantiska fil system, säkerhet på katalog nivå och filnivå samt anpassnings förmåga. Tillsammans med låg kostnad, nivå lagring, hög tillgänglighet och katastrof återställning från Azure Blob Storage.
 
@@ -116,7 +116,7 @@ Kodfragmentet nedan visar följande inledande steg:
 1. Skapar en ny resurs grupp för de nya distributions aktiviteterna.
 1. Skapar en användardefinierad hanterad identitet.
 1. Lägger till ett tillägg i Azure CLI för att använda funktioner för Data Lake Storage Gen2.
-1. Skapar ett nytt Data Lake Storage Gen2-konto med hjälp `--hierarchical-namespace true` av flaggan.
+1. Skapar ett nytt Data Lake Storage Gen2-konto med hjälp av `--hierarchical-namespace true` flaggan.
 
 ```azurecli
 az login
@@ -169,7 +169,7 @@ Ditt HDInsight-klusters möjlighet att komma åt filer i Data Lake Storage Gen2 
 
 Azure-tjänster har två typer av hanterade identiteter: systemtilldelade och tilldelade användare. HDInsight använder användare tilldelade hanterade identiteter för att få åtkomst till Data Lake Storage Gen2. En `user-assigned managed identity` skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure.
 
-Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Mer information om hanterade identiteter finns i [Hur fungerar hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Hur gör jag för att ställer du in behörigheter för Azure AD-användare att fråga efter data i Data Lake Storage Gen2 med hjälp av Hive eller andra tjänster?
 
@@ -235,7 +235,7 @@ Exempel baseras på en [ssh-anslutning](./hdinsight-hadoop-linux-use-ssh-unix.md
 
 #### <a name="creating-a-hive-table"></a>Skapa en Hive-tabell
 
-Tre fil platser visas i syfte att illustrera. Använd endast en av `LOCATION` posterna för faktisk körning.
+Tre fil platser visas i syfte att illustrera. Använd endast en av posterna för faktisk körning `LOCATION` .
 
 ```hql
 DROP TABLE myTable;

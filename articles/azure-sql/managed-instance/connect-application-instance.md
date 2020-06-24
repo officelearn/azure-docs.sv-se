@@ -3,8 +3,8 @@ title: Anslut ditt program till SQL-hanterad instans
 titleSuffix: Azure SQL Managed Instance
 description: Den här artikeln beskriver hur du ansluter ditt program till en Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: fea16b3e1e5df056c241d07c0e1dd7a5a30819a5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219770"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706383"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Anslut ditt program till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ För fel sökning av anslutnings problem, se följande:
 
 - Kontrol lera att klient datorn (som kör VPN-klienten) har väg poster för alla virtuella nätverk som du behöver komma åt. Vägarna lagras i `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
 
-   ![Route. txt](./media/connect-application-instance/route-txt.png)
+   ![route.txt](./media/connect-application-instance/route-txt.png)
 
    Som du ser i den här bilden finns det två poster för varje virtuellt nätverk och en tredje post för VPN-slutpunkten som har kon figurer ATS i portalen.
 

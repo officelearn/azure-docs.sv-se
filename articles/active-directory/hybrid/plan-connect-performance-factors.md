@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897051"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253502"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
@@ -172,7 +172,7 @@ Storleken på din käll Active Directorys topologi påverkar SQL Database-presta
 
 - Organisationer med fler än 100 000 användare kan minska nätverks fördröjningen genom att placera SQL Database och etablerings motorn på samma server.
 - På grund av kraven för både indata och utdata (I/O) av synkroniseringen använder du solid state-hårddiskar (SSD) för etablerings motorns SQL-databas för optimala resultat, om det inte är möjligt, bör du överväga RAID 0-eller RAID 1-konfigurationer.
-- Gör inte en fullständig synkronisering för förebyggande syfte; Det orsakar onödig omsättning och långsammare svars tider.
+- Gör inte en fullständig synkronisering förebyggande syfte; Det orsakar onödig omsättning och långsammare svars tider.
 
 ## <a name="conclusion"></a>Slutsats
 

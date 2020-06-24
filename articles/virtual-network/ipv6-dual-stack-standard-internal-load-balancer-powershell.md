@@ -8,17 +8,17 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333370"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707522"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar med interna standard Load Balancer i Azure – PowerShell (för hands version)
 
@@ -38,9 +38,9 @@ Proceduren för att skapa en IPv6-kompatibel intern Load Balancer är nästan id
 ```
 
 De ändringar som görs ovanför en intern belastnings Utjämnings klient konfiguration är:
-- `PrivateIpAddressVersion` Anges som "IPv6"
-- `-PublicIpAddress` Argumentet har antingen utelämnats eller ersatts av `-PrivateIpAddress`. Observera att den privata adressen måste ligga inom intervallet för under nätets IP-utrymme där den interna belastningsutjämnaren ska distribueras. Om ett statiskt `-PrivateIpAddress` utelämnas väljs nästa kostnads fria IPv6-adress från under nätet där den interna belastningsutjämnaren distribueras.
-- Det dubbla stack-undernät där den interna belastningsutjämnaren ska distribueras anges med antingen ett `-Subnet` -eller `-SubnetId` -argument.
+- `PrivateIpAddressVersion`Anges som "IPv6"
+- `-PublicIpAddress`Argumentet har antingen utelämnats eller ersatts av `-PrivateIpAddress` . Observera att den privata adressen måste ligga inom intervallet för under nätets IP-utrymme där den interna belastningsutjämnaren ska distribueras. Om ett statiskt `-PrivateIpAddress` utelämnas väljs nästa kostnads fria IPv6-adress från under nätet där den interna belastningsutjämnaren distribueras.
+- Det dubbla stack-undernät där den interna belastningsutjämnaren ska distribueras anges med antingen ett- `-Subnet` eller- `-SubnetId` argument.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

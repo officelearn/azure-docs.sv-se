@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway

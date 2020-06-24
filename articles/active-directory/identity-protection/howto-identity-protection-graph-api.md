@@ -4,19 +4,19 @@ description: Lär dig hur du frågar Microsoft Graph risk identifieringar och ti
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: reference
+ms.topic: how-to
 ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54b78526ea1409f22b000aed8b20db90dfc9d143
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671621"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253570"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -72,7 +72,7 @@ Innan du börjar måste du ha:
 
    1. Som **typ**väljer du **webb program och/eller webb-API**.
 
-   1. I text rutan **inloggnings-URL** skriver `http://localhost`du.
+   1. I text rutan **inloggnings-URL** skriver du `http://localhost` .
 
    1. Klicka på **Skapa**.
 1. Öppna sidan **Inställningar** i listan program genom att klicka på din nyligen skapade app-registrering. 
@@ -139,12 +139,12 @@ I det här läget bör du ha:
 - Klient-ID 
 - Nyckeln 
 
-Du autentiserar genom att skicka en post `https://login.microsoft.com` -begäran till med följande parametrar i texten:
+Du autentiserar genom att skicka en post-begäran till `https://login.microsoft.com` med följande parametrar i texten:
 
 - grant_type: "**client_credentials**"
 - klusterresursen`https://graph.microsoft.com`
-- client_id: \<ditt klient-ID\>
-- client_secret: \<din nyckel\>
+- client_id:\<your client ID\>
+- client_secret:\<your key\>
 
 Om det lyckas returnerar detta en autentiseringstoken.  
 Om du vill anropa API: et skapar du ett sidhuvud med följande parameter:

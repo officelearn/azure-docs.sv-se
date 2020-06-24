@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254994"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706978"
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
@@ -103,7 +103,7 @@ Utför följande steg för att starta en support-session:
 7. Spara den här strängen och skicka den i ett e-postmeddelande till Microsoft Support.
 
 > [!IMPORTANT]
-> Du kan inaktivera support åtkomst genom att `Disable-HcsSupportAccess`köra. StorSimple-enheten kommer också att försöka inaktivera support åtkomst 8 timmar efter att sessionen initierades. Vi rekommenderar att du ändrar dina autentiseringsuppgifter för StorSimple-enheten när du har initierat en support-session.
+> Du kan inaktivera support åtkomst genom att köra `Disable-HcsSupportAccess` . StorSimple-enheten kommer också att försöka inaktivera support åtkomst 8 timmar efter att sessionen initierades. Vi rekommenderar att du ändrar dina autentiseringsuppgifter för StorSimple-enheten när du har initierat en support-session.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -5,17 +5,17 @@ description: Skapa ett självsignerat rot certifikat, exportera den offentliga n
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cherylmc
-ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9792f52ae60039ff4891ea95688f961e73283af
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279343"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983423"
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
+# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat till punkt-till-plats med hjälp av PowerShell
 
 Punkt-till-plats-anslutningar använder certifikat för att autentisera. Den här artikeln visar hur du skapar ett självsignerat rot certifikat och genererar klient certifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter olika certifikat instruktioner, se [certifikat – Linux](vpn-gateway-certificates-point-to-site-linux.md) eller [certifikat – MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 

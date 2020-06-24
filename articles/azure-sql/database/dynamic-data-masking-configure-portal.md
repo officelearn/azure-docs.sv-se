@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: ef7dc69b69f17f9b9759f767edb2bcaab32792d5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 12a187b29737ba9388d9b33ac8bcfedf1339c059
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050242"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253791"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Kom igång med SQL Database dynamisk data maskning med Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Den här artikeln visar hur du implementerar [dynamisk data maskning](dynamic-da
 
 1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 2. Gå till sidan Inställningar i databasen som innehåller de känsliga data som du vill maskera.
-3. Klicka på bladet **dynamisk data maskning** under **säkerhets** avsnittet i SQL-databasen.
+3. Klicka på bladet **dynamisk data maskning** under **säkerhets** avsnittet i databasen.
 
    ![Navigeringsfönster](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 

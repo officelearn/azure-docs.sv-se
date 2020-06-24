@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245985"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84742869"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Hanterings funktioner för Azure AD-roller i Privileged Identity Management
 
@@ -56,9 +56,9 @@ Både åtgärder som initieras av användaren kräver ett godkännande från en 
 
 ## <a name="api-changes"></a>API-ändringar
 
-När kunderna har den uppdaterade versionen som är distribuerad till sin Azure AD-organisation slutar det befintliga graf-API: et att fungera. Du måste gå över till för att använda [Graph API för Azures resurs roller](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Om du vill hantera Azure AD-roller med det `/azureResources` API `/aadroles` : t byter du till i signaturen och använder `resourceId`katalog-ID: t för.
+När kunderna har den uppdaterade versionen som är distribuerad till sin Azure AD-organisation slutar det befintliga graf-API: et att fungera. Du måste gå över till för att använda [Graph API för Azures resurs roller](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Om du vill hantera Azure AD-roller med det API: t byter du `/azureResources` till `/aadroles` i signaturen och använder katalog-ID: t för `resourceId` .
 
-Vi har försökt med vårt bästa att kontakta alla kunder som använder föregående API för att meddela dem om den här ändringen i förväg. Om din Azure AD-organisation har flyttats till den nya versionen och du fortfarande är beroende av det gamla API: et kan du kontakta pim_preview@microsoft.comteamet på.
+Vi har försökt med vårt bästa att kontakta alla kunder som använder föregående API för att meddela dem om den här ändringen i förväg. Om din Azure AD-organisation har flyttats till den nya versionen och du fortfarande är beroende av det gamla API: et kan du kontakta teamet på pim_preview@microsoft.com .
 
 ## <a name="powershell-change"></a>PowerShell-ändring
 

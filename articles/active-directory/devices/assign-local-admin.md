@@ -4,19 +4,19 @@ description: Lär dig hur du tilldelar Azure-roller till den lokala gruppen Admi
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4285c7d8cd6c9feee84eaae3c49ffd1f21d5df27
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128886"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253094"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -24,9 +24,9 @@ Om du vill hantera en Windows-enhet måste du vara medlem i den lokala gruppen A
 
 I den här artikeln förklaras hur medlemskaps uppdateringen fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-När du ansluter en Windows-enhet med Azure AD med hjälp av en Azure AD-anslutning lägger Azure AD till följande säkerhets principer i den lokala gruppen Administratörer på enheten:
+När du ansluter en Windows-enhet med Azure AD med hjälp av en Azure AD-anslutning lägger Azure AD till följande säkerhets objekt i den lokala gruppen Administratörer på enheten:
 
 - Rollen global administratör för Azure AD
 - Administratörs rollen för Azure AD-enhet 
@@ -79,7 +79,7 @@ Från och med **Windows 10 1709** -versionen kan du utföra den här åtgärden 
  
 Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 
-- Om klient användarna synkroniseras från lokala Active Directory använder `net localgroup administrators /add "Contoso\username"`du.
+- Om klient användarna synkroniseras från lokala Active Directory använder du `net localgroup administrators /add "Contoso\username"` .
 - Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Överväganden 

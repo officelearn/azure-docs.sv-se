@@ -2,7 +2,7 @@
 title: Viktiga skillnader för Machine Learning Services (förhands granskning)
 description: I det här avsnittet beskrivs viktiga skillnader mellan Machine Learning Services i Azure SQL-hanterad instans och SQL Server Machine Learning Services.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: 02211a09df2d2744119ea8fbe6f0ecaa63dba020
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045111"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254756"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader mellan Machine Learning Services i Azure SQL-hanterad instans och SQL Server
 
@@ -48,7 +48,7 @@ Machine Learning Services i SQL-hanterad instans och SQL Server stöd för både
   | SQL-hanterad instans | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
-- Du behöver inte konfigurera `external scripts enabled` via `sp_configure` . När du har [registrerat](machine-learning-services-overview.md#signup) dig för för hands versionen är Machine Learning aktiverat för din SQL-databas.
+- Du behöver inte konfigurera `external scripts enabled` via `sp_configure` . När du har [registrerat](machine-learning-services-overview.md#signup) dig för för hands versionen är Machine Learning aktiverat för Azure SQL-hanterad instans.
 
 ## <a name="packages"></a>Paket
 
@@ -59,8 +59,8 @@ Hantering av python-och R-paket fungerar annorlunda mellan SQL-hanterad instans 
 
 Mer information om hur du hanterar python-och R-paket finns i:
 
-- [Hämta information om python-paket](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
-- [Hämta R-paket information](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Hämta information om Python-paket](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Hämta information om R-paket](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
 
 ## <a name="resource-governance"></a>Resursstyrning
 

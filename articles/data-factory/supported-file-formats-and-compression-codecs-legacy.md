@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414652"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254624"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory (bakåtkompatibelt)
 
@@ -30,19 +30,19 @@ ms.locfileid: "81414652"
 >[!NOTE]
 >Lär dig mer om den nya modellen från artikeln [om avgränsat text format](format-delimited-text.md) . Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
-Om du vill läsa från en textfil eller skriva till en textfil anger du `type` egenskapen i `format` avsnittet i data uppsättningen till text format. **TextFormat** Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
+Om du vill läsa från en textfil eller skriva till en textfil anger du `type` egenskapen i `format` avsnittet i data uppsättningen till **TextFormat**text format. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga att använda ett sällsynt icke utskrivbart teckensnitt som kanske inte finns i dina data. Ange till exempel "\u0001" som representerar början av rubrik (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken läser du [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) för att hämta motsvarande kod för den. |Nej |
-| rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
-| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (,) som kolumn avgränsare, men vill ha ett kommatecken i texten (till exempel: "Hello, World"), kan du definiera "$" som escape-tecken och använda strängen "Hej $, World" i källan. |Nej |
-| quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
-| nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
-| encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
-| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |Nej |
-| skipLineCount |Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nej |
-| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |Nej |
+| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga att använda ett sällsynt icke utskrivbart teckensnitt som kanske inte finns i dina data. Ange till exempel "\u0001" som representerar början av rubrik (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken läser du [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) för att hämta motsvarande kod för den. |No |
+| rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |No |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (,) som kolumn avgränsare, men vill ha ett kommatecken i texten (till exempel: "Hello, World"), kan du definiera "$" som escape-tecken och använda strängen "Hej $, World" i källan. |No |
+| quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |No |
+| nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |No |
+| encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |No |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |No |
+| skipLineCount |Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |No |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |No |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
 
@@ -88,16 +88,16 @@ Om du vill **Importera/exportera en JSON-fil som är i/från Azure Cosmos DB**, 
 
 Om du vill parsa JSON-filerna eller skriva data i JSON-format anger du `type` egenskapen i `format` avsnittet till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
-| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Nej |
-| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
-| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är: **UTF-8**. |Nej |
-| nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
+| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |No |
+| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | No |
+| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | No |
+| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är: **UTF-8**. |No |
+| nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |No |
 
 >[!NOTE]
->När det gäller kors användnings data i matrisen i flera rader (fall 1 – > exempel 2 i [JsonFormat-exempel](#jsonformat-example)) kan du bara välja att expandera en enskild matris med `jsonNodeReference`egenskap.
+>När det gäller kors användnings data i matrisen i flera rader (fall 1 – > exempel 2 i [JsonFormat-exempel](#jsonformat-example)) kan du bara välja att expandera en enskild matris med egenskap `jsonNodeReference` .
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
@@ -231,7 +231,7 @@ och du vill kopiera den till en Azure SQL-tabell i följande format, genom att e
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [Mappa käll data uppsättnings kolumner till kolumner med mål data uppsättningar](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan `array[x].property` du använda för att extrahera värdet för den aktuella `xth` egenskapen från objektet, eller så `array[*].property` kan du använda för att hitta värdet från alla objekt som innehåller egenskapen.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda `array[x].property` för att extrahera värdet för den aktuella egenskapen från `xth` objektet, eller så kan du använda `array[*].property` för att hitta värdet från alla objekt som innehåller egenskapen.
 
 ```json
 "properties": {
@@ -306,8 +306,8 @@ som du vill kopiera till en Azure SQL-tabell i följande format genom att fören
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [Mappa käll data uppsättnings kolumner till kolumner med mål data uppsättningar](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`indikerar att iterera och extrahera data från objekt med samma mönster under **matrisen** `orderlines`.
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet `ordernumber` `orderdate`är, och `city` under rot objekt med JSON-sökväg som börjar `$.`med, `order_pd` medan `order_price` och definieras med en sökväg som härletts från mat `$.`ris elementet utan.
+- `jsonNodeReference`indikerar att iterera och extrahera data från objekt med samma mönster under **matrisen** `orderlines` .
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet `ordernumber` `orderdate` är, och `city` under rot objekt med JSON-sökväg som börjar med `$.` , medan `order_pd` och `order_price` definieras med en sökväg som härletts från mat ris elementet utan `$.` .
 
 ```json
 "properties": {
@@ -375,7 +375,7 @@ och för varje post förväntar du dig att skriva till ett JSON-objekt i följan
 }
 ```
 
-Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt definierar `structure` avsnittet anpassade egenskaps namn i målfilen, `nestingSeparator` (Standardvärdet är ".") används för att identifiera kapslings lagret från namnet. Det här avsnittet är **valfritt** såvida du inte vill ändra egenskapsnamnet som jämförs med källkolumnnamnet, eller kapsla vissa av egenskaperna.
+Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt `structure` definierar avsnittet anpassade egenskaps namn i målfilen, `nestingSeparator` (Standardvärdet är ".") används för att identifiera kapslings lagret från namnet. Det här avsnittet är **valfritt** såvida du inte vill ändra egenskapsnamnet som jämförs med källkolumnnamnet, eller kapsla vissa av egenskaperna.
 
 ```json
 "properties": {
@@ -429,17 +429,17 @@ Observera följande punkter:
 > [!IMPORTANT]
 > Om du inte kopierar Parquet-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
 
-För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera *`JAVA_HOME`* system variabeln för openjdk.
+För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera system variabeln *`JAVA_HOME`* för openjdk.
 
 - **För att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den [här](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
+- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera jvm.dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och Ställ in system miljö variabeln JAVA_HOME därför.
 
 >[!TIP]
->Om du kopierar data till/från Parquet-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod vid anrop till Java, meddelande: **Java. lang. OutOfMemoryError: Java-heap-utrymme**", kan `_JAVA_OPTIONS` du lägga till en miljö variabel på den dator som är värd för den egna IR-enheten för att justera den minsta/högsta heap-storleken för JVM för att få en
+>Om du kopierar data till/från Parquet-format med hjälp av självbetjäning Integration Runtime och träffa fel som säger "ett fel uppstod vid anrop till Java, meddelande: **Java. lang. OutOfMemoryError: Java-heap-utrymme**", kan du lägga till en miljö variabel `_JAVA_OPTIONS` på den dator som är värd för den egna IR-enheten för att justera den minsta/högsta heap-storleken för JVM för att få en
 
 ![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exempel: Ange variabeln `_JAVA_OPTIONS` med `-Xms256m -Xmx16g`värde. Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda maximalt `Xmx` mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
+Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda maximalt `Xmx` mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Data typs mappning för Parquet-filer
 
@@ -454,7 +454,7 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med `-Xms256m -Xmx16g`värde. Flaggan `X
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
-| Enkel | Float (Flyttal) | Ej tillämpligt | Ej tillämpligt |
+| Enskilt | Float | Ej tillämpligt | Ej tillämpligt |
 | Double | Double | Ej tillämpligt | Ej tillämpligt |
 | Decimal | Binär | Decimal | Decimal |
 | Sträng | Binär | Utf8 | Utf8 |
@@ -489,10 +489,10 @@ Observera följande punkter:
 > [!IMPORTANT]
 > Om du inte kopierar ORC-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
 
-För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera *`JAVA_HOME`* system variabeln för openjdk.
+För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera system variabeln *`JAVA_HOME`* för openjdk.
 
 - **För att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den [här](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
+- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera jvm.dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och Ställ in system miljö variabeln JAVA_HOME därför.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Data typs mappning för ORC-filer
 
@@ -507,7 +507,7 @@ För kopiering som körs på egen värd-IR med ORC-filserialisering/deserialiser
 | UInt32 | Lång |
 | Int64 | Lång |
 | UInt64 | Sträng |
-| Enkel | Float (Flyttal) |
+| Enskilt | Float |
 | Double | Double |
 | Decimal | Decimal |
 | Sträng | Sträng |
@@ -540,12 +540,12 @@ Observera följande punkter:
 
 ## <a name="compression-support-legacy"></a><a name="compression-support"></a>Komprimerings stöd (bakåtkompatibelt)
 
-Azure Data Factory stöder komprimering/expandering av data under kopiering. När du anger `compression` en egenskap i en indata-datauppsättning läser kopierings aktiviteten komprimerade data från källan och dekomprimerar den. och när du anger egenskapen i en data uppsättning för utdata, komprimerar kopierings aktiviteten och skriver sedan data till mottagaren. Här följer några exempel scenarier:
+Azure Data Factory stöder komprimering/expandering av data under kopiering. När du anger `compression` en egenskap i en indata-datauppsättning läser kopierings aktiviteten komprimerade data från källan och dekomprimerar den. När du anger egenskapen i en data uppsättning för utdata, komprimerar kopierings aktiviteten sedan data till mottagaren. Här följer några exempel scenarier:
 
-* Läs GZIP-komprimerade data från en Azure-Blob, expandera den och skriv resultat data till en Azure SQL-databas. Du definierar indata-Azure Blob-datauppsättningen med `compression` `type` egenskapen gzip.
-* Läs data från en oformaterad textfil från det lokala fil systemet, komprimera den med GZip-format och skriv komprimerade data till en Azure-blob. Du definierar en data uppsättning för Azure Blob- `compression` `type` utdata med egenskapen som gzip.
-* Läs. zip-fil från FTP-server, expandera den för att hämta filerna i och landa filerna i Azure Data Lake Store. Du definierar en inkommande FTP-datauppsättning `compression` `type` med egenskapen som ZipDeflate.
-* Läs en GZIP-komprimerad data från en Azure-Blob, komprimera den, komprimera den med BZIP2 och skriv resultat data till en Azure-blob. Du definierar indata-Azure Blob- `compression` `type` datauppsättningen med inställningen gzip och data `compression` `type` uppsättningen för utdata med värdet bzip2.
+* Läs GZIP-komprimerade data från en Azure-Blob, expandera den och skriv resultat data till Azure SQL Database. Du definierar indata-Azure Blob-datauppsättningen med `compression` `type` egenskapen gzip.
+* Läs data från en oformaterad textfil från det lokala fil systemet, komprimera den med GZip-format och skriv komprimerade data till en Azure-blob. Du definierar en data uppsättning för Azure Blob-utdata med `compression` `type` egenskapen som gzip.
+* Läs. zip-fil från FTP-server, expandera den för att hämta filerna i och landa filerna i Azure Data Lake Store. Du definierar en inkommande FTP-datauppsättning med `compression` `type` egenskapen som ZipDeflate.
+* Läs en GZIP-komprimerad data från en Azure-Blob, komprimera den, komprimera den med BZIP2 och skriv resultat data till en Azure-blob. Du definierar indata-Azure Blob-datauppsättningen med `compression` `type` inställningen gzip och data uppsättningen för utdata med `compression` `type` värdet bzip2.
 
 Om du vill ange komprimering för en data uppsättning använder du **komprimerings** egenskapen i data uppsättnings-JSON som i följande exempel:
 
@@ -575,7 +575,7 @@ Om du vill ange komprimering för en data uppsättning använder du **komprimeri
 
 **Komprimerings** avsnittet har två egenskaper:
 
-* **Typ:** komprimerings-codecen, som kan vara **gzip**, **DEFLATE**, **bzip2**eller **ZipDeflate**. Obs! när du använder kopierings aktivitet för att expandera ZipDeflate-filer och skriva till filbaserat mottagar data lager extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/`.
+* **Typ:** komprimerings-codecen, som kan vara **gzip**, **DEFLATE**, **bzip2**eller **ZipDeflate**. Obs! när du använder kopierings aktivitet för att expandera ZipDeflate-filer och skriva till filbaserat mottagar data lager extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` .
 * **Nivå:** komprimerings förhållandet, som kan vara **optimalt** eller **snabbast**.
 
   * **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.

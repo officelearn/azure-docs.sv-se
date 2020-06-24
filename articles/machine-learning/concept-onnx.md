@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 08/15/2019
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09b1fa31ff8f93ea86a80092b43d071df6cd74e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270178"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211790"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX och Azure Machine Learning: skapa och påskynda ML-modeller
 
@@ -24,23 +24,27 @@ Lär dig hur du använder [Open neurala Network Exchange](https://onnx.ai) (ONNX
 
 Optimering av maskin inlärnings modeller för härledning (eller modell poängsättning) är svår eftersom du behöver justera modellen och ett bibliotek för att få ut mesta möjliga av maskin varu funktionerna. Problemet blir mycket hårt om du vill få optimala prestanda på olika typer av plattformar (Cloud/Edge, CPU/GPU osv.), eftersom var och en har olika funktioner och egenskaper. Komplexiteten ökar om du har modeller från en mängd olika ramverk som måste köras på olika plattformar. Det är mycket tids krävande att optimera alla olika kombinationer av ramverk och maskin vara. En lösning att träna en gång i det ramverk som du föredrar och köra var som helst i molnet eller i kanten behövs. Det är där ONNX kommer in.
 
-Microsoft och en community för partners skapade ONNX som en öppen standard för att representera maskin inlärnings modeller. Modeller från [många ramverk](https://onnx.ai/supported-tools) , inklusive TensorFlow, PyTorch, SciKit-lära, keras, kedjor, MXNET och MATLAB, kan exporteras eller konverteras till standard ONNX-formatet. När modellerna är i ONNX-formatet kan de köras på olika plattformar och enheter.
+Microsoft och en community för partners skapade ONNX som en öppen standard för att representera maskin inlärnings modeller. Modeller från [många ramverk](https://onnx.ai/supported-tools) , inklusive TensorFlow, PyTorch, SciKit-lära, keras, kedjer, MXNET, MATLAB och SparkML, kan exporteras eller konverteras till standard ONNX-formatet. När modellerna är i ONNX-formatet kan de köras på olika plattformar och enheter.
 
-[ONNX runtime](https://github.com/Microsoft/onnxruntime) är en härlednings motor med hög prestanda för att distribuera ONNX-modeller till produktion. Den är optimerad för både molnet och Edge och fungerar på Linux, Windows och Mac. Det finns även C-, python-och C#-API: er skrivna i C++. ONNX runtime ger stöd för all ONNX-ML-specifikationen och integreras också med acceleratorer på olika maskin vara, till exempel TensorRT på NVidia GPU: er.
+[ONNX runtime](https://onnxruntime.ai) är en härlednings motor med hög prestanda för att distribuera ONNX-modeller till produktion. Den är optimerad för både molnet och Edge och fungerar på Linux, Windows och Mac. Den har skrivits i C++ och har även API: er för C, python, C#, Java och Java Script (Node.js) för användning i en mängd olika miljöer. ONNX runtime stöder både DNN och traditionella ML-modeller och integreras med acceleratorer på olika maskin vara, till exempel TensorRT på NVidia GPU: er, Open på Intel-processorer, DirectML på Windows och mycket annat. Genom att använda ONNX runtime kan du dra nytta av de omfattande optimeringar av produktions klass, testning och pågående förbättringar.
 
-ONNX runtime används i storskaliga Microsoft-tjänster som Bing, Office och Cognitive Services. Prestanda vinster är beroende av ett antal faktorer, men dessa Microsoft-tjänster har sett en __genomsnittlig dubbel prestanda vinst på CPU__. ONNX runtime används också som en del av Windows ML på hundratals miljon tals enheter. Du kan använda körnings miljön med Azure Machine Learning. Genom att använda ONNX runtime kan du dra nytta av de omfattande optimeringar av produktions klass, testning och pågående förbättringar.
+ONNX runtime används i storskaliga Microsoft-tjänster som Bing, Office och Azure Cognitive Services. Prestanda vinster är beroende av ett antal faktorer, men dessa Microsoft-tjänster har sett en __genomsnittlig dubbel prestanda vinst på CPU__. Förutom Azure Machine Learning Services körs även ONNX-körning i andra produkter som stöder Machine Learning arbets belastningar, inklusive:
++ Windows: körningen är inbyggd i Windows som en del av [windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) och körs på hundratals miljoner enheter. 
++ Azure SQL-produkt familj: kör intern bedömning av data i [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) och [Azure SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
++ ML.NET: [Kör ONNX-modeller i ml.net](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
+
 
 [![Flödes diagram för ONNX som visar utbildning, konverterare och distribution](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
 Du kan hämta ONNX-modeller på flera olika sätt:
-+ Träna en ny ONNX-modell i Azure Machine Learning (se exempel längst ned i den här artikeln)
++ Träna en ny ONNX-modell i Azure Machine Learning (se exempel längst ned i den här artikeln) eller med hjälp av [automatiska Machine Learning-funktioner](concept-automated-ml.md#automl--onnx)
 + Konvertera en befintlig modell från ett annat format till ONNX (se [självstudierna](https://github.com/onnx/tutorials)) 
-+ Hämta en förtränad ONNX-modell från [ONNX-modellen Zoo](https://github.com/onnx/models) (se exemplen längst ned i den här artikeln)
++ Hämta en förtränad ONNX-modell från [ONNX-modellen Zoo](https://github.com/onnx/models)
 + Skapa en anpassad ONNX-modell från [Azure Custom vision-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
 
-Många modeller, inklusive bild klassificering, objekt identifiering och text bearbetning kan representeras som ONNX-modeller. Vissa modeller kanske inte kan konverteras korrekt. Om du stöter på den här situationen kan du ange ett problem i GitHub för respektive konverterare som du använde. Du kan fortsätta att använda din befintliga format modell tills problemet har åtgärd ATS.
+Många modeller, inklusive bild klassificering, objekt identifiering och text bearbetning kan representeras som ONNX-modeller. Om du stöter på ett problem med en modell som inte kan konverteras, kan du ange ett problem i GitHub för respektive konverterare som du har använt. Du kan fortsätta att använda din befintliga format modell tills problemet har åtgärd ATS.
 
 ## <a name="deploy-onnx-models-in-azure"></a>Distribuera ONNX-modeller i Azure
 
@@ -69,7 +73,7 @@ first_input_name = session.get_inputs()[0].name
 first_output_name = session.get_outputs()[0].name
 ```
 
-Om du vill lägga till en `run` utgångs punkt i din modell använder du och skickar i listan över utdata som du vill returnera (lämna tomt om du vill ha dem) och en karta över indatavärdena. Resultatet är en lista över utdata.  
+`run`Om du vill lägga till en utgångs punkt i din modell använder du och skickar i listan över utdata som du vill returnera (lämna tomt om du vill ha dem) och en karta över indatavärdena. Resultatet är en lista över utdata.  
 ```python
 results = session.run(["output1", "output2"], {
                       "input1": indata1, "input2": indata2})
@@ -79,18 +83,20 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 En fullständig python API-referens finns i [referens dokument för körning av ONNX](https://aka.ms/onnxruntime-python).    
 
 ## <a name="examples"></a>Exempel
-
-Se [How-to-use-azureml/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel Notebooks som skapar och distribuerar Onnx-modeller.
+Se [How-to-use-azureml/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel python-anteckningsböcker som skapar och distribuerar Onnx-modeller.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
+Exempel på användning på andra språk finns i [ONNX runtime-GitHub](https://github.com/microsoft/onnxruntime/tree/master/samples).
+
 ## <a name="more-info"></a>Mer information
 
-Läs mer om ONNX eller bidra till projektet:
+Läs mer om **ONNX** eller bidra till projektet:
 + [ONNX Project-webbplats](https://onnx.ai)
 + [ONNX-kod på GitHub](https://github.com/onnx/onnx)
 
-Läs mer om ONNX runtime eller bidra till projektet:
+Läs mer om **ONNX runtime** eller bidra till projektet:
++ [ONNX runtime Project-webbplats](https://onnxruntime.ai)
 + [ONNX runtime GitHub lagrings platsen](https://github.com/Microsoft/onnxruntime)
 
 

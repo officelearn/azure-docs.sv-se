@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b09b431e827bed4e416913c88d23ee1eddaf17c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629022"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254828"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Felsöka Azure Event Grid fel
 Den här fel söknings guiden innehåller en lista över Azure Event Grid felkoder, fel meddelanden, beskrivningar och rekommenderade åtgärder som du bör vidta när du får dessa fel. 
@@ -29,11 +29,18 @@ Den här fel söknings guiden innehåller en lista över Azure Event Grid felkod
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. konflikt <br/>409 | Det finns redan ett ämne med det angivna namnet. Välj ett annat ämnes namn.   | Namnet på den anpassade artikeln bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för ämnet. |
 | HttpStatusCode. konflikt <br/> 409 | Den angivna domänen finns redan. Välj ett annat domän namn. | Domän namnet bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för domänen. |
-| HttpStatusCode. konflikt<br/>409 | Kvot gränsen har uppnåtts. Mer information om dessa gränser finns [Azure Event Grid gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Varje Azure-prenumeration har en gräns för antalet Azure Event Grid-resurser som den kan använda. En eller flera av kvoten har överskridits och inga fler resurser kunde skapas. |    Kontrol lera den aktuella resurs användningen och ta bort alla som inte behövs. Om du fortfarande behöver öka kvoten skickar du ett e-postmeddelande [aeg@microsoft.com](mailto:aeg@microsoft.com) till med det exakta antalet resurser som behövs. |
+| HttpStatusCode. konflikt<br/>409 | Kvot gränsen har uppnåtts. Mer information om dessa gränser finns [Azure Event Grid gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Varje Azure-prenumeration har en gräns för antalet Azure Event Grid-resurser som den kan använda. En eller flera av kvoten har överskridits och inga fler resurser kunde skapas. |    Kontrol lera den aktuella resurs användningen och ta bort alla som inte behövs. Om du fortfarande behöver öka kvoten skickar du ett e-postmeddelande till [aeg@microsoft.com](mailto:aeg@microsoft.com) med det exakta antalet resurser som behövs. |
+
+## <a name="error-code-403"></a>Felkod: 403
+
+| Felkod | Felmeddelande | Beskrivning | Rekommenderad åtgärd |
+| ---------- | ------------- | ----------- | ------------------ |
+| HttpStatusCode. förbjuden <br/>403 | Publicering till {Topic/Domain} av klienten {IpAddress} nekas på grund av IP-filter. | Avsnittet eller domänen har konfigurerade regler för IP-brandvägg och åtkomst begränsas endast till konfigurerade IP-adresser. | Lägg till IP-adressen i IP-brandväggens regler, se [Konfigurera IP-brandvägg](configure-firewall.md) |
+| HttpStatusCode. förbjuden <br/> 403 | Publicering till {Topic/Domain} av klienten avvisas eftersom begäran kom från privat slut punkt och ingen matchande privat slut punkts anslutning hittades för resursen. | Ämnet eller domänen har konfigurerade privata slut punkter och publicerings förfrågan kom från en privat slut punkt som inte har kon figurer ATS/godkänts. | Konfigurera en privat slut punkt för ämnet/domänen. [Konfigurera privata slutpunkter](configure-private-endpoints.md) |
 
 ## <a name="troubleshoot-event-subscription-validation"></a>Felsöka verifiering av händelse prenumeration
 
-Om du ser ett fel meddelande, till exempel `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, innebär det att det är ett fel i validerings hand skakningen när händelse prenumerationen skapas. Kontrol lera följande aspekter för att lösa det här felet:
+Om du ser ett fel meddelande, till exempel `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , innebär det att det är ett fel i validerings hand skakningen när händelse prenumerationen skapas. Kontrol lera följande aspekter för att lösa det här felet:
 
 - Gör ett HTTP-inlägg till webhook-URL: en med ett [exempel på SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) för begäran med Postman eller sväng eller liknande verktyg.
 - Om webhooken implementerar mekanismen för synkron verifierings hand skakning kontrollerar du att ValidationCode returneras som en del av svaret.

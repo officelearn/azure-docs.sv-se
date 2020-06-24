@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267188"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706689"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort
 
@@ -79,7 +79,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Skapa en virtuell dator och koppla nätverkskorten
-När du skapar den virtuella datorn anger du de nätverkskort som du `--nics`skapade med. Du måste också vara försiktig när du väljer storleken på den virtuella datorn. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [storlekar för virtuella Linux-datorer](sizes.md).
+När du skapar den virtuella datorn anger du de nätverkskort som du skapade med `--nics` . Du måste också vara försiktig när du väljer storleken på den virtuella datorn. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [storlekar för virtuella Linux-datorer](sizes.md).
 
 Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM*:
 
@@ -169,7 +169,7 @@ Azure Resource Manager mallar använder deklarativ JSON-filer för att definiera
 
 Läs mer om att [skapa flera instanser med hjälp av *Kopiera*](../../resource-group-create-multiple.md). 
 
-Du kan också använda en `copyIndex()` för att lägga till ett nummer till ett resurs namn, vilket gör att du `myNic1`kan `myNic2`skapa, osv. Nedan visas ett exempel på hur du lägger till indexvärdet:
+Du kan också använda en `copyIndex()` för att lägga till ett nummer till ett resurs namn, vilket gör att du kan skapa `myNic1` , `myNic2` osv. Nedan visas ett exempel på hur du lägger till indexvärdet:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -222,7 +222,7 @@ Om du vill skicka till eller från ett sekundärt nätverks gränssnitt måste d
 
 När du lägger till vägen i operativ systemet är gateway-adressen 1 *för det undernät som nätverks* gränssnittet finns i. Om nätverks gränssnittet till exempel tilldelas adressen *10.0.2.4*, är den gateway som du anger för vägen *10.0.2.1*. Du kan definiera ett specifikt nätverk för vägens mål eller ange målet *0.0.0.0*om du vill att all trafik för gränssnittet ska gå via den angivna gatewayen. Gatewayen för varje undernät hanteras av det virtuella nätverket.
 
-När du har lagt till vägen för ett sekundärt gränssnitt kontrollerar du att vägen finns i din routningstabell med `route -n`. Följande exempel på utdata är för routningstabellen som har de två nätverks gränssnitt som har lagts till i den virtuella datorn i den här artikeln:
+När du har lagt till vägen för ett sekundärt gränssnitt kontrollerar du att vägen finns i din routningstabell med `route -n` . Följande exempel på utdata är för routningstabellen som har de två nätverks gränssnitt som har lagts till i den virtuella datorn i den här artikeln:
 
 ```bash
 Kernel IP routing table

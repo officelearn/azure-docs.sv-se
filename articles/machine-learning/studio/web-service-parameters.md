@@ -10,14 +10,14 @@ ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 3f2456370d6f74e5d34c6b387247a6de442acea7
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115453"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705873"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Använd Azure Machine Learning Studio (klassiska) webb tjänst parametrar
 
@@ -61,7 +61,7 @@ Vi kan till exempel anta att vi har ett experiment med en modul för [export av 
    
    En post läggs till under **webb tjänst parametrar** längst ned i fönstret Egenskaper med namnet "path to BLOB Start with container". Det här är den webb tjänst parameter som nu är associerad med den här parametern för [export data][writer] modul.
 4. Om du vill byta namn på parametern för webb tjänsten klickar du på namnet, anger "blobb Sök väg" och trycker på **RETUR** -tangenten. 
-5. Ange ett standardvärde för webb tjänst parametern genom att klicka på ikonen till höger om namnet, välj "Ange standardvärde", ange ett värde (till exempel "container1/output1. csv") och tryck på **RETUR** -tangenten.
+5. Ange ett standardvärde för webb tjänst parametern genom att klicka på ikonen till höger om namnet, välj "Ange standardvärde", ange ett värde (till exempel "container1/output1.csv") och tryck på **RETUR** -tangenten.
    
    ![Webb tjänst parameter](./media/web-service-parameters/parameter.png)
 6. Klicka på **Kör**. 

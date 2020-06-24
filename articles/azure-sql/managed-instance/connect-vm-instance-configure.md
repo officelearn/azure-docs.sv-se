@@ -3,7 +3,7 @@ title: Konfigurera Azure VM-anslutning
 titleSuffix: Azure SQL Managed Instance
 description: Anslut till en Azure SQL-hanterad instans med SQL Server Management Studio från en virtuell Azure-dator.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 9cfb8d2f9c7a04c519674856ca0e5603e0f9f782
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219761"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706366"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du konfigurerar en virtuell Azure-dator för at
 
 En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning i stället finns i [Konfigurera en punkt-till-plats](point-to-site-p2s-configure.md)-anslutning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här snabb starten används de resurser som skapats i [skapa en hanterad instans](instance-create-quickstart.md) som start punkt.
 
@@ -49,14 +49,14 @@ Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-V
 
 3. Fyll i formuläret med hjälp av informationen i den här tabellen:
 
-   | Inställning| Föreslaget värde | Description |
+   | Inställningen| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
-   | **Nätverks säkerhets grupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
-   | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Nätverks säkerhets grupp** | Inga | Standardvärdet är användbart för den här snabb starten.|
+   | **Routningstabell** | Inga | Standardvärdet är användbart för den här snabb starten.|
    | **Tjänstslutpunkter** | 0 valda | Standardvärdet är användbart för den här snabb starten.|
-   | **Delegering av undernät** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Delegering av undernät** | Inga | Standardvärdet är användbart för den här snabb starten.|
 
    ![Nytt SQL Managed instance-undernät för virtuell klient dator](./media/connect-vm-instance-configure/new-subnet.png)
 
@@ -78,7 +78,7 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
 
 2. Fyll i formuläret med hjälp av informationen i följande tabell:
 
-   | Inställning| Föreslaget värde | Description |
+   | Inställningen| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
    | **Resurs grupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md)|Den här resurs gruppen måste vara den som VNet finns i.|

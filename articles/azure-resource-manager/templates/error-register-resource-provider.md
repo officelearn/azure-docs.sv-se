@@ -4,11 +4,11 @@ description: Beskriver hur du löser registrerings fel i Azure Resource Provider
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273779"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706566"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel vid registreringen av resursprovidern
 
@@ -79,7 +79,7 @@ Använd följande om du vill hämta API-versioner som stöds för en viss typ av
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Om du vill se om providern är registrerad använder `az provider list` du kommandot.
+Om du vill se om providern är registrerad använder du `az provider list` kommandot.
 
 ```azurecli-interactive
 az provider list

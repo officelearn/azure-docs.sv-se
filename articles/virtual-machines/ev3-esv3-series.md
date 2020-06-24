@@ -7,20 +7,20 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 0121f73da911a9346fd1f142d98246709631a742
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9fcb714e68548b95ed6d32bb16fb08c43ff0e5fa
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678111"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707641"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3- och Esv3-serien
 
-Ev3 och Esv3-serien har Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz-processor (Broadwell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta generella arbets belastningar och ger Ev3 till justering med de flesta virtuella datorerna i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till hyperthreading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
+Ev3-och Esv3-serien körs på Intel® Xeon® platina 8272CL (överlappande sjö), eller Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz-processorn (Broadwell) i en Hyper-threadd konfiguration, vilket ger en bättre värdes justering för de flesta allmänna arbets belastningar, och att Ev3 kan anpassas till de flesta virtuella datorer i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till hyperthreading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
 
 ## <a name="ev3-series"></a>Ev3-serien
 
-Instanserna i Ev3-serien baseras på funktionen Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) och Intel Turbo Boost Technology 2,0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
+Instanserna i Ev3-serien körs på Intel® Xeon® platina 8272CL (överlappande sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) och funktionen Intel Turbo Boost Technology 2,0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du ESv3-storlekarna. Pris- och debiteringsmätarna för ESv3-storlekar är samma som för Ev3-serien.
 
@@ -54,7 +54,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="esv3-series"></a>Esv3-serien
 
-Instanserna i Esv3-serien baseras på funktionen Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Esv3-seriens instanser är idealiska för minnes intensiva företags program.
+Instanserna i Esv3-serien körs på Intel® Xeon® platina 8272CL (överlappande sjö), Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), funktion Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Esv3-seriens instanser är idealiska för minnes intensiva företags program.
 
 Esv3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
 

@@ -13,7 +13,7 @@ ms.locfileid: "68639117"
 ---
 Det enklaste sättet att installera bindnings tillägg är att aktivera [paket för tillägg](../articles/azure-functions/functions-bindings-register.md#extension-bundles). När du aktiverar paket installeras en fördefinierad uppsättning tilläggs paket automatiskt.
 
-Om du vill aktivera tilläggs paket öppnar du Host. JSON-filen och uppdaterar innehållet så att det matchar följande kod:
+Om du vill aktivera tilläggs paket öppnar du host.jspå filen och uppdaterar innehållet så att det matchar följande kod:
 
 ```json
 {

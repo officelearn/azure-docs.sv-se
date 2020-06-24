@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -52,4 +52,4 @@ ms.locfileid: "67187057"
 
     ![Sammanfattning](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-När registreringen är klar visas servern på bladet **Inställningar** > **servrar** i valvet.
+När registreringen är klar visas servern på bladet **Inställningar**  >  **servrar** i valvet.

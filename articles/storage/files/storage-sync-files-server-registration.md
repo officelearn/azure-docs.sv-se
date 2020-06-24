@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1972ecc249e44bb99e4e9c903a7e097e8d304938
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255098"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253893"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -76,10 +76,7 @@ Innan en server kan användas som en *Server slut punkt* i en Azure File Sync *S
 > Om servern är medlem i ett redundanskluster måste den Azure File Sync agenten installeras på varje nod i klustret.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>Registrera servern med hjälp av användar gränssnittet för Server registrering
-> [!Important]  
-> Prenumerationer på moln lösnings leverantörer (CSP) kan inte använda Server registrerings gränssnittet. Använd i stället PowerShell (under det här avsnittet).
-
-1. Om användar gränssnittet för Server registrering inte startade direkt efter att installationen av Azure File Sync-agenten har slutförts kan du starta den manuellt genom att `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`köra.
+1. Om användar gränssnittet för Server registrering inte startade direkt efter att installationen av Azure File Sync-agenten har slutförts kan du starta den manuellt genom att köra `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe` .
 2. Klicka på *Logga in* för att få åtkomst till din Azure-prenumeration. 
 
     ![Öppnar dialog rutan för Server registrerings gränssnittet](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -96,7 +93,7 @@ Innan en server kan användas som en *Server slut punkt* i en Azure File Sync *S
 > Om servern är medlem i ett redundanskluster måste varje server köra Server registreringen. När du visar registrerade servrar i Azure-portalen identifierar Azure File Sync automatiskt varje nod som en medlem i samma redundanskluster och grupperar dem tillsammans.
 
 #### <a name="register-the-server-with-powershell"></a>Registrera servern med PowerShell
-Du kan också utföra Server registrering via PowerShell. Detta är det enda stödda sättet för Server registrering för CSP-prenumerationer (Cloud Solution Provider):
+Du kan också utföra Server registrering via PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -117,7 +114,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  
-> Om den lokala volym som är värd för Server slut punkten inte har tillräckligt med ledigt utrymme för att återkalla alla data `Invoke-StorageSyncFileRecall` på nivån, kommer cmdleten att Miss bete.  
+> Om den lokala volym som är värd för Server slut punkten inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, `Invoke-StorageSyncFileRecall` kommer cmdleten att Miss bete.  
 
 #### <a name="remove-the-server-from-all-sync-groups"></a>Ta bort servern från alla Sync-grupper
 Innan du avregistrerar servern på synkroniseringstjänsten måste alla Server slut punkter på servern tas bort. Detta kan göras via Azure Portal:
@@ -161,7 +158,7 @@ Eftersom Azure File Sync sällan är den enda tjänst som körs i ditt data Cent
 Du kan begränsa nätverks användningen för Azure File Sync med hjälp av `StorageSyncNetworkLimit` cmdletarna.
 
 > [!Note]  
-> Nätverks gränser gäller inte när en fil med flera nivåer nås eller cmdleten Invoke-StorageSyncFileRecall används.
+> Nätverks gränser gäller inte när en fil med flera nivåer nås.
 
 Du kan till exempel skapa en ny begränsnings gräns för att säkerställa att Azure File Sync inte använder mer än 10 Mbit/s mellan 9 am och 5 PM (17:00h) under arbets veckan: 
 
@@ -176,7 +173,7 @@ Du kan se din gräns med hjälp av följande cmdlet:
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
-Använd `Remove-StorageSyncNetworkLimit`om du vill ta bort nätverks begränsningar. Följande kommando tar till exempel bort alla nätverks gränser:
+Använd om du vill ta bort nätverks begränsningar `Remove-StorageSyncNetworkLimit` . Följande kommando tar till exempel bort alla nätverks gränser:
 
 ```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported

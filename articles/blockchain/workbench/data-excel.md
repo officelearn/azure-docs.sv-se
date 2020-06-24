@@ -2,14 +2,14 @@
 title: Använda Azure Blockchain Workbench-data i Microsoft Excel
 description: Lär dig hur du läser in och visar Azure blockchain Workbench Preview SQL DB-data i Microsoft Excel.
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: a84858ead83782cc9b6ef1b1d7f905172600fb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4dd941abdded6a93510f4a71119769cd73855bcc
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74326051"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253553"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Visa Azure Blockchain Workbench-data med Microsoft Excel
 
@@ -27,7 +27,7 @@ Så här ansluter du till en Blockchain Workbench-databas:
 2. Välj **Hämta data** på fliken **Data**.
 3. Välj **Från Azure** och sedan **Från Azure SQL Database**.
 
-   ![Ansluta till Azure SQL-databas](./media/data-excel/connect-sql-db.png)
+   ![Anslut till Azure SQL Database](./media/data-excel/connect-sql-db.png)
 
 4. I dialogrutan **SQL Server-databas**:
 

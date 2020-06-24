@@ -5,21 +5,19 @@ description: Lär dig hur du uppdaterar en webb tjänst för att använda en nyt
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217940"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706094"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Retraining är ett sätt att se till att maskin inlärnings modeller hålls korrekta och baseras på de mest relevanta data som finns tillgängliga. Den här artikeln visar hur du omtränar och distribuerar en maskin inlärnings modell som en ny webb tjänst i Studio (klassisk). Om du vill träna en klassisk webb tjänst kan du [läsa den här instruktions artikeln.](retrain-classic-web-service.md)
 
@@ -61,14 +59,14 @@ I det här exemplet använder vi C# för att skapa retraining-programmet. Du kan
 
 Använd följande steg för att anropa API: erna för omträning:
 
-1. Skapa ett C#-konsol program i Visual Studio: **nytt** > **projekt** > **Visual C#** > **Windows klassisk Desktop** > **console-app (.NET Framework)**.
+1. Skapa ett C#-konsol program i Visual Studio: **nytt**  >  **projekt**  >  **Visual C#**  >  **Windows klassisk Desktop**  >  **console-app (.NET Framework)**.
 1. Logga in på Machine Learning Web Services-portalen.
 1. Klicka på den webb tjänst som du arbetar med.
 1. Klicka på **förbruka**.
 1. Klicka på **batch**i avsnittet **exempel kod** längst ned på sidan **förbrukare** .
 1. Kopiera exempel koden C# för batch-körning och klistra in den i Program.cs-filen. Se till att namn området förblir intakt.
 
-Lägg till NuGet-paketet Microsoft. ASPNET. WebApi. client enligt vad som anges i kommentarerna. Om du vill lägga till referensen i Microsoft. WindowsAzure. Storage. dll kan du behöva installera [klient biblioteket för Azure Storage Services](https://www.nuget.org/packages/WindowsAzure.Storage).
+Lägg till NuGet-paketet Microsoft. ASPNET. WebApi. client enligt vad som anges i kommentarerna. Om du vill lägga till referensen i Microsoft.WindowsAzure.Storage.dll kan du behöva installera [klient biblioteket för Azure Storage-tjänster](https://www.nuget.org/packages/WindowsAzure.Storage).
 
 Följande skärm bild visar sidan **förbruka** i Azure Machine Learning Web Services-portalen.
 
@@ -104,7 +102,7 @@ Du måste också se till att indatafilen är tillgänglig på den plats som du a
 
 ### <a name="specify-the-output-location"></a>Ange platsen för utdata
 
-När du anger platsen för utdata i nytto lasten för begäran måste fil namns tillägget som anges i *RelativeLocation* anges som `ilearner`.
+När du anger platsen för utdata i nytto lasten för begäran måste fil namns tillägget som anges i *RelativeLocation* anges som `ilearner` .
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {

@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250080"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706604"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Återställa nätverksgränssnittet för en virtuell Azure Windows-dator 
 
@@ -117,7 +117,7 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
 När du har fjärr skrivbordet till datorn måste du ta bort de gamla nätverkskorten för att undvika det potentiella problemet:
 
 1.  Öppna Enhetshanteraren.
-2.  Välj **Visa** > **Visa dolda enheter**.
+2.  Välj **Visa**  >  **Visa dolda enheter**.
 3.  Välj **nätverkskort**. 
 4.  Sök efter de nätverkskort som heter "Microsoft Hyper-V nätverkskort".
 5.  Du kan se ett otillgängligt kort som är nedtonat. Högerklicka på kortet och välj sedan Avinstallera.

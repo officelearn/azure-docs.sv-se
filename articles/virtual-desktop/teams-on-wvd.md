@@ -4,16 +4,16 @@ description: Använda Microsoft Teams på Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 0b2ef8a944af9f80dd65ce75869bcf4e3156c63f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667054"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254913"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -42,7 +42,7 @@ I det här avsnittet visas hur du installerar Teams Desktop-appen på en VM-avbi
 
 ### <a name="prepare-your-image-for-teams"></a>Förbered din avbildning för team
 
-Om du vill aktivera installation av team per dator anger du följande register nyckel på värden:
+Om du vill aktivera medie optimering för team anger du följande register nyckel på värden:
 
 1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Skapa följande värde för team nyckeln:
@@ -57,29 +57,39 @@ Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api
 
 ### <a name="install-microsoft-teams"></a>Installera Microsoft Teams
 
-Du kan distribuera Skriv bords appen för team med en installation per dator. Så här installerar du Microsoft Teams i din Windows Virtual Desktop-miljö:
+Du kan distribuera Skriv bords appen för team med en installation per dator eller per användare. Så här installerar du Microsoft Teams i din Windows Virtual Desktop-miljö:
 
 1. Ladda ned [Teams MSI-paketet](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) som matchar din miljö. Vi rekommenderar att du använder 64-bitars installations programmet på ett 64-bitars operativ system.
 
       > [!NOTE]
       > Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
 
-2. Kör det här kommandot för att installera MSI på den virtuella värddatorn.
+2. Kör något av följande kommandon för att installera MSI på den virtuella värddatorn:
 
-      ```console
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+    - Installation per användare
 
-      Detta installerar Teams till mappen programfiler (x86) på ett 64-bitars operativ system och i mappen program på ett 32-bitars operativ system. I det här läget är installationen av gyllene bilder klar. Installation av team per dator krävs för icke-beständiga installationer.
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
 
-      Nästa gången du öppnar team i en session uppmanas du att ange dina autentiseringsuppgifter.
+        Den här processen är standard installationen, som installerar team till mappen **% AppData%** User. Team fungerar inte korrekt med installation per användare på en icke-beständig installation.
 
-      > [!NOTE]
-      > Användare och administratörer kan inte inaktivera automatisk start för team under inloggningen just nu.
+    - Installation per dator
 
-      Kör det här kommandot om du vill avinstallera MSI från den virtuella värddatorn:
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
 
-      ```console
+        Detta installerar Teams till mappen programfiler (x86) på ett 64-bitars operativ system och i mappen program på ett 32-bitars operativ system. I det här läget är installationen av gyllene bilder klar. Installation av team per dator krävs för icke-beständiga installationer.
+
+        Nästa gången du öppnar team i en session uppmanas du att ange dina autentiseringsuppgifter.
+
+        > [!NOTE]
+        > Användare och administratörer kan inte inaktivera automatisk start för team under inloggningen just nu.
+
+3. Kör det här kommandot om du vill avinstallera MSI från den virtuella värddatorn:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -137,7 +147,7 @@ Om du stöter på problem med samtal och möten ska du samla in Teams webb klien
 
 ## <a name="contact-microsoft-teams-support"></a>Kontakta supporten för Microsoft Teams
 
-Om du vill kontakta supporten för Microsoft team går du till [Microsoft 365 administrations Center](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+Om du vill kontakta supporten för Microsoft team går du till [Microsoft 365 administrations Center](/microsoft-365/admin/contact-support-for-business-products).
 
 ## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
@@ -145,7 +155,7 @@ Genom att anpassa en värd Pools Remote Desktop Protocol egenskaper (RDP), t. ex
 
 Det krävs ingen aktivering av enhets omdirigering när du använder team med medie optimering. Om du använder team utan medie optimering anger du följande RDP-egenskaper för att aktivera omdirigering av mikrofon och kamera:
 
-- `audiocapturemode:i:1`aktiverar ljud fångst från den lokala enheten och redirets ljud program i fjärrsessionen.
+- `audiocapturemode:i:1`aktiverar ljud fångst från den lokala enheten och dirigerar om ljud program i fjärrsessionen.
 - `audiomode:i:0`spelar upp ljud på den lokala datorn.
 - `camerastoredirect:s:*`omdirigerar alla kameror.
 

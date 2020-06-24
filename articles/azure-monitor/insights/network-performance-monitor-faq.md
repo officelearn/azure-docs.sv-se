@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096224"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194011"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -54,11 +54,11 @@ Du kan få mer information om de relativa fördelarna med varje protokoll [här]
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hur gör jag för att konfigurera en nod för att stödja övervakning med TCP-protokoll?
 För noden för att stödja övervakning med TCP-protokoll: 
 * Se till att Node Platform är Windows Server (2008 SP1 eller senare).
-* Kör PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) på noden. Se [anvisningar](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
+* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-skript på noden. Se [anvisningar](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-porten som används av NPM för övervakning?
-Du kan ändra TCP-porten som används av NPM för övervakning genom att köra skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Du måste ange det port nummer som du vill använda som parameter. Om du till exempel vill aktivera TCP på port 8060 kör `EnableRules.ps1 8060`du. Se till att du använder samma TCP-port på alla noder som används för övervakning.
+Du kan ändra TCP-porten som används av NPM för övervakning genom att köra [EnableRules.ps1](https://aka.ms/npmpowershellscript) -skriptet. Du måste ange det port nummer som du vill använda som parameter. Om du till exempel vill aktivera TCP på port 8060 kör du `EnableRules.ps1 8060` . Se till att du använder samma TCP-port på alla noder som används för övervakning.
 
 Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har regler för nätverks brand vägg eller nätverks säkerhets grupp (NSG) kontrollerar du att de tillåter trafik till TCP-porten som används av NPM.
 
@@ -149,19 +149,19 @@ För information om MS peering-nivå använder du nedanstående fråga i loggs �
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
     
 För information om privat peering-nivå använder du ovanstående fråga i loggs ökning
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 För information om krets nivåer använder du den angivna frågan i loggs ökning
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Vilka regioner stöds för NPM-prestanda övervakaren?
 NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -213,7 +213,7 @@ Detta kan inträffa om antingen värd brand väggen eller mellanliggande brand v
 * Kontrol lera att en mellanliggande nätverks brand vägg eller Azure-NSG inte blockerar kommunikationen på den begärda porten genom att använda PsPing för tredje part med hjälp av anvisningarna nedan:
   * psping-verktyget är tillgängligt för nedladdning [här](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Kör följande kommando från Källnoden.
-    * psping-n 15 \<-målnod IPAddress\>:p ORTNUMBER som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda skriptet EnableRules. ps1 anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
+    * psping-n 15 \<destination node IPAddress\> :P Ortnumber som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda EnableRules.ps1-skriptet anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
 * Kontrol lera att pingarna fungerar. Annars indikerar det att en mellanliggande nätverks brand vägg eller Azure-NSG blockerar trafiken på den här porten.
 * Kör nu kommandot från målnod till nodens IP-adress.
 
@@ -222,7 +222,7 @@ Detta kan inträffa om antingen värd brand väggen eller mellanliggande brand v
 Eftersom nätverks Sök vägarna mellan A och B kan skilja sig från nätverks Sök vägarna mellan B till en, kan olika värden för förlust och svars tid observeras.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Varför identifieras inte alla mina ExpressRoute-kretsar och peering-anslutningar?
-NPM identifierar nu ExpressRoute-kretsar och peering-anslutningar i alla prenumerationer som användaren har åtkomst till. Välj alla prenumerationer där dina ExpressRoute-resurser är länkade och aktivera övervakning för varje identifierad resurs. NPM söker efter anslutnings objekt när en privat peering identifieras, så kontrol lera om ett VNET är associerat med din peering.
+NPM identifierar nu ExpressRoute-kretsar och peering-anslutningar i alla prenumerationer som användaren har åtkomst till. Välj alla prenumerationer där dina ExpressRoute-resurser är länkade och aktivera övervakning för varje identifierad resurs. NPM söker efter anslutnings objekt när en privat peering identifieras, så kontrol lera om ett VNET är associerat med din peering. NPM identifierar inte kretsar och peering som finns i en annan klient organisation än den Log Analytics arbets ytan.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER-skärms funktion har ett diagnostiskt meddelande "trafiken passerar inte genom någon krets". Vad innebär det?
 
@@ -233,6 +233,12 @@ Detta kan inträffa i följande fall:
 * ER-kretsen är inte tillgänglig.
 * Flödes filtren konfigureras på ett sådant sätt att de ger prioritet till andra vägar (t. ex. en VPN-anslutning eller en annan ExpressRoute-krets) över avsedd ExpressRoute-krets. 
 * De lokala och Azure-noderna som väljs för att övervaka ExpressRoute-kretsen i övervaknings konfigurationen har ingen anslutning till varandra via den avsedda ExpressRoute-kretsen. Se till att du har valt rätt noder som har anslutning till varandra över den ExpressRoute-krets som du vill övervaka.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Varför övervakar ExpressRoute min krets/peering som ohälsosam när den är tillgänglig och skickar data.
+ExpressRoute-övervakaren jämför nätverks prestanda värden (förlust, fördröjning och bandbredds användning) som rapporteras av agenter/tjänsten med tröskelvärdena som anges under konfigurationen. Om bandbredds användningen som rapporteras är större än tröskelvärdet i konfigurationen är kretsen markerad som ohälsosam. För peer-koppling är peer-kopplingen markerad som ohälsosam om förlusten, fördröjningen eller bandbredds användningen som rapporteras är större än tröskelvärdet som angetts i konfigurationen. NPM använder inte mått eller någon annan form av data för att deicde hälso tillstånd.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Varför rapporterar ExpressRoute Monitor'bandwidth-användning ett värde annan från mått bitar in/ut
+För ExpressRoute-övervakaren är bandbredds utiliation genomsnittet av inkommande och utgående bandbredd under de senaste 20 minuterna uttryckt i bitar per sekund. För Express Route-mått är bit in/ut per minut data punkter. Internt som används för båda är samma, men agg valies mellan NPM och ER-mått. För detaljerad övervakning av minuter per minut och snabba aviseringar rekommenderar vi att du ställer in aviseringar direkt på ER-statistik
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>När du konfigurerar övervakning av min ExpressRoute-krets identifieras inte Azure-noderna.
 Detta kan inträffa om Azure-noderna är anslutna via Operations Manager. ExpressRoute Monitor-kapacitet stöder bara de Azure-noder som är anslutna som direkta agenter.
@@ -263,7 +269,7 @@ Detta kan inträffa om mål tjänsten inte är ett webb program, men testet är 
 NPM-processen har kon figurer ATS att stoppa om den använder mer än 5% av värd processor resurserna. Detta är för att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbets belastningar utan att påverka prestandan.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>Kan NPM redigera brand Väggs regler för övervakning?
-NPM skapar bara en lokal regel för Windows-brandväggen på noderna där PowerShell-skriptet EnableRules. ps1 körs för att tillåta agenterna att skapa TCP-anslutningar med varandra på den angivna porten. Lösningen ändrar inte någon nätverks brand vägg eller regler för nätverks säkerhets grupper (NSG).
+NPM skapar bara en lokal regel för Windows-brandväggen på noderna där EnableRules.ps1 PowerShell-skriptet körs för att tillåta agenterna att skapa TCP-anslutningar med varandra på den angivna porten. Lösningen ändrar inte någon nätverks brand vägg eller regler för nätverks säkerhets grupper (NSG).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Hur kan jag kontrol lera hälso tillståndet för noderna som används för övervakning?
 Du kan visa hälso status för de noder som används för övervakning från följande vy: Övervakare av nätverksprestanda-> konfigurations > noder. Om en nod inte är felfri kan du Visa fel informationen och vidta den föreslagna åtgärden.

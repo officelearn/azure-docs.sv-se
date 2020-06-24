@@ -3,12 +3,12 @@ title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 6594386fd2d8c8ab9d9c1414d7e04f4352a3f086
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5ade39d014ca309796813cc6ff9259bcc8bdd17b
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678281"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194084"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -358,7 +358,7 @@ Om du vill skicka parameter värden infogade använder **du parameter** egenskap
       "contentVersion":"1.0.0.0"
      },
      "parameters": {
-      "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
     }
    }
   }
@@ -787,7 +787,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 I följande exempel visas vanliga användnings områden för länkade mallar.
 
-|Huvud mal len  |Länkad mall |Description  |
+|Huvud mal len  |Länkad mall |Beskrivning  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från den länkade mallen. |
 |[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adressen från den länkade mallen och anger värdet i belastningsutjämnaren. |

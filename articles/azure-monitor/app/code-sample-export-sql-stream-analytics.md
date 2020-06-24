@@ -3,15 +3,15 @@ title: Exportera till SQL från Azure Application Insights | Microsoft Docs
 description: Exportera Application Insights data kontinuerligt till SQL med Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 811d86c0a9b8e55f548046402885e2ec5967c477
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536921"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254692"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genom gång: exportera till SQL från Application Insights med Stream Analytics
-Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till en Azure SQL-databas med hjälp av [kontinuerlig export][export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till Azure SQL Database genom att använda [kontinuerlig export][export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Vid kontinuerlig export flyttas dina telemetridata till Azure Storage i JSON-format. Vi kommer att parsa JSON-objekten med Azure Stream Analytics och skapa rader i en databas tabell.
 
@@ -70,7 +70,7 @@ Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du m�
    
     Anteckna den gemensamma delen av Sök vägs namnet, som härleds från program namnet och Instrumentation-nyckeln. 
 
-Händelserna skrivs till BLOB-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Vi skulle läsa händelse data och filtrera bort de fält som vi vill. Det finns alla typer av saker som vi kan göra med data, men vår plan är i dag att använda Stream Analytics för att flytta data till en SQL-databas. Det gör det enkelt att köra många intressanta frågor.
+Händelserna skrivs till BLOB-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Vi skulle läsa händelse data och filtrera bort de fält som vi vill. Det finns alla typer av saker som vi kan göra med data, men vårt abonnemang är idag att använda Stream Analytics för att flytta data till SQL Database. Det gör det enkelt att köra många intressanta frågor.
 
 ## <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
 När du har börjat starta från din prenumeration i [Azure Portal][portal]skapar du databasen (och en ny server, om du inte redan har en) som du skriver data till.
@@ -220,7 +220,7 @@ Välj SQL som utdata.
 
 ![I Stream Analytics väljer du utdata](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Ange SQL-databasen.
+Ange databasen.
 
 ![Fyll i informationen om din databas](./media/code-sample-export-sql-stream-analytics/SA007.png)
 

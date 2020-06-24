@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60cbb269693b23b658b8e28f90383814d6657661
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870368"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194339"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Lägga till och hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ Python-paket kan läggas till på nivån Spark-pool (för hands version) och. ja
 
 Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Du hittar den fullständiga biblioteks listan på [Apache Spark versions stöd](apache-spark-version-support.md).
 
-När en spark-instans startar skapas en ny virtuell miljö med den här installationen som bas. Dessutom kan en *Requirements. txt* -fil (utdata från `pip freeze` kommandot) användas för att uppgradera den virtuella miljön. Paketen som anges i den här filen för installation eller uppgradering laddas ned från PyPi vid tidpunkten för klustrets start. Den här krav filen används varje gång en spark-instans skapas från den Spark-poolen.
+När en spark-instans startar skapas en ny virtuell miljö med den här installationen som bas. Dessutom kan en *requirements.txt* -fil (utdata från `pip freeze` kommandot) användas för att uppgradera den virtuella miljön. Paketen som anges i den här filen för installation eller uppgradering laddas ned från PyPi vid tidpunkten för klustrets start. Den här krav filen används varje gång en spark-instans skapas från den Spark-poolen.
 
 > [!IMPORTANT]
 >

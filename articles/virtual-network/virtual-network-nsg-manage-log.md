@@ -6,16 +6,16 @@ services: virtual-network
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133829"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696048"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Resurs loggning för en nätverks säkerhets grupp
 
@@ -34,7 +34,7 @@ Resurs loggning aktive ras separat för *varje* NSG som du vill samla in diagnos
 
 Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att aktivera resurs loggning.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [portalen](https://portal.azure.com).
 2. Välj **alla tjänster**och skriv sedan *nätverks säkerhets grupper*. När **nätverks säkerhets grupper** visas i Sök resultaten väljer du den.
@@ -45,7 +45,7 @@ Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [A
 
 5. Under **diagnostikinställningar**anger eller väljer du följande information och väljer sedan **Spara**:
 
-    | Inställning                                                                                     | Värde                                                          |
+    | Inställningen                                                                                     | Värde                                                          |
     | ---------                                                                                   |---------                                                       |
     | Namn                                                                                        | Ett namn som du väljer.  Till exempel: *myNsgDiagnostics*      |
     | **Arkivera till ett lagrings konto**, **strömma till en Event Hub**och **Skicka till Log Analytics** | Du kan välja så många destinationer du vill. Mer information om var och en finns i [logg destinationer](#log-destinations).                                                                                                                                           |
@@ -87,13 +87,13 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Om du bara vill logga data för en kategori eller den andra, i stället för båda, lägger du `-Categories` till alternativet i föregående kommando, följt av *NetworkSecurityGroupEvent* eller *NetworkSecurityGroupRuleCounter*. Om du vill logga till ett annat [mål](#log-destinations) än en Log Analytics arbets yta använder du lämpliga parametrar för ett Azure [Storage-konto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Om du bara vill logga data för en kategori eller den andra, i stället för båda, lägger du till `-Categories` alternativet i föregående kommando, följt av *NetworkSecurityGroupEvent* eller *NetworkSecurityGroupRuleCounter*. Om du vill logga till ett annat [mål](#log-destinations) än en Log Analytics arbets yta använder du lämpliga parametrar för ett Azure [Storage-konto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visa och analysera loggar. Mer information finns i [Visa och analysera loggar](#view-and-analyze-logs).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra Azure CLI från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör CLI från datorn behöver du version 2.0.38 eller senare. Kör `az --version` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du kör CLI lokalt måste du också köra `az login` för att logga in på Azure med ett konto som har de behörigheter som [krävs](virtual-network-network-interface.md#permissions).
+Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra Azure CLI från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör CLI från datorn behöver du version 2.0.38 eller senare. Kör `az --version` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du kör CLI lokalt måste du också köra `az login` för att logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
 Om du vill aktivera resurs loggning behöver du ID: t för en befintlig NSG. Om du inte har en befintlig NSG kan du skapa en med [AZ Network NSG Create](/cli/azure/network/nsg#az-network-nsg-create).
 
@@ -200,7 +200,7 @@ Regel räknar loggen innehåller information om varje regel som tillämpas på r
 Information om hur du visar resurs logg data finns i [Översikt över Azure Platform-loggar](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du skickar diagnostikdata till:
 - **Azure Monitor loggar**: du kan använda [nätverks säkerhets grupp analys](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) lösningen för förbättrade insikter. Lösningen innehåller visualiseringar för NSG-regler som tillåter eller nekar trafik, per MAC-adress, för nätverks gränssnittet på en virtuell dator.
-- **Azure Storage konto**: data skrivs till en PT1H. JSON-fil. Du kan hitta:
+- **Azure Storage konto**: data skrivs till en PT1H.jsi filen. Du kan hitta:
   - Händelse logg i följande sökväg:`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
   - Regel räknar loggen på följande sökväg:`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 

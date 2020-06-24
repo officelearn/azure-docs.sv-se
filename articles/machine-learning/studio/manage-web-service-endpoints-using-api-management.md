@@ -5,17 +5,17 @@ description: En guide som visar hur du hanterar AzureML-webbtjänster med API Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: a5814113906aadad01821f78863f5053b8082892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d9b83c065865bf8e3e5906aa3ad7107f1ca8da75
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114833"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705550"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio (klassiska) webb tjänster med API Management
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du snabbt kommer igång med API Management för att ha
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera dina REST API-slutpunkter genom att definiera användar åtkomst, användnings begränsning och övervakning av instrument paneler. Mer information finns på [webbplatsen för Azure API Management](https://azure.microsoft.com/services/api-management/) . Information om hur du kommer igång med Azure API Management finns i [import-och publicerings guiden](/azure/api-management/import-and-publish). Den här guiden, som den här guiden bygger på, omfattar fler ämnen, inklusive aviserings konfiguration, nivå priser, svars hantering, användarautentisering, skapa produkter, prenumerationer för utvecklare och användnings instrument paneler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att kunna slutföra den här guiden:
 
 * Ett Azure-konto.

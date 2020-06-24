@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 357fe6f04c79b5ad0cdf569e6716589007f6253b
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583677"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791970"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -33,7 +33,7 @@ Se [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-g
 
 ## <a name="method-lifecycle"></a>Metod livs cykel
 
-Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst-riktad`{iot hub}/twins/{device id}/methods/`URI (). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt (`$iothub/methods/POST/{method name}/`) eller via AMQP-länkar ( `IoThub-methodname` - `IoThub-status` och-program-egenskaperna). 
+Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst-riktad URI ( `{iot hub}/twins/{device id}/methods/` ). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt ( `$iothub/methods/POST/{method name}/` ) eller via AMQP-länkar (- `IoThub-methodname` och `IoThub-status` -program-egenskaperna). 
 
 > [!NOTE]
 > När du anropar en direkt metod på en enhet kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ Direkta metoder implementeras på enheten och kan kräva noll eller flera indata
 
 Direkta metoder är synkrona och slutförs eller Miss lyckas efter tids gräns perioden (standard: 30 sekunder, vilket kan anges mellan 5 och 300 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet ska agera om och endast om enheten är online och tar emot kommandon. Du kan till exempel aktivera en ljus källa från en telefon. I dessa scenarier vill du se en omedelbar framgång eller ett haveri, så att moln tjänsten kan agera på resultatet så snart som möjligt. Enheten kan returnera viss meddelande text som ett resultat av metoden, men det krävs inte för att metoden ska kunna användas. Det finns ingen garanti för beställning eller någon samtidig semantik för metod anrop.
 
-Direkta metoder är endast HTTPS-från moln sidan och MQTT eller AMQP från enhets sidan.
+Direkta metoder är endast HTTPS-från moln sidan och HTTPS, MQTT, AMQP, MQTT över WebSockets eller AMQP via WebSockets från enhets sidan.
 
 Nytto lasten för metod begär Anden och svar är ett JSON-dokument som är upp till 128 KB.
 
@@ -91,7 +91,7 @@ Börja med att använda [Microsoft Azure IoT-tillägget för Azure CLI för](htt
 az iot hub generate-sas-token -n <iothubName> -du <duration>
 ```
 
-Ersätt `iothubName`sedan Authorization-huvudet med den nyligen skapade SharedAccessSignature och ändra sedan parametrarna, `deviceId` `methodName` och `payload` för att matcha din implementering i exempel `curl` kommandot nedan.  
+Ersätt sedan Authorization-huvudet med den nyligen skapade SharedAccessSignature och ändra sedan `iothubName` `deviceId` parametrarna, `methodName` och `payload` för att matcha din implementering i exempel `curl` kommandot nedan.  
 
 ```bash
 curl -X POST \
@@ -122,8 +122,8 @@ Backend-appen tar emot ett svar som består av följande objekt:
 
 * *Http-status kod*:
   * 200 indikerar lyckad körning av direkt metod;
-  * 404 anger att antingen enhets-ID: t är ogiltigt eller att enheten inte var online när du startade en direkt metod och `connectTimeoutInSeconds` för detta (Använd fel meddelande som medföljer för att förstå rotor saken).
-  * 504 anger Gateway-timeout som orsakas av att enheten inte svarar på ett direkt `responseTimeoutInSeconds`Metod anrop inom.
+  * 404 anger att antingen enhets-ID: t är ogiltigt eller att enheten inte var online när du startade en direkt metod och för detta `connectTimeoutInSeconds` (Använd fel meddelande som medföljer för att förstå rotor saken).
+  * 504 anger Gateway-timeout som orsakas av att enheten inte svarar på ett direkt metod anrop inom `responseTimeoutInSeconds` .
 
 * *Huvuden* som innehåller etag, FÖRFRÅGNINGS-ID, innehålls typ och innehålls kodning.
 
@@ -142,7 +142,7 @@ Backend-appen tar emot ett svar som består av följande objekt:
 
 Det finns stöd för att anropa direkta metoder med ett modul-ID i [IoT-tjänstens klient C# SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-För det här ändamålet använder `ServiceClient.InvokeDeviceMethodAsync()` du metoden och skickar i `deviceId` parametrarna `moduleId` och som.
+För det här ändamålet använder du `ServiceClient.InvokeDeviceMethodAsync()` metoden och skickar i `deviceId` `moduleId` parametrarna och som.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Hantera en direkt metod på en enhet
 
@@ -154,7 +154,7 @@ Följande avsnitt gäller för MQTT-protokollet.
 
 #### <a name="method-invocation"></a>Metod anrop
 
-Enheter tar emot direkta metod begär anden i MQTT- `$iothub/methods/POST/{method name}/?$rid={request id}`avsnittet:. Antalet prenumerationer per enhet är begränsat till 5. Vi rekommenderar därför att du inte prenumererar på varje direkt metod individuellt. I stället ska `$iothub/methods/POST/#` du prenumerera på och filtrera de levererade meddelandena utifrån dina önskade metod namn.
+Enheter tar emot direkta metod begär anden i MQTT-avsnittet: `$iothub/methods/POST/{method name}/?$rid={request id}` . Antalet prenumerationer per enhet är begränsat till 5. Vi rekommenderar därför att du inte prenumererar på varje direkt metod individuellt. I stället ska du prenumerera på `$iothub/methods/POST/#` och filtrera de levererade meddelandena utifrån dina önskade metod namn.
 
 Texten som enheten tar emot är i följande format:
 
@@ -169,11 +169,11 @@ Metod begär Anden är QoS 0.
 
 #### <a name="response"></a>Svar
 
-Enheten skickar svar till `$iothub/methods/res/{status}/?$rid={request id}`, där:
+Enheten skickar svar till `$iothub/methods/res/{status}/?$rid={request id}` , där:
 
-* `status` Egenskapen är den enhets status som anges för metod körning.
+* `status`Egenskapen är den enhets status som anges för metod körning.
 
-* `$rid` Egenskapen är förfrågnings-ID: t från det metod anrop som togs emot från IoT Hub.
+* `$rid`Egenskapen är förfrågnings-ID: t från det metod anrop som togs emot från IoT Hub.
 
 Texten anges av enheten och kan vara vilken status som helst.
 
@@ -183,25 +183,25 @@ Följande avsnitt gäller för AMQP-protokollet.
 
 #### <a name="method-invocation"></a>Metod anrop
 
-Enheten tar emot direkta metod begär Anden genom att skapa en Receive `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`-länk på adressen.
+Enheten tar emot direkta metod begär Anden genom att skapa en Receive-länk på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` .
 
 AMQP-meddelandet anländer till Receive-länken som representerar metoden Request. Den innehåller följande avsnitt:
 
 * Egenskapen korrelations-ID, som innehåller ett ID för begäran som ska skickas tillbaka med motsvarande metod svar.
 
-* En program egenskap med `IoThub-methodname`namnet, som innehåller namnet på den metod som anropas.
+* En program egenskap med namnet `IoThub-methodname` , som innehåller namnet på den metod som anropas.
 
 * AMQP meddelande text som innehåller metodens nytto last som JSON.
 
 #### <a name="response"></a>Svar
 
-Enheten skapar en sändnings länk för att returnera metod svaret på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
+Enheten skapar en sändnings länk för att returnera metod svaret på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` .
 
 Metodens svar returneras för länken som skickas och struktureras på följande sätt:
 
 * Egenskapen korrelations-ID, som innehåller det ID för begäran som skickades i metodens begär ande meddelande.
 
-* En program egenskap med `IoThub-status`namnet, som innehåller den angivna metod statusen för användaren.
+* En program egenskap med namnet `IoThub-status` , som innehåller den angivna metod statusen för användaren.
 
 * AMQP meddelande text som innehåller metod svaret som JSON.
 

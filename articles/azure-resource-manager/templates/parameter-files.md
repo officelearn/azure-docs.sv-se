@@ -2,13 +2,13 @@
 title: Skapa parameterfil
 description: Skapa parameter fil för att överföra värden under distributionen av en Azure Resource Manager-mall
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873097"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117513"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
 
@@ -182,12 +182,18 @@ I följande exempel visas formaten för olika parameter typer.
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Distribuera mall med parameter fil
+
+Se:
+
+- [Distribuera resurser med ARM-mallar och Azure CLI](./deploy-powershell.md#pass-parameter-values)
+- [Distribuera resurser med ARM-mallar och Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Filnamn
 
-Den allmänna konventionen för att namnge parameter filen är att lägga till **. parametrar** till mallnamnet. Om din mall till exempel heter **azuredeploy. JSON**heter parameter filen **azuredeploy. Parameters. JSON**. Den här namngivnings konventionen hjälper dig att se anslutningen mellan mallen och parametrarna.
+Den allmänna konventionen för att namnge parameter filen är att lägga till **. parametrar** till mallnamnet. Om din mall exempelvis heter **azuredeploy.jspå**, heter parameter filen **azuredeploy.parameters.jspå**. Den här namngivnings konventionen hjälper dig att se anslutningen mellan mallen och parametrarna.
 
-Om du vill distribuera till olika miljöer skapar du mer än en parameter fil. När du namnger parameter filen lägger du till ett sätt att identifiera användningen. Använd till exempel **azuredeploy. Parameters-dev. JSON** och **azuredeploy. Parameters-Prod. JSON**
-
+Om du vill distribuera till olika miljöer skapar du mer än en parameter fil. När du namnger parameter filen lägger du till ett sätt att identifiera användningen. Använd till exempel **azuredeploy.parameters-dev.jspå** och **azuredeploy.parameters-prod.jspå**
 
 ## <a name="parameter-precedence"></a>Parameter prioritet
 
@@ -198,6 +204,7 @@ Det går att använda en extern parameter fil, genom att tillhandahålla URI: n 
 ## <a name="parameter-name-conflicts"></a>Parameter namns konflikter
 
 Om din mall innehåller en parameter med samma namn som en av parametrarna i PowerShell-kommandot, visar PowerShell parametern från mallen med postfix- **FromTemplate**. En parameter med namnet **ResourceGroupName** i din mall är till exempel i konflikt med **ResourceGroupName** -parametern i cmdleten [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. Du kan undvika denna förvirring genom att använda parameter namn som inte används för distributions kommandon.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

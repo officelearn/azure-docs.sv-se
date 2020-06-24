@@ -1,24 +1,25 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683443"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242227"
 ---
 | Resurs | Basic | Standard | Premium |
 |---|---|---|---|
-| Lagring<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Största bild skikt storlek | 200 GiB | 200 GiB | 200 GiB |
+| Ingår lagring<sup>1</sup> (GIB) | 10 | 100 | 500 |
+| Lagrings gräns (TiB) | 20| 20 | 20 |
+| Maximal bild skikt storlek (GiB) | 200 | 200 | 200 |
 | ReadOps per minut<sup>2, 3</sup> | 1,000 | 3 000 | 10 000 |
 | WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2 000 |
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
@@ -27,15 +28,15 @@ ms.locfileid: "83683443"
 | Geo-replikering | Ej tillämpligt | Ej tillämpligt | [Tillåtna][geo-replication] |
 | Förtroende för innehåll | Ej tillämpligt | Ej tillämpligt | [Tillåtna][content-trust] |
 | Privat länk med privata slut punkter | Ej tillämpligt | Ej tillämpligt | [Tillåtna][plink] |
-| Åtkomst till tjänst slut punktens VNet | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][vnet] |
+| Åtkomst till tjänst slut punktens VNet | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskning][vnet] |
 | Kundhanterade nycklar | Ej tillämpligt | Ej tillämpligt | [Tillåtna][cmk] |
-| Databas – begränsade behörigheter | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][token]|
+| Databas – begränsade behörigheter | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskning][token]|
 | &bull;Token | Ej tillämpligt | Ej tillämpligt | 20 000 |
 | &bull;Omfångs kartor | Ej tillämpligt | Ej tillämpligt | 20 000 |
 | &bull;Mappning av databaser per område | Ej tillämpligt | Ej tillämpligt | 500 |
 
 
-<sup>1</sup> De angivna lagrings gränserna är mängden lagrings utrymme som *ingår* för varje nivå. Du debiteras ytterligare en daglig taxa per GiB för avbildnings lagring över dessa gränser. Mer information om priser finns i [Azure Container Registry prissättning][pricing].
+<sup>1</sup> lagring ingår i den dagliga taxan för varje nivå. För ytterligare lagring debiteras du ytterligare en daglig taxa per GiB, upp till lagrings gränsen. Mer information om priser finns i [Azure Container Registry prissättning][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps*och *bandbredd* är minimala uppskattningar. Azure Container Registry strävar efter att förbättra prestandan när användningen kräver.
 

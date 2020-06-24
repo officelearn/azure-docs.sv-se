@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: b2efca53ce8d59ca1e050a9c18100b67024f3ba3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465668"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791154"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
@@ -57,8 +57,9 @@ Varje timme debiteras du för det högsta data flödet som `T` systemet skalas t
 
 Start punkten för autoskalning av maximalt data flöde `Tmax` börjar på 4000 ru/s, som skalar mellan 400-4000 ru/s. Du kan ange `Tmax` i steg om 1000 ru/s och ändra värdet när som helst.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Aktivera autoskalning på befintliga resurser ##
-Använd [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) för att aktivera autoskalning på en befintlig databas eller behållare. Du kan växla mellan autoskalning och standard (manuellt) allokerat data flöde när som helst. Mer information finns i den här [dokumentationen](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) .
+## <a name="enable-autoscale-on-existing-resources"></a>Aktivera autoskalning på befintliga resurser
+
+Använd [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) för att aktivera autoskalning på en befintlig databas eller behållare. Du kan växla mellan autoskalning och standard (manuellt) allokerat data flöde när som helst. Mer information finns i den här [dokumentationen](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) . För närvarande kan du endast använda Azure Portal för att aktivera autoskalning på befintliga resurser för alla API: er.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Data flödes-och lagrings gränser för autoskalning
 

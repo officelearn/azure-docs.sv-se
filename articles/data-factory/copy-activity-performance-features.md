@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/09/2020
-ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/15/2020
+ms.openlocfilehash: dfd439affe488805b4645211477c6d32bbbe7489
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414194"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770942"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Kopiera aktivitets prestanda optimerings funktioner
 
@@ -29,16 +29,16 @@ Den här artikeln beskriver prestanda optimerings funktionerna för kopierings a
 
 En data integrerings enhet är ett mått som representerar styrkan (en kombination av processor, minne och tilldelning av nätverks resurser) för en enskild enhet i Azure Data Factory. Data integrerings enheten gäller endast för [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), men inte för [integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Den tillåtna DIUs som gör att kopierings aktiviteten körs är **mellan 2 och 256**. Om du inte anger något värde eller om du väljer Auto i användar gränssnittet använder Data Factory dynamiskt inställningen för optimal DIU baserat på ditt käll-Sink-par och data mönster. I följande tabell visas de DIU-intervall som stöds och standard beteendet i olika kopierings scenarier:
+Den tillåtna DIUs som gör att kopierings aktiviteten körs är **mellan 2 och 256**. Om detta inte anges eller om du väljer Auto i användar gränssnittet, använder Data Factory dynamiskt inställningen för optimal DIU baserat på ditt käll-Sink-par och data mönster. I följande tabell visas de DIU-intervall som stöds och standard beteendet i olika kopierings scenarier:
 
 | Kopierings scenario | DIU-intervall som stöds | Standard DIUs som fastställs av tjänsten |
 |:--- |:--- |---- |
 | Mellan filarkiv |- **Kopiera från eller till en enskild fil**: 2-4 <br>- **Kopiera från och till flera filer**: 2-256 beroende på antalet och storleken på filerna <br><br>Om du till exempel kopierar data från en mapp med 4 stora filer och väljer att bevara hierarkin är den högsta effektiva DIU 16. När du väljer att sammanfoga filen är den högsta effektiva DIU 4. |Mellan 4 och 32 beroende på antalet och storleken på filerna |
 | Från fil arkiv till icke-filarkiv |- **Kopiera från en enskild fil**: 2-4 <br/>- **Kopiera från flera filer**: 2-256 beroende på antalet och storleken på filerna <br/><br/>Om du t. ex. kopierar data från en mapp med 4 stora filer är den högsta effektiva DIU 16. |- **Kopiera till Azure SQL Database eller Azure Cosmos DB**: mellan 4 och 16 beroende på mottagar nivå (DTU: er/ru: er) och käll fils mönster<br>- **Kopiera till Azure Synapse Analytics** med PolyBase eller Copy-sats: 2<br>– Annat scenario: 4 |
-| Från icke-filarkiv till fil lagring |- **Kopiera från partitioner – alternativ-aktiverade data lager** (inklusive [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)): 2-256 vid skrivning till en mapp och 2-4 vid skrivning till en enda fil. Obs! per datakälla kan använda upp till 4 DIUs.<br>- **Andra scenarier**: 2-4 |- **Kopiera från rest eller http**: 1<br/>- **Kopiera från Amazon RedShift** med Unload: 2<br>- **Annat scenario**: 4 |
-| Mellan icke-filarkiv |- **Kopiera från partitioner – alternativ-aktiverade data lager** (inklusive [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)): 2-256 vid skrivning till en mapp och 2-4 vid skrivning till en enda fil. Obs! per datakälla kan använda upp till 4 DIUs.<br/>- **Andra scenarier**: 2-4 |- **Kopiera från rest eller http**: 1<br>- **Annat scenario**: 4 |
+| Från icke-filarkiv till fil lagring |- **Kopiera från partitioner – alternativ-aktiverade data lager** (inklusive [Oracle](connector-oracle.md#oracle-as-source) / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)): 2-256 vid skrivning till en mapp och 2-4 vid skrivning till en enda fil. Obs! per datakälla kan använda upp till 4 DIUs.<br>- **Andra scenarier**: 2-4 |- **Kopiera från rest eller http**: 1<br/>- **Kopiera från Amazon RedShift** med Unload: 2<br>- **Annat scenario**: 4 |
+| Mellan icke-filarkiv |- **Kopiera från partitioner – alternativ-aktiverade data lager** (inklusive [Oracle](connector-oracle.md#oracle-as-source) / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)): 2-256 vid skrivning till en mapp och 2-4 vid skrivning till en enda fil. Obs! per datakälla kan använda upp till 4 DIUs.<br/>- **Andra scenarier**: 2-4 |- **Kopiera från rest eller http**: 1<br>- **Annat scenario**: 4 |
 
-Du kan se DIUs som används för varje kopierings körning i vyn för övervakning av kopierings aktiviteter eller Uppgiftsutdata. Mer information finns i avsnittet [Kopiera aktivitets övervakning](copy-activity-monitoring.md). Om du vill åsidosätta standardvärdet anger du `dataIntegrationUnits` ett värde för egenskapen enligt följande. Det *faktiska antalet DIUs* som kopierings åtgärden använder vid körningen är lika med eller mindre än det konfigurerade värdet, beroende på ditt data mönster.
+Du kan se DIUs som används för varje kopierings körning i vyn för övervakning av kopierings aktiviteter eller Uppgiftsutdata. Mer information finns i avsnittet [Kopiera aktivitets övervakning](copy-activity-monitoring.md). Om du vill åsidosätta standardvärdet anger du ett värde för `dataIntegrationUnits` egenskapen enligt följande. Det *faktiska antalet DIUs* som kopierings åtgärden använder vid körningen är lika med eller mindre än det konfigurerade värdet, beroende på ditt data mönster.
 
 Du debiteras **antalet använda DIUs \* kopierings \* pris/DIU-timme**. Se aktuella priser [här](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Lokal valuta och separat rabatt kan gälla per prenumerations typ.
 
@@ -69,7 +69,7 @@ Du debiteras **antalet använda DIUs \* kopierings \* pris/DIU-timme**. Se aktue
 Om du vill uppnå högre data flöde kan du skala upp eller skala ut den egna IR: en:
 
 - Om processorn och det tillgängliga minnet på IR-noden med egen värd inte används fullt ut, men körningen av samtidiga jobb når gränsen, bör du skala upp genom att öka antalet samtidiga jobb som kan köras på en nod.  Mer information finns [här](create-self-hosted-integration-runtime.md#scale-up) .
-- Om till å andra sidan är processorn hög på den lokala IR-noden eller tillgängligt minne är lågt kan du lägga till en ny nod för att skala belastningen över flera noder.  Mer information finns [här](create-self-hosted-integration-runtime.md#high-availability-and-scalability) .
+- Om å andra sidan är processorn hög på den lokala IR-noden eller tillgängligt minne är lågt, kan du lägga till en ny nod för att skala belastningen över flera noder.  Mer information finns [här](create-self-hosted-integration-runtime.md#high-availability-and-scalability) .
 
 Observera i följande scenarier kan körning av en enskild kopierings aktivitet använda flera IR-noder med egen värd:
 
@@ -78,11 +78,11 @@ Observera i följande scenarier kan körning av en enskild kopierings aktivitet 
 
 ## <a name="parallel-copy"></a>Parallell kopia
 
-Du kan ange parallell kopiering (`parallelCopies` egenskap) för kopierings aktivitet för att ange vilken parallellitet som ska användas för kopierings aktiviteten. Du kan tänka på den här egenskapen som det maximala antalet trådar i kopierings aktiviteten som läser från din källa eller skriver till dina mottagar data lager parallellt.
+Du kan ange parallell kopiering ( `parallelCopies` egenskap) för kopierings aktivitet för att ange vilken parallellitet som ska användas för kopierings aktiviteten. Du kan tänka på den här egenskapen som det maximala antalet trådar i kopierings aktiviteten som läser från din källa eller skriver till dina mottagar data lager parallellt.
 
 Den parallella kopian är rätvinklig till [data integrerings enheter](#data-integration-units) eller [IR-noder med egen värd](#self-hosted-integration-runtime-scalability). Det räknas i alla DIUs-eller IR-noder med egen värd.
 
-För varje kopierings aktivitet körs som standard Azure Data Factory att den optimala parallell kopierings inställningen tillämpas dynamiskt baserat på ditt käll-Sink-par och data mönster. 
+För varje kopierings aktivitets körning tillämpar Azure Data Factory dynamiskt den optimala parallell kopierings inställningen baserat på ditt käll-Sink-par och data mönster. 
 
 > [!TIP]
 > Standard beteendet för parallell kopiering ger vanligt vis bästa möjliga data flöde, vilket automatiskt avgörs av ADF baserat på ditt käll-Sink-par, data mönster och antalet DIUs eller den lokala IR-CPU/minne/antal noder. Se [fel sökning av prestanda för kopierings aktivitet](copy-activity-performance-troubleshooting.md) på när du ska justera parallell kopia.
@@ -98,7 +98,7 @@ I följande tabell visas den parallella kopierings beteendet:
 
 Om du vill styra belastningen på datorer som är värdar för dina data lager, eller om du vill justera kopierings prestanda, kan du åsidosätta standardvärdet och ange ett värde för `parallelCopies` egenskapen. Värdet måste vara ett heltal som är större än eller lika med 1. Vid körning, för bästa prestanda, använder kopierings aktiviteten ett värde som är mindre än eller lika med det värde som du anger.
 
-När du anger ett värde för `parallelCopies` egenskapen ska du ta belastnings ökningen på din källa och ta emot data lager i kontot. Överväg även belastnings ökningen till den egna värdbaserade integrerings körningen om kopierings aktiviteten har befogenheter av den. Den här belastnings ökningen sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma data lager. Om du ser att antingen data lagret eller den egen värdbaserade integrerings körningen är överbelastad med belastningen minskar `parallelCopies` du värdet för att avlasta belastningen.
+När du anger ett värde för `parallelCopies` egenskapen ska du ta belastnings ökningen på din källa och ta emot data lager i kontot. Överväg även belastnings ökningen till den egna värdbaserade integrerings körningen om kopierings aktiviteten har befogenheter av den. Den här belastnings ökningen sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma data lager. Om du ser att antingen data lagret eller den egen värdbaserade integrerings körningen är överbelastad med belastningen minskar du `parallelCopies` värdet för att avlasta belastningen.
 
 **Exempel:**
 
@@ -126,9 +126,9 @@ När du anger ett värde för `parallelCopies` egenskapen ska du ta belastnings 
 
 När du kopierar data från ett käll data lager till ett data lager för mottagare kan du välja att använda Blob Storage som ett interimistiskt mellanlagrings lager. Mellanlagring är särskilt användbart i följande fall:
 
-- **Du vill mata in data från olika data lager i SQL Data Warehouse via PolyBase.** SQL Data Warehouse använder PolyBase som en mekanism för hög genom strömning för att läsa in stora mängder data i SQL Data Warehouse. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage eller Azure Data Lake Store, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i SQL Data Warehouse effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Du vill mata in data från olika data lager i Azure Synapse Analytics (tidigare SQL Data Warehouse) via PolyBase.** Azure Synapse Analytics använder PolyBase som en mekanism för hög genom strömning för att läsa in en stor mängd data i Azure Synapse Analytics. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage eller Azure Data Lake Store, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i Azure Synapse Analytics effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **Ibland tar det en stund att utföra en hybrid data förflyttning (det vill säga kopiera från ett lokalt data lager till ett moln data lager) över en långsam nätverks anslutning.** Du kan förbättra prestanda genom att använda mellanlagrad kopia för att komprimera data lokalt så att det tar mindre tid att flytta data till lagrings data lagret i molnet. Sedan kan du expandera data i mellanlagrings platsen innan du läser in i mål data lagret.
-- **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du till exempel kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure SQL Data Warehouse mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Sedan kan den läsa in data i SQL Database eller SQL Data Warehouse från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
+- **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du t. ex. kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure Synapse Analytics-mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Sedan kan den läsa in data i SQL Database eller Azure Synapse Analytics från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
 
 ### <a name="how-staged-copy-works"></a>Så här fungerar mellanlagrad kopiering
 
@@ -138,18 +138,18 @@ När du aktiverar mellanlagrings funktionen kopieras först data från käll dat
 
 När du aktiverar data förflyttning med hjälp av ett mellanlagrings lager kan du ange om du vill att data ska komprimeras innan du flyttar data från käll data lagret till ett interimistiskt eller mellanlagrat data lager och sedan expanderar innan du flyttar data från ett interimistiskt eller mellanlagrat data lager till data lagret för mottagare.
 
-För närvarande kan du inte kopiera data mellan två data lager som är anslutna via en annan egen värd, varken med eller utan mellanlagrad kopia. I sådana fall kan du konfigurera två explicit länknings aktivitet som ska kopieras från källa till mellanlagring och sedan från mellanlagring till mottagare.
+För närvarande kan du inte kopiera data mellan två data lager som är anslutna via en annan egen värd, varken med eller utan mellanlagrad kopia. I det här scenariot kan du konfigurera två explicit länkade kopierings aktiviteter för kopiering från källa till mellanlagring och från mellanlagring till mottagare.
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du ställer **enableStaging** in enableStaging `TRUE`på anger du ytterligare egenskaper som anges i följande tabell. Du måste också skapa en signatur för delad åtkomst för Azure Storage eller lagrings plats för delad åtkomst för mellanlagring om du inte har någon.
+Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du ställer in **enableStaging** på `TRUE` anger du ytterligare egenskaper som anges i följande tabell. Du måste också skapa en signatur för delad åtkomst för Azure Storage eller lagrings plats för delad åtkomst för mellanlagring om du inte har någon.
 
-| Egenskap | Beskrivning | Standardvärde | Krävs |
+| Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
-| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Nej |
-| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Ej tillämpligt |Ja, när **enableStaging** är inställt på True |
-| path |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Ej tillämpligt |Nej |
-| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Nej |
+| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
+| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i Azure Synapse Analytics via PolyBase. Du kan använda den i alla andra scenarier. |Ej tillämpligt |Ja, när **enableStaging** är inställt på True |
+| path |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Ej tillämpligt |No |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
 
 >[!NOTE]
 > Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.

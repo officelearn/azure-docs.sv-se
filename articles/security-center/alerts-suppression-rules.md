@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 8644a4e7dc8973775d952581bfc57d266c79f1a5
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871702"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130797"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Ignorera aviseringar från Azure Security Center hot skydd
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Ignorera aviseringar från Azure Security Center hot skydd
 
 På den här sidan förklaras hur du kan använda undertrycks regler för varningar för att förhindra falska positiva identifieringar eller andra oönskade säkerhets varningar i Azure Security Center.
 
@@ -28,7 +28,7 @@ På den här sidan förklaras hur du kan använda undertrycks regler för varnin
     - ✔ National/suverän (US Gov, Kina gov, övrigt gov)
 
 
-## <a name="introduction-to-suppression-rules"></a>Introduktion till undertrycks regler
+## <a name="what-are-suppression-rules"></a>Vad är undertrycks regler?
 
 Hot skydds komponenterna i Azure Security Center identifiera hot i alla områden i miljön och generera säkerhets aviseringar.
 
@@ -45,7 +45,7 @@ Dina undertrycks regler definierar kriterierna för vilka aviseringar automatisk
 
 [![Sidan Azure Security Center säkerhets aviseringar med alternativ för undervisning av aviseringar](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
 
-## <a name="creating-a-suppression-rule"></a>Skapa en undertrycks regel
+## <a name="create-a-suppression-rule"></a>Skapa en undertrycks regel
 
 Det finns några sätt som du kan skapa regler för att förhindra oönskade säkerhets aviseringar:
 
@@ -89,13 +89,13 @@ Så här skapar du en regel direkt i Azure Portal:
 
 1. Spara regeln. 
 
-## <a name="editing-suppression-rules"></a>Redigera undertrycks regler
+## <a name="edit-a-suppression-rules"></a>Redigera en undertrycks regler
 
-Om du vill redigera reglerna som du har skapat använder du sidan undertrycks regler.
+Om du vill redigera regler som du har skapat använder du sidan undertrycks regler.
 
 1. På sidan säkerhets aviseringar för Security Center väljer du länken **undertrycks regler** högst upp på sidan.
 
-1. Sidan undertrycks regler öppnas och visar alla tillgängliga regler enligt de prenumerationer som är markerade. 
+1. Sidan undertrycks regler öppnas med alla regler för de valda prenumerationerna.
 
     [![Lista över undertrycks regler](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Om du vill redigera reglerna som du har skapat använder du sidan undertrycks re
 
 1. Gör nödvändiga ändringar och välj **Använd**. 
 
-## <a name="deleting-suppression-rules"></a>Tar bort undertrycks regler
+## <a name="delete-a-suppression-rule"></a>Ta bort en undertrycks regel
 
 Om du vill ta bort en eller flera regler som du har skapat använder du sidan undertrycks regler.
 
 1. På sidan säkerhets aviseringar för Security Center väljer du länken **undertrycks regler** högst upp på sidan.
 
-1. Sidan undertrycks regler öppnas och visar alla tillgängliga regler enligt de prenumerationer som är markerade. 
+1. Sidan undertrycks regler öppnas med alla regler för de valda prenumerationerna.
 
 1. Om du vill ta bort en enskild regel öppnar du menyn med tre punkter (...) för regeln och väljer **ta bort**.
 
@@ -117,7 +117,7 @@ Om du vill ta bort en eller flera regler som du har skapat använder du sidan un
 
     ![Ta bort en eller flera undertrycks regler](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>Visa aviseringar som har ignorerats
+## <a name="view-suppressed-alerts"></a>Visa ignorerade aviseringar
 
 Aviseringar som matchar dina aktiverade undertrycks regler kommer fortfarande att genereras, men deras tillstånd ställs in **på stängs.** Du kan se statusen i Azure Portal eller så får du åtkomst till dina Security Center säkerhets aviseringar. 
 
@@ -131,7 +131,7 @@ Använd Security Centers filter för att visa aviseringar som har avvisats av re
    [![Visa ignorerade aviseringar](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>Använda API: et för att skapa och hantera undertrycks regler
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>Skapa och hantera undertrycks regler med API: et
 
 Du kan skapa, Visa eller ta bort undervisnings regler för aviseringar via Security Center REST API. 
 

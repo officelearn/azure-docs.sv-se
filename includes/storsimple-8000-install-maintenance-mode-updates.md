@@ -37,7 +37,7 @@ När du tillämpar uppdateringar av underhålls läge på StorSimple-enheten pau
 
     `Get-HcsUpdateStatus`
 
-    Om `RunInProgress` är `True`uppdateras fortfarande uppdateringen. Om `RunInProgress` är `False`, anger det att uppdateringen har slutförts.
+    Om `RunInProgress` är `True` uppdateras fortfarande uppdateringen. Om `RunInProgress` är `False` , anger det att uppdateringen har slutförts.
 
 5. När diskens inbyggda program uppdateringar har tillämpats och den uppdaterade styrenheten har startats om kontrollerar du diskens inbyggda version. På den uppdaterade kontrollanten skriver du:
 

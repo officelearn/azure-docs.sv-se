@@ -1,29 +1,29 @@
 ---
-title: 'Snabb start: skapa en Node. js-webbapp'
-description: Distribuera din första Node. js-Hello World Azure App Service på några minuter. Du distribuerar med Visual Studio Code, som är en av många sätt att distribuera till App Service.
+title: 'Snabb start: skapa en Node.js webbapp'
+description: Distribuera din första Node.js Hello World till Azure App Service på några minuter. Du distribuerar med Visual Studio Code, som är en av många sätt att distribuera till App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f08068e0920eb8a9e93fbbf91cb352bb8860fe3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "82690798"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905926"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure 
 
-Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt med Visual Studio Code och distribuera sedan appen till molnet. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
+Kom igång med Azure App Service genom att skapa en Node.js/Express-app lokalt med Visual Studio Code och sedan distribuera appen till molnet. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- [Node. js och NPM](https://nodejs.org). Kör kommandot `node --version` för att kontrol lera att Node. js är installerat.
+- [Node.js och NPM](https://nodejs.org). Kör kommandot `node --version` för att kontrol lera att Node.js är installerat.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Azure App Service-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) för Visual Studio Code.
 
-## <a name="clone-and-run-a-local-nodejs-application"></a>Klona och köra ett lokalt Node. js-program
+## <a name="clone-and-run-a-local-nodejs-application"></a>Klona och köra ett lokalt Node.js program
 
 1. Öppna en terminal på den lokala datorn och klona exempel lagrings platsen:
 
@@ -52,7 +52,7 @@ Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt 
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du distribuera Node. js-appen till Azure med VS Code och Azure App Service tillägget.
+I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code och Azure App Service tillägget.
 
 1. I terminalen kontrollerar du att du är i mappen *NodeJS-dok-Hello-World* och startar sedan Visual Studio Code med följande kommando:
 
@@ -77,7 +77,7 @@ I det här avsnittet ska du distribuera Node. js-appen till Azure med VS Code oc
 
 1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR**. Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken ("A-Z", "a-z" och "0-9") och bindestreck (-).
 
-1. Om du anger Linux-mål väljer du en Node. js-version när du uppmanas till det. En **LTS** -version rekommenderas.
+1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
 
 1. Om du riktar in dig på Windows följer du ytterligare prompter:
     1. Välj **skapa en ny resurs grupp**och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
@@ -96,7 +96,7 @@ I det här avsnittet ska du distribuera Node. js-appen till Azure med VS Code oc
 
 1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa "Hello World!"
 
-1. Om du distribuerar till Windows måste du först ställa in Node. js-versions numret för webbappen:
+1. Om du distribuerar till Windows måste du först ange Node.js versions nummer för webbappen:
 
     1. I VS Code expanderar du noden för den nya app service, högerklickar på **program inställningar**och väljer **Lägg till ny inställning...**:
 
@@ -155,7 +155,13 @@ Du kan visa loggens utdata (anrop till `console.log` ) från appen direkt i fön
 
 Grattis, du har slutfört den här snabb starten!
 
-Kolla sedan in de andra Azure-tilläggen.
+> [!div class="nextstepaction"]
+> [Självstudie: Node.js app med MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera Node.js app](configure-language-nodejs.md)
+
+Kolla in de andra Azure-tilläggen.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -164,3 +170,4 @@ Kolla sedan in de andra Azure-tilläggen.
 * [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Eller hämta dem genom att installera [Node Pack för Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) Extension Pack.
+

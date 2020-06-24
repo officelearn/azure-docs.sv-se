@@ -9,29 +9,29 @@ ms.topic: reference
 ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: d25a738a76c955ee11f091bb0f8861bd21cc9f1d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/16/2020
+ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555869"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907558"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+Den här artikeln beskriver skript modulen kör python i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [följande artikel](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [den här artikeln](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
-Med python kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel:
+Med python kan du utföra uppgifter som befintliga moduler inte stöder, till exempel:
 
-+ Visualisera data med`matplotlib`
-+ Använda python-bibliotek för att räkna upp data uppsättningar och modeller i din arbets yta
-+ Läsning, inläsning och manipulering av data från källor som inte stöds av modulen [Importera data](./import-data.md)
-+ Kör din egen djup inlärnings kod 
++ Visualisera data med hjälp av `matplotlib` .
++ Använd python-bibliotek för att räkna upp data uppsättningar och modeller i din arbets yta.
++ Läsning, inläsning och manipulering av data från källor som modulen [Importera data](./import-data.md) inte stöder.
++ Kör din egen djup inlärnings kod. 
 
 
-Azure Machine Learning använder Anaconda-distributionen av python, som innehåller många vanliga verktyg för data bearbetning. Vi kommer att uppdatera Anaconda-versionen automatiskt. Aktuell version är:
+Azure Machine Learning använder Anaconda-distributionen av python, som innehåller många vanliga verktyg för data bearbetning. Vi kommer att uppdatera Anaconda-versionen automatiskt. Den aktuella versionen är:
  -  Anaconda 4.5 + distribution för python 3,6 
 
 De förinstallerade paketen är:
@@ -145,26 +145,37 @@ De förinstallerade paketen är:
 -    werkzeug = = 0.16.1
 -    Wheel = = 0.34.2
 
- Om du vill installera andra paket som inte finns i listan i förväg, till exempel *scikit-misc*, lägger du till följande kod i skriptet: 
+ Om du vill installera paket som inte finns i den förinstallerade listan (till exempel *scikit-Diverse*) lägger du till följande kod i skriptet: 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Använd följande kod för att installera paket för bättre prestanda, särskilt för härledning:
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> Om din pipeline innehåller flera köra Python-skript moduler och behöver samma paket som inte finns i den förinstallerade listan, måste du installera paketen i varje modul. 
+> Om din pipeline innehåller flera köra Python-skript moduler som behöver paket som inte finns i den förinstallerade listan, installerar du paketen i varje modul.
 
 ## <a name="upload-files"></a>Överföra filer
-**Execute python-skriptet** stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
 
-I följande exempel visas hur du laddar upp en avbildnings fil i modulen **Kör Python-skript** :
+I följande exempel visas hur du laddar upp en avbildnings fil i modulen kör Python-skript:
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -186,70 +197,70 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 }
 ```
 
-När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra panelen i modulen
+När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra panelen i modulen.
 
 > [!div class="mx-imgBorder"]
-> ![Överförd bild](media/module/upload-image-in-python-script.png)
+> ![Förhands granskning av Uppladdad bild](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Så här konfigurerar du kör Python-skript
 
-**Execute Python-skript** module innehåller exempel på python-kod som du kan använda som start punkt. Om du vill konfigurera **execute Python-skript** -modulen anger du en uppsättning indata och python-kod som ska köras i text rutan **Python-skript** .
+EXECUTE Python-skript module innehåller exempel på python-kod som du kan använda som start punkt. Ange en uppsättning indata och python-kod som ska köras i text rutan **Python-skript** för att konfigurera EXECUTE python script module.
 
 1. Lägg till modulen **Kör Python-skript** i din pipeline.
 
 2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1**.
 
-    Användningen av en data uppsättning är valfri, om du vill generera data med python eller använda python-kod för att importera data direkt till modulen.
+    Användningen av en data uppsättning är valfri. Använd den om du vill generera data med hjälp av python eller använda python-kod för att importera data direkt till modulen.
 
-    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2**. Referera till den andra data mängden i python-skriptet som DataFrame2.
+    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2**. Referera till den andra data mängden i python-skriptet som **DataFrame2**.
 
-    Data uppsättningar som lagras i Azure Machine Learning konverteras automatiskt till **Pandas** -data. bild rutor när de läses in med den här modulen.
+    Data uppsättningar som lagras i Azure Machine Learning konverteras automatiskt till Pandas data ramar när de läses in med den här modulen.
 
     ![Köra python-indatamängds karta](media/module/python-module.png)
 
-4. Om du vill inkludera nya python-paket eller-kod lägger du till den zippade filen som innehåller de här anpassade resurserna i **skript paket**. Indata till **skript paket** måste vara en zippad fil som överförs till din arbets yta som en fil typs data uppsättning. Du kan ladda upp data uppsättningen på sidan **data uppsättningar** till gång och du kan dra och släppa data uppsättnings modulen från listan **mina data uppsättningar** i den vänstra modulens träd design sida. 
+4. Om du vill inkludera nya python-paket eller kod lägger du till den zippade filen som innehåller de här anpassade resurserna i **skript paket**. Indata till **skript paket** måste vara en zippad fil som överförs till din arbets yta som en fil typs data uppsättning. Du kan ladda upp data uppsättningen på till gångs sidan för **data uppsättningar** . Du kan dra data uppsättnings modulen från listan **mina data uppsättningar** i trädet till vänster-modul på design sidan för designern. 
 
     Alla filer som finns i det överförda zippade arkivet kan användas under pipeline-körningen. Om arkivet innehåller en katalog struktur bevaras strukturen, men du måste lägga en katalog med namnet **src** till sökvägen.
 
 5. I text rutan **Python-skript** skriver eller klistrar du in giltigt Python-skript.
 
     > [!NOTE]
-    > Var noga med att skriva skriptet och se till att det inte finns några syntaxfel, till exempel att använda ej deklarerade objekt eller ej importerade moduler. Betala också extra uppmärksamhet till listan förinstallerad modul. Om du vill importera moduler som inte finns med i listan installerar du motsvarande paket i skriptet, till exempel
+    >  Var försiktig när du skriver skriptet. Se till att det inte finns några syntaxfel, till exempel att använda variabler som inte har deklarerats eller ej importerade moduler eller funktioner. Betala extra uppmärksamhet till den förinstallerade modulen. Om du vill importera moduler som inte visas i listan installerar du motsvarande paket i skriptet, till exempel:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    Text rutan **Python-skript** fylls i automatiskt med instruktioner i kommentarer och exempel kod för data åtkomst och utdata. Du måste redigera eller ersätta den här koden. Se till att följa python-konventioner om indrag och Skift läge.
+    Text rutan **Python-skript** är förifylld med instruktioner i kommentarer och exempel kod för data åtkomst och utdata. Du måste redigera eller ersätta den här koden. Följ python-konventioner för indrag och Skift läge:
 
     + Skriptet måste innehålla en funktion som heter `azureml_main` som start punkt för den här modulen.
-    + Start punkt funktionen måste ha två indataargument: `Param<dataframe1>` och `Param<dataframe2>` , även om dessa argument inte används i skriptet.
-    + Zippade filer som är anslutna till den tredje Indataporten är zippade och lagras i katalogen, `.\Script Bundle` som också läggs till i python `sys.path` . 
+    + Start punkt funktionen måste ha två indataargument `Param<dataframe1>` och `Param<dataframe2>` även om dessa argument inte används i skriptet.
+    + Zippade filer som är anslutna till den tredje Indataporten är zippade och lagras i katalogen `.\Script Bundle` , som också läggs till i python `sys.path` . 
 
-    Om din zip-fil innehåller kan du därför `mymodule.py` Importera den med hjälp av `import mymodule` .
+    Om din. zip-fil innehåller `mymodule.py` importerar du den med hjälp av `import mymodule` .
 
-    + Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
+    Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
-6. Skicka pipelinen eller Välj modulen och klicka på **Kör valt** för att bara köra python-skriptet.
+6. Skicka pipelinen eller Välj modulen och välj **Kör valt** för att bara köra python-skriptet.
 
     Alla data och all kod läses in i en virtuell dator och körs med den angivna python-miljön.
 
 ## <a name="results"></a>Resultat
 
-Resultaten av alla beräkningar som utförs av den inbäddade python-koden måste anges som Pandas. DataFrame, som automatiskt konverteras till det Azure Machine Learning data uppsättnings formatet, så att du kan använda resultatet med andra moduler i pipelinen.
+Resultatet av eventuella beräkningar av den inbäddade python-koden måste anges som `pandas.DataFrame` , vilket automatiskt konverteras till det Azure Machine Learning data uppsättnings formatet. Du kan sedan använda resultatet med andra moduler i pipelinen.
 
 Modulen returnerar två data uppsättningar:  
   
-+ **Resultat data uppsättning 1**, som definieras av den första returnerade Pandas-Dataframe i python-skriptet
++ **Resultat data uppsättning 1**, som definieras av den första data ramen som returnerade Pandas i ett Python-skript.
 
-+ **Resultat data uppsättning 2**, som definieras av den andra returnerade Pandas-Dataframe i python-skriptet
++ **Resultat data uppsättning 2**, som definieras av den andra returnerade data ramen Pandas i ett Python-skript.
 
 
 ## <a name="next-steps"></a>Nästa steg

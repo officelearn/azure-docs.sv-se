@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: c9cf77971038a3d7d160180b93594736d3ca6200
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 8a92540ff2c57ff5c1aa827237a7341aecc1592b
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674235"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789267"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -56,8 +56,8 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 |Name|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Yes|Saknas|
-|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Yes|Saknas|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Yes|Ej tillämpligt|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Yes|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -105,10 +105,10 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
   
 |Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Saknas|
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Saknas|
-|body|Klient certifikat som en byte mat ris.|No|Saknas|
-|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|Saknas|
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
+|body|Klient certifikat som en byte mat ris.|No|Ej tillämpligt|
+|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|Ej tillämpligt|
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -118,12 +118,14 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
 -   **Princip omfattningar:** alla omfattningar  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autentisera med hanterad identitet  
- Använd `authentication-managed-identity` principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten för den API Management tjänsten. Den här principen använder i princip den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats ställer principen in värdet för token i `Authorization` rubriken med `Bearer` schemat.
+ Använd `authentication-managed-identity` principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten. Den här principen använder i princip den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats ställer principen in värdet för token i `Authorization` rubriken med `Bearer` schemat.
+
+Både systemtilldelad identitet och någon av de flera användare som tilldelats identiteter kan användas för att begära token. Om `client-id` inte anges används en tilldelad identitet. Om `client-id` variabeln har angetts begärs token för den användarens tilldelade identitet från Azure Active Directory
   
 ### <a name="policy-statement"></a>Princip kommentar  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Exempel  
@@ -180,8 +182,9 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
   
 |Name|Beskrivning|Obligatorisk|Standard|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Yes|Saknas|  
-|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|Saknas|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Yes|Ej tillämpligt|
+|klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|No|systemtilldelad identitet|
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|Ej tillämpligt|  
 |Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|No|falskt|  
   
 ### <a name="usage"></a>Användning  

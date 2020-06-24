@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: cded8fef70e22ffebc412ea37898100cda4bb3df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c6358411572de6049a3362cc0e8e26b9cbc82d43
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219026"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906859"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -40,7 +40,7 @@ Standard priset för Log Analytics är en modell där **du betalar per** använd
   
 Förutom modellen betala per användning har Log Analytics **kapacitets reservations** nivåer som gör att du kan spara så mycket som 25% jämfört med priset för betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kapacitets reservationens nivåer har en period på 31 dagar. Under perioden kan du ändra till en kapacitets reservations nivå på högre nivå (som startar om perioden på 31 dagar), men du kan inte gå tillbaka till betala per användning eller till en reservations nivå med lägre kapacitet förrän perioden är slut. Faktureringen för kapacitets nivåer för kapacitet görs per dag. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om hur du Log Analytics priser för betala per användning och kapacitets reservationer. 
 
-På alla pris nivåer beräknas data volymen från en sträng representation av data som den är för beredd för att lagras. Flera [egenskaper som är gemensamma för alla data typer](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) ingår inte i beräkningen av händelse storleken, inklusive `_ResourceId` , `_ItemId` `_IsBillable` och `_BilledSize` .
+På alla pris nivåer beräknas en händelses data storlek från en sträng representation av de egenskaper som lagras i Log Analytics för den här händelsen, om data skickas från en agent eller läggs till under inmatnings processen. Detta inkluderar alla [anpassade fält](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) som läggs till som data samlas in och lagras sedan i Log Analytics. Flera egenskaper som är gemensamma för alla data typer, inklusive vissa [Log Analytics standard egenskaper](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties), undantas i beräkningen av händelse storleken. Detta inkluderar `_ResourceId` , `_ItemId` , `_IsBillable` `_BilledSize` och `Type` . Alla andra egenskaper som lagras i Log Analytics ingår i beräkningen av händelse storleken. Vissa data typer är kostnads fria från data inmatnings avgifter helt, till exempel AzureActivity, pulsslag och användnings typer. Du kan använda `_IsBillable` egenskapen som visas [nedan](#data-volume-for-specific-events)för att avgöra om en händelse uteslöts från faktureringen för data inmatning.
 
 Observera också att vissa lösningar, till exempel [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) och [konfigurations hantering](https://azure.microsoft.com/pricing/details/automation/) har sina egna pris modeller. 
 
@@ -55,7 +55,6 @@ Det finns två fakturerings lägen för användning i ett kluster. Dessa kan ang
 1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
 
 2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
-
 
 I kluster fakturerings alternativ faktureras data lagring på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
 
@@ -192,7 +191,9 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 Du kan konfigurera en daglig begränsning och begränsa den dagliga inmatningen för din arbets yta, men Använd bryr sig om ditt mål inte ska överskrida den dagliga gränsen.  Annars förlorar du data under resten av dagen, vilket kan påverka andra Azure-tjänster och-lösningar vars funktioner kan vara beroende av uppdaterade data som är tillgängliga i arbets ytan.  Det innebär att du kan se och ta emot aviseringar när hälso tillståndet för resurser som har stöd för IT-tjänster påverkas.  Den dagliga gränsen är avsedd att användas som ett sätt att hantera den oväntade ökningen av data volymen från dina hanterade resurser och hålla dig inom gränsen, eller när du vill begränsa oplanerade kostnader för din arbets yta.  
 
-Snart när den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara data typer för resten av dagen. (Svars tid som används för att tillämpa den dagliga begränsningen kan betyda att höljet inte används så exakt som den angivna nivån för dagligt tak.) En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att du definierar en varnings regel baserat på den här åtgärds händelsen som är konfigurerad för att meddela när den dagliga data gränsen har uppnåtts. 
+Varje arbets yta har en daglig begränsning på en annan timme på dagen. Återställnings tiden visas på sidan för **dagligt tak** (se nedan). Det går inte att konfigurera den här återställnings timmen. 
+
+Snart när den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara data typer för resten av dagen. (Svars tid som används för att tillämpa den dagliga begränsningen innebär att höljet inte tillämpas på exakt den angivna nivån för dagligt tak.) En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att du definierar en varnings regel baserat på den här åtgärds händelsen som är konfigurerad för att meddela när den dagliga data gränsen har uppnåtts. 
 
 > [!WARNING]
 > Den dagliga begränsningen stoppar inte data insamlingen från Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
@@ -206,10 +207,12 @@ Granska [Log Analytics användning och beräknade kostnader](usage-estimated-cos
 Följande steg beskriver hur du konfigurerar en gräns för att hantera den data volym som Log Analytics arbets ytan kommer att ta in per dag.  
 
 1. Välj **Användning och uppskattade kostnader** i det vänstra fönstret på arbetsytan.
-2. På sidan **användning och uppskattade kostnader** för den valda arbets ytan klickar du på **data volym hantering** överst på sidan. 
+2. På sidan **användning och uppskattade kostnader** för den valda arbets ytan klickar du på **data Kap** överst på sidan. 
 3. Är dagligt tak **inaktiverat** som standard? Aktivera det genom att klicka på **på** . Ange sedan data volym gränsen i GB/dag.
 
     ![Log Analytics konfigurera data gräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
+    
+Den dagliga begränsningen kan konfigureras via ARM genom att ange `dailyQuotaGb` parametern under `WorkspaceCapping` som beskrivs [här](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 ### <a name="alert-when-daily-cap-reached"></a>Avisering när dagligt hölje uppnås
 
@@ -250,7 +253,7 @@ Heartbeat
 Antalet noder som skickar data under de senaste 24 timmarna använder frågan: 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -260,7 +263,7 @@ union withsource = tt *
 Om du vill hämta en lista över noder som skickar data (och mängden data som skickas av var och en) kan du använda följande fråga:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -286,7 +289,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Observera att-satsen `where IsBillable = true` filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för. 
+Observera att-satsen `where _IsBillable = true` filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för. [Läs mer](log-standard-properties.md#_isbillable) om `_IsBillable` .
 
 ### <a name="data-volume-by-solution"></a>Datavolym per lösning
 
@@ -330,11 +333,12 @@ Usage
 `Usage`Data typen innehåller inte information på dator nivå. Om du vill se **storleken** på inmatade data per dator, använder du `_BilledSize` [egenskapen](log-standard-properties.md#_billedsize)som anger storlek i byte:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName 
+| sort by BillableDataBytes nulls last
 ```
 
 `_IsBillable` [Egenskapen](log-standard-properties.md#_isbillable) anger om inmatade data kommer att debiteras. 
@@ -342,11 +346,12 @@ union withsource = tt *
 Om du vill se **antalet** inmatade fakturerbara händelser per dator använder du 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount = count() by computerName  | sort by eventCount nulls last
+| summarize eventCount = count() by computerName  
+| sort by eventCount nulls last
 ```
 
 > [!TIP]
@@ -357,24 +362,40 @@ union withsource = tt *
 För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per dator__, använda [egenskapen](log-standard-properties.md#_resourceid)_ResourceId som ger den fullständiga sökvägen till resursen:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per Azure-prenumeration__, parsa `_ResourceId` egenskapen som:
+För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per Azure-prenumeration__, Hämta prenumerations-ID `_ResourceId` egenskapen som:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
-    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend subscriptionId = split(_ResourceId, "/")[2] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
-`subscriptionId`Om du ändrar till `resourceGroup` visas den fakturerbara data volymen av Azure-resurs gruppen. 
+På samma sätt skulle du kunna hämta data volym per resurs grupp:
+
+```kusto
+union * 
+| where TimeGenerated > ago(24h)
+| where _IsBillable == true 
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend resourceGroup = split(_ResourceId, "/")[4] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
+```
+
+Du kan också tolka det `_ResourceId` mer fullständigt om det behövs och använda
+
+```Kusto
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+```
 
 > [!TIP]
 > Använd dessa `union  *` frågor sparsamt eftersom genomsökningar över data typer är [resurs krävande](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) att köra. Om du inte behöver resultat per prenumeration, kan du ändra resurs grupp eller resurs namn och sedan fråga efter typen användnings data.
@@ -424,7 +445,7 @@ Några förslag på hur du minskar mängden loggar som samlas in är:
 Om du vill hämta en lista över datorer som kommer att faktureras som noder om arbets ytan är i pris nivån bakåtkompatibelt per nod, letar du efter noder som skickar **fakturerings data typer** (vissa data typer är kostnads fria). Det gör du genom att använda `_IsBillable` [egenskapen](log-standard-properties.md#_isbillable) längst till vänster i det fullständigt kvalificerade domän namnet. Detta returnerar antalet datorer med fakturerade data per timme (vilket är den kornig het med vilken noder räknas och faktureras):
 
 ```kusto
-union withsource = tt * 
+union * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -498,7 +519,7 @@ let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the 
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
 let EndDate = startofday(now());
-union withsource = tt * 
+union * 
 | where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -542,64 +563,23 @@ Den här frågan är inte en exakt replikering av hur användningen beräknas, m
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Skapa en avisering när data insamlingen är hög
 
-I det här avsnittet beskrivs hur du skapar en avisering om:
-- Datavolymen överskrider en angiven mängd.
-- Datavolymen förväntas överskrida en angiven mängd.
+I det här avsnittet beskrivs hur du skapar en avisering som data volymen under de senaste 24 timmarna överskred en angiven mängd med hjälp av Azure Monitor [logg aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). 
 
-Azure-aviseringar har stöd för [loggaviseringar](alerts-unified-log.md) som använder sökfrågor. 
-
-Följande fråga har ett resultat när det finns fler än 100 GB data som har samlats in under de senaste 24 timmarna:
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
-| where DataGB > 100
-```
-
-Följande fråga använder en enkel formel för att förutsäga när mer än 100 GB data skickas under en dag: 
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
-| where EstimatedGB > 100
-```
-
-Ändra 100 i frågan till antalet GB som du vill ange som gräns för att skicka en datavolymavisering.
-
-Använd stegen som beskrivs i [skapa en ny loggavisering](alerts-metric.md) om du vill meddelas när datainsamlingen är högre än förväntat.
-
-När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:  
+Följ dessa steg om du vill varna om den fakturerbara data volymen som matats in under de senaste 24 timmarna var större än 50 GB: 
 
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
+   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Om du vill ha en differetn 
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
-   - **Tidsperiod** på *1440* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
+   - **Tids period** på *1440* minuter och **aviserings frekvens** till varje *1440* minutesto körs en gång om dagen.
 - **Definiera aviseringsinformation** ange följande:
-   - **Namnet** till *Datavolym är större än 100 GB på 24 timmar*
+   - **Namn** till *fakturerbar data volym större än 50 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*
 
 Ange en befintlig eller skapa en ny [Åtgärdsgrupp](action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
 
-När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 24 timmar förväntas, ange:
-
-- **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
-- **Aviseringskriterier** ange följande:
-   - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
-   - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
-   - **Tidsperiod** på *180* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
-- **Definiera aviseringsinformation** ange följande:
-   - **Namnet** till *Datavolym förväntas vara större än 100 GB på 24 timmar*
-   - **Allvarlighetsgrad** till *varning*
-
-Ange en befintlig eller skapa en ny [Åtgärdsgrupp](action-groups.md) så att när loggaviseringen matchar kriterierna, får du ett meddelande.
-
-När du får en avisering kan du använda stegen i följande avsnitt för att felsöka varför användningen är högre än förväntat.
+När du får en avisering använder du stegen i ovanstående avsnitt om hur du felsöker varför användningen är högre än förväntat.
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Avgifter för data överföring med Log Analytics
 

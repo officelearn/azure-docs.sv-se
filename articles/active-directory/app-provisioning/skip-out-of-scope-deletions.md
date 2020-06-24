@@ -2,31 +2,31 @@
 title: Hoppa över borttagning av omfattnings användare
 description: Lär dig hur du åsidosätter standard beteendet för inaktive ring av omfångs användare.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593275"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789913"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Hoppa över borttagning av användar konton som ingår i omfånget
 
-Som standard tar Azure AD Provisioning-motorn bort eller inaktiverar användare som omfattas av omfånget. Men för vissa scenarier som arbets dagar till AD-användare inkommande etablering kan detta vara förväntat och du kanske vill åsidosätta det här standard beteendet.  
+Som standard tar Azure AD Provisioning-motorn bort eller inaktiverar användare som omfattas av omfånget. Men för vissa scenarier som arbets dag till AD-användare inkommande etablering, kan det här beteendet vara förväntat och du kanske vill åsidosätta det här standard beteendet.  
 
-I den här guiden beskrivs hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att ange flaggan ***SkipOutOfScopeDeletions*** som styr bearbetningen av konton som omfattas av omfånget. 
-* Om ***SkipOutOfScopeDeletions*** är inställt på 0 (falskt) inaktive ras konton som omfattas av omfånget i målet
-* Om ***SkipOutOfScopeDeletions*** är inställt på 1 (sant) inaktive ras inte konton som omfattas av omfånget i målet som den här flaggan anges på *etablerings appens* nivå och kan konfigureras med hjälp av Graph API. 
+Den här artikeln beskriver hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att ange flaggan ***SkipOutOfScopeDeletions*** som styr bearbetningen av konton som omfattas av omfånget. 
+* Om ***SkipOutOfScopeDeletions*** är inställt på 0 (falskt) inaktive ras de konton som ingår i omfånget i målet.
+* Om ***SkipOutOfScopeDeletions*** har värdet 1 (sant) inaktive ras inte konton som omfattas utanför definitions området i målet. Den här flaggan anges på *etablerings appens* nivå och kan konfigureras med hjälp av Graph API. 
 
-Eftersom den här konfigurationen ofta används med *arbets dagen för att Active Directory användar etablerings* appen, innehåller stegen nedan skärm bilder av programmet Workday. Detta kan dock också användas med **alla andra appar** (ServiceNow, Salesforce, Dropbox osv.).
+Eftersom den här konfigurationen ofta används med *arbets dagen för att Active Directory användar etablerings* appen, innehåller följande steg skärm bilder av programmet för arbets dagar. Konfigurationen kan dock också användas med *alla andra appar*, till exempel ServiceNow, Salesforce och Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Steg 1: Hämta etablerings App Serviceens huvud-ID (objekt-ID)
 

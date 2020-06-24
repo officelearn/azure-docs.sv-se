@@ -9,18 +9,18 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e040938cd0bde127d3ae36819b978ad4e56ded4a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201313"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703447"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Ansluta virtuella nätverk med peering för virtuella nätverk med hjälp av PowerShell
 
@@ -33,7 +33,7 @@ Du kan ansluta virtuella nätverk till varandra med peerkoppling. När virtuella
 * Distribuera en virtuell dator (VM) till varje virtuellt nätverk
 * Kommunicera mellan virtuella datorer
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -129,7 +129,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Skapa en virtuell dator med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVm1* i det virtuella *myVirtualNetwork1* -nätverket. `-AsJob` Alternativet skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg. När du uppmanas till det anger du det användar namn och lösen ord som du vill logga in på den virtuella datorn med.
+Skapa en virtuell dator med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVm1* i det virtuella *myVirtualNetwork1* -nätverket. `-AsJob`Alternativet skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg. När du uppmanas till det anger du det användar namn och lösen ord som du vill logga in på den virtuella datorn med.
 
 ```azurepowershell-interactive
 New-AzVm `

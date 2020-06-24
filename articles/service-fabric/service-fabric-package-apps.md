@@ -4,11 +4,11 @@ description: Lär dig mer om att paketera ett Azure Service Fabric-program och h
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258348"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701055"
 ---
 # <a name="package-an-application"></a>Paketera ett program
 
@@ -45,7 +45,7 @@ Mapparna heter för att matcha **namnattribut** för varje motsvarande element. 
 
 Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver köra en körbar fil innan tjänsten startar eller så måste du utföra en åtgärd med utökade privilegier. Ett exempel:
 
-* Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Den är inte begränsad till enbart körbara filer som skrivits via Service Fabric programmerings modeller. NPM. exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett Node. js-program.
+* Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Den är inte begränsad till enbart körbara filer som skrivits via Service Fabric programmerings modeller. npm.exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett node.js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
 
 Mer information om hur du konfigurerar **SetupEntryPoint**finns i [Konfigurera principen för en start punkt för tjänst konfiguration](service-fabric-application-runas-security.md)
@@ -66,7 +66,7 @@ När paketeringen är klar kan du hitta paketets placering i fönstret **utdata*
 
 ### <a name="build-a-package-by-command-line"></a>Bygga ett paket via kommando raden
 
-Det är också möjligt att program mässigt Paketera upp ditt program med hjälp `msbuild.exe`av. Under huven körs Visual Studio så att resultatet är detsamma.
+Det är också möjligt att program mässigt Paketera upp ditt program med hjälp av `msbuild.exe` . Under huven körs Visual Studio så att resultatet är detsamma.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -88,7 +88,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ```
 
-Det här felet visar att filen *Setup. bat* som refereras i tjänst Manifestets **SetupEntryPoint** saknas i kod paketet. När den fil som saknas har lagts till skickas program verifieringen:
+Det här felet visar att *MySetup.bat* -filen som refereras i tjänst Manifestets **SetupEntryPoint** saknas i kod paketet. När den fil som saknas har lagts till skickas program verifieringen:
 
 ```
 tree /f .\MyApplicationType
@@ -122,7 +122,7 @@ True
 
 Om programmet har definierade [program parametrar](service-fabric-manage-multiple-environment-app-configuration.md) kan du skicka dem i [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) för korrekt verifiering.
 
-Om du känner till klustret där programmet ska distribueras rekommenderar vi att du skickar den till `ImageStoreConnectionString` -parametern. I det här fallet verifieras även paketet mot tidigare versioner av programmet som redan körs i klustret. Till exempel kan verifieringen identifiera om ett paket med samma version, men ett annat innehåll redan har distribuerats.  
+Om du känner till klustret där programmet ska distribueras rekommenderar vi att du skickar den till- `ImageStoreConnectionString` parametern. I det här fallet verifieras även paketet mot tidigare versioner av programmet som redan körs i klustret. Till exempel kan verifieringen identifiera om ett paket med samma version, men ett annat innehåll redan har distribuerats.  
 
 När programmet har paketerats korrekt och godkänts i valideringen bör du överväga att komprimera paketet för snabbare distributions åtgärder.
 
@@ -137,7 +137,7 @@ Komprimeringen ersätter det giltiga Service Fabric-paketet med den komprimerade
 Du kan komprimera ett paket genom att köra PowerShell [-kommandot Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) med `CompressPackage` switch. Du kan expandera paketet med samma kommando, med hjälp av `UncompressPackage` switch.
 
 Följande kommando komprimerar paketet utan att kopiera det till avbildnings arkivet. Du kan kopiera ett komprimerat paket till ett eller flera Service Fabric kluster, efter behov, med hjälp av [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) utan `SkipCopy` flaggan.
-Paketet innehåller nu zippade filer för `code`paketen `config`, och `data` . Program manifestet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder. Till exempel, paket delning, program typs namn och versions extrahering för vissa valideringar behöver du åtkomst till manifesten. Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
+Paketet innehåller nu zippade filer för `code` `config` paketen, och `data` . Program manifestet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder. Till exempel, paket delning, program typs namn och versions extrahering för vissa valideringar behöver du åtkomst till manifesten. Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
 
 ```
 tree /f .\MyApplicationType
@@ -187,13 +187,13 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType
 
 Internt beräknar Service Fabric kontroll summor för programpaketen för verifiering. När du använder komprimering beräknas kontroll summorna på de zippade versionerna av varje paket. Om du skapar ett nytt zip från samma programpaket skapas olika kontroll summor. Använd [diff-etablering](service-fabric-application-upgrade-advanced.md)för att förhindra verifierings fel. Med det här alternativet ska du inte inkludera de oförändrade paketen i den nya versionen. Referera istället till dem direkt från det nya tjänst manifestet.
 
-Om differentierings etableringen inte är ett alternativ och du måste inkludera paketen genererar du nya versioner för `code`-, `config`-och `data` -paketen för att undvika felaktig kontroll summa. Att generera nya versioner för ej ändrade paket är nödvändigt när ett komprimerat paket används, oavsett om den tidigare versionen använder komprimering eller inte.
+Om differentierings etableringen inte är ett alternativ och du måste inkludera paketen genererar du nya versioner för `code` -, `config` -och- `data` paketen för att undvika felaktig kontroll summa. Att generera nya versioner för ej ändrade paket är nödvändigt när ett komprimerat paket används, oavsett om den tidigare versionen använder komprimering eller inte.
 
 Paketet är nu korrekt paketerat, verifierat och komprimerat (vid behov), så det är klart för [distribution](service-fabric-deploy-remove-applications.md) till ett eller flera Service Fabric-kluster.
 
 ### <a name="compress-packages-when-deploying-using-visual-studio"></a>Komprimera paket vid distribution med Visual Studio
 
-Du kan instruera Visual Studio att komprimera paket vid distribution genom att lägga till `CopyPackageParameters` elementet i publicerings profilen och ange `CompressPackage` attributet till. `true`
+Du kan instruera Visual Studio att komprimera paket vid distribution genom att lägga till `CopyPackageParameters` elementet i publicerings profilen och ange `CompressPackage` attributet till `true` .
 
 ``` xml
     <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
@@ -208,21 +208,21 @@ Du kan instruera Visual Studio att komprimera paket vid distribution genom att l
 Från och med version 6,1 tillåter Service Fabric etablering från en extern lagrings plats.
 Med det här alternativet behöver programpaketet inte kopieras till avbildnings arkivet. I stället kan du skapa en `sfpkg` och överföra den till en extern lagrings plats och sedan ange hämtnings-URI: n för att Service Fabric vid etablering. Samma paket kan tillhandahållas till flera kluster. Etableringen från den externa butiken sparar tiden som krävs för att kopiera paketet till varje kluster.
 
-`sfpkg` Filen är ett zip som innehåller det första programpaketet och har tillägget ". sfpkg".
+`sfpkg`Filen är ett zip som innehåller det första programpaketet och har tillägget ". sfpkg".
 I zip-paketet kan programpaketet komprimeras eller expanderas. Komprimeringen av programpaketet i zip-paketet görs vid kod-, konfigurations-och data paket nivåer, som [tidigare nämnts](service-fabric-package-apps.md#compress-a-package).
 
-För att skapa `sfpkg`en, börjar du med en mapp som innehåller det ursprungliga programpaketet, komprimerat eller inte. Använd sedan valfritt verktyg för att zippa mappen med tillägget ". sfpkg". Använd till exempel [ZipFile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+För att skapa en `sfpkg` , börjar du med en mapp som innehåller det ursprungliga programpaketet, komprimerat eller inte. Använd sedan valfritt verktyg för att zippa mappen med tillägget ". sfpkg". Använd till exempel [ZipFile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-`sfpkg` Måste överföras till det externa lagret out-of-band, utanför Service Fabric. Den externa lagrings platsen kan vara vilken butik som helst som exponerar en REST-http-eller HTTPS-slutpunkt. Under etableringen kör Service Fabric en GET-åtgärd för att ladda ned `sfpkg` programpaketet så att arkivet måste tillåta Läs åtkomst för paketet.
+`sfpkg`Måste överföras till det externa lagret out-of-band, utanför Service Fabric. Den externa lagrings platsen kan vara vilken butik som helst som exponerar en REST-http-eller HTTPS-slutpunkt. Under etableringen kör Service Fabric en GET-åtgärd för att ladda ned `sfpkg` programpaketet så att arkivet måste tillåta Läs åtkomst för paketet.
 
 Om du vill etablera paketet använder du extern etablering, som kräver nedladdnings-URI och program typs information.
 
 >[!NOTE]
-> Etablering som baseras på relativ sökväg för avbildnings lager stöder `sfpkg` för närvarande inte filer. Därför `sfpkg` bör inte kopieras till avbildnings arkivet.
+> Etablering som baseras på relativ sökväg för avbildnings lager stöder för närvarande inte `sfpkg` filer. Därför `sfpkg` bör inte kopieras till avbildnings arkivet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 9fba2a898809c7c4062e1c0115ffce60f5becfdf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848892"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213828"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -26,7 +26,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
 3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 Business Central**.
 
-    ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-bc.png)
+    ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
 > När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
@@ -56,11 +56,11 @@ Välj det alternativ som du vill använda för det här erbjudandet.
 
 #### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Till exempel `https://contoso.com/my-app`.
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Exempelvis `https://contoso.com/my-app`.
 
 #### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
 
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan få en utvärderings version.  Till exempel `https://contoso.com/trial/my-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från `http` och med eller `https` ) där de kan få en utvärderings version.  Exempelvis `https://contoso.com/trial/my-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure Active Directory (Azure AD) för att automatisera skapandet av konton i din app. Microsoft-konton stöds inte för autentisering med denna token.
@@ -131,6 +131,23 @@ Det är här du definierar information om ditt erbjudande, till exempel namn, be
 > [!NOTE]
 > Du kan endast ange information om erbjudandet på ett språk. Det är inte nödvändigt att vara på engelska, så länge erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *URL för hjälp länkar* för att erbjuda innehåll på ett annat språk än det som används i list innehållet för erbjudandet.
 
+Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="Visar hur det här erbjudandet visas i Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Logotyp
+2. Produkter
+3. Kategorier
+4. Support adress (länk)
+5. Villkor för användning
+6. Sekretesspolicy
+7. Erbjudandets namn
+8. Sammanfattning
+9. Beskrivning
+10. Skärm bilder/videor
+
 ### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
@@ -193,7 +210,7 @@ Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skär
 
 #### <a name="videos"></a>Videoklipp
 
-Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
+Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
@@ -358,7 +375,7 @@ På **fliken** **testenhet** kan du ange information om test enhets upplevelsen.
 - **Videor** (valfritt) – videor kan laddas upp till YouTube eller Vimeo och refereras till med en länk och miniatyr bild (533 x 324 pixlar) så att en kund kan visa en genom gång av information för att hjälpa dem att bättre förstå test enheten, inklusive hur du kan använda funktionerna i ditt erbjudande och förstå scenarier som fokuserar på deras fördelar.
   - **Namn** (obligatoriskt)
   - **URL (endast YouTube eller Vimeo)** (obligatoriskt)
-  - **Miniatyr** bild (filen måste vara i PNG-format och 533 x 324 BPT)
+  - **Miniatyr** bild (filen måste vara i PNG-format och 533 x 324 bild punkter)
 
 Välj **Spara utkast** innan du fortsätter.
 

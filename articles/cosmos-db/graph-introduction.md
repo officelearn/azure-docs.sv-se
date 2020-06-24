@@ -7,20 +7,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75500005"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118125"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduktion till Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) är en globalt distribuerad databas tjänst för flera data modeller från Microsoft för verksamhets kritiska program. Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. Azure Cosmos DB Gremlin-API: et används för att lagra och använda diagram data på en fullständigt hanterad databas tjänst som har utformats för alla skalor.  
+[Azure Cosmos DB](introduction.md)   är den globalt distribuerade databas tjänsten för flera modeller från Microsoft för verksamhets kritiska program. Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. Azure Cosmos DB Gremlin-API: et används för att lagra och använda diagram data på en fullständigt hanterad databas tjänst som har utformats för alla skalor.  
 
-![Azure Cosmos DB-diagramarkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB-diagramarkitektur" border="false":::
 
-Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API baseras på [Apache TinkerPop](https://tinkerpop.apache.org) graphs databas standard och använder Gremlin-frågespråket. 
+Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga graferna med millisekunder och snabbt utveckla diagram strukturen. Azure Cosmos DBens Gremlin-API baseras på [Apache TinkerPop](https://tinkerpop.apache.org)   graphs databas standard och använder Gremlin-frågespråket. 
 
 Azure Cosmos DBens Gremlin-API kombinerar kraften i graf Database-algoritmer med en mycket skalbar, hanterad infrastruktur för att tillhandahålla en unik, flexibel lösning för de vanligaste data problemen som är kopplade till bristande flexibilitet och Relations metoder. 
 
@@ -77,7 +77,7 @@ Här följer några scenarier där diagram stöd för Azure Cosmos DB kan vara a
 
   Många program inom telekommunikation, logistik och reseplanering måste hitta en plats av intresse inom ett område eller hitta den kortaste/optimala vägen mellan två platser. Azure Cosmos DB är en naturlig lösning på de här problemen.
 
-* **Internet of Things**
+* **Sakernas Internet**
 
   Med nätverket och anslutningarna mellan IoT-enheter som modellerats som ett diagram, kan du skapa en bättre förståelse för dina enheters och tillgångars tillstånd. Du kan också undersöka hur ändringar i en del av nätverket kan påverka en annan del.
 
@@ -101,7 +101,7 @@ Graf-databaser ingår ofta i NoSQL eller icke-relationell databas kategori efter
 ### <a name="gremlin-by-example"></a>Gremlin efter exempel
 Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  
 
-![Exempeldatabas som visar personer, enheter och intressen](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Exempeldatabas som visar personer, enheter och intressen" border="false"::: 
 
 Det här diagrammet har följande *hörn* typer (kallas "etikett" i Gremlin):
 

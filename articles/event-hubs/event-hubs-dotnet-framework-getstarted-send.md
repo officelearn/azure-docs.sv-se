@@ -3,24 +3,19 @@ title: Azure Event Hubs – skicka/ta emot händelser med hjälp av .NET Framewo
 description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett .NET Framework program som skickar händelser till Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
+author: spelluru
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 12/20/2019
-ms.author: shvija
-ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 0857bbcd292562e199eec4ec8cb07650f1989ec5
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240956"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299100"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Framework
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -53,7 +48,7 @@ I Visual Studio skapar du ett nytt Visual C# Desktop-projekt med hjälp av proje
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
    
     ```csharp
     using System.Threading;
@@ -188,7 +183,7 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
       using Microsoft.ServiceBus.Messaging;
       ```
     
-2. Ersätt- `Main` metoden i- `Program` klassen med följande kod och ersätt namnet på händelsehubben och anslutnings strängen på namn områdes nivå som du sparade tidigare, samt lagrings kontot och nyckeln som du kopierade i föregående avsnitt. 
+2. Ersätt `Main` -metoden i- `Program` klassen med följande kod och ersätt namnet på händelsehubben och anslutnings strängen på namn områdes nivå som du sparade tidigare, samt lagrings kontot och nyckeln som du kopierade i föregående avsnitt. 
     
       ```csharp
       static void Main(string[] args)

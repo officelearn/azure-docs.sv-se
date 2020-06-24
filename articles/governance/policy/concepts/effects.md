@@ -1,14 +1,14 @@
 ---
 title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f077548f2de06ef35a80aea0e8e33718a18ff229
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424354"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791426"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -22,22 +22,26 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [Neka](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Inaktiverad](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (för hands version)
-- [EnforceRegoPolicy](#enforceregopolicy) (för hands version)
 - [Ändra](#modify)
+
+Följande effekter är _föråldrade_:
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> I stället för **EnforceOPAConstraint** -eller **EnforceRegoPolicy** -effekterna använder du _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` . De inbyggda princip definitionerna har uppdaterats. När befintliga princip tilldelningar för dessa inbyggda princip definitioner ändras, måste parametern _Effect_ ändras till ett värde i den uppdaterade _allowedValues_ -listan.
 
 ## <a name="order-of-evaluation"></a>Utvärderings ordning
 
-Begäranden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas först av Azure Policy. Azure Policy skapar en lista med alla tilldelningar som gäller för resursen och utvärderar sedan resursen mot varje definition. Azure Policy bearbetar flera av effekterna innan du skickar begäran till rätt resurs leverantör. Detta förhindrar onödig bearbetning av en resurs leverantör när en resurs inte uppfyller de design kontroller som Azure Policy.
+Begär Anden om att skapa eller uppdatera en resurs utvärderas av Azure Policy först. Azure Policy skapar en lista med alla tilldelningar som gäller för resursen och utvärderar sedan resursen mot varje definition. För ett [Resource Manager-läge](./definition-structure.md#resource-manager-modes)bearbetar Azure policy flera av effekterna innan du överlämnar begäran till lämplig resurs leverantör. Den här ordningen förhindrar onödig bearbetning av en resurs leverantör när en resurs inte uppfyller de design kontroller som är utformade för Azure Policy. Med ett [resurs leverantörs läge](./definition-structure.md#resource-provider-modes)hanterar resurs leverantören utvärderingen och resultatet och rapporterar tillbaka resultatet till Azure policy.
 
 - **Inaktiverat** kontrol leras först för att avgöra om princip regeln ska utvärderas.
-- **Lägg till** och **ändra** utvärderas sedan. Eftersom antingen kan ändra begäran kan en ändring som gjorts förhindra att en granskning eller nekas från att utlösas.
+- **Lägg till** och **ändra** utvärderas sedan. Eftersom antingen kan ändra begäran kan en ändring som gjorts förhindra att en granskning eller nekas från att utlösas. Dessa effekter är bara tillgängliga i Resource Manager-läge.
 - **Deny** utvärderas sedan. Genom att utvärdera neka före granskning, förhindras dubbel loggning av en oönskad resurs.
-- **Granskningen** utvärderas sedan innan begäran skickas till resurs leverantören.
+- **Granskningen** utvärderas sist.
 
-När resurs leverantören returnerar en lyckad kod, utvärderas **AuditIfNotExists** och **DeployIfNotExists** för att avgöra om det krävs ytterligare loggning eller åtgärd av efterlevnad.
-
-Det finns för närvarande ingen utvärderings ordning för **EnforceOPAConstraint** -eller **EnforceRegoPolicy** -effekterna.
+När resurs leverantören returnerar en lyckad kod i ett Resource Manager-läge, utvärderas **AuditIfNotExists** och **DeployIfNotExists** för att avgöra om det krävs ytterligare loggning eller åtgärd av efterlevnad.
 
 ## <a name="append"></a>Lägg till
 
@@ -88,28 +92,50 @@ Exempel 2: ett **fält/värde** -par med ett **\[\*\]** [alias](definition-struc
 }
 ```
 
-
-
-
 ## <a name="audit"></a>Granska
 
 Granskning används för att skapa en varnings händelse i aktivitets loggen när en icke-kompatibel resurs utvärderas, men begäran stoppas inte.
 
 ### <a name="audit-evaluation"></a>Gransknings utvärdering
 
-Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskningen fungerar likadant för en resurs förfrågan och en utvärderings cykel. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
+Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. För ett Resource Manager-läge skickar Azure Policy resursen till resurs leverantören. Granskningen fungerar likadant för en resurs förfrågan och en utvärderings cykel. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action` åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Gransknings egenskaper
 
-Gransknings effekterna har inte några ytterligare egenskaper **som kan användas i villkors** definitionen.
+För ett Resource Manager-läge har gransknings effekterna inga ytterligare egenskaper att använda i **then** -villkoret för princip definitionen.
+
+För ett resurs leverantörs läge av `Microsoft.Kubernetes.Data` , har gransknings effekterna följande ytterligare egenskaper för **information**.
+
+- **constraintTemplate** (krävs)
+  - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och de villkors parametrar som skickas via **värden** från Azure policy.
+- **begränsning** (obligatoriskt)
+  - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}` . I exempel 2 nedan är dessa värden `{{ .Values.excludedNamespaces }}` och `{{ .Values.allowedContainerImagesRegex }}` .
+- **värden** (valfritt)
+  - Definierar alla parametrar och värden som ska skickas till begränsningen. Varje värde måste finnas i CRD för begränsnings mal len.
 
 ### <a name="audit-example"></a>Gransknings exempel
 
-Exempel: använda gransknings funktionen.
+Exempel 1: använda gransknings effekterna för Resource Manager-lägen.
 
 ```json
 "then": {
     "effect": "audit"
+}
+```
+
+Exempel 2: använda gransknings effekterna för ett resurs leverantörs läge i `Microsoft.Kubernetes.Data` . Mer information i **Detaljer** definierar den constraint-mall och CRD som ska användas i Kubernetes för att begränsa de tillåtna behållar avbildningarna.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
 }
 ```
 
@@ -125,7 +151,7 @@ AuditIfNotExists körs efter att en resurs leverantör har hanterat en begäran 
 
 Egenskapen **information** för AuditIfNotExists-effekterna har alla under egenskaper som definierar de relaterade resurserna som ska matchas.
 
-- **Typ** [obligatoriskt]
+- **Typ** (krävs)
   - Anger vilken typ av relaterad resurs som ska matchas.
   - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
 - **Namn** (valfritt)
@@ -185,17 +211,26 @@ Neka används för att förhindra en resurs förfrågan som inte matchar definie
 
 ### <a name="deny-evaluation"></a>Neka utvärdering
 
-När du skapar eller uppdaterar en matchad resurs förhindrar neka-begäran innan den skickas till resurs leverantören. Begäran returneras som en `403 (Forbidden)` . I portalen kan den förbjudna visas som status för den distribution som förhindrades av princip tilldelningen.
+När du skapar eller uppdaterar en matchad resurs i ett Resource Manager-läge förhindrar neka-begäran innan den skickas till resurs leverantören. Begäran returneras som en `403 (Forbidden)` . I portalen kan den förbjudna visas som status för den distribution som förhindrades av princip tilldelningen. För ett resurs leverantörs läge hanterar resurs leverantören utvärderingen av resursen.
 
 Vid utvärdering av befintliga resurser markeras resurser som matchar en definition för neka-principer som icke-kompatibla.
 
 ### <a name="deny-properties"></a>Egenskaper för neka
 
-Neka-funktionen har inga ytterligare egenskaper att använda i **then** -villkoret för princip definitionen.
+För ett Resource Manager-läge har neka-effekterna inga ytterligare egenskaper för användning i **then** -villkoret för princip definitionen.
+
+För ett resurs leverantörs läge av `Microsoft.Kubernetes.Data` , har neka-påverkan följande ytterligare egenskaper för **information**.
+
+- **constraintTemplate** (krävs)
+  - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och de villkors parametrar som skickas via **värden** från Azure policy.
+- **begränsning** (obligatoriskt)
+  - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}` . I exempel 2 nedan är dessa värden `{{ .Values.excludedNamespaces }}` och `{{ .Values.allowedContainerImagesRegex }}` .
+- **värden** (valfritt)
+  - Definierar alla parametrar och värden som ska skickas till begränsningen. Varje värde måste finnas i CRD för begränsnings mal len.
 
 ### <a name="deny-example"></a>Neka exempel
 
-Exempel: använda neka-effekter.
+Exempel 1: använda neka-påverkan för Resource Manager-lägen.
 
 ```json
 "then": {
@@ -203,6 +238,21 @@ Exempel: använda neka-effekter.
 }
 ```
 
+Exempel 2: Använd neka-funktionen för ett resurs leverantörs läge i `Microsoft.Kubernetes.Data` . Mer information i **Detaljer** definierar den constraint-mall och CRD som ska användas i Kubernetes för att begränsa de tillåtna behållar avbildningarna.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -222,7 +272,7 @@ Under en utvärderings cykel markeras princip definitioner med en DeployIfNotExi
 
 Egenskapen **information** för DeployIfNotExists-effekterna har alla under egenskaper som definierar de relaterade resurserna som ska matchas och mallen som ska köras.
 
-- **Typ** [obligatoriskt]
+- **Typ** (krävs)
   - Anger vilken typ av relaterad resurs som ska matchas.
   - Startar genom att försöka hämta en resurs under villkors resursen **IF** , och sedan frågar i samma resurs grupp som villkors resursen **om** .
 - **Namn** (valfritt)
@@ -246,14 +296,14 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Om en matchande relaterad resurs utvärderas som sant är resultatet uppfyllt och utlöser inte distributionen.
   - Kan använda [Field ()] för att kontrol lera likvärdighet med värden i **IF** -villkoret.
   - Kan till exempel användas för att kontrol lera att den överordnade resursen (i **IF** -villkoret) finns på samma resurs plats som den matchande relaterade resursen.
-- **roleDefinitionIds** [krävs]
+- **roleDefinitionIds** (krävs)
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (valfritt)
   - Tillåtna värden är _prenumerations_ -och _ResourceGroup_.
   - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
   - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
   - Standardvärdet är _ResourceGroup_.
-- **Distribution** [krävs]
+- **Distribution** (krävs)
   - Den här egenskapen ska innehålla den fullständiga mal Lav distributionen som den skulle skickas till `Microsoft.Resources/deployments` API: et för placering. Mer information finns i [distributioner REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
@@ -319,13 +369,12 @@ Den här inställningen är användbar för att testa situationer eller när pri
 Ett alternativ till den inaktiverade inställningen är **enforcementMode**, som anges för princip tilldelningen.
 När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. Loggning, till exempel aktivitets loggar och princip påverkan inträffar inte. Mer information finns i [princip tilldelning – tvingande läge](./assignment-structure.md#enforcement-mode).
 
-
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
 Den här inställningen används med ett princip definitions _läge_ för `Microsoft.Kubernetes.Data` . Den används för att skicka Gatekeeper v3-regler för åtkomst kontroll som definierats med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) till Kubernetes-kluster i Azure.
 
 > [!NOTE]
-> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner.
+> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade för hands versions princip definitionerna med **EnforceOPAConstraint** -effekter och den relaterade **Kubernetes-tjänst** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint-utvärdering
 
@@ -336,11 +385,11 @@ Var 15: e minut slutförs en fullständig genomsökning av klustret och resultat
 
 Egenskapen **information** för EnforceOPAConstraint-effekter har de subegenskaper som beskriver Gatekeeper-åtkomstkontroll för åtkomst kontroll.
 
-- **constraintTemplate** [krävs]
+- **constraintTemplate** (krävs)
   - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och de villkors parametrar som skickas via **värden** från Azure policy.
-- **begränsning** [obligatoriskt]
+- **begränsning** (obligatoriskt)
   - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}` . I exemplet nedan är dessa värden `{{ .Values.cpuLimit }}` och `{{ .Values.memoryLimit }}` .
-- **värden** [valfritt]
+- **värden** (valfritt)
   - Definierar alla parametrar och värden som ska skickas till begränsningen. Varje värde måste finnas i CRD för begränsnings mal len.
 
 ### <a name="enforceopaconstraint-example"></a>EnforceOPAConstraint-exempel
@@ -381,7 +430,7 @@ Exempel: Gatekeeper v3-åtkomstkontroll för att ange behållarens processor gr�
 Den här inställningen används med ett princip definitions _läge_ för `Microsoft.ContainerService.Data` . Den används för att skicka Gatekeeper v2-regler för åtkomst kontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) för att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade för hands versions princip definitionerna med **EnforceRegoPolicy** -effekter och den relaterade **Kubernetes-tjänst** kategorin är _inaktuella_. Använd i stället den uppdaterade [EnforceOPAConstraint](#enforceopaconstraint) -påverkan.
+> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade för hands versions princip definitionerna med **EnforceRegoPolicy** -effekter och den relaterade **Kubernetes-tjänst** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy-utvärdering
 
@@ -392,11 +441,11 @@ Var 15: e minut slutförs en fullständig genomsökning av klustret och resultat
 
 Egenskapen **information** för EnforceRegoPolicy-funktionen har de subegenskaper som beskriver åtkomst kontroll regeln för gatekeeper v2.
 
-- **policyId** [krävs]
+- **policyId** (krävs)
   - Ett unikt namn som skickas som en parameter till Rego-åtkomstkontroll.
-- **princip** [nödvändig]
+- **princip** (krävs)
   - Anger URI för Rego-åtkomstkontroll.
-- **policyParameters** [valfritt]
+- **policyParameters** (valfritt)
   - Definierar alla parametrar och värden som ska skickas till Rego-principen.
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy-exempel
@@ -445,15 +494,21 @@ När en princip definition med hjälp av ändra-effekter körs som en del av en 
 
 Egenskapen **information** för funktionen ändra har alla under egenskaper som definierar de behörigheter som krävs för reparation och de **åtgärder** som används för att lägga till, uppdatera eller ta bort taggattribut.
 
-- **roleDefinitionIds** [krävs]
+- **roleDefinitionIds** (krävs)
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
   - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **åtgärder** [krävs]
+- **conflictEffect** (valfritt)
+  - Fastställer vilken princip definition "WINS" i händelse av att mer än en princip definition ändrar samma egenskap.
+    - För nya eller uppdaterade resurser prioriteras princip definitionen med _neka_ . Princip definitioner med _granskning_ hoppa över alla **åtgärder**. Om mer än en princip definition har _neka_nekas begäran som en konflikt. Om alla princip definitioner har _granskning_bearbetas ingen av **åtgärderna** i de motstridiga princip definitionerna.
+    - För befintliga resurser, om mer än en princip definition har _neka_, är kompatibilitetsstatus en _konflikt_. Om en eller färre princip definitioner har _neka_, returnerar varje tilldelning en kompatibilitetsstatus som _inte är kompatibel_.
+  - Tillgängliga värden: _audit_, _Deny_, _Disabled_.
+  - Standardvärdet är _Deny_.
+- **åtgärder** (krävs)
   - En matris med alla märknings åtgärder som ska utföras för matchande resurser.
   - Egenskaper:
-    - **åtgärd** [krävs]
+    - **åtgärd** (krävs)
       - Definierar vilken åtgärd som ska vidtas för en matchande resurs. Alternativen är: _addOrReplace_, _Add_, _Remove_. _Lägg till_ fungerar ungefär som [i Lägg till-resultatet.](#append)
-    - **fält** [obligatoriskt]
+    - **fält** (obligatoriskt)
       - Taggen för att lägga till, ersätta eller ta bort. Taggnamn måste följa samma namngivnings konvention för andra [fält](./definition-structure.md#fields).
     - **värde** (valfritt)
       - Värdet som taggen ska ställas in på.
@@ -528,6 +583,7 @@ Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersät
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -543,11 +599,9 @@ Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersät
 }
 ```
 
-
-
 ## <a name="layering-policy-definitions"></a>Skikt princip definitioner
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Exempel:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Ett exempel:
 
 - Princip 1
   - Begränsar resursens plats till "väst"

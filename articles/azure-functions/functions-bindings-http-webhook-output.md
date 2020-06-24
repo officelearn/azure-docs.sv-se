@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277627"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697450"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP-utgående bindningar
 
@@ -23,26 +23,26 @@ Standard retur värdet för en HTTP-utlöst funktion är:
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . För klass bibliotek i C# finns det inga egenskaper för attribut som motsvarar dessa *funktioner. JSON* -egenskaper.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.jsi* filen. För klass bibliotek i C# finns det inga egenskaper för attribut som motsvarar dessa *function.jsi* egenskaper.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-| **bastyp** |Måste anges till `http`. |
-| **riktning** | Måste anges till `out`. |
+| **bastyp** |Måste anges till `http` . |
+| **position** | Måste anges till `out` . |
 | **Namn** | Variabel namnet som används i funktions koden för svaret, eller `$return` för att använda det returnerade värdet. |
 
 ## <a name="usage"></a>Användning
 
-Om du vill skicka ett HTTP-svar använder du svars mönster för språk standard. I C#-eller C#-skriptet ska du göra funktions `IActionResult` retur `Task<IActionResult>`typen eller. I C# krävs inget attribut för retur värde.
+Om du vill skicka ett HTTP-svar använder du svars mönster för språk standard. I C#-eller C#-skriptet ska du göra funktions retur typen `IActionResult` eller `Task<IActionResult>` . I C# krävs inget attribut för retur värde.
 
 Till exempel svar, se [utlösaren exempel](./functions-bindings-http-webhook-trigger.md#example).
 
-## <a name="hostjson-settings"></a>Host. JSON-inställningar
+## <a name="hostjson-settings"></a>host.jspå Inställningar
 
-I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet Host. JSON-filen nedan innehåller bara version 2. x +-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i version 2. x och mer finns i [Host. JSON-referens för Azure Functions](functions-host-json.md).
+I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet host.jspå filen nedan innehåller bara version 2. x +-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i versionerna 2. x finns i [host.jsreferens för Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md#http).
+> En referens för host.jspå i functions 1. x finns i [host.jsreferens för Azure Functions 1. x](functions-host-json-v1.md#http).
 
 ```json
 {
@@ -64,13 +64,13 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-| customHeaders|ingen|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options` rubriken till i svaret för att undvika avlyssning av innehålls typ. |
-|dynamicThrottlesEnabled|värdet<sup>\*</sup>|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol `connections/threads/processes/memory/cpu/etc` lera system prestanda räknare, som och om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med ett `429 "Too Busy"` svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup>Standardvärdet i en förbruknings `true`plan är. Standardvärdet i en dedikerad plan `false`är.|
-|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`, tillämpas [http Strict Transport Security (HSTS)-beteendet för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [ `HstsOptions` klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). I exemplet ovan anges också [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) egenskapen till 10 dagar. Följande egenskaper `hsts` stöds: <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|Maximalt antal HTTP-funktioner som körs parallellt. Med det här värdet kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder ett stort antal system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning. <br/><sup>*</sup>Standardvärdet för en förbruknings plan är 100. Standardvärdet för en dedikerad plan är obundet (`-1`).|
-|maxOutstandingRequests|200<sup>\*</sup>|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen. <br/><sup>\*</sup>Standardvärdet för en förbruknings plan är 200. Standardvärdet för en dedikerad plan är obundet (`-1`).|
+| customHeaders|inget|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options` rubriken till i svaret för att undvika avlyssning av innehålls typ. |
+|dynamicThrottlesEnabled|värdet<sup>\*</sup>|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare `connections/threads/processes/memory/cpu/etc` , som och om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med ett `429 "Too Busy"` svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup>Standardvärdet i en förbruknings plan är `true` . Standardvärdet i en dedikerad plan är `false` .|
+|HSTS|inte aktiverat|När `isEnabled` är inställt på `true` , tillämpas [http Strict Transport Security (HSTS)-beteendet för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [ `HstsOptions` klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). I exemplet ovan anges också [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) egenskapen till 10 dagar. Följande egenskaper stöds `hsts` : <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|Maximalt antal HTTP-funktioner som körs parallellt. Med det här värdet kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder ett stort antal system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning. <br/><sup>*</sup>Standardvärdet för en förbruknings plan är 100. Standardvärdet för en dedikerad plan är obundet ( `-1` ).|
+|maxOutstandingRequests|200<sup>\*</sup>|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen. <br/><sup>\*</sup>Standardvärdet för en förbruknings plan är 200. Standardvärdet för en dedikerad plan är obundet ( `-1` ).|
 |routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |
 
 ## <a name="next-steps"></a>Nästa steg

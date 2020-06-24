@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 5955f52cda73630f371a46f83ac0fb9a252b80e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9044380ec4f8f28a2056ab1e30a9fec3081ad204
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655487"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734885"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure AD Domain Services
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure Active Directory Domain Services
 
 Program och tjänster behöver ofta en identitet för att autentisera sig med andra resurser. En webb tjänst kan till exempel behöva autentisera med en databas tjänst. Om ett program eller en tjänst har flera instanser, till exempel en webb Server grupp, får du tids krävande att skapa och konfigurera identiteterna för dessa resurser.
 
 I stället kan ett grupphanterat tjänst konto (gMSA) skapas i den Azure Active Directory Domain Services (Azure AD DS)-hanterade domänen. Windows OS hanterar automatiskt autentiseringsuppgifterna för en gMSA, vilket fören klar hanteringen av stora grupper av resurser.
 
-Den här artikeln visar hur du skapar en gMSA i en Azure AD DS-hanterad domän med hjälp av Azure PowerShell.
+Den här artikeln visar hur du skapar en gMSA i en hanterad domän med hjälp av Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -35,7 +35,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterade-domän][create-azure-ad-ds-instance].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 
@@ -49,11 +49,11 @@ Mer information finns i [Översikt över grupphanterade tjänst konton (gMSA)][g
 
 ## <a name="using-service-accounts-in-azure-ad-ds"></a>Använda tjänst konton i Azure AD DS
 
-Eftersom Azure AD DS-hanterade domäner är låsta och hanteras av Microsoft, finns det några saker att tänka på när du använder tjänst konton:
+Eftersom hanterade domäner är låsta och hanteras av Microsoft, finns det några saker att tänka på när du använder tjänst konton:
 
 * Skapa tjänst konton i anpassade organisationsenheter (OU) på den hanterade domänen.
     * Du kan inte skapa ett tjänst konto i de inbyggda *AADDC-användarna* eller *AADDC-datorernas* organisationsenheter.
-    * Skapa i stället [en anpassad Organisationsenhet][create-custom-ou] i den hanterade domänen i Azure AD DS och skapa sedan tjänst konton i den anpassade organisationsenheten.
+    * Skapa i stället [en anpassad Organisationsenhet][create-custom-ou] i den hanterade domänen och skapa sedan tjänst konton i den anpassade organisationsenheten.
 * Rot nyckeln för Key Distribution Services (KDS) har skapats i förväg.
     * Rot nyckeln KDS används för att generera och hämta lösen ord för gMSAs. I Azure AD DS skapas KDS-roten åt dig.
     * Du har inte behörighet att skapa en annan, eller så kan du Visa standard rot nyckeln KDS.
@@ -65,7 +65,7 @@ Skapa först en anpassad ORGANISATIONSENHET med cmdleten [New-ADOrganizationalUn
 > [!TIP]
 > Om du vill slutföra de här stegen för att skapa en gMSA [använder du den virtuella hanterings datorn][tutorial-create-management-vm]. Den här virtuella hanterings datorn ska redan ha de AD PowerShell-cmdletar som krävs och anslutning till den hanterade domänen.
 
-I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade Azure AD DS-domänen med namnet *aaddscontoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
+I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade domänen med namnet *aaddscontoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"

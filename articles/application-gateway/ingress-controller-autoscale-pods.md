@@ -4,15 +4,15 @@ description: Den här artikeln innehåller anvisningar om hur du skalar din AKS-
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239453"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125471"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Autoskala din AKS-poddar med hjälp av Application Gateway mått (beta)
 
@@ -27,7 +27,7 @@ Vi ska använda följande två komponenter:
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurera Azure Kubernetes Metric adapter
 
-1. Vi börjar med att skapa ett huvud namn för Azure AAD- `Monitoring Reader` tjänsten och tilldela det åtkomst över Application Gateway resurs gruppen. 
+1. Vi börjar med att skapa ett huvud namn för Azure AAD-tjänsten och tilldela det `Monitoring Reader` åtkomst över Application Gateway resurs gruppen. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -39,7 +39,7 @@ Vi ska använda följande två komponenter:
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -47,7 +47,7 @@ Vi ska använda följande två komponenter:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Vi kommer att skapa `ExternalMetric` en resurs med `appgw-request-count-metric`namnet. Den här resursen instruerar Metric-kortet att `AvgRequestCountPerHealthyHost` exponera mått `myApplicationGateway` för resursen `myResourceGroup` i resurs gruppen. Du kan använda `filter` fältet för att rikta in dig på en bestämd Server del och http-inställning för Server delen i Application Gateway.
+1. Vi kommer att skapa en `ExternalMetric` resurs med namnet `appgw-request-count-metric` . Den här resursen instruerar Metric-kortet att exponera `AvgRequestCountPerHealthyHost` mått för `myApplicationGateway` resursen i `myResourceGroup` resurs gruppen. Du kan använda `filter` fältet för att rikta in dig på en bestämd Server del och HTTP-inställning för Server delen i Application Gateway.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -94,7 +94,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 När vi kan exponera `appgw-request-count-metric` via mått servern är vi redo att använda [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) för att skala upp vår mål distribution.
 
-I följande exempel ska vi rikta in sig på en `aspnet`exempel distribution. Vi kommer att skala upp poddar `appgw-request-count-metric` när > 200 per POD upp till högst `10` poddar.
+I följande exempel ska vi rikta in sig på en exempel distribution `aspnet` . Vi kommer att skala upp poddar när `appgw-request-count-metric` > 200 per POD upp till högst `10` poddar.
 
 Ersätt ditt mål distributions namn och Använd följande konfiguration för automatisk skalning:
 ```yaml

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248364"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706502"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure PowerShell
 
@@ -181,7 +181,7 @@ I resursen används parametern för namnet.
 ]
 ```
 
-Om du använder- `-IncludeParameterDefaultValue` parametern när du exporterar mallen, innehåller parametern Template ett standardvärde som är inställt på det aktuella värdet. Du kan antingen använda standardvärdet eller skriva över standardvärdet genom att skicka ett annat värde.
+Om du använder `-IncludeParameterDefaultValue` -parametern när du exporterar mallen, innehåller parametern Template ett standardvärde som är inställt på det aktuella värdet. Du kan antingen använda standardvärdet eller skriva över standardvärdet genom att skicka ett annat värde.
 
 ```json
 "parameters": {
@@ -196,7 +196,7 @@ Om du använder- `-IncludeParameterDefaultValue` parametern när du exporterar m
 }
 ```
 
-Om du använder- `-SkipResourceNameParameterization` parametern när du exporterar mallen ingår inte parametrar för resurs namn i mallen. I stället anges resurs namnet direkt på resursen till det aktuella värdet. Du kan inte anpassa namnet under distributionen.
+Om du använder `-SkipResourceNameParameterization` -parametern när du exporterar mallen ingår inte parametrar för resurs namn i mallen. I stället anges resurs namnet direkt på resursen till det aktuella värdet. Du kan inte anpassa namnet under distributionen.
 
 ```json
 "resources": [

@@ -2,22 +2,22 @@
 title: Hantera medgivande till program och utvärdera medgivande begär Anden – Azure AD
 description: Lär dig hur du hanterar medgivande begär anden när användar tillstånd är inaktiverat eller begränsat och hur du utvärderar en begäran om klient organisations administratörs medgivande till ett program.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367846"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763201"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Hantera medgivande till program och utvärdera medgivande begär Anden
 

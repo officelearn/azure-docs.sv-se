@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b87c4c0beec2b3b10c81355fc51ded870d7d1d9e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 59ea78fed27b41199699d5413f605288bbf1a608
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84311040"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118397"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB API för Cassandra data (v4-driv rutin)
 
@@ -29,7 +29,7 @@ ms.locfileid: "84311040"
 
 I den här snabb starten skapar du ett Azure Cosmos DB API för Cassandra konto och använder en Cassandra java-app som klonas från GitHub för att skapa en Cassandra-databas och behållare med hjälp av [v4. x Apache Cassandra-drivrutinerna](https://github.com/datastax/java-driver/tree/4.x) för Java. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka `JAVA_HOME` miljö variabeln till den mapp där JDK är installerad.
@@ -153,7 +153,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. Välj **anslutnings sträng**i Azure Cosmos DB-kontot i [Azure Portal](https://portal.azure.com/). 
 
-    ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
+    :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng":::
 
 2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy-button-azure-portal.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
@@ -215,7 +215,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    ![Visa data i Datautforskaren-Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Visa data i Datautforskaren-Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

@@ -1,15 +1,15 @@
 ---
-title: Säkerhet för behållar instanser
+title: Säkerhets aspekter för behållar instanser
 description: Rekommendationer för att skydda bilder och hemligheter för Azure Container Instances och allmänna säkerhets överväganden för alla behållar plattformar
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458002"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907031"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Säkerhets överväganden för Azure Container Instances
 
@@ -18,6 +18,9 @@ Den här artikeln beskriver säkerhets överväganden för att använda Azure Co
 > [!div class="checklist"]
 > * **Säkerhets rekommendationer** för att hantera avbildningar och hemligheter för Azure Container instances
 > * **Överväganden för containerns eko system** under hela livs cykelns livs cykel, för alla behållar plattformar
+
+Omfattande rekommendationer som hjälper dig att förbättra position i distributionen finns i [Azures säkerhets bas linje för container instances](security-baseline.md).
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Säkerhets rekommendationer för Azure Container Instances
 
@@ -140,6 +143,8 @@ Upprätthålla en korrekt gransknings historik för administrativ åtkomst till 
 * Resurs loggar för [Azure Container instances](container-instances-log-analytics.md) och [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Nästa steg
+
+* I [Azures säkerhets bas linje finns container instances](security-baseline.md) för omfattande rekommendationer som hjälper dig att förbättra din distributions säkerhets position.
 
 * Läs mer om hur du använder [Azure Security Center](../security-center/container-security.md) för real tids identifiering av hot i dina behållares miljöer.
 

@@ -15,7 +15,7 @@ ms.locfileid: "67187540"
 
 Utför följande steg för att hämta programuppdateringen från Microsoft Update Catalog.
 
-1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
     ![Installera katalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -51,7 +51,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
 4. Ange lösenordet när du uppmanas att göra så. Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. För den första order uppdateringen måste du peka på den aktuella filen.
 
     >[!NOTE] 
-    > Du bör först installera _HcsSoftwareUpdate. exe_ . När installationen har slutförts installerar du _CisMdsAgentUpdate. exe_.
+    > Du bör installera _HcsSoftwareUpdate.exe_ först. När installationen är klar installerar du _CisMdsAgentUpdate.exe_.
    
         ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -68,7 +68,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
 5. Skriv **Y** när du uppmanas att bekräfta installationen av snabbkorrigeringen.
 6. Övervaka uppdateringen med hjälp av `Get-HcsUpdateStatus`-cmdlet. Uppdateringen slutförs först på den passiva styrenheten. När den passiva styrenheten har uppdaterats sker en redundans och uppdateringen tillämpas sedan på den andra styrenheten. Uppdateringen har slutförts när båda styrenheterna har uppdateras.
    
-    Följande exempel på utdata visar att uppdateringen pågår. `RunInprogress` Är `True` när uppdateringen pågår.
+    Följande exempel på utdata visar att uppdateringen pågår. `RunInprogress`Är `True` när uppdateringen pågår.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -79,7 +79,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     Controller1Events   :
     ```
    
-     Följande exempel på utdata visar att uppdateringen är färdig. `RunInProgress` Är `False` när uppdateringen har slutförts.
+     Följande exempel på utdata visar att uppdateringen är färdig. `RunInProgress`Är `False` när uppdateringen har slutförts.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -105,13 +105,13 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
      Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
      > [!IMPORTANT]
-     > Du måste starta om den aktiva styrenheten `Restart-HcsController` via cmdleten innan du använder nästa uppdatering.
+     > Du måste starta om den aktiva styrenheten via `Restart-HcsController` cmdleten innan du använder nästa uppdatering.
      
-8. Upprepa steg 3-6 för att installera _CisMDSAgentupdate. exe_ -agenten som hämtats till mappen _FirstOrderUpdate_ .
+8. Upprepa steg 3-6 för att installera _CisMDSAgentupdate.exe_ -agenten som hämtats till _FirstOrderUpdate_ -mappen.
 8. Upprepa steg 3-6 för att installera de andra order uppdateringarna. 
 
     > [!NOTE] 
-    > För andra order uppdateringar kan flera uppdateringar installeras genom att du `Start-HcsHotfix cmdlet` kör och pekar på den mapp där andra order uppdateringar finns. Cmdleten kör alla tillgängliga uppdateringar i mappen. Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen.
+    > För andra order uppdateringar kan flera uppdateringar installeras genom att du kör `Start-HcsHotfix cmdlet` och pekar på den mapp där andra order uppdateringar finns. Cmdleten kör alla tillgängliga uppdateringar i mappen. Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen.
 
     När alla snabbkorrigeringar har installerats använder du `Get-HcsSystem`-cmdleten. Versionerna bör vara:
     

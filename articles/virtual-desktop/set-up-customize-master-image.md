@@ -4,16 +4,16 @@ description: Hur du förbereder, anpassar och laddar upp en Windows-huvudavbildn
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 31a2bcdcf7b21999ddf17170b024589204c0e9e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611967"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212793"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -63,9 +63,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Förberedelse av program vara och installation
 
-Det här avsnittet beskriver hur du förbereder och installerar FSLogix och Windows Defender, samt några grundläggande konfigurations alternativ för appar och din avbildnings register. 
+Det här avsnittet beskriver hur du förbereder och installerar FSLogix och Windows Defender, samt några grundläggande konfigurations alternativ för appar och din avbildnings register.
 
-Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn går du till [installera Office på en huvud-VHD-avbildning](install-office-on-wvd-master-image.md) och följer anvisningarna där du installerar apparna. När du är klar går du tillbaka till den här artikeln.
+Om du installerar Microsoft 365 appar för företag och OneDrive på den virtuella datorn går du till [installera Office på en huvud-VHD-avbildning](install-office-on-wvd-master-image.md) och följer anvisningarna där du kan installera apparna. När du är klar går du tillbaka till den här artikeln.
 
 Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att du installerar dem när du har slutfört det här avsnittets instruktioner.
 
@@ -87,7 +87,7 @@ Mer information om hur du konfigurerar Windows Defender för att undanta vissa f
 
 Så här inaktiverar du automatiska uppdateringar via lokal grupprincip:
 
-1. Öppna **redigerare för lokalt grupprincipobjekt\\administrativa mallar\\Windows-\\komponenter Windows Update**.
+1. Öppna **redigerare för lokalt grupprincipobjekt \\ administrativa mallar \\ Windows-komponenter \\ Windows Update**.
 2. Högerklicka på **Konfigurera automatisk uppdatering** och Ställ in den på **inaktive rad**.
 
 Du kan också köra följande kommando i en kommando tolk för att inaktivera automatiska uppdateringar.
@@ -113,7 +113,7 @@ Omdirigera tids zoner:
 1. Öppna **konsolen Grupprinciphantering**på Active Directory-servern.
 2. Expandera din domän och grupprincip objekt.
 3. Högerklicka på grupprincip- **objektet** som du skapade för grup princip inställningarna och välj **Redigera**.
-4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfigurations** > **principer** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** > **enhet för fjärrskrivbordssession och omdirigering av resurser**.
+4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfigurations**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **värd**enhet för fjärrskrivbordssession  >  **och omdirigering av resurser**.
 5. Aktivera inställningen **Tillåt omdirigering** av tidszon.
 
 Du kan också köra det här kommandot på huvud avbildningen för att omdirigera tids zoner:

@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a89f76344e48d5af8c71c5a674a94767795b41a9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 74a71bdc4c9aef9a6964f0c9120a902262a50526
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871478"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207149"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster med PowerShell
 
@@ -47,7 +47,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 Följande exempelutdata visar den resursgrupp som skapats:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -92,7 +92,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 
 Följande exempelutdata visar den enskilda nod som skapades i föregående steg. Kontrollera att status för noden är **Klar**:
 
-```Output
+```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ```
@@ -200,7 +200,7 @@ Distribuera programmet med kommandot [kubectl apply][kubectl-apply] och ange nam
 
 Följande exempelutdata visar de distributioner och tjänster som skapats:
 
-```Output
+```plaintext
 deployment.apps/azure-vote-back created
 service/azure-vote-back created
 deployment.apps/azure-vote-front created
@@ -220,14 +220,14 @@ Du kan övervaka förloppet genom att använda kommandot [kubectl get service][k
 
 Till en början visas **EXTERNAL-IP** för **azure-vote-front**-tjänsten som **väntande**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 När **EXTERNAL-IP**-adressen ändras från **väntande** till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
-```Output
+```plaintext
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

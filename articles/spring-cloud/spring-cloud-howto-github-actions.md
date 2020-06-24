@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 1a0624c01a3bb75c1a7b07b130345776417cf482
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484308"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125710"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure våren Cloud CI/CD med GitHub-åtgärder
 
@@ -21,7 +21,7 @@ GitHub-åtgärder har stöd för ett arbets flöde för automatisk program varu 
 Det här exemplet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Konfigurera GitHub-lagringsplatsen och autentisera
-Du behöver en Azure Service-princip för att godkänna Azure login-åtgärden. Kör följande kommandon på den lokala datorn för att få en Azure-autentiseringsuppgift:
+Du behöver en Azure-tjänstens huvud namn för att godkänna Azure login-åtgärden. Kör följande kommandon på den lokala datorn för att få en Azure-autentiseringsuppgift:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 

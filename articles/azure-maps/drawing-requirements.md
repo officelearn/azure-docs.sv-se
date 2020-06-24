@@ -3,17 +3,17 @@ title: Krav för ritnings paket i Azure Maps Creator
 description: Lär dig mer om kraven för ritnings paket för att konvertera design filer för anläggningar för att mappa data med hjälp av Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/09/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cb34cb386939fc1160ee5a7db0007cfbf500ccb8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660629"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791579"
 ---
 # <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
@@ -169,12 +169,13 @@ Ett exempel på Zonelabel-lagret kan ses som ZONELABELS-skiktet i [exempel ritni
 
 Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå**. Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](https://docs.microsoft.com/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet kommer att matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, kommer att ignoreras.
 
-Fil Sök vägarna, i **buildingLevels** -objektet i manifest filen, måste vara relativa till rotmappen för zip-mappen. DWG-filnamnet måste exakt matcha namnet på anläggnings nivån. En DWG-fil för nivån "Basement" skulle till exempel vara "Basement. DWG". En DWG-fil för nivå 2 får namnet "level_2. DWG." Använd ett under streck om ditt nivå namn har ett blank steg. 
+Fil Sök vägarna, i **buildingLevels** -objektet i manifest filen, måste vara relativa till rotmappen för zip-mappen. DWG-filnamnet måste exakt matcha namnet på anläggnings nivån. En DWG-fil för nivån "Basement" skulle till exempel vara "Basement. DWG". En DWG-fil för nivå 2 får namnet "level_2. DWG." Använd ett under streck om ditt nivå namn har ett blank steg.
 
 Även om det finns krav när du använder manifest objekt krävs inte alla objekt. Tabellen nedan visar de obligatoriska och valfria objekten för version 1,1 av [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Objekt | Krävs | Beskrivning |
 | :----- | :------- | :------- |
+| version | true |Schema version för manifest. För närvarande stöds endast version 1,1.|
 | directoryInfo | true | Beskriver lokal geografiska och kontakt information. Det kan också användas för att disponera en kontakts geografiska och kontakt uppgifter. |
 | buildingLevels | true | Anger nivåerna för byggnader och de filer som innehåller nivåernas design. |
 | referens | true | Innehåller numerisk geografisk information för ritningen. |
@@ -211,7 +212,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 |-----------|------|----------|-------------|
 |levelName    |sträng    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering, Basement och så vidare.|
 |numret | heltal |    true | Ordnings tal används för att bestämma den lodräta ordningen för nivåer. Varje funktion måste ha en nivå med ordnings tal 0. |
-|heightAboveFacilityAnchor | numeric |    falskt |    Nivå höjd över jord golv i meter. |
+|heightAboveFacilityAnchor | numeric | falskt |    Nivåns höjd över ankaret i meter. |
 | verticalExtent | numeric | falskt | Nivån av nivån i meter för golv till tak. |
 |filename |    sträng |    true |    Fil Systems Sök väg för CAD-ritningen för en skapande nivå. Det måste vara i förhållande till roten i byggnadens zip-fil. |
 
@@ -253,7 +254,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 |verticalPenetrationDirection|    sträng|    falskt    |Om `verticalPenetrationCategory` har definierats kan du ange en giltig riktning för resan. De tillåtna värdena är `lowToHigh` , `highToLow` , `both` och `closed` . Standardvärdet är `both` .|
 | ej offentlig | boolesk | falskt | Anger om enheten är öppen för offentlig. |
 | isRoutable | boolesk | falskt | När det är inställt på `false` , kan enheten inte navigera till eller till. Standardvärdet är `true` . |
-| isOpenArea | boolesk | falskt | Gör det möjligt att navigera i agenten och ange enheten utan att behöva öppna den i enheten. Som standard är det här värdet inställt på `true` om enheten inte har öppnats. |
+| isOpenArea | boolesk | falskt | Tillåter att navigerings agenten anger enheten utan att behöva öppna den i enheten. Som standard är det här värdet inställt på `true` för enheter utan öppningar; `false` för enheter med öppningar.  Om du manuellt ställer in `isOpenArea` `false` på en enhet utan öppningar resulterar det i en varning. Detta beror på att den resulterande enheten inte kan kontaktas av en navigerings agent.|
 
 ### <a name="the-zoneproperties-object"></a>ZoneProperties-objektet
 
@@ -265,6 +266,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 |categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    sträng|    falskt    |Alternativt namn på zonen.  |
 |zoneNameSubtitle|    sträng |    falskt    |Under rubrik för zonen. |
+|zoneSetId|    sträng |    falskt    | Ange ID för att upprätta en relation mellan flera zoner så att de kan frågas eller väljas som en grupp. Till exempel zoner som sträcker sig över flera nivåer. |
 
 ### <a name="sample-drawing-package-manifest"></a>Exempel på paket manifest för ritning
 

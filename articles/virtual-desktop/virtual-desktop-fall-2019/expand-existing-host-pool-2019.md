@@ -4,16 +4,16 @@ description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615531"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214289"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -57,12 +57,12 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
      - Om du har skapat den ursprungliga poolen med Azure Marketplace-erbjudandet väljer du distributionen som börjar med **RDS. WVD-repool-Host-pool**.
      - Om du har skapat den ursprungliga poolen med GitHub Azure Resource Manager-mallen väljer du distributionen med namnet **Microsoft. template**.
 6. Välj **omdistribuera**.
-     
+
      >[!NOTE]
      >Om mallen inte distribueras om automatiskt när du väljer **distribuera**om väljer du **mall** i panelen till vänster i webbläsaren och väljer sedan **distribuera**.
 
 7. Välj den resurs grupp som innehåller aktuella virtuella dator värdar i den befintliga poolen.
-     
+
      >[!NOTE]
      >Om du ser ett fel som uppmanar dig att välja en annan resurs grupp även om den du angav är korrekt väljer du en annan resurs grupp och väljer sedan den ursprungliga resurs gruppen.
 
@@ -85,7 +85,7 @@ Alla värden i det här avsnittet ska matcha det du angav när du först skapade
 3.    För *region*väljer du samma region där de befintliga virtuella datorerna för anslutningspoolen värd för värdar finns.
 4.    För *Hostpool-namn*anger du namnet på den befintliga poolen.
 5.    För *Skriv bords typ*väljer du den Skriv bords typ som matchar den befintliga poolen.
-6.    För *standard Skriv bords användare*anger du en kommaavgränsad lista över alla ytterligare användare som du vill logga in på de virtuella Windows-klienterna och får åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill user3@contoso.com tilldela och user4@contoso.com komma åt, anger user3@contoso.comdu,user4@contoso.com.
+6.    För *standard Skriv bords användare*anger du en kommaavgränsad lista över alla ytterligare användare som du vill logga in på de virtuella Windows-klienterna och får åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user3@contoso.com och user4@contoso.com komma åt, anger du user3@contoso.com , user4@contoso.com .
 7.    Välj **Nästa: Konfigurera virtuell dator**.
 
 >[!NOTE]
@@ -96,7 +96,7 @@ Alla värden i det här avsnittet ska matcha det du angav när du först skapade
 Alla parameter värden i det här avsnittet ska överensstämma med vad du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom det totala antalet virtuella datorer. Antalet virtuella datorer som du anger är antalet virtuella datorer i den expanderade poolen:
 
 1. Välj den virtuella dator storlek som matchar de befintliga virtuella datorerna i sessionen.
-    
+
     >[!NOTE]
     >Om den angivna virtuella dator storleken som du söker efter inte visas i storleks väljaren för virtuell dator, beror det på att vi inte har publicerat den på Azure Marketplace-verktyget ännu. Om du vill begära en VM-storlek skapar du en begäran eller avröstar en befintlig begäran i [Windows Virtual Desktop UserVoice-forumet](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 

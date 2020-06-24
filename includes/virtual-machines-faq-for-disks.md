@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837877"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242201"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -451,7 +451,7 @@ Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten t
 
 **Stöder vi aktivering av cachelagring av värdar på alla disk storlekar?**
 
-Vi stöder cachelagring av värdar för ReadOnly och läsning/skrivning på disk storlekar som är mindre än 4 TiB. För disk storlekar på mer än 4 TiB har vi inte stöd för alternativ för cachelagring förutom ingen. Vi rekommenderar att du använder cachelagring för mindre disk storlekar där du kan vänta på att få bättre prestanda ökning med cachelagrade data i den virtuella datorn.
+Cachelagring av värden (skrivskyddad och Läs/skriv) stöds på disk storlekar som är mindre än 4 TiB. Det innebär att alla diskar som är etablerade upp till 4095 GiB kan dra nytta av cachelagring av värden. Cachelagring av värden stöds inte för disk storlekar som är större än eller lika med 4096 GiB. Till exempel kan en P50 Premium-disk som etablerades med 4095 GiB dra nytta av cachelagring av värdar och en P50 disk som tillhandahålls vid 4096 GiB kan inte dra nytta av cachelagring av värden. Vi rekommenderar att du använder cachelagring för mindre disk storlekar där du kan vänta på att få bättre prestanda ökning med cachelagrade data i den virtuella datorn.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 

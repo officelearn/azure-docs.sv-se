@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 301f77d4eba7b1a63dd49de280de252bd9af1956
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472459"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080476"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Bifoga en Cognitive Services resurs till en färdigheter i Azure Kognitiv sökning 
 
@@ -29,7 +29,7 @@ Azure Kognitiv sökning har ett beroende på Cognitive Services, inklusive [visu
 
 + Azure Kognitiv sökning använder den Cognitive Services resurs nyckel som du anger på en färdigheter för att fakturera för avbildning och text-anrikning. Att köra fakturerbara färdigheter är på [Cognitive Services betala per användning-pris](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ Avbildnings extrahering är en åtgärd i Azure Kognitiv sökning som inträffar när dokumenten har knäckts innan de berikas. Avbildnings extrahering är fakturerbart. För priser för avbildnings extrahering, se [prissättnings sidan för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
++ Avbildnings extrahering är en åtgärd i Azure Kognitiv sökning som inträffar när dokumenten har knäckts innan de berikas. Avbildnings extrahering är fakturerbart. För priser för avbildnings extrahering, se [prissättnings sidan för Azure kognitiv sökning](https://azure.microsoft.com/pricing/details/search/).
 
 + Text extrahering sker även under dokumentets cracking-fras. Det är inte fakturerbart.
 
@@ -108,9 +108,9 @@ Om du har en befintlig färdigheter kan du koppla den till en ny eller annan Cog
 
 ## <a name="attach-cognitive-services-programmatically"></a>Bifoga Cognitive Services program mässigt
 
-När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices` avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Kognitiv sökning-resurs. Ta även `@odata.type`med och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices` avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Kognitiv sökning-resurs. Ta även med `@odata.type` och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey` .
 
-I följande exempel visas det här mönstret. Lägg märke `cognitiveServices` till avsnittet i slutet av definitionen.
+I följande exempel visas det här mönstret. Lägg märke till `cognitiveServices` avsnittet i slutet av definitionen.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06

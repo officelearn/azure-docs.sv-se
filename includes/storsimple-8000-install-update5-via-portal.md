@@ -17,7 +17,7 @@ ms.locfileid: "67187541"
 
     ![Välj enhet](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. Gå till **enhets inställningar** > **enhets uppdateringar**.
+2. Gå till **enhets inställningar**  >  **enhets uppdateringar**.
 
     ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update5-via-portal/update2.png)
 

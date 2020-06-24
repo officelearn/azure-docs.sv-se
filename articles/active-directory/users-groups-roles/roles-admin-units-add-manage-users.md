@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a57392b0072f6e6bb692ad0a28e6adf87f615eed
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684961"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732573"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Lägga till och hantera användare i en administrativ enhet i Azure Active Directory
 
@@ -96,11 +96,11 @@ Välj **administrativa enheter** i den vänstra panelen för att se listan över
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Det finns två sätt att ta bort en användare från en administrativ enhet. I Azure Portal kan du öppna en användar profil genom att gå till **Azure AD** > -**användare**. Välj användaren för att öppna användarens profil. Välj den administrativa enhet som du vill att användaren ska tas bort från och välj **ta bort från administrativ enhet**.
+Det finns två sätt att ta bort en användare från en administrativ enhet. I Azure Portal kan du öppna en användar profil genom att gå till **Azure AD**-  >  **användare**. Välj användaren för att öppna användarens profil. Välj den administrativa enhet som du vill att användaren ska tas bort från och välj **ta bort från administrativ enhet**.
 
 ![Ta bort en användare från en administrativ enhet från användar profilen](./media/roles-admin-units-add-manage-users/user-remove-admin-units.png)
 
-Du kan också ta bort en användare i **Azure AD** > -**administrativa enheter** genom att välja den administrativa enhet som du vill ta bort användare från. Välj användaren och välj **ta bort medlem**.
+Du kan också ta bort en användare i **Azure AD**-  >  **administrativa enheter** genom att välja den administrativa enhet som du vill ta bort användare från. Välj användaren och välj **ta bort medlem**.
   
 ![Ta bort en användare på den administrativa enhets nivån](./media/roles-admin-units-add-manage-users/admin-units-remove-user.png)
 

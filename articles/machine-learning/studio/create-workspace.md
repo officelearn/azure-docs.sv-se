@@ -5,17 +5,17 @@ description: Om du vill använda Azure Machine Learning Studio (klassisk) måste
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: d8e8e9ec7a0a5c502e3046b0c6ddb3a7da064739
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117286"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696532"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta
 

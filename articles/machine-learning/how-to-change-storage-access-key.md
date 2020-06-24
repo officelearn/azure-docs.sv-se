@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/19/2020
+ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484516"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117955"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -85,7 +85,7 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
 
 1. Återskapa nyckeln. Information om hur du återskapar en åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings kontot](../storage/common/storage-account-keys-manage.md). Spara den nya nyckeln.
 
-1. Använd följande steg för att uppdatera arbets ytan till att använda den nya nyckeln:
+1. Den Azure Machine Learning arbets ytan kommer att synkronisera den nya nyckeln automatiskt och börja använda den efter en timme. Använd följande steg för att tvinga arbets ytan att synkronisera med den nya nyckeln omedelbart:
 
     1. Logga in på Azure-prenumerationen som innehåller arbets ytan med hjälp av följande Azure CLI-kommando:
 

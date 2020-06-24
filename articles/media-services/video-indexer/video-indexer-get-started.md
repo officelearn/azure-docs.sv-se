@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79499628"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130763"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
@@ -25,7 +25,7 @@ När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärder
 
 ## <a name="sign-up-for-video-indexer"></a>Registrera dig för Video Indexer
 
-När du vill börja utveckla med Video Indexer går du till [Video Indexer](https://www.videoindexer.com)-webbplatsen och registrerar dig.
+När du vill börja utveckla med Video Indexer går du till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och registrerar dig.
 
 > [!NOTE]
 > När du börjar använda Video Indexer krypteras alla lagrade data och överfört innehåll i vila med en Microsoft-hanterad nyckel.

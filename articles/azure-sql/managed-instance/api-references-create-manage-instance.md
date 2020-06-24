@@ -2,7 +2,7 @@
 title: Hanterings-API-referens för Azure SQL-hanterad instans
 description: Lär dig mer om att skapa och konfigurera hanterade instanser av Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 7802c5792d91c0eae3ae7e666e6ac65df7d5143f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 3f0eb2c1ecb26475b25cd5ca41c9c61d5e2b47a3
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661041"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695614"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Hanterad API-referens för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Om du vill skapa och hantera hanterade instanser med Azure PowerShell använder 
 > [!TIP]
 > Exempel skript för PowerShell finns i [snabb starts skript: skapa en hanterad instans med ett PowerShell-bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Skapar en hanterad instans. |
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returnerar information om en hanterad instans.|
@@ -56,7 +56,7 @@ Om du vill skapa och konfigurera hanterade instanser med [Azure CLI](/cli/azure)
 > [!TIP]
 > En snabb start för Azure CLI finns i [arbeta med SQL-hanterad instans med hjälp av Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Skapar en hanterad instans.|
 |[AZ SQL mi-lista](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Visar en lista över tillgängliga hanterade instanser.|
@@ -78,7 +78,7 @@ Använd följande T-SQL-kommandon om du vill skapa och konfigurera instans datab
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Skapar en ny instans databas i SQL-hanterad instans. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Ändrar en instans databas i SQL-hanterad instans.|
@@ -87,7 +87,7 @@ Använd följande T-SQL-kommandon om du vill skapa och konfigurera instans datab
 
 Använd dessa REST API begär Anden för att skapa och konfigurera hanterade instanser.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[Hanterade instanser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Skapar eller uppdaterar en hanterad instans.|
 |[Hanterade instanser – ta bort](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Tar bort en hanterad instans.|

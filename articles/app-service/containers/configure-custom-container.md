@@ -3,12 +3,12 @@ title: Konfigurera en anpassad Linux-behållare
 description: Lär dig hur du konfigurerar en anpassad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280149"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905807"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -18,7 +18,7 @@ Den här guiden innehåller viktiga begrepp och instruktioner för skapa behåll
 
 ## <a name="configure-port-number"></a>Konfigurera port nummer
 
-Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder genom att `WEBSITES_PORT` använda appens inställning. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in det genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Ett exempel:
+Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder genom att använda `WEBSITES_PORT` appens inställning. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in det genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,11 +36,11 @@ Den här metoden fungerar både för appar med en container eller flera behålla
 
 ## <a name="use-persistent-shared-storage"></a>Använd beständig delad lagring
 
-Du kan använda */Home* -katalogen i appens fil system för att spara filer mellan omstarter och dela dem över instanser. `/home` I din app kan du använda behållar appen för att få åtkomst till beständig lagring.
+Du kan använda */Home* -katalogen i appens fil system för att spara filer mellan omstarter och dela dem över instanser. `/home`I din app kan du använda behållar appen för att få åtkomst till beständig lagring.
 
-När beständig lagring är inaktive rad behålls inte skrivningar till `/home` katalogen i appens omstarter eller över flera instanser. Det enda undantaget är `/home/LogFiles` katalogen som används för att lagra Docker-och container-loggar. När beständig lagring är aktive rad är alla skrivningar `/home` till katalogen bestående och kan nås av alla instanser av en utskalad app.
+När beständig lagring är inaktive rad `/home` behålls inte skrivningar till katalogen i appens omstarter eller över flera instanser. Det enda undantaget är `/home/LogFiles` katalogen som används för att lagra Docker-och container-loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
 
-Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger `WEBSITES_ENABLE_APP_SERVICE_STORAGE` du appens inställning [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) genom att köra kommandot i Cloud Shell. Ett exempel:
+Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -54,9 +54,9 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 SSH möjliggör säker kommunikation mellan en container och en klient. För att en anpassad behållare ska stödja SSH måste du lägga till den i själva Dockerfile.
 
 > [!TIP]
-> Alla inbyggda Linux-behållare har lagt till SSH-instruktionerna i sina avbildnings databaser. Du kan gå igenom följande instruktioner med [Node. js 10,14-lagringsplatsen](https://github.com/Azure-App-Service/node/blob/master/10.14) för att se hur den är aktive rad där.
+> Alla inbyggda Linux-behållare har lagt till SSH-instruktionerna i sina avbildnings databaser. Du kan gå igenom följande instruktioner med [Node.js 10,14-lagringsplatsen](https://github.com/Azure-App-Service/node/blob/master/10.14) för att se hur den är aktive rad där.
 
-- Använd [Kör](https://docs.docker.com/engine/reference/builder/#run) -instruktionen för att installera SSH-servern och ange lösen ordet för rot kontot `"Docker!"`till. För en avbildning som baseras på [Alpine Linux](https://hub.docker.com/_/alpine)behöver du till exempel följande kommandon:
+- Använd [Kör](https://docs.docker.com/engine/reference/builder/#run) -instruktionen för att installera SSH-servern och ange lösen ordet för rot kontot till `"Docker!"` . För en avbildning som baseras på [Alpine Linux](https://hub.docker.com/_/alpine)behöver du till exempel följande kommandon:
 
     ```Dockerfile
     RUN apk add openssh \
@@ -88,11 +88,11 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
     /usr/sbin/sshd
     ```
 
-    Ett exempel finns i hur [noden default Node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) startar SSH-servern.
+    Ett exempel finns i hur standard behållaren för [Node.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) startar SSH-servern.
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="configure-multi-container-apps"></a>Konfigurera appar med flera behållare
 
@@ -104,13 +104,13 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 
 Appar med flera behållare som WordPress behöver beständig lagring för att fungera korrekt. För att aktivera den måste Docker-konfigurationen peka på en lagrings plats *utanför* din behållare. Lagrings platser i din behållare har inte kvar ändringar än starta om appar.
 
-Aktivera beständig lagring genom att ställa `WEBSITES_ENABLE_APP_SERVICE_STORAGE` in appens inställning med hjälp av kommandot [AZ webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
+Aktivera beständig lagring genom att ställa in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning med hjälp av kommandot [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-I filen *filen Docker. yml* mappar du `volumes` alternativet till `${WEBAPP_STORAGE_HOME}`. 
+I filen *filen Docker. yml* mappar du `volumes` alternativet till `${WEBAPP_STORAGE_HOME}` . 
 
 `WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Ett exempel:
 

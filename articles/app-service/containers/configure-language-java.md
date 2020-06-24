@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167493"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905739"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -44,7 +44,7 @@ Prestanda rapporter, trafik visualiseringar och hälso checkups är tillgänglig
 
 ### <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 Mer information finns i [Stream-loggar i Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
@@ -280,7 +280,7 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 ### <a name="configure-new-relic"></a>Konfigurera nya Relic
 
 1. Skapa ett NewRelic-konto på [NewRelic.com](https://newrelic.com/signup)
-2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-Java-x. x. x. zip*.
+2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-java-x.x.x.zip*.
 3. Kopiera licens nyckeln, du behöver den för att konfigurera agenten senare.
 4. [Använda SSH i App Service-instansen](app-service-linux-ssh-support.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
 5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic*.
@@ -292,7 +292,7 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 ### <a name="configure-appdynamics"></a>Konfigurera AppDynamics
 
 1. Skapa ett AppDynamics-konto på [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Hämta Java-agenten från AppDynamics-webbplatsen kommer fil namnet att likna *AppServerAgent-x. x. x. XXXXX. zip*
+2. Hämta Java-agenten från AppDynamics-webbplatsen, fil namnet ser ut ungefär som *AppServerAgent-x.x.x.xxxxx.zip*
 3. [Använda SSH i App Service-instansen](app-service-linux-ssh-support.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
 4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics*.
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
@@ -306,9 +306,9 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 
 ### <a name="starting-jar-apps"></a>Starta JAR-appar
 
-Som standard förväntar App Service att JAR-programmet ska ha namnet *app. jar*. Om det har det här namnet kommer det att köras automatiskt. För maven-användare kan du ange JAR-namnet genom att inkludera `<finalName>app</finalName>` i `<build>` avsnittet i din *Pom. XML*. [Du kan göra samma sak i Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) genom att ange `archiveFileName` egenskapen.
+Som standard förväntar App Service att JAR-programmet ska ha namnet *app. jar*. Om det har det här namnet kommer det att köras automatiskt. För maven-användare kan du ange JAR-namnet genom `<finalName>app</finalName>` att inkludera i `<build>` avsnittet i *pom.xml*. [Du kan göra samma sak i Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) genom att ange `archiveFileName` egenskapen.
 
-Om du vill använda ett annat namn för din JAR måste du också ange [Start kommandot](app-service-linux-faq.md#built-in-images) som kör jar-filen. Till exempel `java -jar my-jar-app.jar`. Du kan ställa in värdet för ditt Start kommando i portalen, under konfiguration > allmänna inställningar eller med en program inställning med namnet `STARTUP_COMMAND` .
+Om du vill använda ett annat namn för din JAR måste du också ange [Start kommandot](app-service-linux-faq.md#built-in-images) som kör jar-filen. Exempelvis `java -jar my-jar-app.jar`. Du kan ställa in värdet för ditt Start kommando i portalen, under konfiguration > allmänna inställningar eller med en program inställning med namnet `STARTUP_COMMAND` .
 
 ### <a name="server-port"></a>Server Port
 
@@ -350,9 +350,9 @@ Ta sedan reda på om data källan ska vara tillgänglig för ett program eller f
 
 #### <a name="application-level-data-sources"></a>Data källor på program nivå
 
-1. Skapa en *context. XML-* fil i projektets *meta-inf/* katalog. Skapa *meta-inf/-* katalogen om den inte finns.
+1. Skapa en *context.xml* -fil i projektets *meta-inf/* katalog. Skapa *meta-inf/-* katalogen om den inte finns.
 
-2. I *context. XML*lägger du till ett- `Context` element för att länka data källan till en JNDI-adress. Ersätt `driverClassName` plats hållaren med driv Rutinens klass namn från tabellen ovan.
+2. I *context.xml*lägger du till ett- `Context` element för att länka data källan till en JNDI-adress. Ersätt `driverClassName` plats hållaren med driv Rutinens klass namn från tabellen ovan.
 
     ```xml
     <Context>
@@ -367,7 +367,7 @@ Ta sedan reda på om data källan ska vara tillgänglig för ett program eller f
     </Context>
     ```
 
-3. Uppdatera programmets *Web. XML* så att data källan används i ditt program.
+3. Uppdatera programmets *web.xml* att använda data källan i ditt program.
 
     ```xml
     <resource-env-ref>
@@ -378,9 +378,9 @@ Ta sedan reda på om data källan ska vara tillgänglig för ett program eller f
 
 #### <a name="shared-server-level-resources"></a>Delade resurser på server nivå
 
-Om du lägger till en delad data källa på server nivå krävs det att du redigerar Tomcat Server. xml. Börja med att ladda upp ett [Start skript](app-service-linux-faq.md#built-in-images) och ange sökvägen till skriptet i **konfigurations**  >  **Start kommandot**. Du kan ladda upp start skriptet med [FTP](../deploy-ftp.md).
+Om du lägger till en delad data källa på server nivå krävs det att du redigerar Tomcat server.xml. Börja med att ladda upp ett [Start skript](app-service-linux-faq.md#built-in-images) och ange sökvägen till skriptet i **konfigurations**  >  **Start kommandot**. Du kan ladda upp start skriptet med [FTP](../deploy-ftp.md).
 
-Start skriptet gör en XSL- [transformering](https://www.w3schools.com/xml/xsl_intro.asp) till filen Server. xml och utdata från den resulterande XML-filen till `/usr/local/tomcat/conf/server.xml` . Start skriptet bör installera libxslt via APK. XSL-filen och start skriptet kan överföras via FTP. Nedan visas ett exempel på ett start skript.
+Start skriptet gör en XSL- [transformering](https://www.w3schools.com/xml/xsl_intro.asp) till server.xml-filen och utdata från den resulterande XML-filen till `/usr/local/tomcat/conf/server.xml` . Start skriptet bör installera libxslt via APK. XSL-filen och start skriptet kan överföras via FTP. Nedan visas ett exempel på ett start skript.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -390,7 +390,7 @@ apk add --update libxslt
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
-Ett exempel på en XSL-fil anges nedan. Exempel-XSL-filen lägger till en ny anslutnings-nod till Tomcat-Server. xml.
+Ett exempel på en XSL-fil anges nedan. Exempel-XSL-filen lägger till en ny anslutnings-nod till Tomcat-server.xml.
 
 ```xml
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -524,7 +524,7 @@ Om du vill använda Tomcat med Redis måste du konfigurera appen så att den anv
 
     Du hittar information om namn, port och åtkomst nycklar på Azure Portal genom att titta i avsnitten **Egenskaper** eller **åtkomst nycklar** i tjänst instansen.
 
-2. Skapa eller uppdatera appens *src/main/webapp/meta-inf/context. XML-* fil med följande innehåll:
+2. Skapa eller uppdatera appens *källa/huvud-/webapp-eller meta-inf/context.xml-* fil med följande innehåll:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -562,7 +562,7 @@ Om du vill använda Tomcat med Redis måste du konfigurera appen så att den anv
 
 7. Navigera till avsnittet **Avancerade inställningar** i Redis-instansen och ange **Tillåt endast åtkomst via SSL** till **Nej**. Detta gör att App Service-instansen kan kommunicera med din Redis-cache via Azure-infrastrukturen.
 
-8. Uppdatera `azure-webapp-maven-plugin` konfigurationen i appens *Pom. XML-* fil för att referera till din Redis-konto information. I den här filen används de miljövariabler som du angav tidigare för att behålla din konto information från källfilerna.
+8. Uppdatera `azure-webapp-maven-plugin` konfigurationen i appens *pom.xml* -fil för att referera till din Redis-konto information. I den här filen används de miljövariabler som du angav tidigare för att behålla din konto information från källfilerna.
 
     Vid behov ändrar du `1.9.1` till den aktuella versionen av [Maven-pluginet för Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 

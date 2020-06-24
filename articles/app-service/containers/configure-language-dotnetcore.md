@@ -3,13 +3,13 @@ title: Konfigurera Linux ASP.NET Core-appar
 description: Lär dig hur du konfigurerar en fördefinierad ASP.NET Core behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/13/2019
-ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: e009f5b1fc656f700b3f0e76dda6e545aed535d2
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255911"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905773"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Linux ASP.NET Core-app för Azure App Service
 
@@ -43,12 +43,12 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
 
-1. Kör anpassat skript om det anges `PRE_BUILD_SCRIPT_PATH`av.
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
 1. Kör `dotnet restore` för att återställa NuGet-beroenden.
 1. Kör `dotnet publish` för att skapa en binär för produktion.
-1. Kör anpassat skript om det anges `POST_BUILD_SCRIPT_PATH`av.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för att skapa för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering.
+`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
 
 I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
@@ -81,8 +81,8 @@ namespace SomeNamespace
     
         public SomeMethod()
         {
-            // retrieve App Service app setting
-            var myAppSetting = _configuration["MySetting"];
+            // retrieve nested App Service app setting
+            var myHierarchicalConfig = _configuration["My:Hierarchical:Config:Data"];
             // retrieve App Service connection string
             var myConnString = _configuration.GetConnectionString("MyDbConnection");
         }
@@ -90,11 +90,18 @@ namespace SomeNamespace
 }
 ```
 
-Om du konfigurerar en app-inställning med samma namn i App Service och i *appSettings. JSON*, har App Service-värdet företräde framför värdet *appSettings. JSON* . Med det lokala *appSettings. JSON* -värdet kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
+Om du konfigurerar en app-inställning med samma namn i App Service och i *appsettings.jspå*, till exempel, har App Service värdet företräde framför *appsettings.js* svärdet. Med värdet Local *appsettings.json* kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
+
+> [!NOTE]
+> Observera att [hierarkiska konfigurations data](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) i *appsettings.jspå* nås med hjälp av den `:` avgränsare som är standard för .net Core. Om du vill åsidosätta en viss hierarkisk konfigurations inställning i App Service anger du namnet på appens inställning med samma avgränsat format i nyckeln. Du kan köra följande exempel i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
+```
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** . Om du vill visa sidan detaljerad undantag i App Service lägger du `ASPNETCORE_ENVIRONMENT` till appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** . Om du vill visa sidan detaljerad undantag i App Service lägger du till `ASPNETCORE_ENVIRONMENT` appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -104,7 +111,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs*:
 
-- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och `X-Forwarded-Proto` -rubrikerna i `Startup.ConfigureServices`.
+- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och- `X-Forwarded-Proto` rubrikerna i `Startup.ConfigureServices` .
 - Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.
 - Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra middlewares.
 
@@ -154,7 +161,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Använda appinställningar
 
-I <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>lägger du till en app-inställning i App Service-appen genom att köra följande CLI-kommando. Ersätt * \<App-Name>*, * \<resurs grupp-namn>* och * \<projekt namn>* med lämpliga värden.
+I <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>lägger du till en app-inställning i App Service-appen genom att köra följande CLI-kommando. Ersätt *\<app-name>* , *\<resource-group-name>* och *\<project-name>* med lämpliga värden.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -162,7 +169,26 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+ASP.NET Core tillhandahåller en [inbyggd Logging-Provider för App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). I *program.cs* för ditt projekt lägger du till providern i programmet via `ConfigureLogging` tilläggs metoden, som du ser i följande exempel:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureLogging(logging =>
+        {
+            logging.AddAzureWebAppDiagnostics();
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+Du kan sedan konfigurera och generera loggar med [standard mönstret för .net Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+Mer information om hur du felsöker ASP.NET Core appar i App Service finns i [felsöka ASP.net Core på Azure App service och IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 

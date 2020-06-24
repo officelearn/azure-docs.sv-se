@@ -4,16 +4,16 @@ description: Så här installerar du ett användar gränssnitts verktyg med en A
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: abe9b060793983e42ab432924ca5d6d7f43d307d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b2680a463bd0150a92dc587eb2f233ef58a58f6d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615245"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214170"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg med en Azure Resource Manager mall
 
@@ -22,7 +22,7 @@ ms.locfileid: "82615245"
 
 Anvisningarna i den här artikeln beskriver hur du distribuerar användar gränssnittet med hjälp av en Azure Resource Manager mall.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
 Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
 
@@ -52,11 +52,11 @@ Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len
 
 1. Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Distribuera mallen till Azure.
-    - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**. 
+    - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**.
     - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
         1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
         2. Öppna en text redigerare som anteckningar och klistra in länken där.
-        3. Direkt efter <https://portal.azure.com/> och före hashtagg (#), ange ett snabel-sign (@) följt av innehavarens domän namn. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Direkt efter <https://portal.azure.com/> och före hashtagg (#), ange ett snabel-sign (@) följt av innehavarens domän namn. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/> .
         4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
         5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 3. När du anger parametrarna gör du följande:
@@ -83,10 +83,10 @@ För att avgöra vilken användare du kan använda för att logga in på verktyg
 
 När du har bestämt vilken användare du ska använda för att ge sitt medgivande följer du de här anvisningarna för att ge dig ett medgivande till verktyget:
 
-1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Logga in med lämpligt Azure Active Directory användar konto.
 3. Om du har autentiserats med en global administratör kan du nu Markera kryss rutan för **din organisations räkning**. Välj **acceptera** för att ge medgivande.
-   
+
    ![En skärm bild som visar sidan för fullständigt godkännande som användaren eller administratören ser.](../media/management-ui-consent-page.png)
 
 Nu ska du gå till hanterings verktyget.
@@ -97,11 +97,11 @@ När du har beviljat godkännande för organisationen eller för en viss använd
 
 Följ dessa instruktioner för att starta verktyget:
 
-1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
 4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.
-  
+
   > [!NOTE]
   > Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 76e8167a5d0dc83a5cc1b238d3015594278e344d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116696"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116765"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -49,7 +49,7 @@ Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager m
 
 1. Spara ändringarna genom att välja **OK**.
 
-   ![Lägga till eller ta bort regionsmenyn](./media/how-to-manage-database-account/add-region.png)
+   :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
 I skrivläge för en enstaka region kan du inte ta bort skrivregionen. Du måste redundansväxla till en annan region innan du kan ta bort den aktuella skrivregionen.
 
@@ -69,7 +69,7 @@ Se [lägga till eller ta bort regioner med PowerShell](manage-with-powershell.md
 
 Öppna fliken **replikera data globalt** och välj **Aktivera** för att aktivera flera regioner. När du har aktiverat skrivningar i flera regioner blir alla Läs regioner som du för närvarande har på kontot Läs-och skriv regioner.
 
-![Azure Cosmos-konto konfigurerar skärm bild med flera huvud servrar](./media/how-to-manage-database-account/single-to-multi-master.png)
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos-konto konfigurerar skärm bild med flera huvud servrar":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -149,13 +149,13 @@ Med alternativet automatisk redundans kan Azure Cosmos DB redundansväxla till d
 
 2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
-   ![Menyn Replikera data globalt](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
 3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**. 
 
 4. Välj **Spara**.
 
-   ![Menyn Automatisk redundans i portalen](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menyn Automatisk redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -178,7 +178,7 @@ När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växling
 
 2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
-   ![Menyn Replikera data globalt](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
 3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**.
 
@@ -186,7 +186,7 @@ När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växling
 
 5. Välj **Spara**.
 
-   ![Menyn Automatisk redundans i portalen](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menyn Automatisk redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -212,13 +212,13 @@ Processen för att utföra en manuell redundansväxling innebär att ändra kont
 
 2. Längst upp på menyn väljer du **Manuell redundans**.
 
-   ![Menyn Replikera data globalt](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
 3. På menyn **Manuell redundans** väljer du din nya skrivregion. Markera kryssrutan för att bekräfta att du förstår att det här alternativet ändrar din skrivregion.
 
 4. Utlös redundansväxlingen genom att välja **OK**.
 
-   ![Menyn Manuell redundans i portalen](./media/how-to-manage-database-account/manual-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menyn Manuell redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 

@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad PHP-behållare för 
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234943"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905705"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux PHP-app för Azure App Service
 
@@ -104,17 +104,17 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [CodeIgniter](https://codeigniter.com/) kontrollerar [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) värdet för `X_FORWARDED_PROTO` som standard.
 
-## <a name="customize-phpini-settings"></a>Anpassa php. ini-inställningar
+## <a name="customize-phpini-settings"></a>Anpassa php.ini inställningar
 
-Om du behöver göra ändringar i din PHP-installation kan du ändra något av [php. ini-direktiven](https://www.php.net/manual/ini.list.php) genom att följa dessa steg.
+Om du behöver göra ändringar i PHP-installationen kan du ändra något av [php.ini direktiven](https://www.php.net/manual/ini.list.php) genom att följa dessa steg.
 
 > [!NOTE]
-> Det bästa sättet att se PHP-versionen och den aktuella *php. ini* -konfigurationen är att anropa [phpinfo ()](https://www.php.net/manual/function.phpinfo.php) i din app.
+> Det bästa sättet att se PHP-versionen och den aktuella *php.ini* konfigurationen är att anropa [phpinfo ()](https://php.net/manual/function.phpinfo.php) i din app.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Anpassa – icke-PHP_INI_SYSTEM direktiv
 
-Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
+Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php.ini direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
 
 I *htaccess* -filen lägger du till direktiven med hjälp av `php_value <directive-name> <value>` syntaxen. Ett exempel:
 
@@ -134,7 +134,7 @@ Som ett alternativ till att använda *. htaccess*kan du använda [ini_set ()](ht
 
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Anpassa PHP_INI_SYSTEM direktiv
 
-Om du vill anpassa PHP_INI_SYSTEM direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) kan du inte använda metoden *. htaccess* . App Service ger en separat mekanism som använder `PHP_INI_SCAN_DIR` appens inställning.
+Om du vill anpassa PHP_INI_SYSTEM direktiv (se [php.ini direktiv](https://www.php.net/manual/ini.list.php)) kan du inte använda metoden *. htaccess* . App Service ger en separat mekanism som använder `PHP_INI_SCAN_DIR` appens inställning.
 
 Kör först följande kommando i [Cloud Shell](https://shell.azure.com) för att lägga till en app-inställning som heter `PHP_INI_SCAN_DIR` :
 
@@ -142,11 +142,11 @@ Kör först följande kommando i [Cloud Shell](https://shell.azure.com) för att
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`är standard katalogen där *php. ini* finns. `/home/site/ini`är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:` .
+`/usr/local/etc/php/conf.d`är standard katalogen där *php.ini* finns. `/home/site/ini`är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:` .
 
 Navigera till webbssh-sessionen med Linux-containern ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
-Skapa en katalog i `/home/site` anropad `ini` och skapa sedan en *ini* -fil i `/home/site/ini` katalogen (till exempel *Settings. ini)* med de direktiv som du vill anpassa. Använd samma syntax som du skulle använda i en *php. ini* -fil. 
+Skapa en katalog i `/home/site` anropad `ini` och skapa sedan en *ini* -fil i `/home/site/ini` katalogen (till exempel *settings.ini)* med de direktiv som du vill anpassa. Använd samma syntax som du skulle använda i en *php.ini* -fil. 
 
 > [!TIP]
 > I de inbyggda Linux-behållarna i App Service används */Home* som Sparad delad lagring. 
@@ -164,10 +164,10 @@ Starta om appen för att ändringarna ska börja gälla.
 
 ## <a name="enable-php-extensions"></a>Aktivera PHP-tillägg
 
-De inbyggda PHP-installationerna innehåller de oftast använda tilläggen. Du kan aktivera ytterligare tillägg på samma sätt som du [anpassar php. ini-direktiv](#customize-php_ini_system-directives).
+De inbyggda PHP-installationerna innehåller de oftast använda tilläggen. Du kan aktivera ytterligare tillägg på samma sätt som du [anpassar php.ini direktiv](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> Det bästa sättet att se PHP-versionen och den aktuella *php. ini* -konfigurationen är att anropa [phpinfo ()](https://php.net/manual/function.phpinfo.php) i din app.
+> Det bästa sättet att se PHP-versionen och den aktuella *php.ini* konfigurationen är att anropa [phpinfo ()](https://php.net/manual/function.phpinfo.php) i din app.
 >
 
 Följ dessa steg om du vill aktivera ytterligare tillägg:
@@ -187,7 +187,7 @@ Starta om appen för att ändringarna ska börja gälla.
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 
@@ -198,8 +198,8 @@ Starta om appen för att ändringarna ska börja gälla.
 Prova följande när en fungerande PHP-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Ett exempel:
-    - Beroende på *Composer. JSON*kan olika paket installeras i produktions läge ( `require` vs. `require-dev` ).
+- Testa appen lokalt i produktions läge. App Service kör din app i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Ett exempel:
+    - Beroende på din *composer.js*kan olika paket installeras i produktions läge ( `require` vs. `require-dev` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör appen i App Service i fel söknings läge. I [Laravel](https://meanjs.org/)kan du till exempel konfigurera appen så att den utvärderar fel söknings meddelanden i produktion genom [att ställa in `APP_DEBUG` appens inställning på `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).

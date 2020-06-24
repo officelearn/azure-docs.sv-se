@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 52b97e772897289f0c54c4520da7d7af80f44dc3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700952"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213741"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -110,6 +110,37 @@ Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inklud
 > [!NOTE]
 > Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, &quot; är det här programmet endast tillgängligt på [språk som inte är engelska]. &quot; Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
+Här är ett exempel på hur information om erbjudandet visas på Azure Marketplace (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-consulting-service-offer.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Logotyp
+2. Pris
+3. Lösnings områden
+4. Branscher
+5. Erbjudandets namn
+6. Sammanfattning
+7. Beskrivning
+8. Skärm bilder/videor
+
+<br>Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Visar hur det här erbjudandet visas i Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Logotyp
+2. Pris
+3. Produkter
+4. Branscher
+5. Erbjudandets namn
+6. Sammanfattning
+7. Beskrivning
+8. Skärm bilder/videor
+9. Dokument
+
 ### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
@@ -124,7 +155,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

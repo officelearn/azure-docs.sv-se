@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 34f55d628b4e334df4b3e74edfd3c0defbdeaa93
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647720"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114249"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 
@@ -73,7 +73,7 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * I en månad med 720 timmar (24 timmar * 30 dagar), om 500 timmar etablerade data flöde var 1 200 RU/SEK och de återstående 220 timmar etablerade data flöden var 22 200 RU/SEK, visar din månads faktura: 500 x $0.096/timme + 220 x $1.776/timme = $438.72/månad.
 
-![Exempel på dedikerad data flödes faktura](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exempel på dedikerad data flödes faktura":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Fakturerings exempel: behållare med delat data flödes läge
 
@@ -87,7 +87,7 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * I en månad om 720 timmar, om 300 timmar etablerade data flöde var 120-K RU/SEK och de återstående 420 timmar etablerade data flöden var 155-K RU/SEK, visas din månads faktura: 300 x $9.60/timme + 420 x $12.40/timme = $2 880 + $5 208 = $8088/månad. 
 
-![Faktura exempel för delad data flöde](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Faktura exempel för delad data flöde":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Fakturerings exempel med geo-replikering och flera huvud servrar  
 
@@ -177,11 +177,11 @@ Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med fler
 
 Ändringar i det totala etablerade data flödet under 720 timmar för månaden visas visuellt i bilden nedan: 
 
-![Exempel på real tid](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exempel på real tid":::
 
 Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad) beräknas enligt följande:
 
-|**Tider**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
+|**Hours**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 000 <br/>D2:30 000 <br/>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
@@ -248,7 +248,7 @@ Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din fak
 |----|----|----|----|
 |Åtgärds typ| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |Skriva| 100 | 5 | 500|
-|Läsa| 400| 1| 400|
+|Läs| 400| 1| 400|
 
 Totalt RU/SEK: 500 + 400 = 900 timkostnad: 900/100 * $0,008 = $0,072 förväntad månads kostnad för data flöde (förutsatt att 31 dagar har upprättats): $0,072 * 24 * 31 = $53,57
 
@@ -290,7 +290,7 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Netto faktura|||0,50 USD |$360 |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 

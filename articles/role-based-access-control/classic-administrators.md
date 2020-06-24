@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734866"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791800"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
 
@@ -38,13 +38,13 @@ I den här artikeln beskrivs hur du lägger till eller ändrar rollen som medadm
 
     Medadministratörer kan bara tilldelas i prenumerations omfånget.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **klassiska administratörer** .
 
     ![Skärm bild som öppnar klassiska administratörer](./media/classic-administrators/classic-administrators.png)
 
-1. Klicka på **Lägg** > till**Lägg till gemensam administratör** för att öppna fönstret Lägg till samadministratörer.
+1. Klicka på **Lägg**till  >  **Lägg till gemensam administratör** för att öppna fönstret Lägg till samadministratörer.
 
     Om alternativet Lägg till samadministratör är inaktiverat har du inte behörighet.
 
@@ -83,7 +83,7 @@ Information som jämför medlems användare och gäst användare finns i [Vad ä
 
 1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **klassiska administratörer** .
 
@@ -125,10 +125,10 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Ja | Inga | Inga |
-| Azure AD-konto | Ja | Ja | Inga |
+| Microsoft-konto | Yes | Inga | Inga |
+| Azure AD-konto | Ja | Ja | No |
 
-Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. abby@contoso.com Kan till exempel ändra tjänst administratören till bob@contoso.com, men kan inte ändra tjänst administratören till john@notcontoso.com om john@notcontoso.com den inte har en närvaro i contoso.com-katalogen.
+Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. Kan till exempel abby@contoso.com ändra tjänst administratören till bob@contoso.com , men kan inte ändra tjänst administratören till john@notcontoso.com om den inte john@notcontoso.com har en närvaro i contoso.com-katalogen.
 
 Mer information om Microsoft-konton och Azure AD-konton finns i [Vad är Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
@@ -152,4 +152,4 @@ Följ dessa steg om du vill visa konto administratören.
 
 * [Förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md)
-* [Lägg till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md)
+* [Lägg till eller ändra Azure-prenumerationsadministratörer](../cost-management-billing/manage/add-change-subscription-administrator.md)

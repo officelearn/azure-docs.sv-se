@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734101"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790198"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av REST API
 
@@ -128,7 +128,7 @@ Om du vill hämta information om en anpassad roll efter dess unika identifierare
 
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 
-Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en `Microsoft.Authorization/roleDefinitions/write` roll som har behörighet `assignableScopes`för alla. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
+Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en roll som har `Microsoft.Authorization/roleDefinitions/write` behörighet för alla `assignableScopes` . Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
 1. Granska listan över [resurs leverantörs åtgärder](resource-provider-operations.md) som är tillgängliga för att skapa behörigheter för din anpassade roll.
 
@@ -168,7 +168,7 @@ Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller 
     }
     ```
 
-1. I URI: n ersätter du *{scope}* med den `assignableScopes` första av den anpassade rollen.
+1. I URI: n ersätter du *{scope}* med den första `assignableScopes` av den anpassade rollen.
 
     > [!div class="mx-tableFixed"]
     > | Omfång | Typ |
@@ -187,9 +187,9 @@ Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller 
 
 1. I `actions` egenskapen lägger du till de åtgärder som rollen kan utföra.
 
-1. I `notActions` egenskapen lägger du till de åtgärder som undantas från tillåten `actions`.
+1. I `notActions` egenskapen lägger du till de åtgärder som undantas från tillåten `actions` .
 
-1. I egenskaperna `roleName` och `description` anger du ett unikt roll namn och en beskrivning. Mer information om egenskaperna finns i Azure- [anpassade roller](custom-roles.md).
+1. I `roleName` egenskaperna och `description` anger du ett unikt roll namn och en beskrivning. Mer information om egenskaperna finns i Azure- [anpassade roller](custom-roles.md).
 
     Följande visar ett exempel på en begär ande text:
 
@@ -227,7 +227,7 @@ Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller 
 
 ## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 
-Om du vill uppdatera en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en `Microsoft.Authorization/roleDefinitions/write` roll som har behörighet `assignableScopes`för alla. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
+Om du vill uppdatera en anpassad roll använder du [roll definitionerna-skapa eller uppdatera](/rest/api/authorization/roledefinitions/createorupdate) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en roll som har `Microsoft.Authorization/roleDefinitions/write` behörighet för alla `assignableScopes` . Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
 1. Använd [roll definitionerna – lista](/rest/api/authorization/roledefinitions/list) eller [roll definitioner – Hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta information om den anpassade rollen. Mer information finns i avsnittet om [anpassade roller](#list-custom-roles) i föregående lista.
 
@@ -237,7 +237,7 @@ Om du vill uppdatera en anpassad roll använder du [roll definitionerna-skapa el
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. I URI: n ersätter du *{scope}* med den `assignableScopes` första av den anpassade rollen.
+1. I URI: n ersätter du *{scope}* med den första `assignableScopes` av den anpassade rollen.
 
     > [!div class="mx-tableFixed"]
     > | Omfång | Typ |
@@ -317,7 +317,7 @@ Om du vill uppdatera en anpassad roll använder du [roll definitionerna-skapa el
 
 ## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
 
-Om du vill ta bort en anpassad roll använder du [roll definitionerna-ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en `Microsoft.Authorization/roleDefinitions/delete` roll som har behörighet `assignableScopes`för alla. Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
+Om du vill ta bort en anpassad roll använder du [roll definitionerna-ta bort](/rest/api/authorization/roledefinitions/delete) REST API. För att anropa det här API: et måste du vara inloggad med en användare som har tilldelats en roll som har `Microsoft.Authorization/roleDefinitions/delete` behörighet för alla `assignableScopes` . Av de inbyggda rollerna är det bara [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) som har den här behörigheten.
 
 1. Använd [roll definitionerna – lista](/rest/api/authorization/roledefinitions/list) eller [roll definitioner – Hämta](/rest/api/authorization/roledefinitions/get) REST API för att hämta GUID-identifieraren för den anpassade rollen. Mer information finns i avsnittet om [anpassade roller](#list-custom-roles) i föregående lista.
 

@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: dc2763fd3c203a5b0443299d9824b6ebf61bdc78
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735767"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791086"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Lägg till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill lägga till en gäst användare till din katalog med
 
 1. Kontrol lera att organisationens inställningar för externt samarbete är konfigurerade så att du får bjuda in gäster. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../active-directory/b2b/delegate-invitations.md).
 
-1. Klicka på **Azure Active Directory** > **användare** > **nya gäst användare**i Azure Portal.
+1. Klicka på **Azure Active Directory**  >  **användare**  >  **nya gäst användare**i Azure Portal.
 
     ![Ny gäst användar funktion i Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -77,7 +77,7 @@ I Azure RBAC, för att bevilja åtkomst, tilldelar du en roll. Om du vill lägga
 
 1. Klicka på den aktuella resursen.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
     Följande skärm bild visar ett exempel på bladet åtkomst kontroll (IAM) för en resurs grupp. Om du gör ändringar i åtkomst kontrollen gäller de bara för resurs gruppen.
 
@@ -85,7 +85,7 @@ I Azure RBAC, för att bevilja åtkomst, tilldelar du en roll. Om du vill lägga
 
 1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
 
-1. Klicka på **Lägg** > till**Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
 
     Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
@@ -113,11 +113,11 @@ Om gäst användaren inte finns i din katalog än kan du bjuda in användaren di
 
 1. Klicka på den aktuella resursen.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
 
-1. Klicka på **Lägg** > till**Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
 
     ![Menyn Lägg till](./media/role-assignments-external-users/add-menu.png)
 
@@ -161,11 +161,11 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
 1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
 
-1. Klicka på **Azure Active Directory** > **användare**i det vänstra navigerings fältet.
+1. Klicka på **Azure Active Directory**användare i det vänstra navigerings fältet  >  **Users**.
 
 1. Klicka på den gäst användare som du vill ta bort.
 
-1. Klicka på **ta bort**.
+1. Klicka på **Ta bort**.
 
    ![Ta bort gäst användare](./media/role-assignments-external-users/delete-guest-user.png)
 

@@ -4,22 +4,23 @@ description: Så här konfigurerar du MSIX-appen Anslut för Windows Virtual Des
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6544a0536a99261d1ebc13748a5365b9893e789
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605202"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204481"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
 > [!IMPORTANT]
 > MSIX app Attach är för närvarande en offentlig för hands version.
-> Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Det här avsnittet beskriver hur du konfigurerar MSIX app Attach i en Windows Virtual Desktop-miljö.
 
@@ -29,11 +30,29 @@ Innan du börjar måste du konfigurera MSIX app Attach:
 
 - Åtkomst till Windows Insider-portalen för att hämta versionen av Windows 10 med stöd för MSIX-appen bifoga API: er.
 - En fungerande distribution av virtuella Windows-datorer. Information om hur du distribuerar den virtuella Windows-datorns version 2019 finns i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Information om hur du distribuerar Windows Virtual Desktop fjäder 2020-versionen finns i [skapa en adresspool med Azure Portal](./create-host-pools-azure-marketplace.md).
+- MSIX-packnings verktyget.
+- En nätverks resurs i Windows-distributionen för virtuella skriv bord där MSIX-paketet ska lagras.
 
-- MSIX packnings verktyg
-- En nätverks resurs i distributionen av virtuella Windows-datorer där MSIX-paketet ska lagras
+## <a name="get-the-os-image"></a>Hämta operativ system avbildningen
 
-## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Hämta operativ system avbildningen från portalen för teknik antagande program (KNACKNING)
+Först måste du hämta operativ system avbildningen. Du kan hämta operativ system avbildningen genom Azure Portal. Men om du är medlem i Windows Insider-programmet har du möjlighet att använda Windows Insider-portalen i stället.
+
+### <a name="get-the-os-image-from-the-azure-portal"></a>Hämta operativ system avbildningen från Azure Portal
+
+Hämta operativ system avbildningen från Azure Portal:
+
+1. Öppna [Azure Portal](https://portal.azure.com) och logga in.
+
+2. Gå till **skapa en virtuell dator**.
+
+3. På fliken **grundläggande** väljer du **Windows 10 Enterprise multi-session, version 2004**.
+
+4. Följ resten av anvisningarna för att slutföra skapandet av den virtuella datorn.
+
+     >[!NOTE]
+     >Du kan använda den här virtuella datorn för att direkt testa MSIX app Attach. Om du vill veta mer kan du gå vidare till [skapa ett VHD-eller VHDX-paket för MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Annars fortsätter du att läsa det här avsnittet.
+
+### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Hämta operativ system avbildningen från Windows Insider-portalen
 
 Hämta operativ system avbildningen från Windows Insider-portalen:
 
@@ -45,30 +64,15 @@ Hämta operativ system avbildningen från Windows Insider-portalen:
 2. Rulla ned till avsnittet **Välj utgåva** och välj **Windows 10 Insider Preview Enterprise (snabb) – build 19041** eller senare.
 
 3. Välj **Bekräfta**och välj sedan det språk som du vill använda och välj sedan **Bekräfta** igen.
-    
+
      >[!NOTE]
      >För tillfället är engelska det enda språk som har testats med funktionen. Du kan välja andra språk, men de visas kanske inte som de ska.
-    
+
 4. När nedladdnings länken skapas väljer du den **64-bitars hämtningen** och sparar den på den lokala hård disken.
 
-## <a name="get-the-os-image-from-the-azure-portal"></a>Hämta operativ system avbildningen från Azure Portal
+## <a name="prepare-the-vhd-image-for-azure"></a>Förbered VHD-avbildningen för Azure
 
-Hämta operativ system avbildningen från Azure Portal:
-
-1. Öppna [Azure Portal](https://portal.azure.com) och logga in.
-
-2. Gå till **skapa en virtuell dator**.
-
-3. På fliken **grundläggande** väljer du **Windows 10 Enterprise multi-session, version 2004**.
-      
-4. Följ resten av anvisningarna för att slutföra skapandet av den virtuella datorn.
-
-     >[!NOTE]
-     >Du kan använda den här virtuella datorn för att direkt testa MSIX app Attach. Om du vill veta mer kan du gå vidare till [skapa ett VHD-eller VHDX-paket för MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Annars fortsätter du att läsa det här avsnittet.
-
-## <a name="prepare-the-vhd-image-for-azure"></a>Förbered VHD-avbildningen för Azure 
-
-Innan du börjar måste du skapa en huvud-VHD-avbildning. Om du inte har skapat din huvud hård disk avbildning ännu går du till [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md) och följer anvisningarna där. 
+Därefter måste du skapa en huvud-VHD-avbildning. Om du inte har skapat din huvud hård disk avbildning ännu går du till [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md) och följer anvisningarna där.
 
 När du har skapat din huvud hård disk avbildning måste du inaktivera automatiska uppdateringar för MSIX app attaching Applications. Om du vill inaktivera automatiska uppdateringar måste du köra följande kommandon i en upphöjd kommando tolk:
 
@@ -90,7 +94,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-När du har inaktiverat automatiska uppdateringar måste du aktivera Hyper-V eftersom du ska använda kommandot Mount-VHD för att mellanlagra och demontera-VHD för destage. 
+När du har inaktiverat automatiska uppdateringar måste du aktivera Hyper-V eftersom du ska använda kommandot Mount-VHD för att mellanlagra och demontera-VHD för destage.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -102,7 +106,7 @@ Förbered sedan VM VHD för Azure och överför den resulterande VHD-disken till
 
 När du har laddat upp den virtuella hård disken till Azure skapar du en adresspool som baseras på den här nya avbildningen genom att följa anvisningarna i guiden [skapa en värddator med hjälp av Azure Marketplace](create-host-pools-azure-marketplace.md) -kursen.
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Förbereda programmet för MSIX-appen Attach 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Förbereda programmet för MSIX-appen Attach
 
 Om du redan har ett MSIX-paket kan du gå vidare till [Konfigurera infrastrukturen för virtuella Windows-datorer](#configure-windows-virtual-desktop-infrastructure). Om du vill testa äldre program följer du instruktionerna i [skapa ett MSIX-paket från ett Skriv bords installations program på en virtuell dator](/windows/msix/packaging-tool/create-app-package-msi-vm/) för att konvertera det äldre programmet till ett MSIX-paket.
 
@@ -185,7 +189,7 @@ Innan du börjar kontrollerar du att nätverks resursen uppfyller följande krav
 - Resursen är SMB-kompatibel.
 - De virtuella datorerna som ingår i sessionen är NTFS-behörigheter till resursen.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Konfigurera en MSIX app Attach-resurs 
+### <a name="set-up-an-msix-app-attach-share"></a>Konfigurera en MSIX app Attach-resurs
 
 I din Windows Virtual Desktop-miljö skapar du en nätverks resurs och flyttar paketet dit.
 
@@ -231,7 +235,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **$PackageName** så att den matchar namnet på den här mappen.
 
-    Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Exempelvis `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
 5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 
@@ -426,16 +430,16 @@ Vart och ett av dessa automatiska skript kör en fas i appen bifoga skript:
 
 ## <a name="use-packages-offline"></a>Använda paket offline
 
-Om du använder paket från [Microsoft Store för företag](https://businessstore.microsoft.com/) eller [Microsoft Store för utbildning](https://educationstore.microsoft.com/) i nätverket eller på enheter som inte är anslutna till Internet, måste du hämta paket licenser från Microsoft Store och installera dem på enheten för att kunna köra appen. Om enheten är online och kan ansluta till Microsoft Store för företag, bör de licenser som krävs hämtas automatiskt, men om du är offline måste du konfigurera licenserna manuellt. 
+Om du använder paket från [Microsoft Store för företag](https://businessstore.microsoft.com/) eller [Microsoft Store för utbildning](https://educationstore.microsoft.com/) i nätverket eller på enheter som inte är anslutna till Internet, måste du hämta paket licenser från Microsoft Store och installera dem på enheten för att kunna köra appen. Om enheten är online och kan ansluta till Microsoft Store för företag, bör de licenser som krävs hämtas automatiskt, men om du är offline måste du konfigurera licenserna manuellt.
 
-Om du vill installera licensfiler måste du använda ett PowerShell-skript som anropar MDM_EnterpriseModernAppManagement_StoreLicenses02_01-klassen i WMI-providern.  
+Om du vill installera licensfiler måste du använda ett PowerShell-skript som anropar MDM_EnterpriseModernAppManagement_StoreLicenses02_01-klassen i WMI-providern.
 
-Så här konfigurerar du licenserna för offline-användning: 
+Så här konfigurerar du licenserna för offline-användning:
 
 1. Ladda ned programpaketet, licenserna och de ramverk som krävs från Microsoft Store för företag. Du behöver både kodade och kodade licensfiler. Detaljerade instruktioner för hämtning hittar du [här](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Uppdatera följande variabler i skriptet för steg 3:
       1. `$contentID`är ContentID-värdet från den kodade licens filen (. xml). Du kan öppna licens filen i valfri text redigerare.
-      2. `$licenseBlob`är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare. 
+      2. `$licenseBlob`är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare.
 3. Kör följande skript från en admin PowerShell-prompt. En bra plats för att utföra licens installationen är i slutet av det [mellanlagrings skript](#stage-the-powershell-script) som måste köras från en administratörs prompt.
 
 ```powershell
@@ -450,14 +454,14 @@ $contentID = "{'ContentID'_in_unencoded_license_file}"
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
 
-$session = New-CimSession 
+$session = New-CimSession
 
 #The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
-$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />'
 
 $params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
 $param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
-$params.Add($param) 
+$params.Add($param)
 
 
 try
@@ -469,7 +473,7 @@ try
 catch [Exception]
 {
      write-host $_ | out-string
-}  
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

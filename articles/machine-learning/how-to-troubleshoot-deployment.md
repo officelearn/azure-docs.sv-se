@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 012d183a20e5fdcf39d72813051d745a3f9787a7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560127"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214374"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Felsöka Docker-distribution av modeller med Azure Kubernetes service och Azure Container Instances 
 
 Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -277,7 +277,7 @@ Mer information om hur du ställer in `autoscale_target_utilization` , `autoscal
 
 En status kod för 504 visar att tids gränsen för begäran har uppnåtts. Standardvärdet för timeout är 1 minut.
 
-Du kan öka tids gränsen eller försöka påskynda tjänsten genom att ändra score.py för att ta bort onödiga anrop. Om de här åtgärderna inte löser problemet kan du använda informationen i den här artikeln för att felsöka score.py-filen. Koden kan vara i ett låst tillstånd eller en oändlig loop.
+Du kan öka tids gränsen eller försöka påskynda tjänsten genom att ändra score.py för att ta bort onödiga anrop. Om de här åtgärderna inte löser problemet kan du använda informationen i den här artikeln för att felsöka score.py-filen. Koden kan vara i ett tillstånd som inte svarar eller en oändlig loop.
 
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
 
@@ -300,9 +300,9 @@ Lokal distribution av webb tjänster kräver en fungerande Docker-installation p
 
 1. Om du vill konfigurera VS-kod för att kommunicera med Docker-avbildningen skapar du en ny fel söknings konfiguration:
 
-    1. Från VS Code väljer du __Felsök__ -menyn och väljer sedan __Öppna konfigurationer__. En fil med namnet __Launch. JSON__ öppnas.
+    1. Från VS Code väljer du __Felsök__ -menyn och väljer sedan __Öppna konfigurationer__. En fil med namnet __launch.jspå__ öppnas.
 
-    1. I filen __Launch. JSON__ letar du reda på raden som innehåller `"configurations": [` och infogar följande text efter den:
+    1. Leta upp raden som innehåller i __launch.jspå__ filen `"configurations": [` och infoga följande text efter den:
 
         ```json
         {
@@ -325,7 +325,7 @@ Lokal distribution av webb tjänster kräver en fungerande Docker-installation p
 
         Det här avsnittet bifogar Docker-behållaren med port 5678.
 
-    1. Spara filen __Launch. JSON__ .
+    1. Spara __launch.jspå__ filen.
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Skapa en avbildning som innehåller PTVSD
 

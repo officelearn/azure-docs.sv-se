@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282268"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699828"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Azure Service Fabric tillstånds känslig Reliable Services StatefulServiceBase-klassen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som kan användas för att felsöka tjänsten, ge insikter om hur körningen fungerar och hjälp med fel sökning.
@@ -56,11 +56,11 @@ Service Fabric TStore är en komponent som används i [pålitliga samlingar](ser
 Ett kluster som har ett stort antal pålitliga tjänster eller Reliable service-partitioner har ett stort antal instanser av prestanda räknaren för transaktionell replikering. Detta är också fallet för TStore prestanda räknare, men multipliceras också med antalet Reliable-ordlistor och tillförlitliga köer som används. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna [partitionen](service-fabric-concepts-partitioning.md), tjänst repliken och tillstånds leverantören, om TStore, som prestanda räknar instansen är associerad med.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric typ av transaktionell replikerare
-För kategorin `Service Fabric Transactional Replicator`är räknar instans namnen i följande format:
+För kategorin `Service Fabric Transactional Replicator` är räknar instans namnen i följande format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) via med format specificeraren "D".
+*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) med format specificeraren "D".
 
 *ServiceFabricReplicaId* är det ID som är kopplat till en specifik replik av en tillförlitlig tjänst. Replik-ID: t ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra prestanda räknar instanser som genereras av samma partition. Mer information om repliker och deras roll i pålitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
 
@@ -68,14 +68,14 @@ Följande räknar instans namn är typiskt för en räknare under `Service Fabri
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
 
-I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är sträng representationen av Service Fabric PARTITIONS-ID och `131652217797162571` är replik-ID.
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är sträng representationen av Service Fabric partitions-ID och `131652217797162571` är replik-ID.
 
 #### <a name="service-fabric-tstore-category"></a>Service Fabric TStore-kategori
-För kategorin `Service Fabric TStore`är räknar instans namnen i följande format:
+För kategorin `Service Fabric TStore` är räknar instans namnen i följande format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) via med format specificeraren "D".
+*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) med format specificeraren "D".
 
 *ServiceFabricReplicaId* är det ID som är kopplat till en specifik replik av en tillförlitlig tjänst. Replik-ID: t ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra prestanda räknar instanser som genereras av samma partition. Mer information om repliker och deras roll i pålitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
 
@@ -89,7 +89,7 @@ Följande räknar instans namn är typiskt för en räknare under `Service Fabri
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-I `00d0126d-3e36-4d68-98da-cc4f7195d85e` föregående exempel är sträng representationen av Service Fabric PARTITIONS-ID: `131652217797162571` t, replik-ID `142652217797162571` , är ID för tillstånds providern och `1337` är prestanda räknarens instans differentiering. `urn:MyReliableDictionary/dataStore`är namnet på den tillstånds leverantör som lagrar data för samlingen med namnet `urn:MyReliableDictionary`.
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är sträng representationen av Service Fabric partitions-ID: t, `131652217797162571` replik-ID, `142652217797162571` är ID för tillstånds providern och `1337` är prestanda räknarens instans differentiering. `urn:MyReliableDictionary/dataStore`är namnet på den tillstånds leverantör som lagrar data för samlingen med namnet `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Prestanda räknare för transaktionell replikering
 

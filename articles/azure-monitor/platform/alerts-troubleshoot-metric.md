@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 605d1f550335417a26340b6ee54736321ad69f80
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300764"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130746"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -112,7 +112,7 @@ Antalet mått för aviserings regler per prenumeration omfattas av [kvot gränse
 Om du har nått kvotgränsen kan följande steg hjälpa dig att lösa problemet:
 1. Försök att ta bort eller inaktivera mått regler som inte används längre.
 
-2. Växla till att använda måttaviseringsregler som övervakar flera resurser. Med den här funktionen kan en enda varnings regel övervaka flera resurser med bara en varnings regel som räknas mot kvoten. Mer information om den här funktionen och vilka resurs typer som stöds finns i [flera](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Växla till att använda måttaviseringsregler som övervakar flera resurser. Med den här funktionen kan en enda varnings regel övervaka flera resurser med bara en varnings regel som räknas mot kvoten. Mer information om den här funktionen och vilka resurstyper som stöds finns [här](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Om du behöver öka kvot gränsen kan du öppna en supportbegäran och ange följande information:
 
@@ -191,6 +191,33 @@ Om du vill skapa en regel för mått varningar måste du ha följande behörighe
 - Läs behörighet för aviserings regelns mål resurs
 - Skriv behörighet för resurs gruppen där varnings regeln skapas (om du skapar varnings regeln från Azure Portal skapas varnings regeln i samma resurs grupp där mål resursen finns)
 - Läs behörighet för alla åtgärds grupper som är kopplade till aviserings regeln (om tillämpligt)
+
+
+## <a name="naming-restrictions-for-metric-alert-rules"></a>Namngivnings begränsningar för mått varnings regler
+
+Observera följande begränsningar för namn på mått för varnings regler:
+
+- Det går inte att ändra regel namn för mått varningar (omdöpt) när den har skapats
+- Mått för varnings regel namn måste vara unika inom en resurs grupp
+- Mått varnings regel namn får inte innehålla följande tecken: * # & +:  < > ? @ % { } \ / 
+- Regel namn för mått varningar får inte sluta med följande:.
+
+
+## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Begränsningar när du använder dimensioner i en mått varnings regel med flera villkor
+
+Mått aviseringar stöder aviseringar om flerdimensionella mått samt stöd för att definiera flera villkor (upp till 5 villkor per varnings regel).
+
+Observera följande begränsningar när du använder dimensioner i en varnings regel som innehåller flera villkor:
+1. Du kan bara välja ett värde per dimension i varje villkor.
+2. Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
+3. När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
+Ett exempel:
+    - Överväg en regel för mått varningar som definieras på ett lagrings konto och övervakar två villkor:
+        * Totalt antal **transaktioner** > 5
+        * Genomsnittlig **SuccessE2ELatency** > 250 MS
+    - Jag skulle vilja uppdatera det första villkoret och endast övervaka transaktioner där **ApiName** -dimensionen är lika med *"GetBlob"*
+    - Eftersom både **transaktionerna** och **SuccessE2ELatency** -måtten har stöd för en **ApiName** -dimension måste jag uppdatera båda villkoren och låta båda ange dimensionen **ApiName** med värdet *"GetBlob"* .
+
 
 ## <a name="next-steps"></a>Nästa steg
 

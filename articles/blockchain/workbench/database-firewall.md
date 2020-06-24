@@ -2,14 +2,14 @@
 title: Konfigurera Azure blockchain Workbench Database-brandvägg
 description: Lär dig hur du konfigurerar Azure blockchain Workbench Preview Database-brandväggen så att externa klienter och program kan ansluta.
 ms.date: 09/09/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc7a1dc7e4a083ef8f5f7650f29ed1430b32e88b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74326008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214204"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Konfigurera brandväggen för Azure Blockchain Workbench-databasen
 

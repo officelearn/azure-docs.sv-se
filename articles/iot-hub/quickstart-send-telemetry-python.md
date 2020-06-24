@@ -12,19 +12,19 @@ ms.custom:
 - mvc
 - mqtt
 - tracking-python
-ms.date: 10/17/2019
-ms.openlocfilehash: 53acb49e5e2be5b8ccf0c131a9219fdcf2baca47
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 06/16/2020
+ms.openlocfilehash: f49f2156a6d0e1b5563145c00007746ef4a1bf51
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607559"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904972"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med Server dels program (python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-I den här snabb starten skickar du telemetri från ett simulerat enhets program via Azure IoT Hub till ett Server dels program för bearbetning. IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabb starten används ett förskrivet python-program för att skicka Telemetrin och ett CLI-verktyg för att läsa telemetri från hubben. Innan du kör dessa två program skapar du en IoT-hubb och registrerar en enhet med navet.
+I den här snabb starten skickar du telemetri från ett simulerat enhets program via Azure IoT Hub till ett Server dels program för bearbetning. IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabb starten används två i förväg skrivna python-program: en för att skicka Telemetrin och en för att läsa Telemetrin från hubben. Innan du kör dessa två program skapar du en IoT-hubb och registrerar en enhet med navet.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -80,6 +80,20 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabb starten.
 
+1. Du behöver också _Event Hubs-kompatibel slut punkt_, _Event Hubs-kompatibel sökväg_och _tjänstens primära nyckel_ från din IoT Hub för att aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
+
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
+
+    ```azurecli-interactive
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
+    ```
+
+    Anteckna de här tre värdena, som du kommer att använda senare i snabb starten.
+
 ## <a name="send-simulated-telemetry"></a>Skicka simulerad telemetri
 
 Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb och skickar simulerad telemetri om temperatur och luftfuktighet.
@@ -104,22 +118,40 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     Följande skärmbild visar utdata när det simulerade enhetsprogrammet skickar telemetri till din IoT-hubb:
 
-    ![Kör den simulerade enheten](media/quickstart-send-telemetry-python/SimulatedDevice.png)
-
+    ![Kör den simulerade enheten](media/quickstart-send-telemetry-python/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
+Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på din IoT-hubb. Programmet tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
-Kör följande kommandon i Azure Cloud Shell, där du ersätter `YourIoTHubName` med namnet på din IoT-hubb:
+> [!NOTE]
+> I följande steg används det synkrona exemplet **read_device_to_cloud_messages_sync. py**. Du kan utföra samma steg med det asynkrona exemplet **read_device_to_cloud_messages_async. py**.
 
-```azurecli-interactive
-az iot hub monitor-events --hub-name {YourIoTHubName} --device-id MyPythonDevice 
-```
+1. Navigera till Python-exempelprojektets rotmapp i ett annat lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\read-d2c-messages**.
 
-Följande skärmbild visar utdata när tillägget tar emot telemetridata som skickats från den simulerade enheten till hubben:
+2. Öppna filen **read_device_to_cloud_messages_sync. py** i valfri text redigerare. Uppdatera följande variabler och spara ändringarna i filen.
 
-![Kör serverdelsprogrammet](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
+    | Variabel | Värde |
+    | -------- | ----------- |
+    | `EVENTHUB_COMPATIBLE_ENDPOINT` | Ersätt värdet för variabeln med den Event Hubs-kompatibla slut punkten som du antecknade tidigare. |
+    | `EVENTHUB_COMPATIBLE_PATH`     | Ersätt värdet för variabeln med Event Hubs-kompatibel sökväg som du antecknade tidigare. |
+    | `IOTHUB_SAS_KEY`                | Ersätt värdet för variabeln med tjänstens primära nyckel som du gjorde en anteckning om tidigare. |
+
+3. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+
+    ```cmd/sh
+    pip install azure-eventhub
+    ```
+
+4. Skapa och kör serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+
+    ```cmd/sh
+    python read_device_to_cloud_messages_sync.py
+    ```
+
+    Följande skärmbild visar utdata när serverdelsprogrammet tar emot telemetri som skickats av den simulerade enheten till hubben:
+
+    ![Kör serverdelsprogrammet](media/quickstart-send-telemetry-python/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

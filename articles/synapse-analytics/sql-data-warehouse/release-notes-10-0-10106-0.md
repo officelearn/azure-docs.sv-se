@@ -4,7 +4,7 @@ description: Viktig information för Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: bf74e520340690c3dda71496360e5d9a2fe54ae8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6e2247d448807413d425dfec5d572fa895041938
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115382"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206826"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -48,9 +48,9 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 |**Arbets belastnings isolering (GA)**|[Arbets belastnings isolering](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) är nu allmänt tillgänglig.  Genom [arbets belastnings grupper](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) kan du reservera och innehålla resurser.  Möjligheten att konfigurera fråge tids gränser för att avbryta skena frågor är också möjligt.|
 |**Hanteringsportal upplevelse för arbets belastning (för hands version)**| Användare kan konfigurera och hantera sina inställningar för hantering av arbets belastning via Azure Portal.  Möjligheten att konfigurera [arbets belastnings grupper](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) och [klassificerare för arbets belastningar](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) med betydelse är möjliga.|
 |**Ändra arbets belastnings grupp**|Möjligheten att använda kommandot [Alter arbets belastnings grupp](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) är nu tillgängligt.  Använd Alter för att ändra konfigurationen för en befintlig [arbets belastnings grupp](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation).|
-|**Automatisk schema identifiering för Parquet-filer med kommandot COPY (förhands granskning)**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu automatisk schema identifiering vid inläsning av Parquet-filer. Kommandot kommer automatiskt att identifiera Parquet-filschemat och skapa tabellen före belastningen. Nå ut till följande distributions lista för e-post för att hämta vit listas: sqldwcopypreview@service.microsoft.com . |
-|**Läsa in komplexa Parquet-datatyper med kommandot COPY (förhands granskning)**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu inläsning av komplexa Parquet-typer. Du kan läsa in komplexa typer som kartor och listor i sträng kolumner.  Nå ut till följande distributions lista för e-post för att hämta vit listas: sqldwcopypreview@service.microsoft.com . |
-|**Automatisk komprimering av Parquet-filer med kommandot COPY**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu automatisk identifiering av komprimerings metoden för Parquet-fil (er).|
+|**Automatisk schema identifiering för Parquet-filer med kommandot COPY (förhands granskning)**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu automatisk schema identifiering vid inläsning av Parquet-filer. Kommandot kommer automatiskt att identifiera Parquet-filschemat och skapa tabellen före belastningen. Kontakta följande distributions lista för e-post för att få den här funktionen aktive rad: sqldwcopypreview@service.microsoft.com . |
+|**Läsa in komplexa Parquet-datatyper med kommandot COPY (förhands granskning)**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu inläsning av komplexa Parquet-typer. Du kan läsa in komplexa typer som kartor och listor i sträng kolumner.  Kontakta följande distributions lista för e-post för att få den här funktionen aktive rad: sqldwcopypreview@service.microsoft.com . |
+|**Automatisk komprimering av Parquet-filer med kommandot COPY**|[Kopierings kommandot](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) stöder nu automatisk identifiering av komprimerings metoden för Parquet-fil (er). Kontakta följande distributions lista för e-post för att få den här funktionen aktive rad: sqldwcopypreview@service.microsoft.com .|
 |**Ytterligare inläsnings rekommendationer**|[Läs rekommendationer](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) är nu tillgängliga för Synapse SQL. Få proaktiva aviseringar när du ska dela upp dina filer för maximalt data flöde, samplacera ditt lagrings konto med din SQL-pool eller öka batchstorleken när du använder inläsnings verktyg som SQLBulkCopy-API eller BCP|
 |**T-SQL uppdaterbar distributions kolumn (GA)**|Användare kan nu uppdatera data som lagras i kolumnen distribution. Mer information finns [i rikt linjerna för att utforma distribuerade tabeller i SYNAPSE SQL-pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) .|
 |**T-SQL-uppdatering/ta bort från... Anslut (GA)**|Uppdatering och borttagning baserat på resultat från anslutning till en annan tabell är nu tillgängligt. Mer information finns i [Uppdatera](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) och [ta bort](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) dokumentation.|

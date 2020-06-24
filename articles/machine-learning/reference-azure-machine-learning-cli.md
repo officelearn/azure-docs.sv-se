@@ -8,14 +8,14 @@ ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: d4eb0ec0d3c3becc4fddd5923cd040f3957732bc
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: cd636ed1ff4369360fb5faae02e8095983cad043
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434058"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214527"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -195,23 +195,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
 
     Information om formatet på den JSON-fil som används för att definiera data uppsättningen använder du `az ml dataset register --show-template` .
 
-    Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Arkivera en aktiv eller föråldrad data uppsättning:
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    Mer information finns i [AZ ml data uppsättnings Arkiv](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Föråldra en data uppsättning:
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    Mer information finns i [AZ ml dataset reåldrad](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Lista alla data uppsättningar på en arbets yta:
 
@@ -219,7 +203,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset list
     ```
 
-    Mer information finns i [AZ ml dataset List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Mer information finns i [AZ ml dataset List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Hämta information om en data uppsättning:
 
@@ -227,15 +211,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset show -n dataset-name
     ```
 
-    Mer information finns i [AZ ml data uppsättning show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Återaktivera en arkiverad eller inaktuell data uppsättning:
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    Mer information finns i [AZ ml dataset reaktivera](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Mer information finns i [AZ ml data uppsättning show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Avregistrera en data uppsättning:
 

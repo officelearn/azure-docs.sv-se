@@ -7,19 +7,19 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/03/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2109baf077b1b4c1074cfae9edd0d2b5ef5030d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343011"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206894"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
-Azure Automation tillstånds konfiguration är en Azure Configuration Management-tjänst som gör att du kan skriva, hantera och kompilera DSC- [konfigurationer](/powershell/scripting/dsc/configurations/configurations) (Desired State Configuration) för noder i ett moln eller lokalt Data Center. Tjänsten importerar också [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldelar konfigurationer till mål noder, allt i molnet. Du kan komma åt Azure Automation tillstånds konfiguration i Azure Portal genom att välja **tillstånds konfiguration (DSC)** under **konfigurations hantering**. 
+Azure Automation tillstånds konfiguration är en Azure Configuration Management-tjänst som gör att du kan skriva, hantera och kompilera DSC- [konfigurationer](/powershell/scripting/dsc/configurations/configurations) (Desired State Configuration) för noder i ett moln eller lokalt Data Center. Tjänsten importerar också [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldelar konfigurationer till mål noder, allt i molnet. Du kan komma åt Azure Automation tillstånds konfiguration i Azure Portal genom att välja **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 
 Du kan använda Azure Automation tillstånds konfiguration för att hantera flera olika datorer:
 
@@ -53,7 +53,7 @@ Azure Automation tillstånds konfiguration får samma hanterings skikt till [Pow
 
 Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detaljerade rapporterings status data till den inbyggda hämtnings servern. Du kan konfigurera Azure Automation tillstånds konfiguration för att skicka dessa data till Log Analytics-arbetsytan. Se [vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Krav för att använda konfiguration av Azure Automation tillstånd
+## <a name="prerequisites"></a>Krav
 
 Beakta kraven i det här avsnittet när du använder Azure Automation tillstånds konfiguration.
 
@@ -103,36 +103,9 @@ Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare. Det här a
 
 För Linux-noder stöder DSC-agenten proxy och använder `http_proxy` variabeln för att fastställa URL: en. Mer information om proxy-Support finns i [generera DSC-metaconfigurations](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
-#### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Nätverks intervall och namnrymd för Azure Automation tillstånds konfiguration
+#### <a name="dns-records-per-region"></a>DNS-poster per region
 
-Vi rekommenderar att du använder adresserna i listan nedan när du definierar undantag. För IP-adresser kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen.
-
-Om du har ett Automation-konto som har definierats för en viss region kan du begränsa kommunikationen till det regionala data centret. Följande tabell innehåller DNS-posten för varje region:
-
-| **Region** | **DNS-post** |
-| --- | --- |
-| USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| USA, östra    | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
-| USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Kanada, centrala |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov, Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-
-Om du vill ha en lista över regions-IP-adresser i stället för region namn laddar du ned XML-filen för [Azure datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center
-
-> [!NOTE]
-> XML-filen för Azure datacenter-IP-adress innehåller de IP-adressintervall som används i Microsoft Azure Data Center. Filen innehåller beräknings-, SQL-och lagrings intervall.
->
->En uppdaterad fil publiceras varje vecka. Filen visar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka. Det är en bra idé att ladda ned den nya XML-filen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. 
-
-Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
+Vi rekommenderar att du använder de adresser som anges i tabellen [DNS-poster per region](how-to/automation-region-dns-records.md) när du definierar undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 

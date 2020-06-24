@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548ebf5b0d5836383b74326516fbe47b1b25f60f
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76899945"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080188"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering – resten av innehållet i Azure Kognitiv sökning att använda Kundhanterade nycklar i Azure Key Vault
 
@@ -38,7 +38,7 @@ Följande tjänster används i det här exemplet.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurations uppgifter.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure kognitiv sökning SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa REST API. Det finns för närvarande inget Portal stöd för kundhanterad kryptering.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och för [hands versionen av .NET SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa REST API. Det finns för närvarande inget Portal stöd för kundhanterad kryptering.
 
 >[!Note]
 > På grund av typen av kryptering med funktionen Kundhanterade nycklar kan Azure Kognitiv sökning inte hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar **måste** du aktivera mjuk borttagning och rensning av skydd i Key Vault innan det kan användas. Mer information finns i [Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

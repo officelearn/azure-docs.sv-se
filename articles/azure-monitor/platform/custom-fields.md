@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655369"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906810"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor (förhands granskning)
 
 > [!NOTE]
 > Den här artikeln beskriver hur du tolkar text data i en Log Analytics arbets yta när den samlas in. Vi rekommenderar att du tolkar text data i ett frågefilter när den har samlats in efter den vägledning som beskrivs i [parsa text data i Azure Monitor](../log-query/parse-text.md). Det ger flera fördelar jämfört med att använda anpassade fält.
+
+> [!IMPORTANT]
+> Anpassade fält ökar mängden data som samlas in i arbets ytan Log Analytics som kan öka din kostnad. Mer information finns i [Hantera användning och kostnader med Azure Monitor loggar](manage-cost-storage.md#pricing-model) .
 
 Med funktionen **anpassade fält** i Azure Monitor kan du utöka befintliga poster i arbets ytan Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
 
@@ -50,7 +53,7 @@ Det första steget är att identifiera de poster som kommer att hämta det anpas
 ### <a name="step-2---perform-initial-extract"></a>Steg 2 – utför första extrahering.
 När du har identifierat de poster som ska ha det anpassade fältet kan du identifiera de data som du vill extrahera.  Log Analytics kommer att använda den här informationen för att identifiera liknande mönster i liknande poster.  I steget efter detta kommer du att kunna verifiera resultaten och ange ytterligare information för Log Analytics som ska användas i analysen.
 
-1. Markera texten i exempel posten som du vill fylla i det anpassade fältet.  Sedan visas en dialog ruta där du kan ange ett namn och en datatyp för fältet och utföra den första extraheringen.  Tecknen ** \_CF** läggs automatiskt till.
+1. Markera texten i exempel posten som du vill fylla i det anpassade fältet.  Sedan visas en dialog ruta där du kan ange ett namn och en datatyp för fältet och utföra den första extraheringen.  Tecknen ** \_ CF** läggs automatiskt till.
 2. Klicka på **extrahera** för att utföra en analys av insamlade poster.  
 3. I avsnitten **Sammanfattning** och **Sök Resultat** visas resultatet av extraheringen, så att du kan kontrol lera dess riktighet.  **Sammanfattning** visar de kriterier som används för att identifiera poster och ett antal för varje data värde som identifieras.  **Sök resultaten** innehåller en detaljerad lista över poster som matchar kriterierna.
 

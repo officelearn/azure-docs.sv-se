@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267630"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694815"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsök problem med distribution av StorSimple-enheter
 ## <a name="overview"></a>Översikt
@@ -82,7 +82,7 @@ I följande tabeller visas de vanliga fel som du kan stöta på när du:
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Fel under de valfria webbproxy-inställningarna
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: ogiltig parameter (undantag från HRESULT: 0x80070057) |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format: http://*\<IP-adress eller FQDN för webbproxyservern>*:*\<TCP-portnummer>* |
+| 1 |Invoke-HcsSetupWizard: ogiltig parameter (undantag från HRESULT: 0x80070057) |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format: http:// *\<IP address or FQDN of the web proxy server>* :*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: RPC-servern är inte tillgänglig (undantag från HRESULT: 0x800706ba) |Rotor saken är något av följande:<ol><li>Klustret är inte igång.</li><li>Den passiva styrenheten kan inte kommunicera med den aktiva styrenheten och kommandot körs från passiv styrenhet.</li></ol> |Beroende på rotor saken:<ol><li>[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är igång.</li><li>Kör kommandot från den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om anslutningen är bruten.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC-anrop misslyckades (undantag från HRESULT: 0x800706be) |Klustret är nere. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är igång. |
 | 4 |Invoke-HcsSetupWizard: kluster resursen hittades inte (undantag från HRESULT: 0x8007138f) |Det gick inte att hitta kluster resursen. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva återställa enheten till fabriks inställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att skapa en kluster resurs. |
@@ -139,7 +139,7 @@ Du kan använda tjänsten StorSimple Enhetshanteraren som körs i Microsoft Azur
 | 9 |Varning: det gick inte att aktivera enheten. Enhets administratören och StorSimple Snapshot Manager lösen ord har inte ändrats. |Om registreringen Miss lyckas ändras inte enhets administratörs-och StorSimple Snapshot Manager lösen ord. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Verktyg för felsökning av StorSimple-distributioner
-StorSimple innehåller flera verktyg som du kan använda för att felsöka din StorSimple-lösning. Exempel på dessa är:
+StorSimple innehåller flera verktyg som du kan använda för att felsöka din StorSimple-lösning. Dessa omfattar:
 
 * Support paket och enhets loggar.
 * Cmdletar som är särskilt utformade för fel sökning.
@@ -173,7 +173,7 @@ Använd följande Windows PowerShell-cmdlets för att identifiera anslutnings fe
 * `Test-Connection`: Använd denna cmdlet för att kontrol lera nätverks anslutningen i och utanför nätverket.
 * `Test-HcsmConnection`: Använd denna cmdlet för att kontrol lera anslutningen till en korrekt registrerad enhet.
 * `Sync-HcsTime`: Använd den här cmdleten för att Visa enhets tiden och framtvinga en tidssynkronisering med NTP-servern.
-* `Enable-HcsPing`och `Disable-HcsPing`: Använd dessa cmdlets för att tillåta att värdarna pingar nätverks gränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden.
+* `Enable-HcsPing`och `Disable-HcsPing` : Använd dessa cmdlets för att tillåta att värdarna pingar nätverks gränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden.
 * `Trace-HcsRoute`: Använd denna cmdlet som väg spårnings verktyg. Den skickar paket till varje router på vägen till ett slutgiltigt mål under en viss tids period och beräknar sedan resultatet baserat på de paket som returneras från varje hopp. Eftersom `Trace-HcsRoute` visar graden av paket förlust vid en viss router eller länk, kan du hitta vilka routrar eller länkar som kan orsaka nätverks problem.
 * `Get-HcsRoutingTable`: Använd den här cmdleten för att visa den lokala IP-routningstabellen.
 
@@ -181,7 +181,7 @@ Använd följande Windows PowerShell-cmdlets för att identifiera anslutnings fe
 När du konfigurerar nätverks gränssnitt för en första enhets distribution är maskin varu statusen inte tillgänglig i StorSimple-Enhetshanteraren tjänstens användar gränssnitt eftersom enheten ännu inte har registrerats med tjänsten. **Maskin varu hälso** bladet kanske inte alltid alltid motsvarar enhetens status, särskilt om det finns problem som påverkar synkroniseringen av tjänsten. I dessa fall kan du använda `Get-NetAdapter` cmdleten för att fastställa hälso tillstånd och status för nätverks gränssnitten.
 
 ### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Visa en lista över alla nätverkskort på enheten
-1. Starta Windows PowerShell för StorSimple och skriv `Get-NetAdapter`sedan. 
+1. Starta Windows PowerShell för StorSimple och skriv sedan `Get-NetAdapter` . 
 2. Använd utdata från `Get-NetAdapter` cmdleten och följande rikt linjer för att förstå nätverks gränssnittets status.
    
    * Om gränssnittet är felfritt och aktiverat visas **status för** **ifIndex** .
@@ -491,7 +491,7 @@ Felet kan bero på något av följande:
 * Felaktiga brand Väggs inställningar
 
 ### <a name="to-locate-and-fix-the-device-registration-problem"></a>Hitta och åtgärda problem med enhets registrering
-1. Kontrol lera enhets konfigurationen: på den aktiva styrenheten `Invoke-HcsSetupWizard`kör du.
+1. Kontrol lera enhets konfigurationen: på den aktiva styrenheten kör du `Invoke-HcsSetupWizard` .
    
    > [!NOTE]
    > Installations guiden måste köras på den aktiva kontroll enheten. Kontrol lera att du är ansluten till den aktiva kontrollanten genom att titta på banderollen som visas i serie konsolen. Banderollen visar om du är ansluten till kontroll enhet 0 eller styrenhet 1 och om styrenheten är aktiv eller passiv. Mer information finns i [identifiera en aktiv kontrollant på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).

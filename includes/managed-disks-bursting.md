@@ -8,11 +8,13 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 39cc37293ecb0e900a9a88d5aa00863f3e450400
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 2af8b429b6addf6da32b34773525c51a36624e78
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594459"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242084"
 ---
-På Azure erbjuder vi möjlighet att öka prestandan för disk lagring IOPS och MB/s, vilket kallas burst-överföring på både Virtual Machines och diskar. Busting är användbart i många fall, till exempel vid hantering av oväntad disk trafik eller bearbetning av batch-jobb. Du kan effektivt utnyttja VM och disknivå-överföring för att uppnå fantastiska bas linje-och burst-prestanda både på den virtuella datorn och på hård disken. På så sätt kan du få bra prestanda och prestanda för hög prestanda både för din virtuella dator och disk.
+På Azure erbjuder vi möjlighet att öka prestandan för disk lagring IOPS och MB/s, vilket kallas burst-överföring på både Virtual Machines och diskar. Busting är användbart i många fall, till exempel vid hantering av oväntad disk trafik eller bearbetning av batch-jobb. Du kan effektivt utnyttja VM och disknivå-överföring för att uppnå fantastiska bas linje-och burst-prestanda både på den virtuella datorn och på hård disken. På så sätt kan du få bra prestanda och prestanda för hög prestanda både för din virtuella dator och disk. 
+
+Observera att bursting på diskar och virtuella datorer är oberoende av varandra. Om du har en burst-disk behöver du inte en virtuell dator med burst-överföring för att tillåta att disken får burst. Om du har en virtuell dator med burst-överföring behöver du ingen mellanliggande disk för att tillåta att din virtuella dator får burst. 

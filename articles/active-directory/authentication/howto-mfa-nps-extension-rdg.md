@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5ef454871f242adb9de5e5c567c1a76e00478cc
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654101"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789947"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för fjärrskrivbordsgateway med nätverks princip Server (NPS)-tillägget och Azure AD
 
@@ -130,13 +130,14 @@ Som en del av konfigurationen av NPS-tillägget måste du ange autentiseringsupp
 
 Installera NPS-tillägget på en server som har rollen nätverks princip-och nätverks åtkomst tjänster (NPS) installerad. Detta fungerar som RADIUS-server för din design.
 
-> [!Important]
-> Se till att du inte installerar NPS-tillägget på servern för fjärrskrivbordsgateway.
+> [!IMPORTANT]
+> Installera inte NPS-tillägget på RDG-servern (Remote Desktop Gateway). RDG-servern använder inte RADIUS-protokollet med sin klient, så tillägget kan inte tolka och utföra MFA.
 >
+> När RDG-servern och NPS-servern med NPS-tillägget är olika servrar använder RDG NPS internt för att kommunicera med andra NPS-servrar och använder RADIUS som protokoll för att kommunicera korrekt.
 
 1. Ladda ned [NPS-tillägget](https://aka.ms/npsmfa).
-1. Kopiera installations programmets körbara fil (NpsExtnForAzureMfaInstaller. exe) till NPS-servern.
-1. Dubbelklicka på **NpsExtnForAzureMfaInstaller. exe**på NPS-servern. Om du uppmanas till det klickar du på **Kör**.
+1. Kopiera installations programmets körbara fil (NpsExtnForAzureMfaInstaller.exe) till NPS-servern.
+1. Dubbelklicka på **NpsExtnForAzureMfaInstaller.exe**på NPS-servern. Om du uppmanas till det klickar du på **Kör**.
 1. I dialog rutan NPS-tillägg för Azure MFA-installationen granskar du licens villkoren för program vara, kontrollerar **att jag godkänner licens villkoren**och klickar på **Installera**.
 1. I dialog rutan NPS-tillägg för Azure MFA-installationen klickar du på **Stäng**.
 
@@ -157,10 +158,10 @@ Om du vill använda dina egna certifikat måste du associera den offentliga nyck
 Om du vill använda skriptet anger du tillägget med dina autentiseringsuppgifter för Azure AD-administratören och det Azure AD-klient-ID som du kopierade tidigare. Kör skriptet på varje NPS-server där du installerade NPS-tillägget. Gör något av följande:
 
 1. Öppna en administrativ Windows PowerShell-prompt.
-1. I PowerShell-prompten skriver `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`du och trycker på **RETUR**.
-1. Skriv `.\AzureMfaNpsExtnConfigSetup.ps1`och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om den inte är installerad installerar skriptet modulen åt dig.
+1. I PowerShell-prompten skriver du `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` och trycker på **RETUR**.
+1. Skriv `.\AzureMfaNpsExtnConfigSetup.ps1` och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om den inte är installerad installerar skriptet modulen åt dig.
 
-   ![Köra AzureMfaNpsExtnConfigSetup. ps1 i Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Köra AzureMfaNpsExtnConfigSetup.ps1 i Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. När skriptet har verifierat installationen av PowerShell-modulen visas dialog rutan Azure Active Directory PowerShell-modul. Ange dina autentiseringsuppgifter och lösen ord för Azure AD-administratören i dialog rutan och klicka på **Logga**in.
 
@@ -186,7 +187,7 @@ Auktoriseringsprinciper för fjärr skrivbords anslutning (RD-inställningar) an
 
 1. Öppna **Serverhanteraren**på RD Gateway-servern.
 1. Klicka på **verktyg**på menyn, peka på **Fjärrskrivbordstjänster**och klicka sedan på **hanteraren för fjärrskrivbordsgateway**.
-1. I Hanteraren för fjärrskrivbordsgateway högerklickar du på ** \[Server namn\] (lokalt)** och klickar på **Egenskaper**.
+1. I Hanteraren för fjärrskrivbordsgateway högerklickar du på ** \[ Server namn \] (lokalt)** och klickar på **Egenskaper**.
 1. I dialog rutan Egenskaper väljer du fliken **lagring av Auktoriseringsprinciper för fjärr SKRIVBORDS anslutning** .
 1. På fliken Arkiv för Auktoriseringsprinciper för fjärr skrivbords anslutning väljer du **Central Server som kör NPS**. 
 1. I fältet **Ange ett namn eller en IP-adress för den server som kör NPS** anger du IP-adressen eller Server namnet för den server där du installerade NPS-tillägget.

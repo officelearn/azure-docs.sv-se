@@ -1,33 +1,33 @@
 ---
-title: Vad är betrodda säkerhets partner i Azure Firewall Manager (för hands version)
-description: Lär dig om betrodda säkerhets partner för Azure Firewall Manager
+title: Vad är Azure Firewall Manager Security partner providers (för hands version)
+description: Lär dig mer om Azure Firewall Managers leverantörer av säkerhets partner
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d430deae191fbc9f9ab5bbbc2b83ee4640dd831
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436776"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791541"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>Vad är betrodda säkerhetspartner (förhandsversion)?
+# <a name="what-are-security-partner-providers-preview"></a>Vad är leverantörer av säkerhets partner (för hands version)?
 
 > [!IMPORTANT]
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Betrodda säkerhets partner (för hands version)* i Azure Firewall Manager gör att du kan använda dina välkända, bästa SECaaS-och-erbjudanden (Security as a Service) för att skydda Internet åtkomsten för dina användare.
+*Leverantörer av säkerhets partner (för hands version)* i Azure Firewall Manager gör att du kan använda dina välkända, bästa SECaaS-och-erbjudanden (service Security as a Service) för att skydda Internet åtkomsten för dina användare.
 
 Med en snabb konfiguration kan du skydda en hubb med en säkerhets partner som stöds och dirigera och filtrera Internet trafik från dina virtuella nätverk (virtuella nätverk) eller filial platser inom en region. Detta görs med hjälp av automatisk väg hantering utan att konfigurera och hantera användardefinierade vägar (UDR).
 
 Du kan distribuera skyddade hubbar som kon figurer ATS med valfri säkerhets partner i flera Azure-regioner för att få anslutning och säkerhet för dina användare överallt i världen. Med möjligheten att använda säkerhets partner erbjudandet för Internet-SaaS program trafik och Azure-brandväggen för privat trafik i de skyddade hubbarna kan du nu börja bygga din säkerhets gräns på Azure som är nära dina globalt distribuerade användare och program.
 
-I den här för hands versionen är de säkerhets partner som stöds **ZScaler** och **iboss**. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
+I den här för hands versionen är de säkerhets partner som stöds **ZScaler**, **Check Point**och **iboss**. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
 
-![Betrodda säkerhetspartner](media/trusted-security-partners/trusted-security-partners.png)
+![Säkerhetspartnerprovidrar](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>Viktiga scenarier
 
@@ -80,4 +80,4 @@ Dessutom är Office 365-anslutningar starkt krypterade för sekretess och använ
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera ett betrott säkerhets erbjudande i en skyddad hubb med hjälp av Azure Firewall Manager](deploy-trusted-security-partner.md).
+[Distribuera ett säkerhets partner erbjudande i en skyddad hubb med hjälp av Azure Firewall Manager](deploy-trusted-security-partner.md).

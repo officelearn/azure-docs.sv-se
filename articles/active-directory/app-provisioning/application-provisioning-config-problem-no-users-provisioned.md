@@ -2,21 +2,21 @@
 title: Användare är inte etablerade i mitt program
 description: Så här felsöker du vanliga problem som visas när du inte ser användare i ett Azure AD Gallery-program som du har konfigurerat för användar etablering med Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fa47fbba7632077c83dc1d594c7c58c59c869bf7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594023"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782287"
 ---
 # <a name="no-users-are-being-provisioned"></a>Inga användare etableras 
 >[!NOTE]
@@ -42,7 +42,7 @@ Nedan visas en lista över allmänna problemområden som du kan detaljgranska i 
 - [Etablerings loggar innebär att användare hoppas över och inte tillhandahålls, även om de tilldelas](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Etablerings tjänsten verkar inte starta
-Om du ställer in **etablerings statusen** **på** i avsnittet ** &gt; Azure Active Directory företags &gt; \[Apps program\] &gt;namns etablering** i Azure Portal. Men ingen annan statusinformation visas på den sidan efter efterföljande åter belastningar, det är troligt att tjänsten körs men inte har slutfört en första cykel ännu. Kontrol lera **etablerings loggarna (för hands versionen)** som beskrivs ovan för att avgöra vilka åtgärder tjänsten utför, och om det finns några fel.
+Om du ställer in **etablerings statusen** **på** i avsnittet **Azure Active Directory &gt; företags Apps &gt; \[ program namns \] &gt; etablering** i Azure Portal. Men ingen annan statusinformation visas på den sidan efter efterföljande åter belastningar, det är troligt att tjänsten körs men inte har slutfört en första cykel ännu. Kontrol lera **etablerings loggarna (för hands versionen)** som beskrivs ovan för att avgöra vilka åtgärder tjänsten utför, och om det finns några fel.
 
 >[!NOTE]
 >En första cykel kan ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Efterföljande synkroniseringar efter den första cykeln är snabbare, eftersom etablerings tjänsten lagrar vattenstämplar som representerar både systemets tillstånd efter den första cykeln. Den första cykeln förbättrar prestanda för efterföljande synkroniseringar.

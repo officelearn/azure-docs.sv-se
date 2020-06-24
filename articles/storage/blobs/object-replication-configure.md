@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170638"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888122"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfigurera objekt replikering för block-blobar (för hands version)
 
@@ -28,7 +28,9 @@ Den här artikeln beskriver hur du konfigurerar objekt replikering för ditt lag
 
 Innan du konfigurerar objekt replikering skapar du käll-och mål lagrings konton om de inte redan finns. Båda kontona måste vara generella-syfte v2-lagrings konton. Mer information finns i [skapa ett Azure Storage-konto](../common/storage-account-create.md).
 
-Kontrol lera också att du har registrerat dig för följande funktions för hands funktioner:
+Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Och ett mål konto får inte ha fler än två käll konton. Käll- och målkontona kan finnas i olika regioner. Du kan konfigurera separata replikeringsprinciper för att replikera data till varje mål konto.
+
+Innan du börjar ska du kontrol lera att du har registrerat dig för följande funktions förändringar:
 
 - [Objekt replikering (för hands version)](object-replication-overview.md)
 - [Blob-version (för hands version)](versioning-overview.md)
@@ -41,7 +43,7 @@ Innan du konfigurerar objekt replikering i Azure Portal skapar du käll-och mål
 Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
 1. Navigera till käll lagrings kontot i Azure Portal.
-1. Under **Inställningar**väljer du **objekt replikering**.
+1. Under **BLOB service**väljer du **objekt replikering**.
 1. Välj **Konfigurera replikering**.
 1. Välj mål prenumeration och lagrings konto.
 1. I avsnittet **behållar par** väljer du en käll behållare från käll kontot och en mål behållare från mål kontot. Du kan skapa upp till 10 container par per replikeringsprincip.

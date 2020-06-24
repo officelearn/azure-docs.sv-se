@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186218"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705210"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrera dina manifest med hjälp av dynamisk Paketeraren
 
@@ -36,13 +36,13 @@ Den här möjligheten att ange olika filter i data strömmen ger en kraftfull l�
 
 ## <a name="overview-of-manifests"></a>Översikt över manifest
 
-Azure Media Services stöder HLS, MPEG-streck och Smooth Streaming protokoll. Som en del av en [dynamisk paketering](dynamic-packaging-overview.md)genereras direkt uppspelnings klientens manifest (HLS Master Playlist, streck medie beskrivning [mpd] och Smooth Streaming) dynamiskt baserat på format väljaren i URL: en. Mer information finns i leverans protokollen i [vanliga arbets flöden på begäran](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services stöder HLS, MPEG-streck och Smooth Streaming protokoll. Som en del av en [dynamisk paketering](dynamic-packaging-overview.md)genereras direkt uppspelnings klientens manifest (HLS Master Playlist, streck medie beskrivning [mpd] och Smooth Streaming) dynamiskt baserat på format väljaren i URL: en. Mer information finns i leverans protokollen i [vanliga arbets flöden på begäran](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### <a name="get-and-examine-manifest-files"></a>Hämta och undersök manifest filen
 
 Du kan ange en lista över villkor för filter spårnings egenskaper baserat på vilka spår i data strömmen (Live eller video på begäran [VOD]) som ska ingå i ett dynamiskt skapat manifest. Om du vill hämta och undersöka egenskaperna för spåren måste du först läsa in Smooth Streaming manifestet.
 
-Självstudien [Ladda upp, koda och strömma filer med .net](stream-files-tutorial-with-api.md#get-streaming-urls) visar hur du skapar strömmande URL: er med .net. Om du kör appen pekar en av webb adresserna på Smooth Streaming manifestet: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Kopiera och klistra in webb adressen i adress fältet i en webbläsare. Filen kommer att hämtas. Du kan öppna den i valfri text redigerare.
+Självstudien [Ladda upp, koda och strömma filer med .net](stream-files-tutorial-with-api.md#get-streaming-urls) visar hur du skapar strömmande URL: er med .net. Om du kör appen pekar en av webb adresserna på Smooth Streaming manifestet: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest` .<br/> Kopiera och klistra in webb adressen i adress fältet i en webbläsare. Filen kommer att hämtas. Du kan öppna den i valfri text redigerare.
 
 Ett REST-exempel finns i [Ladda upp, koda och strömma filer med rest](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
@@ -135,7 +135,7 @@ Du kan också kombinera flera filter i en enda URL. Följande scenario visar var
 
 Om du vill kombinera filter ställer du in filter namnen på URL: en för manifest/spelnings lista i semikolon-avgränsat format. Vi antar att du har ett filter med namnet *MyMobileDevice* som filtrerar kvaliteterna och att du har en annan namngiven *MyStartTime* för att ange en angiven start tid. Du kan kombinera upp till tre filter.
 
-Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
@@ -146,7 +146,7 @@ Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/b
 - Kunder måste hämta manifestet manuellt och analysera den exakta start tids stämplingen och tids skalan.
 
     - [Hämta och granska manifest filen](#get-and-examine-manifest-files)för att fastställa egenskaper för spåren i en till gång.
-    - Formeln för att ange tids stämplings egenskaper för till gångs filter är: <br/>startTimestamp = &lt;start tid i manifestet&gt; +  &lt;förväntat filter start tid&gt; i sekunder * tids skala
+    - Formeln för att ange tids stämplings egenskaper för till gångs filter är: <br/>startTimestamp = &lt; Start tid i manifestet &gt;  +   &lt; förväntat filter start tid i sekunder &gt; * tids skala
 
 ## <a name="next-steps"></a>Nästa steg
 

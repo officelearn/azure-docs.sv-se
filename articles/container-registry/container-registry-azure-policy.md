@@ -2,24 +2,21 @@
 title: Efterlevnad med Azure Policy
 description: Tilldela inbyggda principer i Azure Policy för att granska kompatibiliteten för dina Azure Container register
 ms.topic: article
-ms.date: 02/26/2020
-ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/11/2020
+ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145009"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791902"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Granska kompatibilitet för Azure Container register med hjälp av Azure Policy
 
 [Azure policy](../governance/policy/overview.md) är en tjänst i Azure som du använder för att skapa, tilldela och hantera principer. De här principerna tillämpar olika regler och effekter på dina resurser så att resurserna efterlever dina företagsstandarder och serviceavtal.
 
-I den här artikeln beskrivs inbyggda principer (för hands version) för Azure Container Registry. Använd dessa principer för att granska nya och befintliga register för efterlevnad.
+I den här artikeln beskrivs inbyggda principer för Azure Container Registry. Använd dessa principer för att granska nya och befintliga register för efterlevnad.
 
 Det kostar inget att använda Azure Policy.
-
-> [!IMPORTANT]
-> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="built-in-policy-definitions"></a>Inbyggda princip definitioner
 
@@ -27,7 +24,7 @@ Följande inbyggda princip definitioner är bara för Azure Container Registry:
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Se även den inbyggda nätverks princip definitionen: [för [hands version] container Registry ska använda en tjänst slut punkt för virtuellt nätverk](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+Se även den inbyggda nätverks princip definitionen: [container Registry bör använda en tjänst slut punkt för virtuella nätverk](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## <a name="assign-policies"></a>Tilldela principer
 
@@ -48,7 +45,10 @@ När en resurs är icke-kompatibel finns det många möjliga orsaker. Informatio
 
 1. Välj **alla tjänster**och Sök efter **princip**.
 1. Välj **efterlevnad**.
-1. Använd filtren för att begränsa kompatibilitetstillstånd eller för att söka efter policy ![efterlevnad för principer i](./media/container-registry-azure-policy/azure-policy-compliance.png)portalen.
+1. Använd filtren för att begränsa kompatibilitetstillstånd eller söka efter principer.
+
+    ![Efterlevnad av principer i portalen](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
 1. Välj en princip för att granska sammanställd information om efterlevnad och händelser. Om du vill kan du välja ett visst register för resursens efterlevnad.
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Efterlevnad av principer i Azure CLI
@@ -64,8 +64,8 @@ Exempel på utdata:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
 Kör sedan [AZ policy State List](/cli/azure/policy/state#az-policy-state-list) för att returnera det JSON-formaterade kompatibilitetstillstånd för alla resurser under ett angivet princip-ID:
@@ -87,12 +87,8 @@ az policy state list \
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att Azure Policy [definitioner](../governance/policy/concepts/definition-structure.md) och [effekter](../governance/policy/concepts/effects.md)
+* Lär dig mer om att Azure Policy [definitioner](../governance/policy/concepts/definition-structure.md) och [effekter](../governance/policy/concepts/effects.md).
 
-* Skapa en [anpassad princip definition](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Skapa en [anpassad princip definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 
-* Lär dig mer om [styrnings funktioner](../governance/index.yml) i Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Lär dig mer om [styrnings funktioner](../governance/index.yml) i Azure.

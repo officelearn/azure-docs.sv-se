@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9460208d66e859f5fe1ce0e9ae4d62087ea3f4ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234950"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696026"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Arbeta med ett virtuellt nätverk genom att trycka på Azure CLI
 
@@ -28,7 +28,7 @@ Med hjälp av Azure Virtual Network-TRYCKNINGen (Terminal Access Point) kan du k
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Skapa ett virtuellt nätverk tryck på resurs
 
-Läs [nödvändiga komponenter](virtual-network-tap-overview.md#prerequisites) innan du skapar ett virtuellt nätverk tryck på resurs. Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra kommando rads gränssnittet för Azure (CLI) från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt, som inte kräver att Azure CLI installeras på datorn. Du måste logga in på Azure med ett konto som har rätt [behörigheter](virtual-network-tap-overview.md#permissions). Den här artikeln kräver Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Det virtuella nätverkets tryckning är för närvarande tillgängligt som ett tillägg. För att installera tillägget måste du köra `az extension add -n virtual-network-tap`. Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
+Läs [nödvändiga komponenter](virtual-network-tap-overview.md#prerequisites) innan du skapar ett virtuellt nätverk tryck på resurs. Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra kommando rads gränssnittet för Azure (CLI) från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt, som inte kräver att Azure CLI installeras på datorn. Du måste logga in på Azure med ett konto som har rätt [behörigheter](virtual-network-tap-overview.md#permissions). Den här artikeln kräver Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Det virtuella nätverkets tryckning är för närvarande tillgängligt som ett tillägg. För att installera tillägget måste du köra `az extension add -n virtual-network-tap` . Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
 1. Hämta ID för din prenumeration i en variabel som används i ett senare steg:
 

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/20/2020
+ms.openlocfilehash: 84026a5a9ba63bf008eeb25df3d0c42cbd558fa9
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78254919"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118788"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status för migrerings scenarier som stöds av Azure Database Migration Service
 
@@ -48,18 +48,20 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 | Mål  | Källa | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL-databas** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS-SQL |  |  |
-|   | Oracle |  |  |
+|   | RDS-SQL | X |  |
+|   | Oracle | X |  |
 | **Azure SQL DB-MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS-SQL |  |  |
-|   | Oracle |  |   |
+|   | RDS-SQL | X |  |
+|   | Oracle | X |   |
 | **Virtuell Azure SQL-dator** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
-|   | Oracle |   |   |
+|   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Allmän tillgänglighet (GA) |
-| **Azure DB för MySQL** | MySQL |   |   |
-|   | RDS MySQL |   |   |
-| **Azure DB för PostgreSQL** | PostgreSQL |  |
-|  | RDS-PostgreSQL |   |   |
+| **Azure DB för MySQL** | MySQL | X |   |
+|   | RDS MySQL | X |   |
+| **Azure DB för PostgreSQL – enskild server** | PostgreSQL | X |
+|  | RDS-PostgreSQL | X |   |
+| **Azure DB för PostgreSQL – storskalig (citus)** | PostgreSQL | X |
+|  | RDS-PostgreSQL | X |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Stöd för migrering online (kontinuerlig synkronisering)
 
@@ -69,18 +71,20 @@ I följande tabell visas Azure Database Migration Service stöd för online-migr
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL-databas** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
-|   | Oracle |  |  |
+|   | Oracle | X |  |
 | **Azure SQL DB-MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
 |   | Oracle | ✔ | Privat för hands version |
-| **Virtuell Azure SQL-dator** | SQL Server |   |   |
-|   | Oracle  |  |  |
+| **Virtuell Azure SQL-dator** | SQL Server | X |   |
+|   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | Allmän tillgänglighet (GA) |
 | **Azure DB för MySQL** | MySQL | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS MySQL | ✔ | Allmän tillgänglighet (GA) |
-| **Azure DB för PostgreSQL** | PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
+| **Azure DB för PostgreSQL – enskild server** | PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
 |   | RDS-PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
 |   | Oracle | ✔ | Offentlig för hands version |
+| **Azure DB för PostgreSQL – storskalig (citus)** | PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
+|   | RDS-PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
 
 ## <a name="next-steps"></a>Nästa steg
 

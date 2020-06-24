@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271387"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699302"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
@@ -65,7 +65,7 @@ Att ansluta till den lokala IoT Edge hubben från en modul omfattar två steg:
 1. Skapa en ModuleClient-instans i ditt program.
 2. Kontrol lera att ditt program accepterar certifikatet som presenteras av IoT Edge Hub på enheten.
 
-Skapa en ModuleClient-instans för att ansluta modulen till IoT Edge Hub som körs på enheten, på liknande sätt som DeviceClient-instanser ansluter IoT-enheter till IoT Hub. Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Skapa en ModuleClient-instans för att ansluta modulen till IoT Edge Hub som körs på enheten, på liknande sätt som DeviceClient-instanser ansluter IoT-enheter till IoT Hub. Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 ## <a name="language-and-architecture-support"></a>Stöd för språk och arkitektur
 
@@ -77,11 +77,11 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och A
 
 | Utvecklingsspråk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
-| C | Visual Studio-koden<br>Visual Studio 2017/2019 |
-| C# | Visual Studio-koden<br>Visual Studio 2017/2019 |
-| Java | Visual Studio-koden |
-| Node.js | Visual Studio-koden |
-| Python | Visual Studio-koden |
+| C | Visuell Studio-kod<br>Visual Studio 2017/2019 |
+| C# | Visuell Studio-kod<br>Visual Studio 2017/2019 |
+| Java | Visuell Studio-kod |
+| Node.js | Visuell Studio-kod |
+| Python | Visuell Studio-kod |
 
 >[!NOTE]
 >Att utveckla och felsöka stöd för ARM64 Linux-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).

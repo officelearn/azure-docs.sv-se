@@ -3,8 +3,8 @@ title: Uppgradera till Azure AD-programproxy | Microsoft Docs
 description: Välj vilken proxyserver som är bäst om du uppgraderar från Microsoft Forefront eller Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef1ffb5ec0b39c5331afbc55d99268d9a3997e62
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108411"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764459"
 ---
 # <a name="compare-remote-access-solutions"></a>Jämför lösningar för fjärråtkomst
 
@@ -38,17 +38,17 @@ Använd den här tabellen för att förstå hur Threat Management Gateway (TMG),
 | Selektiv publicering av webb läsar appar | Ja | Ja | Ja | Ja |
 | Förautentisering och enkel inloggning | Ja | Ja | Ja | Ja | 
 | Layer 2/3-brandvägg | Ja | Ja | - | - |
-| Vidarebefordra proxy-funktioner | Ja | - | - | - |
+| Vidarebefordra proxy-funktioner | Yes | - | - | - |
 | VPN-funktioner | Ja | Ja | - | - |
-| Stöd för omfattande protokoll | - | Ja | Ja, om det körs över HTTP | Ja, om det körs över HTTP eller via Fjärrskrivbordsgateway |
+| Stöd för omfattande protokoll | - | Yes | Ja, om det körs över HTTP | Ja, om det körs över HTTP eller via Fjärrskrivbordsgateway |
 | Fungerar som ADFS-proxyserver | - | Ja | Ja | - |
 | En portal för program åtkomst | - | Ja | - | Ja |
 | Översättning av svars text länk | Ja | Ja | - | Ja | 
-| Autentisering med sidhuvud | - | Ja | - | Ja, med PingAccess | 
-| Säkerhet i moln skala | - | - | - | Ja | 
+| Autentisering med sidhuvud | - | Yes | - | Ja, med PingAccess | 
+| Säkerhet i moln skala | - | - | - | Yes | 
 | Villkorlig åtkomst | - | Ja | - | Ja |
-| Inga komponenter i demilitariserad-zonen (DMZ) | - | - | - | Ja |
-| Inga inkommande anslutningar | - | - | - | Ja |
+| Inga komponenter i demilitariserad-zonen (DMZ) | - | - | - | Yes |
+| Inga inkommande anslutningar | - | - | - | Yes |
 
 I de flesta fall rekommenderar vi Azure AD-programproxy som modern lösning. Webbprogramproxy föredras bara i scenarier som kräver en proxyserver för AD FS och du kan inte använda anpassade domäner i Azure Active Directory. 
 

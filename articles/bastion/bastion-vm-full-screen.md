@@ -4,15 +4,15 @@ description: I den här artikeln lär du dig hur du ändrar vyn till hel skärms
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619295"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744229"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Ändra till hel skärms läge för en VM-session: Azure skydds
 
@@ -22,7 +22,7 @@ Den här artikeln hjälper dig att ändra den virtuella datorns vy till full sk�
 
 Under fjärrsessionen startar du skydds urklipps åtkomst verktyg genom att välja de två pilarna som finns längst till vänster i sessionen.
 
-![verktyg](./media/bastion-vm-manage/left.png)
+![tools](./media/bastion-vm-manage/left.png)
 
 ## <a name="select-full-screen"></a>Välj hel skärms läge
 

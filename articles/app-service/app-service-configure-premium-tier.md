@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 06/23/2020
 ms.locfileid: "74672213"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivån för Azure App Service
@@ -104,7 +104,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande kommando skapar en App Service plan i _P1V2_. `-WorkerSize` Alternativen för är _små_, _medel stora_och _stora_.
+Följande kommando skapar en App Service plan i _P1V2_. Alternativen för `-WorkerSize` är _små_, _medel stora_och _stora_.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

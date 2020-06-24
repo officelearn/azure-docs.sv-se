@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083567"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805700"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -138,8 +138,8 @@ Om du vill använda PowerShell för att skapa ett lagrings konto som förlitar s
 
 Skapa sedan ett allmänt-syfte v2-lagrings konto genom att anropa kommandot [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) med lämpliga parametrar:
 
-- Inkludera `-EncryptionKeyTypeForQueue` alternativet och ange värdet för `Account` att använda konto krypterings nyckeln för att kryptera data i Queue Storage.
-- Inkludera `-EncryptionKeyTypeForTable` alternativet och ange värdet för `Account` att använda konto krypterings nyckeln för att kryptera data i Table Storage.
+- Inkludera `-EncryptionKeyTypeForQueue` alternativet och ange värdet för att `Account` använda konto krypterings nyckeln för att kryptera data i Queue Storage.
+- Inkludera `-EncryptionKeyTypeForTable` alternativet och ange värdet för att `Account` använda konto krypterings nyckeln för att kryptera data i Table Storage.
 
 I följande exempel visas hur du skapar ett allmänt-syfte v2-lagrings konto som är konfigurerat för Geo-redundant lagring med Läs behörighet (RA-GRS) och som använder konto krypterings nyckeln för att kryptera data för både kö-och tabell lagring. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -159,8 +159,8 @@ Om du vill använda Azure CLI för att skapa ett lagrings konto som förlitar si
 
 Skapa sedan ett allmänt-syfte v2-lagrings konto genom att anropa kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) med lämpliga parametrar:
 
-- Inkludera `--encryption-key-type-for-queue` alternativet och ange värdet för `Account` att använda konto krypterings nyckeln för att kryptera data i Queue Storage.
-- Inkludera `--encryption-key-type-for-table` alternativet och ange värdet för `Account` att använda konto krypterings nyckeln för att kryptera data i Table Storage.
+- Inkludera `--encryption-key-type-for-queue` alternativet och ange värdet för att `Account` använda konto krypterings nyckeln för att kryptera data i Queue Storage.
+- Inkludera `--encryption-key-type-for-table` alternativet och ange värdet för att `Account` använda konto krypterings nyckeln för att kryptera data i Table Storage.
 
 I följande exempel visas hur du skapar ett allmänt-syfte v2-lagrings konto som är konfigurerat för Geo-redundant lagring med Läs behörighet (RA-GRS) och som använder konto krypterings nyckeln för att kryptera data för både kö-och tabell lagring. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -222,11 +222,11 @@ När du har skapat ett konto som förlitar sig på konto krypterings nyckeln kan
 
 ## <a name="verify-the-account-encryption-key"></a>Verifiera konto krypterings nyckeln
 
-För att verifiera att en tjänst i ett lagrings konto använder konto krypterings nyckeln anropar du kommandot för Azure CLI- [AZ lagrings konto](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account`.
+För att verifiera att en tjänst i ett lagrings konto använder konto krypterings nyckeln anropar du kommandot för Azure CLI- [AZ lagrings konto](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account` .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `KeyType` fältet för varje tjänst i `Encryption` egenskapen och kontrol lera att den är inställd på. `Account`
+Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `KeyType` fältet för varje tjänst i `Encryption` egenskapen och kontrol lera att den är inställd på `Account` .
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account`.
+Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account` .
 
 ```azurecli
 az storage account show /
@@ -253,5 +253,5 @@ Ej tillämpligt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage kryptering för vilande data](storage-service-encryption.md) 
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md) 
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

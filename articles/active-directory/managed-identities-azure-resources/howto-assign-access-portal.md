@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24c97909870c4d76b07ec837e5f624a509bd1f2
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 5930511fb5329e1a919a0e631c26c617fc3f5b52
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547289"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693948"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Tilldela en hanterad identitets åtkomst till en resurs med hjälp av Azure Portal
 
@@ -30,12 +30,12 @@ När du har konfigurerat en Azure-resurs med en hanterad identitet kan du ge den
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Använd RBAC för att tilldela en hanterad identitets åtkomst till en annan resurs
 
-När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en [virtuell Azure-dator](qs-configure-portal-windows-vm.md) eller [Azure-VMSS](qs-configure-portal-windows-vmss.md):
+När du har aktiverat hanterad identitet på en Azure-resurs, till exempel en virtuell [Azure-dator](qs-configure-portal-windows-vm.md) eller en [virtuell Azure-dators skalnings uppsättning](qs-configure-portal-windows-vmss.md):
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till den Azure-prenumeration under vilken du har konfigurerat den hanterade identiteten.
 

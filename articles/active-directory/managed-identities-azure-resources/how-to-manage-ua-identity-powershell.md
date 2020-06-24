@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c512a867685b4480c7b31ac582e2cee069ee2447
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 9acd5140de6d9fe387958f0df02c55cce71bbc33
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547404"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694220"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
+Hanterade identiteter för Azure-resurser ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
 
 I den här artikeln får du lära dig hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell.
 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du skapar, visar och tar bort en anvä
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Installera [den senaste versionen av Azure PowerShell](/powershell/azure/install-az-ps) om du inte redan gjort det.
 - Om du kör PowerShell lokalt behöver du även göra följande: 
@@ -47,7 +47,7 @@ I den här artikeln får du lära dig hur du skapar, visar och tar bort en anvä
 
 För att skapa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Använd `New-AzUserAssignedIdentity` kommandot för att skapa en användardefinierad hanterad identitet. `ResourceGroupName` Parametern anger den resurs grupp där den tilldelade hanterade identiteten ska skapas och `-Name` parametern anger dess namn. Ersätt parameter `<RESOURCE GROUP>` värden `<USER ASSIGNED IDENTITY NAME>` och med dina egna värden:
+Använd kommandot för att skapa en användardefinierad hanterad identitet `New-AzUserAssignedIdentity` . `ResourceGroupName`Parametern anger den resurs grupp där den tilldelade hanterade identiteten ska skapas och `-Name` parametern anger dess namn. Ersätt `<RESOURCE GROUP>` `<USER ASSIGNED IDENTITY NAME>` parameter värden och med dina egna värden:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -58,12 +58,12 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 
 Om du vill visa en lista över/läsa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitet](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Använd kommandot [Get-AzUserAssigned] för att visa en lista över användare som tilldelats hanterade identiteter.  `-ResourceGroupName` Parametern anger resurs gruppen där den användare som tilldelats den hanterade identiteten skapades. Ersätt `<RESOURCE GROUP>` med ditt eget värde:
+Använd kommandot [Get-AzUserAssigned] för att visa en lista över användare som tilldelats hanterade identiteter.  `-ResourceGroupName`Parametern anger resurs gruppen där den användare som tilldelats den hanterade identiteten skapades. Ersätt `<RESOURCE GROUP>` med ditt eget värde:
 
 ```azurepowershell-interactive
 Get-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 ```
-I svaret har `"Microsoft.ManagedIdentity/userAssignedIdentities"` användare tilldelade hanterade identiteter värdet returnerat för nyckeln `Type`.
+I svaret har användare tilldelade hanterade identiteter `"Microsoft.ManagedIdentity/userAssignedIdentities"` värdet returnerat för nyckeln `Type` .
 
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
@@ -71,7 +71,7 @@ I svaret har `"Microsoft.ManagedIdentity/userAssignedIdentities"` användare til
 
 För att ta bort en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Om du vill ta bort en användardefinierad hanterad identitet använder `Remove-AzUserAssignedIdentity` du kommandot.  `-ResourceGroupName` Parametern anger resurs gruppen där den användardefinierade identiteten skapades och `-Name` parametern anger dess namn. Ersätt `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametrarna värden med dina egna värden:
+Om du vill ta bort en användardefinierad hanterad identitet använder du `Remove-AzUserAssignedIdentity` kommandot.  `-ResourceGroupName`Parametern anger resurs gruppen där den användardefinierade identiteten skapades och `-Name` parametern anger dess namn. Ersätt `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametrarna värden med dina egna värden:
 
  ```azurepowershell-interactive
 Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>

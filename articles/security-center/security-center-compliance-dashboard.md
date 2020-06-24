@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77604448"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782865"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: förbättra din regelefterlevnad
 ---
@@ -103,4 +103,4 @@ Mer information finns i:
 
 -   [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur du använder rekommendationer i Azure Security Center för att skydda dina Azure-resurser.
 
--   [Förbättra dina säkra poäng i Azure Security Center](security-center-secure-score.md) – lär dig hur du prioriterar sårbarheter och säkerhets rekommendationer för att förbättra din säkerhets position.
+-   [Förbättra dina säkra poäng i Azure Security Center](secure-score-security-controls.md) – lär dig hur du prioriterar sårbarheter och säkerhets rekommendationer för att förbättra din säkerhets position.

@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053329"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253825"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudie: Distribuera en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I del tre av den här självstudien i tre delar ska du distribuera en förutsägelse modell som utvecklats i R till en SQL-databas med hjälp av Azure SQL Database Machine Learning Services (för hands version).
+I del tre av den här självstudien i tre delar ska du distribuera en förutsägelse modell som utvecklats i R till en databas i Azure SQL Database att använda Azure SQL Database Machine Learning Services (för hands version).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Du skapar en lagrad procedur med ett inbäddat R-skript som gör förutsägelser med hjälp av modellen. Eftersom din modell körs i Azure SQL Database kan den enkelt tränas mot data som lagras i databasen.
+Du skapar en lagrad procedur med ett inbäddat R-skript som gör förutsägelser med hjälp av modellen. Eftersom din modell körs i databasen kan den enkelt tränas mot data som lagras i databasen.
 
 I den här artikeln använder du R-skripten som du utvecklade i delar ett och två, så lär du dig att:
 
@@ -43,7 +44,7 @@ I [del ett](predictive-model-prepare-data-tutorial.md)har du lärt dig hur du im
 
 I [del två](predictive-model-build-compare-tutorial.md)har du lärt dig hur du skapar och tränar flera Machine Learning-modeller i R och väljer den mest exakta.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Del tre i den här själv studie serien förutsätter att du har slutfört [**del ett**](predictive-model-prepare-data-tutorial.md) och [**delar två**](predictive-model-build-compare-tutorial.md).
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Du har skapat, tränat och distribuerat en modell i en Azure SQL-databas. Sedan använder du modellen i en lagrad procedur för att förutsäga värden baserat på nya data.
+Du har skapat, tränat och distribuerat en modell i en databas i Azure SQL Database. Sedan använder du modellen i en lagrad procedur för att förutsäga värden baserat på nya data.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

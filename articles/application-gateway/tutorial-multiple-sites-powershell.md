@@ -5,16 +5,16 @@ description: Lär dig hur du skapar en programgateway som är värd för flera w
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e05d84e8e06dbe63a1bc8e8ae1d401f186baac77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b351a828c47058025247a3edd95f31dc6cc84295
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133068"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806186"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Skapa en programgateway som är värd för flera webbplatser med Azure PowerShell
 
@@ -32,7 +32,7 @@ I den här artikeln kan du se hur du:
 
 ![Exempel på routning mellan flera webbplatser](./media/tutorial-multiple-sites-powershell/scenario.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http:\//www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. Till exempel http: \/ /www.contoso.com.
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 

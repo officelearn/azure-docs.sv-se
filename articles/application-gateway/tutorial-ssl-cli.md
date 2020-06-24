@@ -4,16 +4,16 @@ description: Lär dig hur du skapar en Programgateway och lägger till ett certi
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16ad8d7fd0f46381f2e2e7076015af65bd4bddcd
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311983"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806152"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Skapa en Programgateway med TLS-avslutning med Azure CLI
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-ssl-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. I det här exemplet är URL: en **https://52.170.203.149**:.
+Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. I det här exemplet är URL: en: **https://52.170.203.149** .
 
 ![Säkerhetsvarning](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

@@ -4,15 +4,15 @@ description: I den här artikeln lär du dig hur du skapar en Azure skydds-värd
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148341"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744280"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Skapa en Azure skydds-värd med portalen
 
@@ -26,7 +26,7 @@ Skydds finns i följande offentliga Azure-regioner:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="create-a-bastion-host"></a><a name="createhost"></a>Skapa en Bastion-värd
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Skapa en skydds-värd
 
 Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs från Azure Portal.
 

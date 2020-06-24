@@ -1,6 +1,6 @@
 ---
-title: Använd hanterade identiteter på en virtuell Azure-dator för inloggning – Azure AD
-description: Stegvisa instruktioner och exempel på hur du använder en Azure VM Managed-identitet för Azure Resources-tjänstens huvud namn för inloggnings-och resurs åtkomst för skript klienter.
+title: Använda hanterade identiteter på en virtuell Azure-dator för inloggning – Azure ADV
+description: Stegvisa instruktioner och exempel på hur du använder en Azure VM-hanterade identiteter för Azure-tjänstens huvud namn för inloggnings-och resurs åtkomst till skript klienter.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 1f626b9e6626f5fe74796baf2b591214bfd98c85
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547390"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694208"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för inloggning 
 
@@ -41,7 +41,7 @@ Om du planerar att använda Azure PowerShell-eller Azure CLI-exemplen i den här
 
 ## <a name="overview"></a>Översikt
 
-Hanterade identiteter för Azure-resurser tillhandahåller ett [huvud namn för tjänsten](../develop/developer-glossary.md#service-principal-object) som [skapas när du aktiverar hanterade identiteter för Azure-resurser](overview.md#how-does-the-managed-identities-for-azure-resources-work) på den virtuella datorn. Tjänstens huvud namn kan ges åtkomst till Azure-resurser och används som identitet av skript/kommando rads klienter för inloggning och resurs åtkomst. För att få åtkomst till skyddade resurser under sin egen identitet skulle en skript klient behöva:  
+Hanterade identiteter för Azure-resurser tillhandahåller ett [huvud namn för tjänsten](../develop/developer-glossary.md#service-principal-object) som [skapas när du aktiverar hanterade identiteter för Azure-resurser](overview.md) på den virtuella datorn. Tjänstens huvud namn kan ges åtkomst till Azure-resurser och används som identitet av skript-/kommando rads klienter för inloggning och resurs åtkomst. För att få åtkomst till skyddade resurser under sin egen identitet skulle en skript klient behöva:  
 
    - vara registrerad och meddelad med Azure AD som ett konfidentiellt/webb klient program
    - Logga in under tjänstens huvud namn med hjälp av appens autentiseringsuppgifter (som troligen är inbäddade i skriptet)
@@ -53,7 +53,7 @@ Med hanterade identiteter för Azure-resurser behöver skript klienten inte län
 Följande skript visar hur du:
 
 1. Logga in på Azure AD under den virtuella datorns hanterade identitet för Azure Resources-tjänstens huvud namn  
-2. Anropa Azure Resource Manager och hämta den virtuella datorns ID för tjänstens huvud namn. CLI sköter hanteringen av hämtning/användning av token automatiskt. Var noga med att ersätta namnet på den virtuella `<VM-NAME>`datorn för.  
+2. Anropa Azure Resource Manager och hämta den virtuella datorns ID för tjänstens huvud namn. CLI sköter hanteringen av hämtning/användning av token automatiskt. Var noga med att ersätta namnet på den virtuella datorn för `<VM-NAME>` .  
 
    ```azurecli
    az login --identity
@@ -87,7 +87,7 @@ Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-managed
 Svar som följande kan tyda på att den virtuella datorns hanterade identitet för Azure-resurser inte har kon figurer ATS korrekt:
 
 - PowerShell: *Invoke-WebRequest: det går inte att ansluta till fjärrservern*
-- CLI: *MSI: det gick inte att hämta en `http://localhost:50342/oauth2/token` token från med felet ' HTTPConnectionPool (Host = ' localhost ', Port = 50342)* 
+- CLI: *MSI: det gick inte att hämta en token från `http://localhost:50342/oauth2/token` med felet ' HTTPConnectionPool (Host = ' localhost ', Port = 50342)* 
 
 Om du får ett av dessa fel kan du gå tillbaka till den virtuella Azure-datorn i [Azure Portal](https://portal.azure.com) och:
 

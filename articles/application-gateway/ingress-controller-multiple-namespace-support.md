@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om hur du aktiverar stöd
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c519792bcf9251f926d305c9611320a18b7c346
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279928"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806991"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivera stöd för flera namnrymder i ett AKS-kluster med Application Gateway ingress-styrenhet
 
@@ -21,14 +21,14 @@ Kubernetes- [namnområden](https://kubernetes.io/docs/concepts/overview/working-
 
 Från och med version 0,7 [Azure Application Gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) kan mata in händelser från och observera flera namn områden. Om AKS-administratören bestämmer sig för att använda [app Gateway](https://azure.microsoft.com/services/application-gateway/) som ingångs namn kommer alla namn områden att använda samma instans av Application Gateway. En enskild installation av ingångs styrenheten övervakar tillgängliga namn områden och konfigurerar Application Gateway som den är associerad med.
 
-Version 0,7 av AGIC kommer även fortsättnings vis att `default` Observera namn området, såvida det inte uttryckligen ändras till ett eller flera olika namn rymder i Helm-konfigurationen (se avsnittet nedan).
+Version 0,7 av AGIC kommer även fortsättnings vis att observera `default` namn området, såvida det inte uttryckligen ändras till ett eller flera olika namn rymder i Helm-konfigurationen (se avsnittet nedan).
 
 ## <a name="enable-multiple-namespace-support"></a>Aktivera stöd för flera namnrymder
 Så här aktiverar du stöd för flera namnrymder:
 1. ändra filen [Helm-config. yaml](#sample-helm-config-file) på något av följande sätt:
    - ta bort `watchNamespace` nyckeln helt från [Helm-config. yaml](#sample-helm-config-file) -AGIC kommer att Observera alla namn områden
    - Ange `watchNamespace` till en tom sträng – AGIC kommer att Observera alla namn områden
-   - Lägg till flera namn områden avgränsade med`watchNamespace: default,secondNamespace`kommatecken ()-AGIC kommer endast att observera dessa namn områden
+   - Lägg till flera namn områden avgränsade med kommatecken ( `watchNamespace: default,secondNamespace` )-AGIC kommer endast att observera dessa namn områden
 2. tillämpa ändringar av Helm-mal len med:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 När du har distribuerat med möjligheten att observera flera namn områden, kommer AGIC att:
@@ -44,7 +44,7 @@ Högst upp i hierarkin **(IP-adress** , port och värd) och regler för **routni
 
 På andra platser kan backend-pooler, HTTP-inställningar och TLS-certifikat skapas med endast ett namn område och dubbletter tas bort.
 
-Anta till exempel följande dubbla ingress-resurser definierade namn rymder `staging` och `production` för: `www.contoso.com`
+Anta till exempel följande dubbla ingress-resurser definierade namn rymder `staging` och `production` för `www.contoso.com` :
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,7 +81,7 @@ spec:
               servicePort: 80
 ```
 
-Trots de två ingress-resurserna som kräver trafik `www.contoso.com` för att kunna dirigeras till respektive Kubernetes-namnområden, kan endast en server del betjäna trafiken. AGIC skulle skapa en konfiguration med "First-First-First-firsted"-grunden för en av resurserna. Om två ingress-resurser skapas samtidigt, kommer det tidigare i alfabetet att ha företräde. Från exemplet ovan kommer vi bara att kunna skapa inställningar för `production` ingressen. Application Gateway kommer att konfigureras med följande resurser:
+Trots de två ingress-resurserna som kräver trafik för `www.contoso.com` att kunna dirigeras till respektive Kubernetes-namnområden, kan endast en server del betjäna trafiken. AGIC skulle skapa en konfiguration med "First-First-First-firsted"-grunden för en av resurserna. Om två ingress-resurser skapas samtidigt, kommer det tidigare i alfabetet att ha företräde. Från exemplet ovan kommer vi bara att kunna skapa inställningar för `production` ingressen. Application Gateway kommer att konfigureras med följande resurser:
 
   - Lyssnare`fl-www.contoso.com-80`
   - Regel för Routning:`rr-www.contoso.com-80`
@@ -89,15 +89,15 @@ Trots de två ingress-resurserna som kräver trafik `www.contoso.com` för att k
   - HTTP-inställningar:`bp-production-contoso-web-service-80-80-websocket-ingress`
   - Hälso avsökning:`pb-production-contoso-web-service-80-websocket-ingress`
 
-Observera att om du har skapat Application Gateway-resurser som har skapats med undantag för *lyssnare* och *regler*, inkluderas namnet på det namn område (`production`) som de skapades för.
+Observera att om du har skapat Application Gateway-resurser som har skapats med undantag för *lyssnare* och *regler*, inkluderas namnet på det namn område ( `production` ) som de skapades för.
 
-Om de två ingångs resurserna introduceras i AKS-klustret vid olika tidpunkter, är det sannolikt för AGIC att få ett scenario där den konfigurerar om Application Gateway och dirigerar om trafik från `namespace-B` till. `namespace-A`
+Om de två ingångs resurserna introduceras i AKS-klustret vid olika tidpunkter, är det sannolikt för AGIC att få ett scenario där den konfigurerar om Application Gateway och dirigerar om trafik från `namespace-B` till `namespace-A` .
 
-Om du till exempel först `staging` har lagt till konfigurerar AGIC Application Gateway för att dirigera trafik till mellanlagringsplatsen. I ett senare skede `production` kommer det att leda till att AGIC Application Gateway, vilket kommer att börja dirigera trafik till `production` backend-poolen.
+Om du till exempel först har lagt till `staging` konfigurerar AGIC Application Gateway för att dirigera trafik till mellanlagringsplatsen. I ett senare skede kommer det `production` att leda till att AGIC Application Gateway, vilket kommer att börja dirigera trafik till `production` backend-poolen.
 
 ## <a name="restrict-access-to-namespaces"></a>Begränsa åtkomsten till namn områden
 Som standard konfigurerar AGIC Application Gateway baserat på kommenterade ingångar i ett namn område. Om du vill begränsa det här beteendet kan du välja mellan följande alternativ:
-  - begränsa namn områdena genom att `watchNamespace` uttryckligen definiera namn områden AGIC bör Observera via yaml-nyckeln i [Helm-config. yaml](#sample-helm-config-file)
+  - begränsa namn områdena genom att uttryckligen definiera namn områden AGIC bör Observera via `watchNamespace` yaml-nyckeln i [Helm-config. yaml](#sample-helm-config-file)
   - Använd [roll-RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) för att begränsa AGIC till vissa namn områden
 
 ## <a name="sample-helm-config-file"></a>Exempel på Helm konfigurations fil

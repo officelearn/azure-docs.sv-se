@@ -4,15 +4,15 @@ description: Använd den här självstudien för att aktivera tillägg för ing�
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 8595b7fc37a46dbb27dec4d1388e4b0251606411
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: bb7ba071b1c0b49a818857e417ef6bf676a9a0df
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670938"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806470"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-through-azure-cli-preview"></a>Självstudie: Aktivera Application Gateway ingress Controller-tillägg för ett nytt AKS-kluster med en ny Application Gateway via Azure CLI (för hands version)
 

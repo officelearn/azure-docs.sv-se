@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325998"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249504"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Läs in data stegvis från Azure SQL-hanterad instans till Azure Storage med hjälp av registrering av ändrings data (CDC)
 
@@ -51,11 +51,12 @@ I den här självstudien skapar du en pipeline som utför följande åtgärder:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure SQL Database Hanterad instans**. Du använder databasen som **källa** för datalagringen. Om du inte har en Azure SQL Database Hanterad instans kan du läsa artikeln [skapa en Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) för steg för att skapa en.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett. Skapa en behållare med namnet **RAW**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Skapa en data käll tabell i Azure SQL Database
+
 1. Starta **SQL Server Management Studio**och Anslut till din Azure SQL Managed instances-Server.
 2. I **Server Explorer** högerklickar du på **databasen** och väljer **Ny fråga**.
 3. Kör följande SQL-kommando mot din Azure SQL Managed instances-databas för att skapa en tabell med namnet `customers` som data käll arkiv.  

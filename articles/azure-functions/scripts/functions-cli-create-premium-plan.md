@@ -4,12 +4,12 @@ description: Skapa en Function-app i en skalbar Premium-plan i Azure med hjälp 
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3587e5b5e46867ff3abe97b3593c9732be3afa22
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74536269"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117258"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Skapa en Function-app i en Premium plan – Azure CLI
 
@@ -33,11 +33,11 @@ Det här skriptet skapar en Function-app med hjälp av en [Premium-plan](../func
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |
-| [AZ functionapp plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Skapar en Premium-plan. |
+| [AZ functionapp plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Skapar en Premium-plan i en [angiven SKU](../functions-premium-plan.md#available-instance-skus). |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i App Service-planen. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -4,16 +4,16 @@ description: 'I den här artikeln lär du dig hur du dirigerar webb trafik baser
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68688184"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805894"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Dirigera webb trafik baserat på URL: en med hjälp av Azure CLI
 
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure Portal](create-url-route-portal.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -236,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med az network public-ip show. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,, eller `http://40.121.222.19:8080/video/test.htm` `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`
+Hämta den offentliga IP-adressen för programgatewayen med az network public-ip show. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://40.121.222.19` , `http://40.121.222.19:8080/images/test.htm` eller `http://40.121.222.19:8080/video/test.htm` .
 
 ```azurecli-interactive
 az network public-ip show \
@@ -248,11 +248,11 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/images/test.html, Ersätt IP-adressen för &lt; IP-adress &gt; och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.html, Ersätt IP-adressen &lt;för IP-&gt;adress och se något som liknar följande exempel.
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/video/test.html, Ersätt IP-adressen för &lt; IP-adress &gt; och du bör se något som liknar följande exempel.
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

@@ -5,20 +5,20 @@ description: Lär dig hur du skapar en programgateway som är värd för flera w
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74047363"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806272"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
-Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här artikeln definierar du backend-adresspooler med Virtual Machines Scale Sets. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www\.-contoso.com* och *www\.-fabrikam.com*.
+Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här artikeln definierar du backend-adresspooler med Virtual Machines Scale Sets. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www- \. contoso.com* och *www- \. fabrikam.com*.
 
 I den här artikeln kan du se hur du:
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -236,7 +236,7 @@ Användning av A-poster rekommenderas inte eftersom VIP kan ändras när Applica
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http:\//www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. Till exempel http: \/ /www.contoso.com.
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

@@ -2,21 +2,21 @@
 title: Skapa en pool med angivna offentliga IP-adresser
 description: Lär dig hur du skapar en batch-pool som använder dina egna offentliga IP-adresser.
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.openlocfilehash: dc8657655f67ab2c686897677788e3c5bcb490f7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/16/2020
+ms.openlocfilehash: 9992ae573ea5c9590f15d6cffa11da599026c0a9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300199"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84884974"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Skapa en Azure Batch pool med angivna offentliga IP-adresser
 
-När du skapar en Azure Batch pool kan du [etablera poolen i ett undernät för det virtuella Azure-nätverk](batch-virtual-network.md) som du anger. Virtuella datorer i batch-poolen nås via offentliga IP-adresser som skapas av batch. Dessa offentliga IP-adresser kan ändras under poolens livstid, vilket innebär att nätverks inställningarna kan bli inaktuella om IP-adresserna inte uppdateras.
+När du skapar en Azure Batch pool kan du [etablera poolen i ett undernät för ett virtuellt Azure-nätverk](batch-virtual-network.md) (VNet) som du anger. Virtuella datorer i batch-poolen nås via offentliga IP-adresser som skapas av batch. Dessa offentliga IP-adresser kan ändras under poolens livstid, vilket innebär att nätverks inställningarna kan bli inaktuella om IP-adresserna inte uppdateras.
 
 Du kan skapa en lista över statiska offentliga IP-adresser som ska användas med de virtuella datorerna i poolen. På så sätt kan du kontrol lera listan över offentliga IP-adresser och se till att de inte ändras utan förvarning. Detta kan vara särskilt användbart om du arbetar med en extern tjänst, till exempel en databas, som begränsar åtkomsten till vissa IP-adresser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Autentisering**. Om du vill använda en offentlig IP-adress måste batch-klientens API använda [Azure Active Directory (AD)-autentisering](batch-aad-auth.md).
 
@@ -25,7 +25,7 @@ Du kan skapa en lista över statiska offentliga IP-adresser som ska användas me
 - **Minst en offentlig Azure-IP-adress**. Om du vill skapa en eller flera offentliga IP-adresser kan du använda [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Se till att följa kraven i listan nedan.
 
 > [!NOTE]
-> Batch allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller de offentliga IP-adresserna. För varje 80 dedikerade noder tilldelar batch normalt en nätverks säkerhets grupp (NSG) och en belastningsutjämnare. Resurserna begränsas av prenumerationens resurs kvoter. När du använder större pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser.
+> Batch allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller de offentliga IP-adresserna. För varje 100 dedikerade noder tilldelar batch normalt en nätverks säkerhets grupp (NSG) och en belastningsutjämnare. Resurserna begränsas av prenumerationens resurs kvoter. När du använder större pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser.
 
 ## <a name="public-ip-address-requirements"></a>Krav för offentliga IP-adresser
 
@@ -37,7 +37,7 @@ Tänk på följande när du skapar dina offentliga IP-adresser:
 - Ett DNS-namn måste anges.
 - De offentliga IP-adresserna får endast användas för konfigurations pooler för virtuella datorer. Inga andra resurser bör använda dessa IP-adresser, eller så kan poolen uppleva allokeringsfel.
 - Inga säkerhets principer eller resurs lås bör begränsa en användares åtkomst till den offentliga IP-adressen.
-- Antalet offentliga IP-adresser som har angetts för poolen måste vara tillräckligt stora för att rymma antalet virtuella datorer som är avsedda för poolen. Detta måste vara minst summan av **targetDedicatedNodes**-   och targetLowPriorityNodes- **targetLowPriorityNodes**   egenskaperna för poolen. Om det inte finns tillräckligt med IP-adresser allokerar poolen Compute-noderna och ett storleks fel uppstår. För närvarande använder batch en offentlig IP-adress för varje 80 virtuella datorer.
+- Antalet offentliga IP-adresser som har angetts för poolen måste vara tillräckligt stora för att rymma antalet virtuella datorer som är avsedda för poolen. Detta måste vara minst summan av **targetDedicatedNodes**-   och targetLowPriorityNodes- **targetLowPriorityNodes**   egenskaperna för poolen. Om det inte finns tillräckligt med IP-adresser allokerar poolen Compute-noderna och ett storleks fel uppstår. För närvarande använder batch en offentlig IP-adress för varje 100 virtuella datorer.
 - Ha alltid ytterligare en buffert med offentliga IP-adresser. Vi rekommenderar att du lägger till minst en offentlig IP-adress eller cirka 10% av de totala offentliga IP-adresser som du lägger till i en pool, beroende på vilket som är störst. Den här ytterligare bufferten hjälper till med sin interna optimering vid skalning, samt ger snabbare skalning efter en lyckad skalning eller skalning.
 - När poolen har skapats kan du inte lägga till eller ändra listan över offentliga IP-adresser som används av poolen. Om du behöver ändra listan måste du ta bort poolen och sedan återskapa den.
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415928"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252686"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Data integrering med Azure Data Factory och Azure-Dataresurs
 
@@ -22,9 +22,9 @@ När kunderna går in på sina moderna informations lager och analys projekt, be
 
 Genom att aktivera kod fri ETL/ELT för att skapa en omfattande vy över dina data, kan förbättringar i Azure Data Factory hjälpa dina data tekniker att på ett säkert sätt få mer data, och därmed mer värde, till ditt företag. Med Azure Data Share kan du göra affärer till företags delning på ett styrt sätt.
 
-I den här workshopen använder du Azure Data Factory (ADF) för att mata in data från en Azure SQL Database (SQL DB) i Azure Data Lake Storage Gen2 (ADLS Gen2). När du har landat data i sjön kommer du att omvandla det genom att mappa data flöden, Data Factory: s inbyggda omvandlings tjänst och dela in dem i Azure Synapse Analytics (tidigare SQL DW). Sedan delar du tabellen med transformerade data tillsammans med ytterligare data med hjälp av Azure Data Share. 
+I den här workshopen använder du Azure Data Factory (ADF) för att mata in data från Azure SQL Database till Azure Data Lake Storage Gen2 (ADLS Gen2). När du har landat data i sjön kommer du att omvandla det genom att mappa data flöden, Data Factory: s inbyggda omvandlings tjänst och dela in dem i Azure Synapse Analytics (tidigare SQL DW). Sedan delar du tabellen med transformerade data tillsammans med ytterligare data med hjälp av Azure Data Share. 
 
-De data som används i det här labbet är New York taxi-data. Om du vill importera den till din Azure SQL-databas laddar du ned [taxi-data BACPAC-filen](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
+De data som används i det här labbet är New York taxi-data. Om du vill importera den till databasen i SQL Database laddar du ned [taxi-data BACPAC-filen](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -146,7 +146,7 @@ Du har skapat käll data uppsättningen. Se till att käll inställningarna är 
 1. I fönstret Välj format väljer du **DelimitedText** när du skriver till en CSV-fil. Klicka på Fortsätt.
 
     ![Portalen](media/lab-data-flow-data-share/copy9.png)
-1. Namnge din Sink-datauppsättning TripDataCSV. Välj "ADLSGen2" som länkad tjänst. Ange var du vill skriva CSV-filen. Du kan till exempel skriva data till en fil `trip-data.csv` i behållaren. `staging-container` Ange **första raden som rubrik** till True eftersom du vill att dina utdata ska ha rubriker. Eftersom det inte finns någon fil på målet ännu, anger du **Importera schema** till **ingen**. Klicka på OK när du är färdig.
+1. Namnge din Sink-datauppsättning TripDataCSV. Välj "ADLSGen2" som länkad tjänst. Ange var du vill skriva CSV-filen. Du kan till exempel skriva data till en fil `trip-data.csv` i behållaren `staging-container` . Ange **första raden som rubrik** till True eftersom du vill att dina utdata ska ha rubriker. Eftersom det inte finns någon fil på målet ännu, anger du **Importera schema** till **ingen**. Klicka på OK när du är färdig.
 
     ![Portalen](media/lab-data-flow-data-share/copy10.png)
 
@@ -226,7 +226,7 @@ Det data flöde som skapats i det här steget inre kopplar samman data uppsättn
     ![Portalen](media/lab-data-flow-data-share/join1.png)
 1. Ge kopplings omvandlingen värdet "InnerJoinWithTripFares". Välj ' TripFaresSQL ' i list rutan höger Stream. Välj **inre** som kopplings typ. Om du vill veta mer om de olika kopplings typerna i mappnings data flödet, se [kopplings typer](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
 
-    Välj vilka kolumner du vill matcha från varje data ström via List rutan **kopplings villkor** . Om du vill lägga till ett ytterligare kopplings villkor klickar du på plus ikonen bredvid ett befintligt villkor. Som standard kombineras alla kopplings villkor med operatorn och, vilket innebär att alla villkor måste uppfyllas för en matchning. I det här labbet vill vi matcha på kolumner `medallion`, `hack_license`, `vendor_id`och`pickup_datetime`
+    Välj vilka kolumner du vill matcha från varje data ström via List rutan **kopplings villkor** . Om du vill lägga till ett ytterligare kopplings villkor klickar du på plus ikonen bredvid ett befintligt villkor. Som standard kombineras alla kopplings villkor med operatorn och, vilket innebär att alla villkor måste uppfyllas för en matchning. I det här labbet vill vi matcha på kolumner `medallion` , `hack_license` , `vendor_id` och`pickup_datetime`
 
     ![Portalen](media/lab-data-flow-data-share/join2.png)
 1. Kontrol lera att du har anslutit 25 kolumner tillsammans med en data förhands granskning.
@@ -250,15 +250,15 @@ Det data flöde som skapats i det här steget inre kopplar samman data uppsättn
     ![Portalen](media/lab-data-flow-data-share/agg3.png)
 1. Om du vill ange ett agg regerings uttryck klickar du på den blå rutan med namnet **RETUR**. Detta öppnar uttrycks verktyget för data flöde, ett verktyg som används för att visuellt skapa data flödes uttryck med hjälp av inmatnings schema, inbyggda funktioner och åtgärder och användardefinierade parametrar. Mer information om funktionerna i uttrycks verktyget finns i dokumentationen till [uttrycks verktyget](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
-    För att få genomsnitts avgiften använder du `avg()` agg regerings funktionen för att `total_amount` sammanställa kolumn omvandlingen till ett `toInteger()`heltal med. I data flödets uttrycks språk definieras det som `avg(toInteger(total_amount))`. Klicka på **Spara och slutför** när du är klar.
+    För att få genomsnitts avgiften använder du `avg()` agg regerings funktionen för att sammanställa `total_amount` kolumn omvandlingen till ett heltal med `toInteger()` . I data flödets uttrycks språk definieras det som `avg(toInteger(total_amount))` . Klicka på **Spara och slutför** när du är klar.
 
     ![Portalen](media/lab-data-flow-data-share/agg4.png)
-1. Om du vill lägga till ett extra agg regerings uttryck klickar du på plus `average_fare`ikonen bredvid. Välj **Lägg till kolumn**.
+1. Om du vill lägga till ett extra agg regerings uttryck klickar du på plus ikonen bredvid `average_fare` . Välj **Lägg till kolumn**.
 
     ![Portalen](media/lab-data-flow-data-share/agg5.png)
 1. Skriv "total_trip_distance" i text rutan med etiketten **Lägg till eller Välj en kolumn**. Som i det sista steget öppnar du uttrycks verktyget för att ange i uttrycket.
 
-    Om du vill hämta det totala rese avståndet använder `sum()` du agg regerings funktionen för `trip_distance` att aggregera kolumn omvandlingen till ett `toInteger()`heltal med. I data flödets uttrycks språk definieras det som `sum(toInteger(trip_distance))`. Klicka på **Spara och slutför** när du är klar.
+    Om du vill hämta det totala rese avståndet använder du `sum()` agg regerings funktionen för att aggregera `trip_distance` kolumn omvandlingen till ett heltal med `toInteger()` . I data flödets uttrycks språk definieras det som `sum(toInteger(trip_distance))` . Klicka på **Spara och slutför** när du är klar.
 
     ![Portalen](media/lab-data-flow-data-share/agg6.png)
 1. Testa din omvandlings logik på fliken **data förhands granskning** . Som du kan se finns det betydligt färre rader och kolumner än tidigare. Endast de tre kolumnerna Group by och agg regering som definierats i den här omvandlingen fortsätter att vara underordnade. Eftersom det bara finns fem grupper av betalnings typer i exemplet returneras bara fem rader.
@@ -390,7 +390,7 @@ När du har skapat en data resurs kan du växla hatt och bli *data konsument*. S
 
         ![Lägga till mottagare](media/lab-data-flow-data-share/add-recipients.png)
 
-    1. Lägg till i den fiktiva data konsumenten *janedoe@fabrikam.com*med namnet.
+    1. Lägg till i den fiktiva data konsumenten med namnet *janedoe@fabrikam.com* .
 
 1. På den här skärmen kan du konfigurera en ögonblicks bild inställning för din data konsument. Detta gör att de kan ta emot regelbundna uppdateringar av dina data enligt ett intervall som definierats av dig. 
 
@@ -412,7 +412,7 @@ När du har skapat en data resurs kan du växla hatt och bli *data konsument*. S
 
     ![Väntande inbjudningar](media/lab-data-flow-data-share/pending-invites.png)
 
-1. Välj inbjudan till *janedoe@fabrikam.com*. Välj Ta bort. Om mottagaren ännu inte har accepterat inbjudan kommer de inte längre att kunna göra det. 
+1. Välj inbjudan till *janedoe@fabrikam.com* . Välj Ta bort. Om mottagaren ännu inte har accepterat inbjudan kommer de inte längre att kunna göra det. 
 
 1. Välj fliken **Historik** . Inget visas eftersom din data konsument ännu inte har accepterat din inbjudan och utlöst en ögonblicks bild. 
 

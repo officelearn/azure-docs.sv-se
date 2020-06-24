@@ -4,16 +4,16 @@ description: Lär dig hur du dirigerar webbtrafik baserat på webbadressen till 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73200397"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805997"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Dirigera webbtrafik baserat på webbadressen med Azure PowerShell
 
@@ -32,7 +32,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-route-cli.md) eller [Azure Portal](create-url-route-portal.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -414,7 +414,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,, eller `http://52.168.55.24:8080/video/test.htm` `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm`
+Använd [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://52.168.55.24` , `http://52.168.55.24:8080/images/test.htm` eller `http://52.168.55.24:8080/video/test.htm` .
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -422,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.htm, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/images/test.htm, Ersätt IP-adressen för &lt; IP-adress &gt; och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.htm, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/video/test.htm, Ersätt din IP-adress för &lt; IP-adress &gt; och du bör se något som liknar följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 

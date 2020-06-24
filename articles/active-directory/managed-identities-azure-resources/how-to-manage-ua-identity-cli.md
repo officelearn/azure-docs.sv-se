@@ -1,6 +1,6 @@
 ---
 title: Hantera användardefinierad hanterad identitet – Azure CLI – Azure AD
-description: Steg för steg-anvisningar om hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av Azure CLI.
+description: Stegvisa instruktioner för hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f9bfe8c9e0dc9aa6711ce46096e7a4df695bf18
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639767"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694543"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av Azure CLI
 
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
+Hanterade identiteter för Azure-resurser ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
 
 I den här artikeln får du lära dig hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Det finns tre alternativ för att köra CLI-skript exempel:
     - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure Portal (se nästa avsnitt).
     - Använd den inbäddade Azure Cloud Shell via knappen "prova", som finns i det övre högra hörnet av varje kodblock.
-    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 eller senare) om du föredrar att använda en lokal CLI-konsol. Logga in på Azure med `az login`hjälp av ett konto som är associerat med den Azure-prenumeration under vilken du vill distribuera den tilldelade hanterade identiteten.
+    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 eller senare) om du föredrar att använda en lokal CLI-konsol. Logga in på Azure med hjälp `az login` av ett konto som är associerat med den Azure-prenumeration under vilken du vill distribuera den tilldelade hanterade identiteten.
 
 
 > [!NOTE]
@@ -50,7 +50,7 @@ I den här artikeln får du lära dig hur du skapar, visar och tar bort en anvä
 
 För att skapa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Använd kommandot [AZ Identity Create](/cli/azure/identity#az-identity-create) för att skapa en användardefinierad hanterad identitet. `-g` Parametern anger den resurs grupp där den tilldelade hanterade identiteten ska skapas och `-n` parametern anger dess namn. Ersätt parameter `<RESOURCE GROUP>` värden `<USER ASSIGNED IDENTITY NAME>` och med dina egna värden:
+Använd kommandot [AZ Identity Create](/cli/azure/identity#az-identity-create) för att skapa en användardefinierad hanterad identitet. `-g`Parametern anger den resurs grupp där den tilldelade hanterade identiteten ska skapas och `-n` parametern anger dess namn. Ersätt `<RESOURCE GROUP>` `<USER ASSIGNED IDENTITY NAME>` parameter värden och med dina egna värden:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -66,7 +66,7 @@ Om du vill visa en lista över användarspecifika hanterade identiteter använde
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
 ```
-I JSON-svaret har `"Microsoft.ManagedIdentity/userAssignedIdentities"` användare tilldelade hanterade identiteter värdet returnerat för nyckel. `type`
+I JSON-svaret har användare tilldelade hanterade identiteter `"Microsoft.ManagedIdentity/userAssignedIdentities"` värdet returnerat för nyckel `type` .
 
 `"type": "Microsoft.ManagedIdentity/userAssignedIdentities"`
 
@@ -74,7 +74,7 @@ I JSON-svaret har `"Microsoft.ManagedIdentity/userAssignedIdentities"` användar
 
 För att ta bort en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Om du vill ta bort en användardefinierad hanterad identitet använder du kommandot [AZ Identity Delete](/cli/azure/identity#az-identity-delete) .  Parametern-n anger dess namn och parametern-g anger resurs gruppen där den användare som tilldelats hanterade identiteten skapades. Ersätt- `<USER ASSIGNED IDENTITY NAME>` och `<RESOURCE GROUP>` -parameter värden med dina egna värden:
+Om du vill ta bort en användardefinierad hanterad identitet använder du kommandot [AZ Identity Delete](/cli/azure/identity#az-identity-delete) .  Parametern-n anger dess namn och parametern-g anger resurs gruppen där den användare som tilldelats hanterade identiteten skapades. Ersätt- `<USER ASSIGNED IDENTITY NAME>` och- `<RESOURCE GROUP>` parameter värden med dina egna värden:
 
  ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238456"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118924"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Kom igång med tabell-API för Azure Cosmos DB och Azure Table Storage med .NET SDK
 
@@ -43,7 +43,7 @@ Du behöver följande för att kunna följa med i det här exemplet:
 
 Skapa ett nytt .NET-konsol program i Visual Studio. Följande steg visar hur du skapar ett konsol program i Visual Studio 2019. Du kan använda Azure Cosmos DB tabell bibliotek i vilken typ av .NET-program som helst, inklusive en Azure-moln tjänst eller webbapp, samt Skriv bords-och mobil program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
-1. Välj **Arkiv** > **nytt** > **projekt**.
+1. Välj **Arkiv**  >  **nytt**  >  **projekt**.
 
 1. Välj **konsol program (.net Core)** och välj sedan **Nästa**.
 
@@ -59,7 +59,7 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
 
-1. Sök online efter [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) och välj **Installera** för att installera Microsoft Azure Cosmos DB tabell bibliotek.
+1. Sök online efter [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) , [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) , [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) och välj **Installera** för att installera Microsoft Azure Cosmos DB tabell bibliotek.
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
@@ -67,13 +67,13 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Öppna fönstret **anslutnings sträng** eller **åtkomst nycklar** . Använd knapparna på höger sida av fönstret för att kopiera **PRIMÄR ANSLUTNINGSSTRÄNG**.
 
-   ![Visa och kopiera PRIMÄR ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Visa och kopiera PRIMÄR ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng":::
    
 1. Om du vill konfigurera anslutnings strängen från Visual Studio högerklickar du på projektet **CosmosTableSamples**.
 
-1. Välj **Lägg till** och sedan **nytt objekt**. Skapa en ny fil med fil **Inställningar. JSON** med filtypen som **typescript JSON-konfigurationsfil** . 
+1. Välj **Lägg till** och sedan **nytt objekt**. Skapa en ny fil **Settings.jspå** med filtypen **typescript JSON-konfigurationsfil** . 
 
-1. Ersätt koden i Settings. JSON-filen med följande kod och tilldela din primära anslutnings sträng:
+1. Ersätt koden i Settings.jspå filen med följande kod och tilldela din primära anslutnings sträng:
 
    ```csharp
    {
@@ -83,7 +83,7 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **appSettings.cs**.
 
-1. Lägg till följande kod i AppSettings.cs-filen. Den här filen läser anslutnings strängen från Settings. JSON-filen och tilldelar den till konfigurations parametern:
+1. Lägg till följande kod i AppSettings.cs-filen. Den här filen läser anslutnings strängen från Settings.jspå filen och tilldelar den till konfigurations parametern:
 
    ```csharp
    namespace CosmosTableSamples
@@ -108,7 +108,7 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **common.cs**. Du kommer att skriva kod för att verifiera anslutnings informationen och skapa en tabell i den här klassen.
 
-1. Definiera en metod `CreateStorageAccountFromConnectionString` som visas nedan. Den här metoden tolkar anslutnings Strängs informationen och kontrollerar att konto namnet och konto nyckel informationen i filen "Settings. JSON" är giltiga. 
+1. Definiera en metod `CreateStorageAccountFromConnectionString` som visas nedan. Med den här metoden tolkas anslutnings Strängs informationen och du kan kontrol lera att konto namnet och konto nyckel informationen i filen "Settings.jspå" är giltig. 
 
  ```csharp
 using System;
@@ -218,7 +218,7 @@ Den här koden definierar en entitets klass som använder kundens förnamn som r
 
 ## <a name="insert-or-merge-an-entity"></a>Infoga eller sammanfoga en entitet
 
-Följande kod exempel skapar ett entitet-objekt och lägger till det i tabellen. Metoden InsertOrMerge i klassen [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) används för att infoga eller slå samman en entitet. Metoden [CloudTable. ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) anropas för att utföra åtgärden. 
+Följande kod exempel skapar ett entitet-objekt och lägger till det i tabellen. Metoden InsertOrMerge i klassen [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) används för att infoga eller slå samman en entitet. Metoden [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) anropas för att utföra åtgärden. 
 
 Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **SamplesUtils.cs**. Den här klassen lagrar all kod som krävs för att utföra CRUD-åtgärder på entiteterna. 
 
@@ -422,9 +422,9 @@ namespace CosmosTableSamples
 
 Nu ska du skapa lösningen och trycka på F5 för att köra projektet. När projektet körs visas följande utdata i kommando tolken:
 
-![Utdata från kommando tolken](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Utdata från kommando tolken":::
 
-Om du får ett fel meddelande om att det inte går att hitta filen Settings. JSON när du kör projektet kan du lösa det genom att lägga till följande XML-post i projekt inställningarna. Högerklicka på CosmosTableSamples, Välj Redigera CosmosTableSamples. CSPROJ och Lägg till följande itemGroup: 
+Om du får ett fel meddelande om att det inte går att hitta Settings.jspå filen när du kör projektet kan du lösa det genom att lägga till följande XML-post i projekt inställningarna. Högerklicka på CosmosTableSamples, Välj Redigera CosmosTableSamples. CSPROJ och Lägg till följande itemGroup: 
 
 ```csharp
   <ItemGroup>
@@ -435,7 +435,7 @@ Om du får ett fel meddelande om att det inte går att hitta filen Settings. JSO
 ```
 Nu kan du logga in på Azure Portal och kontrol lera att data finns i tabellen. 
 
-![Resultat i portalen](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Resultat i portalen":::
 
 ## <a name="next-steps"></a>Nästa steg
 

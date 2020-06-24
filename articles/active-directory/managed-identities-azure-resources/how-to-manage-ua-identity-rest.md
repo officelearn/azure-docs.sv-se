@@ -1,6 +1,6 @@
 ---
 title: Hantera användare som tilldelats hanterade identiteter med REST-Azure AD
-description: Steg för steg-anvisningar om hur du skapar, visar och tar bort en användardefinierad hanterad identitet för att göra REST API samtal.
+description: Stegvisa instruktioner för hur du skapar, visar och tar bort en användardefinierad hanterad identitet för att göra REST API-anrop.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 6a2a5df011cd074bbccc0c13570b2f49d902a0c3
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547413"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694339"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av REST API-anrop
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Hanterade identiteter för Azure-resurser ger Azure-tjänster möjlighet att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
+Hanterade identiteter för Azure-resurser ger Azure-tjänster möjlighet att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i din kod. 
 
 I den här artikeln får du lära dig hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av sväng för att göra REST API-anrop.
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Om du använder Windows installerar du Windows- [undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller använder [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure Portal.
 - Om du använder [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about) eller ett [Linux-distributions operativ](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)system [installerar du den lokala Azure CLI-konsolen](/cli/azure/install-azure-cli).
-- Om du använder en lokal Azure CLI-konsol loggar du in på Azure `az login` med med ett konto som är associerat med den Azure-prenumeration som du vill distribuera eller hämta information om hanterad identitets information som tilldelats av användaren.
-- Hämta en Bearer-åtkomsttoken med `az account get-access-token` hjälp av följande användare tilldelade hanterade identitets åtgärder.
+- Om du använder en lokal Azure CLI-konsol loggar du in på Azure med `az login` med ett konto som är associerat med den Azure-prenumeration som du vill distribuera eller hämta information om hanterad identitets information som tilldelats av användaren.
+- Hämta en Bearer-åtkomsttoken med hjälp av `az account get-access-token` följande användare tilldelade hanterade identitets åtgärder.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

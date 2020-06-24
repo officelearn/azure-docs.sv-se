@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50d889faa4d5b6659ac5358ba49cc49c8531a914
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456829"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805357"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering
 
@@ -80,12 +80,12 @@ Rotation av nyckeln utlöser inte Omkryptering av data i lagrings kontot. Det kr
 
 Du kan när som helst återkalla lagrings kontots åtkomst till den Kundhanterade nyckeln. När åtkomst till Kundhanterade nycklar har återkallats, eller när nyckeln har inaktiverats eller tagits bort, kan klienterna inte anropa åtgärder som läser från eller skriver till en BLOB eller dess metadata. Försök att anropa någon av följande åtgärder Miss lyckas med felkoden 403 (tillåts inte) för alla användare:
 
-- [Visa en lista med blobar](/rest/api/storageservices/list-blobs), vid `include=metadata` anrop med parametern på begärande-URI
+- [Visa en lista med blobar](/rest/api/storageservices/list-blobs), vid anrop med `include=metadata` parametern på begärande-URI
 - [Hämta BLOB](/rest/api/storageservices/get-blob)
 - [Hämta blobegenskaper](/rest/api/storageservices/get-blob-properties)
 - [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata)
 - [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata)
-- [Ögonblicks bilds-BLOB](/rest/api/storageservices/snapshot-blob)vid `x-ms-meta-name` anrop med begär ande huvudet
+- [Ögonblicks bilds-BLOB](/rest/api/storageservices/snapshot-blob)vid anrop med `x-ms-meta-name` begär ande huvudet
 - [Kopiera blob](/rest/api/storageservices/copy-blob)
 - [Kopiera BLOB från URL](/rest/api/storageservices/copy-blob-from-url)
 - [Ange blobnivå](/rest/api/storageservices/set-blob-tier)
@@ -113,4 +113,4 @@ Kundhanterade nycklar är också tillgängliga för hantering av kryptering av A
 - [Konfigurera Kundhanterade nycklar med Key Vault för Azure Storage kryptering från Azure Portal](storage-encryption-keys-portal.md)
 - [Konfigurera Kundhanterade nycklar med Key Vault för Azure Storage kryptering från PowerShell](storage-encryption-keys-powershell.md)
 - [Konfigurera Kundhanterade nycklar med Key Vault för Azure Storage kryptering från Azure CLI](storage-encryption-keys-cli.md)
-- [Azure Storage kryptering för vilande data](storage-service-encryption.md)
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md)

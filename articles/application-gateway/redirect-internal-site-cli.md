@@ -5,19 +5,19 @@ description: Lär dig hur du skapar en Programgateway som dirigerar om intern we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 7d37e36a4cdfed462904e2d02871345ad89d7ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74074555"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806806"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med intern omdirigering med Azure CLI
 
-Du kan använda Azure CLI för att konfigurera [omdirigering av webb trafik](multiple-site-overview.md) när du skapar en [Application Gateway](overview.md). I den här självstudien definierar du en backend-pool med en skalnings uppsättning för virtuella datorer. Du kan sedan konfigurera lyssnare och regler baserat på domäner som du äger för att kontrol lera att webb trafiken kommer till rätt pool. I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på *www\.-contoso.com* och *www\.-contoso.org*.
+Du kan använda Azure CLI för att konfigurera [omdirigering av webb trafik](multiple-site-overview.md) när du skapar en [Application Gateway](overview.md). I den här självstudien definierar du en backend-pool med en skalnings uppsättning för virtuella datorer. Du kan sedan konfigurera lyssnare och regler baserat på domäner som du äger för att kontrol lera att webb trafiken kommer till rätt pool. I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på *www- \. contoso.com* och *www- \. contoso.org*.
 
 I den här artikeln kan du se hur du:
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 > * Skapa en skalnings uppsättning för virtuella datorer med backend-poolen
 > * Skapa en CNAME-post i domänen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -97,7 +97,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ## <a name="add-listeners-and-rules"></a>Lägga till lyssnare och regler 
 
-Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna för *www\.-contoso.com* och *www\.-contoso.org*.
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna för *www- \. contoso.com* och *www- \. contoso.org*.
 
 Lägg till lyssnarna för serverdelen som ska dirigera trafiken med [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
@@ -120,7 +120,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till den omdirigerings konfiguration som skickar trafik *från\.www-Consoto.org* till lyssnaren *för\.www-contoso.com* i Application Gateway med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Lägg till den omdirigerings konfiguration som skickar trafik från *www- \. Consoto.org* till lyssnaren för *www- \. contoso.com* i Application Gateway med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,11 +209,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http:\//www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. Till exempel http: \/ /www.contoso.com.
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Ändra adressen till din andra domän, till exempel http:\//www.contoso.org, så bör du se att trafiken har omdirigerats tillbaka till lyssnaren för www\.-contoso.com.
+Ändra adressen till din andra domän, till exempel http: \/ /www.contoso.org, så bör du se att trafiken har omdirigerats tillbaka till lyssnaren för www- \. contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

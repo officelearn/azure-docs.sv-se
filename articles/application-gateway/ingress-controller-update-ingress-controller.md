@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om hur du uppgraderar ett
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3903ccd1c15765d06cd1794a40567e2c70062538
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f20302a4993da1754255254ce6d69c000750d4ab
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795892"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806782"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Så här uppgraderar du en inkommande Application Gateway-styrenhet med hjälp av Helm 
 
@@ -71,7 +71,7 @@ Innan du påbörjar uppgraderings proceduren måste du kontrol lera att du har l
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    Helm-diagrammets installation från exempel svaret ovan heter `odd-billygoat`. Vi kommer att använda det här namnet för resten av kommandona. Det faktiska distributions namnet är förmodligen annorlunda.
+    Helm-diagrammets installation från exempel svaret ovan heter `odd-billygoat` . Vi kommer att använda det här namnet för resten av kommandona. Det faktiska distributions namnet är förmodligen annorlunda.
 
 1. Uppgradera Helm-distributionen till en ny version:
 
@@ -100,7 +100,7 @@ Om distributionen av Helm skulle fungera kan du återställa till en tidigare ve
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Från exempel resultatet av `helm history` kommandot ser det ut som den senaste lyckade distributionen av vår revision `odd-billygoat``1`
+    Från exempel resultatet av `helm history` kommandot ser det ut som den senaste lyckade distributionen av vår `odd-billygoat` revision`1`
 
 1. Återställ till den senaste lyckade ändringen:
 

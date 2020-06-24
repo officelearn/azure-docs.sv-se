@@ -4,15 +4,15 @@ description: I den här artikeln får du lära dig hur du ansluter till en virtu
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 381f45a51002188c72174cff83c26b829912a0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98f1f3d02d8433dd88fed844a587a961ea9f8c82
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596835"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744297"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Ansluta med SSH till en virtuell Linux-dator med Azure skydds
 
@@ -23,7 +23,7 @@ Du kan använda Azure-skydds för att ansluta till en virtuell Linux-dator med S
 * En privat nyckel som du anger manuellt
 * En fil som innehåller information om privat nyckel
 
-Den privata SSH-nyckeln måste vara i ett format som börjar `"-----BEGIN RSA PRIVATE KEY-----"` med och slutar `"-----END RSA PRIVATE KEY-----"`med.
+Den privata SSH-nyckeln måste vara i ett format som börjar med `"-----BEGIN RSA PRIVATE KEY-----"` och slutar med `"-----END RSA PRIVATE KEY-----"` .
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

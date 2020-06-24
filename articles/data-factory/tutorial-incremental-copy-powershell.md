@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194509"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254471"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage.
+I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data från en tabell i Azure SQL Database till Azure Blob Storage.
 
 I den här självstudiekursen får du göra följande:
 
@@ -59,11 +59,11 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har en databas i Azure SQL Database, se [skapa en dataqbase i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 * **Azure PowerShell**. Följ instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -192,11 +192,11 @@ Observera följande punkter:
     ```
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i datafabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (lagring, SQL Database, Azure SQL-hanterad instans osv.) och beräkningarna (Azure HDInsight osv.) som används av data fabriken kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina lagringskonton och din SQL-databas.
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till ditt lagrings konto och SQL Database.
 
 ### <a name="create-a-storage-linked-service"></a>Skapa en länkad lagringstjänst
 1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` och `<accountKey>` med namnet och nyckeln för ditt lagrings konto innan du sparar filen.
@@ -732,7 +732,7 @@ I den här självstudiekursen fick du:
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen.
 
-I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
+I den här självstudien kopierade pipelinen data från en enskild tabell i Azure SQL Database till Blob Storage. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvist från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

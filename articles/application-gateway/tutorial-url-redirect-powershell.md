@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059393"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806035"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
 
@@ -32,7 +32,7 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-redirect-cli.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -491,7 +491,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm` `http://52.168.55.24:8080/video/test.htm`,, eller `http://52.168.55.24:8081/images/test.htm`.
+Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,,, `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm` `http://52.168.55.24:8080/video/test.htm` eller `http://52.168.55.24:8081/images/test.htm` .
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

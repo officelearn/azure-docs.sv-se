@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658182"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251547"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure CLI-exempel för Azure SQL Database-och SQL-hanterad instans 
  
@@ -39,15 +39,15 @@ Följande tabell innehåller länkar till exempel på Azure CLI-skript för att 
 |---|---|
 |**Skapa databaser i Azure SQL Database**||
 | [Skapa en databas och konfigurera en brandväggsregel](scripts/create-and-configure-database-cli.md) | Skapar en SQL Database och konfigurerar en brand Väggs regel på server nivå. |
-| [Skapa elastiska pooler och flytta pooldatabaser](scripts/move-database-between-elastic-pools-cli.md) | Skapar elastiska pooler, flyttar SQL-databaser i pooler och ändrar beräknings storlekarna. |
+| [Skapa elastiska pooler och flytta pooldatabaser](scripts/move-database-between-elastic-pools-cli.md) | Skapar elastiska pooler, flyttar databaser i pooler och ändrar beräknings storlekarna. |
 |**Skala databaser i Azure SQL Database**||
 | [Skala en databas](scripts/monitor-and-scale-database-cli.md) | Skalar en databas i SQL Database till en annan beräknings storlek efter att ha frågat efter storleks informationen för databasen. |
 | [Skala en elastisk pool](scripts/scale-pool-cli.md) | Skalar en elastisk SQL-pool till en annan beräknings storlek. |
 |**Konfigurera geo-replikering och redundans**||
 | [Lägga till en enskild databas i en failover-grupp](scripts/add-database-to-failover-group-cli.md)| Skapar en databas och en failover-grupp, lägger till databasen i gruppen redundans och testar sedan redundansväxlingen till den sekundära servern. |
 | [Konfigurera en failover-grupp för en elastisk pool](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Skapar en databas, lägger till den i en elastisk pool, lägger till den elastiska poolen i gruppen redundans och testar sedan redundansväxlingen till den sekundära servern. |
-| [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Konfigurerar aktiv geo-replikering för en Azure SQL-databas och växlar den till den sekundära repliken. |
-| [Konfigurera och redundansväxla en databas i pooler med hjälp av aktiv geo-replikering](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Konfigurerar aktiv geo-replikering för en Azure SQL-databas i en elastisk SQL-pool och växlar sedan till den sekundära repliken. |
+| [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Konfigurerar aktiv geo-replikering för en databas i Azure SQL Database och växlar den till den sekundära repliken. |
+| [Konfigurera och redundansväxla en databas i pooler med hjälp av aktiv geo-replikering](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Konfigurerar aktiv geo-replikering för en databas i en elastisk pool och växlar sedan till den sekundära repliken. |
 | **Granskning och hotidentifiering** |
 | [Konfigurera granskning och identifiering av hot](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Konfigurerar principer för granskning och hot identifiering för en databas i Azure SQL Database. |
 | **Säkerhetskopiera, återställa, kopiera och importera en databas**||

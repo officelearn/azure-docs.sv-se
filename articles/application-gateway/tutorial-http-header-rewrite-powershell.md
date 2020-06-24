@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om hur du skapar en Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173722"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806440"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Skapa en Application Gateway och skriv om HTTP-huvuden
 
@@ -30,11 +30,11 @@ I den här artikeln kan du se hur du:
 > * Skapa programgatewayen
 > * Testa programgatewayen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha AZ-modul version 1.0.0 eller senare installerad. Kör `Import-Module Az` och sedan`Get-Module Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha AZ-modul version 1.0.0 eller senare installerad. Kör `Import-Module Az` och sedan `Get-Module Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

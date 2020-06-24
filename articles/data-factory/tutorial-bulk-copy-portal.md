@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/22/2020
+ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661061"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251785"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiera flera tabeller i bulk genom att använda Azure Data Factory i Azure Portal
 
@@ -58,7 +58,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). Den här självstudien kopierar alla tabeller från den här exempel databasen till en Azure Synapse Analytics (tidigare SQL DW).
+Skapa en databas i SQL Database med Adventure Works LT-exempel data efter [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) artikeln. Den här självstudien kopierar alla tabeller från den här exempel databasen till en Azure Synapse Analytics (tidigare SQL DW).
 
 **Förbered mottagaren Azure Synapse Analytics (tidigare SQL DW)**:
 
@@ -106,7 +106,7 @@ Du kan skapa länkade tjänster för att länka dina datalager och beräkna till
 I den här självstudien länkar du Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Blob Storage data lager till din data fabrik. Azure SQL Database är källdatalagret. Azure Synapse Analytics (tidigare SQL DW) är data lagret för mottagare/mål. Azure-Blob Storage är att mellanlagra data innan data läses in i Azure Synapse Analytics (tidigare SQL DW) med PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Skapa den länkade tjänsten för Azure SQL Database-källan
-I det här steget skapar du en länkad tjänst för att länka Azure SQL-databasen till datafabriken. 
+I det här steget skapar du en länkad tjänst för att länka databasen i Azure SQL Database till data fabriken. 
 
 1. Öppna [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i det vänstra fönstret.
 
@@ -120,13 +120,13 @@ I det här steget skapar du en länkad tjänst för att länka Azure SQL-databas
 
     b. Välj servern som **Server namn**
     
-    c. Välj din Azure SQL-databas som **databasnamn**. 
+    c. Välj din databas som **databas namn**. 
     
-    d. Ange **användarens namn** för att ansluta till Azure SQL-databasen. 
+    d. Ange **namnet på den användare** som ska anslutas till databasen. 
     
     e. Ange **lösenord** för användaren. 
 
-    f. Om du vill testa anslutningen till Azure SQL-databasen med den angivna informationen klickar du på **Testanslutning**.
+    f. Om du vill testa anslutningen till databasen med den angivna informationen klickar du på **Testa anslutning**.
   
     g. Klicka på **skapa** för att spara den länkade tjänsten.
 
@@ -141,13 +141,13 @@ I det här steget skapar du en länkad tjänst för att länka Azure SQL-databas
      
     b. Välj servern som **Server namn**
      
-    c. Välj din Azure SQL-databas som **databasnamn**. 
+    c. Välj din databas som **databas namn**. 
      
-    d. Ange **användar namn** för att ansluta till Azure SQL Database. 
+    d. Ange **användar namn** för att ansluta till databasen. 
      
     e. Ange **lösen ordet** för användaren. 
      
-    f. Om du vill testa anslutningen till Azure SQL-databasen med den angivna informationen klickar du på **Testanslutning**.
+    f. Om du vill testa anslutningen till databasen med den angivna informationen klickar du på **Testa anslutning**.
      
     g. Klicka på **Skapa**.
 
@@ -181,7 +181,7 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
     
 1. I fönstret **Ange egenskaper** , under **namn**, anger du **AzureSqlDatabaseDataset**. Under **länkad tjänst**väljer du **AzureSqlDatabaseLinkedService**. Klicka sedan på **OK**.
 
-1. Växla till fliken **anslutning** , Välj valfri tabell för **tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från Azure SQL-databasen. Alternativt kan du klicka på kryss rutan **Redigera** och ange **dbo. dummyName** som tabell namn. 
+1. Växla till fliken **anslutning** , Välj valfri tabell för **tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från databasen. Alternativt kan du klicka på kryss rutan **Redigera** och ange **dbo. dummyName** som tabell namn. 
  
 
 ### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Skapa en data uppsättning för Sink Azure Synapse Analytics (tidigare SQL DW)
@@ -189,17 +189,18 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
 1. Klicka på **+ (plus)** i den vänstra rutan och sedan på **Datauppsättning**. 
 1. I fönstret **ny data uppsättning** väljer du **Azure Synapse Analytics (tidigare SQL DW)** och klickar sedan på **Fortsätt**.
 1. I fönstret **Ange egenskaper** , under **namn**, anger du **AzureSqlDWDataset**. Under **länkad tjänst**väljer du **AzureSqlDWLinkedService**. Klicka sedan på **OK**.
-1. Byt till fliken **Parametrar**, klicka på **+ Ny** och ange **DWTableName** som parameternamn. Om du kopierar eller klistrar in det här namnet från sidan kontrollerar du att det inte finns något **avslutande blank stegs tecken** i slutet av **DWTableName**.
+1. Byt till fliken **Parametrar**, klicka på **+ Ny** och ange **DWTableName** som parameternamn. Klicka på **+ ny** igen och ange **DWSchema** som parameter namn. Om du kopierar eller klistrar in det här namnet från sidan kontrollerar du att det inte finns något **avslutande blank stegs tecken** i slutet av *DWTableName* och *DWSchema*. 
 1. Växla till fliken **Anslutningar**. 
 
-    a. För **tabell**kontrollerar du alternativet **Redigera** . Ange **dbo** i rutan första tabell namn indatatypen. Och välj sedan i den andra ingångs rutan och klicka på länken **Lägg till dynamiskt innehåll** nedan. 
+    1. För **tabell**kontrollerar du alternativet **Redigera** . Välj i den första inmatade rutan och klicka på länken **Lägg till dynamiskt innehåll** nedan. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWSchema** under **parametrar**, som fyller automatiskt i text rutan för det översta uttrycket `@dataset().DWSchema` och klickar sedan på **Slutför**.  
+    
+        ![Data uppsättnings anslutningens tabell namn](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    ![Data uppsättnings anslutningens tabell namn](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    1. Välj i den andra inmatade rutan och klicka på länken **Lägg till dynamiskt innehåll** nedan. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **parametrar**, som fyller automatiskt i text rutan för det översta uttrycket `@dataset().DWTableName` och klickar sedan på **Slutför**. 
+    
+    1. Egenskapen **TableName** för data mängden anges till de värden som skickas som argument för parametrarna **DWSchema** och **DWTableName** . ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
+    
 
-    b. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **parametrar**, som fyller automatiskt i text rutan för det översta uttrycket `@dataset().DWTableName` och klickar sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
-
-    ![Byggare för datauppsättningsparametern](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
- 
 ## <a name="create-pipelines"></a>Skapa pipelines
 I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
 
@@ -257,7 +258,8 @@ I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** o
 1. Växla till fliken **Mottagare** och gör följande: 
 
     1. Välj **AzureSqlDWDataset** för **Sink Dataset** (Datauppsättning för mottagare).
-    1. Klicka på indatamängden för värdet för parametern DWTableName-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan, ange `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` uttrycket som skript, > Välj **Slutför**.
+    1. Klicka på indatamängden för värdet för parametern DWTableName-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan, ange `@item().TABLE_NAME` uttrycket som skript, > Välj **Slutför**.
+    1. Klicka på indatamängden för värdet för parametern DWSchema-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan, ange `@item().TABLE_SCHEMA` uttrycket som skript, > Välj **Slutför**.
     1. För kopierings metod väljer du **PolyBase**. 
     1. Avmarkera alternativet **Använd typ som standard** . 
     1. Klicka på textrutan **Pre-copy Script** (Förkopieringsskript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
@@ -282,12 +284,12 @@ Den här pipelinen gör två åtgärder:
 * den utlöser pipelinen ”IterateAndCopySQLTables” för att utföra den faktiska kopieringen.
 
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
-1. På fliken **Allmänt** ändrar du namnet på pipelinen till **GetTableListAndTriggerCopyData**. 
+1. I panelen Allmänt under **Egenskaper**ändrar du namnet på pipelinen till **GetTableListAndTriggerCopyData**. 
 
 1. I verktygs lådan **aktiviteter** expanderar du **Allmänt**och drar och släpper **söknings** aktivitet till pipelinen för pipelinen och utför följande steg:
 
     1. Skriv **LookupTableList** som **namn**. 
-    1. Ange **Retrieve the table list from Azure SQL database** (Hämta tabellistan från Azure SQL-databas) som **Beskrivning**.
+    1. Ange **Hämta tabell listan från databasen** för **Beskrivning**.
 
 1. Växla till fliken **Inställningar** och gör följande:
 
@@ -310,10 +312,8 @@ Den här pipelinen gör två åtgärder:
 1. Växla till fliken **Inställningar** för aktiviteten **Kör pipeline** och utför följande steg: 
 
     1. Välj **IterateAndCopySQLTables** som **Invoked pipeline** (Anropad pipeline). 
-    1. Expandera avsnittet **Avancerat** och avmarkera kryss rutan för **vänta på slut för ande**.
-    1. Klicka på **+ Ny** i avsnittet **Parametrar**. 
-    1. Ange **tablelist** som parameter **namn**.
-    1. Klicka på textrutan VALUE -> välj **Lägg till dynamiskt innehåll** nedan -> ange `@activity('LookupTableList').output.value` som värde för tabellens namn -> välj **Slutför**. Du ställer in resultat listan från söknings aktiviteten som inmatad till den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
+    1. Avmarkera kryss rutan för **vänta på slut för ande**.
+    1. I avsnittet **parametrar** klickar du på rutan inmatare under värde-> väljer värdet **Lägg till dynamiskt innehåll** nedan – > ange `@activity('LookupTableList').output.value` som tabell namn värde – > väljer du **Slutför**. Du ställer in resultat listan från söknings aktiviteten som inmatad till den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
 
         ![Kör pipeline-aktivitet – sidan inställningar](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 

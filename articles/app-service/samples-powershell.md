@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81532433"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254488"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>PowerShell-exempel för Azure App Service
 
@@ -32,7 +32,7 @@ Följande tabell innehåller länkar till PowerShell-skript som skapats med Azur
 | [Skala en app manuellt](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app och skalar den över 2 instanser. |
 | [Skala en app globalt med en arkitektur för hög tillgänglighet](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar två App Service-appar i två olika geografiska regioner och gör dem tillgängliga via en enskild slutpunkt med Azure Traffic Manager. |
 |**Anslut app till resurser**||
-| [Anslut en webbapp till en SQL-databas](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och en SQL-databas och lägger sedan till dataanslutningssträngen till appinställningarna. |
+| [Anslut en webbapp till en SQL-databas](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service app och en databas i Azure SQL Database och lägger sedan till databas anslutnings strängen i appens inställningar. |
 | [Anslut en app till ett lagringskonto](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och ett lagringskonto och lägger sedan till lagringsanslutningssträngen till appinställningarna. |
 |**Säkerhetskopiera och återställ app**||
 | [Säkerhetskopiera en app](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app och en engångssäkerhetskopia för den. |

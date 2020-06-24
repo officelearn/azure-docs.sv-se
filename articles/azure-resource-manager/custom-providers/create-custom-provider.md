@@ -3,14 +3,14 @@ title: Skapa resurs leverantör
 description: Beskriver hur du skapar en resurs leverantör och distribuerar dess anpassade resurs typer.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 05/01/2019
+ms.date: 06/19/2020
 ms.author: evanhi
-ms.openlocfilehash: 393993a44c860525b9bd9a540ed7afff78e5b93c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75649871"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125019"
 ---
 # <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Snabb start: skapa en anpassad Provider och distribuera anpassade resurser
 
@@ -18,7 +18,11 @@ I den här snabb starten skapar du en egen resurs leverantör och distribuerar a
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen i den här snabb starten måste du anropa REST-åtgärder. Det finns [olika sätt att skicka rest-begäranden](/rest/api/azure/). Om du inte redan har ett verktyg för REST-åtgärder installerar du [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API.
+För att slutföra stegen i den här snabb starten måste du anropa `REST` åtgärder. Det finns [olika sätt att skicka rest-begäranden](/rest/api/azure/).
+
+Om du vill köra Azure CLI-kommandon använder du [bash i Azure Cloud Shell](/azure/cloud-shell/quickstart). Kommandona [Custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) kräver ett tillägg. Mer information finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+Om du vill köra PowerShell-kommandon lokalt använder du PowerShell 7 eller senare och Azure PowerShell modulerna. Mer information finns i [installera Azure PowerShell](/powershell/azure/install-az-ps). Om du inte redan har ett verktyg för `REST` åtgärder installerar du [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API.
 
 ## <a name="deploy-custom-provider"></a>Distribuera anpassad Provider
 
@@ -31,37 +35,80 @@ När du har distribuerat mallen har prenumerationen följande resurser:
 * Anpassad provider som definierar anpassade resurs typer och åtgärder. Den använder Function-programmets slut punkt för att skicka begär Anden.
 * Anpassad resurs från den anpassade providern.
 
-Använd följande för att distribuera den anpassade providern med PowerShell:
+Använd Azure CLI eller PowerShell för att distribuera den anpassade providern:
 
-```azurepowershell-interactive
-$rgName = "<resource-group-name>"
-$funcName = "<function-app-name>"
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-New-AzResourceGroup -Name $rgName -Location eastus
-New-AzResourceGroupDeployment -ResourceGroupName $rgName `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json `
-  -funcname $funcName
+```azurecli-interactive
+read -p "Enter a resource group name:" rgName &&
+read -p "Enter the location (i.e. eastus):" location &&
+read -p "Enter the provider's function app name:" funcName &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json" &&
+az group create --name $rgName --location "$location" &&
+az deployment group create --resource-group $rgName --template-uri $templateUri --parameters funcName=$funcName &&
+echo "Press [ENTER] to continue ..." &&
+read
 ```
 
-Du kan också distribuera lösningen med följande knapp:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
+```powershell
+$rgName = Read-Host -Prompt "Enter a resource group name"
+$location = Read-Host -Prompt "Enter the location (i.e. eastus)"
+$funcName = Read-Host -Prompt "Enter the provider's function app name"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json"
+New-AzResourceGroup -Name $rgName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateUri $templateUri -funcName $funcName
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+
+---
+
+Du kan också distribuera lösningen från Azure Portal med följande knapp:
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
 ## <a name="view-custom-provider-and-resource"></a>Visa anpassad Provider och resurs
 
-Den anpassade providern är en dold resurs typ i portalen. Om du vill bekräfta att resurs leverantören har distribuerats navigerar du till resurs gruppen. Välj alternativet för att **Visa dolda typer**.
+Den anpassade providern är en dold resurs typ i portalen. För att bekräfta att resurs leverantören har distribuerats navigerar du till resurs gruppen. Välj alternativet för att **Visa dolda typer**.
 
 ![Visa dolda resurs typer](./media/create-custom-provider/show-hidden.png)
 
-Om du vill se den anpassade resurs typ som du har distribuerat använder du åtgärden Hämta i resurs typen.
+Om du vill se den anpassade resurs typ som du har distribuerat använder du `GET` åtgärden på resurs typen.
 
-```
+```http
 GET https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users?api-version=2018-09-01-preview
 ```
 
-Med ARMClient använder du:
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+subID=$(az account show --query id --output tsv)
+requestURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users?api-version=2018-09-01-preview"
+az rest --method get --uri $requestURI
+```
+
+Du får svaret:
+
+```json
+{
+  "value": [
+    {
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/santa",
+      "name": "santa",
+      "properties": {
+        "FullName": "Santa Claus",
+        "Location": "NorthPole",
+        "provisioningState": "Succeeded"
+      },
+      "resourceGroup": "<rg-name>",
+      "type": "Microsoft.CustomProviders/resourceProviders/users"
+    }
+  ]
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $subID = (Get-AzContext).Subscription.Id
@@ -89,17 +136,37 @@ Du får svaret:
 }
 ```
 
+---
+
 ## <a name="call-action"></a>Anrops åtgärd
 
-Den anpassade providern har också en åtgärd med namnet **ping**. Den kod som bearbetar begäran implementeras i Function-appen. Ping-åtgärden svarar med en hälsning.
+Den anpassade providern har också en åtgärd med namnet `ping` . Den kod som bearbetar begäran implementeras i Function-appen. `ping`Åtgärden svarar med en hälsning.
 
-Om du vill skicka en ping-begäran använder du POST-åtgärden på den anpassade providern.
+Om du vill skicka en `ping` begäran använder du `POST` åtgärden på den anpassade providern.
 
-```
+```http
 POST https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/ping?api-version=2018-09-01-preview
 ```
 
-Med ARMClient använder du:
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+pingURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/ping?api-version=2018-09-01-preview"
+az rest --method post --uri $pingURI
+```
+
+Du får svaret:
+
+```json
+{
+  "message": "hello <function-name>.azurewebsites.net",
+  "pingcontent": {
+    "source": "<function-name>.azurewebsites.net"
+  }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $pingURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/ping?api-version=2018-09-01-preview"
@@ -118,17 +185,42 @@ Du får svaret:
 }
 ```
 
-## <a name="create-resource-type"></a>Skapa resurs typ
+---
 
-Om du vill skapa en anpassad resurs typ kan du distribuera resursen i en mall. Den här metoden visas i mallen som du distribuerade i den här snabb starten. Du kan också skicka en skicka-begäran för resurs typen.
+## <a name="create-a-resource-type"></a>Skapa en resurs typ
 
-```
+Om du vill skapa en anpassad resurs typ kan du distribuera resursen i en mall. Den här metoden visas i mallen som du distribuerade i den här snabb starten. Du kan också skicka en `PUT` begäran om resurs typen.
+
+```http
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview
 
 {"properties":{"FullName": "Test User", "Location": "Earth"}}
 ```
 
-Med ARMClient använder du:
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+addURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users/testuser?api-version=2018-09-01-preview"
+az rest --method put --uri $addURI --body "{'properties':{'FullName': 'Test User', 'Location': 'Earth'}}"
+```
+
+Du får svaret:
+
+```json
+{
+  "id": "/subscriptions/<sub-ID>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/testuser",
+  "name": "testuser",
+  "properties": {
+    "FullName": "Test User",
+    "Location": "Earth",
+    "provisioningState": "Succeeded"
+  },
+  "resourceGroup": "<rg-name>",
+  "type": "Microsoft.CustomProviders/resourceProviders/users"
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $addURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users/testuser?api-version=2018-09-01-preview"
@@ -152,6 +244,110 @@ Du får svaret:
 }
 ```
 
+---
+
+## <a name="custom-resource-provider-commands"></a>Anpassade Resource Provider-kommandon
+
+Använd de [anpassade providers-](/cli/azure/ext/custom-providers/custom-providers/resource-provider) kommandona för att arbeta med din anpassade resurs leverantör.
+
+### <a name="list-custom-resource-providers"></a>Lista med anpassade resurs leverantörer
+
+Visa en lista med alla anpassade resurs leverantörer i en prenumeration. Standard listar anpassade resurs leverantörer för den aktuella prenumerationen eller så kan du ange `--subscription` parametern. Om du vill visa en resurs grupp använder du `--resource-group` parametern.
+
+```azurecli-interactive
+az custom-providers resource-provider list --subscription $subID
+```
+
+```json
+[
+  {
+    "actions": [
+      {
+        "endpoint": "https://<provider-name>.azurewebsites.net/api/{requestPath}",
+        "name": "ping",
+        "routingType": "Proxy"
+      }
+    ],
+    "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceproviders/<provider-name>",
+    "location": "eastus",
+    "name": "<provider-name>",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "<rg-name>",
+    "resourceTypes": [
+      {
+        "endpoint": "https://<provider-name>.azurewebsites.net/api/{requestPath}",
+        "name": "users",
+        "routingType": "Proxy, Cache"
+      }
+    ],
+    "tags": {},
+    "type": "Microsoft.CustomProviders/resourceproviders",
+    "validations": null
+  }
+]
+```
+
+### <a name="show-the-properties"></a>Visa egenskaperna
+
+Visa egenskaperna för en anpassad resurs leverantör. Utdataformatet liknar `list` utdata.
+
+```azurecli-interactive
+az custom-providers resource-provider show --resource-group $rgName --name $funcName
+```
+
+### <a name="create-a-new-resource"></a>Skapa en ny resurs
+
+Använd `create` kommandot för att skapa eller uppdatera en anpassad resurs leverantör. I det här exemplet uppdateras `actions` och `resourceTypes` .
+
+```azurecli-interactive
+az custom-providers resource-provider create --resource-group $rgName --name $funcName \
+--action name=ping endpoint=https://myTestSite.azurewebsites.net/api/{requestPath} routing_type=Proxy \
+--resource-type name=users endpoint=https://myTestSite.azurewebsites.net/api{requestPath} routing_type="Proxy, Cache"
+```
+
+```json
+"actions": [
+  {
+    "endpoint": "https://myTestSite.azurewebsites.net/api/{requestPath}",
+    "name": "ping",
+    "routingType": "Proxy"
+  }
+],
+
+"resourceTypes": [
+  {
+    "endpoint": "https://myTestSite.azurewebsites.net/api{requestPath}",
+    "name": "users",
+    "routingType": "Proxy, Cache"
+  }
+],
+```
+
+### <a name="update-the-providers-tags"></a>Uppdatera providerns Taggar
+
+`update`Kommandot uppdaterar endast taggar för en anpassad resurs leverantör. I Azure Portal visar den anpassade resurs leverantörens App Service taggen.
+
+```azurecli-interactive
+az custom-providers resource-provider update --resource-group $rgName --name $funcName --tags new=tag
+```
+
+```json
+"tags": {
+  "new": "tag"
+},
+```
+
+### <a name="delete-a-custom-resource-provider"></a>Ta bort en anpassad resurs leverantör
+
+`delete`Kommandot efterfrågar och tar bara bort den anpassade resurs leverantören. Lagrings kontot, app service och App Service-planen tas inte bort. När providern har tagits bort returneras en kommando tolk.
+
+```azurecli-interactive
+az custom-providers resource-provider delete --resource-group $rgName --name $funcName
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-En introduktion till anpassade providers finns i [Översikt över Azure Custom providers Preview](overview.md).
+En introduktion till anpassade leverantörer finns i följande artikel:
+
+> [!div class="nextstepaction"]
+> [Översikt över Azure Custom providers Preview](overview.md)

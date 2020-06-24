@@ -4,19 +4,19 @@ description: Den här artikeln innehåller information om hur du använder priva
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795496"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806788"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Använd privat IP för intern routning för en ingress-slutpunkt 
 
-Den här funktionen gör det möjligt att exponera ingångs `Virtual Network` slut punkten i med en privat IP-adress.
+Den här funktionen gör det möjligt att exponera ingångs slut punkten i `Virtual Network` med en privat IP-adress.
 
 ## <a name="pre-requisites"></a>Förutsättningar  
 Application Gateway med en [privat IP-konfiguration](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
@@ -31,7 +31,7 @@ Om du vill exponera ett visst ingress över privat IP använder du anteckningen 
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-För programgatewayer utan privata IP-adresser ignoreras ingressen som `appgw.ingress.kubernetes.io/use-private-ip: "true"` kommenteras med. Detta visas i loggen ingångs händelser och AGIC pod.
+För programgatewayer utan privata IP-adresser ignoreras ingressen som kommenteras med `appgw.ingress.kubernetes.io/use-private-ip: "true"` . Detta visas i loggen ingångs händelser och AGIC pod.
 
 * Fel som anges i ingress-händelsen
 
@@ -51,7 +51,7 @@ För programgatewayer utan privata IP-adresser ignoreras ingressen som `appgw.in
 
 
 ## <a name="assign-globally"></a>Tilldela globalt
-Om det är ett krav är det att begränsa alla ingångs händelser som ska exponeras `appgw.usePrivateIP: true` över `helm` privat IP, använda i config.
+Om det är ett krav är det att begränsa alla ingångs händelser som ska exponeras över privat IP, använda `appgw.usePrivateIP: true` i `helm` config.
 
 ### <a name="usage"></a>Användning
 ```yaml

@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535629"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254505"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>CLI-exempel för Azure App Service
 
@@ -35,7 +35,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 |**Skydda app**||
 | [Integrera med Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service app och integrerar den med Application Gateway med hjälp av tjänst slut punkt och åtkomst begränsningar. |
 |**Anslut app till resurser**||
-| [Anslut en webbapp till en SQL-databas](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och en SQL-databas och lägger sedan till dataanslutningssträngen till appinställningarna. |
+| [Anslut en webbapp till en SQL-databas](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service app och en databas i Azure SQL Database och lägger sedan till databas anslutnings strängen i appens inställningar. |
 | [Anslut en app till ett lagringskonto](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och ett lagringskonto och lägger sedan till lagringsanslutningssträngen till appinställningarna. |
 | [Ansluta en app till en Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och en Azure Cache for Redis och lägger sedan till Redis-anslutningsinformationen till appinställningarna.) |
 | [Ansluta en app till Azure Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och en Cosmos DB och lägger sedan till Cosmos DB-anslutningsinformationen till appinställningarna. |

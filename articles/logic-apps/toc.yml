@@ -44,6 +44,10 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Affärskontinuitet och haveriberedskap
       href: business-continuity-disaster-recovery-guidance.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Utveckla

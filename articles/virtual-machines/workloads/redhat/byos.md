@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9ab578b4b688c02c9150dfb23fce53fbb82df405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273179"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694390"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -52,7 +52,7 @@ När du har slutfört stegen för att aktivera moln åtkomst, validerar Red Hat 
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Använd Red Hat Gold-avbildningarna från Azure Portal
 
-1. När din Azure-prenumeration får åtkomst till de röda guld-avbildningarna kan du hitta dem i [Azure Portal](https://portal.azure.com). Gå till **skapa en resurs** > **Se alla**.
+1. När din Azure-prenumeration får åtkomst till de röda guld-avbildningarna kan du hitta dem i [Azure Portal](https://portal.azure.com). Gå till **skapa en resurs**  >  **Se alla**.
 
 1. Längst upp på sidan ser du att du har privata erbjudanden.
 
@@ -96,7 +96,7 @@ Följande instruktioner vägleder dig genom den första distributions processen 
 
     OR
 
-    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
+    az vm image terms accept --urn redhat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
 
     >[!NOTE]
@@ -108,16 +108,19 @@ Följande instruktioner vägleder dig genom den första distributions processen 
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
     # Example:
-    az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest --validate
     ```
 
 1. Etablera den virtuella datorn genom att köra samma kommando som visas i föregående exempel utan `--validate` argumentet.
 
     ```azurecli
-    az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
+    az vm create -n <VM name> -g <resource group name> --image <image urn>
+
+    # Example:
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. SSH till den virtuella datorn och kontrol lera att du har en berättigad avbildning. Om du vill göra det här `sudo yum repolist`steget kör du. För RHEL 8 använder `sudo dnf repolist`du. Utdata uppmanar dig att använda prenumerations hanteraren för att registrera den virtuella datorn med Red Hat.
+1. SSH till den virtuella datorn och kontrol lera att du har en berättigad avbildning. Om du vill göra det här steget kör du `sudo yum repolist` . För RHEL 8 använder du `sudo dnf repolist` . Utdata uppmanar dig att använda prenumerations hanteraren för att registrera den virtuella datorn med Red Hat.
 
 >[!NOTE]
 >På RHEL 8 `dnf` och `yum` är utbytbara. Mer information finns i [Administratörs hand boken för RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).
@@ -135,7 +138,7 @@ Följande skript är ett exempel. Ersätt resurs gruppen, platsen, det virtuella
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher RedHat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location

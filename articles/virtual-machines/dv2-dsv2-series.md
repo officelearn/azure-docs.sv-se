@@ -7,20 +7,20 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6120d7b63a948b0de004a6a0d731c0d075689da1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 71d00da5cc0021aacbe849a541ff386cc6414ff2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678230"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694645"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2- och DSv2-serien
 
-Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 ## <a name="dv2-series"></a>Dv2-serien
 
-Dv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0.
+Dv2-seriens storlekar körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0.
 
 ACU: 210–250
 
@@ -42,7 +42,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="dsv2-series"></a>DSv2-serien
 
-DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage.
+DSv2-seriens storlekar körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage.
 
 ACU: 210–250
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610825"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212215"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
@@ -45,7 +45,7 @@ I den här självstudien gör du följande:
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Visual studio 2019](https://www.visualstudio.com/vs/) med arbets belastningar för: .net Desktop Development, Azure-utveckling, ASP.net och webb utveckling, Node. js-utveckling och python-utveckling.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) med arbets belastningar för: .net Skriv bords utveckling, Azure-utveckling, ASP.net och webb utveckling, Node.js utveckling och python-utveckling.
 * Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
 
 ## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
@@ -173,7 +173,7 @@ Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehou
 2. På sidan SQL-informationslager väljer du **Frågeredigeraren (förhandsversion)** i den vänstra menyn. 
 
     ![Sidan SQL-informationslager](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Ange namnet på **användare** och **lösenord** för SQL-servern och välj **OK**. Du behöver en klient-IP-adress till brand väggen för att kunna logga in på SQL Server. 
+2. Ange namnet på **användare** och **lösenord** för SQL-servern och välj **OK**. Du kan behöva lägga till din klient-IP-adress i brand väggen för att kunna logga in på SQL Server. 
 
     ![SQL-serverautentisering](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. Kopiera och kör följande SQL-skript i frågefönstret: 
@@ -280,7 +280,7 @@ Nu har du slutfört konfigurationen av händelsehubben, SQL-informationslagret, 
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Skapa lösningen. Kör programmet **WindTurbineGenerator. exe** . 
+6. Skapa lösningen. Kör **WindTurbineGenerator.exe** -programmet. 
 7. Vänta några minuter och fråga sedan tabellen i informationslagret efter migrerade data.
 
     ![Frågeresultat](media/event-grid-event-hubs-integration/query-results.png)

@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med PowerShell
-description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en Azure SQL Database.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/30/2020
-ms.openlocfilehash: ef756f1b9b96f0e8fe9b77e6ae8f00f077fd1b88
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559611"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250969"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL Database med PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database med PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server-databas till en Azure SQL Database.    
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till Azure SQL Database.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -67,10 +67,10 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
-* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
+* **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
@@ -117,7 +117,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
-3. Kör följande SQL-kommando mot SQL-databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
+3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL Database för att lagra värdet för hög vatten märket
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL Database för att lagra värdet för hög vatten märket
 
-1. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för högvattenmärket: 
+1. Kör följande SQL-kommando mot databasen för att skapa en tabell med namnet `watermarktable` för att lagra värdet för vattenstämpeln: 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Skapa en lagrad procedur i Azure SQL Database 
 
-Kör följande kommando för att skapa en lagrad procedur i din SQL-databas. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
+Kör följande kommando för att skapa en lagrad procedur i databasen. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Skapa data typer och ytterligare lagrade procedurer i Azure SQL Database
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Skapa data typer och ytterligare lagrade procedurer i Azure SQL Database
 
-Kör följande fråga för att skapa två lagrade procedurer och två datatyper i SQL-databasen. De används för att slå samman data från källtabellerna till måltabellerna. 
+Kör följande fråga för att skapa två lagrade procedurer och två data typer i databasen. De används för att slå samman data från källtabellerna till måltabellerna. 
 
 För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig att det inte förväntar sig att ett "stort" antal delta rader (mer än 100) lagras i tabell variabeln.  
 
@@ -283,19 +283,19 @@ Observera följande punkter:
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
 
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Azure Storage, Azure SQL Database o.s.v.) och beräkningarna (Azure HDInsight o.s.v.) som används i datafabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, SQL Database, SQL-hanterad instans osv.) och beräkningarna (Azure HDInsight osv.) som används av data fabriken kan finnas i andra regioner.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server databas och Azure SQL Database. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server-databas och din databas i Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
 
 I det här steget länkar du SQL Server-databasen till data fabriken.
 
-1. Skapa en JSON-fil med namnet **SqlServerLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial (skapa de lokala mapparna om de inte redan finns) med följande innehåll. Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.  
+1. Skapa en JSON-fil med namnet **SqlServerLinkedService.js** i mappen mappen c:\adftutorials\inccopymultitabletutorial (skapa de lokala mapparna om de inte redan finns) med följande innehåll. Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.  
 
     > [!IMPORTANT]
     > Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.
@@ -372,9 +372,9 @@ I det här steget länkar du SQL Server-databasen till data fabriken.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>Skapa länkad SQL-databastjänst
+### <a name="create-the-sql-database-linked-service"></a>Skapa den länkade tjänsten SQL Database
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt; servername &gt; , &lt; databasens namn &gt; , &lt; användar namn &gt; och &lt; lösen ord &gt; med namnet på din SQL Server databas, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.jspå** i mappen c:\adftutorials\inccopymultitabletutorial-mappen med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt; servername &gt; , &lt; databasens namn &gt; , &lt; användar namn &gt; och &lt; lösen ord &gt; med namnet på din SQL Server databas, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
 
     ```json
     {  
@@ -411,7 +411,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
 
-1. Skapa en JSON-fil med namnet **SourceDataset. JSON** i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet **SourceDataset.js** i samma mapp med följande innehåll: 
 
     ```json
     {  
@@ -453,7 +453,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
 ### <a name="create-a-sink-dataset"></a>Skapa en källdatauppsättning
 
-1. Skapa en JSON-fil med namnet **SinkDataset. JSON** i samma mapp med följande innehåll. Elementet tableName har angetts av pipelinen dynamiskt vid körning. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration. 
+1. Skapa en JSON-fil med namnet **SinkDataset.js** i samma mapp med följande innehåll. Elementet tableName har angetts av pipelinen dynamiskt vid körning. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration. 
 
     ```json
     {  
@@ -502,7 +502,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
 I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke. 
 
-1. Skapa en JSON-fil med namnet **WatermarkDataset. JSON** i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet **WatermarkDataset.js** i samma mapp med följande innehåll: 
 
     ```json
     {
@@ -549,7 +549,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
-1. Skapa en JSON-fil med namnet **IncrementalCopyPipeline. JSON** i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet **IncrementalCopyPipeline.js** i samma mapp med följande innehåll: 
 
     ```json
     {  
@@ -783,7 +783,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
  
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-1. Skapa en parameter fil med namnet **Parameters. JSON** i samma mapp med följande innehåll:
+1. Skapa en parameter fil med namnet **Parameters.js** i samma mapp med följande innehåll:
 
     ```json
     {
@@ -839,7 +839,7 @@ Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för
 select * from customer_table
 ```
 
-**Utdata**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -857,7 +857,7 @@ PersonID    Name    LastModifytime
 select * from project_table
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ===================================
@@ -874,7 +874,7 @@ project3    2017-03-04 05:16:00.000
 select * from watermarktable
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ======================================
@@ -922,7 +922,7 @@ Kör följande frågor mot måldatabasen i SQL Server Management Studio för att
 select * from customer_table
 ```
 
-**Utdata**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -942,7 +942,7 @@ Lägg märke till de nya värdena för **Name** och **LastModifytime** för **Pe
 select * from project_table
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ===================================
@@ -962,7 +962,7 @@ Observera att posten **NewProject** har lagts till i project_table.
 select * from watermarktable
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ======================================

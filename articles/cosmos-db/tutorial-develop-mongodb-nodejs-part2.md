@@ -1,5 +1,5 @@
 ---
-title: Skapa Node. js Express-appen med Azure Cosmos DB s API för MongoDB (part2)
+title: Skapa Node.js Express-app med Azure Cosmos DB s API för MongoDB (part2)
 description: Del 2 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75441136"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119179"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
 
@@ -163,7 +163,7 @@ Den här kursen kräver även följande:
 
     Svaret visar att appen är aktiv och körs lokalt. 
 
-    ![Postman som visar begäran och svaret](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Postman som visar begäran och svaret":::
 
 
 ## <a name="next-steps"></a>Nästa steg

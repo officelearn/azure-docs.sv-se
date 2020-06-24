@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7d0bc787f1ae4444849a1483d6323f8a098ae1e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 115688eeccab3a48bf4234f00124bcd6bc950853
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053413"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251445"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudie: bygga en kluster modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I del två av den här själv studie serien i tre delar skapar du en K-medels modell i R för att utföra klustring. I nästa del av serien distribuerar du den här modellen i en SQL-databas med Azure SQL Database Machine Learning Services (för hands version).
+I del två av den här själv studie serien i tre delar skapar du en K-medels modell i R för att utföra klustring. I nästa del av serien distribuerar du den här modellen i en databas i Azure SQL Database med Azure SQL Database Machine Learning Services (för hands version).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -36,11 +36,11 @@ I den här artikeln får du lära dig att:
 > * Utför klustring
 > * Analysera resultaten
 
-I [del ett](clustering-model-prepare-data-tutorial.md)har du lärt dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
+I [del ett](clustering-model-prepare-data-tutorial.md)har du lärt dig hur du förbereder data från en databas för att utföra klustring.
 
-I [del tre](clustering-model-deploy-tutorial.md)får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring i R baserat på nya data.
+I [del tre](clustering-model-deploy-tutorial.md)lär du dig hur du skapar en lagrad procedur som kan utföra klustring i R baserat på nya data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Del två i den här självstudien förutsätter att du har slutfört [**del en**](clustering-model-prepare-data-tutorial.md) och dess krav.
 

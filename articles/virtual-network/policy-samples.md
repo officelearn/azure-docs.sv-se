@@ -1,24 +1,24 @@
 ---
 title: Inbyggda princip definitioner för Azure Virtual Network
 description: Visar Azure Policy inbyggda princip definitioner för Azure Virtual Network. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 3835f740cae592b31273d5e4b1c5faa1f1862876
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: f7ccab3d8aab9720de0abcdd5665d5f859c7c0c4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232523"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84884027"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Azure Policy inbyggda princip definitioner för Azure Virtual Network
+# <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure Policy inbyggda definitioner för Azure Virtual Network
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure Virtual Network. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 
-Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i kolumnen **version** om du vill visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9ec3687afa86d646140107e6e536a84164f85953
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 25b8d26b75d92947e403bd7ba3ccc37daa3f68c9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678213"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694531"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Beräkna optimerade storlekar för virtuella datorer
 
 Compute-optimerade VM-storlekar har ett högt förhållande mellan processor och minne. De här storlekarna är lämpliga för medel stora webb servrar, nätverks enheter, batch-processer och program servrar. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort. Den innehåller också information om lagrings data flöde och nätverks bandbredd för varje storlek i grupperingen.
 
-[Fsv2-serien](fsv2-series.md) baseras på Intel® Xeon® Platinum 8168-processorn. Den har en hållbar alla kärnor för Turbo Turbo klock hastighet på 3,4 GHz och en maximal Turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable processors. Dessa instruktioner ger till gång till en dubbel prestanda ökning till vektor bearbetning av arbets belastningar i både enkla och dubbla precisions åtgärder. Med andra ord är de verkligen snabba för alla beräknings arbets belastningar.
+[Fsv2-serien](fsv2-series.md) körs på andra generationen Intel® Xeon® platina 8272CL-processorer (Cascade Lake) och Intel® Xeon® platina 8168-processorer. Den har en hållbar alla kärnor för Turbo Turbo klock hastighet på 3,4 GHz och en maximal Turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable processors. Dessa instruktioner ger till gång till en dubbel prestanda ökning till vektor bearbetning av arbets belastningar i både enkla och dubbla precisions åtgärder. Med andra ord är de verkligen snabba för alla beräknings arbets belastningar.
 
 I ett lägre pris per timme-lista är Fsv2-serien det bästa värdet för pris prestanda i Azure-portföljen baserat på Azure Compute Unit (ACU) per vCPU.
 

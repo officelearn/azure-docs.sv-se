@@ -1,6 +1,6 @@
 ---
 title: Använd Azure Portal för att skapa en Data Factory-pipeline
-description: Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopierings aktiviteten för att kopiera data från Azure Blob Storage till en Azure SQL-databas.
+description: Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopierings aktiviteten för att kopiera data från Azure Blob Storage till Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248625"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253976"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data från Azure Blob Storage till en databas i Azure SQL Database genom att använda Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här data fabriken kopierar data från Azure Blob Storage till en Azure SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här data fabriken kopierar data från Azure Blob Storage till en databas i Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Om du inte har använt datafabriken tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ I den här självstudien får du göra följande:
 ## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
-* **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL-databas, se [skapa en SQL-databas](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
+* **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du gå till [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -61,7 +61,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
-1. Använd följande SQL-skript för att skapa tabellen **dbo.emp** i din SQL-databas:
+1. Använd följande SQL-skript för att skapa tabellen **dbo. EMP** i databasen:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -139,7 +139,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
 1. När den länkade tjänsten har skapats går den tillbaka till sidan **Ange egenskaper** . Vid **Filsökväg** väljer du **Bläddra**.
 
-1. Navigera till mappen **adftutorial/indata** , välj filen **EMP. txt** och välj sedan **OK**.
+1. Navigera till mappen **adftutorial/indata** , Välj **emp.txt** -filen och välj sedan **OK**.
 
 1. Välj **OK**. Den navigerar automatiskt till sidan pipelines. På fliken **källa** bekräftar du att **SourceBlobDataset** har valts. Om du vill förhandsgranska data på den här sidan väljer du **Förhandsgranska data**.
 
@@ -154,7 +154,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
 1. I dialog rutan **ny data uppsättning** anger du "SQL" i sökrutan för att filtrera anslutningarna, väljer **Azure SQL Database**och väljer sedan **Fortsätt**. I dessa självstudier kopierar du data till en SQL-databas.
 
-1. I dialog rutan **Ange egenskaper** anger du **OutputSqlDataset** som namn. I list rutan **länkad tjänst** väljer du **+ ny**. En datauppsättning måste associeras med en länkad tjänst. De länkade tjänsterna har anslutningssträngen som datafabriken använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den container, mapp och fil (valfritt) som data kopieras till.
+1. I dialog rutan **Ange egenskaper** anger du **OutputSqlDataset** som namn. I list rutan **länkad tjänst** väljer du **+ ny**. En datauppsättning måste associeras med en länkad tjänst. Den länkade tjänsten har anslutnings strängen som Data Factory använder för att ansluta till SQL Database vid körning. Datauppsättningen anger den container, mapp och fil (valfritt) som data kopieras till.
 
 1. Utför följande steg i dialog rutan **ny länkad tjänst (Azure SQL Database)** :
 
@@ -162,7 +162,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
     b. Under **Servernamn** väljer du din SQL Server-instans.
 
-    c. Under **Databasnamn** väljer du din SQL-databas.
+    c. Under **databas namn**väljer du din databas.
 
     d. Under **Användarnamn** anger du namnet på användaren.
 
@@ -209,7 +209,7 @@ I det här steget utlöser du manuellt pipelinen du publicerade i föregående s
 
     [![Övervaka aktivitets körningar](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Kontrollera att två rader har lagts till i tabellen **emp** i SQL-databasen.
+1. Kontrol lera att två rader läggs till i tabellen **EMP** i databasen.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Utlös pipelinen enligt ett schema
 I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör pipelinen enligt det angivna schemat, t.ex. varje timme eller dagligen. Här ställer du in utlösaren så att den körs varje minut tills angivet Slutdatum/tid-värde.

@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00dfac7c3036c4fd457c5d3a6bb4eb7bd4e56998
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81532667"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731332"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Hämta en lista med användare i Azure Active Directory Portal
 
@@ -32,7 +32,7 @@ Om du vill ladda ned listan med användare från Azure AD Admin Center måste du
 
 1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett användar administratörs konto i organisationen.
 2. Navigera till Azure Active Directory > användare. Välj sedan de användare som du vill inkludera i nedladdningen genom att kryssa i rutan i den vänstra kolumnen bredvid varje användare. Obs! det finns för tillfället inget sätt att markera alla användare för export. Var och en måste väljas individuellt.
-3. I Azure AD väljer **du användare** > **Ladda ned användare**.
+3. I Azure AD väljer **du användare**  >  **Ladda ned användare**.
 4. På sidan **Ladda ned användare** väljer du **Start** för att ta emot en CSV-fil som visar egenskaper för användar profiler. Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för Mass åtgärder. Filen innehåller orsaken för varje fel.
 
    ![Välj var du vill att listan över användare som du vill ladda ned ska hämtas](./media/users-bulk-download/bulk-download.png)

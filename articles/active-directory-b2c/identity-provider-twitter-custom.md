@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5804ded875ef03d7ade4414eb8f08885634748dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b06c69473336bd6273df340afde711b40dd62fe
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051600"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201879"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C
 
@@ -36,8 +36,8 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 1. Logga in på webbplatsen för [Twitter-utvecklare](https://developer.twitter.com/en/apps) med dina Twitter-kontoautentiseringsuppgifter.
 2. Välj **skapa en app**.
 3. Ange ett **namn på appen** och en **program beskrivning**.
-4. I **webbplats-URL**anger `https://your-tenant.b2clogin.com`du. Ersätt `your-tenant` med namnet på din klient. Till exempel `https://contosob2c.b2clogin.com`.
-5. Ange `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`för **återanrops-URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+4. I **webbplats-URL**anger du `https://your-tenant.b2clogin.com` . Ersätt `your-tenant` med namnet på din klient. Exempelvis `https://contosob2c.b2clogin.com`.
+5. Ange för **återanrops-URL: en** `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp` . Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Exempelvis `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 6. Längst ned på sidan, Läs och godkänn villkoren och välj sedan **skapa**.
 7. På sidan **information om appar** väljer du **Redigera > redigera information**, markerar kryss rutan **Aktivera inloggning med Twitter**och väljer sedan **Spara**.
 8. Välj **nycklar och tokens** och registrera konsument- **API-nyckeln** och de **hemliga nyckel** värden för konsument-API som ska användas senare.
@@ -51,10 +51,10 @@ Du måste lagra den hemliga nyckeln som du tidigare har registrerat i Azure AD B
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Manual`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `TwitterSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+6. För **alternativ**väljer du `Manual` .
+7. Ange ett **namn** för princip nyckeln. Exempelvis `TwitterSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 8. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
-9. För **nyckel användning**väljer `Encryption`du.
+9. För **nyckel användning**väljer du `Encryption` .
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -63,7 +63,7 @@ Om du vill att användarna ska logga in med ett Twitter-konto måste du definier
 
 Du kan definiera ett Twitter-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna *TrustFrameworkExtensions. XML*.
+1. Öppna *TrustFrameworkExtensions.xml*.
 2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 3. Lägg till en ny **ClaimsProvider** enligt följande:
 
@@ -114,27 +114,27 @@ Du kan definiera ett Twitter-konto som en anspråks leverantör genom att lägga
 Nu har du konfigurerat principen så att Azure AD B2C vet hur man kommunicerar med ditt Twitter-konto. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
 
 1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 3. Klicka på **Överför**.
 
 ## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
 
 Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig på någon av registrerings-eller inloggnings skärmarna. För att göra det tillgängligt, skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har Twitter-identitetsprovider.
 
-1. Öppna filen *TrustFrameworkBase. XML* från start paketet.
-2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
+1. Öppna *TrustFrameworkBase.xml* -filen från start paketet.
+2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
+3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInTwitter`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInTwitter`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
 **ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-eller inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för ett Twitter-konto visas en ny knapp när en användare hamnar på sidan.
 
 1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade.
-2. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `TwitterExchange`:
+2. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `TwitterExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     ```
 
@@ -145,13 +145,13 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `Twitter-OAUTH1`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Exempelvis `Twitter-OAUTH1`.
 
-3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
+3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
 
@@ -163,8 +163,8 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 
 Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
-1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignInTwitter. XML*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInTwitter`.
+1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignInTwitter.xml*.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInTwitter`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_twitter`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignTwitter).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.

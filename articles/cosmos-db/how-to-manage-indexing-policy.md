@@ -3,16 +3,16 @@ title: Hantera indexeringsprinciper i Azure Cosmos DB
 description: 'Lär dig hur du hanterar indexerings principer, tar med eller undantar en egenskap från indexering, hur du definierar indexering med hjälp av olika Azure Cosmos DB SDK: er'
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
 ms.custom: tracking-python
-ms.openlocfilehash: 341c315bfdcb99a2cacb32d8aed892c684c44601
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558896"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261519"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexeringsprinciper i Azure Cosmos DB
 
@@ -362,7 +362,7 @@ Azure Cosmos-behållare lagrar sin indexerings princip som ett JSON-dokument som
 
 1. Klicka på **Spara** när du är klar.
 
-![Hantera indexering med hjälp av Azure-portalen](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Hantera indexering med hjälp av Azure-portalen":::
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
@@ -544,9 +544,9 @@ containerResponse.subscribe(result -> {
 });
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
+## <a name="use-the-nodejs-sdk"></a>Använd Node.js SDK
 
-`ContainerDefinition`Gränssnittet från [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) (se [den här snabb](create-sql-api-nodejs.md) starten om användningen) visar en `indexingPolicy` egenskap som gör att du kan ändra `indexingMode` och lägga till eller ta bort `includedPaths` och `excludedPaths` .
+`ContainerDefinition`Gränssnittet från [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (se [den här snabb](create-sql-api-nodejs.md) starten om användningen) visar en `indexingPolicy` egenskap som gör att du kan ändra `indexingMode` och lägga till eller ta bort `includedPaths` och `excludedPaths` .
 
 Hämta behållarens information
 

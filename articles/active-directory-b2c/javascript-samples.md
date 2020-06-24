@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c66ccb8ae9db46ca8e94d9c73e9c61b64119dd0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187669"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201794"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel som används i Azure Active Directory B2C
 
@@ -47,10 +47,10 @@ I den här artikeln beskrivs hur du kan ändra den anpassade principen för att 
 
 Du aktiverar skript körning genom att lägga till **ScriptExecution** -elementet i [RelyingParty](relyingparty.md) -elementet.
 
-1. Öppna din anpassade princip fil. Till exempel *SignUpOrSignin. XML*.
+1. Öppna din anpassade princip fil. Till exempel *SignUpOrSignin.xml*.
 2. Lägg till **ScriptExecution** -elementet i **UserJourneyBehaviors** -elementet för **RelyingParty**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>
@@ -138,7 +138,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-I koden ersätter `termsOfUseUrl` du med länken till dina användnings villkor. Skapa ett nytt användarattribut med namnet **termsofuse** i din katalog och ta sedan med **termsofuse** som användar-attribut.
+I koden ersätter du `termsOfUseUrl` med länken till dina användnings villkor. Skapa ett nytt användarattribut med namnet **termsofuse** i din katalog och ta sedan med **termsofuse** som användar-attribut.
 
 ## <a name="next-steps"></a>Nästa steg
 

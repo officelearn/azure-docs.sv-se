@@ -1,19 +1,19 @@
 ---
 title: Skapa en Azure Image Builder-mall (förhands granskning)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779334"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263321"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -29,7 +29,7 @@ Detta är det grundläggande mallformat:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -61,7 +61,7 @@ Detta är det grundläggande mallformat:
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Plats
+## <a name="location"></a>Location
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
@@ -88,7 +88,7 @@ Som standard använder Image Builder en "Standard_D1_v2"-version av den virtuell
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Som standard kommer bild verktyget inte att ändra bildens storlek, den kommer att använda storleken från käll bilden. Du kan öka storleken på operativ system disken (Win och Linux), detta är valfritt och värdet 0 innebär att du lämnar samma storlek som käll avbildningen. 
+Som standard kommer bild verktyget inte att ändra bildens storlek, den kommer att använda storleken från käll bilden. Du kan **bara** öka storleken på operativ system disken (Win och Linux), detta är valfritt och värdet 0 innebär att du lämnar samma storlek som käll bilden. Du kan inte minska storleken på OS-disken till mindre än storleken från käll bilden.
 
 ```json
  {
@@ -521,7 +521,7 @@ Avbildningens utdata är en hanterad avbildnings resurs.
  
 Distribuera egenskaper:
 - **typ** – managedImage 
-- **imageId** – resurs-ID för mål avbildningen, förväntat format:/subscriptions/ \< subscriptionId>/ResourceGroups/ \< destinationResourceGroupName>/providers/Microsoft.Compute/images/ \< imageName>
+- **imageId** – resurs-ID för mål avbildningen, förväntat format:/Subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
 - **plats** – plats för den hanterade avbildningen.  
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
@@ -561,7 +561,7 @@ Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri 
 Distribuera egenskaper för delade avbildnings gallerier:
 
 - **typ** -sharedImage  
-- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet är:/Subscriptions/ \< subscriptionId>/ResourceGroups/ \< resourceGroupName>/providers/microsoft.compute/galleries/ \< sharedImageGalleryName>/images/ \< imageGalleryName>.
+- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet är:/Subscriptions/ \<subscriptionId> /ResourceGroups/ \<resourceGroupName> /providers/Microsoft.Compute/Galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
 - **replicationRegions** -matris för replikering. En av regionerna måste vara den region där galleriet har distribuerats.

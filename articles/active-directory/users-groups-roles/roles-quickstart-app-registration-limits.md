@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5acfa98636f54f87facf9771beb7d94dbd2b324
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559053"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731740"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
 
@@ -26,13 +26,13 @@ I den här snabb starten ska du skapa en anpassad roll med behörighet att skapa
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade Azure AD-roller är den privilegierade roll administratören.
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Skapa en ny anpassad roll med hjälp av Azure AD-portalen
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com)   med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
 1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan **ny anpassad roll**.
 
     ![Skapa eller redigera roller från sidan roller och administratörer](./media/roles-create-custom/new-custom-role.png)
@@ -49,7 +49,7 @@ Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Tilldela rollen till en användare med hjälp av Azure AD-portalen
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i din Azure AD-organisation.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com)   med privilegierade roll administratörer eller globala administratörs behörigheter i din Azure AD-organisation.
 1. Välj **Azure Active Directory** och välj sedan **roller och administratörer**.
 1. Välj rollen program registrering skapare och välj **Lägg till tilldelning**.
 1. Välj önskad användare och klicka på **Välj** för att lägga till användaren i rollen.
@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Innehåll
+Brödtext
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Innehåll
+Brödtext
 
 ``` HTTP
 {

@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8a69e0bfe172d2cc7a291ee51ffa73ae7b484731
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 30a4e375bc05d939358b54b279228e1696b17e66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613640"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729344"
 ---
 # <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>Hur skiljer sig nya Azure Digital-dubblare från den tidigare versionen (2018)?
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Den första offentliga för hands versionen av Azure Digitals, släpptes i oktober 2018. Även om kärn begreppen från den tidigare versionen har överförts till den nya tjänsten i offentlig för hands version, har många av gränssnitten och implementerings detaljerna ändrats för att göra tjänsten mer flexibel och tillgänglig. Ändringarna har motiverats av kundfeedback.
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d55c6b514f6401e60891f0713cb1b4135bb62ab6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676004"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752637"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)
 
@@ -83,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Utföra en återställnings åtgärd
 
-Starta en återställnings åtgärd genom att anropa kommandot **restore-AzStorageBlobRange** och ange återställnings punkten som ett UTC- **slutdatum** värde. Du kan ange lexicographical-intervall för blobbar som ska återställas eller utelämna ett intervall för att återställa alla blobbar i alla behållare i lagrings kontot. Upp till 10 lexicographical-intervall stöds per återställnings åtgärd. Återställnings åtgärden kan ta flera minuter att slutföra.
+Starta en återställnings åtgärd genom att anropa kommandot **restore-AzStorageBlobRange** och ange återställnings punkten som ett UTC- **slutdatum** värde. Du kan ange lexicographical-intervall för blobbar som ska återställas eller utelämna ett intervall för att återställa alla blobbar i alla behållare i lagrings kontot. Upp till 10 lexicographical-intervall stöds per återställnings åtgärd. Page blobbar och bifogade blobbar ingår inte i återställningen. Återställnings åtgärden kan ta flera minuter att slutföra.
 
 Tänk på följande regler när du anger ett intervall med blobbar som ska återställas:
 
@@ -165,6 +165,15 @@ $job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 # Check the state of the job.
 $job.State
 ```
+
+Om du vill vänta på slut för ande av återställningen när den har körts anropar du kommandot [wait-Job](/powershell/module/microsoft.powershell.core/wait-job) , som du ser i följande exempel:
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>Kända problem
+- För en del av Restore Restore-listor där tillägg för tillägg finns kommer återställningen inte att fungera. För tillfället ska du inte utföra återställningar om det finns tillägg till blobar i kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 

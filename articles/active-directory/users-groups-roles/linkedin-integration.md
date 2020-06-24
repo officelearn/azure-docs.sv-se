@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582641"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727202"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-konto anslutningar i Azure Active Directory
 
@@ -40,7 +40,7 @@ Du kan ge användare i organisationen åtkomst till sina LinkedIn-anslutningar i
 Du kan aktivera LinkedIn-konto anslutningar för enbart de användare som du vill ha åtkomst till, från hela organisationen till endast valda användare i din organisation.
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-organisationen.
-1. Välj **Användare**.
+1. Välj **användare**.
 1. Välj **användar inställningar**på sidan **användare** .
 1. Under **LinkedIn-konto anslutningar**kan användare ansluta sina konton för att komma åt sina LinkedIn-anslutningar i vissa Microsoft-appar. Inga data delas förrän användare beviljats att ansluta sina konton.
 
@@ -91,7 +91,7 @@ Om du vill använda gruppen från steg två som den valda gruppen i inställning
 1. Hämta [Office 2016-filerna för administrativa mallar (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Extrahera **ADMX** -filerna och kopiera dem till den centrala butiken.
 1. Öppna Grupprinciphantering.
-1. Skapa ett Grupprincip-objekt med följande inställning: **användar konfiguration** > **administrativa mallar** > **Microsoft Office 2016** > **Diverse** > **Visa LinkedIn-funktioner i Office-program**.
+1. Skapa ett Grupprincip-objekt med följande inställning: **användar konfiguration**  >  **administrativa mallar**  >  **Microsoft Office 2016**  >  **Diverse**  >  **Visa LinkedIn-funktioner i Office-program**.
 1. Välj **aktive rad** eller **inaktive**rad.
   
    Status | Verkan

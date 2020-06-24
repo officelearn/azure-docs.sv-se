@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848931"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731520"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Massredigera användare i Azure Active Directory
 
@@ -39,7 +39,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV så att du kan skapa Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -80,7 +80,7 @@ Sedan kan du kontrol lera att de användare du skapade finns i Azure AD-organisa
 
 1. [Logga in på administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
 1. I navigerings fönstret väljer du **Azure Active Directory**.
-1. Under **Hantera** väljer du **Användare**.
+1. Under **Hantera** väljer du **Användare**.
 1. Under **Visa**, väljer du **alla användare** och kontrollerar att de användare som du har skapat visas.
 
 ### <a name="verify-users-with-powershell"></a>Verifiera användare med PowerShell

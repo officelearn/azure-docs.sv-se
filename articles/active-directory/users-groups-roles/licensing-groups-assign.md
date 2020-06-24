@@ -7,7 +7,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/29/2020
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582708"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727661"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory
 
@@ -59,7 +59,7 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Steg 2: kontrol lera att den inledande tilldelningen har avslut ATS
 
-1. Gå till **Azure Active Directory** > **grupper**. Välj den grupp som licenserna tilldelades.
+1. Gå till **Azure Active Directory**  >  **grupper**. Välj den grupp som licenserna tilldelades.
 
 1. Välj **licenser**på sidan grupp. På så sätt kan du snabbt bekräfta om licenserna har tilldelats fullständigt till användare och om det finns fel som du behöver titta på. Följande information är tillgänglig:
 
@@ -71,17 +71,17 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
    ![licens fel och licens status](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Se mer detaljerad information om licens bearbetning under **Azure Active Directory** > **användare och grupper** > *grupp namn* > **gransknings loggar**. Kontrol lera följande aktiviteter:
+1. Se mer detaljerad information om licens bearbetning under **Azure Active Directory**  >  **användare och grupper**  >  *grupp namn*  >  **gransknings loggar**. Kontrol lera följande aktiviteter:
 
-   - Aktivitet: `Start applying group based license to users`. Detta loggas när systemet hämtar ändringen av licens tilldelningen i gruppen och börjar tillämpa den på alla användar medlemmar. Den innehåller information om den ändring som har gjorts.
+   - Aktivitet: `Start applying group based license to users` . Detta loggas när systemet hämtar ändringen av licens tilldelningen i gruppen och börjar tillämpa den på alla användar medlemmar. Den innehåller information om den ändring som har gjorts.
 
-   - Aktivitet: `Finish applying group based license to users`. Detta loggas när systemet har slutfört bearbetningen av alla användare i gruppen. Den innehåller en översikt över hur många användare som har bearbetats och hur många användare som inte kunde tilldelas grupp licenser.
+   - Aktivitet: `Finish applying group based license to users` . Detta loggas när systemet har slutfört bearbetningen av alla användare i gruppen. Den innehåller en översikt över hur många användare som har bearbetats och hur många användare som inte kunde tilldelas grupp licenser.
 
    [Läs det här avsnittet](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) om du vill veta mer om hur gransknings loggar kan användas för att analysera ändringar som görs med gruppbaserad licensiering.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Sök efter licens problem och lös dem
 
-1. Gå till **Azure Active Directory** > **grupper**och Sök efter den grupp som licenser har tilldelats.
+1. Gå till **Azure Active Directory**  >  **grupper**och Sök efter den grupp som licenser har tilldelats.
 1. Välj **licenser**på sidan grupp. Meddelandet överst på sidan visar att det finns 10 användare som det inte gick att tilldela licenser till. Öppna den för att se en lista över alla användare i ett licensierings fel tillstånd för den här gruppen.
 1. Kolumnen **misslyckade tilldelningar** visar att det inte gick att tilldela båda produkt licenserna till användarna. Den **vanligaste orsaken till fel** -kolumnen innehåller orsaken till felet. I det här fallet är **tjänst planer i konflikt**.
 

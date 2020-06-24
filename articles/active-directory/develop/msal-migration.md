@@ -9,33 +9,70 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3af18eb09fd9906a0caaebda0b786795400467f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 451615ae5a642260a596ee93dc27f04cfa4b644e
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164937"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298165"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrera program till Microsoft Authentication Library (MSAL)
 
-Både Microsoft Authentication Library (MSAL) och Azure AD Authentication Library (ADAL) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Använda MSAL:
+Många utvecklare har skapat och distribuerat program med hjälp av Active Active Directory-autentiseringsbibliotek (ADAL). Vi rekommenderar nu att du använder Microsoft Authentication Library (MSAL) för autentisering och auktorisering av Azure AD-entiteter.
 
-- Du kan autentisera en bredare uppsättning av Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) när du använder Microsoft Identity Platform-slutpunkten.
+Genom att använda MSAL i stället för ADAL:
+
+- Du kan autentisera en bredare uppsättning identiteter:
+  - Azure AD-identiteter
+  - Microsoft-konton
+  - Sociala och lokala konton med hjälp av Azure AD B2C
 - Användarna får bästa möjliga upplevelse med enkel inloggning.
-- Ditt program kan möjliggöra stegvist tillstånd och stöd för villkorlig åtkomst är enklare.
-- Du får nytta av innovationen.
+- Ditt program kan möjliggöra stegvist tillstånd.
+- Det är enklare att stödja villkorlig åtkomst.
+- Du får nytta av innovation. Eftersom alla Microsoft Development-ansträngningar nu fokuserar på MSAL, kommer inga nya funktioner att implementeras i ADAL.
 
-**MSAL är nu det rekommenderade auth-biblioteket som ska användas med Microsoft Identity Platform**. Inga nya funktioner kommer att implementeras på ADAL. Ansträngningarna fokuserar på att förbättra MSAL.
+**MSAL är nu det rekommenderade autentiseringscertifikatet för användning med Microsoft Identity Platform**.
 
-I följande artiklar beskrivs skillnaderna mellan MSAL-och ADAL-biblioteken och hjälper dig att migrera till MSAL:
-- [Migrera till MSAL.NET](msal-net-migration.md)
-- [Migrera till MSAL.js](msal-compare-msal-js-and-adal-js.md)
+## <a name="migration-guidance"></a>Vägledning för migrering
+
+Följande artiklar kan hjälpa dig att migrera till MSAL:
+
 - [Migrera till MSAL.Android](migrate-android-adal-msal.md)
 - [Migrera till MSAL.iOS/macOS](migrate-objc-adal-msal.md)
+- [Migrera till MSAL Java](migrate-adal-msal-java.md)
+- [Migrera till MSAL.js](msal-compare-msal-js-and-adal-js.md)
+- [Migrera till MSAL.NET](msal-net-migration.md)
 - [Migrera till MSAL Python](migrate-python-adal-msal.md)
-- [Migrera till MSAL för Java](migrate-adal-msal-java.md)
 - [Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET](msal-net-migration-ios-broker.md)
+
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+
+__F: är ADAL föråldrad?__  
+S: Ja. Från och med den 30 juni 2020 kommer vi inte längre att lägga till nya funktioner i ADAL. Vi fortsätter att lägga till viktiga säkerhets korrigeringar till ADAL fram till den 30 juni 2022.
+
+__F: Hur gör jag för att vet vilka av mina appar som använder ADAL?__  
+A: om du har käll koden för programmet kan du referera till ovanstående stöd linjer för att avgöra vilket bibliotek appen använder och hur du migrerar den till MSAL. Om du inte har åtkomst till programmets käll kod kan du [öppna en supportbegäran](developer-support-help-options.md#open-a-support-request) för att hämta en lista över dina registrerade program och biblioteket som varje program använder.
+
+__F: kommer mina befintliga ADAL-appar fortsätta att fungera?__ A: dina befintliga appar fortsätter att fungera utan att du behöver göra några ändringar. Om du planerar att behålla dem efter den 30 juni 2022 bör du överväga att uppdatera dem till MSAL för att skydda dem, men migrera till MSAL krävs inte för att upprätthålla befintliga funktioner.
+
+__F: Varför bör jag investera i MSAL?__  
+A: MSAL innehåller nya funktioner som inte finns i ADAL, inklusive stegvist godkännande, enkel inloggning och hantering av token cache. Till skillnad från ADAL kommer MSAL även fortsättnings vis att få säkerhets uppdateringar utöver den 30 juni 2022. [Läs mer](msal-overview.md).
+
+__F: kommer du att lansera ett verktyg som hjälper mig att flytta mina appar från ADAL till MSAL?__  
+S: Nej. Skillnader mellan biblioteken kräver att dedikerade resurser för utveckling och underhåll av verktyget som annars skulle ägnas åt att förbättra MSAL. Vi ger dock den föregående uppsättningen med stöd guider för att hjälpa dig att göra nödvändiga ändringar i ditt program.
+
+__F: Hur fungerar MSAL med AD FS?__  
+S: MSAL.NET stöder vissa scenarier för autentisering mot AD FS 2019. Om din app behöver hämta tokens direkt från en tidigare version av AD FS bör du vara kvar på ADAL. [Läs mer](msal-net-adfs-support.md).
+
+__F: Hur gör jag för att få hjälp med att migrera mitt program?__  
+A: se avsnittet om [migrations vägledning](#migration-guidance) i den här artikeln. Om du efter att ha läst guiden för appens plattform har fler frågor kan du publicera på Stack Overflow med taggen `[adal-deprecation]` eller öppna ett ärende i bibliotekets GitHub-lagringsplats. I avsnittet [språk och ramverk](msal-overview.md#languages-and-frameworks) i översikts artikeln om MSAL finns länkar till varje biblioteks lagrings platsen.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Uppdatera dina program så att de använder Microsoft Authentication Library och Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+- [Lär dig mer om Microsoft Identity Platform (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+- [Granska våra MSAL-kod exempel](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)

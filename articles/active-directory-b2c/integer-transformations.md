@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 066a6489e6244369453ec5d9f21d5e1e83fcd6c8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187686"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201758"
 ---
 # <a name="integer-claims-transformations"></a>Transformeringar av heltals anspråk
 
@@ -28,14 +28,14 @@ Den här artikeln innehåller exempel på hur du använder heltals anspråks omv
 
 Konverterar en lång data typ till en sträng data typ.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | ClaimType som ska konverteras till en sträng. |
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-I det här exemplet konverteras `numericUserId` anspråket med värde typen Long till ett `UserId` anspråk med ett värde av sträng typ.
+I det här exemplet `numericUserId` konverteras anspråket med värde typen Long till ett `UserId` anspråk med ett värde av sträng typ.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />

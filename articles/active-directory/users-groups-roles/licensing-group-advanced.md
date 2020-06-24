@@ -7,7 +7,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 11/08/2019
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582774"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727678"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -28,7 +28,7 @@ Använd följande information och exempel för att få en mer avancerad förstå
 
 ## <a name="usage-location"></a>Användnings plats
 
-Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. I [Azure Portal](https://portal.azure.com)kan du ange användnings plats i **Inställningar**för **användar** &gt; **profil** &gt; .
+Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. I [Azure Portal](https://portal.azure.com)kan du ange användnings plats i inställningar för **användar** &gt; **profil** &gt; **Settings**.
 
 För grupp licens tilldelningen ärver alla användare som saknar en användnings plats platsen för katalogen. Om du har användare på flera platser måste du se till att de stämmer överens med dina användar resurser innan du lägger till användare i grupper med licenser.
 
@@ -193,7 +193,7 @@ I det här exemplet på utdata visas starten av bearbetningen, alla resulterande
 
 Det går inte att ta bort en grupp med en aktiv tilldelad licens. En administratör kan ta bort en grupp som inte realiserar att den kommer att göra att licenser tas bort från användarna – av den anledningen kräver vi att alla licenser tas bort från gruppen först innan den kan tas bort.
 
-När du försöker ta bort en grupp i Azure Portal kan ett fel meddelande visas som detta: ![det gick inte att ta bort skärm bilds gruppen](./media/licensing-group-advanced/groupdeletionfailed.png)
+När du försöker ta bort en grupp i Azure Portal kan ett fel meddelande visas som detta: ![ Det gick inte att ta bort skärm bilds gruppen](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Gå till fliken **licenser** i gruppen och se om det finns några tilldelade licenser. Om ja, ta bort dessa licenser och försök att ta bort gruppen igen.
 

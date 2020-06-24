@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 03c5e3fe7fe84b968b59d0668619b3feddacc4f1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739321"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727831"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
@@ -64,7 +64,7 @@ Innan du kan börja hantera grupper med Azure AD PowerShell-cmdlets måste du an
     PS C:\Windows\system32> Connect-AzureAD
 ```
 
-Cmdlet: en efterfrågar de autentiseringsuppgifter som du vill använda för att få åtkomst till din katalog. I det här exemplet använder karen@drumkit.onmicrosoft.com vi för att få åtkomst till demonstrations katalogen. Cmdleten returnerar en bekräftelse för att visa att sessionen är ansluten till din katalog:
+Cmdlet: en efterfrågar de autentiseringsuppgifter som du vill använda för att få åtkomst till din katalog. I det här exemplet använder vi karen@drumkit.onmicrosoft.com för att få åtkomst till demonstrations katalogen. Cmdleten returnerar en bekräftelse för att visa att sessionen är ansluten till din katalog:
 
 ```powershell
     Account                       Environment Tenant ID
@@ -274,7 +274,7 @@ Så här inaktiverar du grupp skapande för icke-administratörer:
    PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
    ```
   
-2. Om den returneras `UsersPermissionToCreateGroupsEnabled : True`kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
+2. Om den returneras `UsersPermissionToCreateGroupsEnabled : True` kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
   
    ```powershell 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False

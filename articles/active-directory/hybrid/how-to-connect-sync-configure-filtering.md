@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261104"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690906"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -270,7 +270,7 @@ Om du behöver kan du skapa fler regler av den första typen där du inkluderar 
 ### <a name="outbound-filtering"></a>Utgående filtrering
 I vissa fall är det nödvändigt att bara filtrera efter att objekten har anslutits till metaversum. Det kan till exempel vara nödvändigt att titta på e-postattributet från resurs skogen och attributet userPrincipalName från konto skogen för att avgöra om ett objekt ska synkroniseras. I dessa fall skapar du filtreringen för regeln för utgående trafik.
 
-I det här exemplet ska du ändra filtreringen så att endast användare som har både e-post och userPrincipalName @contoso.com som slutar med synkroniseras:
+I det här exemplet ska du ändra filtreringen så att endast användare som har både e-post och userPrincipalName som slutar med @contoso.com synkroniseras:
 
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **Redigeraren för regler för synkronisering** från **Start** -menyn.
@@ -278,7 +278,7 @@ I det här exemplet ska du ändra filtreringen så att endast användare som har
 4. Beroende på vilken version av Connect du använder kan du antingen hitta regeln med namnet **AAD – User Join** eller **out to AAD-User Join SOAInAD**och klicka på **Edit**.
 5. I popup-fönstret svarar du **Ja** för att skapa en kopia av regeln.
 6. På sidan **Beskrivning** ändrar du **prioriteten** till ett oanvänt värde, till exempel 50.
-7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut**väljer du **e-post**. I **operator**väljer du **ENDSWITH**. I **värde**skriver ** \@du contoso.com**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **userPrincipalName**. I **operator**väljer du **ENDSWITH**. I **värde**skriver ** \@du contoso.com**.
+7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut**väljer du **e-post**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **userPrincipalName**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**.
 8. Klicka på **Spara**.
 9. För att slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätt läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 
@@ -298,11 +298,11 @@ Gör så här:
 
 Efter synkroniseringen mellanlagras alla ändringar för att exporteras. Innan du gör ändringarna i Azure AD vill du kontrol lera att alla dessa ändringar är korrekta.
 
-1. Starta en kommando tolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
+1. Starta en kommando tolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
 2. Kör `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    Namnet på anslutnings tjänsten finns i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
 3. Kör `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
-4. Nu har du en fil i% temp% med namnet export. csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
+4. Nu har du en fil i% temp% med namnet export.csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 5. Gör nödvändiga ändringar i data eller konfiguration och kör de här stegen igen (importera, synkronisera och verifiera) tills de ändringar som ska exporteras är det du förväntar dig.
 
 När du är nöjd exporterar du ändringarna till Azure AD.

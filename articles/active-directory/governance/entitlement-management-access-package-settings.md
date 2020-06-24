@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a29f0a0231cdea5a73b7798088002e63ec93324
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968752"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078551"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Dela länk för att begära ett Access-paket i Azure AD-hantering av rättigheter
 
@@ -41,7 +41,7 @@ Så länge katalogen för Access-paketet är [aktive rad för externa användare
 
     ![Översikt över åtkomst paket – länken min åtkomst Portal](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    Det är viktigt att du kopierar hela min åtkomst Portal-länken när du skickar den till en intern affärs partner. Detta säkerställer att partnern får åtkomst till din katalogs Portal för att göra sin begäran. Länken börjar med `myaccess`, innehåller ett katalog tips och slutar med ett Access-paket-ID.  (För amerikanska myndigheter är domänen i min åtkomst Portal länk `myaccess.microsoft.us`.)
+    Det är viktigt att du kopierar hela min åtkomst Portal-länken när du skickar den till en intern affärs partner. Detta säkerställer att partnern får åtkomst till din katalogs Portal för att göra sin begäran. Länken börjar med `myaccess` , innehåller ett katalog tips och slutar med ett Access-paket-ID.  (För amerikanska myndigheter är domänen i min åtkomst Portal länk `myaccess.microsoft.us` .)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa76f68be2f886ead16bd718cbeb8d14c78fe6d7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085118"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731995"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Anpassade administratörs roller i Azure Active Directory (för hands version)
 
@@ -58,7 +58,7 @@ En roll tilldelning är det objekt som bifogar en roll definition till en använ
 
 - Användare (en person som har en användar profil i Azure Active Directory)
 - Rolldefinition
-- Resurs omfång
+- Resursomfång
 
 Du kan [skapa roll tilldelningar](roles-create-custom.md) med hjälp av Azure Portal, Azure AD PowerShell eller Graph API. Du kan också [Visa tilldelningarna för en anpassad roll](roles-view-assignments.md#view-the-assignments-of-a-role).
 

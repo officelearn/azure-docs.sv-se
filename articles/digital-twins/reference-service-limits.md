@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 4497e1222904b1dad5fbeccd942854443e756ed5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 7847964d77e5dc09d2e09f207c47f9504c48e1db
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612847"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729208"
 ---
 # <a name="service-limits-in-public-preview"></a>Tjänst begränsningar i offentlig för hands version
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Det här är tjänst gränserna för Azure Digitals dubbla i den offentliga för hands versionen.
 
@@ -27,32 +30,32 @@ Det här är tjänst gränserna för Azure Digitals dubbla i den offentliga för
 
 I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den aktuella för hands versionen.
 
-| Område | Kapacitet | Gräns | Justerbar? |
+| Område | Funktion | Gräns | Justerbar? |
 | --- | --- | --- | --- |
-| Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Ja |
-| Digitala dubbla | Antal dubbla i en digital Azure-instans | 200 000 | Ja |
-| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | Nej |
-| Routning | Antal vägar för en enda digital Azure-instans | 6 | Ja |
-| Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Ja |
-| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | Nej |
-| Modeller | Antal objekt som har returnerats på en enda sida | 100 | Nej |
-| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | Nej |
+| Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Yes |
+| Digitala dubbla | Antal dubbla i en digital Azure-instans | 200 000 | Yes |
+| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | No |
+| Routning | Antal vägar för en enda digital Azure-instans | 6 | Yes |
+| Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Yes |
+| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | No |
+| Modeller | Antal objekt som har returnerats på en enda sida | 100 | No |
+| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | No |
 | Söka i data | Antal `AND`  /  `OR` uttryck i en fråga | 50 | Ja |
 | Söka i data | Antal mat ris objekt i en `IN`  /  `NOT IN` sats | 50 | Ja |
 | Söka i data | Antal tecken i en fråga | 8,000 | Ja |
-| Söka i data | Antal `JOINS` i en fråga | 1 | Ja |
+| Söka i data | Antal `JOINS` i en fråga | 1 | Yes |
 
 ## <a name="rate-limits"></a>Hastighets begränsningar
 
 Den här tabellen visar frekvens gränserna för olika API: er.
 
-| API | Kapacitet | Gräns | Justerbar? |
+| API | Funktion | Gräns | Justerbar? |
 | --- | --- | --- | --- |
-| Modell-API | Antal begär Anden per sekund | 100 | Ja |
-| Digitals dubbla API | Antal begär Anden per sekund | 1,000 | Ja |
-| Fråge-API | Antal begär Anden per sekund | 500 | Ja |
-| Fråge-API | Fråge enheter per sekund | 4 000 | Ja |
-| API för händelse vägar | Antal begär Anden per sekund | 100 | Ja |
+| Modell-API | Antal begär Anden per sekund | 100 | Yes |
+| Digitals dubbla API | Antal begär Anden per sekund | 1,000 | Yes |
+| Fråge-API | Antal begär Anden per sekund | 500 | Yes |
+| Fråge-API | Fråge enheter per sekund | 4 000 | Yes |
+| API för händelse vägar | Antal begär Anden per sekund | 100 | Yes |
 
 ## <a name="other-limits"></a>Andra gränser
 

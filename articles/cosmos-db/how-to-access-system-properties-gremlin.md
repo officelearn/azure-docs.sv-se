@@ -3,20 +3,20 @@ title: Åtkomst till system dokument egenskaper via Azure Cosmos DB Graph
 description: Lär dig hur Läs-och skriv Cosmos DB egenskaper för system dokument via Gremlin-API
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b3c95f5727c3839974f79e8d147f99d49c4b1d6
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898312"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261757"
 ---
 # <a name="system-document-properties"></a>System dokument egenskaper
 
-Azure Cosmos DB har [system egenskaper](https://docs.microsoft.com/rest/api/cosmos-db/databases) som ```_ts``` ```_self```, ```_attachments``` ```_rid```,, och ```_etag``` i varje dokument. Gremlin-motorn har dessutom egenskaperna ```inVPartition``` och ```outVPartition``` för kanter. Som standard är dessa egenskaper tillgängliga för Traversal. Det är dock möjligt att inkludera vissa egenskaper, eller alla, i Gremlin Traversal.
+Azure Cosmos DB har [system egenskaper](https://docs.microsoft.com/rest/api/cosmos-db/databases) som,,, ```_ts``` ```_self``` ```_attachments``` ```_rid``` och ```_etag``` i varje dokument. Gremlin-motorn har dessutom egenskaperna ```inVPartition``` och ```outVPartition``` för kanter. Som standard är dessa egenskaper tillgängliga för Traversal. Det är dock möjligt att inkludera vissa egenskaper, eller alla, i Gremlin Traversal.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
-Om insamlingen av dokument har förfallit och dokument har en egenskap som har ```ttl``` angetts för dem, blir den här egenskapen tillgänglig i Gremlin Traversal som en vanlig hörn-eller kant egenskap. ```ProjectionStrategy```är inte nödvändigt för att aktivera exponering för TTL (Time to Live).
+Om insamlingen av dokument har förfallit och dokument har en ```ttl``` egenskap som har angetts för dem, blir den här egenskapen tillgänglig i Gremlin Traversal som en vanlig hörn-eller kant egenskap. ```ProjectionStrategy```är inte nödvändigt för att aktivera exponering för TTL (Time to Live).
 
 Hörn som skapats med bläddringen nedan tas automatiskt bort efter **123 sekunder**.
 

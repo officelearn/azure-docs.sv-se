@@ -2,25 +2,25 @@
 title: Ta bort personliga data – Azure Active Directory-programproxy
 description: Ta bort personliga data från anslutningar som är installerade på enheter för Azure Active Directory-programproxy.
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe97956d99bd5c677e499b532ef85a1bb4d324ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275415"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759971"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Ta bort personliga data för Azure Active Directory-programproxy
 
@@ -52,7 +52,7 @@ Använd följande avsnitt för att ta bort personliga data från anslutnings hä
 
 ### <a name="view-or-export-specific-data"></a>Visa eller exportera vissa data
 
-Om du vill visa eller exportera vissa data kan du söka efter relaterade poster i varje anslutnings händelse loggar. Loggarna finns på `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
+Om du vill visa eller exportera vissa data kan du söka efter relaterade poster i varje anslutnings händelse loggar. Loggarna finns på `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace` .
 
 Eftersom loggarna är textfiler kan du använda [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) för att söka efter text poster som är relaterade till en användare.  
 
@@ -75,7 +75,7 @@ Ta bort vissa data:
 
 ### <a name="turn-off-connector-logs"></a>Inaktivera kopplings loggar
 
-Ett alternativ för att se till att anslutnings loggar inte innehåller personliga data är att inaktivera logg genereringen. Om du vill stoppa genereringen av kopplings loggar tar du `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`bort följande markerade rad från.
+Ett alternativ för att se till att anslutnings loggar inte innehåller personliga data är att inaktivera logg genereringen. Om du vill stoppa genereringen av kopplings loggar tar du bort följande markerade rad från `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config` .
 
 ![Visar ett kodfragment med den markerade koden som ska tas bort](./media/application-proxy-remove-personal-data/01.png)
 

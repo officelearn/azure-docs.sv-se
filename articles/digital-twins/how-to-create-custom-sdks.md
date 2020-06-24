@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 3d6fa1660f5204137dbebeae36f6d06852d88412
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613161"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725808"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Just nu är det enda publicerade data planet SDK för att interagera med Azure Digitals API: er för digital dubbla API: er för .NET (C#). Du kan läsa om .NET SDK och API: erna i allmänhet i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar din egen SDK på valfritt språk, med hjälp av AutoRest.
 
@@ -22,10 +25,10 @@ Just nu är det enda publicerade data planet SDK för att interagera med Azure D
 
 Om du vill generera ett SDK behöver du:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 stöds inte för närvarande)
-* [Node. js](https://nodejs.org) som ett krav för AutoRest
+* [Node.js](https://nodejs.org) som ett krav för AutoRest
 * [Azure Digitals openapi-fil (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
 
-Om du har Node. js installerat kan du köra det här kommandot för att kontrol lera att du har rätt version av AutoRest installerat:
+Om du har Node.js installerat kan du köra det här kommandot för att kontrol lera att du har rätt version av AutoRest installerat:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```

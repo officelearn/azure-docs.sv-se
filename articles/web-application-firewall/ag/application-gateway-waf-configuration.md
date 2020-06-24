@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526798"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752477"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
 
@@ -31,7 +31,6 @@ Följande attribut kan läggas till i undantags listor efter namn. Värdena för
 * Attribut för begäran (argument) kan läggas till som ett undantags element, till exempel:
 
    * Formulär fält namn
-   * XML-entitet
    * JSON-entitet
    * Argument för URL-frågesträng
 
@@ -82,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Så om URL: `http://www.contoso.com/?user%281%29=fdafdasfda` en skickas till WAF utvärderas inte strängen **fdafdasfda**, men den kommer fortfarande att utvärdera parameter namn **användaren %281 %29**. 
+Så om URL: en `http://www.contoso.com/?user%281%29=fdafdasfda` skickas till WAF utvärderas inte strängen **fdafdasfda**, men den kommer fortfarande att utvärdera parameter namn **användaren %281 %29**. 
 
 ## <a name="waf-request-size-limits"></a>Storleks gränser för WAF-begäran
 

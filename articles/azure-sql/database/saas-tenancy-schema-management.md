@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 02b7b7b78e2a5933d9e9cc5931ca2cd2a46a6e9e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449307"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255559"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas per klient med Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,10 +62,10 @@ Programmets käll kod och hanterings skript är tillgängliga i [WingtipTicketsS
 
 I den här självstudien krävs att du använder PowerShell för att skapa en jobb agent och dess agent databas för återställning av jobb. Jobb Agent databasen innehåller jobb definitioner, jobb status och historik. När jobb agenten och databasen har skapats kan du skapa och övervaka jobb direkt.
 
-1. **I POWERSHELL ISE**öppnar du... \\ Inlärnings moduler \\ schema hantering \\ *schemamanagement. ps1*.
+1. **I POWERSHELL ISE**öppnar du... \\ Modulerna \\ schema hantering för inlärning \\ *Demo-SchemaManagement.ps1*.
 1. Tryck **F5** för att köra skriptet.
 
-Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en SQL-databas med namnet *osagent* på katalog servern. Sedan skapas jobb agenten med hjälp av-databasen som en parameter.
+*Demo-SchemaManagement.ps1* skriptet anropar *Deploy-SchemaManagement.ps1* -skriptet för att skapa en databas med namnet *osagent* på katalog servern. Sedan skapas jobb agenten med hjälp av-databasen som en parameter.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 

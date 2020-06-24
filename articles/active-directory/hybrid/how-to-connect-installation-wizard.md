@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261338"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692105"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect synkronisering: kör installations guiden en gång till
 Första gången du kör installations guiden för Azure AD Connect får du stegvisa anvisningar om hur du konfigurerar installationen. Om du kör installations guiden igen får du alternativ för underhåll.

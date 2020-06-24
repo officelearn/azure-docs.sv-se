@@ -5,17 +5,17 @@ description: Dela och upptäck Analytics-resurser med mera i Azure AI Gallery. L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 882b52b74603465bd0a55a12fd9ef03f7b625046
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204332"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709036"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI Gallery
 
@@ -26,7 +26,7 @@ Galleriet har en mängd resurser som du kan använda för att utveckla egna anal
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
 
-Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Exempel på dessa är:
+Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Dessa omfattar:
 
 * **Experiment** – galleriet innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio (klassisk). Detta sträcker sig från snabba koncept experiment som demonstrerar en speciell maskin inlärnings teknik, till fullständigt utvecklade lösningar för komplexa maskin inlärnings problem.
 * **Självstudier** – ett antal självstudier finns tillgängliga för att vägleda dig genom maskin inlärnings tekniker och-koncept, eller för att beskriva avancerade metoder för att lösa olika Machine Learning-problem.

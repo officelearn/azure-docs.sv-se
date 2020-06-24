@@ -3,15 +3,15 @@ title: Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos
 description: Lär dig hur du använder inbyggda kommandon och funktioner för att utföra vanliga åtgärder med hjälp av Azure Cosmos DB inbyggda python-anteckningsböcker.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: d455490f6eed0f928dc69c8f51f8d335a1dfe145
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321333"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263372"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB python-anteckningsböcker (förhands granskning)
 
@@ -140,7 +140,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![nteract data Utforskare](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="nteract data Utforskare":::
 
 ## <a name="use-the-built-in-python-sdk"></a>Använd den inbyggda python SDK: n
 Version 4 av [Azure Cosmos DB python SDK för SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) installeras och ingår i Notebook-miljön för Azure Cosmos-kontot.
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
 Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
-![Återställ arbets ytan för antecknings böcker](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Återställ arbets ytan för antecknings böcker":::
 
 ## <a name="next-steps"></a>Nästa steg
 

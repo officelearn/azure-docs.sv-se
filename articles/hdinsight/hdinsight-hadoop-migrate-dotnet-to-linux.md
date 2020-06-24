@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272375"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709274"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET-lösningar för Windows-baserade HDInsight till Linux-baserade HDInsight
 
-Linux-baserade HDInsight-kluster använder [mono (https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Med mono kan du använda .NET-komponenter som MapReduce-program med Linux-baserade HDInsight. I det här dokumentet lär du dig hur du migrerar .NET-lösningar som skapats för Windows-baserade HDInsight-kluster och arbetar med mono på Linux-baserade HDInsight.
+Linux-baserade HDInsight-kluster använder [mono ( https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Med mono kan du använda .NET-komponenter som MapReduce-program med Linux-baserade HDInsight. I det här dokumentet lär du dig hur du migrerar .NET-lösningar som skapats för Windows-baserade HDInsight-kluster och arbetar med mono på Linux-baserade HDInsight.
 
 ## <a name="mono-compatibility-with-net"></a>Mono-kompatibilitet med .NET
 
 Mono version 4.2.1 ingår i HDInsight version 3,6. Mer information om den version av mono som ingår i HDInsight finns i [versioner av HDInsight-komponenter](hdinsight-component-versioning.md).
 
-Mer information om kompatibilitet mellan mono och .NET finns i [mono-kompatibilitet (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) dokument.
+Mer information om kompatibilitet mellan mono och .NET finns i [mono-kompatibilitet ( https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) dokument.
 
 > [!IMPORTANT]  
 > SCP.NET-ramverket är kompatibelt med mono. Mer information om hur du använder SCP.NET med mono finns i [använda Visual Studio för att utveckla C#-topologier för Apache storm i HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -34,24 +34,24 @@ Mer information om kompatibilitet mellan mono och .NET finns i [mono-kompatibili
 
 1. Installera [.net-portbaserad analys](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Under installationen väljer du den version av Visual Studio som ska användas.
 
-2. Från Visual Studio 2015 väljer du __analysera__ > __Inställningar för portabilitet__och kontrollerar att __4,5__ är markerat i __mono__ -avsnittet.
+2. Från Visual Studio 2015 väljer du __analysera__  >  __Inställningar för portabilitet__och kontrollerar att __4,5__ är markerat i __mono__ -avsnittet.
 
     ![4,5 kontrollerade i mono-sektionen för analys inställningarna](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Välj __OK__ för att spara konfigurationen.
 
-3. Välj __analysera__ > __sammansättnings portabilitet__. Välj den sammansättning som innehåller din lösning och välj sedan __Öppna__ för att börja analysera.
+3. Välj __analysera__  >  __sammansättnings portabilitet__. Välj den sammansättning som innehåller din lösning och välj sedan __Öppna__ för att börja analysera.
 
-4. När analysen är klar väljer du __analysera__ > __Visa analys rapporter__. I __analys resultat för portabilitet__väljer du __Öppna rapport__ för att öppna en rapport.
+4. När analysen är klar väljer du __analysera__  >  __Visa analys rapporter__. I __analys resultat för portabilitet__väljer du __Öppna rapport__ för att öppna en rapport.
 
     ![Dialog rutan resultat för portabilitet-analys](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]  
-> Analys verktyget kan inte fånga varje problem med lösningen. Till exempel anses en fil Sök väg `c:\temp\file.txt` som är OK om mono körs i Windows. Samma sökväg är inte giltig på en Linux-plattform.
+> Analys verktyget kan inte fånga varje problem med lösningen. Till exempel anses en fil Sök väg som `c:\temp\file.txt` är OK om mono körs i Windows. Samma sökväg är inte giltig på en Linux-plattform.
 
 ## <a name="manual-portability-analysis"></a>Manuell analys av portabilitet
 
-Utföra en manuell granskning av koden med hjälp av informationen i [Application portabilitet (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) Document.
+Utföra en manuell granskning av koden med hjälp av informationen i [Application portabilitet ( https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) Document.
 
 ## <a name="modify-and-build"></a>Ändra och bygg
 

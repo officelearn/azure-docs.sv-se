@@ -3,15 +3,15 @@ title: Uppskatta kostnader med hjälp av Azure Cosmos DB Capacity Planner
 description: Med Azure Cosmos DB kapacitets planeraren kan du uppskatta det data flöde (RU/s) som krävs och kostnaden för din arbets belastning. Den här artikeln beskriver hur du använder den nya versionen av kapacitets planeraren för att beräkna det data flöde och den kostnad som krävs.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68707635"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261859"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Beräkna RU/s med hjälp av Azure Cosmos DB Capacity Planner
 
@@ -41,7 +41,7 @@ Om du vill få en snabb uppskattning för din arbets belastning med hjälp av Ba
 
 När du har fyllt i de nödvändiga uppgifterna väljer du **Beräkna**. På fliken **kostnads uppskattning** visas den totala kostnaden för lagring och allokerat data flöde. Du kan expandera länken **Visa information** på den här fliken för att få en uppdelning av data flödet som krävs för Läs-och skriv förfrågningar. Varje gång du ändrar värdet för ett fält väljer du **Beräkna** för att beräkna den uppskattade kostnaden igen. 
 
-![Basic-läge för Capacity Planner](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Basic-läge för Capacity Planner":::
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Beräkna tillhandahållet data flöde och kostnad med avancerat läge
 
@@ -62,7 +62,7 @@ När du har loggat in kan du se ytterligare fält jämfört med fälten i grundl
 
 Du kan också använda knappen **Spara uppskattning** för att ladda ned en CSV-fil som innehåller den aktuella uppskattningen. 
 
-![Avancerat läge för kapacitets planering](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Avancerat läge för kapacitets planering":::
 
 Priserna som visas i Azure Cosmos DB kapacitets planeraren beräknas utifrån de offentliga pris nivåerna för data flöde och lagring. Alla priser visas i amerikanska dollar. På [sidan Azure Cosmos DB priser](https://azure.microsoft.com/pricing/details/cosmos-db/) kan du se alla priser per region.  
 
@@ -70,7 +70,7 @@ Priserna som visas i Azure Cosmos DB kapacitets planeraren beräknas utifrån de
 
 I kapacitets Kalkylatorn för Azure Cosmos antas punkt läsningar (en läsning av ett enskilt objekt, t. ex. dokument, efter ID och nyckel värde) och skrivningar för arbets belastningen. Om du vill uppskatta det data flöde som behövs för frågor kör du din fråga på en representativ data uppsättning i en Cosmos-behållare och [hämtar avgiften för ru](find-request-unit-charge.md). Multiplicera avgiften för RU med antalet frågor som du förväntar dig att köra per sekund för att hämta totalt antal RU/s som krävs. 
 
-Om din arbets belastning t. ex. kräver en ``SELECT * FROM c WHERE c.id = 'Alice'`` fråga, som körs 100 gånger per sekund och om förfrågan är 10 ru: er, behöver du 100 fråga/SEK * 10 ru/query = 1000 ru/s totalt för att kunna hantera dessa begär Anden. Lägg till de RU/s till RU/s som krävs för alla läsningar och skrivningar i din arbets belastning.
+Om din arbets belastning t. ex. kräver en fråga, ``SELECT * FROM c WHERE c.id = 'Alice'`` som körs 100 gånger per sekund och om förfrågan är 10 ru: er, behöver du 100 fråga/SEK * 10 ru/Query = 1000 ru/s totalt för att kunna hantera dessa begär Anden. Lägg till de RU/s till RU/s som krävs för alla läsningar och skrivningar i din arbets belastning.
 
 ## <a name="next-steps"></a>Nästa steg
 

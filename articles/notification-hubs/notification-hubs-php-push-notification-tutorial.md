@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c4bf0569d6e2e595eb03c85abba7224b25b1864
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263854"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255457"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Använda Notification Hubs från PHP
 
@@ -32,7 +30,7 @@ Du kan komma åt alla Notification Hubs-funktioner från en Java/PHP/Ruby-server
 I det här avsnittet visar vi hur du:
 
 * Bygg en REST-klient för Notification Hubs funktioner i PHP.
-* Följ [självstudierna kom igång](notification-hubs-ios-apple-push-notification-apns-get-started.md) för din mobila plattform och implementera Server delen i php.
+* Följ avsnittet [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) för din mobila plattform och implementera Server delen i php.
 
 ## <a name="client-interface"></a>Klient gränssnitt
 
@@ -55,7 +53,7 @@ Skicka ett internt iOS-meddelande:
 
 ## <a name="implementation"></a>Implementering
 
-Om du inte redan har gjort det följer du [självstudien kom igång] fram till det sista avsnittet där du måste implementera Server delen.
+Om du inte redan har gjort det följer du kursen [kom igång] fram till det sista avsnittet där du måste implementera Server delen.
 Om du vill kan du även använda koden från [exemplet på php-rest] och gå direkt till avsnittet [självstudier](#complete-tutorial) .
 
 All information om hur du implementerar ett komplett REST-omslag finns på [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av de viktigaste stegen som krävs för att få åtkomst till Notification Hubs REST-slutpunkter:
@@ -106,7 +104,7 @@ Här är huvud klassen som implementerar klienten, vars konstruktor tolkar anslu
 
 I Azure-dokumentationen hittar du information om hur du [skapar en SAS](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token)-säkerhetstoken.
 
-Lägg till `generateSasToken` -metoden i `NotificationHub` klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutnings strängen.
+Lägg till- `generateSasToken` metoden i `NotificationHub` klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutnings strängen.
 
     ```php
     private function generateSasToken($uri) {
@@ -222,7 +220,7 @@ Metoderna ovan skickar en HTTP POST-begäran till `/messages` slut punkten för 
 
 Nu kan du slutföra självstudien kom igång genom att skicka meddelandet från en PHP-Server.
 
-Initiera din Notification Hubs-klient (Ersätt anslutnings strängen och hubbens namn enligt anvisningarna i [Kom igång-självstudien]):
+Initiera din Notification Hubs-klient (Ersätt anslutnings strängen och hubbens namn enligt anvisningarna i guiden för att komma igång med [kom igång]):
 
     ```php
     $hub = new NotificationHub("connection string", "hubname");
@@ -291,4 +289,5 @@ I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Noti
 Mer information finns även i [php Developer Center](https://azure.microsoft.com/develop/php/).
 
 [Exempel på PHP-REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Självstudier för att komma igång]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md))
+

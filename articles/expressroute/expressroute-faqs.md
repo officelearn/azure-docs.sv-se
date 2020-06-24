@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266652"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987310"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -152,7 +152,7 @@ Du kommer inte att förlora anslutningen om någon av kors anslutningarna Miss l
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur gör jag för att implementera redundans på privat peering?
 
-Flera ExpressRoute-kretsar från olika peering-platser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen för att kunna prioritera en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
+Flera ExpressRoute-kretsar från olika peering-platser eller upp till fyra anslutningar från samma peering-plats kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till en av de lokala anslutningarna för att föredra en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
 Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet [och för att utforma](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) för haveri beredskap.  
 
@@ -164,7 +164,7 @@ Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-avail
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur gör jag för att garantera hög tillgänglighet på ett virtuellt nätverk som är anslutet till ExpressRoute?
 
-Du kan få hög tillgänglighet genom att ansluta ExpressRoute-kretsar på olika peering-platser (till exempel Singapore, Singapore2) till ditt virtuella nätverk. Om en ExpressRoute-krets kraschar går anslutningen över till en annan ExpressRoute-krets. Trafik som lämnar ditt virtuella nätverk dirigeras som standard baserat på likvärdig kostnad routning med flera sökvägar (ECMP). Du kan använda anslutnings vikt för att föredra en krets till en annan. Mer information finns i [optimera ExpressRoute-routning](expressroute-optimize-routing.md).
+Du kan få hög tillgänglighet genom att ansluta upp till fyra ExpressRoute-kretsar på samma peering-plats till ditt virtuella nätverk, eller genom att ansluta ExpressRoute-kretsar på olika peering-platser (till exempel Singapore, Singapore2) till ditt virtuella nätverk. Om en ExpressRoute-krets kraschar går anslutningen över till en annan ExpressRoute-krets. Trafik som lämnar ditt virtuella nätverk dirigeras som standard baserat på likvärdig kostnad routning med flera sökvägar (ECMP). Du kan använda anslutnings vikt för att föredra en krets till en annan. Mer information finns i [optimera ExpressRoute-routning](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Hur gör jag för att se till att min trafik som är avsedd för Azures offentliga tjänster som Azure Storage och Azure SQL på Microsoft peering eller offentlig peering föredras på ExpressRoute-sökvägen?
 
@@ -195,7 +195,7 @@ Om din tjänst leverantör erbjuder ExpressRoute på båda platserna kan du arbe
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag ha flera ExpressRoute-kretsar i samma tunnelbane linje? Kan jag länka dem till samma virtuella nätverk?
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika tjänst leverantörer. Om tunnelbane linjen har flera ExpressRoute-peering-platser och kretsarna skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna skapas på samma peering-plats kan du länka upp till 4 kretsar till samma virtuella nätverk.
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika tjänst leverantörer. Om tunnelbane linjen har flera ExpressRoute-peering-platser och kretsarna skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna skapas på samma peering-plats kan du länka upp till fyra kretsar till samma virtuella nätverk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur gör jag för att ansluta mina virtuella nätverk till en ExpressRoute-krets
 

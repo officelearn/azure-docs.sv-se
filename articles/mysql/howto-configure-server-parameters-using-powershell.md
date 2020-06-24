@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 4/29/2020
-ms.openlocfilehash: 0de816d25bbc1563885413d8dbd52dc7bda7d538
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6c91f1494e56e9176f8bbf79387144aea5942787
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615089"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725204"
 ---
-# <a name="customize-azure-database-for-mysql-server-parameters-using-powershell"></a>Anpassa Azure Database for MySQL server parametrar med PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Konfigurera Server parametrar i Azure Database for MySQL med PowerShell
 
 Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MySQL-server med hjälp av PowerShell. En del av motor konfigurationerna exponeras på server nivå och kan ändras.
 
@@ -26,7 +26,7 @@ För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande `Install-Module -Name Az.MySql -AllowPrerelease`kommando:.
+> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > När AZ. MySql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-moduler och är tillgängliga internt från Azure Cloud Shell.
 
 Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
@@ -35,7 +35,7 @@ Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto m
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Visa lista med Server konfigurations parametrar för Azure Database for MySQL Server
 
-Om du vill visa alla ändrings bara parametrar på en server och deras värden `Get-AzMySqlConfiguration` kör du cmdleten.
+Om du vill visa alla ändrings bara parametrar på en server och deras värden kör du `Get-AzMySqlConfiguration` cmdleten.
 
 I följande exempel visas serverns konfigurations parametrar för servern **mydemoserver** i resurs gruppen **myresourcegroup**.
 
@@ -47,9 +47,9 @@ För definitionen av var och en av de angivna parametrarna, se referens avsnitte
 
 ## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
 
-Om du vill visa information om en viss konfigurations parameter för en server `Get-AzMySqlConfiguration` kör du cmdleten och anger parametern **namn** .
+Om du vill visa information om en viss konfigurations parameter för en server kör du `Get-AzMySqlConfiguration` cmdleten och anger parametern **namn** .
 
-Det här exemplet visar information om konfigurations parametern för **långsam\_fråge\_logg** Server för Server- **mydemoserver** under resurs grupp **myresourcegroup**.
+Det här exemplet visar information om konfigurations parametern för **långsam \_ fråge \_ logg** Server för Server- **mydemoserver** under resurs grupp **myresourcegroup**.
 
 ```azurepowershell-interactive
 Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -57,9 +57,9 @@ Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup
 
 ## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett parameter värde för Server konfiguration
 
-Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för MySQL Server-motorn. Använd `Update-AzMySqlConfiguration` cmdleten för att uppdatera konfigurationen.
+Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för MySQL Server-motorn. Använd cmdleten för att uppdatera konfigurationen `Update-AzMySqlConfiguration` .
 
-Så här uppdaterar **du\_den\_långsamma fråge loggs** serverns konfigurations parameter för Server **mydemoserver** under resurs grupp **myresourcegroup**.
+Så här uppdaterar du den **långsamma \_ fråge \_ loggs** serverns konfigurations parameter för Server **mydemoserver** under resurs grupp **myresourcegroup**.
 
 ```azurepowershell-interactive
 Update-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

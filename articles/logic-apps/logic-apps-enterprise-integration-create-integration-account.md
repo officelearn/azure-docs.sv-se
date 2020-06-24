@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270334"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691767"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B Enterprise-integration i Azure Logic Apps
 
@@ -57,12 +57,12 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Ja | <*integration – konto namn*> | Integrations kontots namn, som endast får innehålla bokstäver, siffror,`-`bindestreck (), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "Fabrikam-integration". |
-   | **Prenumeration** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationens namn |
-   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
-   | **Pris nivå** | Ja | <*pris nivå*> | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i de här ämnena: <p>- [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Position** | Ja | <*Azure-region*> | Den region där du vill lagra dina metadata för integrations kontot. Välj antingen samma plats som din Logic app eller skapa Logi Kap par på samma plats som ditt integrations konto. I det här exemplet använder du "västra USA". <p>**Obs!** om du vill skapa ett integrations konto i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)väljer du denna ISE som plats. Mer information finns i [skapa integrations konton i en ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
-   | **Log Analytics** | Nej | Av, på | Behåll inställningen **av** i det här exemplet. |
+   | **Namn** | Yes | <*integration – konto namn*> | Integrations kontots namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) och punkter ( `.` ). I det här exemplet används "Fabrikam-integration". |
+   | **Prenumeration** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationens namn |
+   | **Resursgrupp** | Yes | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
+   | **Pris nivå** | Yes | <*pris nivå*> | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i de här ämnena: <p>- [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Position** | Yes | <*Azure-region*> | Den region där du vill lagra dina metadata för integrations kontot. Välj antingen samma plats som din Logic app eller skapa Logi Kap par på samma plats som ditt integrations konto. I det här exemplet använder du "västra USA". <p>**Obs!** om du vill skapa ett integrations konto i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)väljer du denna ISE som plats. Mer information finns i [skapa integrations konton i en ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Log Analytics** | No | Av, på | Behåll inställningen **av** i det här exemplet. |
    |||||
 
 1. När du är klar väljer du **skapa**.
@@ -144,7 +144,7 @@ Om du vill göra den här ändringen kan du använda antingen Azure Portal genom
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
-   Om du till exempel har nivån Basic kan du ställa in `skuName` på: `Standard`
+   Om du till exempel har nivån Basic kan du ställa in `skuName` på `Standard` :
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
@@ -168,7 +168,7 @@ Använd [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
-   Om du till exempel har standard nivån kan du ställa in `skuName` på: `Basic`
+   Om du till exempel har standard nivån kan du ställa in `skuName` på `Basic` :
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
@@ -178,7 +178,7 @@ Använd [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-
 
 Om du vill länka din Logic app till ett annat integrations konto, eller om du inte längre vill använda ett integrations konto med din Logic-app, tar du bort länken med hjälp av Azure Resource Explorer.
 
-1. Öppna webbläsarens fönster och gå till [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Logga in med samma autentiseringsuppgifter för Azure-kontot.
+1. Öppna webbläsarens fönster och gå till [Azure Resource Explorer ( https://resources.azure.com) ](https://resources.azure.com). Logga in med samma autentiseringsuppgifter för Azure-kontot.
 
    ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
@@ -194,7 +194,7 @@ Om du vill länka din Logic app till ett annat integrations konto, eller om du i
 
    ![På fliken "data" väljer du "redigera"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-1. Leta upp `integrationAccount` objektet i redigeraren och ta bort egenskapen som har det här formatet:
+1. Leta upp objektet i redigeraren `integrationAccount` och ta bort egenskapen som har det här formatet:
 
    ```json
    {

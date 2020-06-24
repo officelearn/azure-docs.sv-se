@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
 ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275768"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692027"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ögonblicksbilder för felsökning av undantag i .NET-appar
-När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
+När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
 
 Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ställa in Snappoints så att interaktivt tar ögonblicks bilder](https://aka.ms/snappoint) utan att vänta på ett undantag.
 
@@ -46,7 +46,7 @@ Om du har aktiverat Snapshot Debugger men inte ser ögonblicks bilder, se vår [
 Prenumerations ägare bör tilldela `Application Insights Snapshot Debugger` rollen till användare som ska inspektera ögonblicks bilder. Den här rollen kan tilldelas enskilda användare eller grupper efter prenumerations ägare för mål Application Insights resurs eller dess resurs grupp eller prenumeration.
 
 1. Navigera till Application Insights resursen i Azure Portal.
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 1. Klicka på knappen **+ Lägg till roll tilldelning** .
 1. Välj **Application Insights Snapshot debugger** i list rutan **roller** .
 1. Sök efter och ange ett namn för den användare som ska läggas till.
@@ -70,12 +70,12 @@ I vyn fel sökning Snapshot visas en anrops stack och ett variabel fönster. Nä
 
 ![Visa fel söknings ögonblicks bild i portalen](./media/snapshot-debugger/open-snapshot-portal.png)
 
-Ögonblicks bilder kan innehålla känslig information och kan som standard inte visas. Om du vill visa ögonblicks bilder måste du `Application Insights Snapshot Debugger` ha rollen tilldelad till dig.
+Ögonblicks bilder kan innehålla känslig information och kan som standard inte visas. Om du vill visa ögonblicks bilder måste du ha `Application Insights Snapshot Debugger` rollen tilldelad till dig.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visa ögonblicks bilder i Visual Studio 2017 Enterprise eller senare
-1. Klicka på knappen **Hämta ögonblicks bild** för `.diagsession` att ladda ned en fil som kan öppnas av Visual Studio Enterprise.
+1. Klicka på knappen **Hämta ögonblicks bild** för att ladda ned en `.diagsession` fil som kan öppnas av Visual Studio Enterprise.
 
-2. Du måste ha `.diagsession` installerat Snapshot debugger Visual Studio-komponenten för att kunna öppna filen. Snapshot Debugger-komponenten är en obligatorisk komponent i ASP.net-arbetsbelastningen i Visual Studio och kan väljas från listan med enskilda komponenter i Visual Studio-installationsprogrammet. Om du använder en version av Visual Studio innan du börjar med Visual Studio 2017 version 15,5 måste du installera tillägget från [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+2. `.diagsession`Du måste ha installerat Snapshot debugger Visual Studio-komponenten för att kunna öppna filen. Snapshot Debugger-komponenten är en obligatorisk komponent i ASP.net-arbetsbelastningen i Visual Studio och kan väljas från listan med enskilda komponenter i Visual Studio-installationsprogrammet. Om du använder en version av Visual Studio innan du börjar med Visual Studio 2017 version 15,5 måste du installera tillägget från [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. När du har öppnat ögonblicks bild filen visas sidan Minidump fel sökning i Visual Studio. Klicka på **Felsök hanterad kod** för att starta fel sökning av ögonblicks bilden. Ögonblicks bilden öppnas till den kodrad där undantaget utlöstes, så att du kan felsöka processens aktuella tillstånd.
 
@@ -114,7 +114,7 @@ Version 15,2 (eller senare) av Visual Studio 2017 publicerar symboler för versi
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-För Azure Compute och andra typer ser du till att symbol-filerna finns i samma mapp i huvud programmet. dll (vanligt vis `wwwroot/bin`) eller är tillgängliga på den aktuella sökvägen.
+För Azure Compute och andra typer ser du till att symbol-filerna finns i samma mapp i huvud programmet. dll (vanligt vis `wwwroot/bin` ) eller är tillgängliga på den aktuella sökvägen.
 
 > [!NOTE]
 > Mer information om de olika symbol alternativen som är tillgängliga finns i [Visual Studio-dokumentationen](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output

@@ -3,16 +3,16 @@ title: Begär enhets avgifter för Azure Cosmos DB som nyckel värdes lager
 description: Läs om avgifterna för förfrågans enhet för Azure Cosmos DB för enkla Skriv-och Läs åtgärder när de används som nyckel/värde-lager.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77647511"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262828"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckel värdes lager – kostnads översikt
 

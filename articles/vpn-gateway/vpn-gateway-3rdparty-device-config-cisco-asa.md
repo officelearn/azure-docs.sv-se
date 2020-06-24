@@ -4,15 +4,15 @@ description: Den här artikeln innehåller en exempel konfiguration för att ans
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75778090"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986098"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/No BGP)
 Den här artikeln innehåller exempel på konfigurationer för att ansluta Cisco adaptiv Security-enheter (ASA) till Azure VPN-gatewayer. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel på konfigurationer för att ansluta Cisco
 | Testad modell           | ASA 5505                          |
 | Testad version         | 9,2                               |
 | IKE-version            | IKEv2                             |
-| BGP                    | Inga                                |
+| BGP                    | No                                |
 | Azure VPN gateway-typ | Routning-baserad VPN-gateway           |
 |                        |                                   |
 
@@ -287,7 +287,7 @@ Använd följande ASA-kommandon för fel söknings syfte:
     debug crypto ikev2 platform <level>
     debug crypto ikev2 protocol <level>
     ```
-    `debug` Kommandona kan generera avsevärda utdata i-konsolen.
+    `debug`Kommandona kan generera avsevärda utdata i-konsolen.
 
 * Visa de aktuella konfigurationerna på enheten:
     ```

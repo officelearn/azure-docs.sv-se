@@ -7,13 +7,13 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 90a7f37fb82cfea2f3ee44c31f6d3ef0a61c64c0
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.reviewer: dineshm
+ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465413"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808839"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -74,7 +74,7 @@ Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 1. Högerklicka på ditt projekt i **Solution Explorer**och välj **Hantera NuGet-paket**.
 1. Välj **Bläddra**
 1. Sök online efter "Azure. Storage. Queues" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Azure. Storage. common och Azure. Core-bibliotek, som är beroenden av kösystemet.
-1. Sök online efter "system. Configuration. ConfigurationManager" och välj **Installera** för att installera Configuration Manager.
+1. Sök online efter "System.Configuration.ConfigurationManager" och välj **Installera** för att installera Configuration Manager.
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
@@ -89,7 +89,7 @@ Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 1. Högerklicka på ditt projekt i **Solution Explorer**och välj **Hantera NuGet-paket**.
 1. Välj **Bläddra**
 1. Sök online efter "Microsoft. Azure. Storage. Queue" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Microsoft. Azure. Storage. common-biblioteket, vilket är ett beroende av Queue-biblioteket.
-1. Sök online efter "Microsoft. Azure. ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
+1. Sök online efter "Microsoft.Azure.ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
 
 ---
 
@@ -128,7 +128,7 @@ Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträ
 > [!NOTE]
 > Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din lagringskontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din nyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
 
-Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. Om du vill konfigurera anslutnings strängen öppnar du filen *app. config* från Solution Explorer i Visual Studio. Lägg till innehållet i `\<appSettings\>`-elementet enligt nedan. Ersätt *Connection-String* med det värde som du kopierade från ditt lagrings konto i portalen:
+Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. Om du vill konfigurera anslutnings strängen öppnar du *app.config* -filen från Solution Explorer i Visual Studio. Lägg till innehållet i `\<appSettings\>`-elementet enligt nedan. Ersätt *Connection-String* med det värde som du kopierade från ditt lagrings konto i portalen:
 
 ```xml
 <configuration>
@@ -495,7 +495,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
   - [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referens för REST-API](https://msdn.microsoft.com/library/azure/dd179355)
+  - [REST API referens](https://msdn.microsoft.com/library/azure/dd179355)
 - Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
   - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.

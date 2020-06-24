@@ -2,16 +2,16 @@
 title: Migrera från CouchBase till Azure Cosmos DB SQL API
 description: Steg för steg-anvisningar för att migrera från CouchBase till Azure Cosmos DB SQL API
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f7c0cb893f65688145811cbd2a0280c2d232d7a9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657340"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261927"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
 
@@ -109,7 +109,7 @@ I följande avsnitt beskrivs när du ska använda var och en av dessa SDK: er. �
 
 Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan du använda följande steg:
 
-1. Lägg till överordnad till filen POM. XML:
+1. Lägg till överordnad till POM.xml-filen:
 
    ```java
    <parent>
@@ -120,13 +120,13 @@ Om arbets belastningen som du migrerar baseras på våren Boot-baserad SDK kan d
    </parent>
    ```
 
-1. Lägg till egenskaper i filen POM. XML:
+1. Lägg till egenskaper i POM.xml-filen:
 
    ```java
    <azure.version>2.1.6</azure.version>
    ```
 
-1. Lägg till beroenden i filen POM. XML:
+1. Lägg till beroenden i POM.xml-filen:
 
    ```java
    <dependency>
@@ -200,7 +200,7 @@ Du kan observera följande ändringar i dina N1QL-frågor:
 
 Använd asynkron Java SDK med följande steg:
 
-1. Konfigurera följande beroende till filen POM. XML:
+1. Konfigurera följande beroende till POM.xml-filen:
 
    ```java
    <!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb -->
@@ -434,7 +434,7 @@ Det finns två sätt att migrera data.
 
 * **Använd verktyget Azure Cosmos db data import:** Det här alternativet rekommenderas för att migrera med virtuella datorer med mindre mängd data. Detaljerade anvisningar finns i artikeln om [data import](./import-data.md) .
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * För att utföra prestanda testning, se [prestanda-och skalnings testning med Azure Cosmos DB](./performance-testing.md) artikel.
 * Information om hur du optimerar koden finns i [prestanda tips för Azure Cosmos DB](./performance-tips-async-java.md) artikel.

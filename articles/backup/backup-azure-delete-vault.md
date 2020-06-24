@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 07e6a0297d131f4a0b7dc93817d9abcf2ae109d2
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 946b199119ee9e03ec9348c4e180f8e4c9b9a776
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447755"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751867"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -38,7 +38,7 @@ Om du vill ta bort ett valv korrekt måste du följa stegen i den här ordningen
 
 - **Steg 1**: inaktivera funktionen för mjuk borttagning. Mer information om hur du inaktiverar mjuk borttagning [finns här](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
 
-- **Steg 2**: när du har inaktiverat mjuk borttagning kontrollerar du om det finns några objekt som tidigare har tagits bort i läget Thee Soft Deleted. Om det finns objekt i läget tyst Borttagning måste du ångra *borttagningen* och *ta bort* dem igen. [Följ de här stegen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) för att hitta mjuka borttagnings objekt och ta bort dem permanent.
+- **Steg 2**: när du har inaktiverat mjuk borttagning kontrollerar du om det finns några objekt som tidigare har tagits bort i läget Soft Deleted. Om det finns objekt i läget tyst Borttagning måste du ångra *borttagningen* och *ta bort* dem igen. [Följ de här stegen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) för att hitta mjuka borttagnings objekt och ta bort dem permanent.
 
 - **Steg 3**: du måste kontrol lera alla följande tre platser för att kontrol lera om det finns några skyddade objekt:
 

@@ -4,15 +4,15 @@ description: Lär dig hur du kan integrera Azure Application Gateway med Key Vau
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743700"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255372"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS-avslutning med Key Vault certifikat
 
@@ -52,7 +52,7 @@ Application Gateway-integrering med Key Vault kräver en konfigurations process 
    > [!NOTE]
    > Om du distribuerar programgatewayen via en ARM-mall, antingen med hjälp av Azure CLI eller PowerShell eller via ett Azure-program som distribueras från Azure Portal, lagras SSL-certifikatet i nyckel valvet som en Base64-kodad PFX-fil. Du måste slutföra stegen i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md). 
    >
-   > Det är särskilt viktigt att ställa `enabledForTemplateDeployment` in `true`på. Certifikatet kan vara ett lösen ord eller ha ett lösen ord. Om det gäller ett certifikat med ett lösen ord visar följande exempel en möjlig konfiguration för `sslCertificates` posten i `properties` för konfigurationen av arm-mal len för en app-Gateway. Värdena för `appGatewaySSLCertificateData` och `appGatewaySSLCertificatePassword` slås upp från nyckel valvet, enligt beskrivningen i avsnittet [referens hemligheter med dynamiskt ID](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Följ referenserna bakåt från `parameters('secretName')` för att se hur sökningen sker. Om certifikatet är lösenordsskyddat utelämnar du `password` posten.
+   > Det är särskilt viktigt att ställa in `enabledForTemplateDeployment` på `true` . Certifikatet kan vara ett lösen ord eller ha ett lösen ord. Om det gäller ett certifikat med ett lösen ord visar följande exempel en möjlig konfiguration för `sslCertificates` posten i `properties` för konfigurationen av arm-mal len för en app-Gateway. Värdena för `appGatewaySSLCertificateData` och `appGatewaySSLCertificatePassword` slås upp från nyckel valvet, enligt beskrivningen i avsnittet [referens hemligheter med dynamiskt ID](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Följ referenserna bakåt från `parameters('secretName')` för att se hur sökningen sker. Om certifikatet är lösenordsskyddat utelämnar du `password` posten.
    >   
    > ```
    > "sslCertificates": [

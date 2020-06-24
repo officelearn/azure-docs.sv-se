@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240634"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707898"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -31,7 +31,7 @@ Några vanliga scenarier för meddelanden är:
 * *Ämnen och prenumerationer*. Aktivera 1:*n* relationer mellan utgivare och prenumeranter.
 * *Message-sessioner*. Implementera arbets flöden som kräver meddelande ordning eller meddelande avstängning.
 
-## <a name="namespaces"></a>Namnområden
+## <a name="namespaces"></a>Namnrymder
 
 Ett namn område är en behållare för alla meddelande komponenter. Flera köer och ämnen kan finnas i ett enda namn område och namn områden fungerar ofta som program behållare.
 

@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660034"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201709"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Design Guide för att använda replikerade tabeller i Synapse SQL-pool
 
@@ -126,7 +126,7 @@ Vi återskapar `DimDate` och `DimSalesTerritory` replikerade tabeller och körde
 
 SQL-poolen implementerar en replikerad tabell genom att underhålla en huvud version av tabellen. Den kopierar huvud versionen till den första distributions databasen på varje Compute-nod. När det sker en ändring uppdateras huvud versionen först och sedan återskapas tabellerna på varje Compute-nod. En återskapning av en replikerad tabell omfattar att kopiera tabellen till varje Compute-nod och sedan skapa index.  Till exempel har en replikerad tabell på en DW2000c fem kopior av data.  En huvud kopia och en fullständig kopia på varje Compute-nod.  Alla data lagras i distributions databaser. SQL-poolen använder den här modellen för att stödja snabbare data ändrings instruktioner och flexibla skalnings åtgärder.
 
-Återuppbyggnad krävs efter:
+Asynkrona återuppbyggnadar utlöses av den första frågan mot den replikerade tabellen efter:
 
 - Data läses in eller ändras
 - Synapse SQL-instansen skalas till en annan nivå

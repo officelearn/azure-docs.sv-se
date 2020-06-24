@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du kan avbryta övervakning av ditt
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275261"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691942"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Stoppa övervakningen av Azure Kubernetes Service (AKS) med Azure Monitor för containrar
 
@@ -37,7 +37,7 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 >Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel *enableRBAC* för RBAC-principer som implementeras i klustret eller *aksResourceTagValues* IF-Taggar har angetts för AKS-klustret.  
 >
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -89,7 +89,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
     }
     ```
 
-2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
+2. Spara den här filen som **OptOutTemplate.jspå** en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -123,7 +123,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
 
     Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
 
-5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
+5. Spara den här filen som **OptOutParam.jspå** en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 

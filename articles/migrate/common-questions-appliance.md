@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 14ce04e992cdbf121bcb1518b6a95c09ec421872
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324427"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078984"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -107,7 +107,7 @@ Ja. Du kan lägga till både Azure Migrate-installationen (som används för utv
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer eller servrar kan jag identifiera med en apparat?
 
-Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 250 fysiska servrar med en enda apparat. Om du har fler datorer i din lokala miljö läser du om skalning av [en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)och [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
+Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 1000 fysiska servrar med en enda apparat. Om du har fler datorer i din lokala miljö läser du om skalning av [en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)och [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>Kan jag ta bort en installation?
 

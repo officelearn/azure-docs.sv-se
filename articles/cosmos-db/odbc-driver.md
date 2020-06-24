@@ -3,15 +3,15 @@ title: Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg
 description: Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan visas i BI-och data analys program.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef658412e56dca33769a813994f3790a94a5235b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721089"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262539"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg med ODBC-drivrutinen
 
@@ -35,9 +35,9 @@ Nu ska vi komma igång med ODBC-drivrutinen.
 
     | Silverlight | Operativsystem som stöds| 
     |---|---| 
-    |[Microsoft Azure Cosmos DB ODBC 64-bit. msi](https://aka.ms/cosmos-odbc-64x64) för 64-bitars Windows| 64-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2.| 
-    |[Microsoft Azure Cosmos db odbc 32x64-bit. msi](https://aka.ms/cosmos-odbc-32x64) för 32-bitars på 64-bitars Windows| 64-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 och Windows Server 2003.| 
-    |[Microsoft Azure Cosmos DB ODBC 32-bit. msi](https://aka.ms/cosmos-odbc-32x32) för 32-bitars Windows|32-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows XP och Windows Vista.|
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) för 64-bitars Windows| 64-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) för 32-bitars på 64-bitars Windows| 64-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 och Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/cosmos-odbc-32x32) för 32-bitars Windows|32-bitars versioner av Windows 8,1 eller senare, Windows 8, Windows 7, Windows XP och Windows Vista.|
 
     Kör MSI-filen lokalt, som startar **installations guiden för Microsoft Azure Cosmos DB ODBC-drivrutin**. 
 
@@ -46,7 +46,7 @@ Nu ska vi komma igång med ODBC-drivrutinen.
 1. Öppna **ODBC-datakällans administratörs** app på din dator. Du kan göra detta genom att skriva **ODBC-datakällor** i sökrutan i Windows. 
     Du kan kontrol lera att driv rutinen har installerats genom att klicka på fliken **driv rutiner** och se till att **Microsoft Azure Cosmos DB ODBC-drivrutinen** visas.
 
-    ![Azure Cosmos DB ODBC-Administrera data Källa](./media/odbc-driver/odbc-driver.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC-Administrera data Källa":::
 
 ## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>Steg 2: Anslut till din Azure Cosmos-databas
 
@@ -56,12 +56,12 @@ Nu ska vi komma igång med ODBC-drivrutinen.
 
 1. I **installations fönstret Azure Cosmos DB ODBC-drivrutin för SDN** , Fyll i följande information: 
 
-    ![Installations fönster för Azure Cosmos DB ODBC-drivrutin](./media/odbc-driver/odbc-driver-dsn-setup.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Installations fönster för Azure Cosmos DB ODBC-drivrutin":::
     - **Data källans namn**: ditt eget namn för ODBC-datakällan. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ge det ett namn om du har flera konton.
     - **Beskrivning**: en kort beskrivning av data källan.
     - **Värd**: URI för ditt Azure Cosmos DB-konto. Du kan hämta detta från sidan Azure Cosmos DB nycklar i Azure Portal, som du ser i följande skärm bild. 
     - **Åtkomst nyckel**: den primära eller sekundära, skrivskyddade eller skrivskyddade nyckeln på sidan Azure Cosmos DB nycklar i Azure Portal som visas på följande skärm bild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddad data bearbetning och rapportering.
-    ![Sidan Azure Cosmos DB nycklar](./media/odbc-driver/odbc-cosmos-account-keys.png)
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Sidan Azure Cosmos DB nycklar":::
     - **Kryptera åtkomst nyckel för**: Välj det bästa valet baserat på användare av den här datorn. 
     
 1. Klicka på knappen **testa** för att kontrol lera att du kan ansluta till ditt Azure Cosmos DB-konto. 
@@ -70,13 +70,13 @@ Nu ska vi komma igång med ODBC-drivrutinen.
     *  **REST API version**: Välj [REST API-versionen](https://docs.microsoft.com/rest/api/cosmos-db/) för dina åtgärder. Standardvärdet 2015-12-16. Om du har behållare med [stora partitionsnyckel](large-partition-keys.md) och behöver REST API version 2018-12-31:
         - Skriv **2018-12-31** för REST API version
         - I **Start** -menyn skriver du "regedit" för att hitta och öppna programmet **Registry Editor** .
-        - I Registereditorn navigerar du till sökvägen: **dator \ HKEY_LOCAL_MACHINE \software\odbc\odbc. INI**
+        - I Registereditorn navigerar du till sökvägen: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
         - Skapa en ny under nyckel med samma namn som din DSN, t. ex. "contoso-kontots ODBC-DSN".
         - Gå till under nyckeln "Contoso-konto ODBC-DSN".
         - Högerklicka för att lägga till ett nytt **sträng** värde:
             - Värde namn: **IgnoreSessionToken**
-            - Värde data: **1**
-            ![register redigerings inställningar](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+            - Värde data: **1** 
+             :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="register redigerings inställningar":::
     - **Fråga konsekvens**: Välj [konsekvens nivå](consistency-levels.md) för dina åtgärder. Standardvärdet är session.
     - **Antal återförsök**: Ange hur många försök en åtgärd som ska utföras igen om den första begäran inte slutförs på grund av begränsning av tjänst hastighet.
     - **Schema fil**: du har ett antal alternativ här.
@@ -86,7 +86,7 @@ Nu ska vi komma igång med ODBC-drivrutinen.
 
 1. När du har slutfört och stängt **installations fönstret Azure Cosmos DB ODBC-drivrutin** , läggs den nya användar-DSN till på fliken Användar-DSN.
 
-    ![Ny Azure Cosmos DB ODBC-datakälla på fliken Användar-DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Ny Azure Cosmos DB ODBC-datakälla på fliken Användar-DSN":::
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>Steg 3: skapa en schema definition med hjälp av container mappnings metoden
 
@@ -94,7 +94,7 @@ Det finns två typer av samplings metoder som du kan använda: **container mappn
 
 1. När du har slutfört steg 1-4 i [Anslut till din Azure Cosmos-databas](#connect)klickar du på **schema redigeraren** i **installations fönstret Azure Cosmos db odbc-drivrutinens DSN** .
 
-    ![Knappen schema redigerare i installations fönstret Azure Cosmos DB ODBC-drivrutinens DSN](./media/odbc-driver/odbc-driver-schema-editor.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Knappen schema redigerare i installations fönstret Azure Cosmos DB ODBC-drivrutinens DSN":::
 1. I fönstret **schema redigeraren** klickar du på **Skapa nytt**.
     I fönstret **skapa schema** visas alla behållare i Azure Cosmos DB-kontot. 
 
@@ -105,7 +105,7 @@ Det finns två typer av samplings metoder som du kan använda: **container mappn
     - Du kan ange **kolumnen Dölj** till **Sant** om du vill undanta den kolumnen från frågeresultaten. Kolumnerna som marker ATS Dölj kolumn = True returneras inte för markering och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB system egenskaper som krävs från och med "_".
     - Kolumnen **ID** är det enda fält som inte kan döljas eftersom det används som primär nyckel i det normaliserade schemat. 
 
-1. När du är klar med att definiera schemat klickar du på **Arkiv** | **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
+1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
 
 1. Om du vill använda det här schemat med en DSN öppnar du **fönstret Azure Cosmos DB ODBC-drivrutin för driv rutins-DSN** (via ODBC-administratören för data källa), klickar på **Avancerade alternativ**och går sedan till det sparade schemat i rutan **schema fil** . Om du sparar en schema fil i en befintlig DSN ändras DSN-anslutningen till omfång till de data och den struktur som definieras av schemat.
 
@@ -132,10 +132,10 @@ Följande steg skapar ett schema för data i en eller flera behållare med hjäl
 
 1. När du har slutfört mappnings definitionerna för de behållare som du vill sampla, klickar du på **exempel**i fönstret **schema redigeraren** .
      För varje kolumn kan du ändra kolumnens SQL-namn, SQL-typ, SQL-längd (om tillämpligt), skala (om tillämpligt), precision (om tillämpligt) och kan ha värdet null.
-    - Du kan ange **kolumnen Dölj** till **Sant** om du vill undanta den kolumnen från frågeresultaten. Kolumnerna som marker ATS Dölj kolumn = True returneras inte för markering och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB system egenskaper som krävs från och med `_`.
+    - Du kan ange **kolumnen Dölj** till **Sant** om du vill undanta den kolumnen från frågeresultaten. Kolumnerna som marker ATS Dölj kolumn = True returneras inte för markering och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB system egenskaper som krävs från och med `_` .
     - Kolumnen **ID** är det enda fält som inte kan döljas eftersom det används som primär nyckel i det normaliserade schemat. 
 
-1. När du är klar med att definiera schemat klickar du på **Arkiv** | **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
+1. När du är klar med att definiera schemat klickar du på **Arkiv**  |  **Spara**, navigerar till katalogen för att spara schemat och klickar sedan på **Spara**.
 
 1. Klicka på **Avancerade alternativ**i **installations fönstret Azure Cosmos db odbc-drivrutinens DSN** . Gå sedan till den sparade schema filen i rutan **schema fil** och klicka på **OK**. Klicka på **OK** igen för att spara DSN. Detta sparar det schema som du skapade i DSN. 
 
@@ -143,7 +143,7 @@ Följande steg skapar ett schema för data i en eller flera behållare med hjäl
 
 Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom att konfigurera en länkad server anslutning.
 
-1. Skapa en system data källa enligt beskrivningen i [steg 2](#connect), med namnet till `SDS Name`exempel.
+1. Skapa en system data källa enligt beskrivningen i [steg 2](#connect), med namnet till exempel `SDS Name` .
 
 1. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och Anslut till servern. 
 
@@ -162,11 +162,11 @@ Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom at
     
 Om du vill se det nya länkade Server namnet uppdaterar du listan länkade servrar.
 
-![Länkad server i SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Länkad server i SSMS":::
 
 ### <a name="query-linked-database"></a>Fråga länkad databas
 
-Om du vill fråga den länkade databasen anger du en SSMS-fråga. I det här exemplet väljer frågan från tabellen i behållaren med namnet `customers`:
+Om du vill fråga den länkade databasen anger du en SSMS-fråga. I det här exemplet väljer frågan från tabellen i behållaren med namnet `customers` :
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -195,16 +195,17 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 Du kan definiera och skapa vyer som en del av samplings processen. Dessa vyer motsvarar SQL-vyer. De är skrivskyddade och är begränsade till de val och projektioner av den Azure Cosmos DB SQL-frågan som definierats. 
 
 Om du vill skapa en vy för dina data går du till kolumnen **Visa definitioner** i fönstret **schema redigerare** och klickar på **Lägg till** på raden i behållaren som ska samplas. 
-    ![Skapa en vy av data](./media/odbc-driver/odbc-driver-create-view.png)
+
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
 
 
 I fönstret **Visa definitioner** gör du följande:
 
 1. Klicka på **nytt**, ange ett namn för vyn, till exempel EmployeesfromSeattleView, och klicka sedan på **OK**.
 
-1. I fönstret **Redigera vy** anger du en Azure Cosmos DB fråga. Detta måste vara en [Azure Cosmos DB SQL-fråga](how-to-sql-query.md), till `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`exempel och klicka sedan på **OK**.
+1. I fönstret **Redigera vy** anger du en Azure Cosmos DB fråga. Detta måste vara en [Azure Cosmos DB SQL-fråga](how-to-sql-query.md), till exempel `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` och klicka sedan på **OK**.
 
-    ![Lägg till fråga när du skapar en vy](./media/odbc-driver/odbc-driver-create-view-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Lägg till fråga när du skapar en vy":::
 
 
 Du kan skapa många vyer som du vill. När du är klar med att definiera vyerna kan du sedan sampla data. 
@@ -217,11 +218,11 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med alla ODBC-
 
 1. Klicka på **Hämta data**.
 
-    ![Hämta data i Power BI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Hämta data i Power BI Desktop":::
 
-1. I fönstret **Hämta data** klickar du på **annan** | **ODBC** | **Connect**.
+1. I fönstret **Hämta data** klickar du på **annan**  |  **ODBC**  |  **Connect**.
 
-    ![Välj ODBC-datakälla i Power BI hämta data](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Välj ODBC-datakälla i Power BI hämta data":::
 
 1. I fönstret **från ODBC** väljer du namnet på den data källa som du skapade och klickar sedan på **OK**. Du kan lämna de **Avancerade alternativ** posterna tomma.
 
@@ -231,13 +232,13 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med alla ODBC-
 
 1. I fönstret **navigatör** i det vänstra fönstret expanderar du databasen, schemat och väljer sedan tabellen. Resultat fönstret innehåller data med det schema som du skapade.
 
-    ![Välj tabell i Power BI hämta data](./media/odbc-driver/odbc-driver-power-bi-get-data-4.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Välj tabell i Power BI hämta data":::
 
 1. Om du vill visualisera data i Power BI Skriv bordet markerar du kryss rutan framför tabell namnet och klickar sedan på **Läs in**.
 
 1. I Power BI Desktop längst till vänster väljer du fliken data ![Fliken data i Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) för att bekräfta att dina data har importer ATS.
 
-1. Nu kan du skapa visuella objekt med Power BI genom att klicka på fliken rapport ![rapport fliken i Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), klicka på **nytt visuellt**objekt och sedan anpassa panelen. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiserings typer i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Nu kan du skapa visuella objekt med Power BI genom att klicka på fliken rapport ![ rapport fliken i Power BI Desktop ](./media/odbc-driver/odbc-driver-report-tab.png) , klicka på **nytt visuellt**objekt och sedan anpassa panelen. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiserings typer i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
 ## <a name="troubleshooting"></a>Felsökning
 

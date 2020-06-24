@@ -9,21 +9,21 @@ ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
+ms.date: 06/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: b9b4f505e7d3bdfec4bb689dcb8e08c82111ba1e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558447"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298250"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du upptäcka modeller med höga prestanda utan att du behöver implementera om varje möjlig metod. Tillsammans med Azure Machine Learning pipelines kan du skapa arbets flöden som kan användas för att snabbt identifiera algoritmen som fungerar bäst för dina data. I den här artikeln får du lära dig hur du effektivt ansluter ett steg för förberedelse av data till ett automatiserat ML-steg. Med automatisk ML kan du snabbt upptäcka vilken algoritm som passar bäst för dina data, samtidigt som du lägger på vägen till MLOps och modellens livs cykel driftsättning med pipelines.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -69,7 +69,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-Koden loggar först in i Azure Machine Learning arbets ytan som definierats i **config. JSON** (en förklaring finns i [Självstudier: komma igång med att skapa ditt första ml-experiment med python SDK](tutorial-1st-experiment-sdk-setup.md)). Om det inte redan finns en data uppsättning med namnet `'titanic_ds'` registrerad, skapas en. Koden laddar ned CSV-data från webben, använder dem för att instansiera en `TabularDataset` och sedan registrerar data uppsättningen med arbets ytan. Slutligen `Dataset.get_by_name()` tilldelar funktionen `Dataset` till `titanic_ds` . 
+Koden loggar först in på Azure Machine Learning arbets ytan som definierats i **config.jspå** (en förklaring finns i [Självstudier: komma igång med att skapa ditt första ml-experiment med python SDK](tutorial-1st-experiment-sdk-setup.md)). Om det inte redan finns en data uppsättning med namnet `'titanic_ds'` registrerad, skapas en. Koden laddar ned CSV-data från webben, använder dem för att instansiera en `TabularDataset` och sedan registrerar data uppsättningen med arbets ytan. Slutligen `Dataset.get_by_name()` tilldelar funktionen `Dataset` till `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Konfigurera lagrings-och beräknings mål
 
@@ -111,18 +111,27 @@ Nästa steg är att se till att fjärran sluten utbildning har alla beroenden so
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+Koden ovan visar två alternativ för att hantera beroenden. Som presenteras `USE_CURATED_ENV = True` baseras konfigurationen på en granskad miljö. Granskade miljöer är "förkortade" med vanliga bibliotek som är beroende av varandra och kan vara mycket snabbare att ta online. De granskade miljöerna har färdiga Docker-avbildningar i [Microsoft container Registry](https://hub.docker.com/publishers/microsoftowner). Den angivna sökvägen om du ändrar `USE_CURATED_ENV` till `False` visar mönstret för explicit inställning av beroenden. I det scenariot skapas och registreras en ny anpassad Docker-avbildning i en Azure Container Registry i din resurs grupp (se [Introduktion till privata Docker-behållar register i Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). Det kan ta några minuter att skapa och registrera den här avbildningen. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Förbereda data för automatisk maskin inlärning
 

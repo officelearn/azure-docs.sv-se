@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: c8c33797fa35a64a2572026d5cb52d42c57b9b83
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466263"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986280"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
@@ -22,7 +22,7 @@ BLOB index-Taggar kategoriserar data i ditt lagrings konto med hjälp av attribu
 Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Frankrike, centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Krav
 # <a name="portal"></a>[Portal](#tab/azure-portal)

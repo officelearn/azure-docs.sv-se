@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2020
+ms.date: 06/23/2020
 ms.author: shvija
-ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd4306fd4a3b6dd308b0d62945ae264dfb6ce8ff
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606748"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298335"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Vanliga frågor och svar – Event Hubs för Apache Kafka 
 Den här artikeln innehåller svar på några vanliga frågor om att migrera till Event Hubs för Apache Kafka.
@@ -39,7 +39,7 @@ Vad är skillnaden mellan en konsument grupp för Event Hub och en Kafka-konsume
 
 - De skapas Autoskapas.  Kafka-grupper kan hanteras via Kafka-konsument grupps-API: er.
 - De kan lagra förskjutningar i Event Hubss tjänsten.
-- De används som nycklar i vad som effektivt är ett förskjutnings nyckel värdes lager. För ett unikt par av `group.id` och `topic-partition`lagrar vi en förskjutning i Azure Storage (3x-replikering). Event Hubs användare debiteras inte extra lagrings kostnader för lagring av Kafka-förskjutningar. Förskjutningar är manipulable via Kafka konsument grupps-API: er, men de förskjutnings lagrings *kontona* är inte direkt synliga eller Manipulable för Event Hub-användare.  
+- De används som nycklar i vad som effektivt är ett förskjutnings nyckel värdes lager. För ett unikt par av `group.id` och `topic-partition` lagrar vi en förskjutning i Azure Storage (3x-replikering). Event Hubs användare debiteras inte extra lagrings kostnader för lagring av Kafka-förskjutningar. Förskjutningar är manipulable via Kafka konsument grupps-API: er, men de förskjutnings lagrings *kontona* är inte direkt synliga eller Manipulable för Event Hub-användare.  
 - De sträcker sig över ett namn område. Om du använder samma Kafka grupp namn för flera program i flera ämnen innebär det att alla program och deras Kafka-klienter kommer att ombalanseras när endast ett enda program behöver ombalansera.  Välj grupp namn med en bra idé.
 - De är helt åtskilda från Event Hubs konsument grupper. Du behöver **inte** använda "$default" eller behöver inte oroa dig om Kafka-klienter som stör AMQP-arbetsbelastningar.
 - De visas inte i Azure Portal. Konsument grupp information kan nås via Kafka-API: er.

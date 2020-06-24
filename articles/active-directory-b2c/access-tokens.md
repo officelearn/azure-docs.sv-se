@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a659d8929f845b1c58bd64f628b2d3f47a96674e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297538"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201454"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och
 > [!NOTE]
 > **Webb-API-kedjor (på-plats-av) stöds inte av Azure AD B2C.** – Många arkitekturer innehåller ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt i klienter som har en server del för webb-API, som i sin tur anropar en annan tjänst. Det här länkade webb-API-scenariot kan stödjas med hjälp av OAuth 2,0 JWT Bearer Credential Grant, på annat sätt kallas för flöde på uppdrag. Det finns dock för närvarande inte implementerat flöde på uppdrag i Azure AD B2C.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 - Om du inte redan har gjort det [lägger du till ett webb-API-program till din Azure Active Directory B2C-klient](add-web-api-application.md).
@@ -67,7 +67,7 @@ I följande exempel ersätter du följande värden:
 - `<application-ID>`– Program identifieraren för det webb program som du har registrerat för att stödja användar flödet.
 - `<redirect-uri>`– Den **omdirigerings-URI** som du angav när du registrerade klient programmet.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -84,7 +84,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 När du har tagit emot auktoriseringskod kan du använda den för att begära en åtkomsttoken:
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Du bör se något som liknar följande svar:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Du bör se något som liknar följande svar:
 
 När https://jwt.ms du använder för att kontrol lera den åtkomsttoken som returnerades, bör du se något som liknar följande exempel:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

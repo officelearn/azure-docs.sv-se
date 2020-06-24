@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b9a1caa750c7c27b2a6c845843b8bb6b779086d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a0d98a2c58e7629f988d0d3e8015355ba414c07a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561330"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201149"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -57,9 +57,9 @@ F. Varför tar min skala/pausa/återupptas så länge?
 
 A. Flera faktorer kan påverka tiden för beräknings hanterings åtgärder. Ett vanligt fall för tids krävande åtgärder är transaktionell återställning. När en skalnings-eller paus åtgärd initieras blockeras alla inkommande sessioner och frågor töms. För att datorn ska vara i ett stabilt tillstånd måste transaktionerna återställas innan en åtgärd kan påbörjas. Ju större siffra och större logg storlek för transaktionerna, desto längre tid kommer åtgärden att stoppas för att återställa systemet till ett stabilt tillstånd.
 
-F: Hur gör jag för att byta namn på en publicerad artefakt (data uppsättning, Notebook, SQL-skript och så vidare) i Synapse?
+F: Hur gör jag för att byta namn på en publicerad artefakt (data uppsättning, Notebook, SQL-skript och så vidare) i Azure-Synapse?
 
-A: om du vill byta namn på en publicerad artefakt fil ska du först klona filen och byta namn på det nya fil namn som du föredrar. Du måste manuellt uppdatera alla referenserna för artefakten till den nya filen och ta bort den gamla.
+A: om du vill byta namn på en publicerad artefakt fil måste du först klona filen och byta namn på den nya filen till det namn som du föredrar. Du måste manuellt uppdatera alla referenserna för artefakten till det nya fil namnet och ta bort den gamla.
 
 ## <a name="user-support"></a>Stöd för användare
 

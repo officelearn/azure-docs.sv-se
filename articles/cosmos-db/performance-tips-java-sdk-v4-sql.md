@@ -4,15 +4,15 @@ description: Lär dig mer om klient konfigurations alternativ för att förbätt
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 0e8dc52b160ee69e9c8bfd810c80c1035fc6e0d0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d4e21e03770591229416c1f70bbd5a715b43362c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674511"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263474"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
 
@@ -91,7 +91,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos-databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är >50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-    ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Bild av Azure Cosmos DB anslutnings princip" border="false":::
 
     En app som samverkar med ett Azure Cosmos DB konto i flera regioner måste konfigurera [önskade platser](tutorial-global-distribution-sql-api.md#preferred-locations) för att se till att begär Anden kommer till en samordnad region.
 
@@ -138,33 +138,21 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Följande kodfragment visar hur du initierar din Azure Cosmos DB-klient för asynkron API eller synkroniserings-API-åtgärd:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java v4 SDK
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-async-client"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ```java
-    CosmosAsyncClient client = new CosmosClientBuilder()
-        .setEndpoint(HOSTNAME)
-        .setKey(MASTERKEY)
-        .setConnectionPolicy(CONNECTIONPOLICY)
-        .setConsistencyLevel(CONSISTENCY)
-        .buildAsyncClient();
-    ```
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    #### <a name="sync"></a>[Synkronisera](#tab/api-sync)
- 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-sync-client"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientAsync)]
 
-    ```java
-    CosmosClient client = new CosmosClientBuilder()
-        .setEndpoint(HOSTNAME)
-        .setKey(MASTERKEY)
-        .setConnectionPolicy(CONNECTIONPOLICY)
-        .setConsistencyLevel(CONSISTENCY)
-        .buildClient();
-    ```    
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
-    ---
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientSync)]
+
+    --- 
 
 * **Justera ConnectionPolicy**
 
@@ -174,7 +162,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     * ***Översikt över direkt läge***
 
-        ![Bild av arkitekturen för direkt läge](./media/performance-tips-async-java/rntbdtransportclient.png)
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av arkitekturen för direkt läge" border="false":::
 
         Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 **kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
@@ -248,36 +236,13 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
     Följande kod kör till exempel ett processor intensivt arbete i-tråden för händelse slingor i IO:
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-noscheduler"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ```java
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub.subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
-    När resultatet har tagits emot, om du vill göra processor intensivt arbete på resultatet bör du undvika att göra det på händelse loop i/o-kontexten. Du kan i stället tillhandahålla din egen schemaläggare att tillhandahålla en egen tråd för att köra ditt arbete, som du ser nedan.
+    När resultatet har tagits emot, om du vill göra processor intensivt arbete på resultatet bör du undvika att göra det på händelse loop i/o-kontexten. Du kan i stället tillhandahålla din egen schemaläggare att tillhandahålla en egen tråd för att köra ditt arbete, enligt nedan (krävs `import reactor.core.scheduler.Schedulers` ).
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ```java
-    import reactor.core.scheduler.Schedulers;
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub
-        .subscribeOn(Schedulers.elastic())
-        .subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
     Baserat på typen av arbete bör du använda en lämplig befintlig reaktor Scheduler för ditt arbete. Läs här [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html) .
 
@@ -325,43 +290,35 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Om du vill förbättra prestandan vid punkt skrivningar anger du objektets partitionsnyckel i API-anropet för punkt skrivning, som du ser nedan:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-createitem-good-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ```java
-    asyncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions()).block();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
-    #### <a name="sync"></a>[Synkronisera](#tab/api-sync)
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-createitem-good-sync"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceNoPKSync)]
 
-    ---
+    --- 
 
     i stället för att bara ange objekt instansen, så som visas nedan:
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-createitem-bad-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ```java
-    asyncContainer.createItem(item).block();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
-    #### <a name="sync"></a>[Synkronisera](#tab/api-sync)
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-createitem-bad-sync"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item);
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceAddPKSync)]
 
-    ---
+    --- 
 
     Den senare stöds men kommer att lägga till svars tid i ditt program. SDK måste parsa objektet och extrahera partitionsnyckel.
 
@@ -396,27 +353,19 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse \<T> eller FeedResponse \<T> .
 
-    #### <a name="async"></a>[Async](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-request-charge-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ```java
-    CosmosAsyncItemResponse<CustomPOJO> response = asyncContainer.createItem(item).block();
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
-    response.getRequestCharge();
-    ```     
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
-    #### <a name="sync"></a>[Synkronisera](#tab/api-sync)
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-request-charge-sync"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API    
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceRequestChargeSync)]
 
-    ```java
-    CosmosItemResponse<CustomPOJO> response = syncContainer.createItem(item);
-
-    response.getRequestCharge();
-    ```     
-
-    ---
+    --- 
 
     Begär ande avgiften som returnerades i den här rubriken är en bråkdel av ditt etablerade data flöde. Om du till exempel har 2000 RU/s etablerad, och om föregående fråga returnerar 1000 1 KB-dokument, är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i [enheter för programbegäran](request-units.md) och [Kalkylatorn för begär ande](https://www.documentdb.com/capacityplanner)enheter.
 

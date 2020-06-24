@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 643c749d0b48c360e807fc5f5280a1f1bfa55bac
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521295"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298777"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Ge åtkomst till Azure Event Hubs
 Varje gång du publicerar eller använder händelser/data från en händelsehubben försöker klienten få åtkomst till Event Hubs resurser. Varje begäran till en säker resurs måste auktoriseras så att tjänsten kan se till att klienten har de behörigheter som krävs för att publicera/använda data. 

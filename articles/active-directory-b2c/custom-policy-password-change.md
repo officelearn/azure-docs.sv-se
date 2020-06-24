@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b978e6335aaf6927fe070285f2255910b31b7ffa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189182"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202627"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera ändring av lösen ord med anpassade principer i Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](cu
 
 ## <a name="add-the-elements"></a>Lägg till elementen
 
-1. Öppna filen *TrustframeworkExtensions. XML* och Lägg till följande **claimType** -element med en identifierare för `oldPassword` elementet [ClaimsSchema](claimsschema.md) :
+1. Öppna *TrustframeworkExtensions.xml* -filen och Lägg till följande **claimType** -element med en identifierare för `oldPassword` [ClaimsSchema](claimsschema.md) -elementet:
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="oldPassword">
@@ -47,7 +47,7 @@ Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](cu
 
 2. Ett [ClaimsProvider](claimsproviders.md) -element innehåller den tekniska profilen som autentiserar användaren. Lägg till följande anspråks leverantörer i **ClaimsProviders** -elementet:
 
-    ```XML
+    ```xml
     <ClaimsProviders>
       <ClaimsProvider>
         <DisplayName>Local Account SignIn</DisplayName>
@@ -123,9 +123,9 @@ Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](cu
 
     Ersätt `IdentityExperienceFrameworkAppId` med program-ID: t för det IdentityExperienceFramework-program som du skapade i den nödvändiga självstudien. Ersätt `ProxyIdentityExperienceFrameworkAppId` med program-ID: t för det ProxyIdentityExperienceFramework-program som du redan har skapat.
 
-3. [UserJourney](userjourneys.md) -elementet definierar den sökväg som användaren ska vidta när de interagerar med ditt program. Lägg till **UserJourneys** -elementet om det inte finns med **UserJourney** som identifieras `PasswordChange`som:
+3. [UserJourney](userjourneys.md) -elementet definierar den sökväg som användaren ska vidta när de interagerar med ditt program. Lägg till **UserJourneys** -elementet om det inte finns med **UserJourney** som identifieras som `PasswordChange` :
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>
@@ -151,8 +151,8 @@ Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](cu
     </UserJourneys>
     ```
 
-4. Spara princip filen *TrustFrameworkExtensions. XML* .
-5. Kopiera filen *ProfileEdit. XML* som du laddade ned med start paketet och ge den namnet *ProfileEditPasswordChange. XML*.
+4. Spara *TrustFrameworkExtensions.xml* princip filen.
+5. Kopiera *ProfileEdit.xml* -filen som du laddade ned med start paketet och ge den namnet *ProfileEditPasswordChange.xml*.
 6. Öppna den nya filen och uppdatera attributet **PolicyId** med ett unikt värde. Det här värdet är namnet på principen. Till exempel *B2C_1A_profile_edit_password_change*.
 7. Ändra attributet **ReferenceId** i `<DefaultUserJourney>` så att det matchar ID: t för den nya användar resan som du skapade. Till exempel *PasswordChange*.
 8. Spara ändringarna.
@@ -161,7 +161,7 @@ Du kan hitta exempel principen [här](https://github.com/Azure-Samples/active-di
 
 ## <a name="test-your-policy"></a>Testa principen
 
-När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure AD B2C token som returneras `https://jwt.ms` för att kunna granska anspråk i det.
+När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure AD B2C token som returneras för att `https://jwt.ms` kunna granska anspråk i det.
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
@@ -170,14 +170,14 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
-6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustframeworkExtensions. XML-* filen.
+6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj den *TrustframeworkExtensions.xml* filen.
 7. Klicka på **Överför**.
-8. Upprepa steg 5 till 7 för den förlitande part filen, till exempel *ProfileEditPasswordChange. XML*.
+8. Upprepa steg 5 till 7 för den förlitande part filen, till exempel *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>Kör principen
 
 1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_profile_edit_password_change*.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en visas `https://jwt.ms`.
+2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en visas `https://jwt.ms` .
 3. Klicka på **Kör nu**. Logga in med acouunt som du skapade tidigare. Du bör nu ha möjlighet att ändra lösen ordet.
 
 ## <a name="next-steps"></a>Nästa steg

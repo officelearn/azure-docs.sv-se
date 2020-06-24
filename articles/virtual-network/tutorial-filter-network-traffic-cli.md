@@ -11,18 +11,18 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235083"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688309"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure CLI
 
@@ -33,7 +33,7 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 * Distribuera virtuella datorer (VM) i ett undernät
 * Testa trafikfilter
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -143,9 +143,9 @@ az network vnet subnet create \
 
 Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafikfiltrering i ett senare steg. 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. `--asgs myAsgWebServers` Alternativet gör att Azure skapar nätverks gränssnittet för den virtuella datorn som medlem i program säkerhets gruppen *myAsgWebServers* .
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. `--asgs myAsgWebServers`Alternativet gör att Azure skapar nätverks gränssnittet för den virtuella datorn som medlem i program säkerhets gruppen *myAsgWebServers* .
 
-`--nsg ""` Alternativet anges för att förhindra att Azure skapar en standard nätverks säkerhets grupp för nätverks gränssnittet Azure skapar när den virtuella datorn skapas. För att förenkla den här artikeln används ett lösen ord. Nycklar används vanligt vis i produktions distributioner. Om du använder nycklar måste du också konfigurera vidarebefordran av SSH-agenten för de återstående stegen. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösen ord som du väljer själv.
+`--nsg ""`Alternativet anges för att förhindra att Azure skapar en standard nätverks säkerhets grupp för nätverks gränssnittet Azure skapar när den virtuella datorn skapas. För att förenkla den här artikeln används ett lösen ord. Nycklar används vanligt vis i produktions distributioner. Om du använder nycklar måste du också konfigurera vidarebefordran av SSH-agenten för de återstående stegen. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösen ord som du väljer själv.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -196,7 +196,7 @@ Det tar några minuter att skapa den virtuella datorn. När den virtuella datorn
 
 ## <a name="test-traffic-filters"></a>Testa trafikfilter
 
-Använd kommandot som följer för att skapa en SSH-session med den virtuella datorn *myVmMgmt* . Ersätt * \<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan är IP-adressen *13.90.242.231*.
+Använd kommandot som följer för att skapa en SSH-session med den virtuella datorn *myVmMgmt* . Ersätt *\<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan är IP-adressen *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,7 +230,7 @@ Den virtuella *myVmWeb* -datorn tillåts utgående till Internet för att hämta
 curl myVmWeb
 ```
 
-Utloggning av den virtuella *myVmMgmt* -datorn. För att bekräfta att du har åtkomst till *myVmWeb* -webbservern utanför Azure anger `curl <publicIpAddress>` du från din egen dator. Anslutningen lyckas eftersom port 80 tillåts inkommande från Internet till den *myAsgWebServers* program säkerhets grupp som är ansluten till den virtuella *myVmWeb* -datorn.
+Utloggning av den virtuella *myVmMgmt* -datorn. För att bekräfta att du har åtkomst till *myVmWeb* -webbservern utanför Azure anger du `curl <publicIpAddress>` från din egen dator. Anslutningen lyckas eftersom port 80 tillåts inkommande från Internet till den *myAsgWebServers* program säkerhets grupp som är ansluten till den virtuella *myVmWeb* -datorn.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

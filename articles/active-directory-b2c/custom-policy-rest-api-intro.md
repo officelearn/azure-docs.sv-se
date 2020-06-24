@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b308e5d74f1a87ea1cebed26f602780307c77d35
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41db591b8abdaaa58461b2782d93f7aa745cfdc6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447925"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202542"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrera REST API Claims-utbyten i Azure AD B2C anpassad princip
 
@@ -145,7 +145,7 @@ Din REST API kan baseras på valfri plattform och skrivas på valfritt språk, s
 ## <a name="localize-the-rest-api"></a>Lokalisera REST API
 I en RESTful teknisk profil kanske du vill skicka den aktuella sessionens språk/nationella inställningar och vid behov generera ett lokaliserat fel meddelande. Med hjälp av [anspråks lösa ren](claim-resolver-overview.md)kan du skicka ett sammanhangsbaseradt anspråk, till exempel användar språket. I följande exempel visas en RESTful teknisk profil som demonstrerar det här scenariot.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -165,7 +165,7 @@ I en RESTful teknisk profil kanske du vill skicka den aktuella sessionens språk
 
 ## <a name="handling-error-messages"></a>Hantera fel meddelanden
 
-Din REST API kan behöva returnera ett fel meddelande, till exempel "användaren kunde inte hittas i CRM-systemet". Om ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod). Mer information finns i [teknisk profil för RESTful](restful-technical-profile.md#returning-error-message).
+Din REST API kan behöva returnera ett fel meddelande, till exempel "användaren kunde inte hittas i CRM-systemet". Om ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod). Mer information finns i [teknisk profil för RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Detta kan endast uppnås genom att anropa en REST API teknisk profil från en teknisk verifierings profil. Detta gör att användaren kan korrigera data på sidan och köra verifieringen igen när sidan skickas.
 

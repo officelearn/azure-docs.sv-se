@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 1d9289b6304a9c9e93afeddd98b3a229dae91797
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660594"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730755"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -251,7 +251,7 @@ def main(req):
 
 Det finns ytterligare loggnings metoder som gör att du kan skriva till-konsolen på olika spårnings nivåer:
 
-| Metod                 | Description                                |
+| Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Skriver ett meddelande med nivå kritisk på rot loggaren.  |
 | **`error(_message_)`**   | Skriver ett meddelande med nivå fel på rot loggaren.    |
@@ -263,7 +263,7 @@ Mer information om loggning finns i [övervaka Azure Functions](functions-monito
 
 ## <a name="http-trigger-and-bindings"></a>HTTP-utlösare och bindningar
 
-HTTP-utlösaren definieras i filen function. Jon. `name`För bindningen måste matcha den namngivna parametern i funktionen.
+HTTP-utlösaren definieras i function.jsi filen. `name`För bindningen måste matcha den namngivna parametern i funktionen.
 I föregående exempel används ett bindnings namn `req` . Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
 
 Du kan hämta begärandehuvuden, frågeparametrar, väg parametrar och meddelande texten från [HttpRequest] -objektet.
@@ -338,7 +338,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argumentet i signaturen.
 
-Exempel:
+Ett exempel:
 
 ```python
 import azure.functions
@@ -650,11 +650,11 @@ Funktionen python Worker kräver en speciell uppsättning bibliotek. Du kan ocks
 
 ### <a name="azure-functions-python-library"></a>Azure Functions python-bibliotek
 
-Varje python Worker-uppdatering innehåller en ny version av [Azure Functions python-bibliotek (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Körnings bibliotekets version korrigeras av Azure och kan inte åsidosättas av requirements.txt. `azure-functions`Posten i requirements.txt är endast för att kunna luddfri och kund medvetenhet.
+Varje python Worker-uppdatering innehåller en ny version av [Azure Functions python-bibliotek (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Den här metoden gör det enklare att kontinuerligt uppdatera dina python Function-appar eftersom varje uppdatering är bakåtkompatibel. En lista över versioner av det här biblioteket finns i [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-Anledningen till att det här beslutet görs är att under lätta kontinuerlig uppdatering i Azure Functions python-appar. Uppdateringen av python-biblioteket bör inte vara kund medveten eftersom varje uppdatering är bakåtkompatibel. En lista med biblioteks versioner finns i [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
+Körnings bibliotekets version korrigeras av Azure och kan inte åsidosättas av requirements.txt. `azure-functions`Posten i requirements.txt är endast för att kunna luddfri och kund medvetenhet. 
 
-Du kan spåra den faktiska versionen av python Functions-biblioteket i din körning med följande rad:
+Använd följande kod för att spåra den faktiska versionen av python Functions-biblioteket i din körnings miljö:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -663,6 +663,7 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 ### <a name="runtime-system-libraries"></a>System bibliotek för körning
 
 Om du vill ha en lista över förinstallerade system bibliotek i python Worker Docker-avbildningar följer du länkarna nedan:
+
 |  Functions-körning  | Debian-version | Python-versioner |
 |------------|------------|------------|
 | Version 2. x | Sträck  | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186394"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203103"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -23,7 +23,7 @@ ms.locfileid: "78186394"
 
 En anpassad princip visas som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar element i principen, till exempel anspråks schema, anspråk omvandlingar, innehålls definitioner, anspråks leverantörer, tekniska profiler, användar resa och Orchestration-steg. Varje princip fil definieras i **TrustFrameworkPolicy** -elementet på den översta nivån i en princip fil.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -40,13 +40,13 @@ En anpassad princip visas som en eller flera XML-formaterade filer som refererar
 
 | Attribut | Krävs | Beskrivning |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Ja | Den schema version som ska användas för att köra principen. Värdet måste vara`0.3.0.0` |
-| TenantObjectId | Inga | Den unika objekt identifieraren för Azure Active Directory B2C-klienten (Azure AD B2C). |
-| TenantId | Ja | Den unika identifieraren för den klient som principen tillhör. |
-| PolicyId | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
-| PublicPolicyUri | Ja | En URI för principen, som är en kombination av klient-ID och princip-ID. |
-| DeploymentMode | Inga | Möjliga värden: `Production`, eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka principen. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Inga | Den slut punkt som används när **DeploymentMode** har angetts till `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
+| PolicySchemaVersion | Yes | Den schema version som ska användas för att köra principen. Värdet måste vara`0.3.0.0` |
+| TenantObjectId | No | Den unika objekt identifieraren för Azure Active Directory B2C-klienten (Azure AD B2C). |
+| TenantId | Yes | Den unika identifieraren för den klient som principen tillhör. |
+| PolicyId | Yes | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
+| PublicPolicyUri | Yes | En URI för principen, som är en kombination av klient-ID och princip-ID. |
+| DeploymentMode | No | Möjliga värden: `Production` , eller `Development` . `Production` används som standard. Använd den här egenskapen för att felsöka principen. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | Den slut punkt som används när **DeploymentMode** har angetts till `Development` . Värdet måste vara `urn:journeyrecorder:applicationinsights` . Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
 
 
 I följande exempel visas hur du anger **TrustFrameworkPolicy** -elementet:
@@ -122,7 +122,7 @@ I RP-princip filen anger du **DefaultUserJourney** -elementet, som pekar på [Us
 
 B2C_1A_signup_signin princip:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -130,7 +130,7 @@ B2C_1A_signup_signin princip:
 
 B2C_1A_TrustFrameWorkBase eller B2C_1A_TrustFrameworkExtensionPolicy:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...

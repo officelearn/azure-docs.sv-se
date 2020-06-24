@@ -3,15 +3,15 @@ title: Azure Cosmos DB prestanda tips för .NET SDK v3
 description: Lär dig mer om klient konfigurations alternativ för att förbättra Azure Cosmos DB .NET v3 SDK-prestanda.
 author: j82w
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 48ab7d0b04a155465f2325179cf5617de7873fd8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a10272324a9535a0c2468d63a404f76ca56ce375
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680205"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263525"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -87,9 +87,8 @@ Azure Cosmos DB erbjuder en enkel, öppen RESTful programmerings modell över HT
 För SDK v3 konfigurerar du anslutnings läget när du skapar `CosmosClient` instansen i `CosmosClientOptions` . Kom ihåg att Direct-läget är standardvärdet.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -98,6 +97,18 @@ new CosmosClientOptions
 
 Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, används HTTPS-protokollet alltid för att kommunicera med gatewayen.
 
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Azure Cosmos DB anslutnings princip" border="false":::
+
+**Tillfälligt port överbelastning**
+
+Om du ser en hög anslutnings volym eller hög port användning på dina instanser måste du först kontrol lera att klient instanserna är singleton. Med andra ord bör klient instanserna vara unika för programmets livs längd.
+
+När den körs på TCP-protokollet optimerar klienten för svars tid genom att använda de långsamma anslutningarna i stället för HTTPS-protokollet, vilket avslutar anslutningarna efter 2 minuters inaktivitet.
+
+I scenarier där du har sparse-åtkomst och om du upptäcker ett högre antal anslutningar jämfört med åtkomst till gateway-läge kan du:
+
+* Konfigurera egenskapen [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) till `PrivatePortPool` (gällande med framework-version>= 4.6.1 och .net core-version >= 2,0): med den här egenskapen kan SDK använda en liten pool av tillfälliga portar för olika Azure Cosmos DB mål slut punkter.
+* Konfigurera egenskapen [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) måste vara större än eller lika med 10 minuter. De rekommenderade värdena är mellan 20 minuter och 24 timmar.
 
 <a id="same-region"></a>
 
@@ -105,7 +116,9 @@ Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, använ
 
 Placera eventuella program som anropar Azure Cosmos DB i samma region som Azure Cosmos DBs databasen när det är möjligt. Här är en ungefärlig jämförelse: anrop till Azure Cosmos DB inom samma region slutförs inom 1 ms till 2 MS, men fördröjningen mellan västra USA och östra kust är över 50 ms. Svars tiden kan variera från begäran till begäran, beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Du kan få lägsta möjliga fördröjning genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-![Azure Cosmos DB anslutnings princip ](./media/performance-tips/same-region.png)<a id="increase-threads"></a>
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Azure Cosmos DB anslutnings princip" border="false":::
+
+   <a id="increase-threads"></a>
 
 **Öka antalet trådar/aktiviteter**
 

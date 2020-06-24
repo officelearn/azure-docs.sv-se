@@ -3,12 +3,12 @@ title: YAML-referens för container grupp
 description: Referens för YAML-filen som stöds av Azure Container Instances att konfigurera en behållar grupp
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be78c7d498187486a1502da17faa2b8faa5a0982
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896574"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730534"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML-referens: Azure Container Instances
 
@@ -17,7 +17,7 @@ I den här artikeln beskrivs syntax och egenskaper för YAML-filen som stöds av
 En YAML-fil är ett bekvämt sätt att konfigurera en behållar grupp för åter användning. Det är ett koncist alternativ till att använda en [Resource Manager-mall](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups) eller Azure Container instances SDK: er för att skapa eller uppdatera en behållar grupp.
 
 > [!NOTE]
-> Den här referensen gäller för YAML-filer för `2018-10-01`Azure Container instances REST API version.
+> Den här referensen gäller för YAML-filer för Azure Container Instances REST API version `2018-10-01` .
 
 ## <a name="schema"></a>Schema 
 
@@ -133,290 +133,290 @@ properties: # Properties of container group
 
 I följande tabeller beskrivs de värden som du måste ange i schemat.
 
-<a id="Microsoft.ContainerInstance/containerGroups" />
+
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>Microsoft. ContainerInstance/containerGroups-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  namn | sträng | Ja | Namnet på behållar gruppen. |
-|  apiVersion | räkning | Ja | 2018-10-01 |
-|  location | sträng | Inga | Resursens plats. |
-|  tags | objekt | Inga | Resurs taggarna. |
-|  identity | objekt | Inga | Identiteten för behållar gruppen, om den är konfigurerad. - [ContainerGroupIdentity-objekt](#ContainerGroupIdentity) |
-|  properties | objekt | Ja | [ContainerGroupProperties-objekt](#ContainerGroupProperties) |
+|  name | sträng | Yes | Namnet på behållar gruppen. |
+|  apiVersion | räkning | Yes | 2018-10-01 |
+|  location | sträng | No | Resursens plats. |
+|  tags | objekt | No | Resurs taggarna. |
+|  identity | objekt | No | Identiteten för behållar gruppen, om den är konfigurerad. - [ContainerGroupIdentity-objekt](#containergroupidentity-object) |
+|  properties | objekt | Yes | [ContainerGroupProperties-objekt](#containergroupproperties-object) |
 
 
-<a id="ContainerGroupIdentity" />
+
 
 ### <a name="containergroupidentity-object"></a>ContainerGroupIdentity-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  typ | räkning | Inga | Typ av identitet som används för behållar gruppen. Typen "SystemAssigned, UserAssigned" innehåller både en implicit skapad identitet och en uppsättning användare tilldelade identiteter. Typen ' none ' tar bort alla identiteter från behållar gruppen. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, ingen |
-|  userAssignedIdentities | objekt | Inga | Listan över användar identiteter som är kopplade till behållar gruppen. Nyckel referenserna för användar identitets ord listan kommer att Azure Resource Manager resurs-ID: n i formatet: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} '. |
+|  typ | räkning | No | Typ av identitet som används för behållar gruppen. Typen "SystemAssigned, UserAssigned" innehåller både en implicit skapad identitet och en uppsättning användare tilldelade identiteter. Typen ' none ' tar bort alla identiteter från behållar gruppen. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, ingen |
+|  userAssignedIdentities | objekt | No | Listan över användar identiteter som är kopplade till behållar gruppen. Nyckel referenserna för användar identitets ord listan kommer att Azure Resource Manager resurs-ID: n i formatet: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} '. |
 
 
-<a id="ContainerGroupProperties" />
+
 
 ### <a name="containergroupproperties-object"></a>ContainerGroupProperties-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  containrar | matris | Ja | Behållarna i behållar gruppen. - [Container objekt](#Container) |
-|  imageRegistryCredentials | matris | Inga | De avbildnings register uppgifter som behållar gruppen skapas från. - [ImageRegistryCredential-objekt](#ImageRegistryCredential) |
-|  restartPolicy | räkning | Inga | Starta om principen för alla behållare i behållar gruppen. - `Always`Starta alltid om `OnFailure` , starta om datorn `Never` vid haveri-starta inte om. -Always, OnFailure, Never |
-|  Adresser | objekt | Inga | Typ av IP-adress för behållar gruppen. - [IpAddress-objekt](#IpAddress) |
-|  osType | räkning | Ja | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
-|  volumes | matris | Inga | Listan över volymer som kan monteras av behållare i den här behållar gruppen. - [Volym objekt](#Volume) |
-|  diagnostik | objekt | Inga | Diagnostikinformation för en behållar grupp. - [ContainerGroupDiagnostics-objekt](#ContainerGroupDiagnostics) |
-|  networkProfile | objekt | Inga | Nätverks profil informationen för en behållar grupp. - [ContainerGroupNetworkProfile-objekt](#ContainerGroupNetworkProfile) |
-|  dnsConfig | objekt | Inga | DNS-konfigurations information för en behållar grupp. - [DnsConfiguration-objekt](#DnsConfiguration) |
+|  containrar | matris | Yes | Behållarna i behållar gruppen. - [Container objekt](#container-object) |
+|  imageRegistryCredentials | matris | No | De avbildnings register uppgifter som behållar gruppen skapas från. - [ImageRegistryCredential-objekt](#imageregistrycredential-object) |
+|  restartPolicy | räkning | No | Starta om principen för alla behållare i behållar gruppen. - `Always`Starta alltid om, starta om datorn `OnFailure` vid haveri- `Never` Starta inte om. -Always, OnFailure, Never |
+|  Adresser | objekt | No | Typ av IP-adress för behållar gruppen. - [IpAddress-objekt](#ipaddress-object) |
+|  osType | räkning | Yes | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
+|  volumes | matris | No | Listan över volymer som kan monteras av behållare i den här behållar gruppen. - [Volym objekt](#volume-object) |
+|  diagnostik | objekt | No | Diagnostikinformation för en behållar grupp. - [ContainerGroupDiagnostics-objekt](#containergroupdiagnostics-object) |
+|  networkProfile | objekt | No | Nätverks profil informationen för en behållar grupp. - [ContainerGroupNetworkProfile-objekt](#containergroupnetworkprofile-object) |
+|  dnsConfig | objekt | No | DNS-konfigurations information för en behållar grupp. - [DnsConfiguration-objekt](#dnsconfiguration-object) |
 
 
-<a id="Container" />
+
 
 ### <a name="container-object"></a>Container objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  namn | sträng | Ja | Namnet på behållar instansen som användaren anger. |
-|  properties | objekt | Ja | Egenskaperna för behållar instansen. - [ContainerProperties-objekt](#ContainerProperties) |
+|  name | sträng | Yes | Namnet på behållar instansen som användaren anger. |
+|  properties | objekt | Yes | Egenskaperna för behållar instansen. - [ContainerProperties-objekt](#containerproperties-object) |
 
 
-<a id="ImageRegistryCredential" />
+
 
 ### <a name="imageregistrycredential-object"></a>ImageRegistryCredential-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  server | sträng | Ja | Docker-avbildningens register server utan protokoll som "http" och "https". |
-|  användarnamn | sträng | Ja | Användar namnet för det privata registret. |
-|  password | sträng | Inga | Lösen ordet för det privata registret. |
+|  server | sträng | Yes | Docker-avbildningens register server utan protokoll som "http" och "https". |
+|  användarnamn | sträng | Yes | Användar namnet för det privata registret. |
+|  password | sträng | No | Lösen ordet för det privata registret. |
 
 
-<a id="IpAddress" />
+
 
 ### <a name="ipaddress-object"></a>IpAddress-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  ports | matris | Ja | Listan över portar som exponeras i behållar gruppen. - [Port objekt](#Port) |
-|  typ | räkning | Ja | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
-|  sökning | sträng | Inga | IP-adressen som exponeras för det offentliga Internet. |
-|  dnsNameLabel | sträng | Inga | DNS-namnets etikett för IP-adressen. |
+|  ports | matris | Yes | Listan över portar som exponeras i behållar gruppen. - [Port objekt](#port-object) |
+|  typ | räkning | Yes | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
+|  sökning | sträng | No | IP-adressen som exponeras för det offentliga Internet. |
+|  dnsNameLabel | sträng | No | DNS-namnets etikett för IP-adressen. |
 
 
-<a id="Volume" />
+
 
 ### <a name="volume-object"></a>Volym objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  namn | sträng | Ja | Namnet på volymen. |
-|  azureFile | objekt | Inga | Azure-filvolymen. - [AzureFileVolume-objekt](#AzureFileVolume) |
-|  emptyDir | objekt | Inga | Den tomma katalog volymen. |
-|  hemlighet | objekt | Inga | Den hemliga volymen. |
-|  gitRepo | objekt | Inga | Git lagrings platsen-volymen. - [GitRepoVolume-objekt](#GitRepoVolume) |
+|  name | sträng | Yes | Namnet på volymen. |
+|  azureFile | objekt | No | Azure-filvolymen. - [AzureFileVolume-objekt](#azurefilevolume-object) |
+|  emptyDir | objekt | No | Den tomma katalog volymen. |
+|  hemlighet | objekt | No | Den hemliga volymen. |
+|  gitRepo | objekt | No | Git lagrings platsen-volymen. - [GitRepoVolume-objekt](#gitrepovolume-object) |
 
 
-<a id="ContainerGroupDiagnostics" />
+
 
 ### <a name="containergroupdiagnostics-object"></a>ContainerGroupDiagnostics-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  logAnalytics | objekt | Inga | Information om behållar grupps logg analys. - [LogAnalytics-objekt](#LogAnalytics) |
+|  logAnalytics | objekt | No | Information om behållar grupps logg analys. - [LogAnalytics-objekt](#loganalytics-object) |
 
 
-<a id="ContainerGroupNetworkProfile" />
+
 
 ### <a name="containergroupnetworkprofile-object"></a>ContainerGroupNetworkProfile-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  id | sträng | Ja | Identifieraren för en nätverks profil. |
+|  id | sträng | Yes | Identifieraren för en nätverks profil. |
 
 
-<a id="DnsConfiguration" />
+
 
 ### <a name="dnsconfiguration-object"></a>DnsConfiguration-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  Namnservrar | matris | Ja | DNS-servrarna för behållar gruppen. – sträng |
-|  searchDomains | sträng | Inga | DNS-sökdomänerna för Sök efter värdnamn i behållar gruppen. |
-|  alternativ | sträng | Inga | DNS-alternativen för behållar gruppen. |
+|  Namnservrar | matris | Yes | DNS-servrarna för behållar gruppen. – sträng |
+|  searchDomains | sträng | No | DNS-sökdomänerna för Sök efter värdnamn i behållar gruppen. |
+|  alternativ | sträng | No | DNS-alternativen för behållar gruppen. |
 
 
-<a id="ContainerProperties" />
+
 
 ### <a name="containerproperties-object"></a>ContainerProperties-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  image | sträng | Ja | Namnet på den avbildning som används för att skapa behållar instansen. |
-|  command | matris | Inga | De kommandon som ska köras i behållar instansen i exec form. – sträng |
-|  ports | matris | Inga | Exponerade portar på behållar instansen. - [ContainerPort-objekt](#ContainerPort) |
-|  environmentVariables | matris | Inga | Miljövariablerna som ska anges i behållar instansen. - [EnvironmentVariable-objekt](#EnvironmentVariable) |
-|  resources | objekt | Ja | Resurs kraven för behållar instansen. - [ResourceRequirements-objekt](#ResourceRequirements) |
-|  volumeMounts | matris | Inga | Volymen monteras som är tillgänglig för behållar instansen. - [VolumeMount-objekt](#VolumeMount) |
-|  livenessProbe | objekt | Inga | Direktmigrering. - [ContainerProbe-objekt](#ContainerProbe) |
-|  readinessProbe | objekt | Inga | Beredskaps avsökningen. - [ContainerProbe-objekt](#ContainerProbe) |
+|  image | sträng | Yes | Namnet på den avbildning som används för att skapa behållar instansen. |
+|  command | matris | No | De kommandon som ska köras i behållar instansen i exec form. – sträng |
+|  ports | matris | No | Exponerade portar på behållar instansen. - [ContainerPort-objekt](#containerport-object) |
+|  environmentVariables | matris | No | Miljövariablerna som ska anges i behållar instansen. - [EnvironmentVariable-objekt](#environmentvariable-object) |
+|  resources | objekt | Yes | Resurs kraven för behållar instansen. - [ResourceRequirements-objekt](#resourcerequirements-object) |
+|  volumeMounts | matris | No | Volymen monteras som är tillgänglig för behållar instansen. - [VolumeMount-objekt](#volumemount-object) |
+|  livenessProbe | objekt | No | Direktmigrering. - [ContainerProbe-objekt](#containerprobe-object) |
+|  readinessProbe | objekt | No | Beredskaps avsökningen. - [ContainerProbe-objekt](#containerprobe-object) |
 
 
-<a id="Port" />
+
 
 ### <a name="port-object"></a>Port objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  protokollhanterare | räkning | Inga | Det protokoll som är associerat med porten. -TCP eller UDP |
-|  port | heltal | Ja | Portnumret. |
+|  protokollhanterare | räkning | No | Det protokoll som är associerat med porten. -TCP eller UDP |
+|  port | heltal | Yes | Portnumret. |
 
 
-<a id="AzureFileVolume" />
+
 
 ### <a name="azurefilevolume-object"></a>AzureFileVolume-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  Resurs | sträng | Ja | Namnet på Azure-filresursen som ska monteras som en volym. |
-|  readOnly | boolean | Inga | Flaggan som anger om Azure-fildelningen som är monterad som en volym är skrivskyddad. |
-|  storageAccountName | sträng | Ja | Namnet på det lagrings konto som innehåller Azure-filresursen. |
-|  storageAccountKey | sträng | Inga | Lagrings kontots åtkomst nyckel som används för åtkomst till Azure-filresursen. |
+|  Resurs | sträng | Yes | Namnet på Azure-filresursen som ska monteras som en volym. |
+|  readOnly | boolean | No | Flaggan som anger om Azure-fildelningen som är monterad som en volym är skrivskyddad. |
+|  storageAccountName | sträng | Yes | Namnet på det lagrings konto som innehåller Azure-filresursen. |
+|  storageAccountKey | sträng | No | Lagrings kontots åtkomst nyckel som används för åtkomst till Azure-filresursen. |
 
 
-<a id="GitRepoVolume" />
+
 
 ### <a name="gitrepovolume-object"></a>GitRepoVolume-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  katalog | sträng | Inga | Mål katalog namn. Får inte innehålla eller börja med "..".  Om "." anges blir volym katalogen git-lagringsplatsen.  Annars kommer volymen att innehålla git-lagringsplatsen i under katalogen med det angivna namnet. |
-|  lagrings platsen | sträng | Ja | URL för databas |
-|  revision | sträng | Inga | Genomför hash för den angivna revisionen. |
+|  katalog | sträng | No | Mål katalog namn. Får inte innehålla eller börja med "..".  Om "." anges blir volym katalogen git-lagringsplatsen.  Annars kommer volymen att innehålla git-lagringsplatsen i under katalogen med det angivna namnet. |
+|  lagrings platsen | sträng | Yes | URL för databas |
+|  revision | sträng | No | Genomför hash för den angivna revisionen. |
 
 
-<a id="LogAnalytics" />
+
 
 ### <a name="loganalytics-object"></a>LogAnalytics-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | sträng | Ja | Arbetsyte-ID för Log Analytics |
-|  workspaceKey | sträng | Ja | Arbets ytans nyckel för Log Analytics |
-|  logType | räkning | Inga | Den logg typ som ska användas. -ContainerInsights eller ContainerInstanceLogs |
-|  metadata | objekt | Inga | Metadata för Log Analytics. |
+|  workspaceId | sträng | Yes | Arbetsyte-ID för Log Analytics |
+|  workspaceKey | sträng | Yes | Arbets ytans nyckel för Log Analytics |
+|  logType | räkning | No | Den logg typ som ska användas. -ContainerInsights eller ContainerInstanceLogs |
+|  metadata | objekt | No | Metadata för Log Analytics. |
 
 
-<a id="ContainerPort" />
+
 
 ### <a name="containerport-object"></a>ContainerPort-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  protokollhanterare | räkning | Inga | Det protokoll som är associerat med porten. -TCP eller UDP |
-|  port | heltal | Ja | Port numret som visas i behållar gruppen. |
+|  protokollhanterare | räkning | No | Det protokoll som är associerat med porten. -TCP eller UDP |
+|  port | heltal | Yes | Port numret som visas i behållar gruppen. |
 
 
-<a id="EnvironmentVariable" />
+
 
 ### <a name="environmentvariable-object"></a>EnvironmentVariable-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  namn | sträng | Ja | Namnet på miljö variabeln. |
-|  värde | sträng | Inga | Värdet för miljö variabeln. |
-|  secureValue | sträng | Inga | Värdet för variabeln säker miljö. |
+|  name | sträng | Yes | Namnet på miljö variabeln. |
+|  värde | sträng | No | Värdet för miljö variabeln. |
+|  secureValue | sträng | No | Värdet för variabeln säker miljö. |
 
 
-<a id="ResourceRequirements" />
+
 
 ### <a name="resourcerequirements-object"></a>ResourceRequirements-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  autentiseringsbegäran | objekt | Ja | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#ResourceRequests) |
-|  sten | objekt | Inga | Resurs gränserna för den här behållar instansen. - [ResourceLimits-objekt](#ResourceLimits) |
+|  autentiseringsbegäran | objekt | Yes | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#resourcerequests-object) |
+|  sten | objekt | No | Resurs gränserna för den här behållar instansen. - [ResourceLimits-objekt](#resourcelimits-object) |
 
 
-<a id="VolumeMount" />
+
 
 ### <a name="volumemount-object"></a>VolumeMount-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  namn | sträng | Ja | Namnet på volym monteringen. |
-|  mountPath | sträng | Ja | Sökvägen i behållaren där volymen ska monteras. Får inte innehålla kolon (:). |
-|  readOnly | boolean | Inga | Flaggan indikerar om volym monteringen är skrivskyddad. |
+|  name | sträng | Yes | Namnet på volym monteringen. |
+|  mountPath | sträng | Yes | Sökvägen i behållaren där volymen ska monteras. Får inte innehålla kolon (:). |
+|  readOnly | boolean | No | Flaggan indikerar om volym monteringen är skrivskyddad. |
 
 
-<a id="ContainerProbe" />
+
 
 ### <a name="containerprobe-object"></a>ContainerProbe-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  ledn | objekt | Inga | Körnings kommandot till PROBE- [ContainerExec-objektet](#ContainerExec) |
-|  httpGet | objekt | Inga | Http get-inställningarna till PROBE- [ContainerHttpGet-objektet](#ContainerHttpGet) |
-|  initialDelaySeconds | heltal | Inga | Den första fördröjningen i sekunder. |
-|  periodSeconds | heltal | Inga | Perioden i sekunder. |
-|  failureThreshold | heltal | Inga | Tröskelvärdet för felen. |
-|  successThreshold | heltal | Inga | Tröskelvärdet för framgång. |
-|  timeoutSeconds | heltal | Inga | Tids gräns i sekunder. |
+|  ledn | objekt | No | Körnings kommandot till PROBE- [ContainerExec-objektet](#containerexec-object) |
+|  httpGet | objekt | No | Http get-inställningarna till PROBE- [ContainerHttpGet-objektet](#containerhttpget-object) |
+|  initialDelaySeconds | heltal | No | Den första fördröjningen i sekunder. |
+|  periodSeconds | heltal | No | Perioden i sekunder. |
+|  failureThreshold | heltal | No | Tröskelvärdet för felen. |
+|  successThreshold | heltal | No | Tröskelvärdet för framgång. |
+|  timeoutSeconds | heltal | No | Tids gräns i sekunder. |
 
 
-<a id="ResourceRequests" />
+
 
 ### <a name="resourcerequests-object"></a>ResourceRequests-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | nummer | Ja | Minnes förfrågan i GB av den här behållar instansen. |
-|  registrera | nummer | Ja | PROCESSOR förfrågan för den här behållar instansen. |
-|  grafik | objekt | Inga | GPU-begäran för den här behållar instansen. - [GpuResource-objekt](#GpuResource) |
+|  memoryInGB | nummer | Yes | Minnes förfrågan i GB av den här behållar instansen. |
+|  registrera | nummer | Yes | PROCESSOR förfrågan för den här behållar instansen. |
+|  grafik | objekt | No | GPU-begäran för den här behållar instansen. - [GpuResource-objekt](#gpuresource-object) |
 
 
-<a id="ResourceLimits" />
+
 
 ### <a name="resourcelimits-object"></a>ResourceLimits-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | nummer | Inga | Minnes gränsen i GB för den här behållar instansen. |
-|  registrera | nummer | Inga | PROCESSOR gränsen för den här behållar instansen. |
-|  grafik | objekt | Inga | GPU-gränsen för den här behållar instansen. - [GpuResource-objekt](#GpuResource) |
+|  memoryInGB | nummer | No | Minnes gränsen i GB för den här behållar instansen. |
+|  registrera | nummer | No | PROCESSOR gränsen för den här behållar instansen. |
+|  grafik | objekt | No | GPU-gränsen för den här behållar instansen. - [GpuResource-objekt](#gpuresource-object) |
 
 
-<a id="ContainerExec" />
+
 
 ### <a name="containerexec-object"></a>ContainerExec-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  command | matris | Inga | De kommandon som ska köras i behållaren. – sträng |
+|  command | matris | No | De kommandon som ska köras i behållaren. – sträng |
 
 
-<a id="ContainerHttpGet" />
+
 
 ### <a name="containerhttpget-object"></a>ContainerHttpGet-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  path | sträng | Inga | Sökvägen till avsökningen. |
-|  port | heltal | Ja | Port numret som ska avsökas. |
-|  schema | räkning | Inga | Schemat. -http eller https |
+|  path | sträng | No | Sökvägen till avsökningen. |
+|  port | heltal | Yes | Port numret som ska avsökas. |
+|  schema | räkning | No | Schemat. -http eller https |
 
 
-<a id="GpuResource" />
+
 
 ### <a name="gpuresource-object"></a>GpuResource-objekt
 
-|  Name | Typ | Krävs | Värde |
+|  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  count | heltal | Ja | Antalet GPU-resurser. |
-|  sku | räkning | Ja | SKU: n för GPU-resursen. -K80, P100, V100 |
+|  count | heltal | Yes | Antalet GPU-resurser. |
+|  sku | räkning | Yes | SKU: n för GPU-resursen. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051499"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202865"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -30,7 +30,7 @@ Om du vill anpassa användar gränssnittet anger du en URL i **ContentDefinition
 
 I följande exempel visas innehålls definitions identifieraren och definitionen av lokaliserade resurser:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ I följande exempel visas innehålls definitions identifieraren och definitionen
 
 Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller den innehålls Definitions-ID **ContentDefinitionReferenceId** som är inställt på`api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -63,21 +63,21 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
+| Id | Yes | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
 
 **ContentDefinition** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | En sträng som innehåller webb adressen till HTML5-sidan för innehålls definitionen. |
-| RecoveryUri | 1:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. Används inte för närvarande, värdet måste vara `~/common/default_page_error.html`. |
+| RecoveryUri | 1:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. Används inte för närvarande, värdet måste vara `~/common/default_page_error.html` . |
 | DataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som ger användar upplevelsen för att anropa steget. |
 | Metadata | 0:1 | En samling nyckel/värde-par som innehåller de metadata som används av innehålls definitionen. |
 | LocalizedResourcesReferences | 0:1 | En samling med lokaliserade resurs referenser. Använd det här elementet för att anpassa lokaliseringen av ett användar gränssnitt och ett anspråks attribut. |
 
 ### <a name="datauri"></a>DataUri
 
-**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Formatet för värdet är `urn:com:microsoft:aad:b2c:elements:page-name:version`. I följande tabell visas de sid identifierare som du kan använda.
+**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Formatet för värdet är `urn:com:microsoft:aad:b2c:elements:page-name:version` . I följande tabell visas de sid identifierare som du kan använda.
 
 | Sid identifierare | Beskrivning |
 | ----- | ----------- |
@@ -90,13 +90,13 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 ### <a name="select-a-page-layout"></a>Välj en sidlayout
 
-Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att `contract` infoga `elements` mellan och sid typen. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Exempelvis `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-I [versions](page-layout.md) delen av `DataUri` anges det INNEHÅLLS paket som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i principen. Om du tänker aktivera Java Script på klient sidan måste de element som du baserar Java Script på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntade beteenden på dina användar sidor. Du kan förhindra dessa problem genom att framtvinga användningen av en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte tänker aktivera Java Script måste du fortfarande ange sidlayouten för sidorna.
+I [versions](page-layout.md) delen av `DataUri` anges det innehålls paket som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i principen. Om du tänker aktivera Java Script på klient sidan måste de element som du baserar Java Script på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntade beteenden på dina användar sidor. Du kan förhindra dessa problem genom att framtvinga användningen av en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte tänker aktivera Java Script måste du fortfarande ange sidlayouten för sidorna.
 
-I följande exempel visas **DataUri** för `selfasserted` version `1.2.0`:
+I följande exempel visas **DataUri** för `selfasserted` version `1.2.0` :
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ I följande exempel visas **DataUri** för `selfasserted` version `1.2.0`:
 
 #### <a name="migrating-to-page-layout"></a>Migrera till sidlayouten
 
-Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**kontrakt**:p ålder-Name: version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
+Formatet för värdet måste innehålla ordet `contract` : _urn: com: Microsoft: AAD: B2C: Elements:**kontrakt**:p ålder-Name: version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
 
 | Gammalt DataUri-värde | Nytt DataUri-värde |
 | ----------------- | ----------------- |
@@ -139,7 +139,7 @@ Ett **metadataelement** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Nyckel | Ja | Nyckeln metadata.  |
+| Nyckel | Yes | Nyckeln metadata.  |
 
 #### <a name="metadata-keys"></a>Nycklar för metadata
 
@@ -147,7 +147,7 @@ Innehålls definitionen stöder följande metadata:
 
 | Nyckel | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DisplayName | Inga | En sträng som innehåller namnet på innehålls definitionen. |
+| DisplayName | No | En sträng som innehåller namnet på innehålls definitionen. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -161,12 +161,12 @@ Innehålls definitionen stöder följande metadata:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
-| LocalizedResourcesReferenceId | Ja | Identifieraren för **LocalizedResources** -elementet. |
+| Språk | Yes | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
+| LocalizedResourcesReferenceId | Yes | Identifieraren för **LocalizedResources** -elementet. |
 
 I följande exempel visas en registrerings-eller inloggnings innehålls definition med en referens till lokalisering av engelska, franska och spanska:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409871"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809227"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Avgöra vilken Azure Storage krypterings nyckel modell som används för lagrings kontot
 
@@ -57,7 +57,7 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage`, krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault`, krypteras kontot med Kundhanterade nycklar.
+Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage` , krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault` , krypteras kontot med Kundhanterade nycklar.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
@@ -71,11 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage`, krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault`, krypteras kontot med Kundhanterade nycklar.
+Om värdet för egenskapen nyckel **källa** är `Microsoft.Storage` , krypteras kontot med Microsoft-hanterade nycklar. Om värdet för egenskapen nyckel **källa** är `Microsoft.Keyvault` , krypteras kontot med Kundhanterade nycklar.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage kryptering för vilande data](storage-service-encryption.md)
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
 - [Använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](encryption-customer-managed-keys.md)

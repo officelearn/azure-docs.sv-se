@@ -6,14 +6,14 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: bef4ee14cb4a7d64d80dc5776d8ecea0f831881a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75887640"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260583"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Åtkomst Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight
 
@@ -116,7 +116,7 @@ Spark-gränssnittet används i testnings-och utforsknings syfte.
 
 HDInsight-Spark levereras med Zeppelin-och Jupyter Notebook-tjänster. De är både webbaserade Notebook-miljöer som stöder Scala och python. Bärbara datorer är fantastiska för interaktiv analys och samarbete, men är inte avsedda för drift/produktions processer.
 
-Följande Jupyter-anteckningsböcker kan laddas upp till ditt HDInsight Spark-kluster och tillhandahålla färdiga exempel för att arbeta med Azure Cosmos DB API för Cassandra. Se till att gå igenom den första `1.0-ReadMe.ipynb` antecknings boken för att granska Spark service-konfigurationen för att ansluta till Azure Cosmos DB API för Cassandra.
+Följande Jupyter-anteckningsböcker kan laddas upp till ditt HDInsight Spark-kluster och tillhandahålla färdiga exempel för att arbeta med Azure Cosmos DB API för Cassandra. Se till att gå igenom den första antecknings boken för `1.0-ReadMe.ipynb` att granska Spark service-konfigurationen för att ansluta till Azure Cosmos DB API för Cassandra.
 
 Ladda ned de här antecknings böckerna under [Azure-Cosmos-DB-Cassandra-API-Spark-Notebook-Jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) till din dator.
   

@@ -1,94 +1,100 @@
 ---
 title: Kom igång med live video analys på IoT Edge – Azure
-description: Den här snabb starten visar hur du kommer igång med video analys i real tid på IoT Edge och hur du identifierar rörelser i en direktsända video ström.
+description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 307a81938be3e25b8a6a07bb3696ca3b7647c0aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262016"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816917"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
-Den här snabb starten vägleder dig genom stegen för att komma igång med real tids video analys på IoT Edge. Den använder en virtuell Azure-dator som en IoT Edge enhet och en simulerad direktuppspelad video ström. När du har slutfört installations stegen kan du köra en simulerad real tids video ström genom ett medie diagram som identifierar och rapporterar en rörelse i den data strömmen. Diagrammet nedan visar en grafisk representation av det medie diagrammet.
+Den här snabb starten vägleder dig genom stegen för att komma igång med real tids video analys på IoT Edge. Den använder en virtuell Azure-dator som en IoT Edge enhet. Den använder också en simulerad direktuppspelad video ström. 
+
+När du har slutfört installations stegen kan du köra en simulerad real tids video ström genom ett medie diagram som identifierar och rapporterar en rörelse i den data strömmen. Följande diagram visar grafiskt det medie diagrammet.
 
 ![Real video analys baserat på rörelse identifiering](./media/analyze-live-video/motion-detection.png)
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) på utvecklings datorn med [Azure IoT tools-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Nätverket, att utvecklings datorn är ansluten till, bör tillåta AMQP-protokollet via port 5671 (så att Azure IoT-verktyg kan kommunicera med Azure IoT Hub).
+* Ett Azure-konto som har en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
+* [Visual Studio Code](https://code.visualstudio.com/) på din utvecklings dator. Kontrol lera att du har [tillägget Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* Kontrol lera att nätverket som utvecklings datorn är anslutet till tillåter avancerat protokoll för meddelandekö (AMQP) via port 5671. Med den här inställningen kan Azure IoT-verktyg kommunicera med Azure IoT Hub.
 
 > [!TIP]
-> Du kan uppmanas att installera Docker när du installerar tillägget Azure IoT tools. Du kan ignorera det.
+> Du kan uppmanas att installera Docker när du installerar tillägget Azure IoT-verktyg. Du kan ignorera prompten.
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
-Följande Azure-resurser krävs för den här självstudien.
+I den här självstudien krävs följande Azure-resurser:
 
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure, med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
+* En virtuell Linux-dator i Azure, med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
 
-I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de Azure-resurser som nämns ovan i din Azure-prenumeration. Följ bara stegen nedan.
+I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
-1. Bläddra till https://shell.azure.com.
-1. Om det här är första gången du använder Cloud Shell uppmanas du att välja en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs. Välj "skapa lagring" för att skapa ett lagrings konto för att lagra Cloud Shell sessionsinformation. Det här lagrings kontot är skilt från det som skriptet skapar för användning med ditt Azure Media Services-konto.
-1. Välj "bash" som din miljö i list rutan till vänster i Shell-fönstret.
+1. Gå till [Azure Cloud Shell](https://shell.azure.com).
+1. Om du använder Cloud Shell för första gången uppmanas du att välja en prenumeration för att skapa ett lagrings konto och en Microsoft Azure fil resurs. Välj **skapa lagring** för att skapa ett lagrings konto för din Cloud Shell sessionsinformation. Det här lagrings kontot är skilt från kontot som skriptet skapar för användning med ditt Azure Media Services-konto.
+1. I den nedrullningsbara menyn på vänster sida av Cloud Shells fönstret väljer du **bash** som din miljö.
 
     ![Miljö väljare](./media/quickstarts/env-selector.png)
 
-1. Kör följande kommando
+1. Kör följande kommando.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Om skriptet har slutförts bör du se alla resurser som nämns ovan i din prenumeration. Som en del av skriptets utdata genereras en tabell med resurser som visar IoT Hub-namnet. Sök efter resurs typen **Microsoft. Devices/IotHubs**och Anteckna namnet. Du kommer att behöva detta i nästa steg. Skriptet genererar också några konfigurationsfiler i katalogen ~/clouddrive/lva-Sample/-katalogen – du behöver dessa senare i snabb starten.
+Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration. I skriptets utdata visar en resurs tabell namnet på IoT Hub. Sök efter resurs typen `Microsoft.Devices/IotHubs` och Anteckna namnet. Du behöver det här namnet i nästa steg. 
+
+Skriptet genererar också några konfigurationsfiler i katalogen *~/clouddrive/lva-Sample/* . Du behöver dessa filer senare i snabb starten.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Distribuera moduler på din Edge-enhet
 
-Kör följande kommando från Cloud Shell
+Kör följande kommando från Cloud Shell.
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content ~/clouddrive/lva-sample/edge-deployment/deployment.amd64.json
 ```
 
-Kommandot ovan distribuerar följande moduler till gräns enheten (den virtuella Linux-datorn):
+Det här kommandot distribuerar följande moduler till gräns enheten, som är den virtuella Linux-datorn i det här fallet.
 
-* Video analys i real tid för IoT Edge (Modulnamn "lvaEdge")
-* RTSP Simulator (Modulnamn "rtspsim")
+* Video analys i real tid för IoT Edge (Modulnamn `lvaEdge` )
+* RTSP-Simulator (Real Time Streaming Protocol) (Modulnamn `rtspsim` )
 
-RTSP Simulator-modulen simulerar en video ström med hjälp av en videofil som lagras som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). I det här skedet har du distribuerat modulerna men inga medie diagram är aktiva.
+RTSP Simulator-modulen simulerar en real tids video ström med hjälp av en videofil som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
-## <a name="configure-azure-iot-tools-extension-in-visual-studio-code"></a>Konfigurera tillägget Azure IoT tools i Visual Studio Code
+Nu distribueras modulerna, men inga medie diagram är aktiva.
 
-Starta Visual Studio Code och följ anvisningarna nedan för att ansluta till din Azure-IoT Hub med hjälp av tillägget Azure IoT-verktyg.
+## <a name="configure-the-azure-iot-tools-extension"></a>Konfigurera tillägget Azure IoT-verktyg
 
-1. Gå till fliken Utforskaren i Visual Studio Code via **Visa**  >  **Utforskaren** eller tryck på (Ctrl + Shift + E).
-1. På fliken Utforskaren klickar du på "Azure IoT Hub" i det nedre vänstra hörnet.
-1. Klicka på ikonen fler alternativ om du vill se snabb menyn och välja alternativet "Ange IoT Hub anslutnings sträng".
-1. En inmatad ruta visas och anger sedan IoT Hub anslutnings strängen. Du kan hämta anslutnings strängen för din IoT Hub från ~/clouddrive/lva-Sample/appSettings.json i Cloud Shell.
-1. Om anslutningen lyckas visas listan med gräns enheter. Det bör finnas minst en enhet med namnet "lva-Sample-Device".
-1. Nu kan du hantera dina IoT Edge enheter och interagera med Azure IoT Hub via snabb menyn.
-1. Du kan visa de moduler som distribuerats på gräns enheten genom att expandera noden moduler under "lva-Sample-Device".
+Följ dessa anvisningar för att ansluta till din IoT Hub med hjälp av tillägget Azure IoT-verktyg.
 
-    ![lva-exempel-Device-nod](./media/quickstarts/lva-sample-device-node.png)
+1. I Visual Studio Code väljer du **Visa**  >  **Utforskaren**. Eller Välj CTRL + SKIFT + E.
+1. I det nedre vänstra hörnet på fliken **Utforskaren** väljer du **Azure IoT Hub**.
+1. Välj ikonen **fler alternativ** om du vill se snabb menyn. Välj sedan **ange IoT Hub anslutnings sträng**.
+1. När en inmatad ruta visas anger du IoT Hub anslutnings strängen. I Cloud Shell kan du hämta anslutnings strängen från *~/clouddrive/lva-sample/appsettings.jspå*.
+
+Om anslutningen lyckas visas listan över gräns enheter. Du bör se minst en enhet med namnet **lva-Sample-Device**. Nu kan du hantera dina IoT Edge enheter och interagera med Azure IoT Hub via snabb menyn. Om du vill visa de moduler som har distribuerats på gräns enheten expanderar du noden **moduler** under **lva-Sample-Device**.
+
+![lva-exempel-Device-nod](./media/quickstarts/lva-sample-device-node.png)
 
 ## <a name="use-direct-methods"></a>Använda direkta metoder
 
-Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa direkta metoder. Läs [direkta metoder för video analys på IoT Edge](direct-methods.md) för att förstå alla direkta metoder som tillhandahålls av modulen. 
+Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa direkta metoder. Mer information finns i [direkta metoder för video analys på IoT Edge](direct-methods.md). 
 
 ### <a name="invoke-graphtopologylist"></a>Anropa GraphTopologyList
-Detta räknar upp alla [Graph-topologier](media-graph-concept.md#media-graph-topologies-and-instances) i modulen.
 
-1. Högerklicka på modulen "lvaEdge" och välj "anropa modul Direct metod" på snabb menyn.
-1. En redigerings ruta visas i det översta mitten av Visual Studio Code-fönstret. Ange "GraphTopologyList" i redigerings rutan och tryck på RETUR.
-1. Kopiera och klistra sedan in nedanstående JSON-nyttolast i redigerings rutan och tryck på RETUR.
+Räkna upp alla [grafer-topologier](media-graph-concept.md#media-graph-topologies-and-instances) i modulen:
+
+1. Högerklicka på modulen **lvaEdge** i Visual Studio Code och välj **Invoke modul Direct-metod**.
+1. I rutan som visas anger du *GraphTopologyList*.
+1. Kopiera följande JSON-nyttolast och klistra sedan in den i rutan. Välj sedan Retur-tangenten.
 
     ```
     {
@@ -96,7 +102,7 @@ Detta räknar upp alla [Graph-topologier](media-graph-concept.md#media-graph-top
     }
     ```
 
-    Inom några sekunder visas UTDATAFÖNSTRET i Visual Studio Code-popup med följande svar
+    Inom några sekunder visas följande svar i fönstret **utdata** .
 
     ```
     [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
@@ -109,12 +115,12 @@ Detta räknar upp alla [Graph-topologier](media-graph-concept.md#media-graph-top
     }
     ```
     
-    Ovanstående svar förväntas eftersom inga diagram-topologier har skapats.
+    Det här svaret förväntas eftersom inga diagram-topologier har skapats.
     
 
 ### <a name="invoke-graphtopologyset"></a>Anropa GraphTopologySet
 
-Med samma steg som de som beskrivs för att anropa GraphTopologyList, kan du anropa GraphTopologySet för att ange en [graf-topologi](media-graph-concept.md#media-graph-topologies-and-instances) med följande JSON som nytto lasten.
+Genom att följa stegen för att anropa `GraphTopologyList` kan du anropa `GraphTopologySet` för att ange en [diagram sto pol Ogin](media-graph-concept.md#media-graph-topologies-and-instances). Använd följande JSON som nytto lasten.
 
 ```
 {
@@ -185,10 +191,9 @@ Med samma steg som de som beskrivs för att anropa GraphTopologyList, kan du anr
 
 ```
 
+Denna JSON-nyttolast skapar en Graph-topologi som definierar tre parametrar. Två av dessa parametrar har standardvärden. Topologin har en källa (RTSP-källa), en processor (process för rörelse identifiering) och en Sink-nod (IoT Hub Sink).
 
-Ovanstående JSON-nyttolast resulterar i att en Graph-topologi skapas som definierar tre parametrar (två av som har standardvärden). Topologin har en källa (RTSP-källa), en processor (process för rörelse identifiering) och en Sink-nod (IoT Hub Sink).
-
-Inom några sekunder visas följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** .
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -268,25 +273,26 @@ Inom några sekunder visas följande svar i fönstret utdata:
 }
 ```
 
-Statusen som returneras är 201, vilket indikerar att en ny topologi har skapats. Prova följande som nästa steg:
+Returnerad status är 201. Den här statusen anger att en ny topologi har skapats. 
 
-* Anropa GraphTopologySet igen och Observera att den returnerade status koden är 200. Status kod 200 anger att en befintlig topologi har uppdaterats.
-* Anropa GraphTopologySet igen men ändra beskrivnings strängen. Observera att status koden i svaret är 200 och att beskrivningen uppdateras till det nya värdet.
-* Anropa GraphTopologyList enligt beskrivningen i föregående avsnitt och Observera att nu kan du se topologin "MotionDetection" i den returnerade nytto lasten.
+Försök med följande steg:
+
+1. Anropa `GraphTopologySet` igen. Den returnerade status koden är 200. Den här koden anger att en befintlig topologi har uppdaterats.
+1. Anropa `GraphTopologySet` igen, men ändra beskrivnings strängen. Den returnerade status koden är 200 och beskrivningen uppdateras till det nya värdet.
+1. Anropa `GraphTopologyList` enligt beskrivningen i föregående avsnitt. Nu kan du se `MotionDetection` topologin i den returnerade nytto lasten.
 
 ### <a name="invoke-graphtopologyget"></a>Anropa GraphTopologyGet
 
-Anropar nu GraphTopologyGet med följande nytto Last
+Anropa `GraphTopologyGet` med hjälp av följande nytto Last.
 
 ```
-
 {
     "@apiVersion" : "1.0",
     "name" : "MotionDetection"
 }
 ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyGet] to [lva-sample-device/lvaEdge] ...
@@ -366,16 +372,16 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 }
 ```
 
-Observera följande i nytto lasten för svar:
+Lägg märke till följande information i svarets nytto last:
 
 * Status koden är 200, vilket indikerar att det lyckades.
-* Nytto lasten har skapats och tidsstämpeln "lastModified".
+* Nytto lasten inkluderar tidstämpeln `created` och `lastModified` tidsstämpeln.
 
 ### <a name="invoke-graphinstanceset"></a>Anropa GraphInstanceSet
 
-Sedan skapar du en diagram instans som hänvisar till diagram sto pol Ogin ovan. Som beskrivs [här](media-graph-concept.md#media-graph-topologies-and-instances)kan du med Graph-instanser analysera direktuppspelade video strömmar från flera kameror med samma graf-topologi.
+Skapa en diagram instans som refererar till föregående graf-topologi. Med diagram förekomster kan du analysera direktuppspelade video strömmar från många kameror med samma graf-topologi. Mer information finns i [Media Graph-topologier och instanser](media-graph-concept.md#media-graph-topologies-and-instances).
 
-Anropa den direkta metoden GraphInstanceSet med följande nytto Last.
+Anropa metoden Direct `GraphInstanceSet` med hjälp av följande nytto Last.
 
 ```
 {
@@ -391,12 +397,12 @@ Anropa den direkta metoden GraphInstanceSet med följande nytto Last.
 }
 ```
 
-. Tänk på följande:
+Observera att denna nytto last:
 
-* I nytto lasten ovan anges det Topology-namn (MotionDetection) som instansen måste skapas för.
-* Nytto lasten innehåller ett parameter värde för "rtspUrl", som inte har något standardvärde i nytto lasten i graf-topologin.
+* Anger det Topology-namn ( `MotionDetection` ) som instansen måste skapas för.
+* Innehåller ett parameter värde för `rtspUrl` , som inte har något standardvärde i nytto lasten i graf-topologin.
 
-Inom några sekunder visas följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceSet] to [lva-sample-device/lvaEdge] ...
@@ -422,20 +428,20 @@ Inom några sekunder visas följande svar i fönstret utdata:
 }
 ```
 
-Observera följande i nytto lasten för svar:
+I nytto lasten för svar ser du till att:
 
 * Status koden är 201, vilket indikerar att en ny instans skapades.
-* State är "inaktiv", vilket indikerar att graf-instansen skapades men inte Aktiver ATS. Mer information finns i [Media Graph-tillstånd](media-graph-concept.md).
+* Statusen är `Inactive` och anger att graf-instansen skapades men inte Aktiver ATS. Mer information finns i [Media Graph-tillstånd](media-graph-concept.md).
 
-Prova följande som nästa steg:
+Försök med följande steg:
 
-* Anropa GraphInstanceSet igen med samma nytto last och Observera att den returnerade status koden nu är 200.
-* Anropa GraphInstanceSet igen men med en annan beskrivning och Observera att den uppdaterade beskrivningen i svars nytto lasten indikerar att graf-instansen har uppdaterats.
-* Anropa GraphInstanceSet men ändra namnet till "Sample-Graph-2" och observera svarets nytto Last. Observera att en ny diagram instans skapas (dvs. status koden är 201).
+1. Anropa `GraphInstanceSet` igen med hjälp av samma nytto Last. Observera att den returnerade status koden är 200.
+1. Anropa `GraphInstanceSet` igen, men Använd en annan beskrivning. Lägg märke till den uppdaterade beskrivningen i nytto lasten för svar, vilket indikerar att graf-instansen har uppdaterats.
+1. Anropa `GraphInstanceSet` , men ändra namnet till `Sample-Graph-2` . Lägg märke till den nyligen skapade graf-instansen (dvs. status kod 201) i nytto lasten för svar.
 
 ### <a name="invoke-graphinstanceactivate"></a>Anropa GraphInstanceActivate
 
-Aktivera nu graf-instansen – som startar flödet av direktsänd video via modulen. Anropa den direkta metoden GraphInstanceActivate med följande nytto Last.
+Aktivera nu graf-instansen för att starta flödet av direktsänd video genom modulen. Anropa metoden Direct `GraphInstanceActivate` med hjälp av följande nytto Last.
 
 ```
 {
@@ -444,7 +450,7 @@ Aktivera nu graf-instansen – som startar flödet av direktsänd video via modu
 }
 ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** .
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceActivate] to [lva-sample-device/lvaEdge] ...
@@ -455,11 +461,11 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 }
 ```
 
-Status koden 200 i nytto lasten för svaret indikerar att graf-instansen har Aktiver ATS.
+Status koden 200 anger att graf-instansen har Aktiver ATS.
 
 ### <a name="invoke-graphinstanceget"></a>Anropa GraphInstanceGet
 
-Anropa nu den direkta metoden GraphInstanceGet med följande nytto last:
+Anropa nu den direkta metoden med `GraphInstanceGet` hjälp av följande nytto Last.
 
 ```
  {
@@ -468,7 +474,7 @@ Anropa nu den direkta metoden GraphInstanceGet med följande nytto last:
  }
  ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** .
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceGet] to [lva-sample-device/lvaEdge] ...
@@ -494,22 +500,24 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 }
 ```
 
-Observera följande i nytto lasten för svar:
+Observera följande information i svarets nytto last:
 
 * Status koden är 200, vilket indikerar att det lyckades.
-* State är "aktivt", vilket indikerar att graf-instansen är i "aktivt" läge.
+* Statusen är `Active` , vilket anger att graf-instansen nu är aktiv.
 
 ## <a name="observe-results"></a>Observera resultat
 
-Graf-instansen som vi skapade och aktiverade ovan använder noden motion-identifiering för att identifiera rörelse i inkommande real tids video ström och skickar händelser till noden IoT Hub mottagare. Dessa händelser vidarebefordras sedan till IoT Edge Hub, som nu kan observeras. I så fall följer du dessa steg.
+Graf-instansen som vi har skapat och aktiverat använder noden för motion-identifiering för att identifiera rörelse i inkommande video ström för Real tid. Den skickar händelser till noden IoT Hub mottagare. Dessa händelser vidarebefordras till IoT Edge Hub. 
 
-1. Öppna Explorer-fönstret i Visual Studio Code och leta efter Azure-IoT Hub längst ned till vänster.
-2. Expandera noden enheter.
-3. Right-klinker på lva-Sample-Device och väljer alternativet "starta övervakning av inbyggd händelse övervakning".
+Följ de här stegen om du vill följa resultatet.
 
-![Börja övervaka IoT Hub-händelser](./media/quickstarts/start-monitoring-iothub-events.png)
+1. Öppna fönstret **Utforskaren** i Visual Studio Code. I det nedre vänstra hörnet tittar du efter **Azure IoT Hub**.
+2. Expandera noden **enheter** .
+3. Högerklicka på **lva-Sample-Device** och välj **starta övervakning inbyggd händelse övervakning**.
 
-Följande meddelanden visas i fönstret utdata:
+    ![Börja övervaka IoT Hub-händelser](./media/quickstarts/start-monitoring-iothub-events.png)
+    
+I fönstret **utdata** visas följande meddelande:
 
 ```
 [IoTHubMonitor] [7:44:33 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -551,16 +559,16 @@ Följande meddelanden visas i fönstret utdata:
 }
 ```
 
-Observera följande i ovanstående meddelande
+Lägg märke till följande information:
 
-* Meddelandet innehåller avsnittet "Body" och "applicationProperties". För att förstå vad dessa avsnitt representerar kan du läsa artikeln [skapa och läsa IoT Hub meddelande](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
-* "subject" i applicationProperties refererar till noden i den MediaGraph som meddelandet genererades från. I det här fallet kommer meddelandet från processen för identifiering av rörelser.
-* "eventType" i applicationProperties anger att det är en analys händelse.
-* "eventTime" anger den tidpunkt då händelsen inträffade.
-* "Body" innehåller data om Analytics-händelsen. I det här fallet är händelsen en utmatnings händelse och därför innehåller texten "timestamp" och "inferences"-data.
-* avsnittet "inferences" visar att "typ" är "rörelse" och innehåller ytterligare information om händelsen "Motion".
+* Meddelandet innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* I `applicationProperties` `subject` refererar den nod som `MediaGraph` meddelandet skapades från. I det här fallet kommer meddelandet från processen för identifiering av rörelser.
+* I `applicationProperties` `eventType` anger att den här händelsen är en analys händelse.
+* `eventTime`Värdet är den tidpunkt då händelsen inträffade.
+* `body`Avsnittet innehåller information om Analytics-händelsen. I det här fallet är händelsen en utfalls händelse, så texten innehåller `timestamp` och `inferences` data.
+* `inferences`Avsnittet visar att `type` är `motion` . Den ger ytterligare information om `motion` händelsen.
 
-Om du låter MediaGraph köras för någon gång visas följande meddelande även i fönstret utdata:
+Om du låter medie grafen köras ett tag visas följande meddelande i fönstret **utdata** .
 
 ```
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -578,19 +586,19 @@ Om du låter MediaGraph köras för någon gång visas följande meddelande äve
 }
 ```
 
-Observera följande i ovanstående meddelande
+Observera följande information i det här meddelandet:
 
-* "subject" i applicationProperties anger att meddelandet genererades från noden RTSP-källa i medie diagrammet.
-* "eventType" i applicationProperties anger att detta är en diagnostisk händelse.
-* "Body" innehåller data om Diagnostic-händelsen. I det här fallet är händelsen MediaSessionEstablished och därmed bröd texten.
+* I `applicationProperties` `subject` anger att meddelandet genererades från noden RTSP-källa i medie diagrammet.
+* I `applicationProperties` `eventType` anger att den här händelsen är diagnostik.
+* `body`Innehåller data om Diagnostic-händelsen. I det här fallet innehåller meddelandet bröd texten eftersom händelsen är `MediaSessionEstablished` .
 
 ## <a name="invoke-additional-direct-methods-to-clean-up"></a>Starta ytterligare direkta metoder för att rensa
 
-Starta nu direkta metoder för att inaktivera och ta bort graf-instansen (i den ordningen).
+Anropa direkt metoder för att först inaktivera graf-instansen och ta sedan bort den.
 
 ### <a name="invoke-graphinstancedeactivate"></a>Anropa GraphInstanceDeactivate
 
-Anropa den direkta metoden GraphInstanceDeactivate med följande nytto Last.
+Anropa metoden Direct `GraphInstanceDeactivate` med hjälp av följande nytto Last.
 
 ```
 {
@@ -599,7 +607,7 @@ Anropa den direkta metoden GraphInstanceDeactivate med följande nytto Last.
 }
 ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDeactivate] to [lva-sample-device/lvaEdge] ...
@@ -610,15 +618,13 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 }
 ```
 
-Status koden 200 anger att graf-instansen har inaktiverats.
+Status koden för 200 anger att graf-instansen har inaktiverats.
 
-Prova följande, som nästa steg.
-
-* Anropa GraphInstanceGet som anges i de tidigare avsnitten och observera "State"-värdet.
+Försök sedan att anropa `GraphInstanceGet` som angivet tidigare i den här artikeln. Observera `state` värdet.
 
 ### <a name="invoke-graphinstancedelete"></a>Anropa GraphInstanceDelete
 
-Anropa den direkta metoden GraphInstanceDelete med följande nytto Last
+Anropa metoden Direct `GraphInstanceDelete` med hjälp av följande nytto Last.
 
 ```
 {
@@ -627,7 +633,7 @@ Anropa den direkta metoden GraphInstanceDelete med följande nytto Last
 }
 ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** :
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDelete] to [lva-sample-device/lvaEdge] ...
@@ -638,11 +644,11 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 }
 ```
 
-Status koden 200 i svaret indikerar att graf-instansen har tagits bort.
+Status koden 200 anger att graf-instansen har tagits bort.
 
 ### <a name="invoke-graphtopologydelete"></a>Anropa GraphTopologyDelete
 
-Anropa den direkta metoden GraphTopologyDelete med följande nytto last:
+Anropa metoden Direct `GraphTopologyDelete` med hjälp av följande nytto Last.
 
 ```
 {
@@ -651,7 +657,7 @@ Anropa den direkta metoden GraphTopologyDelete med följande nytto last:
 }
 ```
 
-Inom några sekunder bör du se följande svar i fönstret utdata:
+Inom några sekunder visas följande svar i fönstret **utdata** .
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyDelete] to [lva-sample-device/lvaEdge] ...
@@ -664,16 +670,16 @@ Inom några sekunder bör du se följande svar i fönstret utdata:
 
 Status koden 200 anger att graf sto pol Ogin har tagits bort.
 
-Prova följande som nästa steg.
+Försök med följande steg:
 
-* Anropa GraphTopologyList och Observera att det inte finns några diagram-topologier i modulen.
-* Anropa GraphInstanceList med samma nytto last som GraphTopologyList och Observera att inga graf-instanser räknas upp.
+1. Anropa `GraphTopologyList` och Observera att modulen inte innehåller några diagram-topologier.
+1. Anropa `GraphInstanceList` med samma nytto last som `GraphTopologyList` . Observera att inga diagram instanser räknas upp.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort resurser som skapats i den här snabb starten.
+Om du inte kommer att fortsätta att använda det här programmet tar du bort de resurser som du skapade i den här snabb starten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du registrerar video med hjälp av real tids video analys på IoT Edge
-* Läs mer om diagnostiska meddelanden.
+* Lär dig hur du [registrerar video med hjälp av real tids analys på IoT Edge](continuous-video-recording-tutorial.md).
+* Läs mer om [diagnostiska meddelanden](monitoring-logging.md).

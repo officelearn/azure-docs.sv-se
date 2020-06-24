@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 4169bfb5da5b1ad13bab0eb01397f7c1fb20b11b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68f8a7086dd164c102e42c99bb8d6ba22b71ad6f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060323"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710991"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägga till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
 
@@ -65,14 +65,14 @@ Så här lägger du till ett nätverks gränssnitt på den virtuella datorn:
 
 3. I den virtuella datorns kommando fält väljer du **stoppa**och sedan **OK** i bekräftelse dialog rutan. Vänta tills **statusen** för den virtuella datorn ändras till **stoppad (Frigjord)**.
 
-4. Från meny raden i virtuell **dator väljer** > du nätverk**Anslut nätverks gränssnitt**. I **bifoga befintligt nätverks gränssnitt**väljer du det nätverks gränssnitt som du vill koppla och väljer **OK**.
+4. Från meny raden i virtuell **dator väljer du nätverk**  >  **Anslut nätverks gränssnitt**. I **bifoga befintligt nätverks gränssnitt**väljer du det nätverks gränssnitt som du vill koppla och väljer **OK**.
 
     >[!NOTE]
     >Det nätverks gränssnitt du väljer kan inte ha accelererat nätverk aktiverat, kan inte ha en tilldelad IPv6-adress och måste finnas i samma virtuella nätverk med det nätverks gränssnitt som är kopplat till den virtuella datorn.
 
     Om du inte har ett befintligt nätverks gränssnitt måste du först skapa ett. Det gör du genom att välja **skapa nätverks gränssnitt**. Mer information om hur du skapar ett nätverks gränssnitt finns i [skapa ett nätverks gränssnitt](virtual-network-network-interface.md#create-a-network-interface). Mer information om ytterligare begränsningar när du lägger till nätverks gränssnitt till virtuella datorer finns i [begränsningar](#constraints).
 
-5. Från meny raden i virtuell dator väljer du **Översikt** > **Starta** för att starta om den virtuella datorn.
+5. Från meny raden i virtuell dator väljer du **Översikt**  >  **Starta** för att starta om den virtuella datorn.
 
 Nu kan du konfigurera den virtuella datorns operativ system så att det använder flera nätverks gränssnitt på rätt sätt. Lär dig hur du konfigurerar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) eller [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) för flera nätverks gränssnitt.
 
@@ -115,7 +115,7 @@ Information om inställningar för nätverks gränssnitt och hur du ändrar dem 
 
 4. Vänta tills **statusen** för den virtuella datorn ändras till **stoppad (Frigjord)**.
 
-5. Från meny raden i virtuell dator väljer du **nätverk** > **Koppla bort nätverks gränssnitt**.
+5. Från meny raden i virtuell dator väljer du **nätverk**  >  **Koppla bort nätverks gränssnitt**.
 
 6. I dialog rutan **Koppla bort nätverks gränssnitt** väljer du det nätverks gränssnitt som du vill koppla från. Välj sedan **OK**.
 

@@ -4,15 +4,15 @@ description: Steg för att konfigurera aviseringar för VPN Gateway mått
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce9ab972d961a9193c3aa568878f9c93ccdcf6b1
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127912"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84988024"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurera aviseringar för VPN Gateway mått
 

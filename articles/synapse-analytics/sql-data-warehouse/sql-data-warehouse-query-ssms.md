@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0d65ea9b684439cab384bbaa09fcdef1302b6bcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 772e4253244f5e13a60f155549d5f5513695e5fa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743859"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200757"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till Azure Synapse Analytics med SQL Server Management Studio (SSMS)
 
@@ -41,7 +41,7 @@ Du behöver följande för att använda de här självstudierna:
 ## <a name="1-connect-to-your-sql-pool"></a>1. Anslut till din SQL-pool
 
 1. Öppna SSMS.
-2. Öppna Object Explorer genom att välja **fil** > **Connect Object Explorer**.
+2. Öppna Object Explorer genom att välja **fil**  >  **Connect Object Explorer**.
 
     ![SQL Server Object Explorer](./media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Fyll i fälten i fönstret anslut till server.
@@ -50,7 +50,7 @@ Du behöver följande för att använda de här självstudierna:
 
    * **Server namn**. Ange det **servernamn** som du identifierade tidigare.
    * **Autentisering**. Välj **SQL Server-autentisering** eller **Active Directory-integrerad autentisering**.
-   * **Användarnamn** och **lösenord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
+   * **Användar namn** och **lösen ord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
    * Klicka på **Anslut**.
 4. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
 
@@ -70,7 +70,7 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
    SELECT COUNT(*) FROM dbo.FactInternetSales;
    ```
 
-4. Kör frågan genom att klicka `Execute` på eller Använd följande genväg: `F5`.
+4. Kör frågan genom att klicka på `Execute` eller Använd följande genväg: `F5` .
 
    ![Kör frågan](./media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.

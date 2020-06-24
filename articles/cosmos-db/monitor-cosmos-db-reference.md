@@ -4,24 +4,24 @@ description: Logg och statistik referens för övervakning av data från Azure C
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588730"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262743"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referens till Azure Cosmos DB-övervakningsdata
 Den här artikeln är en referens till de logg- och måttdata som samlas in för att analysera prestanda och tillgänglighet för Azure Cosmos DB. Mer information om hur du samlar in och analyserar övervaknings data för Azure Cosmos DB finns i [övervaknings Cosmos DB](monitor-cosmos-db.md) .
 
 
 ## <a name="resource-logs"></a>Resursloggar
-I följande tabell visas egenskaperna för Azure Cosmos DB resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor loggar samlas de in i tabellen **AzureDiagnostics** med **ResourceProvider** -värdet *Microsoft. DOCUMENTDB*. 
+I följande tabell visas egenskaperna för Azure Cosmos DB resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor loggar samlas de in i tabellen **AzureDiagnostics** med **ResourceProvider** -värdet *MICROSOFT.DOCUMENTDB*. 
 
 | Azure Storage fält eller egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
@@ -42,6 +42,7 @@ I följande tabell visas egenskaperna för Azure Cosmos DB resurs loggar när de
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Svarets längd i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är icke-tomt när [resurs-token](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet pekar på användarens resurs-ID. |
+| **responseLength** | **responseLength_s** | Svarets längd i byte.|
 
 För en lista över alla Azure Monitor logg kategorier och länkar till associerade scheman, se [Azure Monitor loggar kategorier och scheman](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
@@ -70,7 +71,7 @@ En lista över alla Azure Monitor support mått (inklusive CosmosDB) finns i [Az
 
 |Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
-| AvailableStorage (tillgängligt lagrings utrymme) |Byte (totalt) | Totalt tillgängligt lagrings utrymme som har rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5M| Tillgänglig lagring| Används för att övervaka tillgänglig lagrings kapacitet (gäller endast för fasta lagrings samlingar) minimal kornig het är 5 minuter.| 
+| AvailableStorage (tillgängligt lagrings utrymme) |Byte (totalt) | Totalt tillgängligt lagrings utrymme som har rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5M| Tillgängligt lagringsutrymme| Används för att övervaka tillgänglig lagrings kapacitet (gäller endast för fasta lagrings samlingar) minimal kornig het är 5 minuter.| 
 | DataUsage (data användning) |Byte (totalt) |Total data användning rapporterad enligt 5-minuters kornig het per region| DatabaseName, samlings region| 5M |Data storlek | Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter.|
 | IndexUsage (index användning) | Byte (totalt) |Total användning av index rapporterad enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5M| Index storlek| Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter. |
 | DocumentQuota (dokument kvot) | Byte (totalt) | Total lagrings kvot som rapporter ATS med 5 minuters kornig het per region.| DatabaseName, samlings region| 5M |Lagringskapacitet| Används för att övervaka den totala kvoten vid container och region, minimal kornig het är 5 minuter.|

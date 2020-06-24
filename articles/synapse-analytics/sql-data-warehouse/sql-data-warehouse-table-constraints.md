@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990777"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212776"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primär nyckel, sekundär nyckel och unik nyckel i Synapse SQL-pool
 
@@ -33,7 +33,7 @@ För syntax, kontrol lera [Alter Table](https://docs.microsoft.com/sql/t-sql/sta
 Sekundär nyckel begränsning stöds inte i Synapse SQL-pool.  
 
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 Med primär nyckel och/eller unik nyckel kan Synapse SQL-pool generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika.
 

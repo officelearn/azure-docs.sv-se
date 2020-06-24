@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 133ca6503a2e0fa9ff19fa55cf126b9556b741e0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/12/2020
+ms.openlocfilehash: 937eee69c17d207dc348a25fe2a5e6611480db0f
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344058"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743464"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda (för hands version)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,6 +77,9 @@ Intelligent Insights alternativ som är tillgängliga är:
 | **Strömma insikter till Azure SQL-analys** – strömma insikter till Azure SQL-analys. | Ja | Ja |
 | **Strömma insikter till Azure Event Hubs** -Stream Insights för att Event Hubs för ytterligare anpassade integreringar. | Ja | Ja |
 | **Strömma insikter till Azure Storage** Stream Insights för att Azure Storage för ytterligare analys och långsiktig arkivering. | Ja | Ja |
+
+> [!NOTE]
+> Intelligenta insikter är en förhands gransknings funktion som inte är tillgänglig i följande regioner: Västeuropa, norra Europa, västra USA 1 och östra USA 1.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurera exporten av Intelligent Insights loggen
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 6ddf3db422a192b82b8d67e8e532a9ae0030d6f7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849101"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212536"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
@@ -26,7 +26,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
 3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Power BI tjänst program**.
 
-   ![Visar menyn till vänster-navigering.](./media/new-offer-pbi-app.png)
+   ![Visar menyn till vänster-navigering.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
 > När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
@@ -145,6 +145,24 @@ Definiera Marketplace-information (t. ex. namn, beskrivning och avbildningar fö
 > [!NOTE]
 > Erbjudande information behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i erbjudande listan.
 
+Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Visar hur det här erbjudandet visas i Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Logotyp
+2. Produkter
+3. Kategorier
+4. Branscher
+5. Support adress (länk)
+6. Villkor för användning
+7. Sekretesspolicy
+8. Erbjudandets namn
+9. Sammanfattning
+10. Beskrivning
+11. Skärm bilder/videor
+
 ### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
@@ -202,11 +220,11 @@ Ange minst ett och upp till tre relaterade marknadsförings dokument i PDF-forma
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
 >[!NOTE]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som `https://upload.xboxlive.com` används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange. png-filer för ditt erbjudandes logo typ i två bild punkter:
+Ange PNG-filer för ditt erbjudandes logo typ i två bild punkter:
 - **Liten** (48 x 48)
 - **Stor** (216 x 216)
 
@@ -214,11 +232,11 @@ Båda logo typerna krävs och används på olika platser i Marketplace-listan.
 
 #### <a name="screenshots"></a>Skärmbilder
 
-Lägg till minst en och upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 bild punkter i storlek och i PNG-format.
+Lägg till minst en och upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 pixlar i storlek och i PNG-format.
 
 #### <a name="videos-optional"></a>Videor (valfritt)
 
-Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adress och miniatyr bild av videon med 1280 x 720 pixlar i storlek.
+Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adressen och miniatyr bilden av videon med 1280 x 720 pixlar i storlek.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 

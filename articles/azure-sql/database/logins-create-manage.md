@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ebd55151a4b1656ec1187117b7c4b6da9d37e161
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605106"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298472"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -91,7 +91,7 @@ I det här läget konfigureras servern eller den hanterade instansen bara för �
 
   - Skapa ytterligare en SQL-inloggning i huvud databasen.
   - Skapa ett användar konto i huvud databasen som är kopplad till den nya inloggningen.
-  - Lägg till användar kontot i `dbmanager` , `loginmanager` rollen eller både och i `master` databasen med hjälp av instruktionen [Alter Server Role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (för Azure Synapse, Använd [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) -instruktionen).
+  - Lägg till användar kontot i `dbmanager` , `loginmanager` rollen eller både och i `master` databasen med instruktionen [Alter Role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (för Azure Synapse, Använd [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) -instruktionen).
 
   > [!NOTE]
   > `dbmanager`och- `loginmanager` roller gäller **inte** för DISTRIBUTIONer av SQL-hanterade instanser.
@@ -155,7 +155,7 @@ När du har skapat ett användar konto i en databas, antingen baserat på en inl
 
 Effektiv åtkomst hantering använder behörigheter som tilldelats Active Directory säkerhets grupper och fasta eller anpassade roller i stället för enskilda användare.
 
-- När du använder Azure Active Directory autentisering ska du ange Azure Active Directory användare i en Azure Active Directory säkerhets grupp. Skapa en oberoende databasanvändare för gruppen. Placera en eller flera databas användare i en anpassad databas roll med vissa behörigheter som är lämpliga för den gruppen av användare.
+- När du använder Azure Active Directory autentisering ska du ange Azure Active Directory användare i en Azure Active Directory säkerhets grupp. Skapa en oberoende databasanvändare för gruppen. Lägg till en eller flera databas användare som medlem i anpassade eller inbyggda databas roller med de behörigheter som är lämpliga för den gruppen av användare.
 
 - När du använder SQL-autentisering skapar du inneslutna databas användare i databasen. Placera en eller flera databas användare i en anpassad databas roll med vissa behörigheter som är lämpliga för den gruppen av användare.
 

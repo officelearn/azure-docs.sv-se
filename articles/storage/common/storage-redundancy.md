@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5bc433615b19b36681796056ff4baf95d080d457
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629407"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214000"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -120,13 +120,15 @@ Information om priser finns i pris information för [blobbar](https://azure.micr
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Läs åtkomst till data i den sekundära regionen
 
-Geo-redundant lagring (med GRS eller GZRS) replikerar dina data till en annan fysisk plats i den sekundära regionen för att skydda mot regionala avbrott. Men dessa data är tillgängliga för läsning endast om kunden eller Microsoft initierar en redundansväxling från den primära till den sekundära regionen. När du aktiverar Läs åtkomst till den sekundära regionen är dina data tillgängliga för läsning om den primära regionen blir otillgänglig. Om du vill ha Läs behörighet till den sekundära regionen ska du aktivera Geo-redundant lagring med Läs behörighet (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS).
+Geo-redundant lagring (med GRS eller GZRS) replikerar dina data till en annan fysisk plats i den sekundära regionen för att skydda mot regionala avbrott. Men dessa data är tillgängliga för läsning endast om kunden eller Microsoft initierar en redundansväxling från den primära till den sekundära regionen. När du aktiverar Läs åtkomst till den sekundära regionen, är dina data tillgängliga för läsning hela tiden, inklusive i en situation där den primära regionen blir otillgänglig. Om du vill ha Läs behörighet till den sekundära regionen ska du aktivera Geo-redundant lagring med Läs behörighet (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Utforma dina program för Läs behörighet till den sekundära
 
-Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära regionen kan du utforma dina program för att sömlöst växla till att läsa data från den sekundära regionen, om den primära regionen inte är tillgänglig av någon anledning. Den sekundära regionen är alltid tillgänglig för Läs behörighet, så du kan testa programmet för att se till att det kommer att läsa från den sekundära händelsen vid ett avbrott. Mer information om hur du utformar dina program för hög tillgänglighet finns i [använda GEO-redundans för att skapa program med hög](geo-redundant-design.md)tillgänglighet.
+Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära regionen kan du utforma dina program för att sömlöst växla till att läsa data från den sekundära regionen, om den primära regionen inte är tillgänglig av någon anledning. 
 
-När Läs åtkomst till den sekundära är aktive rad kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om din primära slut punkt för Blob Storage t. ex `myaccount.blob.core.windows.net` . är, är den sekundära slut punkten `myaccount-secondary.blob.core.windows.net` . Konto åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
+Den sekundära regionen är tillgänglig för Läs behörighet när du har aktiverat RA-GRS eller RA-GZRS, så att du kan testa programmet i förväg för att se till att det kommer att läsas från den sekundära datorn i händelse av ett avbrott. Mer information om hur du utformar dina program för hög tillgänglighet finns i [använda GEO-redundans för att skapa program med hög](geo-redundant-design.md)tillgänglighet.
+
+När Läs åtkomst till den sekundära är aktive rad kan programmet läsa från den sekundära slut punkten samt från den primära slut punkten. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om din primära slut punkt för Blob Storage t. ex `myaccount.blob.core.windows.net` . är, är den sekundära slut punkten `myaccount-secondary.blob.core.windows.net` . Konto åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
 
 ### <a name="check-the-last-sync-time-property"></a>Kontrollera egenskapen Tidpunkt för senaste synkronisering
 
@@ -159,9 +161,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                 |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja<sup>1</sup>                                  | Ja                                  |
-| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Nej                              | Nej                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja<sup>1</sup>                                  | Yes                                  |
+| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Inga                              | Inga                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 

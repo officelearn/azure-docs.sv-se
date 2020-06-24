@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668244"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982007"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -73,7 +73,13 @@ För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration
 
 *Keep-Alive-timeout* styr hur länge Application Gateway väntar på att en klient ska skicka en annan http-begäran på en permanent anslutning innan den återanvänds eller stängas. *Timeout för TCP-inaktivitet* styr hur länge en TCP-anslutning hålls öppen om ingen aktivitet är öppen. 
 
-*Timeoutvärdet för Keep-Alive* i Application Gateway v1 sku är 120 sekunder och i v2-SKU: n är 75 sekunder. *Timeout för TCP-inaktivitet* är en fyra minuters standard på klient delens virtuella IP (VIP) för både v1-och v2-SKU: er för Application Gateway. Du kan inte ändra dessa värden.
+*Timeoutvärdet för Keep-Alive* i Application Gateway v1 sku är 120 sekunder och i v2-SKU: n är 75 sekunder. *Timeout för TCP-inaktivitet* är en fyra minuters standard på klient delens virtuella IP (VIP) för både v1-och v2-SKU: er för Application Gateway. Du kan konfigurera timeout-värdet för TCP-inaktivitet på v1-och v2-programgatewayer var som helst mellan 4 minuter och 30 minuter. För både v1-och v2-programgatewayer måste du gå till den offentliga IP-adressen för Application Gateway och ändra timeout-värdet för TCP-inaktivitet under bladet "konfiguration" i den offentliga IP-adressen på portalen. Du kan ange timeout-värdet för TCP-inaktivitet för den offentliga IP-adressen via PowerShell genom att köra följande kommandon: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP-eller DNS-namn under programgatewayens livs längd?
 

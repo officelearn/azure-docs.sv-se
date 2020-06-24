@@ -14,7 +14,7 @@ ms.locfileid: "66242109"
 ---
 Här är en lista över de lagrings typer som stöds för den Data Box-enhet enheten.
 
-| **Fil format** | **Obs!** |
+| **Filformat** | **Anteckningar** |
 | --- | --- |
 | Azure-blockblob | |
 | Azure-sidblob  | Data ska vara 512 byte-justerade.|

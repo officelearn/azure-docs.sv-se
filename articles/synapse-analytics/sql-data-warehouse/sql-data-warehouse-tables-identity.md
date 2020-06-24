@@ -6,21 +6,21 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742633"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213983"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda identitet för att skapa surrogat nycklar i Synapse SQL-pool
 
-Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Synapse SQL-pool.
+I den här artikeln hittar du rekommendationer och exempel på hur du använder identitets egenskapen för att skapa surrogat nycklar i tabeller i Synapse SQL-pool.
 
 ## <a name="what-is-a-surrogate-key"></a>Vad är en surrogat nyckel?
 
@@ -77,7 +77,7 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-I föregående exempel är två rader som landats i distribution 1. Den första raden har surrogat värdet 1 i kolumnen `C1`och den andra raden har surrogat värdet 61. Båda värdena genererades av identitets egenskapen. Allokeringen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
+I föregående exempel är två rader som landats i distribution 1. Den första raden har surrogat värdet 1 i kolumnen `C1` och den andra raden har surrogat värdet 61. Båda värdena genererades av identitets egenskapen. Allokeringen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
 
 ### <a name="skewed-data"></a>Skevade data
 
@@ -96,11 +96,11 @@ Om något av dessa villkor är uppfyllt, skapas kolumnen inte NULL i stället f�
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras för SELECT. Ikraftträdande. Du kan dock inte ange en identitets egenskap i kolumn definitionen för-instruktionens `CREATE TABLE` del. Du kan inte heller använda funktionen IDENTITY i den `SELECT` del av CTAs. För att fylla i en tabell måste du använda `CREATE TABLE` för att definiera tabellen följt av `INSERT..SELECT` för att fylla i den.
+CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras för SELECT. Ikraftträdande. Du kan dock inte ange en identitets egenskap i kolumn definitionen för- `CREATE TABLE` instruktionens del. Du kan inte heller använda funktionen IDENTITY i den `SELECT` del av CTAs. För att fylla i en tabell måste du använda `CREATE TABLE` för att definiera tabellen följt av `INSERT..SELECT` för att fylla i den.
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden explicit i en identitets kolumn
 
-Synapse SQL-pool `SET IDENTITY_INSERT <your table> ON|OFF` stöder syntax. Du kan använda den här syntaxen för att explicit infoga värden i identitets kolumnen.
+Synapse SQL-pool stöder `SET IDENTITY_INSERT <your table> ON|OFF` syntax. Du kan använda den här syntaxen för att explicit infoga värden i identitets kolumnen.
 
 Många data modellerare som använder fördefinierade negativa värden för vissa rader i deras dimensioner. Ett exempel är raden-1 eller "okänd medlem".
 

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006431"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977926"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -32,7 +32,7 @@ Varje gateway har två instanser sker delningen så att varje gateway-instans ka
 Det finns två alternativ för att lägga till DNS-servrar för P2S-klienter.
 
 1. Öppna ett support ärende med Microsoft och Lägg till dina DNS-servrar i hubben
-2. Eller, om du använder Azure VPN-klienten för Windows 10, kan du ändra den hämtade profil-XML-filen och lägga till ** \<dnsservers \<>DNS Server \<>/dnsserver \<>/dnsservers>** Taggar innan du importerar den.
+2. Eller, om du använder Azure VPN-klienten för Windows 10, kan du ändra den hämtade profil-XML-filen och lägga ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** till taggarna innan du importerar den.
 
 ```
 <azvpnprofile>
@@ -135,7 +135,7 @@ Ja. Se sidan med [prissättning](https://azure.microsoft.com/pricing/details/vir
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Hur registreras nya partner som inte visas i startpartnerlistan?
 
-Alla virtuella WAN-API: er är öppna API. Du kan gå igenom dokumentationen för att utvärdera teknisk genomförbarhet. Om du har någon fråga skickar du ett e- azurevirtualwan@microsoft.compostmeddelande till. En perfekt partner är en partner som har en enhet som kan etableras för IKEv1 eller IKEv2 IPSec-anslutning.
+Alla virtuella WAN-API: er är öppna API. Du kan gå igenom dokumentationen för att utvärdera teknisk genomförbarhet. Om du har någon fråga skickar du ett e-postmeddelande till azurevirtualwan@microsoft.com . En perfekt partner är en partner som har en enhet som kan etableras för IKEv1 eller IKEv2 IPSec-anslutning.
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Vad händer om en enhet jag använder inte finns med i listan över virtuella WAN-partner? Kan jag fortfarande använda den för att ansluta till Azure Virtual WAN VPN?
 
@@ -212,9 +212,14 @@ En virtuell hubb kan sprida en inlärd standard väg till en VPN-/ExpressRoute-a
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Hur kan den virtuella hubben i ett virtuellt WAN-nätverk välja den bästa vägen för en väg från flera hubbar
 
 Om en virtuell hubb lär sig samma väg från flera fjärrhubbar, är ordningen i vilken den bestämmer sig enligt följande
-1) Dirigera ursprung a) nätverks vägar – VNET-prefix som du lär dig direkt av de virtuella hubb Gateway b) Hub-RouteTable (statiskt konfigurerade vägar) c) InterHub vägar
-2)  Väg mått: virtuellt WAN föredras ExpressRoute via VPN. ExpressRoute-peer har en högre vikt jämfört med VPN-peer
-3)  SOM sökväg längd
+1. Längsta prefix matchning
+2. Lokala vägar över interhub
+3. Statiska vägar över BGP
+4. ExpressRoute (ER) via VPN
+5. SOM sökväg längd
+
+Överföring mellan ER till ER är alltid via global räckvidd på grund av att begäran kommer till via ER i en hubb och det finns en VPN och en återställnings punkt för en fjärrhubb, kommer VPN att föredras över ER från en fjärrhubb för att uppnå en slut punkt som är ansluten via VPN eller ER i fjärrhubben
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Finns det stöd för IPv6 i virtuella WAN-nätverk?
 

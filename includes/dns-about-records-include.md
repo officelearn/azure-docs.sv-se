@@ -13,9 +13,9 @@ ms.locfileid: "73832058"
 ---
 ### <a name="record-names"></a>Registrera namn
 
-DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa post namnet `www` i zonen `contoso.com` ger till exempel det fullständigt kvalificerade post namnet. `www.contoso.com`
+DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa post namnet `www` i zonen ger till exempel `contoso.com` det fullständigt kvalificerade post namnet `www.contoso.com` .
 
-En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com`har exempelvis en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  I konvention används det relativa namnet\@för att representera Apex-poster.
+En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com` har exempelvis en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  I konvention används det relativa namnet \@ för att representera Apex-poster.
 
 ### <a name="record-types"></a>Typer av poster
 

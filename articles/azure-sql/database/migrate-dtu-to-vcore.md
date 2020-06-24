@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258495"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297876"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera Azure SQL Database från den DTU-baserade modellen till den vCore-baserade modellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Förutom antalet virtuella kärnor (logiska processorer) och maskin varu generer
 - För samma maskin varu generation och samma antal virtuella kärnor är IOPS-och transaktions logg data flödes resurs gränser för vCore-databaser ofta högre än för DTU-databaser. För IO-baserade arbets belastningar kan det vara möjligt att minska antalet virtuella kärnor i vCore-modellen för att uppnå samma prestanda nivå. Resurs begränsningar för DTU-och vCore-databaser i absoluta värden visas i vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Genom att jämföra de här värdena mellan DTU-databasen som ska migreras och en vCore-databas med ett cirka matchande tjänst mål kan du välja vCore-tjänstens mål mer precis.
 - Mappnings frågan returnerar även mängden minne per kärna för DTU-databasen eller den elastiska poolen som ska migreras, och för varje maskin varu generation i vCore-modellen. Att se till att det finns ett liknande eller högre total minne efter migrering till vCore är viktigt för arbets belastningar som kräver en stor minnes data cache för att uppnå tillräckligt med prestanda eller arbets belastningar som kräver stora minnes bidrag för bearbetning av frågor. För sådana arbets belastningar, beroende på faktiska prestanda, kan det vara nödvändigt att öka antalet virtuella kärnor för att få tillräckligt med minne.
 - Den [historiska resurs användningen](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) av DTU-databasen bör övervägas när du väljer vCore tjänst mål. DTU-databaser med konsekvent underutnyttjade processor resurser kan behöva färre virtuella kärnor än det antal som returneras av mappnings frågan. Däremot kan DTU-databaser där konsekvent hög processor belastning medför otillräckliga arbets belastnings prestanda kräva fler virtuella kärnor än vad som returneras av frågan.
-- Om du migrerar databaser med tillfälliga eller oförutsägbara användnings mönster bör du överväga att använda [Server](serverless-tier-overview.md) lös beräknings nivå.
+- Om du migrerar databaser med tillfälliga eller oförutsägbara användnings mönster bör du överväga att använda [Server](serverless-tier-overview.md) lös beräknings nivå.  Observera att max antalet samtidiga arbetare (begär Anden) i Server lös är 75% gränsen för allokerad beräkning för samma antal konfigurerade virtuella kärnor.  Dessutom är Max tillgängligt minne i Server Lös 3 GB gånger det maximala antalet virtuella kärnor som kon figurer ATS. till exempel är maximalt minne 120 GB när 40 max virtuella kärnor har kon figurer ATS.   
 - I vCore-modellen kan den maximala databas storleken som stöds variera beroende på maskin varu genereringen. För stora databaser kontrollerar du de maximala storlekarna som stöds i vCore-modellen för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).
 - För elastiska pooler har modellerna [DTU](resource-limits-dtu-elastic-pools.md) och [vCore](resource-limits-vcore-elastic-pools.md) skillnader i det högsta antalet databaser som stöds per pool. Detta bör övervägas när du migrerar elastiska pooler med många databaser.
 - Vissa maskin varu generationer är kanske inte tillgängliga i varje region. Kontrol lera tillgängligheten under [maskin varu generationer](service-tiers-vcore.md#hardware-generations).

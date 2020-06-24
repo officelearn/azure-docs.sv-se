@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 02a6bba2dd4162a1cd9f05249174c2174a85b931
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a13a873fff8f471f7c82775736a34ef9f74aaea2
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043690"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743532"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering i Azure Portal för att övervaka frågor och förbättra arbets Belastningens prestanda
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,6 @@ ms.locfileid: "84043690"
 Azure SQL Database hanterar automatiskt data tjänster som kontinuerligt övervakar dina frågor och identifierar den åtgärd som du kan utföra för att förbättra arbets Belastningens prestanda. Du kan granska rekommendationer och manuellt tillämpa dem, eller låta Azure SQL Database automatiskt tillämpa korrigerande åtgärder – detta kallas **automatiskt justerings läge**.
 
 Automatisk justering kan aktive ras på servern eller på databas nivå genom:
-
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) -anrop
@@ -42,7 +41,7 @@ Automatisk justering kan aktive ras på servern eller på databas nivå genom:
 På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Standardinställningarna för Azure är FORCE_LAST_GOOD_PLAN aktive rad, CREATE_INDEX är inaktive rad och DROP_INDEX är inaktive rad.
 
 > [!IMPORTANT]
-> Från och med mars 2020 är standardinställningarna för Azure för automatisk justering följande:
+> Från och med mars 2020 nya Azure-standardvärden för automatisk justering enligt följande:
 >
 > - FORCE_LAST_GOOD_PLAN = aktive rad, CREATE_INDEX = inaktive rad och DROP_INDEX = inaktive rad.
 > - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt för att ärva Azure-standardinställningarna. Detta gäller för alla kunder som för närvarande har Server inställningar för automatisk justering i ett odefinierat tillstånd.

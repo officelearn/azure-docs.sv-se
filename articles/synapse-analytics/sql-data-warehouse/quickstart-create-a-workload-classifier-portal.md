@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b67d3205e95fe7cca6cacaab7e82a1a7e71f3f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82794107"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213031"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool arbets belastnings klassificering med hjälp av Azure Portal
 
-I den här snabb starten ska du skapa en [klassificering för arbets belastning](sql-data-warehouse-workload-classification.md) för att tilldela frågor till en arbets belastnings grupp.  Klassificeraren tilldelar begär Anden från `ELTLogin` SQL-användaren till `DataLoads` arbets belastnings gruppen.   Följ självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa `DataLoads` arbets belastnings gruppen.  Den här självstudien skapar en klassificerare för arbets belastning med alternativet WLM_LABEL som hjälper till att ytterligare klassificera begär Anden.  Klassificeraren tilldelar `HIGH` också [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) för dessa begär Anden.
+I den här snabb starten ska du skapa en [klassificering för arbets belastning](sql-data-warehouse-workload-classification.md) för att tilldela frågor till en arbets belastnings grupp.  Klassificeraren tilldelar begär Anden från `ELTLogin` SQL-användaren till `DataLoads` arbets belastnings gruppen.   Följ självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa `DataLoads` arbets belastnings gruppen.  Den här självstudien skapar en klassificerare för arbets belastning med alternativet WLM_LABEL som hjälper till att ytterligare klassificera begär Anden.  Klassificeraren tilldelar också `HIGH` [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) för dessa begär Anden.
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!NOTE]
 > Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -37,7 +37,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 Den här snabb starten förutsätter att du redan har en instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 <br><br>
-Det finns en `DataLoads` arbets belastnings grupp.  Se självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa arbets belastnings gruppen.
+Det finns en arbets belastnings grupp `DataLoads` .  Se självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa arbets belastnings gruppen.
 <br><br>
 >[!IMPORTANT] 
 >SQL-poolen måste vara online för att konfigurera arbets belastnings hantering. 
@@ -45,7 +45,7 @@ Det finns en `DataLoads` arbets belastnings grupp.  Se självstudierna [snabb st
 
 ## <a name="create-a-login-for-eltlogin"></a>Skapa en inloggning för ELTLogin
 
-Skapa en inloggning för SQL Server autentisering i `master` databasen med hjälp av [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för `ELTLogin`.
+Skapa en inloggning för SQL Server autentisering i `master` databasen med hjälp av [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för `ELTLogin` .
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-user-and-grant-permissions"></a>Skapa användare och bevilja behörigheter
 
-När inloggningen har skapats måste du skapa en användare i-databasen.  Använd [create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att skapa SQL- `ELTRole` användaren i **mySampleDataWarehouse**.  Eftersom vi kommer att testa klassificeringen under den här självstudien beviljar `ELTLogin` du behörighet till **mySampleDataWarehouse**. 
+När inloggningen har skapats måste du skapa en användare i-databasen.  Använd [create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att skapa SQL-användaren `ELTRole` i **mySampleDataWarehouse**.  Eftersom vi kommer att testa klassificeringen under den här självstudien beviljar `ELTLogin` du behörighet till **mySampleDataWarehouse**. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -69,7 +69,7 @@ END
 ```
 
 ## <a name="configure-workload-classification"></a>Konfigurera arbets belastnings klassificering
-Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsättning regler till en arbets belastnings grupp.  I självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) skapade vi `DataLoads` arbets belastnings gruppen.  Nu ska du skapa en klassificering för arbets belastning för att dirigera `DataLoads` frågor till arbets belastnings gruppen.
+Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsättning regler till en arbets belastnings grupp.  I självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) skapade vi `DataLoads` arbets belastnings gruppen.  Nu ska du skapa en klassificering för arbets belastning för att dirigera frågor till `DataLoads` arbets belastnings gruppen.
 
 
 1.  Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra sidan i Azure Portal.
@@ -97,7 +97,7 @@ Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsät
     ![Klicka på Konfigurera](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>Verifiera och testa klassificering
-Kontrol lera att `ELTLoginDataLoads` klassificeraren finns i vyn [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) -katalog.
+Kontrol lera att klassificeraren finns i vyn [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) -katalog `ELTLoginDataLoads` .
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
@@ -113,7 +113,7 @@ SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_v
   WHERE c.name = 'ELTLoginDataLoads'
 ```
 
-Kör följande instruktioner för att testa klassificeringen.  Se till att du är ``ELTLogin`` ansluten ``Label`` som och används i frågan.
+Kör följande instruktioner för att testa klassificeringen.  Se till att du är ansluten som ``ELTLogin`` och ``Label`` används i frågan.
 ```sql
 CREATE TABLE factstaging (ColA int)
 INSERT INTO factstaging VALUES(0)
@@ -127,7 +127,7 @@ SELECT * FROM factstaging
 OPTION (LABEL='fact_loads')
 ```
 
-Verifiera `CREATE TABLE` instruktionen som klassificeras `DataLoads` mot arbets belastnings `ELTLoginDataLoads` gruppen med hjälp av arbets belastnings klassificeringen.
+Verifiera `CREATE TABLE` instruktionen som klassificeras mot `DataLoads` arbets belastnings gruppen med hjälp av `ELTLoginDataLoads` arbets belastnings klassificeringen.
 ```sql 
 SELECT TOP 1 request_id, classifier_name, group_name, resource_allocation_percentage, submit_time, [status], [label], command 
 FROM sys.dm_pdw_exec_requests 
@@ -146,7 +146,7 @@ Ta bort en `ELTLoginDataLoads` arbets belastnings klassificering som skapats i d
     ![Klicka på ta bort](./media/quickstart-create-a-workload-classifier-portal/delete-wc.png)
 
 2. Klicka på **klassificerare**.
-3. Klicka på **`...`** till höger om klassificeringen av `ELTLoginDataLoads` arbets belastning.
+3. Klicka på **`...`** till höger om `ELTLoginDataLoads` klassificeringen av arbets belastning.
 4. Klicka på **ta bort**.
 5. Klicka på **Spara**.
 

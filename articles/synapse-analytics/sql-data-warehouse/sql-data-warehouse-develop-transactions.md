@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 558b16fc348728c507af1fa0260a67ccacefed0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416151"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213388"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Använda transaktioner i Synapse SQL-pool
 
@@ -93,7 +93,7 @@ Information om hur du optimerar och minimerar mängden data som skrivs till logg
 SQL-poolen använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
-> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Skulle exempelvis orsaka `SELECT 1/0` ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd.
+> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. `SELECT 1/0`Skulle exempelvis orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd.
 
 SQL Server tillåter också läsningar i allokerad-transaktionen. SQL-poolen tillåter dock inte detta. Om ett fel uppstår i en transaktion i SQL-poolen, anges-2-tillstånd automatiskt och du kan inte göra några fler SELECT-instruktioner förrän instruktionen har återställts.
 

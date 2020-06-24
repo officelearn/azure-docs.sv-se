@@ -4,18 +4,18 @@ description: Lär dig hur du överför käll mappningar till din egen lagrings k
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474891"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249745"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Käll kart stöd för JavaScript-program
 
 Application Insights stöder överföring av käll mappningar till din egen lagrings kontots BLOB-behållare.
-Käll mappningar kan användas för att unminify anrops stackar som finns på sidan för transaktions information från slut punkt till slut punkt. Eventuella undantag som skickas av [JavaScript SDK][ApplicationInsights-JS] eller [Node. js SDK][ApplicationInsights-Node.js] kan unminified med käll kartor.
+Käll mappningar kan användas för att unminify anrops stackar som finns på sidan för transaktions information från slut punkt till slut punkt. Eventuella undantag som skickas av [JavaScript SDK][ApplicationInsights-JS] eller [Node.js SDK][ApplicationInsights-Node.js] kan unminified med käll kartor.
 
 ![Unminify en anrops stack genom att länka med ett lagrings konto](./media/source-map-support/details-unminify.gif)
 
@@ -24,14 +24,16 @@ Käll mappningar kan användas för att unminify anrops stackar som finns på si
 Om du redan har ett befintligt lagrings konto eller en BLOB-behållare kan du hoppa över det här steget.
 
 1. [Skapa ett nytt lagringskonto][create storage account]
-2. [Skapa en BLOB-behållare][create blob container] i ditt lagrings konto. Se till att ange "offentlig åtkomst nivå" till `Private`för att säkerställa att dina käll kartor inte är offentligt tillgängliga.
+2. [Skapa en BLOB-behållare][create blob container] i ditt lagrings konto. Se till att ange "offentlig åtkomst nivå" till för att `Private` säkerställa att dina käll kartor inte är offentligt tillgängliga.
 
 > [!div class="mx-imgBorder"]
 >![Behållar åtkomst nivån måste vara inställd på privat](./media/source-map-support/container-access-level.png)
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Push-överför källan till din BLOB-behållare
 
-Du bör integrera en pipeline för kontinuerlig distribution med ditt lagrings konto genom att konfigurera den så att den automatiskt laddar upp dina käll mappningar till den konfigurerade BLOB-behållaren. Du bör inte ladda upp dina käll mappningar till en undermapp i BLOB-behållaren. för närvarande kommer käll kartan bara att hämtas från rotmappen.
+Du bör integrera en pipeline för kontinuerlig distribution med ditt lagrings konto genom att konfigurera den så att den automatiskt laddar upp dina käll mappningar till den konfigurerade BLOB-behållaren.
+
+Käll mappningar kan överföras till din Blob Storage-behållare med samma mappstruktur som de kompilerades & distribuerade med. Ett vanligt användnings fall är att ange en distributionsmapp med dess version som prefix, `1.2.3/static/js/main.js` t. ex.. När unminifying via en Azure Blob-behållare anropas `sourcemaps` försöker den hämta en käll karta som finns på `sourcemaps/1.2.3/static/js/main.js.map` .
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Ladda upp käll kartor via Azure-pipelines (rekommenderas)
 
@@ -74,11 +76,11 @@ Alla användare på portalen som använder den här funktionen måste minst till
 ### <a name="source-map-not-found"></a>Käll kartan hittades inte
 
 1. Verifiera att motsvarande käll mappning överförs till rätt BLOB-behållare
-2. Kontrol lera att käll mappnings filen är namngiven efter JavaScript-filen som den mappar till, suffix `.map`med.
+2. Kontrol lera att käll mappnings filen är namngiven efter JavaScript-filen som den mappar till, suffix med `.map` .
     - Söker till exempel `/static/js/main.4e2ca5fa.chunk.js` efter blobben med namnet`main.4e2ca5fa.chunk.js.map`
 3. Kontrol lera webbläsarens konsol för att se om några fel loggas. Ta med detta i ett support ärende.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Azure-fil kopierings aktivitet](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 

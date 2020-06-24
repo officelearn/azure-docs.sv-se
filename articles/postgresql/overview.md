@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74481665"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213609"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den är baserad på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Single Server och Scale (citus).
@@ -44,7 +44,7 @@ Citus-distributions alternativet ger:
 
 Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](./concepts-connection-libraries.md) och minimala ändringar.
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Kontakter
 Om du har frågor eller förslag om hur du arbetar med Azure Database for PostgreSQL skickar du ett e-postmeddelande till Azure Database for PostgreSQL-teamet ([ @Ask Azure dB för postgresql](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Den här adressen är för allmänna frågor snarare än support biljetter.
 
 Tänk också på dessa kontakt punkter efter behov:
@@ -52,6 +52,6 @@ Tänk också på dessa kontakt punkter efter behov:
 - Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [pris sidan](https://azure.microsoft.com/pricing/details/postgresql/) för kostnads jämförelser och räknare.
+- Se [pris sidan](https://azure.microsoft.com/pricing/details/postgresql/) för kostnads jämförelser och räknare. Både distributions alternativ för enskild server och citus-distribution erbjuder förbetalda reserverade instans rabatter. mer information finns på sidan med [en server för RI-priser](concept-reserved-pricing.md) och [skalnings](concepts-hyperscale-reserved-pricing.md) sidor för andra.
 - Kom igång genom att skapa din första Azure Database for PostgreSQL [enskild server](./quickstart-create-server-database-portal.md) eller [storskalig (citus)](./quickstart-create-hyperscale-portal.md)
 - Skapa den första appen i Python, PHP, Ruby, C\#, Java, Node.js: [anslutningsbibliotek](./concepts-connection-libraries.md)

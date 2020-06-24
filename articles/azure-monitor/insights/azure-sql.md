@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 80c03661970ec218dd8b36664ecb67623068ac5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116554"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249439"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -34,10 +34,10 @@ Azure SQL-analys är en övervaknings lösning för endast moln som stöder str�
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | [Diagnostikinställningar](../platform/diagnostic-settings.md) | **Ja** | Azure Metric-och loggdata skickas till Azure Monitor loggar direkt av Azure. |
-| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | Nej | Azure Monitor läser inte data från ett lagrings konto. |
-| [Windows-agenter](../platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av Azure SQL-analys. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av Azure SQL-analys. |
-| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Nej | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
+| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor läser inte data från ett lagrings konto. |
+| [Windows-agenter](../platform/agent-windows.md) | No | Direkta Windows-agenter används inte av Azure SQL-analys. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Direct Linux-agenter används inte av Azure SQL-analys. |
+| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | No | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL-analys alternativ
 
@@ -48,9 +48,9 @@ I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure 
 | Resurs efter typ | Perspektiv som räknar alla övervakade resurser. | Ja | Ja |
 | Insikter | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk visning av SQL-fel som har inträffat i databaserna. | Ja | Ja |
-| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Ja | Nej |
-| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Ja | Nej |
-| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Ja | Nej |
+| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Yes | Inga |
+| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Yes | Inga |
+| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Yes | Inga |
 | Frågans varaktighet | Tillhandahåller hierarkisk visning av statistik för frågekörning, till exempel fråge varaktighet, CPU-användning, data-i/o-användning, logg-i/o-användning. | Ja | Ja |
 | Fråga väntar | Tillhandahåller hierarkisk visning i frågan vänta i statistiken efter kategorin vänta. | Ja | Ja |
 
@@ -58,11 +58,11 @@ I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure 
 
 Använd processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md) för att lägga till Azure SQL-analys (för hands version) i Log Analytics arbets ytan.
 
-### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Konfigurera Azure SQL-databaser till Stream Diagnostics-telemetri
+### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Konfigurera Azure SQL Database till Stream Diagnostics-telemetri
 
 När du har skapat Azure SQL-analys lösning i din arbets yta måste du **Konfigurera varje** resurs som du vill övervaka för att strömma sin diagnostik-telemetri till Azure SQL-analys. Följ detaljerade instruktioner på den här sidan:
 
-- Aktivera Azure-diagnostik för att din Azure SQL-databas ska kunna [strömma telemetri till Azure SQL-analys](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Aktivera Azure-diagnostik för att din databas ska kunna [strömma telemetri till Azure SQL-analys](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 Sidan ovan innehåller också instruktioner om hur du aktiverar stöd för övervakning av flera Azure-prenumerationer från en enda Azure SQL-analys arbets yta som ett enda fönster i glaset.
 

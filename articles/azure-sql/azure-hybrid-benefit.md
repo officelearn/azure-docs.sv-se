@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: fcb1e5f45bc4f8d234952e338052a18d4b03ee0f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9d8a973e04618e4223f90ffb9a3004d0fe40bbf7
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344687"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743518"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid-förmån-Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,11 @@ I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan
 
 Med Azure Hybrid-förmån kan du välja att bara betala för den underliggande Azure-infrastrukturen genom att använda din befintliga SQL Server-licens för själva SQL Server-databasmotorn (bas beräknings pris), eller så kan du betala för både den underliggande infrastrukturen och SQL Server licens (licens pris ingår).
 
-Du kan välja eller ändra licensierings modellen med hjälp av Azure Portal eller genom att använda någon av följande API: er:
+Du kan välja eller ändra licensierings modellen i Azure Portal: 
+- För nya databaser, under skapande, väljer du **Konfigurera databas** på fliken **grundläggande** och väljer alternativet för att spara pengar.
+- För befintliga databaser väljer du **Konfigurera** i menyn **Inställningar** och väljer alternativet för att spara pengar.
+
+Du kan också konfigurera en ny eller befintlig databas med hjälp av någon av följande API: er:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

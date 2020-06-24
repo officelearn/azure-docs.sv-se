@@ -5,14 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 06/17/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 61dd98028b7342290984615ea19b561b48aaeadb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d9712026daab63a002793adf2e17b9db943f94
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74792231"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976905"
 ---
 # <a name="supported-postgresql-major-versions"></a>PostgreSQL huvud versioner som stöds
 Microsoft syftar till att stödja n-2-versioner av PostgreSQL-motorn i Azure Database for PostgreSQL-Single-Server. Versionerna är den aktuella huvud versionen av Azure (n) och de två tidigare huvud versionerna (-2).
@@ -20,16 +20,16 @@ Microsoft syftar till att stödja n-2-versioner av PostgreSQL-motorn i Azure Dat
 Azure Database for PostgreSQL stöder för närvarande följande huvud versioner:
 
 ## <a name="postgresql-version-11"></a>PostgreSQL-version 11
-Den aktuella del versionen är 11,5. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/11/static/release-11-5.html) .
+Den aktuella del versionen är 11,6. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/11/static/release-11-6.html) .
 
 ## <a name="postgresql-version-10"></a>PostgreSQL version 10
-Den aktuella del versionen är 10,10. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/10/static/release-10-10.html) .
+Den aktuella del versionen är 10,11. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/10/static/release-10-11.html) .
 
 ## <a name="postgresql-version-96"></a>PostgreSQL-version 9,6
-Den aktuella del versionen är 9.6.15. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html) .
+Den aktuella del versionen är 9.6.16. Läs mer om förbättringar och korrigeringar i den här mindre versionen i [postgresql-dokumentationen](https://www.postgresql.org/docs/9.6/static/release-9-6-16.html) .
 
 ## <a name="postgresql-version-95"></a>PostgreSQL-version 9,5
-Den aktuella del versionen är 9.5.19. Läs postgresql- [dokumentationen](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) om du vill veta mer om förbättringar och korrigeringar i den här mindre versionen.
+Den aktuella del versionen är 9.5.20. Läs postgresql- [dokumentationen](https://www.postgresql.org/docs/9.5/static/release-9-5-20.html) om du vill veta mer om förbättringar och korrigeringar i den här mindre versionen.
 
 ## <a name="managing-upgrades"></a>Hantera uppgraderingar
 PostgreSQL-projektet utfärdar regelbundet mindre versioner för att åtgärda rapporterade buggar. Azure Database for PostgreSQL automatiskt korrigering av servrar med mindre versioner under tjänstens månatliga distributioner. 

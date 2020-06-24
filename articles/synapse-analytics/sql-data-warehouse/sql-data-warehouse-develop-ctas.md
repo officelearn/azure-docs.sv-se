@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 8e1b75dfc6a979956ff4a2868027bb769bf7c4ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633539"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213490"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE SOM SELECT (CTAS)
 
@@ -59,9 +59,9 @@ FROM    [dbo].[FactInternetSales];
 
 ## <a name="use-ctas-to-copy-a-table"></a>Använda CTAS för att kopiera en tabell
 
-Kanske är en av de vanligaste användningarna av CTAS att skapa en kopia av en tabell för att ändra DDL. Anta att du ursprungligen skapade tabellen som och nu `ROUND_ROBIN`vill ändra den till en tabell som distribuerats i en kolumn. CTAS hur du ändrar distributions kolumnen. Du kan också använda CTAS för att ändra partitionering, indexering eller kolumn typer.
+Kanske är en av de vanligaste användningarna av CTAS att skapa en kopia av en tabell för att ändra DDL. Anta att du ursprungligen skapade tabellen som `ROUND_ROBIN` och nu vill ändra den till en tabell som distribuerats i en kolumn. CTAS hur du ändrar distributions kolumnen. Du kan också använda CTAS för att ändra partitionering, indexering eller kolumn typer.
 
-Anta att du har skapat den här tabellen genom att använda standard distributions `ROUND_ROBIN`typen, och inte ange någon distributions `CREATE TABLE`kolumn i.
+Anta att du har skapat den här tabellen genom att använda standard distributions typen `ROUND_ROBIN` , och inte ange någon distributions kolumn i `CREATE TABLE` .
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-Nu vill du skapa en ny kopia av den här tabellen med en `Clustered Columnstore Index`, så att du kan dra nytta av prestanda för grupperade columnstore-tabeller. Du vill även distribuera den här tabellen på `ProductKey`eftersom du förväntar dig kopplingar till den här kolumnen och vill undvika att data flyttas under kopplingar till `ProductKey`. Slutligen vill du också lägga till partitionering på `OrderDateKey`, så att du snabbt kan ta bort gamla data genom att släppa gamla partitioner. Här är CTAS-instruktionen som kopierar den gamla tabellen till en ny tabell.
+Nu vill du skapa en ny kopia av den här tabellen med en `Clustered Columnstore Index` , så att du kan dra nytta av prestanda för grupperade columnstore-tabeller. Du vill även distribuera den här tabellen på `ProductKey` eftersom du förväntar dig kopplingar till den här kolumnen och vill undvika att data flyttas under kopplingar till `ProductKey` . Slutligen vill du också lägga till partitionering på `OrderDateKey` , så att du snabbt kan ta bort gamla data genom att släppa gamla partitioner. Här är CTAS-instruktionen som kopierar den gamla tabellen till en ny tabell.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-Synapse SQL har inte stöd för ANSI-kopplingar `FROM` i en `UPDATE` instruktions sats, så du kan inte använda föregående exempel utan att ändra den.
+Synapse SQL har inte stöd för ANSI-kopplingar i `FROM` en `UPDATE` instruktions sats, så du kan inte använda föregående exempel utan att ändra den.
 
 Du kan använda en kombination av en CTAS och en implicit koppling för att ersätta föregående exempel:
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI Join-ersättning för Delete-instruktioner
 
-Ibland är den bästa metoden för att ta bort data att använda CTAS, `DELETE` särskilt för instruktioner som använder ANSI Join-syntax. Detta beror på `DELETE` att Synapse SQL inte stöder ANSI-kopplingar i `FROM` instruktions satsen. I stället för att ta bort data väljer du de data som du vill behålla.
+Ibland är den bästa metoden för att ta bort data att använda CTAS, särskilt för `DELETE` instruktioner som använder ANSI Join-syntax. Detta beror på att Synapse SQL inte stöder ANSI-kopplingar i `FROM` instruktions satsen `DELETE` . I stället för att ta bort data väljer du de data som du vill behålla.
 
 Följande är ett exempel på en konverterad `DELETE` instruktion:
 
@@ -232,9 +232,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 
 ## <a name="replace-merge-statements"></a>Ersätt merge-instruktioner
 
-Du kan ersätta sammanslagnings instruktioner, minst delvis, genom att använda CTAS. Du kan kombinera `INSERT` och `UPDATE` i ett enda uttryck. Eventuella borttagna poster bör begränsas från `SELECT` instruktionen som ska uteslutas från resultaten.
+Du kan ersätta sammanslagnings instruktioner, minst delvis, genom att använda CTAS. Du kan kombinera `INSERT` och i `UPDATE` ett enda uttryck. Eventuella borttagna poster bör begränsas från `SELECT` instruktionen som ska uteslutas från resultaten.
 
-Följande exempel är för en `UPSERT`:
+Följande exempel är för en `UPSERT` :
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -330,7 +330,7 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Observera följande:
+. Tänk på följande:
 
 * Du kan använda CAST eller CONVERT.
 * Använd ISNULL, inte sammanslagning, för att tvinga NULL. Se följande anmärkning.
@@ -387,7 +387,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-Frågan skulle köras perfekt. Problemet uppstår när du försöker att byta partition. Tabell definitionerna matchar inte. Om du vill att tabell definitionerna ska matcha ändrar du CTAS för `ISNULL` att lägga till en funktion för att bevara attributet null-attribut för kolumnen.
+Frågan skulle köras perfekt. Problemet uppstår när du försöker att byta partition. Tabell definitionerna matchar inte. Om du vill att tabell definitionerna ska matcha ändrar du CTAS för att lägga till en `ISNULL` funktion för att bevara attributet null-attribut för kolumnen.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]

@@ -4,16 +4,16 @@ description: Så här skapar du en FSLogix profil behållare med hjälp av Azure
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484636"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211949"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Skapa en profil behållare med Azure NetApp Files och AD DS
 
@@ -87,7 +87,7 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 
 ## <a name="create-a-capacity-pool"></a>Skapa en pool för kapacitet
 
-Skapa sedan en ny kapacitets grupp: 
+Skapa sedan en ny kapacitets grupp:
 
 1. Gå till Azure NetApp Files-menyn och välj ditt nya konto.
 2. I menyn konto väljer du **kapacitets grupper** under lagrings tjänsten.
@@ -158,7 +158,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 2. Zippa upp den hämtade filen.
 
-3. I filen går du till **x64**-  >  **versioner** och kör **FSLogixAppsSetup. exe**. Installations menyn öppnas.
+3. I filen går du till **x64**-  >  **versioner** och kör **FSLogixAppsSetup.exe**. Installations menyn öppnas.
 
 4.  Om du har en produkt nyckel anger du den i text rutan produkt nyckel.
 

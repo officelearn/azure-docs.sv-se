@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74484109"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982126"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Anpassad webb-API-kunskap i en Azure Kognitiv sökning anriknings pipeline
 
@@ -36,12 +36,12 @@ Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| URI | URI för webb-API: t som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schema tillåts |
-| httpMethod | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller`POST` |
-| httpHeaders | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker är förbjudna att tas med i samlingen `Accept`:, `Accept-Charset` `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade`,,,,,,`Via` |
-| timeout | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
-| batchSize | Valfritt Anger hur många "data poster" (se _JSON_ nytto Last strukturen nedan) som ska skickas per API-anrop. Om den inte anges väljs standardvärdet 1000. Vi rekommenderar att du använder den här parametern för att uppnå en lämplig kompromiss mellan indexering av data flödet och belastningen på ditt API |
-| degreeOfParallelism | Valfritt Anger hur många anrop som indexeraren ska göra parallellt med den slut punkt som du har angett. Du kan minska det här värdet om slut punkten har misslyckats under för hög belastning på begäran, eller öka den om slut punkten kan ta emot fler begär Anden och du vill ha en ökning av prestandan för indexeraren.  Om inget värde anges används standardvärdet 5. DegreeOfParallelism kan anges till högst 10 och minst 1. |
+| `uri` | URI för webb-API: t som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schema tillåts |
+| `httpMethod` | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller`POST` |
+| `httpHeaders` | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker är förbjudna att tas med i samlingen:,,,,,,, `Accept` `Accept-Charset` `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade``Via` |
+| `timeout` | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
+| `batchSize` | Valfritt Anger hur många "data poster" (se _JSON_ nytto Last strukturen nedan) som ska skickas per API-anrop. Om den inte anges väljs standardvärdet 1000. Vi rekommenderar att du använder den här parametern för att uppnå en lämplig kompromiss mellan indexering av data flödet och belastningen på ditt API |
+| `degreeOfParallelism` | Valfritt Anger hur många anrop som indexeraren ska göra parallellt med den slut punkt som du har angett. Du kan minska det här värdet om slut punkten har misslyckats under för hög belastning på begäran, eller öka den om slut punkten kan ta emot fler begär Anden och du vill ha en ökning av prestandan för indexeraren.  Om inget värde anges används standardvärdet 5. `degreeOfParallelism`Kan anges till högst 10 och minst 1. |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
@@ -137,16 +137,16 @@ Den kommer alltid att följa dessa begränsningar:
 
 ## <a name="sample-output-json-structure"></a>Exempel-JSON-struktur för utdata
 
-"Utdata" motsvarar det svar som returneras från ditt webb-API. Webb-API: et ska bara returnera en _JSON_ -nyttolast (verifierad `Content-Type` genom att titta på svars huvudet) och bör uppfylla följande begränsningar:
+"Utdata" motsvarar det svar som returneras från ditt webb-API. Webb-API: et ska bara returnera en _JSON_ -nyttolast (verifierad genom att titta på `Content-Type` svars huvudet) och bör uppfylla följande begränsningar:
 
 * Det bör finnas en entitet på den översta nivån `values` som ska vara en matris med objekt.
 * Antalet objekt i matrisen måste vara samma som antalet objekt som skickas till webb-API: et.
 * Varje objekt bör ha:
    * En `recordId` egenskap
    * En `data` egenskap, som är ett objekt där fälten är anrikninger som matchar "namn" i `output` och vars värde betraktas som berikning.
-   * En `errors` egenskap, en matris som visar eventuella fel som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha `null` ett värde.
-   * En `warnings` egenskap, en matris som visar alla varningar som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha `null` ett värde.
-* Objekt i `values` matrisen behöver inte vara i samma ordning som de objekt i `values` matrisen som skickas som en begäran till webb-API: et. `recordId` Men används för korrelation så att alla poster i svaret som innehåller en som inte `recordId` var en del av den ursprungliga begäran till webb-API: et ignoreras.
+   * En `errors` egenskap, en matris som visar eventuella fel som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
+   * En `warnings` egenskap, en matris som visar alla varningar som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
+* Objekt i `values` matrisen behöver inte vara i samma ordning som de objekt i `values` matrisen som skickas som en begäran till webb-API: et. Men `recordId` används för korrelation så att alla poster i svaret som innehåller en `recordId` som inte var en del av den ursprungliga begäran till webb-API: et ignoreras.
 
 ```json
 {
@@ -196,7 +196,7 @@ Den kommer alltid att följa dessa begränsningar:
 ## <a name="error-cases"></a>Fel fall
 Förutom att ditt webb-API är otillgängligt, eller om du skickar ut status koder som inte lyckades, anses följande vara felaktiga fall:
 
-* Om webb-API: t returnerar en status kod för lyckad status men svaret visar att `application/json` svaret inte är det, anses inte svaret vara ogiltigt och inga berikningar utförs.
+* Om webb-API: t returnerar en status kod för lyckad status men svaret visar att svaret inte är det `application/json` , anses inte svaret vara ogiltigt och inga berikningar utförs.
 * Om det finns **ogiltiga** (med `recordId` inte i den ursprungliga begäran eller med dubblettvärden) poster i svars `values` mat ris, utförs ingen berikning för **dessa** poster.
 
 När webb-API: t inte är tillgängligt eller returnerar ett HTTP-fel, läggs ett fel meddelande med tillgänglig information om HTTP-felet till i körnings historiken för Indexer.

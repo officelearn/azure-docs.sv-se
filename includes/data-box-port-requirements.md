@@ -12,11 +12,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67839746"
 ---
-| Port nr.| In eller ut | Port omfång| Krävs| Obs! |   |
+| Port nr.| In eller ut | Port omfång| Obligatorisk| Kommentarer |   |
 |--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|I|LAN|Ja|Den här porten används för att ansluta till Data Box-enhet blogg lagring REST-API: er via HTTP. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |
-| TCP 443 (HTTPS)|I|LAN|Ja|Den här porten används för att ansluta till Data Box-enhet blogg lagring REST-API: er över HTTPS. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |
-| TCP 8443 (HTTPS-Alt)|I|LAN|Ja|Detta är en alternativ port för HTTPS och används vid anslutning till lokalt webb gränssnitt för enhets hantering. |
+| TCP 80 (HTTP)|I|LAN|Yes|Den här porten används för att ansluta till Data Box-enhet blogg lagring REST-API: er via HTTP. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |
+| TCP 443 (HTTPS)|I|LAN|Yes|Den här porten används för att ansluta till Data Box-enhet blogg lagring REST-API: er över HTTPS. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |
+| TCP 8443 (HTTPS-Alt)|I|LAN|Yes|Detta är en alternativ port för HTTPS och används vid anslutning till lokalt webb gränssnitt för enhets hantering. |
 | TCP 445 (SMB)|Ut/in|LAN|I vissa fall<br>Se kommentarer|Den här porten krävs bara om du ansluter via SMB. |
 | TCP 2049 (NFS)|Ut/in|LAN|I vissa fall<br>Se kommentarer|Den här porten krävs bara om du ansluter via NFS. |
 | TCP 111 (NFS)|Ut/in|LAN|I vissa fall<br>Se kommentarer|Den här porten används för rpcbind/port-mappning och krävs endast om du ansluter via NFS.  |

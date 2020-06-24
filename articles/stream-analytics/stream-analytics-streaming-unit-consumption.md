@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267357"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704190"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
@@ -78,7 +78,7 @@ Följande faktorer påverkar det minne som används (del av måttet för strömn
 Förbrukat minne (tillstånds storlek) för en sammanslagen mängd är inte alltid direkt proportionellt mot fönstrets storlek. I stället är det förbrukade minnet proportionellt för dataens kardinalitet eller antalet grupper i varje tids period.
 
 
-I följande fråga är det tal som är associerat med `clusterid` till exempel frågans kardinalitet. 
+I följande fråga är det tal som är associerat med till exempel `clusterid` frågans kardinalitet. 
 
    ```sql
    SELECT count(*)
@@ -86,7 +86,7 @@ I följande fråga är det tal som är associerat med `clusterid` till exempel f
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-För att minimera eventuella problem som orsakas av hög kardinalitet i föregående fråga kan du skicka händelser till Händelsehubben partitionerad av `clusterid`och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av **partitionen** som visas i exemplet nedan:
+För att minimera eventuella problem som orsakas av hög kardinalitet i föregående fråga kan du skicka händelser till Händelsehubben partitionerad av `clusterid` och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av **partitionen** som visas i exemplet nedan:
 
    ```sql
    SELECT count(*) 

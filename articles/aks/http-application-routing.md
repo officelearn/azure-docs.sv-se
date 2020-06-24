@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56416b540072359169e4eb6da67f15588fc4daf4
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632408"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298692"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -38,24 +38,25 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 ```
 
 > [!TIP]
-> Om du vill aktivera flera tillägg kan du ange dem som en kommaavgränsad lista. Om du till exempel vill aktivera Routning och övervakning av HTTP-program använder `--enable-addons http_application_routing,monitoring`du formatet.
+> Om du vill aktivera flera tillägg kan du ange dem som en kommaavgränsad lista. Om du till exempel vill aktivera Routning och övervakning av HTTP-program använder du formatet `--enable-addons http_application_routing,monitoring` .
 
-Du kan också aktivera HTTP-routning i ett befintligt AKS-kluster med kommandot [AZ AKS Enable-addons][az-aks-enable-addons] . Om du vill aktivera HTTP-routning i ett befintligt kluster `--addons` lägger du till parametern och anger *http_application_routing* som visas i följande exempel:
+Du kan också aktivera HTTP-routning i ett befintligt AKS-kluster med kommandot [AZ AKS Enable-addons][az-aks-enable-addons] . Om du vill aktivera HTTP-routning i ett befintligt kluster lägger du till `--addons` parametern och anger *http_application_routing* som visas i följande exempel:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-När klustret har distribuerats eller uppdaterats använder du kommandot [AZ AKS show][az-aks-show] för att hämta DNS-zonens namn. Det här namnet krävs för att distribuera program till AKS-klustret.
+När klustret har distribuerats eller uppdaterats använder du kommandot [AZ AKS show][az-aks-show] för att hämta DNS-zonens namn. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Resultat
+Det här namnet krävs för att distribuera program till AKS-klustret och visas i följande exempel på utdata:
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## <a name="deploy-http-routing-portal"></a>Distribuera HTTP-Routning: Portal
 
@@ -77,7 +78,6 @@ annotations:
 ```
 
 Skapa en fil med namnet **exempel-http-Application-routing. yaml** och kopiera i följande yaml. På rad 43 uppdaterar `<CLUSTER_SPECIFIC_DNS_ZONE>` du med DNS-zonnamn som samlades in i föregående steg i den här artikeln.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -136,6 +136,12 @@ spec:
 ```
 
 Använd kommandot [kubectl Apply][kubectl-apply] för att skapa resurserna.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+Följande exempel visar de skapade resurserna:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -262,7 +268,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## <a name="clean-up"></a>Rensa
 
-Ta bort de associerade Kubernetes-objekten som skapats i den här artikeln.
+Ta bort de associerade Kubernetes-objekten som skapats i den här artikeln med hjälp av `kubectl delete` .
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+Exempel resultatet visar Kubernetes-objekt har tagits bort.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml

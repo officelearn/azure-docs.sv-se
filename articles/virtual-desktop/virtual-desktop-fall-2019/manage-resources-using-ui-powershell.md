@@ -4,16 +4,16 @@ description: Distribuera hanterings verktyget för virtuella Windows-datorer med
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5a500ef44170f23c8acdf752393389a4af06a798
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983099"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214187"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
 
@@ -22,9 +22,9 @@ ms.locfileid: "82983099"
 
 I den här artikeln visas hur du distribuerar hanterings verktyget med PowerShell.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
-Varje Azure Active Directory (Azure AD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget. Det här verktyget har inte stöd för Azure AD-scenarier för Business-to-Business (B2B). 
+Varje Azure Active Directory (Azure AD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget. Det här verktyget har inte stöd för Azure AD-scenarier för Business-to-Business (B2B).
 
 Det här hanterings verktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets-och kvalitets uppdateringar. [Käll koden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Oavsett om du är kund eller partner rekommenderar vi att du anpassar verktyget för att uppfylla dina affärs behov.
 
@@ -93,7 +93,7 @@ Nu när du har slutfört registreringen av Azure AD-appen kan du distribuera han
 ## <a name="deploy-the-management-tool"></a>Distribuera hanteringsverktyget
 
 Kör följande PowerShell-kommandon för att distribuera hanterings verktyget och koppla det till tjänstens huvud namn som du nyss skapade:
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +120,7 @@ Kör följande PowerShell-kommandon för att hämta webbappens URL och ange den 
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 Nu när du har lagt till en omdirigerings-URI måste du uppdatera API-URL: en så att hanterings verktyget kan interagera med API-backend-tjänsten.
@@ -143,12 +143,12 @@ Så här kontrollerar du Azure AD-programkonfigurationen och ger godkännande:
 2. Från Sök fältet överst i Azure Portal söker du efter **Appregistreringar** och väljer objektet under **tjänster**.
 3. Välj **alla program** och Sök efter det unika app-namn som du angav för PowerShell-skriptet i [skapa en Azure Active Directory app-registrering](#create-an-azure-active-directory-app-registration).
 4. I panelen till vänster i webbläsaren väljer du **autentisering** och kontrollerar att omdirigerings-URI: n är samma som webbappens URL för hanterings verktyget, som du ser i följande bild.
-   
-   [![Sidan autentisering med angiven omdirigerings-](../media/management-ui-redirect-uri-inline.png) URI](../media/management-ui-redirect-uri-expanded.png#lightbox)
+
+   [![Sidan autentisering med angiven omdirigerings-URI ](../media/management-ui-redirect-uri-inline.png)](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. I den vänstra panelen väljer du **API-behörigheter** för att bekräfta att behörigheterna har lagts till. Om du är global administratör väljer du knappen **bevilja administratörs medgivande för `tenantname` ** och följer dialog rutorna för att ge din organisation ett administrativt medgivande.
-    
-    [![Sidan](../media/management-ui-permissions-inline.png) API-behörigheter](../media/management-ui-permissions-expanded.png#lightbox)
+
+    [![Sidan ](../media/management-ui-permissions-inline.png) API-behörigheter](../media/management-ui-permissions-expanded.png#lightbox)
 
 Nu kan du börja använda hanterings verktyget.
 
@@ -158,13 +158,13 @@ Nu när du har konfigurerat hanterings verktyget kan du när som helst starta de
 
 1. Öppna URL-adressen för webbappen i en webbläsare. Om du inte kommer ihåg URL: en kan du logga in på Azure, hitta den app service som du har distribuerat för hanterings verktyget och sedan välja URL: en.
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
-   
+
    > [!NOTE]
    > Om du inte beviljade administrativt medgivande när du konfigurerade hanterings verktyget måste varje användare som loggar in ange sitt eget användar medgivande för att kunna använda verktyget.
 
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
 4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.
-   
+
    > [!NOTE]
    > Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
 

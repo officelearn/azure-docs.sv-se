@@ -14,13 +14,13 @@ ms.locfileid: "83696509"
 ---
 Här är en lista över de lagrings konton som stöds och lagrings typer för den Data Box-enhet enheten. En fullständig lista över alla typer av lagrings konton och deras fullständiga funktioner finns i [typer av lagrings konton](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB*** |**Azure Files** |**Obs!**|
+| **Lagrings konto/lagrings typer som stöds** | **Blockblob** |**Sid-BLOB*** |**Azure Files** |**Anteckningar**|
 | --- | --- | -- | -- | -- |
-| Klassisk standard | Y | Y | Y |
-| Generell användning v1-standard  | Y | Y | Y | Både frekvent och låg frekvent stöds.|
-| Generell användning v1 Premium  |  | Y| | |
-| Generell användning v2 standard  | Y | Y | Y | Både frekvent och låg frekvent stöds.|
-| Generell användning v2 Premium  |  |Y | | |
-| Blob Storage Standard |Y | | |Både frekvent och låg frekvent stöds. |
+| Klassisk standard | J | J | J |
+| Generell användning v1-standard  | J | J | J | Både frekvent och låg frekvent stöds.|
+| Generell användning v1 Premium  |  | J| | |
+| Generell användning v2 standard  | J | J | J | Både frekvent och låg frekvent stöds.|
+| Generell användning v2 Premium  |  |J | | |
+| Blob Storage Standard |J | | |Både frekvent och låg frekvent stöds. |
 
 \**-Data som laddats upp till sid-blobar måste vara 512 byte justerade, till exempel virtuella hård diskar.*

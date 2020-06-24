@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 70ac4942c397e8ca5db2d1b5041d0d9d43ae7222
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82794058"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213048"
 ---
 # <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Snabb start: Konfigurera Synapse för arbets belastnings isolering i SQL-pool med en arbets belastnings grupp i Azure Portal
 
-I den här snabb starten konfigurerar du [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md) genom att skapa en arbets belastnings grupp för reservering av resurser.  I den här självstudien skapar vi arbets belastnings gruppen för inläsning av `DataLoads`data som anropas. Arbets belastnings gruppen kommer att reservera 20% av system resurserna.  Med 20% isolering för data inläsningar är de garanterat resurser som gör att de kan trycka på service avtal.  När du har skapat arbets belastnings gruppen [skapar du en klassificering för arbets belastning](quickstart-create-a-workload-classifier-portal.md) för att tilldela frågor till den här arbets belastnings gruppen
+I den här snabb starten konfigurerar du [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md) genom att skapa en arbets belastnings grupp för reservering av resurser.  I den här självstudien skapar vi arbets belastnings gruppen för inläsning av data som anropas `DataLoads` . Arbets belastnings gruppen kommer att reservera 20% av system resurserna.  Med 20% isolering för data inläsningar är de garanterat resurser som gör att de kan trycka på service avtal.  När du har skapat arbets belastnings gruppen [skapar du en klassificering för arbets belastning](quickstart-create-a-workload-classifier-portal.md) för att tilldela frågor till den här arbets belastnings gruppen
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!NOTE]
 > Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -97,7 +97,7 @@ Rensa resurserna genom att följa dessa steg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill `DataLoads` använda arbets belastnings gruppen måste en [arbets belastnings klassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) skapas för att dirigera begär anden till arbets belastnings gruppen.  Fortsätt till självstudien [skapa arbets belastnings klassificering](quickstart-create-a-workload-classifier-portal.md) för att skapa `DataLoads`en klassificering för arbets belastning för.
+Om du vill använda `DataLoads` arbets belastnings gruppen måste en [arbets belastnings klassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) skapas för att dirigera begär anden till arbets belastnings gruppen.  Fortsätt till självstudien [skapa arbets belastnings klassificering](quickstart-create-a-workload-classifier-portal.md) för att skapa en klassificering för arbets belastning för `DataLoads` .
 
 ## <a name="see-also"></a>Se även
 Se artikeln om hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) för mer information om hur du övervakar arbets belastningar för hantering av arbets belastning.

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -16,7 +16,7 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "79474500"
 ---
 > [!div class="op_single_selector"]
-> * [Portalen](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
+> * [Portal](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
 > * [PowerShell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
 > * [Visual Studio](../articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)
 > * [Azure CLI](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)

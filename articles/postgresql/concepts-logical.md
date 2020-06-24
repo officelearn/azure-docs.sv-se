@@ -5,19 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: ef7c5644ad8ec1e3816f20d4e5db9ad7d39a4609
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 06/22/2020
+ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634595"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213694"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
 [Med logisk avkodning i postgresql](https://www.postgresql.org/docs/current/logicaldecoding.html) kan du strömma data ändringar till externa konsumenter. Logisk avkodning används ofta för händelse strömning och ändring av data insamlings scenarier.
 
-Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL innehåller två plugin-program för utdata: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och [wal2json](https://github.com/eulerto/wal2json).
+Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL tillhandahåller plugin- [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och pgoutput. pgoutput görs tillgänglig av postgres från postgres version 10 och senare.
+
+En översikt över hur postgres logiska avkodning fungerar [finns på vår blogg](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > Logisk avkodning är i offentlig för hands version på Azure Database for PostgreSQL-enskild server.
@@ -77,7 +79,7 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Utfärda SQL-kommandon. Till exempel:
+2. Utfärda SQL-kommandon. Ett exempel:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

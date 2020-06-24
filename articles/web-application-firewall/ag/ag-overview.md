@@ -8,18 +8,18 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747771"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212912"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
 
 Azure Web Application Firewall (WAF) på Azure Application Gateway tillhandahåller centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. SQL-inmatning och Cross-Site-skript är bland de vanligaste angrepp.
 
-WAF på Application Gateway baseras på [kärn regel uppsättningen (datoriserat system)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1, 3,0 eller 2.2.9 från det öppna webb programmet säkerhets projekt (OWASP). WAF uppdateras automatiskt för att ta med skydd mot nya sårbarheter, utan ytterligare konfiguration som behövs. 
+WAF på Application Gateway baseras på [kärn regel uppsättningen (datoriserat system)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3,1, 3,0 eller 2.2.9 från det öppna webb programmet säkerhets projekt (OWASP). WAF uppdateras automatiskt för att ta med skydd mot nya sårbarheter, utan ytterligare konfiguration som behövs. 
 
 Alla WAF-funktioner i listan nedan finns i en WAF-princip. Du kan skapa flera principer och de kan associeras med en Application Gateway, till enskilda lyssnare eller till sökvägar baserade routningsregler på en Application Gateway. På så sätt kan du ha separata principer för varje plats bakom Application Gateway vid behov. Mer information om WAF-principer finns i [skapa en WAF-princip](create-waf-policy-ag.md).
 

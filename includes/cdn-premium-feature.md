@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: cdn
 author: SyntaxC4
 ms.service: azure-cdn

@@ -1,26 +1,19 @@
 ---
 title: Översikt över Cloud-Init-stöd för virtuella Linux-datorer i Azure
 description: Översikt över funktioner för Cloud-Init för att konfigurera en virtuell dator vid etablerings tiden i Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 05/19/2019
+ms.topic: how-to
+ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: 9e42229b08d7817b64c66c4ab23877c837339475
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c16343b412cd9164df84ea140e9bc5368890cc3e
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827326"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298981"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
@@ -54,11 +47,11 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja | Ja-support från paket version: *18.2-1. el7_6.2*|
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (gen1)|RHEL |7,7 | 7.7.2020051912 | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (gen1)|RHEL |7-LVM | 7.7.2020051921 | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (Gen2)|RHEL | 7lvm – Gen2 | 7.7.2020051922  | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | 7.7.20200416 | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj  | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1)|RHEL |7,7 | 7.7.2020051912 | ja | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | ja | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1)|RHEL |7-LVM | 7.7.2020051921 | ja | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 7lvm – Gen2 | 7.7.2020051922  | ja | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | 7.7.20200416 | ja  | Ja-support från paket version: *18.5 -6. el7*|
 |RedHat 8,1 (gen1) |RHEL |8,1 – CI |8.1.2020042511 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020|
 |RedHat 8,1 (Gen2) |RHEL |81 – CI-Gen2 |8.1.2020042524 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020 |
 
@@ -68,7 +61,7 @@ RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-
 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Observera att det här är en förhands gransknings bild och när alla CentOS 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -3. el7. CentOS*|
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Observera att det här är en förhands gransknings bild och när alla CentOS 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version:`18.5-3.el7.centos`|
 
 * CentOS 7,7-avbildningar som kommer att bli moln-init-aktiverade uppdateras här i juni 2020 
 * CentOS 7,8-avbildningar har tillhandahållits med Cloud-init.
@@ -80,7 +73,7 @@ RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7,7 |Oracle – Linux |77 – CI |7.7.01| förhands gransknings bild (Observera att det här är en förhands gransknings bild, och den när alla Oracle 7,7-avbildningar har stöd för Cloud-Init tas detta bort mid 2020. | Nej, i för hands versionen är paketet: *18.5-3.0.1. el7*
 
-### <a name="suse-sles"></a>SuSE SLES
+### <a name="suse-sles"></a>SUSE SLES
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |SUSE SLES 15 SP1 |SUSE |SLES-15-SP1-Basic |Cloud-Init-för hands version| Mer information finns i [SUSE Cloud-Init-bloggen](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) | Nej, i för hands versionen. |
@@ -88,10 +81,15 @@ RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-
 
 
 ### <a name="debian"></a>Debian
-Vi arbetar för för hands versions stöd och förväntar dig uppdateringar i juni 2020.
+| Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+| Debian (gen1) |Debian-10 | 10-cloudinit |Cloud-Init-för hands version| Ja (endast för hands version) | Nej, i för hands versionen. |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |Cloud-Init-för hands version| Ja (endast för hands version) | Nej, i för hands versionen. |
+
+
+
 
 För närvarande har Azure Stack stöd för etablering av moln-init-aktiverade avbildningar.
-
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan Cloud-Init och Linux-agenten (WALA)?
 WALA är en Azure Platform-Specific-agent som används för att etablera och konfigurera virtuella datorer och hantera [Azure-tillägg](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
@@ -114,7 +112,8 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-Nästa steg är att skapa en fil i det aktuella gränssnittet med namnet *init. txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
+
+Nästa steg är att skapa en fil i det aktuella gränssnittet, med namnet *cloud-init.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -126,7 +125,7 @@ Tryck på `ctrl-X` för att stänga filen, Skriv `y` för att spara filen och kl
 
 Det sista steget är att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm) . 
 
-Följande exempel skapar en virtuell dator med namnet *centos74* och skapar SSH-nycklar om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *centos74*:
+Följande exempel skapar en virtuell dator med namnet *centos74* och skapar SSH-nycklar om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. 
 
 ```azurecli-interactive 
 az vm create \
@@ -148,6 +147,10 @@ När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla
 Mer information om Cloud-Init-loggning finns i dokumentationen om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Nästa steg
+
+[Felsök problem med Cloud-Init](cloud-init-troubleshooting.md).
+
+
 För Cloud-Init-exempel på konfigurations ändringar, se följande dokument:
  
 - [Lägga till ytterligare en Linux-användare till en virtuell dator](cloudinit-add-user.md)

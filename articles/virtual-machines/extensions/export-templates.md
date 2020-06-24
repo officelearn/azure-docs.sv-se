@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253915"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704003"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resurs grupper som innehåller VM-tillägg
 
@@ -78,7 +78,7 @@ När resurs gruppen har exporter ATS skapas en enskild mallparameter för att ti
 
 Eftersom varje skyddad inställning har en uppsättning obligatoriska egenskaper måste en lista över dessa egenskaper samlas in. Varje parameter i konfigurationen för skyddade inställningar finns i [Azure Resource Manager schema på GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Det här schemat innehåller bara parameter uppsättningar för de tillägg som anges i översikts avsnittet i det här dokumentet. 
 
-I lagrings platsen för schemat söker du efter det önskade tillägget, i det `IaaSDiagnostics`här exemplet. När objektet Extensions `protectedSettings` har hittats noterar du varje parameter. `IaasDiagnostic` I exemplet på tillägget `storageAccountName`är Kräv parametrar, `storageAccountKey`och. `storageAccountEndPoint`
+I lagrings platsen för schemat söker du efter det önskade tillägget, i det här exemplet `IaaSDiagnostics` . När objektet Extensions `protectedSettings` har hittats noterar du varje parameter. I exemplet på `IaasDiagnostic` tillägget är Kräv parametrar `storageAccountName` , `storageAccountKey` och `storageAccountEndPoint` .
 
 ```json
 "protectedSettings": {
@@ -104,7 +104,7 @@ I lagrings platsen för schemat söker du efter det önskade tillägget, i det `
 
 ### <a name="step-3---re-create-the-protected-configuration"></a>Steg 3 – återskapa den skyddade konfigurationen
 
-I den exporterade mallen söker du `protectedSettings` efter och ersätter objektet exporterat skyddat objekt med en ny som innehåller nödvändiga tilläggs parametrar och ett värde för var och en.
+I den exporterade mallen söker `protectedSettings` du efter och ersätter objektet exporterat skyddat objekt med en ny som innehåller nödvändiga tilläggs parametrar och ett värde för var och en.
 
 I exemplet på `IaasDiagnostic` tillägget skulle den nya skyddade inställnings konfigurationen se ut som i följande exempel:
 
@@ -148,7 +148,7 @@ Den sista tilläggs resursen ser ut ungefär som följande JSON-exempel:
 }
 ```
 
-Om du använder mallparametrar för att ange egenskaps värden måste du skapa dem. När du skapar mallparametrar för skyddade inställnings värden ska du se till att `SecureString` använda parameter typen så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
+Om du använder mallparametrar för att ange egenskaps värden måste du skapa dem. När du skapar mallparametrar för skyddade inställnings värden ska du se till att använda `SecureString` parameter typen så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 
 I exemplet för `IaasDiagnostic` tillägget skapas följande parametrar i avsnittet parametrar i Resource Manager-mallen.
 

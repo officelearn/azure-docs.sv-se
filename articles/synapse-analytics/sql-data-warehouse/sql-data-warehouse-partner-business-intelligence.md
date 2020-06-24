@@ -6,24 +6,24 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698884"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299338"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
 Om du vill skapa en komplett informations lager lösning med Synapse SQL-pool i Azure Synapse kan du välja mellan en rad olika branschledande verktyg.  I den här artikeln beskrivs Microsoft partner företag med officiella Business Intelligence (BI) lösningar som stöder Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Våra Business Intelligence-partner
-| Partner | Description | Länk till webbplats/produkt |
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst ansluter hela organisationen genom ett nätverk av vävs virtualiserade BI-instanser ovanpå en delad gemensam analys infrastruktur|[Produkt sida](https://www.birst.com/)<br> |
 | ![ClearStory-data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**ClearStory data (kontinuerliga affärs insikter)**<br>ClearStory-data möjliggör snabb cykel analys över olika data som lagras i Synapse SQL-poolen. ClearStory är en integrerad Spark-baserad plattform och analys av data åtkomst och harmonisering av olika data uppsättningar. De möjliggör snabba, samverkande utforskningar som har stöd för affärs användare för att få snabba insikter. |[Produkt sida](https://www.clearstorydata.com/product/continuous-insights/)<br> |
@@ -44,6 +44,6 @@ Om du vill skapa en komplett informations lager lösning med Synapse SQL-pool i 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Efterföljande moment
-Om du vill lära dig mer om våra andra partners, se [partner för data integrering](sql-data-warehouse-partner-data-integration.md) och [datahantering partner](sql-data-warehouse-partner-data-management.md).
+Om du vill veta mer om våra andra partners kan du läsa [data integrerings partner](sql-data-warehouse-partner-data-integration.md), [Datahantering partner](sql-data-warehouse-partner-data-management.md) och [Machine Learning-och AI-partner](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

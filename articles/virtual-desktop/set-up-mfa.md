@@ -4,16 +4,16 @@ description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 468597c82ae6c99aadeb33fafae78e3b3ed343cd
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213677"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för virtuellt Windows-skrivbord
 
@@ -23,7 +23,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här behöver du för att komma igång:
 
@@ -44,10 +44,10 @@ I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som
 4. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 5. Under **Tilldelningar** väljer du **Användare och grupper**.
    - Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
-   - Välj **Done** (Klar).
+   - Välj **Klar**.
 6. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
    - Välj **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07) och **Välj**sedan, och sedan **Slutför**.
-   
+
      ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
 
      >[!NOTE]

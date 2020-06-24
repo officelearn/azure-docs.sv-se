@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2020
+ms.date: 06/23/2020
 ms.author: shvija
-ms.openlocfilehash: 32b08e565b86af8f6373c9848211646128bb346d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3f5e7ab5ca0d47d18c802dadbcac902ed12e147
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677355"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299406"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrera till Azure Event Hubs för Apache Kafka eko system
 Azure Event Hubs exponerar en Apache Kafka-slutpunkt, som gör att du kan ansluta till Event Hubs med Kafka-protokollet. Genom att göra minimala ändringar i ditt befintliga Kafka-program kan du ansluta till Azure Event Hubs och dra nytta av fördelarna med Azures eko system. Event Hubs för Kafka-support [Apache Kafka version 1,0](https://kafka.apache.org/10/documentation.html) och senare.
@@ -25,7 +25,7 @@ Azure Event Hubs exponerar en Apache Kafka-slutpunkt, som gör att du kan anslut
 ## <a name="pre-migration"></a>Före migrering 
 
 ### <a name="create-an-azure-account"></a>Skapa ett Azure-konto
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 ### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 Följ steg-för-steg-instruktionerna i artikeln [skapa en Event Hub](event-hubs-create.md) om du vill skapa ett Event Hubs-namnområde och en Event Hub. 
@@ -38,15 +38,15 @@ Du kan också behöva det fullständiga domän namnet som pekar på ditt Event H
 
 `Endpoint=sb://`**`mynamespace.servicebus.windows.net`**`/;SharedAccessKeyName=XXXXXX;SharedAccessKey=XXXXXX`
 
-Om ditt Event Hubs namn område har distribuerats i ett icke-offentligt moln kan ditt domän namn skilja sig åt (till \*exempel. ServiceBus.chinacloudapi.CN \*,. ServiceBus.usgovcloudapi.net eller \*. ServiceBus.cloudapi.de).
+Om ditt Event Hubs namn område har distribuerats i ett icke-offentligt moln kan ditt domän namn skilja sig åt (till exempel \* . ServiceBus.chinacloudapi.cn, \* . ServiceBus.usgovcloudapi.net eller \* . ServiceBus.cloudapi.de).
 
 ## <a name="migration"></a>Migrering 
 
 ### <a name="update-your-kafka-client-configuration"></a>Uppdatera klient konfigurationen för Kafka
 
-Om du vill ansluta till en Kafka-aktiverad Händelsehubben måste du uppdatera Kafka-klientens konfigurationer. Om du har problem med att hitta din kan du prova att `bootstrap.servers` söka efter var har angetts i ditt program.
+Om du vill ansluta till en Kafka-aktiverad Händelsehubben måste du uppdatera Kafka-klientens konfigurationer. Om du har problem med att hitta din kan du prova att söka efter var `bootstrap.servers` har angetts i ditt program.
 
-Infoga följande konfigurationer var du än är i ditt program. Se till att uppdatera värdena `bootstrap.servers` och `sasl.jaas.config` för att dirigera klienten till din Event Hubs Kafka-slutpunkt med rätt autentisering. 
+Infoga följande konfigurationer var du än är i ditt program. Se till att uppdatera `bootstrap.servers` värdena och `sasl.jaas.config` för att dirigera klienten till din Event Hubs Kafka-slutpunkt med rätt autentisering. 
 
 ```
 bootstrap.servers={MYNAMESPACE}.servicebus.windows.net:9093

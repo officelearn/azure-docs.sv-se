@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8619366580dd77ae12c4c101c183532fec4da04a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430830"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982177"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Uppdateringar för Azure Media Services v3-dokumentation
 
@@ -24,9 +24,13 @@ ms.locfileid: "84430830"
 
 Den här artikeln pratar om de senaste Media Services v3-dokumentations uppdateringarna.
 
-## <a name="june-2020"></a>2020 juni
+## <a name="june-2020"></a>Juni 2020
 
-För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i dokumentationen [om direktsänd video analys på IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i dokumentationen [om direktsänd video analys på IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Nya snabb starter:
+
+    * [Använda portalen för att ladda upp, koda och strömma innehåll](manage-assets-quickstart.md)
+    * [Använda portalen för att kryptera innehåll](encrypt-content-quickstart.md)
 
 ## <a name="april-2020"></a>April 2020
 

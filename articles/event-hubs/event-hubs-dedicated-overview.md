@@ -3,24 +3,19 @@ title: Översikt över dedikerade Event Hub – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller en översikt över dedikerade Azure-Event Hubs, som erbjuder distributioner av enskilda innehavare av Event Hub.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
+author: spelluru
 ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 145fc759b236019630b8942c677dbdd562331e4c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72516740"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298743"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
@@ -53,7 +48,7 @@ Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst
 | Funktion | Standard | Dedikerad |
 | --- |:---:|:---:|
 | Bandbredd | 20 antal (upp till 40 antal) | 20 CUs |
-| Namnområden |  1 | 50 per CU |
+| Namnrymder |  1 | 50 per CU |
 | Event Hubs |  10 per namnrymd | 1000 per namnrymd |
 | Ingress-händelser | Betala per miljon händelser | Ingår |
 | Meddelande storlek | 1 000 000 byte | 1 000 000 byte |

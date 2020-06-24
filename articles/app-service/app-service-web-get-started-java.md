@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b07ffe92a5dd0c105188fab55bc679c04f660ed2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300968"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249473"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Snabb start: skapa en Java-app på Azure App Service i Windows
 
@@ -38,7 +38,7 @@ ms.locfileid: "84300968"
 Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny app med namnet `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Ändra sedan arbets katalogen till projektmappen:
@@ -49,6 +49,8 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet
 
+Distributions processen till Azure App Service kan automatiskt pickupa dina Azure-autentiseringsuppgifter från Azure CLI. Om du inte har installerat Azure CLI kommer maven-plugin-programmet att logga in dig med OAuth-eller enhets inloggning. Kontrol lera informationen om [autentisering med maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) -program om du behöver.
+
 Du kan köra följande maven-kommando i kommando tolken för att konfigurera distributionen, välja **2** för **Windows** -operativsystemet i det första steget, sedan acceptera standardkonfigurationerna genom att trycka på **RETUR** tills du får frågan **Bekräfta (j/N)** och sedan trycka på **"Y"** och konfigurationen är färdig. 
 
 ```bash
@@ -57,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 En exempel process ser ut så här:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]

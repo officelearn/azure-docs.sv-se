@@ -14,14 +14,14 @@ ms.locfileid: "75467711"
 ### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
 Med den **länkade tjänsten Azure Storage** kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av **konto nyckeln**, som tillhandahåller data fabriken med global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning av JSON-element som är speciella för Azure Storage länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **AzureStorage** |Ja |
-| Begär |Ange information som krävs för att ansluta till Azure Storage för egenskapen connectionString. |Ja |
+| typ |Egenskapen Type måste anges till: **AzureStorage** |Yes |
+| Begär |Ange information som krävs för att ansluta till Azure Storage för egenskapen connectionString. |Yes |
 
 Information om hur du hämtar åtkomst nycklar för lagrings kontot finns i [Hantera åtkomst nycklar för lagrings kontot](../articles/storage/common/storage-account-keys-manage.md).
 
-**Exempel**  
+**Exempel:**  
 
 ```json
 {
@@ -47,12 +47,12 @@ En signatur för delad åtkomst (Shared Access Signature, SAS) ger delegerad åt
 
 Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Den tillhandahåller data fabriken med begränsad/tidsbegränsad åtkomst till alla/angivna resurser (BLOB/container) i lagrings utrymmet. Följande tabell innehåller en beskrivning av JSON-element som är speciella för Azure Storage SAS-länkad tjänst. 
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **AzureStorageSas** |Ja |
-| sasUri |Ange signatur-URI för delad åtkomst till Azure Storage resurser som BLOB, container eller Table.  |Ja |
+| typ |Egenskapen Type måste anges till: **AzureStorageSas** |Yes |
+| sasUri |Ange signatur-URI för delad åtkomst till Azure Storage resurser som BLOB, container eller Table.  |Yes |
 
-**Exempel**
+**Exempel:**
 
 ```json
 {

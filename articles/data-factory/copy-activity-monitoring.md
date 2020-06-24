@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3ed1a952cb640fcd64808ba49e1a0937d71d769f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655633"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249728"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
 
@@ -50,7 +50,7 @@ Den nedre **körnings informationen och varaktigheten** beskriver de viktigaste 
 
 Information om körningen av kopierings aktiviteten och prestanda egenskaperna returneras också i avsnittet **Kopiera aktivitets körnings resultat**  >  **Output** , som används för att återge vyn UI-övervakning. Nedan visas en fullständig lista över egenskaper som kan returneras. Du ser bara de egenskaper som gäller för ditt kopierings scenario. Information om hur du övervakar aktivitets körningar programmatiskt i allmänhet finns i [program mässigt övervaka en Azure-datafabrik](monitor-programmatically.md).
 
-| Egenskapsnamn  | Description | Enhet i utdata |
+| Egenskapsnamn  | Beskrivning | Enhet i utdata |
 |:--- |:--- |:--- |
 | dataRead | Den faktiska mängden data som läses från källan. | Int64-värde, i byte |
 | dataWritten | Den faktiska monteringen av skrivna data som skrivs/allokeras till mottagaren. Storleken kan skilja sig från `dataRead` storlek, eftersom den relaterar hur varje data lager lagrar data. | Int64-värde, i byte |
@@ -58,8 +58,8 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | filesWritten | Antalet filer som skrivits/allokerats till filbaserad mottagare. | Int64-värde (ingen enhet) |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int64-värde (ingen enhet) |
 | sinkPeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten. | Int64-värde (ingen enhet) |
-| rowsRead | Antal rader som lästs från källan (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
-| rowsCopied | Antal rader som kopierats till Sink (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
+| rowsRead | Antalet rader som har lästs från källan. Måttet gäller inte när du kopierar filer som-är utan att parsa dem, till exempel när data uppsättningarna källa och mottagare är binärformat, eller annan format typ med identiska inställningar. | Int64-värde (ingen enhet) |
+| rowsCopied | Antal rader som kopierats till Sink. Måttet gäller inte när du kopierar filer som-är utan att parsa dem, till exempel när data uppsättningarna källa och mottagare är binärformat, eller annan format typ med identiska inställningar.  | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom att ange `enableSkipIncompatibleRow` true. | Int64-värde (ingen enhet) |
 | copyDuration | Kopierings körningens längd. | Int32-värde, i sekunder |
 | dataflöde | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |

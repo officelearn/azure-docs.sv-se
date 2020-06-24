@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -39,18 +39,18 @@ De nya VPN gateway-SKU: erna effektiviserar de funktions uppsättningar som erbj
 
 (*) Du kan konfigurera "PolicyBasedTrafficSelectors" för att ansluta en Route-baserad VPN-gateway till flera lokala, principbaserade brand Väggs enheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
 
-(\*\*) Basic SKU anses vara en äldre SKU. Basic SKU:n har vissa funktionsbegränsningar. Du kan inte ändra storlek på en gateway som använder en Basic SKU till en av de nya gateway-SKU:erna. Du måste istället ändra till en ny SKU, vilket innebär att ta bort och återskapa din VPN-gateway.
+( \* \* ) Basic SKU anses vara en äldre SKU. Basic SKU:n har vissa funktionsbegränsningar. Du kan inte ändra storlek på en gateway som använder en Basic SKU till en av de nya gateway-SKU:erna. Du måste istället ändra till en ny SKU, vilket innebär att ta bort och återskapa din VPN-gateway.
 
 ###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Gateway SKU – produktion eller arbets belastningar för utveckling och testning
 
 På grund av skillnader i serviceavtal och funktioner, rekommenderar vi följande SKU: er för produktion jämfört med utv-test:
 
-| **Arbetsbelastning**                       | **SKU: er**               |
+| **Arbetsbelastning**                       | **SKU:er**               |
 | ---                                | ---                    |
 | **Produktion, kritiska arbetsbelastningar** | Alla Generation1-och Generation2-SKU: er förutom Basic |
 | **Utv-test eller konceptbevis**   | Basic (* *)                 |
 |                                    |                        |
 
-(\*\*) Basic SKU anses vara en äldre SKU och har funktions begränsningar. Kontrollera att funktionen du behöver stöds innan du använder Basic SKU:n.
+( \* \* ) Basic SKU anses vara en äldre SKU och har funktions begränsningar. Kontrollera att funktionen du behöver stöds innan du använder Basic SKU:n.
 
 Om du använder gamla SKU: er (äldre), är Production SKU-rekommendationerna standard och HighPerformance. Information och anvisningar för gamla SKU: er finns i [Gateway SKU: er (bakåtkompatibelt)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 17c0e02aa091d1271967b5a238f71123cc7aeede
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322677"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249286"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -133,7 +133,7 @@ Du kan skapa brand Väggs regler på server nivå eller på databas nivå. Regle
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 
-Som standard är din SQL-databas konfigurerad för att "ge Azure-tjänster åtkomst till servern", vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till din databas. Dessa försök behöver fortfarande autentiseras. Men om du inte vill att databasen ska vara tillgänglig för alla Azure-IP-adresser kan du inaktivera alternativet "Tillåt Azure-tjänster för åtkomst till servern". Dessutom kan du konfigurera [VNet-tjänstens slut punkter](vnet-service-endpoint-rule-overview.md).
+Som standard är din databas konfigurerad för att "ge Azure-tjänster åtkomst till servern", vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till din databas. Dessa försök behöver fortfarande autentiseras. Men om du inte vill att databasen ska vara tillgänglig för alla Azure-IP-adresser kan du inaktivera alternativet "Tillåt Azure-tjänster för åtkomst till servern". Dessutom kan du konfigurera [VNet-tjänstens slut punkter](vnet-service-endpoint-rule-overview.md).
 
 Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt privata virtuella nätverk i Azure. Genom att göra det, eliminerar du i princip den offentliga åtkomsten till dina resurser. Trafiken mellan ditt virtuella nätverk i Azure ligger kvar på Azures stamnät nätverk. Utan SE ska du Hämta paket routning för Tvingad tunnel trafik. Ditt virtuella nätverk tvingar Internet trafiken till din organisation och Azure-tjänstetrafiken att gå över samma väg. Med tjänst slut punkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket.
 
@@ -170,7 +170,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 |**Kännetecken **|**Alltid krypterad**|**Transparent datakryptering**|
 |---|---|---|
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Servern kan komma åt känsliga data**|Inga|Ja, eftersom krypteringen är för vilande data|
+|**Servern kan komma åt känsliga data**|No|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
 |**App-ändringar krävs för att använda funktionen**|Minimal|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|databasnivå|
@@ -259,7 +259,7 @@ Du kan också visa den här analysen i avsnittet "Advisor":
 
 I SQL Database kan du utnyttja intelligenta insikter på plattformen för att övervaka prestanda och justera dem på motsvarande sätt. Du kan övervaka prestanda-och resursutnyttjande i SQL Database med följande metoder:
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal visar en Databass användning genom att välja databasen och klicka på diagrammet i fönstret Översikt. Du kan ändra diagrammet för att visa flera mått, inklusive processor procent, DTU-procent, data-IO-procent, sessioner procent och databas storlek i procent.
 
@@ -285,7 +285,7 @@ Med [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md) kan du sam
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag är märker prestanda problem: Hur skiljer sig SQL Database fel söknings metoden från SQL Server
 
-En större del av de fel söknings tekniker som du skulle använda för att diagnostisera problem med frågor och databas prestanda är desamma. När alla samma SQL Database-motor har samma behörighet som molnet. Men plattforms Azure SQL Database har skapat i "Intelligence". Det kan hjälpa dig att felsöka och diagnostisera prestanda problem ännu enklare. Den kan också utföra några av dessa korrigerande åtgärder för din räkning och i vissa fall åtgärda dem proaktivt automatiskt.
+En större del av de fel söknings tekniker som du skulle använda för att diagnostisera problem med frågor och databas prestanda är desamma. När alla samma databas motor har samma befogenheter som molnet. Men plattforms Azure SQL Database har skapat i "Intelligence". Det kan hjälpa dig att felsöka och diagnostisera prestanda problem ännu enklare. Den kan också utföra några av dessa korrigerande åtgärder för din räkning och i vissa fall åtgärda dem proaktivt automatiskt.
 
 Din metod för fel sökning av prestanda problem kan avsevärt utnyttjas med hjälp av intelligenta funktioner som [query Performance Insight (QPI)](query-performance-insight-use.md) och [Database Advisor](database-advisor-implement-performance-recommendations.md) i samband med varandra, och därför skiljer sig skillnaden i metodiken – du behöver inte längre utföra det manuella arbetet med att ta bort den grundläggande information som kan hjälpa dig att felsöka problemet. Plattformen fungerar hårt för dig. Ett exempel på detta är QPI. Med QPI kan du öka detalj nivån till frågans nivå och titta på de historiska trenderna och räkna ut när exakt frågan försämrat. I Database Advisor får du rekommendationer om saker som kan hjälpa dig att förbättra den övergripande prestandan i generella, t. ex. index som saknas, släppa index, parametrar för dina frågor osv.
 

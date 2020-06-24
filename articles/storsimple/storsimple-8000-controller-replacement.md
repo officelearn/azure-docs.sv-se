@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267929"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704343"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en Controller-modul på din StorSimple-enhet
 ## <a name="overview"></a>Översikt
@@ -31,7 +31,7 @@ I den här självstudien beskrivs hur du tar bort och ersätter en eller båda C
 > För att förhindra skada på din StorSimple-enhet ska du inte mata ut kontroll enheten förrän lysdioderna visas som något av följande:
 > 
 > * Alla lampor är av.
-> * INDIKATORn 3 ![, grön bock](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png)och ![röd kors ikon](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) blinkar och lampan 0 och lampa 7 är **på**.
+> * INDIKATORn 3, ![ grön bock ](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png) och ![ röd kors ikon ](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) blinkar och lampan 0 och lampa 7 är **på**.
 
 
 I följande tabell visas de scenarier som stöds vid utbyte av styrenheter.
@@ -90,7 +90,7 @@ Utför följande steg om en av styrenheterna i Microsoft Azure StorSimple enhete
    
     **Bild 1** Tillbaka till StorSimple-enheten
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -105,7 +105,7 @@ Utför följande steg om en av styrenheterna i Microsoft Azure StorSimple enhete
 > [!NOTE]
 > Om du övervakar enheten via serie konsolen kan du se flera omstarter medan styrenheten återställs från ersättnings proceduren. När menyn för serie konsolen visas, vet du att ersättningen är klar. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om menyn inte visas inom två timmar efter att du börjat byta kontrollant.
 >
-> Om du startar uppdatering 4 kan du också använda- `Get-HCSControllerReplacementStatus` cmdleten i Windows PowerShell-gränssnittet på enheten för att övervaka status för styrenhetens ersättnings process.
+> Om du startar uppdatering 4 kan du också använda-cmdleten `Get-HCSControllerReplacementStatus` i Windows PowerShell-gränssnittet på enheten för att övervaka status för styrenhetens ersättnings process.
 > 
 
 ## <a name="replace-both-controllers"></a>Ersätt båda styrenheterna
@@ -195,7 +195,7 @@ Använd följande procedur för att installera en modul som är en fabriks kontr
    > [!NOTE]
    > Det kan ta upp till 5 minuter för styrenheten och LYSDIODen att aktivera.
   
-5. Verifiera att ersättningen lyckades genom att gå till din enhet i Azure Portal och sedan gå till **övervaka** > **maskin varu hälsa**och kontrol lera att både styrenhet 0 och styrenhet 1 är felfria (status är grön).
+5. Verifiera att ersättningen lyckades genom att gå till din enhet i Azure Portal och sedan gå till **övervaka**  >  **maskin varu hälsa**och kontrol lera att både styrenhet 0 och styrenhet 1 är felfria (status är grön).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identifiera den aktiva kontrollanten på enheten
 Det finns många situationer, till exempel första enhets registrering eller styrenhets ersättning, som kräver att du hittar den aktiva styrenheten på en StorSimple-enhet. Den aktiva styrenheten bearbetar all inbyggd disk-och nätverks åtgärder. Du kan använda någon av följande metoder för att identifiera den aktiva styrenheten:
@@ -207,7 +207,7 @@ Det finns många situationer, till exempel första enhets registrering eller sty
 Var och en av dessa procedurer beskrivs härnäst.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Använd Azure Portal för att identifiera den aktiva kontrollanten
-I Azure Portal navigerar du till enheten och **övervakar** > **maskin varu hälsan**och bläddrar till avsnittet **kontrollanter** . Här kan du kontrol lera vilken kontrollant som är aktiv.
+I Azure Portal navigerar du till enheten och **övervakar**  >  **maskin varu hälsan**och bläddrar till avsnittet **kontrollanter** . Här kan du kontrol lera vilken kontrollant som är aktiv.
 
 ![Identifiera aktiv kontrollant i Azure Portal](./media/storsimple-controller-replacement/IC752072.png)
 
@@ -231,7 +231,7 @@ Om den här INDIKATORn blinkar är kontrollanten aktiv och den andra kontrollant
 
 **Figur 8** Tillbaka till primärt hölje med data portar och övervaknings indikatorer
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Beskrivning |
 |:--- |:--- |
 | 1-6 |DATA 0 – 5 nätverks portar |
 | 7 |Blå indikator |

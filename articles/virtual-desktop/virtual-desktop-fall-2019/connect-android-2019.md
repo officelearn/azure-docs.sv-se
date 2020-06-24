@@ -4,16 +4,16 @@ description: Ansluta till virtuella Windows-datorer med Android-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 636a31cdb657ca95ea9ea0da6bb85caa61425e5a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 802e957c9473276dfa73a3ffd93fdd7c526dbf26
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614998"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213252"
 ---
 # <a name="connect-with-the-android-client"></a>Ansluta med Android-klienten
 
@@ -39,9 +39,9 @@ Så här prenumererar du på en feed:
 
 1. I anslutnings Center trycker du på **+** och trycker sedan på **fjär resurs matning**.
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
-   - Om du använder en URL kan du använda den som din administratör har gett dig <https://rdweb.wvd.microsoft.com>, vanligt vis.
+   - Om du använder en URL kan du använda den som din administratör har gett dig, vanligt vis <https://rdweb.wvd.microsoft.com> .
    - Ange din e-postadress om du vill använda e-post. Klienten söker efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat servern på det sättet.
-3. Tryck på **Nästa**.
+3. Tryck på **NÄSTA**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.
    - Ge användar namnet behörighet att komma åt resurser för **användar namn**.
    - Ange lösen ordet som är associerat med användar namnet för **lösen ord**.

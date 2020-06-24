@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 558f7ef250c99d85cb957162b6d098e586bc0fc4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/17/2020
+ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433255"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981956"
 ---
 # <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
@@ -31,23 +31,23 @@ Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| textSplitMode      | Antingen "Pages" eller "meningar" | 
-| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden som mäts av `String.Length` . Minimivärdet är 300.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
-| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt` . Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
+| `textSplitMode`    | Antingen "Pages" eller "meningar" | 
+| `maximumPageLength` | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden som mäts av `String.Length` . Minimivärdet är 300.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
+| `defaultLanguageCode` | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt` . Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Parameternamn       | Beskrivning      |
 |----------------------|------------------|
-| text  | Den text som ska delas upp i under sträng. |
-| languageCode  | Valfritt Språk kod för dokumentet. Om du inte känner till språket (d.v.s. om du behöver dela upp texten för inläsningar i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)) är det säkert att ta bort den här indatamängden.  |
+| `text`    | Den text som ska delas upp i under sträng. |
+| `languageCode`    | Valfritt Språk kod för dokumentet. Om du inte känner till språket (d.v.s. om du behöver dela upp texten för inläsningar i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)) är det säkert att ta bort den här indatamängden.  |
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar 
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| textItems | En matris med del strängar som har extraherats. |
+| `textItems`   | En matris med del strängar som har extraherats. |
 
 
 ##  <a name="sample-definition"></a>Exempel definition

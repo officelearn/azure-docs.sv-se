@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5c0878a5999f1d7d716d8caaf9f3fffa5e401dc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476434"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982378"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroende relationer för resurs skogar i Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Ett skogs förtroende kan bara skapas mellan en skogs rots domän i en skog och 
 
 I följande diagram visas två separata skogs förtroende relationer mellan tre AD DS-skogar i en enda organisation.
 
-![Diagram över skogs förtroende relationer inom en enskild organisation](./media/concepts-forest-trust/forest-trusts.png)
+![Diagram över skogs förtroende relationer inom en enskild organisation](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 Den här exempel konfigurationen ger följande åtkomst:
 
@@ -162,7 +162,7 @@ När en arbets station i en skog försöker komma åt data på en resurs dator i
 
 Följande diagram och steg innehåller en detaljerad beskrivning av den Kerberos-autentiseringsprocess som används när datorer som kör Windows försöker få åtkomst till resurser från en dator som finns i en annan skog.
 
-![Diagram över Kerberos-processen över ett skogs förtroende](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagram över Kerberos-processen över ett skogs förtroende](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
 1. *Användare1* loggar in på *Arbetsstation1* med autentiseringsuppgifter från *Europe.tailspintoys.com* -domänen. Användaren försöker sedan få åtkomst till en delad resurs på *FileServer1* som finns i *USA.wingtiptoys.com* -skogen.
 
@@ -276,7 +276,7 @@ Administratörer kan använda *Active Directory domäner och förtroenden*, *net
 
 Mer information om resurs skogar finns i [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
-För att komma igång med att skapa en Azure AD DS-hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän (för hands version)][create-forest-trust].
+För att komma igång med att skapa en hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän (för hands version)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

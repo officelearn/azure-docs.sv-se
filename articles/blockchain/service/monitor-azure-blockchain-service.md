@@ -2,14 +2,14 @@
 title: Övervaka Azure blockchain service (ABS)
 description: Övervaka Azure blockchain-tjänsten via Azure Monitor
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293257"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214051"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Övervaka Azure blockchain-tjänsten via Azure Monitor  
 
@@ -89,7 +89,7 @@ I följande tabell visas egenskaperna för Azure blockchain proxy-loggar när de
 | NodeLocation  | Azure-region där blockchain-medlemmen har distribuerats.  |
 | BlockchainNodeName  | Namnet på noden för den Azure blockchain service-medlem som åtgärden utförs på.   |
 | EthMethod  | Metoden, som anropas av det underliggande blockchain-protokollet, i kvorum, kan vara eth_sendTransactions, eth_getBlockByNumber osv.  |
-| Agent  | Användar agenten som agerar för en användares räkning, t. ex. webb läsar-Mozilla, Edge osv. Exempel på värden är: "Mozilla/5.0 (Linux x64) Node. js/8.16.0 V8/6.2.414.77"  |
+| Agent  | Användar agenten som agerar för en användares räkning, t. ex. webb läsar-Mozilla, Edge osv. Exempel på värden är: "Mozilla/5.0 (Linux x64) node.js/8.16.0 V8/6.2.414.77"  |
 | Kod   | HTTP-felkoder. Vanligt vis är 4XX och 5XX fel villkor.  |
 | NodeHost  | Nodens DNS-namn.   |
 | RequestMethodName | HTTP-metoden heter, de möjliga värdena här används för att skapa medlemmar, hämta information om befintlig medlem, ta bort för borttagnings medlem, uppdaterings uppdatering av medlemmar.   |
@@ -115,7 +115,7 @@ I följande tabell visas egenskaperna för program loggarna för Azure blockchai
 | NodeLocation  | Azure-region där blockchain-medlemmen har distribuerats.  |
 | BlockchainNodeName  | Namnet på noden för den Azure blockchain service-medlem som åtgärden utförs på.   |
 | BlockchainMessage    | Det här fältet innehåller den blockchain program logg som är de databaserade loggarna. För ABS-kvorum skulle detta ha kvorumloggen. Den innehåller information om vilken typ av loggpost som är information, fel, varning och en sträng som ger mer information om åtgärden som utförs.   |
-| TenantID    | Den landsspecifika innehavaren av Azure blockchain-tjänsten. Formatet för det här fältet är https://westlake-rp-prod. <region>. cloudapp.Azure.com där region anger Azure-regionen för den distribuerade medlemmen.       |
+| TenantID    | Den landsspecifika innehavaren av Azure blockchain-tjänsten. Formatet för det här fältet är https://westlake-rp-prod . <region> . cloudapp.azure.com där region anger Azure-regionen för den distribuerade medlemmen.       |
 | SourceSystem   | Systemet fyller i loggarna, i det här fallet är det **Azure**.    |
 
 
@@ -167,6 +167,6 @@ I följande tabell visas de prestanda mått som samlas in för varje nod i Azure
 |Lagrings användning      | GB   | Medel  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om [Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) för att avbilda och transformera blockchain-Data till Azure Event Grid.

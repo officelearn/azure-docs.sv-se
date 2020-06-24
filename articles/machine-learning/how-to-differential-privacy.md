@@ -10,12 +10,12 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 65f395197256132b6b92b234932fd17ec5ba552c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433203"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981854"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Använd differentiell sekretess i Azure Machine Learning
 
@@ -24,6 +24,9 @@ ms.locfileid: "84433203"
 Lär dig hur du använder metod tips för differentiell integritet för att Azure Machine Learning modeller med WhiteNoise python-paket.
 
 Differentiell integritet är den guld standard definitionen av sekretess. System som följer denna definition av sekretess ger starka garantier mot en rad olika data återuppbyggnads-och återidentifierings attacker, inklusive attacker från angripare som har hjälp information. Läs mer om hur [differentiell integritet fungerar](./concept-differential-privacy.md).
+
+> [!NOTE]
+> Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
 ## <a name="prerequisites"></a>Krav
 

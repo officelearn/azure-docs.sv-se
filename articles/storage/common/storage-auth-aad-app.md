@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201075"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212639"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -58,7 +58,7 @@ Ge sedan dina program behörigheter för att anropa Azure Storage API: er. Det h
 
     ![Skärm bild som visar behörigheter för lagring](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-Fönstret **API-behörigheter** visar nu att ditt registrerade Azure AD-program har åtkomst till både Microsoft Graph och Azure Storage. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
+I fönstret **API-behörigheter** visas nu att ditt registrerade Azure AD-program har åtkomst till både Microsoft Graph-och Azure Storage-API: er. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
 
 ![Skärm bild som visar registrera app-behörigheter](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +213,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -245,7 +245,7 @@ För att köra exempel programmet ska du först klona eller ladda ned det från 
 
 ### <a name="provide-values-in-the-settings-file"></a>Ange värden i inställnings filen
 
-Uppdatera sedan filen *appSettings. JSON* med dina egna värden enligt följande:
+Uppdatera sedan *appsettings.jspå* filen med dina egna värden enligt följande:
 
 ```json
 {
@@ -284,8 +284,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Följ de här stegen:
 
 1. Navigera till din app-registrering i Azure Portal.
-1. I avsnittet hantera väljer du **autentiserings** inställningen.
-1. Under **Avancerade inställningar**, i avsnittet **implicit beviljande** , markerar du kryss rutorna för att aktivera åtkomsttoken och ID-token, som du ser i följande bild:
+1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.
+1. I avsnittet **implicit bidrag** markerar du kryss rutan för att aktivera ID-tokens, som du ser i följande bild:
 
     ![Skärm bild som visar hur du aktiverar inställningar för implicit beviljande av flöde](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +294,13 @@ Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings 
 När du kör exemplet kanske du upptäcker att du behöver uppdatera omdirigerings-URI: n som anges i din app-registrering för att använda den *localhost* -port som tilldelats vid körning. Följ dessa steg om du vill uppdatera omdirigerings-URI: n för att använda den tilldelade porten:
 
 1. Navigera till din app-registrering i Azure Portal.
-1. I avsnittet hantera väljer du **autentiserings** inställningen.
+1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.
 1. Under **omdirigerings-URI: er**redigerar du porten så att den matchar den som används av exempel programmet, som du ser i följande bild:
 
     ![Skärm bild som visar omdirigerings-URI för registrering av appar](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Microsoft Identity Platform finns i [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
-- Mer information om RBAC-roller för Azure Storage finns i [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md).
-- Information om hur du använder hanterade identiteter för Azure-resurser med Azure Storage finns i [autentisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
+- [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md)
+- [Autentisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)

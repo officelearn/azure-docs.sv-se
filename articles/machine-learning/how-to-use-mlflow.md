@@ -11,24 +11,27 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5d6e4bfb3c99d2fb570fea7aaebc7150088f1036
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559367"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738846"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra modell mått och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-API: t, gemensamt känt som [MLflow spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), för att ansluta dina MLflow experiment och Azure Machine Learning. På så sätt kan du
+Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-API: t, gemensamt känt som [MLflow spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), för att ansluta dina MLflow experiment och Azure Machine Learning.  På så sätt kan du
 
 + Spåra och logga experiment mått och artefakter i din [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
 
 + Distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst. Genom att distribuera som en webb tjänst kan du använda funktionerna för att identifiera Azure Machine Learning övervakning och data avkänning i dina produktions modeller. 
 
 [MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för hantering av livs cykeln för maskin inlärnings experiment. MLFlow-spårning är en komponent i MLflow som loggar och spårar din utbildning kör mått och modell artefakter, oavsett experimentets miljö – lokalt på datorn, på ett fjärrberäknings mål, en virtuell dator eller ett Azure Databricks-kluster. 
+
+>[!NOTE]
+> Som ett bibliotek med öppen källkod ändras MLflow ofta. De funktioner som gjorts tillgängliga via Azure Machine Learning-och MLflow-integreringen bör därför betraktas som en för hands version och stöds inte fullt ut av Microsoft.
 
 Följande diagram illustrerar att med MLflow spårning spårar du ett Experiments körnings mått och lagrings modell artefakter i din Azure Machine Learning-arbetsyta.
 
@@ -44,7 +47,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
  MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow &nbsp; spårning <!--& Deployment--> | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
+| | MLflow &nbsp; spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
 |---|---|---|---|---|
 | Hantera arbets yta |   | ✓ | ✓ | ✓ |
 | Använda data lager  |   | ✓ | ✓ | |
@@ -52,12 +55,11 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 | Ladda upp artefakter | ✓ | ✓ |   | |
 | Visa mått     | ✓ | ✓ | ✓ | ✓ |
 | Hantera beräkning   |   | ✓ | ✓ | ✓ |
+| Distribuera modeller    | ✓ | ✓ | ✓ | ✓ |
+|Övervaka modell prestanda||✓|  |   |
+| Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
-<!--| Deploy models    | ✓ | ✓ | ✓ | ✓ |
-|Monitor model performance||✓|  |   |
-| Detect data drift |   | ✓ |   | ✓ |
--->
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.
@@ -72,9 +74,6 @@ Installera `azureml-mlflow` paketet om du vill använda MLflow spårning med Azu
 ```shell
 pip install azureml-mlflow
 ```
-
->[!NOTE]
->Namn rymden azureml. contrib ändras ofta, medan vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
 
 Importera `mlflow` och- [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
 

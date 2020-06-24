@@ -7,22 +7,22 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1461f7f9811145553da6c200111d4db1f013060e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673658"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738693"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka Virtual Network gateway och anslutningar med Azure Network Watcher PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portalen](diagnose-communication-problem-between-networks.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST-API](network-watcher-troubleshoot-manage-rest.md)
@@ -44,7 +44,7 @@ Resurs fel sökning ger möjlighet att felsöka problem som uppstår med Virtual
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Network Watcher-instansen. `$networkWatcher` Variabeln skickas till cmdlet: `Start-AzNetworkWatcherResourceTroubleshooting` en i steg 4.
+Det första steget är att hämta Network Watcher-instansen. `$networkWatcher`Variabeln skickas till cmdlet: en `Start-AzNetworkWatcherResourceTroubleshooting` i steg 4.
 
 ```powershell
 $networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
@@ -73,7 +73,7 @@ $sc = New-AzStorageContainer -Name logs
 Du felsöker resurser med `Start-AzNetworkWatcherResourceTroubleshooting` cmdleten. Vi skickar cmdleten Network Watcher-objektet, ID: t för anslutningen eller Virtual Network Gateway, lagrings kontots ID och sökvägen för att lagra resultaten.
 
 > [!NOTE]
-> Cmdleten körs länge och det kan ta några minuter att slutföra den `Start-AzNetworkWatcherResourceTroubleshooting` .
+> `Start-AzNetworkWatcherResourceTroubleshooting`Cmdleten körs länge och det kan ta några minuter att slutföra den.
 
 ```powershell
 Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"

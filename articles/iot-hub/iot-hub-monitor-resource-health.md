@@ -1,20 +1,19 @@
 ---
 title: Övervaka hälso tillståndet för Azure-IoT Hub | Microsoft Docs
 description: Använd Azure Monitor och Azure Resource Health för att övervaka dina IoT Hub och diagnostisera problem snabbt
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732435"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792054"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -32,8 +31,6 @@ IoT Hub tillhandahåller också egna mått som du kan använda för att förstå
 ## <a name="use-azure-monitor"></a>Använda Azure Monitor
 
 Azure Monitor innehåller diagnostikinformation för Azure-resurser, vilket innebär att du kan övervaka åtgärder som sker i din IoT-hubb.
-
-Azure Monitorens diagnostikinställningar ersätter IoT Hubs åtgärds övervakaren. Om du för närvarande använder åtgärds övervakning bör du migrera dina arbets flöden. Mer information finns i [Migrera från Operations Monitoring to Diagnostic Settings](iot-hub-migrate-to-diagnostics-settings.md).
 
 Om du vill veta mer om vilka mått och händelser som Azure Monitor bevaka, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md) och [tjänster som stöds, scheman och kategorier för Azure Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -121,11 +118,11 @@ Kategorin enhets identitets åtgärder spårar fel som inträffar när du förs�
 
 #### <a name="routes"></a>Vägar
 
-Kategorin meddelande cirkulation spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
+Kategorin [meddelande cirkulation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
 
 * En regel utvärderas till "odefinierad",
 * IoT Hub markerar en slut punkt som död eller
-* Eventuella fel som tagits emot från en slut punkt. 
+* Eventuella fel som tagits emot från en slut punkt.
 
 Den här kategorin innehåller inte vissa fel meddelanden om själva meddelandena (t. ex. fel i enhets begränsning), som rapporteras i kategorin "enhets telemetri".
 
@@ -134,17 +131,24 @@ Den här kategorin innehåller inte vissa fel meddelanden om själva meddelanden
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+Här är mer information om routning av diagnostikloggar:
+
+* [Lista med felkoder för routning av diagnostisk logg](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [Lista över routning av diagnostikloggar operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>Telemetri för enhet
 
@@ -315,7 +319,7 @@ Kategorin direkta metoder spårar interaktioner för begäran och svar som skick
 
 Den distribuerade spårnings kategorin spårar korrelations-ID: n för meddelanden som har spårnings kontext rubriken. Om du vill aktivera dessa loggar fullständigt måste kod på klient sidan uppdateras genom att följa [analys och diagnostisera IoT-program från slut punkt till slut punkt med IoT Hub Distributed tracing (för hands version)](iot-hub-distributed-tracing.md).
 
-Observera att `correlationId` överensstämmer med [spårnings kontext](https://github.com/w3c/trace-context) förslaget för W3C, där det innehåller `trace-id` både och `span-id`.
+Observera att `correlationId` överensstämmer med [spårnings kontext](https://github.com/w3c/trace-context) förslaget för W3C, där det innehåller `trace-id` både och `span-id` .
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C-loggar (från enhet till moln)
 
@@ -342,7 +346,7 @@ IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårning
 }
 ```
 
-`durationMs` Här beräknas inte som IoT Hub klockan kanske inte är synkroniserad med enhets klockan och därför kan en varaktighets beräkning vara missvisande. Vi rekommenderar att du skriver logik med hjälp av tidsstämplar `properties` i avsnittet för att samla in toppar i svars tid från enhet till moln.
+Här `durationMs` beräknas inte som IoT Hub klockan kanske inte är synkroniserad med enhets klockan och därför kan en varaktighets beräkning vara missvisande. Vi rekommenderar att du skriver logik med hjälp av tidsstämplar i `properties` avsnittet för att samla in toppar i svars tid från enhet till moln.
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -543,7 +547,7 @@ Följ dessa steg om du vill kontrol lera hälso tillståndet för dina IoT-hubba
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Navigera till **service Health** > **resurs hälsa**.
+2. Navigera till **service Health**  >  **resurs hälsa**.
 
 3. Välj din prenumeration i list rutan och välj **IoT Hub** som resurs typ.
 

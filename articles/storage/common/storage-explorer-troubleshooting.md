@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437105"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974525"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -48,7 +48,7 @@ Du måste tilldelas minst en roll som beviljar åtkomst för att läsa data frå
 
 Azure Storage har två åtkomst nivåer: _hantering_ och _data_. Prenumerationer och lagrings konton nås via hanterings skiktet. Behållare, blobbar och andra data resurser nås via data lagret. Om du till exempel vill hämta en lista över dina lagrings konton från Azure skickar du en begäran till hanterings slut punkten. Om du vill ha en lista över BLOB-behållare i ett konto skickar du en begäran till lämplig tjänst slut punkt.
 
-RBAC-roller kan innehålla behörigheter för hantering eller åtkomst till data lager. Rollen läsare, till exempel beviljar skrivskyddad åtkomst till hanterings skikts resurser.
+RBAC-roller kan ge dig behörigheter för hantering eller åtkomst till data lager. Rollen läsare, till exempel beviljar skrivskyddad åtkomst till hanterings skikts resurser.
 
 Utan att tala med rollen läsare får du inga data lager behörigheter och behöver inte komma åt data skiktet.
 
@@ -58,7 +58,14 @@ Om du inte har en roll som beviljar behörigheter för hanterings lager kan Stor
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag inte kan hämta de behörigheter för hanterings skikt jag behöver från min administratör?
 
-Vi har för närvarande ingen RBAC-relaterad lösning för det här problemet. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Om du vill komma åt BLOB-behållare eller köer kan du koppla dem till dessa resurser med dina Azure-autentiseringsuppgifter.
+
+1. Öppna dialog rutan Anslut.
+2. Välj Lägg till en resurs via Azure Active Directory (Azure AD). Klicka på Nästa.
+3. Välj det användar konto och den klient organisation som är associerad med resursen som du ansluter till. Klicka på Nästa.
+4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på anslut.
+
+För andra resurs typer har vi för närvarande ingen RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Rekommenderade inbyggda RBAC-roller
 
@@ -75,13 +82,13 @@ Det finns flera inbyggda RBAC-roller som kan ge de behörigheter som krävs för
 
 Certifikat fel inträffar vanligt vis i någon av följande situationer:
 
-- Appen är ansluten via en _transparent proxy_, vilket innebär att en server (till exempel din företags server) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
+- Appen är ansluten via en _transparent proxy_. Det innebär att en server (till exempel din företags server) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
 - Du kör ett program som matar in ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden som du får. Exempel på program som injicerar certifikat är antivirus-och kontroll program för nätverks trafik.
 
 När Storage Explorer ser ett självsignerat eller ej betrott certifikat, vet det inte längre om det mottagna HTTPS-meddelandet har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Storage Explorer att lita på det genom att följa dessa steg:
 
 1. Hämta en kopia av certifikatet med bas-64-kodad X. 509 (. cer).
-2. Gå till **Redigera** > **SSL-certifikat** > **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
+2. Gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
 
 Det här problemet kan även uppstå om det finns flera certifikat (rot och mellanliggande). För att åtgärda det här felet måste båda certifikaten läggas till.
 
@@ -91,12 +98,12 @@ Om du är osäker på var certifikatet kommer från följer du de här stegen f�
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): vilken som helst av de ljusa versionerna bör vara tillräckliga.
     * Mac och Linux: bör ingå i operativ systemet.
 2. Kör OpenSSL.
-    * Windows: öppna installations katalogen, Välj **/bin/** och dubbelklicka sedan på **openssl. exe**.
+    * Windows: öppna installations katalogen, Välj **/bin/** och dubbelklicka på **openssl.exe**.
     * Mac och Linux: kör `openssl` från en Terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`.
-4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade måste du anteckna var `("s:")` och en av dem och utfärdaren. `("i:")`
-5. När du hittar självsignerade certifikat för var och en, kopierar och klistrar du in allt från ( `-----BEGIN CERTIFICATE-----` och `-----END CERTIFICATE-----` inkluderar) till en ny. cer-fil.
-6. Öppna Storage Explorer och gå till **Redigera** > **SSL-certifikat** > **Importera certifikat**. Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
+4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade måste du anteckna var och en av dem `("s:")` och utfärdaren `("i:")` .
+5. När du hittar självsignerade certifikat för var och en, kopierar och klistrar du in allt från (och inkluderar) till `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` en ny. cer-fil.
+6. Öppna Storage Explorer och gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**. Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
 
 Om du inte hittar några självsignerade certifikat genom att följa dessa steg kan du kontakta oss via feedback-verktyget. Du kan också öppna Storage Explorer från kommando raden med hjälp av `--ignore-certificate-errors` flaggan. Vid öppning med den här flaggan ignorerar Storage Explorer certifikat fel.
 
@@ -106,10 +113,10 @@ Om du inte hittar några självsignerade certifikat genom att följa dessa steg 
 
 Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du på följande sätt:
 
-1. Öppna **Inställningar**i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program** > **inloggning**. Aktivera **Använd enhets kod flödes inloggning**.
+1. Öppna **Inställningar**i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program**  >  **inloggning**. Aktivera **Använd enhets kod flödes inloggning**.
 2. Öppna dialog rutan **Anslut** (antingen via plugin-ikonen på vänster lodrätt fält eller genom att välja **Lägg till konto** på konto panelen).
 3. Välj den miljö som du vill logga in på.
-4. Välj **Logga**in.
+4. Välj **Logga in.**
 5. Följ anvisningarna på nästa panel.
 
 Om du inte kan logga in på det konto som du vill använda eftersom standard webbläsaren redan är inloggad på ett annat konto gör du något av följande:
@@ -122,7 +129,7 @@ Om du inte kan logga in på det konto som du vill använda eftersom standard web
 Följ dessa steg om du befinner dig i en loop för autentisering eller har ändrat UPN för något av dina konton:
 
 1. Ta bort alla konton och Stäng Storage Explorer.
-2. Ta bort. IdentityService-mappen från din dator. I Windows finns mappen på `C:\users\<username>\AppData\Local`. För Mac och Linux kan du hitta mappen i roten i din användar katalog.
+2. Ta bort. IdentityService-mappen från din dator. I Windows finns mappen på `C:\users\<username>\AppData\Local` . För Mac och Linux kan du hitta mappen i roten i din användar katalog.
 3. Om du kör Mac eller Linux måste du också ta bort posten Microsoft. Developer. IdentityService från operativ systemets nyckel lager. I Mac är nyckel lagringen *gnome nyckel rings* program. I Linux kallas programmet vanligt vis för _nyckel_ring, men namnet kan variera beroende på din distribution.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
@@ -176,7 +183,7 @@ Om du inte kan ta bort ett kopplat konto eller en lagrings resurs via användar 
 > Stäng Storage Explorer innan du tar bort mapparna.
 
 > [!NOTE]
-> Om du någonsin har importerat några SSL-certifikat säkerhetskopierar du innehållet `certs` i katalogen. Senare kan du använda säkerhets kopieringen för att importera SSL-certifikat igen.
+> Om du någonsin har importerat några SSL-certifikat säkerhetskopierar du innehållet i `certs` katalogen. Senare kan du använda säkerhets kopieringen för att importera SSL-certifikat igen.
 
 ## <a name="proxy-issues"></a>Problem med proxy
 
@@ -204,7 +211,7 @@ Om du har nätverks verktyg, till exempel Fiddler för Windows, kan du diagnosti
 
 * Om du måste arbeta via proxyservern kan du behöva konfigurera nätverks verktyget för att ansluta via proxyservern.
 * Kontrol lera port numret som används av nätverks verktyget.
-* Ange den lokala värd-URL: en och nätverks verktygets port nummer som proxyinställningar i Storage Explorer. När du gör detta korrekt startar nätverks verktyget loggning av nätverks begär Anden som görs av Storage Explorer till hanterings-och tjänst slut punkter. Ange `https://cawablobgrs.blob.core.windows.net/` till exempel för din BLOB-slutpunkt i en webbläsare och du får ett svar som liknar följande:
+* Ange den lokala värd-URL: en och nätverks verktygets port nummer som proxyinställningar i Storage Explorer. När du gör detta korrekt startar nätverks verktyget loggning av nätverks begär Anden som görs av Storage Explorer till hanterings-och tjänst slut punkter. Ange till exempel `https://cawablobgrs.blob.core.windows.net/` för din BLOB-slutpunkt i en webbläsare och du får ett svar som liknar följande:
 
   ![Kodexempel](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -231,7 +238,7 @@ Om du ser konto nycklarna kan du ange ett problem i GitHub så att vi kan hjälp
 
 Om du får det här fel meddelandet när du försöker lägga till en anpassad anslutning kan de anslutnings data som lagras i den lokala Autentiseringshanteraren vara skadade. Undvik det här problemet genom att försöka ta bort dina skadade lokala anslutningar och sedan lägga till dem på nytt:
 
-1. Starta Storage Explorer. I menyn går du till **Hjälp** > att**Växla utvecklarverktyg**.
+1. Starta Storage Explorer. I menyn går du till **Hjälp**att  >  **Växla utvecklarverktyg**.
 2. I det öppnade fönstret, på fliken **program** , går du till **lokal lagring** (vänster sida) > **File://**.
 3. Beroende på vilken typ av anslutning du har problem med, letar du efter nyckeln och kopierar dess värde till en text redigerare. Värdet är en matris med dina anpassade anslutnings namn, som följande:
     * Lagringskonton
@@ -245,7 +252,7 @@ Om du får det här fel meddelandet när du försöker lägga till en anpassad a
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabeller
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. När du har sparat dina aktuella anslutnings namn ställer du in värdet i Utvecklarverktyg `[]`till.
+4. När du har sparat dina aktuella anslutnings namn ställer du in värdet i Utvecklarverktyg till `[]` .
 
 Om du vill bevara de anslutningar som inte är skadade kan du använda följande steg för att hitta de skadade anslutningarna. Om du inte gör något med att förlora alla befintliga anslutningar kan du hoppa över de här stegen och följa de plattformsspecifika instruktionerna för att rensa dina anslutnings data.
 
@@ -259,13 +266,13 @@ När du har gått igenom alla dina anslutningar, för alla anslutnings namn som 
 
 1. På **Start** -menyn söker du efter **Autentiseringshanteraren** och öppnar den.
 2. Gå till **Windows-autentiseringsuppgifter**.
-3. Under **allmänna autentiseringsuppgifter**söker du `<connection_type_key>/<corrupted_connection_name>` efter poster som har nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Under **allmänna autentiseringsuppgifter**söker du efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Öppna Spotlight (kommando + blank steg) och Sök efter **nyckel rings åtkomst**.
-2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +280,7 @@ När du har gått igenom alla dina anslutningar, för alla anslutnings namn som 
 Hantering av lokala autentiseringsuppgifter varierar beroende på Linux-distributionen. Om din Linux-distribution inte tillhandahåller ett inbyggt GUI-verktyg för lokal hantering av autentiseringsuppgifter, kan du installera ett verktyg från tredje part för att hantera dina lokala autentiseringsuppgifter. Du kan till exempel använda [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), ett gui-verktyg med öppen källkod för att hantera lokala autentiseringsuppgifter för Linux.
 
 1. Öppna det lokala hanterings verktyget för autentiseringsuppgifter och hitta dina sparade autentiseringsuppgifter.
-2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 ---
 
@@ -290,12 +297,14 @@ Om du ansluter till en tjänst via en SAS-URL och råkar ut för ett fel:
 Om du av misstag har kopplat med en ogiltig SAS-URL och inte kan koppla från, följer du dessa steg:
 
 1. När du kör Storage Explorer trycker du på F12 för att öppna fönstret Utvecklarverktyg.
-2. På fliken **program** väljer du **lokal lagring** > **File://** i trädet till vänster.
-3. Hitta nyckeln som är associerad med tjänst typen för den problematiska SAS-URI: n. Om t. ex. den felaktiga SAS-URI: n är för en BLOB-behållare, `StorageExplorer_AddStorageServiceSAS_v1_blob`letar du efter nyckeln med namnet.
+2. På fliken **program** väljer du **lokal lagring**  >  **File://** i trädet till vänster.
+3. Hitta nyckeln som är associerad med tjänst typen för den problematiska SAS-URI: n. Om t. ex. den felaktiga SAS-URI: n är för en BLOB-behållare, letar du efter nyckeln med namnet `StorageExplorer_AddStorageServiceSAS_v1_blob` .
 4. Värdet för nyckeln ska vara en JSON-matris. Hitta objektet som är associerat med den felaktiga URI: n och ta sedan bort det.
 5. Tryck på CTRL + R för att läsa in Storage Explorer igen.
 
 ## <a name="linux-dependencies"></a>Linux-beroenden
+
+### <a name="snap"></a>Snapin
 
 Storage Explorer 1.10.0 och senare är tillgängligt som en fäst från snapin Store. Den Storage Explorer Snap installerar alla dess beroenden automatiskt och uppdateras när en ny version av Snap är tillgänglig. Installation av Storage Explorer Snap är den rekommenderade installations metoden.
 
@@ -305,64 +314,83 @@ Storage Explorer kräver att du använder en lösen ords hanterare, som du kan b
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>. tar. gz-fil
+
 Du kan också hämta programmet som en. tar. gz-fil, men du måste installera beroenden manuellt.
 
-> [!IMPORTANT]
-> Storage Explorer som anges i hämtningen. tar. gz stöds bara för Ubuntu-distributioner. Andra distributioner har inte verifierats och kan kräva alternativa eller ytterligare paket.
+Storage Explorer som anges i hämtningen. tar. gz stöds endast för följande versioner av Ubuntu. Storage Explorer kan fungera på andra Linux-distributioner, men de stöds inte officiellt.
 
-Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
+- Ubuntu 20,04 x64
+- Ubuntu 18,04 x64
+- Ubuntu 16,04 x64
 
-* [.NET Core 2,2-körning](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` eller `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar .NET Core 2,1, men Storage Explorer fungerar med 2,2 även.
 
 > [!NOTE]
-> Storage Explorer version 1.7.0 och tidigare kräver .NET Core 2,0. Om du har en nyare version av .NET Core installerad måste du [uppdatera Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Storage Explorer 1.8.0 eller senare bör du kunna använda upp till .NET Core 2,2. Versioner utöver 2,2 har inte verifierats för att fungera för tillfället.
+> Storage Explorer version 1.7.0 och tidigare kräver .NET Core 2,0. Om du har en nyare version av .NET Core installerad måste du [uppdatera Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Storage Explorer 1.8.0 eller senare behöver du minst .NET Core 2,1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19,04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20,04](#tab/2004)
 
-1. Ladda ned Storage Explorer.
-2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Kör följande kommando:
+1. Hämta filen Storage Explorer. tar. gz.
+2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Ladda ned Storage Explorer.
-2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Kör följande kommando:
+1. Hämta filen Storage Explorer. tar. gz.
+2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16,04](#tab/1604)
 
-1. Ladda ned Storage Explorer.
-2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Kör följande kommando:
+1. Hämta filen Storage Explorer. tar. gz.
+2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Ladda ned Storage Explorer.
-2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Kör följande kommando:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Många bibliotek som krävs av Storage Explorer förinstalleras med kanoniska standard installationer av Ubuntu. Vissa av dessa bibliotek kanske saknas i anpassade miljöer. Om du har problem med att starta Storage Explorer rekommenderar vi att du ser till att följande paket är installerade i systemet:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg – utils
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigera Storage Explorer för nyare versioner av .NET Core
 
 För Storage Explorer 1.7.0 eller tidigare kan du behöva korrigera den version av .NET Core som används av Storage Explorer:
 
 1. Hämta version 1.5.43 av StreamJsonRpc [från NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Leta upp länken "Ladda ned paket" på höger sida av sidan.
-2. När du har laddat ned paketet ändrar du dess fil `.nupkg` namns tillägg från till `.zip`.
+2. När du har laddat ned paketet ändrar du dess fil namns tillägg från `.nupkg` till `.zip` .
 3. Packa upp paketet.
 4. Öppna mappen `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Kopiera `StreamJsonRpc.dll` till följande platser i mappen Storage Explorer:

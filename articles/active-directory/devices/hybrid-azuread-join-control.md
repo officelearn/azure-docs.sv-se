@@ -4,19 +4,19 @@ description: Lär dig hur du gör en kontrollerad validering av hybrid Azure AD 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "80049985"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252720"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -42,7 +42,7 @@ Använd redigeraren för Active Directory Services-gränssnitt (ADSI Edit) för 
 
 1. Starta **ADSI Edit** Desktop-appen från och den administrativa arbets stationen eller en domänkontrollant som företags administratör.
 1. Anslut till domänens **konfigurations namngivnings kontext** .
-1. Bläddra till **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = enhets registrerings konfiguration**
+1. Bläddra till **CN = Configuration, DC = contoso, DC = com**  >  **CN = Services**  >  **CN = enhets registrerings konfiguration**
 1. Högerklicka på objektet lövnod **CN = 62a0ff2e-97B9-4513-943F-0d221bd30080** och välj **Egenskaper**
    1. Välj **nyckelord** i fönstret **Redigera attribut** och klicka på **Redigera**
    1. Välj värdena för **azureADId** och **azureADName** (en i taget) och klicka på **ta bort**
@@ -55,17 +55,17 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 
 1. Öppna en grupprincip hanterings konsol och skapa ett nytt grupprincip-objekt i din domän.
    1. Ange ett namn för ditt nyligen skapade grup princip objekt (till exempel ClientSideSCP).
-1. Redigera grupprincipobjektet och leta upp följande sökväg: **dator konfigurations** > **Inställningar** > **Windows-inställningar** > **register**
-1. Högerklicka på registret och välj **nytt** > **register objekt**
+1. Redigera grupprincipobjektet och leta upp följande sökväg: **dator konfigurations**  >  **Inställningar**  >  **Windows-inställningar**  >  **register**
+1. Högerklicka på registret och välj **nytt**  >  **register objekt**
    1. På fliken **Allmänt** konfigurerar du följande
       1. Åtgärd: **Uppdatera**
       1. Hive: **HKEY_LOCAL_MACHINE**
       1. Nyckel Sök väg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Värde namn: **TenantId**
       1. Värdetyp: **REG_SZ**
-      1. Värde data: GUID eller **katalog-ID** för din Azure AD-instans (detta värde finns i **Azure Portal** > **Azure Active Directory** > **Egenskaper** > **katalog-ID**)
+      1. Värde data: GUID eller **katalog-ID** för din Azure AD-instans (detta värde finns i **Azure Portal**  >  **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID**)
    1. Klicka på **OK**
-1. Högerklicka på registret och välj **nytt** > **register objekt**
+1. Högerklicka på registret och välj **nytt**  >  **register objekt**
    1. På fliken **Allmänt** konfigurerar du följande
       1. Åtgärd: **Uppdatera**
       1. Hive: **HKEY_LOCAL_MACHINE**

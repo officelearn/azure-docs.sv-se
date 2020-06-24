@@ -4,11 +4,11 @@ description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabr
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258582"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701227"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
@@ -20,7 +20,7 @@ När en klient ansluter till en Service Fabric klusternod kan klienten autentise
 
 Det finns flera olika sätt att ansluta till ett säkert kluster med hjälp av Service Fabric CLI (sfctl). När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna. Om ditt certifikat har certifikat utfärdare måste du också ange betrodda certifikat utfärdare.
 
-Du kan ansluta till ett kluster med hjälp `sfctl cluster select` av kommandot.
+Du kan ansluta till ett kluster med hjälp av `sfctl cluster select` kommandot.
 
 Klient certifikat kan anges på två olika sätt, antingen som ett certifikat och nyckel par, eller som en enda PFX-fil. För lösenordsskyddade PEM-filer uppmanas du att ange lösen ordet automatiskt. Om du har fått klient certifikatet som en PFX-fil måste du först konvertera PFX-filen till en PEM-fil med hjälp av följande kommando. 
 
@@ -30,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen `--pem` i argumentet. Ett exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i `--pem` argumentet. Exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -38,13 +38,13 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 Lösenordsskyddade PEM-filer kommer att uppmanas att ange lösen ord innan kommandot körs.
 
-Om du vill ange ett certifikat använder nyckel paret `--cert` argumenten och `--key` för att ange sökvägar till varje respektive fil.
+Om du vill ange ett certifikat använder nyckel paret `--cert` `--key` argumenten och för att ange sökvägar till varje respektive fil.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen `--no-verify` anger du alternativet. Ett exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du `--no-verify` alternativet. Exempel:
 
 > [!WARNING]
 > Använd inte `no-verify` alternativet när du ansluter till produktions Service Fabric kluster.
@@ -53,7 +53,7 @@ Ibland kan certifikat som används för att skydda test-eller dev-kluster inte v
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd `--ca` argumentet för att ange dessa sökvägar. Ett exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet för att ange dessa sökvägar `--ca` . Exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca

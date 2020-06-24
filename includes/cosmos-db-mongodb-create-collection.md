@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200473"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121532"
 ---
 Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa ett Azure Cosmos DBs API för MongoDB Database och container. 
 
@@ -21,11 +21,11 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa ett A
     
     Avsnittet **Lägg till behållare** visas längst till höger. du kan behöva rulla åt höger för att se det.
 
-    ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
 
 2. På sidan **Lägg till behållare** anger du inställningarna för den nya behållaren.
 
-    |Inställning|Föreslaget värde|Description
+    |Inställningen|Föreslaget värde|Beskrivning
     |---|---|---|
     |**Databas-ID**|databasen|Ange *db* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden. Du kan också välja [autoskalning-läge](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale), vilket ger dig en rad ru/s-intervall som kan öka och minska dynamiskt efter behov.| 

@@ -2,7 +2,7 @@
 title: Konfigurera minimal TLS-version – hanterad instans
 description: Lär dig hur du konfigurerar minimal TLS-version för hanterad instans
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: ''
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 309649fe099d5226ba6a4972e22a4e3d7ff0e526
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7982cb80c253ec3966319528e39390920c653e38
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267128"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974270"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Konfigurera minimal TLS-version i Azure SQL-hanterad instans
 Inställningen minimalt [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) gör det möjligt för kunder att kontrol lera vilken version av TLS som används av deras Azure SQL-hanterade instanser.

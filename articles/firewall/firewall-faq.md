@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: f8bfc163fbf32a2083b6e9250daaf5ea2629d10a
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509244"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791494"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -176,7 +176,7 @@ Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s och den s
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
 
-Azure-brandväggen skalas gradvis när genomsnitts data flödet eller CPU-förbrukningen är 60%. Skala ut tar fem till sju minuter. När du testar prestanda kontrollerar du att du testar minst 10 till 15 minuter och initierar nya anslutningar för att dra nytta av nyligen skapade brand Väggs noder.
+Azure-brandväggen skalas gradvis när genomsnitts data flödet eller CPU-förbrukningen är 60%. Skala ut tar fem till sju minuter. När du testar prestanda kontrollerar du att du testar minst 10 till 15 minuter och startar nya anslutningar för att dra nytta av de nyligen skapade brand Väggs noderna.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
 
@@ -215,3 +215,7 @@ Ja. Mer information finns i [Azure-prenumeration och tjänst begränsningar, kvo
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Kan jag flytta en IP-grupp till en annan resurs grupp?
 
 Nej, det finns för närvarande inte stöd för att flytta en IP-grupp till en annan resurs grupp.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Vad är timeout för TCP-inaktivitet för Azure-brandväggen?
+
+Ett standard beteende för en nätverks brand vägg är att se till att TCP-anslutningar hålls aktiva och att du snabbt ska stänga dem om det inte finns någon aktivitet. Timeout för TCP-inaktivitet i Azure Firewall är fyra minuter. Den här inställningen kan inte konfigureras. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls. En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i .net- [exemplen](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).

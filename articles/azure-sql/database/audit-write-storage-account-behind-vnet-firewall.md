@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e03f8436d432ffb4e20a442261ccf18c57a3934
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628172"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944786"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -145,6 +145,18 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
 
 - [Skapa eller uppdatera databas gransknings princip (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Skapa eller uppdatera Server gransknings princip (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## <a name="using-azure-resource-manager-template"></a>Använda Azure Resource Manager-mall
+
+Du kan konfigurera granskning för att skriva databas händelser på ett lagrings konto bakom ett virtuellt nätverk och en brand vägg som använder [Azure Resource Manager](../../azure-resource-manager/management/overview.md) mall, som du ser i följande exempel:
+
+> [!IMPORTANT]
+> För att kunna använda lagrings kontot bakom virtuellt nätverk och brand vägg måste du ange **isStorageBehindVnet** -parametern till true
+
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva gransknings loggar till en blob-lagring](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> Det länkade exemplet finns på ett externt offentligt lager och tillhandahålls i befintligt skick, utan garanti, och stöds inte i Microsoft Support program/-tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

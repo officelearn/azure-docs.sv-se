@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198395"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737010"
 ---
-# <a name="orchestration-mode-preview"></a>Orchestration-läge (för hands version)
+# <a name="orchestration-modes-preview"></a>Orchestration-lägen (förhands granskning)
+
+> [!CAUTION]
+> Tack för alla som deltog i den här offentliga för hands versionen. Vi kunde samla in värdefull feedback från vår community. Den här förhands granskningen är nu **avslutad** för nya deltagare, så att du kan integrera feedback. Vi kommer att uppdatera det här utrymmet med ny information.
 
 Skalnings uppsättningar för virtuella datorer ger en logisk gruppering av plattforms hanterade virtuella datorer. Med skalnings uppsättningar skapar du en konfigurations modell för virtuella datorer, lägger automatiskt till eller tar bort ytterligare instanser baserat på CPU eller minnes belastning och uppgraderar automatiskt till den senaste versionen av operativ systemet. Som traditionellt kan du använda skalnings uppsättningar för att skapa virtuella datorer med en konfigurations modell för virtuella datorer som tillhandahålls när skalnings uppsättningen skapas, och skalnings uppsättningen kan bara hantera virtuella datorer som är implicit skapade baserat på konfigurations modellen.
 
@@ -41,7 +44,7 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Konfigurations modell för virtuell dator      | Inga                                       | Krävs |
+| Konfigurations modell för virtuell dator      | Inga                                       | Obligatorisk |
 | Lägger till ny virtuell dator i skalnings uppsättningen  | Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning | |
 | Ta bort virtuell dator                   | Virtuella datorer måste tas bort individuellt, skalnings uppsättningen tas inte bort om den har några virtuella datorer i den. | Virtuella datorer kan tas bort individuellt. om du tar bort skalnings uppsättningen raderas alla VM-instanser.  |
 | Ansluta/koppla från virtuella datorer           | Stöds inte                              | Stöds inte |

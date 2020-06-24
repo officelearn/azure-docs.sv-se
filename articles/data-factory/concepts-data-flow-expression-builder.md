@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 23355abdced3a4073cf90ccf60c14af088a4e564
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 06/20/2020
+ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324173"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126169"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
 
@@ -129,6 +129,10 @@ Använd för att konvertera millisekunder från epok till datum eller tidsstämp
 ```toTimestamp(1574127407*1000l)```
 
 Efterföljande "l" i slutet av föregående uttryck avser omvandling till en lång typ som infogad syntax.
+
+## <a name="find-time-from-epoch-or-unix-time"></a>Hitta tiden från epok eller UNIX-tid
+
+toLong (currentTimestamp ()-toTimestamp (' 1970-01-01 00:00:00.000 ', ' ÅÅÅÅ-MM-dd HH: mm: SS. SSS ')) * 1000
 
 ## <a name="next-steps"></a>Nästa steg
 

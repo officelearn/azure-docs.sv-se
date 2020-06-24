@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 38187bef1d9c73b20c3b1930f97e7dae2468c889
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 125132aec8e822bf6694076e9ff6029744608c1a
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673453"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975324"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -63,7 +63,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för di
 1. Kör följande kommando från en kommando tolk: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
 
@@ -72,14 +72,14 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
 1. Först kör du nslookup i namn området.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Anteckna namnet i avsnittet **icke-auktoritativt svar** , vilket är i något av följande format: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 

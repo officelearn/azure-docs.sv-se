@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 7dbce3f2645a1ae4e01dc52d516962297ea07df6
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: b4ac25d6fca78962e9da4f7dd79476b8e8b9c2d5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488859"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738268"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MySQL med hjälp av portalen
 
@@ -109,7 +109,7 @@ I det här avsnittet ska du skapa en Azure Database for MySQL-server i Azure.
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Serverinformation** |  |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
+    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
     | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Location | Välj en Azure-region där du vill att MySQL-servern ska finnas. |
@@ -173,7 +173,7 @@ I det här avsnittet ska du skapa en MySQL-server och lägga till en privat slut
     |||
 
     > [!Note] 
-    > Använd den fördefinierade privata DNS-zonen för din tjänst eller skapa en ny. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
+    > Använd den fördefinierade privata DNS-zonen för din tjänst eller ange önskat DNS-zonnamn. Mer information finns i [konfiguration av DNS-zoner för Azure-tjänster](../private-link/private-endpoint-dns.md) .
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
@@ -231,7 +231,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Inställningen | Värde |
     | ------- | ----- |
     | Servertyp| Välj **MySQL**.|
-    | servernamn| Välj *myserver.privatelink.mysql.Database.Azure.com* |
+    | Servernamn| Välj *myserver.privatelink.mysql.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när MySQL-servern skapas. |
     |lösenordsinställning |Ange ett lösen ord som anges när MySQL-servern skapas. |
     |SSL|Välj **obligatoriskt**.|

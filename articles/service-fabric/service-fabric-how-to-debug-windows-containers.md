@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127630"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701157"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Så här gör du: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
@@ -27,7 +27,7 @@ Med Visual Studio 2019 kan du felsöka .NET-program i behållare som Service Fab
 
 1. För att stödja DNS-matchning mellan behållare måste du konfigurera ditt lokala utvecklings kluster med hjälp av dator namnet. De här stegen är också nödvändiga om du vill adressera tjänster via den omvända proxyn.
    1. Öppna PowerShell som administratör
-   2. Gå till mappen för konfiguration av SDK-kluster `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`, vanligt vis.
+   2. Gå till mappen för konfiguration av SDK-kluster, vanligt vis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` .
    3. Kör skriptet`DevClusterSetup.ps1`
 
       ``` PowerShell

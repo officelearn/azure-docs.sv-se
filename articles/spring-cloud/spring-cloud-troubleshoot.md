@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277586"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791664"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -35,7 +35,7 @@ Tjänst bindningar kan också orsaka fel i program starten. Använd nyckelord so
 
 > "Java. SQL. SQLException: Server tids zonens värde ' Coordinated Universal Time ' är okänt eller representerar mer än en tidszon."
 
-Åtgärda felet genom `server parameters` att gå till MySQL-instansen och ändra `time_zone` värdet från *systemet* till *+ 0:00*.
+Åtgärda felet genom att gå till `server parameters` MySQL-instansen och ändra `time_zone` värdet från *systemet* till *+ 0:00*.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Mina program kraschar eller genererar ett oväntat fel
@@ -49,7 +49,7 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 
   - `TomcatErrorCount`(_Tomcat. global. error_): alla våren Application-undantag räknas här. Om det här talet är stort går du till Azure Log Analytics för att kontrol lera program loggarna.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat, eller så kan det ändras med tiden om det har definierats. Om den har definierats, är mängden använt och allokerat minne alltid mindre än eller lika med max. Men en minnesallokering kan Miss lyckas med ett `OutOfMemoryError` meddelande om tilldelningen försöker öka det använda minnet som *används > dedikerat*, även om det *används <= Max* är sant. I sådana fall kan du försöka öka den maximala heap-storleken genom att `-Xmx` använda-parametern.
+  - `AppMemoryMax`(_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat, eller så kan det ändras med tiden om det har definierats. Om den har definierats, är mängden använt och allokerat minne alltid mindre än eller lika med max. Men en minnesallokering kan Miss lyckas med ett `OutOfMemoryError` meddelande om tilldelningen försöker öka det använda minnet som *används > dedikerat*, även om det *används <= Max* är sant. I sådana fall kan du försöka öka den maximala heap-storleken genom att använda- `-Xmx` parametern.
 
   - `AppMemoryUsed`(_JVM. Memory. används_): mängden minne i byte som för närvarande används av programmet. För en normal inläsning av Java-program utgör den här mått serien ett *sågtandade* -mönster där minnes användningen ständigt ökar och minskar i små steg och plötsligt släpper ett parti, och sedan upprepas mönstret. Den här Mät serien inträffar på grund av skräp insamling i Java Virtual Machine, där samlings åtgärder representerar droppar i sågtandade-mönstret.
     
@@ -111,7 +111,7 @@ Men om du försöker konfigurera Azure våren Cloud Service-instansen med hjälp
 
 Om du vill konfigurera Azure våren Cloud Service-instansen med hjälp av Resource Manager-mallen, se först till att [förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
-Namnet på Azure våren Cloud Service-instansen kommer att användas för att begära ett under domän `azureapps.io`namn under, så installationen Miss kommer att Miss förväntas om namnet står i konflikt med ett befintligt namn. Du kan hitta mer information i aktivitets loggarna.
+Namnet på Azure våren Cloud Service-instansen kommer att användas för att begära ett under domän namn under `azureapps.io` , så installationen Miss kommer att Miss förväntas om namnet står i konflikt med ett befintligt namn. Du kan hitta mer information i aktivitets loggarna.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Jag kan inte distribuera ett JAR-paket
 
@@ -160,7 +160,7 @@ Miljövariabler meddelar moln ramverket för Azure våren att se till att Azure 
 
 1. Gå till `https://<your application test endpoint>/actuator/health`.  
     - Ett svar som liknar `{"status":"UP"}` anger att slut punkten har Aktiver ATS.
-    - Om svaret är negativt inkluderar du följande beroende i filen *Pom. XML* :
+    - Om svaret är negativt inkluderar du följande beroende i *POM.xml* -filen:
 
         ```xml
             <dependency>
@@ -189,16 +189,18 @@ Miljövariabler meddelar moln ramverket för Azure våren att se till att Azure 
     }
     ```
 
-Leta upp den underordnade noden med `systemEnvironment`namnet.  Den här noden innehåller programmets miljövariabler.
+Leta upp den underordnade noden med namnet `systemEnvironment` .  Den här noden innehåller programmets miljövariabler.
 
 > [!IMPORTANT]
-> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp sidan konfiguration i programmet och ta bort den här miljövariabeln: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
+> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp sidan konfiguration i programmet och ta bort den här miljövariabeln: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Jag kan inte hitta mått eller loggar för mitt program
 
 Gå till **app Management** för att se till att programmets status _körs_ _och är igång._
 
-Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om `spring-boot-actuator` beroendet är aktiverat i programpaketet och att det har startats.
+Kontrol lera att väder _JMX_ har Aktiver ATS i programpaketet. Den här funktionen kan aktive ras med konfigurations egenskapen `spring.jmx.enabled=true` .  
+
+Kontrol lera om `spring-boot-actuator` beroendet är aktiverat i ditt programpaket och att det har startats.
 
 ```xml
 <dependency>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966680"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736680"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
 
@@ -31,16 +31,16 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 
 | Säkerhets behov | Är kunden ansvarig för detta? |
 |---------------|:-------------------------:|
-|Identitet|Ja|
-|Användar enheter (mobil och PC)|Ja|
-|App Security|Ja|
-|Sessionens värd operativ system|Ja|
-|Distributions konfiguration|Ja|
-|Nätverkskontroller|Ja|
-|Kontroll plan för nätverksvirtualisering|Inga|
-|Fysiska värdar|Inga|
-|Fysiskt nätverk|Inga|
-|Fysiskt Data Center|Inga|
+|Identitet|Yes|
+|Användar enheter (mobil och PC)|Yes|
+|App Security|Yes|
+|Sessionens värd operativ system|Yes|
+|Distributions konfiguration|Yes|
+|Nätverkskontroller|Yes|
+|Kontroll plan för nätverksvirtualisering|No|
+|Fysiska värdar|No|
+|Fysiskt nätverk|No|
+|Fysiskt Data Center|No|
 
 Säkerheten behöver kunden är inte ansvarig för hanteras av Microsoft.
 
@@ -62,7 +62,7 @@ Med Azure Security Center standard kan du:
 
 Mer information finns i [publicera din Azure-prenumeration till Security Center standard](../security-center/security-center-get-started.md).
 
-### <a name="improve-your-secure-score"></a>Förbättra dina säkra Poäng
+### <a name="improve-your-secure-score"></a>Förbättra dina säkerhetspoäng
 
 Säkra poäng ger rekommendationer och metod tips för att förbättra den övergripande säkerheten. Dessa rekommendationer prioriteras för att hjälpa dig att välja vilka som är viktigast och snabb korrigerings alternativ hjälper dig att snabbt hantera potentiella sårbarheter. Dessa rekommendationer uppdateras också med tiden och du bör hålla dig uppdaterad om de bästa sätten att underhålla din miljös säkerhet. Mer information finns [i förbättra dina säkra poäng i Azure Security Center](../security-center/security-center-secure-score.md).
 

@@ -1,22 +1,22 @@
 ---
-title: Azure Storage kryptering för vilande data
+title: Azure Storage-kryptering av vilande data
 description: Azure Storage skyddar dina data genom att automatiskt kryptera dem innan du sparar dem i molnet. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av data i ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457951"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945587"
 ---
-# <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
+# <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
 Azure Storage krypterar dina data automatiskt när de sparas i molnet. Azure Storage kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden.
 
@@ -51,6 +51,8 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 
 <sup>1</sup> information om hur du skapar ett konto som stöder användning av Kundhanterade nycklar med Queue Storage finns i [skapa ett konto som stöder Kundhanterade nycklar för köer](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> mer information om hur du skapar ett konto som stöder användning av Kundhanterade nycklar med Table Storage finns i [skapa ett konto som stöder Kundhanterade nycklar för tabeller](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+
+Information om kryptering och nyckel hantering för Azure Managed disks finns i [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) för virtuella Windows-datorer eller [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) för virtuella Linux-datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

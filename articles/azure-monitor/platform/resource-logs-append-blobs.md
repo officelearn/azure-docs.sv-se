@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: d30652d4e068cbceb79e6da60b48176b9de64647
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 582e7ea4e954a1aa5ee27314d038601f7e26c61e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418773"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803935"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto
+# <a name="format-of-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Formatet på Azure Monitor resurs loggar som arkiverats på ett lagrings konto
 
-> [!WARNING]
-> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av resurs diagnostikinställningar](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), kommer formatet för data i lagrings kontot att ändras till JSON-rader på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+> [!NOTE]
+> Om du skickar [Azure-resursens resurs loggar eller mått till ett lagrings konto med hjälp av inställningar för resurs diagnostik](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
 >
 > 
 
@@ -26,7 +26,7 @@ ms.locfileid: "84418773"
 Azure Monitor erbjuder en funktion som gör att du kan skicka resurs diagnostikdata och aktivitets logg data till ett Azure Storage-konto, Event Hubs namnrymd eller till en Log Analytics arbets yta i Azure Monitor. För att lösa ett system prestanda problem, den **1 November 2018 vid 12:00 midnatt UTC** , kommer formatet för logg data att skickas till Blob Storage att ändras. Om du har verktyg som läser data från Blob Storage måste du uppdatera verktyget för att förstå det nya data formatet.
 
 * Den 1 november 2018 vid 12:00 midnatt UTC kommer BLOB-formatet att ändras till [JSON-linjer](http://jsonlines.org/). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster.
-* BLOB-formatet ändras för alla diagnostikinställningar i alla prenumerationer på en gång. Den första PT1H. JSON-filen som genereras för den 1 november kommer att använda det nya formatet. Blob-och container namnen förblir desamma.
+* BLOB-formatet ändras för alla diagnostikinställningar i alla prenumerationer på en gång. Den första PT1H.jspå fil som skickas till den 1 november kommer att använda det nya formatet. Blob-och container namnen förblir desamma.
 * Att ställa in en diagnostisk inställning mellan nu och den 1 november fortsätter att generera data i det aktuella formatet fram till 1 november.
 * Den här ändringen görs samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
 * Den här ändringen påverkar följande data typer:
@@ -56,7 +56,7 @@ Om du har resurser som skickar data till ett lagrings konto med hjälp av dessa 
 
 ### <a name="details-of-the-format-change"></a>Information om format ändringen
 
-Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
+Det aktuella formatet för PT1H.jspå filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
 
 ```json
 {
@@ -117,7 +117,7 @@ Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JS
 }
 ```
 
-Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i filen PT1H. JSON efter ändringen:
+Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i PT1H.jspå filen efter ändringen:
 
 ```json
 {"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}

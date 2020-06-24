@@ -3,27 +3,27 @@ title: Felsöka programproxy | Microsoft Docs
 description: Beskriver hur du felsöker fel i Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017; it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43ac046f3480b08fdc3b8d582d9e724f4b9b93d5
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244230"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975443"
 ---
-# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsök problem med programproxy och fel meddelanden
+# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med programproxy och felmeddelanden
 
 När du felsöker problem med programproxyn rekommenderar vi att du börjar med att granska fel söknings flödet, [Felsöka anslutnings problem med Application Proxy](application-proxy-debug-connectors.md)för att avgöra om Application Proxy-kopplingar är korrekt konfigurerade. Om du fortfarande har problem med att ansluta till programmet följer du fel söknings flödet i fel söknings program för [programproxy](application-proxy-debug-apps.md).
 
@@ -31,15 +31,13 @@ Om fel uppstår vid åtkomst till ett publicerat program eller i publicerings pr
 
 * Öppna konsolen Windows-tjänster. Kontrol lera att **Connector-tjänsten Microsoft AAD Application Proxy** är aktive rad och körs. Du kanske också vill titta på sidan Egenskaper för tjänsten Application Proxy, som du ser i följande bild:  
   ![Microsoft AAD Application Proxy Connector Fönstret Egenskaper skärm bild](./media/application-proxy-troubleshoot/connectorproperties.png)
-* Öppna Loggboken och leta efter Application Proxy Connector-händelser i **program och tjänster loggar** > **Microsoft** > **AadApplicationProxy** > **Connector** > **admin**.
+* Öppna Loggboken och leta efter Application Proxy Connector-händelser i **program och tjänster loggar**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**  >  **admin**.
 * Om det behövs kan du använda mer detaljerade loggar genom [att aktivera sessionerna för Application Proxy Connector](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>Sidan återges inte korrekt
 Du kan ha problem med program åter givningen eller fungera felaktigt utan att ta emot specifika fel meddelanden. Detta kan inträffa om du har publicerat artikel Sök vägen, men programmet kräver innehåll som finns utanför den sökvägen.
 
-Om du till exempel publicerar sökvägen `https://yourapp/app` , men programmet anropar bilder i `https://yourapp/media`, återges de inte. Se till att publicera programmet med den högsta sökvägen måste du ta med allt relevant innehåll. I det här exemplet är det `http://yourapp/`.
-
-Om du ändrar sökvägen så att den innehåller innehåll som refereras till, men fortfarande behöver användare på en djupare länk i sökvägen, kan du läsa blogg inlägget [Ange rätt länk för program proxy-program i Azure AD Access-panelen och Office 365 App Launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
+Om du till exempel publicerar sökvägen `https://yourapp/app` , men programmet anropar bilder i `https://yourapp/media` , återges de inte. Se till att publicera programmet med den högsta sökvägen måste du ta med allt relevant innehåll. I det här exemplet är det `http://yourapp/` .
 
 ## <a name="connector-errors"></a>Anslutnings fel
 
@@ -53,8 +51,8 @@ När du har hittat kopplings felet från händelse loggen använder du den här 
 | ----- | ----------------- |
 | Det gick inte att registrera anslutningen: kontrol lera att du har aktiverat Application Proxy i Azure-Hanteringsportal och att du har angett ditt Active Directory användar namn och lösen ord korrekt. Fel: ett eller flera fel inträffade. | Om du stängde registrerings fönstret utan att logga in på Azure AD, kör du anslutnings guiden igen och registrerar anslutningen. <br><br> Om registrerings fönstret öppnas och stängs omedelbart utan att du behöver logga in får du förmodligen det här felet. Felet uppstår när ett nätverks fel uppstår i systemet. Kontrol lera att det är möjligt att ansluta från en webbläsare till en offentlig webbplats och att portarna är öppna enligt vad som anges i [Programproxyns krav](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Rensa fel visas i registrerings fönstret. Kan inte fortsätta | Om du ser det här felet, stängs fönstret och du har angett fel användar namn eller lösen ord. Försök igen. |
-| Det gick inte att registrera anslutningen: kontrol lera att du har aktiverat Application Proxy i Azure-Hanteringsportal och att du har angett ditt Active Directory användar namn och lösen ord korrekt. Fel: ' AADSTS50059: ingen klient identifierings information hittades i begäran eller underförstådd av angivna autentiseringsuppgifter och sökning efter tjänstens huvud namn URI har misslyckats. | Du försöker logga in med ett Microsoft-konto och inte en domän som är en del av organisations-ID: t för den katalog som du försöker få åtkomst till. Kontrol lera att administratören är en del av samma domän namn som klient domänen, till exempel om Azure AD-domänen är contoso.com bör administratören vara admin@contoso.com. |
-| Det gick inte att hämta den aktuella körnings principen för att köra PowerShell-skript. | Om installationen av anslutningen Miss lyckas kontrollerar du att PowerShell-körnings principen inte är inaktive rad. <br><br>1. öppna grupprincip redigeraren.<br>2. gå till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Windows PowerShell** och dubbelklicka på **Aktivera skript körning**.<br>3. körnings principen kan anges till antingen **inte konfigurerad** eller **aktive rad**. Om inställningen är **aktive rad**, se till att körnings principen är inställd på att antingen **tillåta lokala skript och fjärrsignerade skript** eller **tillåta alla skript**under alternativ. |
+| Det gick inte att registrera anslutningen: kontrol lera att du har aktiverat Application Proxy i Azure-Hanteringsportal och att du har angett ditt Active Directory användar namn och lösen ord korrekt. Fel: ' AADSTS50059: ingen klient identifierings information hittades i begäran eller underförstådd av angivna autentiseringsuppgifter och sökning efter tjänstens huvud namn URI har misslyckats. | Du försöker logga in med ett Microsoft-konto och inte en domän som är en del av organisations-ID: t för den katalog som du försöker få åtkomst till. Kontrol lera att administratören är en del av samma domän namn som klient domänen, till exempel om Azure AD-domänen är contoso.com bör administratören vara admin@contoso.com . |
+| Det gick inte att hämta den aktuella körnings principen för att köra PowerShell-skript. | Om installationen av anslutningen Miss lyckas kontrollerar du att PowerShell-körnings principen inte är inaktive rad. <br><br>1. öppna grupprincip redigeraren.<br>2. gå till **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Windows PowerShell** och dubbelklicka på **Aktivera skript körning**.<br>3. körnings principen kan anges till antingen **inte konfigurerad** eller **aktive rad**. Om inställningen är **aktive rad**, se till att körnings principen är inställd på att antingen **tillåta lokala skript och fjärrsignerade skript** eller **tillåta alla skript**under alternativ. |
 | Anslutningen kunde inte ladda ned konfigurationen. | Anslutningens klient certifikat, som används för autentisering, har upphört att gälla. Detta kan också inträffa om du har installerat anslutningen bakom en proxyserver. I det här fallet kan anslutningen inte komma åt Internet och kommer inte att kunna tillhandahålla program till fjärran vändare. Förnya förtroende manuellt med `Register-AppProxyConnector` cmdleten i Windows PowerShell. Om din anslutning ligger bakom en proxy är det nödvändigt att ge Internet åtkomst till anslutnings kontona "nätverks tjänster" och "lokalt system". Detta kan åstadkommas antingen genom att ge dem åtkomst till proxyservern eller genom att ställa in dem för att kringgå proxyn. |
 | Det gick inte att registrera anslutningen: kontrol lera att du är program administratör för din Active Directory att registrera anslutningen. Fel: "registrerings förfrågan nekades." | Det alias som du försöker logga in med är inte en administratör på den här domänen. Din anslutning installeras alltid för den katalog som äger användarens domän. Kontrol lera att det administratörs konto som du försöker logga in med har minst program administratörs behörighet till Azure AD-klienten. |
 | Anslutningen kunde inte ansluta till tjänsten på grund av nätverks problem. Anslutnings försöket försökte få åtkomst till följande URL. | Anslutningen kan inte ansluta till Application Proxy-moln tjänsten. Detta kan inträffa om du har en brand Väggs regel som blockerar anslutningen. Kontrol lera att du har tillåtit åtkomst till rätt portar och URL: er som anges i [Programproxyns krav](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
@@ -65,7 +63,7 @@ Den här tabellen beskriver de vanligaste felen som kommer från Kerberos-instal
 
 | Fel | Rekommenderade åtgärder |
 | ----- | ----------------- |
-| Det gick inte att hämta den aktuella körnings principen för att köra PowerShell-skript. | Om installationen av anslutningen Miss lyckas kontrollerar du att PowerShell-körnings principen inte är inaktive rad.<br><br>1. öppna grupprincip redigeraren.<br>2. gå till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Windows PowerShell** och dubbelklicka på **Aktivera skript körning**.<br>3. körnings principen kan anges till antingen **inte konfigurerad** eller **aktive rad**. Om inställningen är **aktive rad**, se till att körnings principen är inställd på att antingen **tillåta lokala skript och fjärrsignerade skript** eller **tillåta alla skript**under alternativ. |
+| Det gick inte att hämta den aktuella körnings principen för att köra PowerShell-skript. | Om installationen av anslutningen Miss lyckas kontrollerar du att PowerShell-körnings principen inte är inaktive rad.<br><br>1. öppna grupprincip redigeraren.<br>2. gå till **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Windows PowerShell** och dubbelklicka på **Aktivera skript körning**.<br>3. körnings principen kan anges till antingen **inte konfigurerad** eller **aktive rad**. Om inställningen är **aktive rad**, se till att körnings principen är inställd på att antingen **tillåta lokala skript och fjärrsignerade skript** eller **tillåta alla skript**under alternativ. |
 | 12008 – Azure AD överskred det maximala antalet tillåtna Kerberos-autentiseringsförsök till backend-servern. | Det här felet kan indikera felaktig konfiguration mellan Azure AD och backend-programservern, eller ett problem i tids-och datum konfigurationen på båda datorerna. Backend-servern avböjde Kerberos-biljetten som skapats av Azure AD. Kontrol lera att Azure AD och backend-programservern är korrekt konfigurerade. Se till att tids-och datum konfigurationen på Azure AD och backend-programservern är synkroniserade. |
 | 13016 – Azure AD kan inte hämta en Kerberos-biljett åt användaren eftersom det inte finns något UPN i Edge-token eller i åtkomst-cookien. | Det har uppstått ett problem med STS-konfigurationen. Korrigera UPN-anspråks konfigurationen i STS. |
 | 13019 – Azure AD kan inte hämta en Kerberos-biljett åt användaren på grund av följande allmänna API-fel. | Den här händelsen kan indikera felaktig konfiguration mellan Azure AD och domänkontrollanten, eller ett problem i tids-och datum konfigurationen på båda datorerna. Domänkontrollanten avböjde Kerberos-biljetten som skapats av Azure AD. Kontrol lera att Azure AD och backend-programservern har kon figurer ATS korrekt, särskilt SPN-konfigurationen. Kontrol lera att Azure AD är domän ansluten till samma domän som domänkontrollanten för att säkerställa att domänkontrollanten upprättar förtroende med Azure AD. Se till att tids-och datum konfigurationen på Azure AD och domänkontrollanten är synkroniserade. |

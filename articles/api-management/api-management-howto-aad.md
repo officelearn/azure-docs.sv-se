@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a2038b44cf55f2a322b6bda202b8c33372f3716
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868401"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808295"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklarkonton med Azure Active Directory i Azure API Management
 
@@ -72,7 +72,7 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
 19. Fönstret **Lägg till identitetsprovider** innehåller också text rutan **tillåtna innehavare** . Där anger du domänerna för de Azure AD-instanser som du vill bevilja åtkomst till API: erna för API Management tjänst instansen. Du kan separera flera domäner med newlines, blank steg eller kommatecken.
 
     > [!NOTE]
-    > Du kan ange flera domäner i avsnittet **tillåtna innehavare** . Innan en användare kan logga in från en annan domän än den ursprungliga domän där programmet registrerades måste en global administratör för den andra domänen ge behörighet för programmet för att få åtkomst till katalog data. För att bevilja behörighet bör den globala administratören: a. Gå till `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent).
+    > Du kan ange flera domäner i avsnittet **tillåtna innehavare** . Innan en användare kan logga in från en annan domän än den ursprungliga domän där programmet registrerades måste en global administratör för den andra domänen ge behörighet för programmet för att få åtkomst till katalog data. För att bevilja behörighet bör den globala administratören: a. Gå till `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent) .
     > b. Skriv in domän namnet för den Azure AD-klient som de vill ge åtkomst till.
     > c. Välj **Skicka**. 
 
@@ -84,11 +84,11 @@ När ändringarna har sparats kan användare i den angivna Azure AD-instansen lo
 
 När du har aktiverat åtkomst för användare i en Azure AD-klient kan du lägga till Azure AD-grupper i API Management. Det innebär att du kan kontrol lera produkt synlighet med hjälp av Azure AD-grupper.
 
-Om du vill lägga till en extern Azure AD-grupp i APIM måste du först slutföra det föregående avsnittet. Dessutom måste det program som du har registrerat beviljas åtkomst till Microsoft Graph-API: `Directory.Read.All` et med behörighet genom att följa dessa steg: 
+Om du vill lägga till en extern Azure AD-grupp i APIM måste du först slutföra det föregående avsnittet. Dessutom måste det program som du har registrerat beviljas åtkomst till Microsoft Graph-API: et med `Directory.Read.All` behörighet genom att följa dessa steg: 
 
 1. Gå tillbaka till din app-registrering som skapades i föregående avsnitt.
 2. Välj **API-behörigheter**och klicka sedan på **+ Lägg till en behörighet**. 
-3. I rutan **begär API-behörigheter** väljer du fliken **Microsoft API: er** och väljer sedan panelen **Microsoft Graph** . Välj **program behörigheter**, Sök efter **katalog**och välj sedan **katalogen. Read. all** behörighet. 
+3. I rutan **begär API-behörigheter** väljer du fliken **Microsoft API: er** , bläddrar nedåt och väljer sedan panelen **Azure Active Directory diagram** . Välj **program behörigheter**, Sök efter **katalog**och välj sedan **katalogen. Read. all** behörighet. 
 4. Klicka på **Lägg till behörigheter** längst ned i fönstret och klicka sedan på **bevilja administrativt medgivande för {tenantname}** så att du beviljar åtkomst för alla användare i den här katalogen. 
 
 Nu kan du lägga till externa Azure AD-grupper från fliken **grupper** i API Management-instansen.
@@ -103,7 +103,7 @@ När du har lagt till en extern Azure AD-grupp kan du granska och konfigurera de
  
 Användare från den konfigurerade Azure AD-instansen kan nu logga in på Developer-portalen. De kan visa och prenumerera på grupper som de har synlighet för.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>Utvecklings Portal – Lägg till Azure AD-konto-autentisering
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Utvecklings Portal – Lägg till Azure AD-konto-autentisering
 
 I Developer-portalen är det möjligt att logga in med AAD med **inloggnings knappen: OAuth-** widgeten. Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 

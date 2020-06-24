@@ -4,16 +4,16 @@ description: Det här dokumentet innehåller en översikt över hur du länkar v
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 755b1898ee4cbc32de3a65a6bbc368ecf3eb3acf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 108f7ce5639ebd938ed2f4bb5e0c82ac787c4c6c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80616370"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737112"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Koppla ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]

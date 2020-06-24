@@ -5,121 +5,111 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0201ea7b207b7d4c0eaa56de1ee062ea405f0bbb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792963"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119247"
 ---
 # <a name="register-a-saas-application"></a>Registrera ett SaaS-program
 
-Den här artikeln förklarar hur du registrerar ett SaaS-program med hjälp av Microsoft [Azure Portal](https://portal.azure.com/).  Efter en lyckad registrering får du en Azure Active Directory (Azure AD) säkerhetstoken som du kan använda för att få åtkomst till API: er för SaaS-utförande.  Mer information om Azure AD finns i [Vad är autentisering?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+I den här artikeln förklaras hur du registrerar ett SaaS-program med hjälp av Microsoft [Azure Portal](https://portal.azure.com/) och hur du hämtar utgivarens åtkomsttoken (Azure Active Directory-åtkomsttoken). Utgivaren kommer att använda denna token för att autentisera SaaS-programmet genom att anropa API: er för SaaS-utförande.  API: erna för utförande använder OAuth 2,0-klientens autentiseringsuppgifter för att bevilja flöde på Azure Active Directory (v 1.0) slut punkter för att göra en begäran om en tjänst-till-tjänst-åtkomsttoken.
 
-## <a name="service-to-service-authentication-flow"></a>Flöde för tjänst-till-tjänst-autentisering
+Azure Marketplace tillhandahåller inte några begränsningar för autentiseringsmetoden som används av SaaS-tjänsten för slutanvändare. Flödet nedan krävs endast för autentisering av SaaS-tjänsten i Azure Marketplace.
 
-Följande diagram visar prenumerations flödet för en ny kund och när dessa API: er används:
-
-![API-flöde för SaaS-erbjudande](./media/saas-offer-publish-api-flow-v1.png)
-
-Azure tillhandahåller inte några begränsningar för den autentisering som SaaS-tjänsten exponerar för slutanvändarna. Autentisering med SaaS-API: er utförs dock med en Azure AD-säkerhetstoken, som vanligt vis hämtas genom att registrera SaaS-appen via Azure Portal. 
+Mer information om Azure AD (Active Directory) finns i [Vad är autentisering](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)?
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrera en Azure AD-skyddad app
 
-Alla program som vill använda funktionerna i Azure AD måste först registreras i en Azure AD-klientorganisation. Den här registrerings processen innebär att ge Azure AD information om ditt program, till exempel URL: en där den finns, URL: en för att skicka svar när en användare har autentiserats, URI: n som identifierar appen och så vidare.  Gör så här för att registrera ett nytt program med hjälp av Azure Portal:
+Alla program som vill använda funktionerna i Azure AD måste först registreras i en Azure AD-klientorganisation. Den här registrerings processen innebär att ge Azure AD lite information om ditt program. Gör så här för att registrera ett nytt program med hjälp av Azure Portal:
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).
-2.  Om ditt konto ger dig åtkomst till mer än ett, klickar du på ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
-3.  I det vänstra navigerings fönstret klickar du på **Azure Active Directory** tjänst, klickar på **Appregistreringar**och klickar på **ny program registrering**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Om ditt konto ger dig åtkomst till mer än ett, klickar du på ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
+3. I det vänstra navigerings fönstret klickar du på **Azure Active Directory** tjänst, klickar på **Appregistreringar**och klickar på **ny program registrering**.
 
     ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1.png)
 
-4.  På sidan Skapa anger du din program\'s registrerings information:
+4. På sidan Skapa anger du din program \' s registrerings information:
     -   **Namn**: Ange ett meningsfullt program namn
-    -   **Program typ**: 
-        - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-        - Välj **webbapp/API** för [klient program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs-/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webb klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar agentbaserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+    -   **Program typ**:  
+        
+        Välj **webbapp/API** för [klient program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs-/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webb klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar agentbaserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Samma program kan även visa både en klient och resurs/API.
-    -   **Inloggnings-URL**: för WEBBAPP/API-program, anger du webbappens bas-URL. Till exempel **http://localhost:31544** kan vara URL: en för en webbapp som körs på den lokala datorn. Användarna använder sedan denna URL för att logga in på ett webb klient program.
-    -   **Omdirigerings-URI**: för interna program, anger du den URI som används av Azure AD för att returnera svar på token. Ange ett värde som är specifik för ditt program, **http://MyFirstAADApp**till exempel.
 
-        ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1-2.png)
+        För särskilda exempel på webb program, se de guidade installations guiderna som finns i avsnittet [komma igång](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) i [Azure AD-utvecklare](https://docs.microsoft.com/azure/active-directory/develop/).
 
-        Specifika exempel för webb program och interna program finns i de guidade installations guiderna för snabb start som är tillgängliga i avsnittet *komma igång* i [Azure AD-utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+5. När du är färdig klickar du på **Registrera**.  Azure AD tilldelar ett unikt *program-ID* till det nya programmet. Vi rekommenderar att du registrerar en app som endast har åtkomst till API: et och som en enda klient.
 
-5.  Klicka på **Skapa** när du är klar. Azure AD tilldelar ett unikt *program-ID* till ditt program och du\'går vidare till programmets\'huvud registrerings sida. Beroende på om ditt program är ett webbprogram eller ett internt program ges olika alternativ för att lägga till ytterligare funktioner i programmet.
+6. Om du vill skapa klient hemlighet navigerar du till **sidan certifikat & hemligheter** och klickar på **+ ny klient hemlighet**.  Se till att kopiera det hemliga värdet för att använda det i din kod.
+
+**Azure AD App-ID: t** är associerat med ditt UTGIVAR-ID, så se till att samma *app-ID* används i alla dina erbjudanden.
 
 >[!Note]
->Som standard är det nyligen registrerade programmet konfigurerat att bara tillåta användare från samma klient organisation att logga in i ditt program.
+>Om en utgivare har två olika konton i Partner Center, ska två olika Azure AD App-ID: n användas.  Varje partner konto i Partner Center bör använda ett unikt Azure AD App-ID för alla SaaS-erbjudanden som publiceras via det här kontot.
 
-## <a name="using-the-azure-ad-security-token"></a>Använda Azure AD-säkerhetstoken
+## <a name="how-to-get-the-publishers-authorization-token"></a>Hämta utgivarens autentiseringstoken
 
-När du har registrerat ditt program kan du program mässigt begära en Azure AD-säkerhetstoken.  Utgivaren förväntas använda denna token och göra en begäran om att lösa det.  När du använder de olika API: erna för utförande, finns token-frågeparametern i URL: en när användaren omdirigeras till SaaS webbplats från Azure.  Denna token är endast giltig i en timme.  Dessutom bör URL: en avkoda värdet för token från webbläsaren innan du använder det.
+När du har registrerat ditt program kan du program mässigt begära utgivarens autentiseringstoken (Azure AD-åtkomsttoken med hjälp av Azure AD v1-slutpunkt). Utgivaren måste använda denna token för att anropa de olika API: erna för SaaS-utförande. Denna token är endast giltig i en timme. 
 
-Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Observera att i flödet under v1-slut punkts token används.
 
+### <a name="get-the-token-with-an-http-post"></a>Hämta token med ett HTTP-inlägg
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Hämta en token baserat på Azure AD-appen
+#### <a name="http-method"></a>HTTP-metod
 
-HTTP-metod
+Skicka<br>
 
-`POST`
+##### <a name="request-url"></a>*Begärans-URL* 
 
-*Request URL*
+`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
-**https://login.microsoftonline.com/*{tenantId}*/OAuth2/token**
+##### <a name="uri-parameter"></a>*URI-parameter*
 
-*URI-parameter*
+|  Parameternamn    |  Krävs         |  Beskrivning |
+|  ---------------   |  ---------------  | ------------ |
+|  `tenantId`        |  Sant      |  Klient-ID för det registrerade AAD-programmet. |
 
-|  **Parameternamn**  | **Obligatoriskt**  | **Beskrivning**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | Sant          | Klient-ID för det registrerade AAD-programmet   |
-|  |  |  |
+##### <a name="request-header"></a>*Begär ande huvud*
 
+|  Huvudnamn       |  Krävs         |  Beskrivning |
+|  ---------------   |  ---------------  | ------------ |
+|  `content-type`    |  Sant      |  Innehålls typ som är associerad med begäran. Standardvärdet är `application/x-www-form-urlencoded`. |
 
-*Begärandehuvud*
+##### <a name="request-body"></a>*Brödtext i begäran*
 
-|  **Huvudnamn**  | **Obligatoriskt** |  **Beskrivning**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | Sant         | Innehålls typ som är associerad med begäran. Standardvärdet är `application/x-www-form-urlencoded`.  |
-|  |  |  |
+|  Egenskapsnamn     |  Krävs         |  Beskrivning |
+|  ---------------   |  ---------------  | ------------ |
+|  `grant-type`      |  Sant      |  Typ av beviljande. Använd `"client_credentials"`. |
+|  `client_id`       |  Sant      |  Klient/app-identifierare som är associerad med Azure AD-appen. |
+|  `client_secret`   |  Sant      |  Hemlighet som är associerad med Azure AD-appen. |
+|  `resource`        |  Sant      |  Mål resurs för vilken token begärs. Använd `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` eftersom Marketplace SaaS-API: n alltid är mål resursen i det här fallet. |
 
+##### <a name="response"></a>*Svar*
 
-*Brödtext i begäran*
+|  Name     |  Typ         |  Description |
+|  ------   |  ---------------  | ------------ |
+|  200 OK   |  TokenResponse    |  Begäran lyckades. |
 
-| **Egenskaps namn**   | **Obligatoriskt** |  **Beskrivning**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | Sant         | Typ av beviljande. Standardvärdet är `client_credentials`.                    |
-|  Client_id          | Sant         |  Klient/app-identifierare som är associerad med Azure AD-appen.                  |
-|  client_secret      | Sant         |  Lösen ordet som är associerat med Azure AD-appen.                               |
-|  Resurs           | Sant         |  Mål resurs för vilken token begärs. Standardvärdet är `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
+##### <a name="tokenresponse"></a>*TokenResponse*
 
+Exempel svar:
 
-*Svar*
-
-|  **Namn**  | **Typ**       |  **Beskrivning**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Begäran lyckades   |
-|  |  |  |
-
-*TokenResponse*
-
-Token för samplings svar:
-
-``` json
-  {
+```json
+{
       "token_type": "Bearer",
       "expires_in": "3600",
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
+      "resource": "20e940b3-4c77-4b0b-9a53-9e16a1b010a7",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
+  }
 ```
+
+`"access_token"`Fältvärdet i svaret är det `<access_token>` som du kommer att skicka som en Authorization-parameter när du anropar alla API: er för SaaS-uppfyllelse och Marketplace-avläsning.
 
 ## <a name="next-steps"></a>Nästa steg
 

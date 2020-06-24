@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216433"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945400"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -105,9 +105,9 @@ Installera diagnostik-tillägget för en virtuell Windows-dator i Azure Portal f
 Se [Installera och konfigurera teleympkvistar](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) för information om hur du konfigurerar teleympkvistar-agenterna på virtuella Linux-datorer. Meny alternativet **diagnostiska inställningar** är tillgängligt för Linux, men du kan bara skicka data till Azure Storage.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>Samla in plattforms mått och aktivitets logg
-Du kan visa de plattforms mått och aktivitets logg som samlats in för varje virtuell dator värd i Azure Portal. Samla in dessa data till samma Log Analytics arbets yta som Azure Monitor for VMs för att analysera den med andra övervaknings data som samlas in för den virtuella datorn. Den här samlingen har kon figurer ATS med en [diagnostisk inställning](../platform/diagnostic-settings.md). Samla in aktivitets loggen med en [diagnostisk inställning för prenumerationen](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+Du kan visa de plattforms mått och aktivitets logg som samlats in för varje virtuell dator värd i Azure Portal. Samla in dessa data till samma Log Analytics arbets yta som Azure Monitor for VMs för att analysera den med andra övervaknings data som samlas in för den virtuella datorn. Den här samlingen har kon figurer ATS med en [diagnostisk inställning](../platform/diagnostic-settings.md). Samla in aktivitets loggen med en [diagnostisk inställning för prenumerationen](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Samla in plattforms mått med en diagnostisk inställning för den virtuella datorn. Till skillnad från andra Azure-resurser kan du inte skapa en diagnostisk inställning för en virtuell dator i Azure Portal men måste använda [en annan metod](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). I följande exempel visas hur du samlar in mått för en virtuell dator med hjälp av både PowerShell och CLI.
+Samla in plattforms mått med en diagnostisk inställning för den virtuella datorn. Till skillnad från andra Azure-resurser kan du inte skapa en diagnostisk inställning för en virtuell dator i Azure Portal men måste använda [en annan metod](../platform/diagnostic-settings.md#create-using-powershell). I följande exempel visas hur du samlar in mått för en virtuell dator med hjälp av både PowerShell och CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
@@ -130,7 +130,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 
 ![Övervakning i Azure Portal](media/monitor-vm-azure/monitor-menu.png)
 
-| Meny alternativ | Description |
+| Meny alternativ | Beskrivning |
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
 | Aktivitetslogg | [Aktivitets logg](../platform/activity-log-view.md) poster som filtrerats för den aktuella virtuella datorn. |
@@ -148,7 +148,7 @@ Du kan analysera mått för virtuella datorer med hjälp av Metric Explorer geno
 
 Det finns tre namn områden som används av virtuella datorer för mått:
 
-| Namnområde | Description | Krav |
+| Namnområde | Beskrivning | Krav |
 |:---|:---|:---|
 | Virtuell värddator | Värd mått samlas in automatiskt för alla virtuella Azure-datorer. Detaljerad lista över mått på [Microsoft. Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Samlas in automatiskt utan konfiguration krävs. |
 | Gäst (klassisk) | Begränsad uppsättning prestanda data för gäst operativ system och program. Tillgängligt i Metrics Explorer men inte andra Azure Monitor funktioner som mått varningar.  | [Diagnostiskt tillägg](../platform/diagnostics-extension-overview.md) installerat. Data läses från Azure Storage.  |

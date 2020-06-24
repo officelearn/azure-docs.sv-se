@@ -1,19 +1,19 @@
 ---
 title: Konfiguration av Azure N-seriens AMD GPU-drivrutin för Windows
 description: Konfigurera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: c53396b26d649ba3b6f9adf2409c7c3695bb1822
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4ab6f8dd1c2484ca560fd570f88476f31897b28
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606147"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975203"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -52,7 +52,7 @@ Du kan kontrol lera driv rutins installationen i Enhetshanteraren. I följande e
 
 Du kan använda dxdiag för att kontrol lera GPU-bildskärms egenskaper inklusive video-RAM. I följande exempel visas en 1/2-partition av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.
 <br />
-![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Om du kör Windows 10 version 1903 eller senare kommer dxdiag inte att visa någon information på fliken "Visa". Använd alternativet "Spara all information" längst ned och utdatafilen visar information om AMD MI25 GPU.
 

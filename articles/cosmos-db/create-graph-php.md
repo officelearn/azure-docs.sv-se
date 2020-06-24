@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4a979fd4b3947be62f77bbd6d7c046c6af78466c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68736651"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118312"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med PHP och Azure Portal
 
@@ -34,7 +34,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
-Följande gäller också:
+Dessutom gäller följande:
 * [PHP](https://php.net/) 5.6 eller senare
 * [Composer](https://getcomposer.org/download/)
 
@@ -106,7 +106,8 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     Kopiera den första delen av URI-värdet.
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-php/keys.png)
+    :::image type="content" source="./media/create-graph-php/keys.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+
 2. Öppna filen `connect.php` och i rad 8 klistrar du in URI-värdet över `your_server_address`.
 
     Anslutningsobjektets initiering bör se ut ungefär som följande kod:
@@ -192,21 +193,21 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 1. Klicka på **Datautforskaren**, expandera **sample-graph**, klicka på **Diagram** och klicka sedan på **Tillämpa filter**. 
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
 
 2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till tax. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
-   ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Nya hörn i grafen i datautforskaren på Azure Portal":::
 
 3. Vi ska nu lägga till några nya användare. Klicka på **Nytt hörn** om du vill lägga till data i grafen.
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
 
 4. Ange en etikett för *person*.
 
 5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
 
-    Nyckel | Värde | Obs!
+    Tangent | Värde | Kommentarer
     ----|----|----
     **identitet** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | kvinna | 
@@ -223,7 +224,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
     
-    Nyckel | Värde | Obs!
+    Tangent | Värde | Kommentarer
     ----|----|----
     **identitet** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | man | 
@@ -237,15 +238,15 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 12. Nu kan du koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
-    ![Ändra mål för ett hörn i en graf](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ändra mål för ett hörn i en graf":::
 
 13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label ** (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
 
-    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren":::
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-    ![Två hörn anslutna i datautforskaren](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Två hörn anslutna i datautforskaren":::
 
     Då är delen om att skapa resurser slutförd i den här snabbstarten. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 

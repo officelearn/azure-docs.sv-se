@@ -1,18 +1,18 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/15/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 64433f3233e249059c1c2d180a03e0a221924f15
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317698"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84793691"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
@@ -43,9 +43,22 @@ Följande VM-storlekar stöds inte för virtuella datorer på platsen:
  - B-serien
  - Kampanj versioner av valfri storlek (t. ex. dv2, NV, NC, H kampanj storlek)
 
-Virtuella datorer för virtuella datorer kan för närvarande inte använda tillfälliga OS-diskar.
-
 Virtuella datorer kan distribueras till vilken region som helst, förutom Microsoft Azure Kina 21Vianet.
+
+Vissa prenumerations kanaler stöds inte:
+
+<a name="channel"></a>
+
+| Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
+|------------------------------|-----------------------------------|
+| Enterprise-avtal         | Yes                               |
+| Betala per användning                | Yes                               |
+| Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Fördelar                     | Inte tillgänglig                     |
+| Sponsrat                    | Inte tillgänglig                     |
+| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
+
+
 
 ## <a name="pricing"></a>Prissättning
 
@@ -75,23 +88,6 @@ Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) me
 **F:** Kan jag begära ytterligare kvot för platsen?
 
 **A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**F:** Vilka kanaler stöder virtuella datorer?
-
-**A:** Se tabellen nedan för tillgänglighet för dekor datorer.
-
-<a name="channel"></a>
-
-| Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
-|------------------------------|-----------------------------------|
-| Enterprise-avtal         | Yes                               |
-| Betala per användning                | Yes                               |
-| Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Microsoft-kundavtal | Yes                               |
-| Fördelar                     | Inte tillgänglig                     |
-| Sponsrat                    | Yes                               |
-| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
 
 
 **F:** Var kan jag skicka frågor?

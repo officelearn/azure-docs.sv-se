@@ -5,15 +5,15 @@ description: Lär dig hur du skapar en Programgateway och lägger till ett certi
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19bfaf611093f6ca178a627123d4d0f9c8ccf3ca
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312143"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804416"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 > * Lägg till en regel för avlyssning och omdirigering
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

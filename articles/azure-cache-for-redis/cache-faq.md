@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b95ee80a7a99009918f4869b62a3e3768e6e58d3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fc19f247a9a915bfafde68f652784c42285928ca
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828278"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974933"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -80,7 +80,7 @@ Azure cache för Redis baseras på den populära program [Redis](https://redis.i
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Hur kan jag komma igång med Azure cache för Redis?
 Det finns flera sätt att komma igång med Azure cache för Redis.
 
-* Du kan titta på någon av våra självstudier som är tillgängliga för [.net](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.net](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node. js](cache-nodejs-get-started.md)och [python](cache-python-get-started.md).
+* Du kan titta på någon av våra självstudier som är tillgängliga för [.net](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.net](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md)och [python](cache-python-get-started.md).
 * Du kan se [hur du skapar appar med hög prestanda med Microsoft Azure cache för Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 * Du kan läsa klient dokumentationen för de klienter som matchar ditt projekts utvecklings språk och se hur du använder Redis. Det finns många Redis-klienter som kan användas med Azure cache för Redis. En lista över Redis-klienter finns i [https://redis.io/clients](https://redis.io/clients) .
 
@@ -100,7 +100,7 @@ Tänk på följande när du väljer ett cache-erbjudande.
 * **Nätverks prestanda**: om du har en arbets belastning som kräver stora data flöden erbjuder Premium-nivån mer bandbredd jämfört med standard eller Basic. I varje nivå har större cache-minne också större bandbredd på grund av den underliggande virtuella datorn som är värd för cachen. Mer information finns i [följande tabell](#cache-performance).
 * **Genom strömning**: Premium nivån erbjuder maximalt tillgängligt data flöde. Om cache-servern eller-klienten når bandbredds gränserna kan du få tids gränser på klient sidan. Se tabellen nedan för mer information.
 * **Hög tillgänglighet/SLA**: Azure cache för Redis garanterar att en standard-/Premium-cache är tillgänglig minst 99,9% av tiden. Mer information om service avtal finns i [Azure cache för Redis-priser](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Service avtalet täcker endast anslutningen till cachens slut punkter. Service avtalet omfattar inte skydd mot data förlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust.
-* **Redis data persist**: Premium-nivån gör att du kan spara cache-data i ett Azure Storage-konto. I en Basic/standard-cache lagras alla data i minnet. Bakomliggande infrastruktur problem kan leda till potentiell data förlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust. Azure cache för Redis erbjuder RDB och AOF (kommer snart) i Redis persistence. Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
+* **Redis data persist**: Premium-nivån gör att du kan spara cache-data i ett Azure Storage-konto. I en Basic/standard-cache lagras alla data i minnet. Bakomliggande infrastruktur problem kan leda till potentiell data förlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust. Azure cache för Redis erbjuder alternativ för RDB och AOF (förhands granskning) i Redis persistence. Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
 * **Redis-kluster**: om du vill skapa cacheminnen som är större än 120 GB, eller för att Shard data över flera Redis-noder, kan du använda Redis-klustring, som är tillgängligt på Premium-nivån. Varje nod består av ett primärt/replik-cache-par för hög tillgänglighet. Mer information finns i [så här konfigurerar du klustring för en Premium Azure-cache för Redis](cache-how-to-premium-clustering.md).
 * **Förbättrad säkerhet och nätverks isolering**: Azure Virtual Network (VNet)-distribution ger förbättrad säkerhet och isolering för Azure-cachen för Redis, samt undernät, åtkomst kontroll principer och andra funktioner för att ytterligare begränsa åtkomst. Mer information finns i [så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis](cache-how-to-premium-vnet.md).
 * **Konfigurera Redis**: i både standard-och Premium-nivån kan du konfigurera Redis för meddelanden om disk utrymme.
@@ -131,7 +131,7 @@ I den här tabellen kan vi Rita följande slut satser:
 | CO | 250 MB | Delad | 100/12,5  |  15 000 |   7 500 |
 | C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
-| C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
+| C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
 | C4 |  13 GB | 2      | 500/62,5  |  60 000 |  55 000 |
 | C5 |  26 GB | 4      | 1 000/125 | 102 000 |  93 000 |
 | C6 |  53 GB | 8      | 2 000/250 | 126 000 | 120 000 |
@@ -177,7 +177,7 @@ Information om hur du använder Azure cache för Redis med PowerShell i Azure Go
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Vad är konfigurations alternativen för StackExchange. Redis?
 StackExchange. Redis har många alternativ. I det här avsnittet beskrivs några av de vanliga inställningarna. Mer detaljerad information om StackExchange. Redis-alternativ finns i [stackexchange. Redis-konfiguration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Description | Rekommendation |
+| ConfigurationOptions | Beskrivning | Rekommendation |
 | --- | --- | --- |
 | AbortOnConnectFail |När värdet är true kommer anslutningen inte att återanslutas efter ett nätverks haveri. |Ange till false och låt StackExchange. Redis ansluta automatiskt. |
 | ConnectRetry |Antalet gånger som anslutnings försöken upprepas under den första anslutningen. |Se följande information om vägledning. |
@@ -211,7 +211,7 @@ En av de fantastiska sakerna som Redis är att det finns många klienter som har
 <a name="cache-emulator"></a>
 
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Finns det en lokal emulator för Azure cache för Redis?
-Det finns ingen lokal emulator för Azure cache för Redis, men du kan köra MSOpenTech-versionen av redis-server. exe från [kommando rads verktygen för Redis](https://github.com/MSOpenTech/redis/releases/) på den lokala datorn och ansluta till den för att få en liknande upplevelse till en lokal cache-emulator, som du ser i följande exempel:
+Det finns ingen lokal emulator för Azure cache för Redis, men du kan köra MSOpenTech-versionen av redis-server.exe från [kommando rads verktygen för Redis](https://github.com/MSOpenTech/redis/releases/) på den lokala datorn och ansluta till den för att få en liknande upplevelse till en lokal cache-emulator, som du ser i följande exempel:
 
     private static Lazy<ConnectionMultiplexer>
           lazyConnection = new Lazy<ConnectionMultiplexer>
@@ -331,13 +331,13 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 
 ### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>Hur kan jag mäta och testa prestanda för mitt cacheminne?
 * [Aktivera cachediagnostik](cache-how-to-monitor.md#enable-cache-diagnostics) så att du kan [övervaka](cache-how-to-monitor.md) hälsotillståndet för cacheminnet. Du kan visa måtten i Azure Portal och du kan också [Hämta och granska](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) dem med hjälp av de verktyg du väljer.
-* Du kan använda Redis-benchmark. exe för att läsa in test av Redis-servern.
+* Du kan använda redis-benchmark.exe för att läsa in testa din redis-server.
 * Se till att belastnings test klienten och Azure-cachen för Redis finns i samma region.
-* Använd Redis-cli. exe och övervaka cachen med hjälp av kommandot INFO.
+* Använd redis-cli.exe och övervaka cachen med hjälp av kommandot INFO.
 * Om din belastning orsakar hög fragmentering i minnet, bör du skala upp till en större cachestorlek.
 * Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
 
-Följande kommandon innehåller ett exempel på hur du använder Redis-benchmark. exe. Kör dessa kommandon från en virtuell dator i samma region som ditt cacheminne för korrekta resultat.
+Följande kommandon innehåller ett exempel på hur du använder redis-benchmark.exe. Kör dessa kommandon från en virtuell dator i samma region som ditt cacheminne för korrekta resultat.
 
 * Testa Pipeliniska UPPSÄTTNINGs begär Anden med en last i 1 KB
 

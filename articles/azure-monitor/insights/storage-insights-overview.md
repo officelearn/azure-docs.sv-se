@@ -3,15 +3,15 @@ title: Övervaka Azure Storage tjänster med Azure Monitor för lagring | Micros
 description: Den här artikeln beskriver Azure Monitor för lagrings funktionen som ger lagrings administratörer en snabb förståelse för prestanda-och användnings problem med deras Azure Storage-konton.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800061"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944499"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -228,6 +228,8 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 ## <a name="troubleshooting"></a>Felsökning
 
+Allmän fel söknings vägledning finns i artikeln om dedikerad informations [fel sökning](troubleshoot-workbooks.md)för arbets böcker.
+
 I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring. Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Lösa problem med prestanda, kapacitet eller tillgänglighet
@@ -237,24 +239,6 @@ Information om hur du felsöker eventuella lagrings problem som du identifierar 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Varför kan jag bara se 200-lagrings konton?
 
 Antalet valda lagrings konton har en gräns på 200, oavsett hur många prenumerationer som har valts.
-
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Vad händer när jag klickar på en nyligen fäst panel på instrument panelen?
-
-* Om du klickar någonstans på panelen kommer du till fliken där panelen har fästs från. Om du till exempel fäster en graf i fliken "lagrings konto översikt" och sedan klickar på den panelen på instrument panelen öppnas den som standardvy, men om du fäster ett diagram från din egna sparade kopia öppnas vyn Sparad kopia.
-* Filter ikonen längst upp till vänster i rubriken öppnar fliken "Konfigurera panel inställningar".
-* Ellips-ikonen längst upp till höger ger dig alternativen "anpassa rubrik data", "anpassa", "uppdatera" och "ta bort från instrument panelen".
-
-### <a name="what-happens-when-i-save-a-workbook"></a>Vad händer när jag sparar en arbets bok?
-
-* När du sparar en arbets bok kan du skapa en ny kopia av arbets boken med dina ändringar och ändra rubriken. Om du sparar skrivs inte arbets boken över, den aktuella arbets boken är alltid standardvy.
-* En **osparad** arbets bok är bara standardvyn.
-
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Varför visas inte alla mina prenumerationer i portalen?
-
-Portalen visar endast data för de valda prenumerationerna på Portal lansering. Om du vill ändra vilka prenumerationer som är markerade går du till det övre högra hörnet och klickar på antecknings boken med en filter ikon. Fliken Katalog + prenumerationer visas.
-
-![Katalog + prenumeration](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Hur ändrar du färg och tröskel för tillgänglighet?
 
@@ -273,7 +257,7 @@ För närvarande visas upp till tre olika typer av fel och resten av felen grupp
 
     ![Gå till mått och klicka på Redigera sedan på "transaktioner, summor"](./media/storage-insights-overview/fqa7.png)
 
-1. Ändra sedan antalet delningar.
+3. Ändra sedan antalet delningar.
 
     ![Välj mått parametrar "](./media/storage-insights-overview/fqa7-2.png)
 
@@ -282,37 +266,6 @@ Om du vill se n olika typer av fel än att ange splitByLimit som n + 1, 1 extra 
 ###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Jag sparade min arbets bok på ett lagrings konto. Varför kan jag inte hitta det nu?
 
 Varje arbets bok sparas i det lagrings konto som du sparade det i. Försök att hitta det lagrings konto som användaren sparade arbets boken i. Annars finns det inget sätt att hitta en speciell arbets bok utan att känna till resursen (lagrings kontot).
-
-### <a name="what-is-time-range"></a>Vad är tidsintervallet?
-
-Tidsintervallet visar data från en viss tidsram. Om tidsintervallet exempelvis är 24 timmar visar det data från de senaste 24 timmarna.
-
-### <a name="what-is-time-granularity-time-grain"></a>Vad är tids kornig het (tids kornig het)?
-
-Tids kornig het är tids skillnaden mellan två data punkter. Om tids kornigheten till exempel är en sekund som innebär att mått samlas in varje sekund.
-
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Vad är tids kornigheten när vi fäster någon del av arbets böckerna på en instrument panel?
-
-Standard tids kornig het är inställd på automatisk, den går för närvarande inte att ändra just nu.
-
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Hur gör jag för att ändra tidsintervall/tidsintervall för arbets bokens steg på min instrument panel?
-
-Som standard är TimeSpan/tidsintervallet på instrument panelen inställd på 24 timmar. om du vill ändra detta klickar du på ellipserna längst upp till höger. Välj **Anpassa panel data**, markera kryss rutan Åsidosätt inställningarna för instrument panelen på rubrik nivå och välj sedan ett TimeSpan med hjälp av list menyn.  
-
-![Välj ellipserna i det högra hörnet av panelen och välj anpassa dessa data](./media/storage-insights-overview/fqa-data-settings.png)
-
-![I Konfigurera panel inställningar väljer du List rutan TimeSpan för att ändra tidsintervall/tidsintervall](./media/storage-insights-overview/fqa-timespan.png)
-
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Hur gör jag för att ändra titeln på arbets boken eller ett arbets boks steg som jag har fäst på en instrument panel?
-
-Rubriken på arbets bokens eller arbets bokens steg som fästs på en instrument panel behåller samma namn som den hade i arbets boken. Om du vill ändra titeln måste du spara din egen kopia av arbets boken. Sedan kan du namnge arbets boken innan du trycker på Spara.
-
-![Välj Spara längst upp för att spara en kopia av arbets boken och ändra namnet på den](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-Om du vill ändra namnet på ett steg i din sparade arbets bok väljer du redigera under steget och väljer sedan växeln längst ned i inställningarna.
-
-![Välj Redigera längst ned i ett arbets boks steg för att öppna inställningarna ](./media/storage-insights-overview/fqa-edit.png)
- ![ i Inställningar Välj växeln längst ned för att kunna ändra steg namnet](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

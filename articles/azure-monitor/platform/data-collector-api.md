@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77666760"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124403"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C# och python.
@@ -38,7 +38,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | Attribut | Egenskap |
 |:--- |:--- |
 | Metod |POST |
-| URI |https://\<CustomerId\>. ods.OpInsights.Azure.com/API/logs?API-version=2016-04-01 |
+| URI |https:// \<CustomerId\> . ods.OpInsights.Azure.com/API/logs?API-version=2016-04-01 |
 | Innehållstyp |application/json |
 
 ### <a name="request-uri-parameters"></a>Begär URI-parametrar
@@ -49,7 +49,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvuden
-| Huvud | Beskrivning |
+| Sidhuvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
@@ -199,7 +199,7 @@ Den här tabellen innehåller en fullständig uppsättning status koder som tjä
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte tillgänglig för att ta emot begär Anden. Försök att utföra begäran igen. |
 
 ## <a name="query-data"></a>Söka i data
-Om du vill fråga efter data som skickats av Azure Monitor HTTP-API för data insamling söker du efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog**returnerar du alla poster med `MyCustomLog_CL`.
+Om du vill fråga efter data som skickats av Azure Monitor HTTP-API för data insamling söker du efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog**returnerar du alla poster med `MyCustomLog_CL` .
 
 ## <a name="sample-requests"></a>Exempel förfrågningar
 I nästa avsnitt hittar du exempel på hur du skickar data till API: et för Azure Monitor HTTP-datainsamling genom att använda olika programmeringsspråk.
@@ -225,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = "DateValue"
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create

@@ -1,17 +1,17 @@
 ---
 title: Skapa mått aviseringar för loggar i Azure Monitor
 description: Själv studie kurs om hur du skapar statistik aviseringar i real tid i populära Log Analytics-data.
-author: yanivlavi
-ms.author: yalavi
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80055186"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945332"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -19,7 +19,7 @@ ms.locfileid: "80055186"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor stöder [varnings typen mått](../../azure-monitor/platform/alerts-metric-near-real-time.md) som har fördelar jämfört med de [klassiska aviseringarna](../../azure-monitor/platform/alerts-classic-portal.md). Mått är tillgängliga för [stor lista över Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). I den här artikeln beskrivs användningen av en delmängd (det vill säga `Microsoft.OperationalInsights/workspaces`) för resurs-.
+Azure Monitor stöder [varnings typen mått](../../azure-monitor/platform/alerts-metric-near-real-time.md) som har fördelar jämfört med de [klassiska aviseringarna](../../azure-monitor/platform/alerts-classic-portal.md). Mått är tillgängliga för [stor lista över Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). I den här artikeln beskrivs användningen av en delmängd (det vill säga) för resurs- `Microsoft.OperationalInsights/workspaces` .
 
 Du kan använda mått varningar på populära Log Analytics loggar som har extraherats som mått som en del av mått från loggar, inklusive resurser i Azure eller lokalt. De Log Analytics lösningarna som stöds visas nedan:
 
@@ -163,7 +163,7 @@ För att uppnå samma kan du använda exemplet Azure Resource Manager mallen ned
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -299,7 +299,7 @@ För att uppnå samma kan du använda exemplet Azure Resource Manager mallen ned
 }
 ```
 
-Anta att JSON-filen ovan sparas som metricfromLogsAlertStatic. JSON – sedan kan den kopplas till en parameter-JSON-fil för att skapa en resurs mal len. En JSON-fil med exempel parametern visas nedan:
+Anta att JSON-filen ovan sparas som metricfromLogsAlertStatic.jsd, kan den kopplas till en JSON-fil för att skapa en resurs mal len. En JSON-fil med exempel parametern visas nedan:
 
 ```json
 {
@@ -355,7 +355,7 @@ Anta att JSON-filen ovan sparas som metricfromLogsAlertStatic. JSON – sedan ka
 }
 ```
 
-Förutsatt att parameter filen ovan sparas som metricfromLogsAlertStatic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Förutsatt att parameter filen ovan sparas som metricfromLogsAlertStatic.parameters.jspå. sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternativt kan du även använda Azure PowerShell-kommandot nedan:
 
@@ -452,7 +452,7 @@ För att uppnå samma kan du använda exemplet Azure Resource Manager mallen ned
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -609,7 +609,7 @@ För att uppnå samma kan du använda exemplet Azure Resource Manager mallen ned
 }
 ```
 
-Anta att JSON-filen ovan sparas som metricfromLogsAlertDynamic. JSON – sedan kan den kopplas till en parameter-JSON-fil för att skapa en resurs mal len. En JSON-fil med exempel parametern visas nedan:
+Anta att JSON-filen ovan sparas som metricfromLogsAlertDynamic.jsd, kan den kopplas till en JSON-fil för att skapa en resurs mal len. En JSON-fil med exempel parametern visas nedan:
 
 ```json
 {
@@ -671,7 +671,7 @@ Anta att JSON-filen ovan sparas som metricfromLogsAlertDynamic. JSON – sedan k
 }
 ```
 
-Förutsatt att parameter filen ovan sparas som metricfromLogsAlertDynamic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Förutsatt att parameter filen ovan sparas som metricfromLogsAlertDynamic.parameters.jspå. sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternativt kan du även använda Azure PowerShell-kommandot nedan:
 

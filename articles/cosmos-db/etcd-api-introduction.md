@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797365"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118176"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduktion till Azure Cosmos DB etcd-API (för hands version)
 
@@ -31,7 +31,7 @@ Azure Cosmos DB implementerar Wire-Protocol i etcd version 3 och tillåter [huvu
 
 I följande diagram visas komponenterna i ett Kubernetes-kluster. I kluster hanteraren använder API-servern Azure Cosmos DB etcd-API, i stället för lokalt installerade etcd. 
 
-![Azure Cosmos DB implementera etcd-kabel-protokollet](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
+:::image type="content" source="./media/etcd-api-introduction/etcd-api-wire-protocol.png" alt-text="Azure Cosmos DB implementera etcd-kabel-protokollet" border="false":::
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 

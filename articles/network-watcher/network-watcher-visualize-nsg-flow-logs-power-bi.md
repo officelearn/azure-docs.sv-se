@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ef2e32614b5a57208f91ac0fe5a4c17affa38e4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840612"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738557"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisering av flödes loggar för nätverks säkerhets grupper med Power BI
 
@@ -109,7 +109,7 @@ Vi visade i det här fallet genom att använda flödes loggar för nätverks sä
 
 Du kan anpassa den här mallen efter dina behov. Det finns många olika sätt som du kan använda för Power BI med flödes loggar för nätverks säkerhets grupper. 
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Kommentarer
 
 * Loggar som standard lagras i`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 

@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 30244a426b6f934ef66261c6dccbb46e72f28488
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 9f6b2b9b0ec2fa497d2de4d69cae58d834654e7c
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485198"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944840"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -73,7 +73,7 @@ Använd följande kommando för att köra ett prestandatest.
 | **Exempel** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
-> I det här exemplet omges Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+> I det här exemplet omges Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 Det här kommandot kör prestanda mätning genom att överföra test data till ett angivet mål. Test data genereras i minnet, överförs till målet och tas sedan bort från målet när testet har slutförts. Du kan ange hur många filer som ska genereras och vilken storlek du vill att de ska vara med hjälp av valfria kommando parametrar.
 
@@ -83,7 +83,7 @@ Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azco
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
-Du kan använda `cap-mbps` flaggan i dina kommandon för att placera ett tak på data flödets data hastighet. Följande kommando återupptar till exempel ett jobb-och Caps-genomflöde till `10` megabyte (MB) per sekund. 
+Du kan använda `cap-mbps` flaggan i dina kommandon för att placera ett tak på data flödets data hastighet. Följande kommando återupptar till exempel ett jobb-och Caps-genomflöde till `10` megabit (MB) per sekund. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
@@ -179,7 +179,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 > [!TIP]
-> Omge Sök vägs argument som SAS-token med enkla citat tecken (). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+> Omge Sök vägs argument som SAS-token med enkla citat tecken (). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 När du återupptar ett jobb tittar AzCopy på jobb Plans filen. Plan filen visar en lista över alla filer som identifierades för bearbetning när jobbet först skapades. När du återupptar ett jobb kommer AzCopy att försöka överföra alla filer som anges i den plan fil som inte redan har överförts.
 

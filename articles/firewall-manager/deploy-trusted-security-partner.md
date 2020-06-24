@@ -1,33 +1,33 @@
 ---
-title: Distribuera en betrodd säkerhets partner för Azure Firewall Manager
-description: Lär dig hur du distribuerar en betrodd säkerhet i Azure Firewall Manager med hjälp av Azure Portal.
+title: Distribuera en Azure Firewall Manager-Provider för säkerhets partner
+description: Lär dig hur du distribuerar en Azure Firewall Manager-Provider för säkerhets partner med hjälp av Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e06f8e3adaedbc8847aacba0ca4ad9c6a172c9b7
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73931310"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791698"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Distribuera en betrodd säkerhetspartner (förhandsversion)
+# <a name="deploy-a-security-partner-provider-preview"></a>Distribuera en provider för säkerhets partner (för hands version)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-*Betrodda säkerhets partner* i Azure Firewall Manager gör att du kan använda dina välkända, bästa SECaaS-tjänster (Security-as-a-Service) från tredje part för att skydda Internet åtkomsten för dina användare.
+*Leverantörer av säkerhets partner* i Azure Firewall Manager gör att du kan använda dina välkända, bästa SECaaS-erbjudanden (Security-as-a-Service) från tredje part för att skydda Internet åtkomsten för dina användare.
 
 Mer information om vilka scenarier som stöds och rikt linjer för bästa praxis finns i [Vad är betrodda säkerhets partner (för hands version)?](trusted-security-partners.md).
 
-De säkerhets partner som stöds är **ZScaler** och **iboss** för den här för hands versionen. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
+De säkerhets partner som stöds är **ZScaler**, **Check Point**och **iboss** för för hands versionen. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
 
 ## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
-> För `Register-AzProviderFeature` hands versionen av Azure Firewall Manager måste aktive ras explicit med PowerShell-kommandot.
+> För hands versionen av Azure Firewall Manager måste aktive ras explicit med `Register-AzProviderFeature` PowerShell-kommandot.
 
 Kör följande kommandon från en PowerShell-kommandotolk:
 
@@ -41,6 +41,8 @@ Det tar upp till 30 minuter innan funktions registreringen har slutförts. Kör 
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Distribuera en säkerhets leverantör från tredje part i en ny hubb
 
+Hoppa över det här avsnittet om du distribuerar en tredjeparts-Provider till en befintlig hubb.
+
 1. Logga in på Azure Portal på https://portal.azure.com.
 2. I **Sök**skriver du **Firewall Manager** och väljer den under **tjänster**.
 3. Navigera till **komma igång**. Välj **skapa en säker virtuell hubb**. 
@@ -51,8 +53,8 @@ Det tar upp till 30 minuter innan funktions registreringen har slutförts. Kör 
    > Betrodda säkerhets partner ansluter till din hubb med hjälp av VPN Gateway tunnlar. Om du tar bort VPN Gateway försvinner anslutningarna till dina betrodda säkerhets partner.
 7. Om du vill distribuera Azure-brandväggen för att filtrera privat trafik tillsammans med leverantör från tredje part för att filtrera Internet trafik, väljer du en princip för Azure-brandväggen. Se de [scenarier som stöds](trusted-security-partners.md#key-scenarios).
 8. Om du bara vill distribuera en säkerhetsprovider från tredje part i hubben väljer du **Azure Firewall: enabled/disabled** för att ange att den ska **inaktive ras**. 
-9. Välj **Nästa: betrodda säkerhets partner**.
-10. Välj **betrodd säkerhets partner** för att ställa in den på **aktive rad**. Välj en partner. 
+9. Välj **Nästa: providern för säkerhets partner**.
+10. Välj **providern för säkerhets partner** för att **Aktivera**den. Välj en partner. 
 11. Välj **Nästa**. 
 12. Granska innehållet och välj sedan **skapa**.
 
@@ -75,20 +77,25 @@ Kom ihåg att en VPN-gateway måste distribueras för att konvertera en befintli
 
 Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver tredjepartsleverantörer åtkomst behörighet till din hubb. Det gör du genom att associera ett huvud namn för tjänsten med din prenumeration eller resurs grupp och bevilja åtkomst behörighet. Du måste sedan ge dessa autentiseringsuppgifter till tredje part med hjälp av portalen.
 
+### <a name="create-and-authorize-a-service-principal"></a>Skapa och auktorisera ett huvud namn för tjänsten
+
 1. Skapa Azure Active Directory (AD) tjänstens huvud namn: du kan hoppa över omdirigerings-URL: en. 
 
-   [Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 2. Lägg till behörigheter och omfattning för tjänstens huvud namn.
-   [Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 
    > [!NOTE]
    > Du kan begränsa åtkomsten till endast din resurs grupp för mer detaljerad kontroll.
-3. Följ [ZScaler: Konfigurera en Microsoft Azure virtuella WAN-integrations](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) instruktioner till:
 
-   - Logga in på Partner portalen och Lägg till dina autentiseringsuppgifter för att ge den betrodda partner åtkomst till den skyddade hubben.
-   - Synkronisera de virtuella hubbarna i Partner portalen och konfigurera tunneln till den virtuella hubben. Du kan göra det när dina autentiseringsuppgifter för Azure AD-autentisering har verifierats.
+### <a name="visit-partner-portal"></a>Besök Partner Portal
+
+1. Följ de anvisningar som medföljer din partner för att slutföra installationen. Detta inkluderar att skicka AAD-information för att identifiera och ansluta till hubben, uppdatera de utgående principerna och kontrol lera anslutnings status och loggar.
+
+   - [Zscaler: konfigurera Microsoft Azure virtuell WAN-integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
+   - [Check Point: konfigurera Microsoft Azure virtuell WAN-integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
    
-4. Du kan titta på statusen för att skapa tunnel på Azures virtuella WAN-portal i Azure. När tunnlarna visar **anslutna** i både Azure och partner portalen fortsätter du med nästa steg för att ställa in vägar för att välja vilka grenar och virtuella nätverk som ska skicka Internet trafik till partnern.
+2. Du kan titta på statusen för att skapa tunnel på Azures virtuella WAN-portal i Azure. När tunnlarna visar **anslutna** i både Azure och partner portalen fortsätter du med nästa steg för att ställa in vägar för att välja vilka grenar och virtuella nätverk som ska skicka Internet trafik till partnern.
 
 ## <a name="configure-route-settings"></a>Konfigurera flödes inställningar
 
@@ -116,7 +123,3 @@ När du har slutfört stegen för flödes inställningen skickas virtuella nätv
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md)
-
-
-
-

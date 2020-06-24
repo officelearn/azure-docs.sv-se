@@ -4,18 +4,18 @@ description: Lär dig hur du flyttar App Service resurser från en region till e
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77925714"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945485"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Flytta en App Service app till en annan region
 
 Den här artikeln beskriver hur du flyttar App Service resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av olika anledningar. Till exempel, för att dra nytta av en ny Azure-region, för att bara distribuera funktioner eller tjänster som är tillgängliga i vissa regioner, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planerings kraven.
 
-App Service-resurser är landsspecifika och kan inte flyttas mellan regioner. Du måste skapa en kopia av dina befintliga App Service-resurser i mål regionen, flytta innehållet till den nya appen. Om din käll-app använder en anpassad domän kan du [migrera den till den nya appen i mål regionen](manage-custom-dns-migrate-domain.md) när du är klar.
+App Service-resurser är landsspecifika och kan inte flyttas mellan regioner. Du måste skapa en kopia av dina befintliga App Service-resurser i mål regionen och sedan flytta innehållet till den nya appen. Om din käll-app använder en anpassad domän kan du [migrera den till den nya appen i mål regionen](manage-custom-dns-migrate-domain.md) när du är klar.
 
 För att göra det enklare att kopiera appen kan du [klona en enskild app service app](app-service-web-app-cloning.md) i en app service plan i en annan region, men den har [begränsningar](app-service-web-app-cloning.md#current-restrictions), särskilt att den inte stöder Linux-appar.
 

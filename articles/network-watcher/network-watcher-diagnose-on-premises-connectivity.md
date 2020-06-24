@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76845066"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738761"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
@@ -65,50 +65,50 @@ När cmdleten har slutförts kan du gå till den lagrings plats som anges i cmdl
 
 ![1][1]
 
-Öppna filen IKEErrors. txt så visas följande fel meddelande, som anger ett problem med den lokala IKE-inställningen fel konfiguration.
+Öppna filen med namnet IKEErrors.txt så visas följande fel meddelande, som anger ett problem med den lokala IKE-inställningen fel konfiguration.
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-Du kan få detaljerad information från Scrubbed-wfpdiag. txt om felet, som i det här fallet nämns det att det inte gick `ERROR_IPSEC_IKE_POLICY_MATCH` att leda till att anslutningen fungerar korrekt.
+Du kan få detaljerad information från Scrubbed-wfpdiag.txt om felet, som i det här fallet nämns det att det inte gick att `ERROR_IPSEC_IKE_POLICY_MATCH` leda till att anslutningen fungerar korrekt.
 
-En annan vanlig fel konfiguration är att ange Felaktiga delade nycklar. Om du i föregående exempel har angett olika delade nycklar, visar IKEErrors. txt följande fel: `Error: Authentication failed. Check shared key`.
+En annan vanlig fel konfiguration är att ange Felaktiga delade nycklar. Om du i föregående exempel har angett olika delade nycklar, visar IKEErrors.txt följande fel: `Error: Authentication failed. Check shared key` .
 
 Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och felsöka din VPN Gateway och anslutning med enkel PowerShell-cmdlet. För närvarande stöder vi diagnostisering av följande villkor och arbetar med att lägga till fler villkor.
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Anledning | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
-| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |Nej|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Nej |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Nej |
-| PlatformInActive | Det är något problem med plattformen. | Nej|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Nej|
-| ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
-| GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Ja |
+| NoFault | När inget fel har identifierats. |Yes|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |No|
+| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |No|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | No |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | No |
+| PlatformInActive | Det är något problem med plattformen. | No|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | No|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| No|
+| ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Yes|
+| GatewayCPUUsageExceeded | CPU-användningen för aktuell gateway-användning är > 95%. | Yes |
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Anledning | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Nej|
-| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |Nej|
-| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Nej |
-| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Nej |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |Nej|
-| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
-| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
-| Autentisering | Matchnings fel för i förväg delad nyckel. | Ja|
-| PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
-| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
+| NoFault | När inget fel har identifierats. |Yes|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |No|
+| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |No|
+| UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | No |
+| VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | No |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | No |
+| ConnectionIsMarkedDisconnected | Anslutningen är markerad som frånkopplad. |No|
+| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Yes |
+| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Yes|
+| Autentisering | Matchnings fel för i förväg delad nyckel. | Yes|
+| PeerReachability | Det går inte att komma åt peer-gatewayen. | Yes|
+| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Yes|
 | WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
 
 ## <a name="next-steps"></a>Nästa steg

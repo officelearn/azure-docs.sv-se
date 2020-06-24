@@ -10,17 +10,17 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996597"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790712"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problem med Azure Role-tilldelningar
 
-- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** > **roll tilldelning** är inaktiverat eller om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden", kontrol lera att du är inloggad med en användare som `Microsoft.Authorization/roleAssignments/write` har behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
+- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg**till  >  **roll tilldelning** är inaktiverat eller om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden", kontrol lera att du är inloggad med en användare som har `Microsoft.Authorization/roleAssignments/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 
@@ -63,8 +63,8 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Anpassade roller och hanterings grupper
 
-- Du kan bara definiera en hanterings grupp `AssignableScopes` i för en anpassad roll. Att lägga till en hanterings grupp i `AssignableScopes` är för närvarande en för hands version.
-- Det går inte `DataActions` att tilldela anpassade roller med hanterings grupps omfånget.
+- Du kan bara definiera en hanterings grupp i `AssignableScopes` för en anpassad roll. Att lägga till en hanterings grupp i `AssignableScopes` är för närvarande en för hands version.
+- `DataActions`Det går inte att tilldela anpassade roller med hanterings grupps omfånget.
 - Azure Resource Manager validerar inte hanterings gruppens existens i roll definitionens tilldelnings omfång.
 - Mer information om anpassade roller och hanterings grupper finns i [ordna dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
@@ -81,7 +81,7 @@ $ras.Count
 ## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighets fel
 
 - Om du får behörighetsfelet ”Klienten med objekt-ID har inte behörighet att utföra åtgärden över område (kod: AuthorizationFailed)” när du försöker skapa en resurs kan du kontrollera att du är inloggad med en användare med en roll som har skrivbehörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista över behörigheter för varje inbyggd roll finns i [inbyggda roller i Azure](built-in-roles.md).
-- Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende, kontrollerar du att du är inloggad med en användare som har behörighet, till exempel deltagare i `Microsoft.Support/supportTickets/write` [support förfrågan](built-in-roles.md#support-request-contributor).
+- Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende, kontrollerar du att du är inloggad med en användare som har `Microsoft.Support/supportTickets/write` behörighet, till exempel [deltagare i support förfrågan](built-in-roles.md#support-request-contributor).
 
 ## <a name="role-assignments-with-identity-not-found"></a>Roll tilldelningar med identitet hittades inte
 
@@ -98,7 +98,7 @@ Om du nyligen har bjudit in en användare när du skapade en roll tilldelning, k
 
 Men om detta säkerhets objekt inte är en nyligen inbjuden användare kan det vara ett borttaget säkerhets objekt. Om du tilldelar en roll till ett säkerhets objekt och sedan tar bort säkerhetsobjektet utan att först ta bort roll tilldelningen visas säkerhets objekt listan som **identitet inte hittas** och en **okänd** typ.
 
-Om du anger den här roll tilldelningen med Azure PowerShell kan du se att `DisplayName` en tom `ObjectType` och en uppsättning är **okänd**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
+Om du anger den här roll tilldelningen med Azure PowerShell kan du se att en tom `DisplayName` och en `ObjectType` uppsättning är **okänd**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -112,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-På samma sätt kan det hända att du ser en tom `principalName`lista om du anger den här roll tilldelningen med hjälp av Azure CLI. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande utdata:
+På samma sätt kan det hända att du ser en tom lista om du anger den här roll tilldelningen med hjälp av Azure CLI `principalName` . Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande utdata:
 
 ```
 {
@@ -153,7 +153,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 Azure Resource Manager cachelagrar ibland konfigurationer och data för att förbättra prestanda. När du lägger till eller tar bort roll tilldelningar kan det ta upp till 30 minuter innan ändringarna börjar gälla. Om du använder Azure Portal, Azure PowerShell eller Azure CLI kan du framtvinga en uppdatering av roll tilldelnings ändringarna genom att logga ut och logga in. Om du gör roll tilldelnings ändringar med REST API-anrop kan du framtvinga en uppdatering genom att uppdatera åtkomst-token.
 
-Om du lägger till eller tar bort en roll tilldelning i hanterings gruppens omfång och `DataActions`rollen har, kanske inte åtkomsten till data planet uppdateras under flera timmar. Detta gäller endast för hanterings gruppens omfattning och data planet.
+Om du lägger till eller tar bort en roll tilldelning i hanterings gruppens omfång och rollen har `DataActions` , kanske inte åtkomsten till data planet uppdateras under flera timmar. Detta gäller endast för hanterings gruppens omfattning och data planet.
 
 ## <a name="web-app-features-that-require-write-access"></a>Webb program funktioner som kräver skriv åtkomst
 

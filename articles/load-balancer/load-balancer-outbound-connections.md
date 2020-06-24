@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0e46905ad280cd76d66befb1156e428b23f35664
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0d16823f920695f84db74122c9a2ac07de0abdb2
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235647"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907082"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
-Azure Load Balancer tillhandahåller utgående anslutning för kund distributioner via flera olika mekanismer. I den här artikeln beskrivs vad scenarierna är, när de tillämpas, hur de fungerar och hur du hanterar dem. Om du har problem med utgående anslutning via en Azure Load Balancer kan du läsa [fel söknings guide för utgående anslutningar] (.. /load-balancer/troubleshoot-outbound-connection.md).
+Azure Load Balancer tillhandahåller utgående anslutning för kund distributioner via flera olika mekanismer. I den här artikeln beskrivs vad scenarierna är, när de tillämpas, hur de fungerar och hur du hanterar dem. Om du har problem med utgående anslutning via en Azure Load Balancer kan du läsa [fel söknings guiden för utgående anslutningar](../load-balancer/troubleshoot-outbound-connection.md).
 
 >[!NOTE] 
 >Den här artikeln beskriver endast Resource Manager-distributioner. Granska [utgående anslutningar (klassiska)](load-balancer-outbound-connections-classic.md) för alla klassiska distributions scenarier i Azure.
@@ -40,7 +40,7 @@ Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenar
 
 Azure Load Balancer och relaterade resurser definieras explicit när du använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure tillhandahåller för närvarande tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser. 
 
-| SKU:er | Scenario | Metod | IP-protokoll | Description |
+| SKU:er | Scenario | Metod | IP-protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. virtuell dator med en offentlig IP-adress på instans nivå (med eller utan Load Balancer)](#ilpip) | SNAT, Port maskerad, används inte | TCP, UDP, ICMP, ESP | Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort. Instansen har alla tillfälliga portar tillgängliga. När du använder Standard Load Balancer stöds inte [utgående regler](load-balancer-outbound-rules-overview.md) om en offentlig IP-adress tilldelas den virtuella datorn. |
 | Standard, Basic | [2. offentlig Load Balancer associerad med en virtuell dator (ingen offentlig IP-adress på instansen)](#lb) | SNAT med port maskerad (PAT) med hjälp av Load Balancer-frontend | TCP, UDP |Azure delar den offentliga IP-adressen för offentliga Load Balancer-frontend med flera privata IP-adresser. Azure använder tillfälliga portar för frontend-PAT. När du använder Standard Load Balancer bör du använda [utgående regler](load-balancer-outbound-rules-overview.md) för att uttryckligen definiera utgående anslutningar. |

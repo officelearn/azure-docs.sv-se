@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278199"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698010"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -24,7 +24,7 @@ Med Azure Functions tåligt tillägg kan du också spåra *händelser* som gör 
 
 ### <a name="tracking-data"></a>Spårnings data
 
-Varje livs cykel händelse i en Orchestration-instans gör att en spårnings händelse skrivs till **trace** -samlingen i Application Insights. Den här händelsen innehåller en **customDimensions** nytto last med flera fält.  Fält namn är alla anpassningsprefix med `prop__`.
+Varje livs cykel händelse i en Orchestration-instans gör att en spårnings händelse skrivs till **trace** -samlingen i Application Insights. Den här händelsen innehåller en **customDimensions** nytto last med flera fält.  Fält namn är alla anpassningsprefix med `prop__` .
 
 * **hubName**: namnet på den aktivitets hubb som dirigeringarna körs i.
 * **APPNAME**: namnet på Function-appen. Det här fältet är användbart när du har flera Function-appar som delar samma Application Insights-instans.
@@ -44,7 +44,7 @@ Varje livs cykel händelse i en Orchestration-instans gör att en spårnings hä
 * **extensionVersion**: versionen av det varaktiga aktivitets tillägget. Versions informationen är särskilt viktig när du rapporterar möjliga buggar i tillägget. Tids krävande instanser kan rapportera flera versioner om en uppdatering inträffar när den körs.
 * **sequenceNumber**: körnings ordnings nummer för en händelse. Tillsammans med tidsstämpeln kan du beställa händelserna efter körnings tid. *Observera att det här antalet återställs till noll om värden startas om medan instansen körs, så det är viktigt att alltid sortera efter tidsstämpel först, sedan sequenceNumber.*
 
-Utförligheten för spårnings data som skickas till Application Insights kan konfigureras i `logger` avsnittet (Functions 1. x `logging` ) eller (Functions 2,0) `host.json` i filen.
+Utförligheten för spårnings data som skickas till Application Insights kan konfigureras i `logger` avsnittet (Functions 1. x) eller `logging` (functions 2,0) i `host.json` filen.
 
 #### <a name="functions-10"></a>Functions 1,0
 
@@ -74,7 +74,7 @@ Utförligheten för spårnings data som skickas till Application Insights kan ko
 
 Som standard genereras alla icke-omuppspelnings spårnings händelser. Mängden data kan minskas genom att ställa in `Host.Triggers.DurableTask` till `"Warning"` eller `"Error"` i så fall kommer spårning av händelser bara att genereras för exceptionella situationer.
 
-Om du vill aktivera sändning av utförliga Dirigerings `LogReplayEvents` händelser kan du ställa in på `true` i `host.json` filen under `durableTask` som visas:
+Om du vill aktivera sändning av utförliga Dirigerings händelser `LogReplayEvents` kan du ställa in på `true` i `host.json` filen under `durableTask` som visas:
 
 #### <a name="functions-10"></a>Functions 1,0
 
@@ -103,7 +103,7 @@ Om du vill aktivera sändning av utförliga Dirigerings `LogReplayEvents` hände
 
 ### <a name="single-instance-query"></a>Fråga för enskild instans
 
-I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello-sekvensen](durable-functions-sequence.md) . Det skrivs med hjälp av [AIQL (Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera `timestamp` efter `sequenceNumber` och som visas i frågan nedan:
+I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello-sekvensen](durable-functions-sequence.md) . Det skrivs med hjälp av [AIQL (Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan:
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -223,7 +223,7 @@ Done!
 > [!NOTE]
 > Kom ihåg att även om loggarna som ska anropa F1, F2 och F3, så kallas dessa funktioner *bara första* gången de påträffas. Efterföljande anrop som sker under uppspelningen hoppas över och utdata spelas upp i Orchestrator-logiken.
 
-Om du bara vill logga in på en icke-omuppspelnings körning kan du skriva ett villkors uttryck för att `IsReplaying` endast `false`logga om är. Överväg exemplet ovan, men den här gången med repetitions kontroller.
+Om du bara vill logga in på en icke-omuppspelnings körning kan du skriva ett villkors uttryck för att endast logga om `IsReplaying` är `false` . Överväg exemplet ovan, men den här gången med repetitions kontroller.
 
 #### <a name="precompiled-c"></a>Förkompilerad C #
 
@@ -305,11 +305,11 @@ Done!
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 ## <a name="custom-status"></a>Anpassad status
 
-Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via HTTP-status frågans API eller `IDurableOrchestrationClient.GetStatusAsync` API: et. Den anpassade Orchestration-statusen möjliggör bättre övervakning av Orchestrator-funktioner. Till exempel kan Orchestrator-funktions koden innehålla `IDurableOrchestrationContext.SetCustomStatus` anrop för att uppdatera förloppet för en tids krävande åtgärd. En klient, till exempel en webb sida eller ett annat externt system, kan sedan regelbundet fråga HTTP-status frågans API: er för mer information om förloppet. Ett exempel som `IDurableOrchestrationContext.SetCustomStatus` använder finns nedan:
+Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via HTTP-status frågans API eller `IDurableOrchestrationClient.GetStatusAsync` API: et. Den anpassade Orchestration-statusen möjliggör bättre övervakning av Orchestrator-funktioner. Till exempel kan Orchestrator-funktions koden innehålla `IDurableOrchestrationContext.SetCustomStatus` anrop för att uppdatera förloppet för en tids krävande åtgärd. En klient, till exempel en webb sida eller ett annat externt system, kan sedan regelbundet fråga HTTP-status frågans API: er för mer information om förloppet. Ett exempel `IDurableOrchestrationContext.SetCustomStatus` som använder finns nedan:
 
 ### <a name="precompiled-c"></a>Förkompilerad C #
 
@@ -328,7 +328,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 ### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
@@ -379,7 +379,7 @@ Azure Functions stöder fel söknings funktions kod direkt och samma stöd vidar
 * **Stoppa och starta**: meddelanden i varaktiga funktioner kvarstår mellan fel söknings sessioner. Om du slutar felsöka och avslutar den lokala värd processen medan en varaktig funktion körs, kan den funktionen köras igen automatiskt i en framtida felsökningssession. Det här beteendet kan vara förvirrande när det inte förväntas. Att rensa alla meddelanden från [interna lagrings köer](durable-functions-perf-and-scale.md#internal-queue-triggers) mellan fel söknings sessioner är en teknik för att undvika det här beteendet.
 
 > [!TIP]
-> Om du ställer in Bryt punkter i Orchestrator-funktioner, om du bara vill bryta vid icke-omuppspelningar, kan du ange en villkorlig Bryt punkt som `IsReplaying` bara `false`delar om är.
+> Om du ställer in Bryt punkter i Orchestrator-funktioner, om du bara vill bryta vid icke-omuppspelningar, kan du ange en villkorlig Bryt punkt som bara delar om `IsReplaying` är `false` .
 
 ## <a name="storage"></a>Storage
 

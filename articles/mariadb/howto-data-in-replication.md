@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 5549f9eaf2bc44dfa7e99df04fd7864dd4b655ce
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/11/2020
+ms.openlocfilehash: 0b23b01faf1b6ba09f1c55db2ddabd1696e452be
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610907"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738115"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
 
-I den här artikeln beskrivs hur du konfigurerar Datareplikering i Azure Database for MariaDB genom att konfigurera huvud-och replik servrar. Den här artikeln förutsätter att du har tidigare erfarenhet av MariaDB-servrar och-databaser.
+I den här artikeln beskrivs hur du konfigurerar [datareplikering](concepts-data-in-replication.md) i Azure Database for MariaDB genom att konfigurera huvud-och replik servrar. Den här artikeln förutsätter att du har tidigare erfarenhet av MariaDB-servrar och-databaser.
 
-Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar Datareplikering data från en lokal huvud-MariaDB-server i virtuella datorer (VM) eller i moln databas tjänster.
+Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar [datareplikering](concepts-data-in-replication.md) data från en lokal huvud-MariaDB-server i virtuella datorer (VM) eller i moln databas tjänster. Datareplikering baseras på positionsbaserad replikering med en binär loggfil (binlog) som är inbyggd i MariaDB. Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
 
 Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitations-and-considerations) för datareplikering innan du utför stegen i den här artikeln.
 

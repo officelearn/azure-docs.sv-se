@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: edfcb1d0bfc87c84620b13ed26ec681fef32f1e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1854c6f86e1a3578b6314b072f104174032344e1
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878331"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907592"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure-tjänster som stöder Azure Data Lake Storage Gen2
 
@@ -39,10 +39,10 @@ I den här tabellen visas de Azure-tjänster som du kan använda med Azure Data 
 |HDInsight |Allmänt tillgänglig|[Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Använda HDFS CLI med Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Självstudie: extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
 |IoT Hub |Allmänt tillgänglig|[Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
 |Power BI|Allmänt tillgänglig|[Analysera data i Data Lake Storage Gen2 med Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
-|SQL Data Warehouse|Allmänt tillgänglig|[Använda med Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
+|Azure Synapse Analytics (tidigare SQL Data Warehouse)|Allmänt tillgänglig|[Använd med Azure Synapse Analytics (tidigare SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
 |SQL Server Integration Services (SSIS)|Allmänt tillgänglig|[Azure Storage anslutnings hanteraren](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
-|Azure Cognitive Search|Förhandsversion|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
-|Azure-datautforskaren|Förhandsversion|[Fråga efter data i Azure Data Lake med Azure Datautforskaren](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
+|Azure Cognitive Search|Förhandsgranskning|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
+|Azure-datautforskaren|Förhandsgranskning|[Fråga efter data i Azure Data Lake med Azure Datautforskaren](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Content Delivery Network|Stöds inte ännu|[Index och Sök Azure Data Lake Storage Gen2 dokument (förhands granskning)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
 

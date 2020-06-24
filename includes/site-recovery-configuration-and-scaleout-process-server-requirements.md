@@ -1,20 +1,20 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234135"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292116"
 ---
 **Krav för konfiguration och process Server**
 
@@ -52,15 +52,13 @@ Typ av nätverkskort | VMXNET3 (om konfigurations servern är en virtuell VMware
  |
 **Internet åtkomst** (servern behöver åtkomst till följande URL: er, direkt eller via proxy):|
 \*.backup.windowsazure.com | Används för replikerad data överföring och samordning
-\*.store.core.windows.net | Används för replikerad data överföring och samordning
-\*.blob.core.windows.net | Används för att komma åt lagrings kontot som lagrar replikerade data
+\*.blob.core.windows.net | Används för att komma åt lagrings kontot som lagrar replikerade data. Du kan ange den speciella URL: en för ditt cache Storage-konto.
 \*.hypervrecoverymanager.windowsazure.com | Används för hanterings åtgärder och samordning av replikering
-https:\//management.azure.com | Används för hanterings åtgärder och samordning av replikering 
-*.services.visualstudio.com | Används för telemetri (valfritt)
+https:\//login.microsoftonline.com | Används för hanterings åtgärder och samordning av replikering 
 time.nist.gov | Används för att kontrol lera tidssynkronisering mellan system och global tid
 time.windows.com | Används för att kontrol lera tidssynkronisering mellan system och global tid
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//Graph.Windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.Microsoft.com </li></ul> | OVF-installationen behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
-https:\//dev.mysql.com/get/downloads/MySQLInstaller/MySQL-Installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också vit listas, om det behövs.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /Graph.Windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (valfritt) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | OVF-installationen behöver åtkomst till dessa ytterligare URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också vit listas, om det behövs.
 |
 
 ## <a name="required-software"></a>Programvara som krävs
@@ -76,7 +74,7 @@ MYSQL | MySQL ska installeras. Du kan installera manuellt, eller så kan Site Re
 I följande tabell sammanfattas kapacitets kraven för konfigurations servern. Om du replikerar flera virtuella VMware-datorer bör du gå igenom [kapacitets planerings överväganden](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) och köra [Distributionshanteraren för Azure Site Recovery-verktyget](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Data ändrings takt** | **Replikerade datorer**
+**Processor** | **Minne** | **Cachelagra disk** | **Data ändrings takt** | **Replikerade datorer**
 --- | --- | --- | --- | ---
 8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | < 100-datorer
 12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150-datorer

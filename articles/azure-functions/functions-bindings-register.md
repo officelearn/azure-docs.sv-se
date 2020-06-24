@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277523"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697348"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
 
@@ -26,14 +26,14 @@ I följande tabell visas när och hur du registrerar bindningar.
 
 | Utvecklingsmiljö |Registrering<br/> i funktioner 1. x  |Registrering<br/> i funktioner 2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatisk|Automatisk|
-|Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatisk|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
+|Azure Portal|Automatiskt|Automatiskt|
+|Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatiskt|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
 |C#-klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
 |C#-klass bibliotek med Visual Studio Code|Ej tillämpligt|[Använd .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Tilläggs paket för lokal utveckling
 
-Tilläggs paket är en distributions teknik som gör att du kan lägga till en kompatibel uppsättning funktions bindnings tillägg i din Function-app. En fördefinierad uppsättning tillägg läggs till när du skapar din app. Tilläggs paket som definieras i ett paket är kompatibla med varandra, vilket hjälper dig att undvika konflikter mellan paket. Du aktiverar tilläggs paket i appens Host. JSON-fil.  
+Tilläggs paket är en distributions teknik som gör att du kan lägga till en kompatibel uppsättning funktions bindnings tillägg i din Function-app. En fördefinierad uppsättning tillägg läggs till när du skapar din app. Tilläggs paket som definieras i ett paket är kompatibla med varandra, vilket hjälper dig att undvika konflikter mellan paket. Du aktiverar tilläggs paket i appens host.jsfil.  
 
 Du kan använda tilläggs paket med version 2. x och senare versioner av Functions-körningen. När du utvecklar lokalt kontrollerar du att du använder den senaste versionen av [Azure Functions Core tools](functions-run-local.md#v2).
 
@@ -41,13 +41,13 @@ Använd tilläggs paket för lokal utveckling med hjälp av Azure Functions Core
 
 Om du inte använder tilläggs paket måste du installera .NET Core 2. x SDK på den lokala datorn innan du installerar eventuella bindnings tillägg. Paket för tillägg tar bort det här kravet för lokal utveckling. 
 
-Om du vill använda tilläggs paket uppdaterar du *Host. JSON* -filen så att den inkluderar följande `extensionBundle`post för:
+Om du vill använda tilläggs paket uppdaterar du *host.jspå* fil för att inkludera följande post för `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>C\# -klass bibliotek med Visual Studio
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>C- \# klass bibliotek med Visual Studio
 
 I **Visual Studio**kan du installera paket från Package Manager-konsolen med kommandot [install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , som du ser i följande exempel:
 
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 Namnet på det paket som används för en angiven bindning anges i referens artikeln för den bindningen. Ett exempel finns i [avsnittet paket i referens artikeln Service Bus bindning](functions-bindings-service-bus.md#functions-1x).
 
-Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5`. Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
+Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5` . Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
 
 Om du använder `Install-Package` för att referera till en bindning behöver du inte använda [tilläggs paket](#extension-bundles). Den här metoden är speciell för klass bibliotek som skapats i Visual Studio.
 
@@ -73,7 +73,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 Ersätt `<BINDING_TYPE_NAME>` med namnet på det paket som innehåller den bindning du behöver. Du hittar den önskade bindnings referens artikeln i [listan över bindningar som stöds](./functions-triggers-bindings.md#supported-bindings).
 
-Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5`. Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
+Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5` . Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

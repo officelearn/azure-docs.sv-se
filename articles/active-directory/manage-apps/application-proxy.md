@@ -2,23 +2,23 @@
 title: Fjärråtkomst till lokala appar – Azure AD-programproxy
 description: Azure Active Directorys Application Proxy ger säker fjärråtkomst till lokala webb program. Efter en enkel inloggning till Azure AD kan användare komma åt både molnet och lokala program via en extern URL eller en intern applikations Portal. Till exempel kan programproxy tillhandahålla fjärråtkomst och enkel inloggning till fjärr skrivbord, SharePoint, teams, Tableau, Qlik och LOB-program (Line of Business).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 20b186c75358344e6e995b24b8e54e308c8653d2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168734"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975426"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory programmets proxy
 
@@ -60,7 +60,7 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 5. Anslutningen skickar begäran till det lokala programmet.
 6. Svaret skickas via tjänsten anslutnings-och programproxy till användaren.
 
-| Komponent | Description |
+| Komponent | Beskrivning |
 | --------- | ----------- |
 | Slutpunkt  | Slut punkten är en URL eller en [slut användar Portal](end-user-experiences.md). Användare kan nå program utanför nätverket genom att ha åtkomst till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller en slut användar Portal. När användarna går till någon av dessa slut punkter, autentiseras de i Azure AD och dirigeras sedan via anslutningen till det lokala programmet.|
 | Azure AD | Azure AD utför autentiseringen med hjälp av klient katalogen som lagras i molnet. |
@@ -71,5 +71,3 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du börjar använda Application Proxy finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via programproxy](application-proxy-add-on-premises-application.md).
-
-De senaste nyheterna och uppdateringarna finns i [Application Proxy-bloggen](https://blogs.technet.com/b/applicationproxyblog/)

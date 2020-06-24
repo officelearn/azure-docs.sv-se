@@ -7,23 +7,23 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74077009"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803637"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastnings utjämning på flera IP-konfigurationer med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Portalen](load-balancer-multiple-ip.md)
+> * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
@@ -62,7 +62,7 @@ Utför följande steg för att uppnå det scenario som beskrivs i den här artik
 
 Lägg till IP-konfigurationen för det sekundära NÄTVERKSKORTet för varje virtuell dator i det virtuella nätverket:  
 
-1. Bläddra till Azure Portal: https://portal.azure.com. Logga in med ditt Azure-konto.
+1. Bläddra till Azure Portal: https://portal.azure.com . Logga in med ditt Azure-konto.
 
 2. I det övre vänstra hörnet på skärmen väljer du ikonen **resurs grupp** . Välj sedan den resurs grupp där de virtuella datorerna finns (till exempel **contosofabrikam**). I fönstret **resurs grupper** visas alla resurser och nätverkskort för de virtuella datorerna.
 
@@ -86,9 +86,9 @@ När den andra IP-konfigurationen för det sekundära NÄTVERKSKORTet har slutf�
 
 Skapa belastningsutjämnaren för konfigurationen:
 
-1. Bläddra till Azure Portal: https://portal.azure.com. Logga in med ditt Azure-konto.
+1. Bläddra till Azure Portal: https://portal.azure.com . Logga in med ditt Azure-konto.
 
-2. I det övre vänstra hörnet på skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**. Välj sedan **skapa**.
+2. I det övre vänstra hörnet på skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Load Balancer**. Välj sedan **skapa**.
 
 3. Under **skapa belastningsutjämnare**anger du ett namn för belastningsutjämnaren. I det här scenariot använder vi namnet **mylb**.
 

@@ -4,16 +4,16 @@ description: Den här sidan innehåller en standardiserad metod för att testa p
 services: expressroute
 author: tracsman
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74869654"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738251"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
 ## <a name="overview"></a>Översikt
@@ -160,7 +160,7 @@ Test konfiguration:
  - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
  - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Ett exempel:
+ - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300

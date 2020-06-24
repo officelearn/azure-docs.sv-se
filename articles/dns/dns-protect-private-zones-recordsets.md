@@ -4,15 +4,15 @@ description: I den här utbildnings vägen börjar du skydda privata DNS-zoner o
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: da94c9aa97483ab5792e917d6a8f60f846b0722e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77473069"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701872"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Skydda privata DNS-zoner och-poster
 

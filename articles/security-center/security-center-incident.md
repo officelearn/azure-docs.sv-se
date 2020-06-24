@@ -6,48 +6,62 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 98fc339e473ffb2bf54e7119634e93046cca1ef3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415672"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791762"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
-Prioritering och undersöker säkerhets aviseringar kan ta lång tid för även de mest erfarna säkerhetsanalytikerna och för många är det svårt att till och med veta var du ska börja. Med hjälp av [analys](security-center-detection-capabilities.md) för att ansluta informationen mellan olika [säkerhetsaviseringar](security-center-managing-and-responding-alerts.md), kan Security Center förse dig med en enda vy av en attackkampanj och alla relaterade aviseringar – du kan snabbt förstå vilka åtgärder angriparen vidtog och vilka resurser som har påverkats.
+Sorterar och undersöker säkerhets aviseringar kan ta lång tid för även de mest erfarna säkerhetsanalytikerna. För många är det svårt att veta var du ska börja. 
 
-I det här avsnittet beskrivs incidenter i Security Center och hur du använder dem för att åtgärda deras aviseringar.
+Security Center använder [analyser](security-center-detection-capabilities.md) för att ansluta informationen mellan olika [säkerhets aviseringar](security-center-managing-and-responding-alerts.md). Med dessa anslutningar kan Security Center tillhandahålla en enda vy över en angrepps kampanj och dess relaterade aviseringar för att hjälpa dig att förstå angriparens åtgärder och de resurser som påverkas.
+
+Den här sidan innehåller en översikt över incidenter i Security Center.
 
 ## <a name="what-is-a-security-incident"></a>Vad är en säkerhetsincident?
 
-I Security Center är en säkerhetsincident en sammanställning av alla aviseringar för en resurs som överensstämmer med särskilda [händelsekedjemönster](alerts-reference.md#intentions). Incidenter visas i listan [säkerhets aviseringar](security-center-managing-and-responding-alerts.md) . Klicka på en incident om du vill visa de relaterade aviseringarna, vilket gör att du kan få mer information om varje förekomst.
+I Security Center är en säkerhetsincident en sammanställning av alla aviseringar för en resurs som överensstämmer med särskilda [händelsekedjemönster](alerts-reference.md#intentions). Incidenter visas på sidan [säkerhets aviseringar](security-center-managing-and-responding-alerts.md) . Välj en incident om du vill visa relaterade aviseringar och få mer information.
 
 ## <a name="managing-security-incidents"></a>Hantera säkerhetsincidenter
 
-1. På instrument panelen Security Center klickar du på panelen **säkerhets aviseringar** . Incidenter och aviseringar visas. Observera att säkerhetsincidentbeskrivningen har en annan ikon jämfört med andra aviseringar.
+1. På sidan Security Center översikt väljer du panelen **säkerhets aviseringar** . Incidenter och aviseringar visas. Observera att säkerhets incidenter har en annan ikon för säkerhets aviseringar.
 
     ![Visa säkerhets incidenter](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Om du vill visa detaljer klickar du på en incident. Bladet **identifierad säkerhets incident** visar ytterligare information. Avsnittet **allmän information** kan ge en insikt om vad som utlöste säkerhets aviseringen. Den visar information som mål resursen, källans IP-adress (när det är tillämpligt), om aviseringen fortfarande är aktiv och rekommendationer om hur du kan åtgärda detta.  
+1. Om du vill visa information väljer du en incident. Sidan **säkerhets incident** visar mer information. 
 
-    ![Svara på säkerhets incidenter i Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
+    [![Svara på säkerhets incidenter i Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
-1. Klicka på en avisering om du vill ha mer information om varje avisering. Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering.
+    Den vänstra rutan på sidan säkerhets incident visar information på hög nivå om säkerhets incidenten: rubrik, allvarlighets grad, status, aktivitets tid, beskrivning och den berörda resursen. Bredvid resursen som påverkas kan du se relevanta Azure-taggar. Använd de här taggarna för att härleda organisationens organisatoriska kontext vid utredning av aviseringen.
+
+    Den högra rutan innehåller fliken **aviseringar** med de säkerhets aviseringar som korrelerats som en del av den här incidenten. 
+
+    >[!TIP]
+    > Om du vill ha mer information om en speciell avisering väljer du den. 
+
+    [![Fliken vidta åtgärd i incidenten](media/security-center-incident/incident-take-action-tab.png)](media/security-center-incident/incident-take-action-tab.png#lightbox)
+
+    Om du vill växla till fliken **vidta åtgärd** väljer du fliken eller knappen längst ned i den högra rutan. Använd den här fliken för att vidta ytterligare åtgärder, till exempel:
+    - *Minimera hotet* – ger manuella reparations steg för den här säkerhets incidenten
+    - *Förhindra framtida attacker* – ger säkerhets rekommendationer för att minska attack ytan, öka säkerheten position och förhindra framtida attacker
+    - *Utlös automatiserat svar* – ger möjlighet att utlösa en Logic app som ett svar på denna säkerhets incident
+    - *Ignorera liknande aviseringar* – ger möjlighet att ignorera framtida aviseringar med liknande egenskaper om aviseringen inte är relevant för din organisation 
 
    > [!NOTE]
    > Samma avisering kan finnas som en del av en incident, och visas som en fristående avisering.
 
-    ![Aviseringsinformation](./media/security-center-incident/security-center-incident-alert.png)
-
-1. Följ de reparations steg som har angetts för varje avisering.
+1. Om du vill åtgärda hoten i incidenten följer du de åtgärds steg som medföljer varje avisering.
 
 
-## <a name="see-also"></a>Se även
-I det här dokumentet har du fått lära dig hur du använder säkerhetsincidentfunktionen i Security Center. Relaterad information finns i följande avsnitt:
+## <a name="next-steps"></a>Nästa steg
 
-* [Skydd mot hot i Azure Security Center](threat-protection.md)
-* [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
-* [Hantera säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
+Den här sidan förklaras säkerhets incident funktionerna i Security Center. Relaterad information finns på följande sidor:
+
+* [Skydd mot hot i Security Center](threat-protection.md)
+* [Säkerhets aviseringar i Security Center](security-center-alerts-overview.md)
+* [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)

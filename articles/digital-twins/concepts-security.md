@@ -1,5 +1,5 @@
 ---
-title: Säkerhet för Azure Digitals dubbla lösningar
+title: Säkerhet för Azure Digital Twins-lösningar
 titleSuffix: Azure Digital Twins
 description: Lär dig mer om rekommenderade säkerhets metoder med Azure Digitals.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1464d1b8da4b9f0389b192f0876ed52ad5e4ad44
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613014"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736857"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifika data, resurser och åtgärder i distributionen. Detta sker via en detaljerad roll och behörighets hanterings strategi som kallas **rollbaserad åtkomst kontroll (RBAC)**. Du kan läsa om de allmänna principerna för RBAC för Azure [här](../role-based-access-control/overview.md).
 

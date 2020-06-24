@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842945"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738064"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
 
@@ -68,7 +68,7 @@ Det här scenariot gör följande:
 
 Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen och skapa en paket fångst.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** > **beräknings** > **Funktionsapp**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**  >  **beräknings**  >  **Funktionsapp**.
 
     ![Skapa en funktionsapp][1-1]
 
@@ -83,7 +83,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
     |**Position**|USA, centrala| Den region där du vill skapa Function-appen.|
     |**Lagrings konto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
 
-3. På bladet **PacketCaptureExample Function-appar** väljer **Functions** > du**anpassad funktion** >**+**.
+3. På bladet **PacketCaptureExample Function-appar** väljer **du**  >  **anpassad funktion**  > **+** .
 
 4. Välj **HttpTrigger-PowerShell**och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
 
@@ -120,7 +120,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
      ![PowerShell-mappar][functions5]
 
-1. Välj **funktions program inställningar** > **gå till App Service Editor**.
+1. Välj **funktions program inställningar**  >  **gå till App Service Editor**.
 
     ![Funktionsappinställningar][functions2]
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Lagra miljövariablerna
 
-1. Gå till Function-appen. Välj sedan **funktions program inställningar** > **Konfigurera appinställningar**.
+1. Gå till Function-appen. Välj sedan **funktions program inställningar**  >  **Konfigurera appinställningar**.
 
     ![Konfigurera appinställningar][functions11]
 

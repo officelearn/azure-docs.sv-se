@@ -6,17 +6,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffbf37730d5064edcd067c3383fe18c342a2b053
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77619921"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738506"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
@@ -96,7 +96,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-`$blockList` Variabeln returnerar en lista över blocken i blobben. Varje Block-Blob innehåller minst två block.  Det första blocket har en längd `12` på byte, det här blocket innehåller de inledande hakparenteserna för JSON-loggen. Det andra blocket är de avslutande hakparenteserna och har en längd `2` på byte.  Som du kan se i följande exempel logg har sju poster, var och en för enskilda poster. Alla nya poster i loggen läggs till i slutet till höger före det sista blocket.
+`$blockList`Variabeln returnerar en lista över blocken i blobben. Varje Block-Blob innehåller minst två block.  Det första blocket har en längd på `12` byte, det här blocket innehåller de inledande hakparenteserna för JSON-loggen. Det andra blocket är de avslutande hakparenteserna och har en längd på `2` byte.  Som du kan se i följande exempel logg har sju poster, var och en för enskilda poster. Alla nya poster i loggen läggs till i slutet till höger före det sista blocket.
 
 ```
 Name                                         Length Committed
@@ -158,7 +158,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Nu innehåller `$valuearray` matrisen sträng värden för varje block. För att verifiera posten, hämta den andra till det sista värdet från matrisen genom att `$valuearray[$valuearray.Length-2]`köra. Du vill inte ha det sista värdet eftersom det är den avslutande hakparentesen.
+Nu `$valuearray` innehåller matrisen sträng värden för varje block. För att verifiera posten, hämta den andra till det sista värdet från matrisen genom att köra `$valuearray[$valuearray.Length-2]` . Du vill inte ha det sista värdet eftersom det är den avslutande hakparentesen.
 
 Resultatet av det här värdet visas i följande exempel:
 

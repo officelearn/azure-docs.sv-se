@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655315"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119417"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -23,19 +23,19 @@ Den största fördelen med att ändra flödes processor bibliotek är dess felto
 
 ## <a name="components-of-the-change-feed-processor"></a>Komponenter i processorn för Change-feed
 
-Det finns fyra huvud komponenter i implementeringen av Change feed-processorn:
+Det finns fyra huvudkomponenter i implementeringen av ändringsflödesprocessorn:
 
-1. **Den övervakade behållaren:** Den övervakade behållaren har data som ändrings flödet genereras från. Eventuella infogningar och uppdateringar av den övervakade behållaren visas i behållarens ändrings flöde.
+1. **Den övervakade containern:** Den övervakade containern har de data som ändringsflödet genereras från. Infogningar och uppdateringar till den övervakade containern visas i containerns ändringsflöde.
 
-1. **Leasing container:** Lease-behållaren fungerar som en tillstånds lagring och samordnar bearbetning av ändrings flödet över flera arbetare. Lease-behållaren kan lagras i samma konto som den övervakade behållaren eller i ett separat konto.
+1. **Lånecontainern:** Lånecontainern fungerar som en lagerplats för tillstånd och samordnar bearbetning av ändringsflödet över flera arbetsroller. Lånecontainern kan lagras i samma konto som den övervakade containern eller i ett separat konto.
 
-1. **Värden:** En värd är en program instans som använder en Change feed-processor för att lyssna efter ändringar. Flera instanser med samma låne konfiguration kan köras parallellt, men varje instans bör ha ett annat **instans namn**.
+1. **Värden:** En värd är en programinstans som använder ändringsflödesprocessorn för att lyssna efter ändringar. Flera instanser med samma lånekonfiguration kan köras parallellt, men varje instans bör ha ett unikt **instansnamn**.
 
-1. **Delegaten:** Delegaten är den kod som definierar vad du, utvecklaren vill göra med varje grupp ändringar som har lästs av Change feed-processorn. 
+1. **Ombudet:** Ombudet är den kod som definierar vad du, utvecklaren, vill göra med varje batch av ändringar som ändringsflödesprocessor läser. 
 
 För att bättre förstå hur dessa fyra delar av ändra flödes processor fungerar tillsammans, ska vi titta på ett exempel i följande diagram. Den övervakade behållaren lagrar dokument och använder "ort" som partitionsnyckel. Vi ser att värdena för partitionsnyckel distribueras i intervall som innehåller objekt. Det finns två värd instanser och processorn för ändrings flöden tilldelar olika intervall med nyckel värden till varje instans för att maximera beräknings distributionen. Varje intervall läses parallellt och förloppet bevaras separat från andra intervall i leasing behållaren.
 
-![Exempel på ändring av flödes processor](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Exempel på ändring av flödes processor" border="false":::
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementera bearbetning av Change feeds-processorn
 
@@ -56,7 +56,7 @@ Slutligen definierar du ett namn för processor instansen med `WithInstanceName`
 
 ## <a name="processing-life-cycle"></a>Bearbetnings livs cykel
 
-Den normala livs cykeln för en värd instans är:
+Den normala livscykeln för en värdinstans är:
 
 1. Läs ändrings flödet.
 1. Om det inte finns några ändringar kan du försätta i vilo läge under en fördefinierad tid (anpassningsbar med `WithPollInterval` i-verktyget) och gå till #1.
@@ -83,7 +83,7 @@ Som nämnts tidigare kan du ha en eller flera instanser inom en distributions en
 
 1. Alla instanser bör ha samma konfiguration för låne behållare.
 1. Alla instanser bör ha samma `processorName` .
-1. Varje instans måste ha ett annat instans namn ( `WithInstanceName` ).
+1. Varje instans måste ha ett unikt instansnamn (`WithInstanceName`).
 
 Om dessa tre villkor är uppfyllda, använder Change container-processorn med en algoritm för likvärdig distribution och distribuerar alla lån i leasing behållaren över alla instanser som körs av distributions enheten och parallellisera-beräkning. Ett lån kan bara ägas av en instans vid en specifik tidpunkt, så det maximala antalet instanser är lika med antalet lån.
 

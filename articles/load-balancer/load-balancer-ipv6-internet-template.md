@@ -8,18 +8,18 @@ author: asudbring
 keywords: IPv6, Azure Load Balancer, dubbel stack, offentlig IP, inbyggd IPv6, mobil, IoT
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb9703a1944a650f41d76c05d79764f8bdf8cd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045445"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803741"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetbaserad lösning för belastnings utjämning med IPv6 med hjälp av en mall
 
@@ -111,12 +111,12 @@ En Azure Resource Manager-mall innehåller flera variabler och parametrar som du
 
 Exempel mal len som används i den här artikeln innehåller följande variabler och parametrar:
 
-| Parameter/variabel | Anteckningar |
+| Parameter/variabel | Kommentarer |
 | --- | --- |
 | adminUsername |Ange namnet på det administratörs konto som används för att logga in på de virtuella datorerna med. |
 | adminPassword |Ange lösen ordet för det administratörs konto som används för att logga in på de virtuella datorerna med. |
-| dnsNameforIPv4LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv4-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-]{1,61}[a-Z0-9] $. |
-| dnsNameforIPv6LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv6-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-]{1,61}[a-Z0-9] $. Detta kan vara samma namn som IPv4-adressen. När en klient skickar en DNS-fråga för det här namnet kommer Azure att returnera både A-och AAAA-posterna när namnet delas. |
+| dnsNameforIPv4LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv4-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-] {1,61} [a-Z0-9] $. |
+| dnsNameforIPv6LbIP |Ange DNS-värdnamnet som du vill tilldela som Last balansers offentliga namn. Det här namnet matchar belastningsutjämnarens offentliga IPv6-adress. Namnet måste vara i gemener och matcha regex: ^ [a-z] [a-Z0-9-] {1,61} [a-Z0-9] $. Detta kan vara samma namn som IPv4-adressen. När en klient skickar en DNS-fråga för det här namnet kommer Azure att returnera både A-och AAAA-posterna när namnet delas. |
 | vmNamePrefix |Ange prefixet för den virtuella datorns namn. Mallen lägger till ett tal (0, 1 osv.) till namnet när de virtuella datorerna skapas. |
 | nicNamePrefix |Ange prefixet för nätverks gränssnittets namn. Mallen lägger till ett tal (0, 1 osv.) till namnet när nätverks gränssnitten skapas. |
 | storageAccountName |Ange namnet på ett befintligt lagrings konto eller ange namnet på ett nytt som ska skapas av mallen. |

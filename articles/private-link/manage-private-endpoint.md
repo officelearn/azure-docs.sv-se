@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar privata slut punkts anslutningar i Azure
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75452969"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737503"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Hantera en privat slutpunktsanslutning
 Azures privata länk fungerar på en flödes modell för godkännande av samtal där mottagare av den privata länk tjänsten kan begära en anslutning till tjänst leverantören för att konsumera tjänsten. Tjänste leverantören kan sedan bestämma om konsumenten ska tillåtas att ansluta eller inte. Med Azures privata länk kan tjänst leverantörer hantera den privata slut punkts anslutningen på sina resurser. Den här artikeln innehåller anvisningar om hur du hanterar anslutningar för privata slut punkter.
@@ -28,9 +28,9 @@ Tabellen nedan visar de olika tjänste leverantörs åtgärderna och de resulter
 
 |Tjänst leverantörs åtgärd   |Status för privat slut punkt för tjänst förbrukare   |Beskrivning   |
 |---------|---------|---------|
-|Ingen    |    Väntande åtgärder     |    Anslutningen skapas manuellt och väntar på godkännande av resurs ägaren för den privata länken.       |
+|Inga    |    Väntar     |    Anslutningen skapas manuellt och väntar på godkännande av resurs ägaren för den privata länken.       |
 |Godkänn    |  Godkända       |  Anslutningen godkändes automatiskt eller manuellt och är redo att användas.     |
-|Avvisa     | Avvisad        | Anslutningen avvisades av ägaren till den privata länk resursen.        |
+|Avvisa     | Avslagen        | Anslutningen avvisades av ägaren till den privata länk resursen.        |
 |Ta bort    |  Frånkopplad       | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning.        |
 |   |         |         |
    

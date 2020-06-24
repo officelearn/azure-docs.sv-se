@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258010"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700893"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
 
@@ -46,7 +46,7 @@ Detta säkerställer att endast replikeringstrafik flödar genom ExpressRoute me
 
 När virtuella datorer eller servrar växlar över till ett virtuellt Azure-nätverk kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
-Det kombinerade scenariot representeras i följande diagram ![: lokal-till-Azure med ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
+Det kombinerade scenariot representeras i följande diagram: ![ lokal-till-Azure med ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Azure till Azure-replikering med ExpressRoute
 

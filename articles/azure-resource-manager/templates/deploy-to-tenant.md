@@ -2,13 +2,13 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 46e8db865b022e4fa1294c96843553a0480e559f
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485451"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945451"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -90,7 +90,7 @@ För REST API använder du [distributioner – skapa eller uppdatera i klient om
 
 För distributioner på klient nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall med namnet **azuredeploy. JSON** skapas ett standard distributions namn för **azuredeploy**.
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 

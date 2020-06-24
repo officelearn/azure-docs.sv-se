@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/17/2020
-ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 06/15/2020
+ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873844"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945383"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -31,7 +31,7 @@ Insikter ger en anpassad övervaknings miljö för specifika program och tjänst
 | [Azure Monitor för nätverk (för hands version)](insights/network-insights-overview.md) | Innehåller en omfattande vy över hälso tillstånd och mått för alla nätverks resurser. Med den avancerade Sök funktionen kan du identifiera resurs beroenden, aktivera scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på din webbplats. |
 [Azure Monitor för resurs grupper (förhands granskning)](insights/resource-group-insights.md) |  Prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontexten och prestandan för resurs gruppen som helhet. |
 | [Azure Monitor för lagring](insights/storage-insights-overview.md) | Tillhandahåller omfattande övervakning av dina Azure Storage konton genom att leverera en enhetlig vy över dina Azure Storages prestanda, kapacitet och tillgänglighet. |
-| [Azure Monitor för virtuella datorer](insights/container-insights-overview.md) | Övervakar dina virtuella Azure-datorer (VM) och skalnings uppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. |
+| [Azure Monitor för virtuella datorer](insights/vminsights-overview.md) | Övervakar dina virtuella Azure-datorer (VM) och skalnings uppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. |
 | [Azure Monitor för Key Vault (förhands granskning)](insights/key-vaults-insights-overview.md) | Povides omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault begär Anden, prestanda, haverier och svars tider. |
 | [Azure Monitor för Azure cache för Redis (för hands version)](insights/redis-cache-insights-overview.md) |  Ger en enhetlig, interaktiv vy över övergripande prestanda, fel, kapacitet och drifts hälsa. |
 
@@ -55,7 +55,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 - Loggar – tjänsten stöder diagnostikinställningar som kan samla in plattforms loggar och statistik för att Azure Monitor loggar.
 - Insight – det finns en insikt tillgänglig för tjänsten som tillhandahåller en anpassad övervaknings upplevelse för tjänsten.
 
-| Tjänst | Mått | Loggar | Insight | Anteckningar |
+| Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
 |Active Directory | No | Yes | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Inga | Inga | Inga |  |
@@ -111,7 +111,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |ExpressRoute | Ja | Ja | No |  |
 |Brandvägg | Ja | Ja | No |  |
 |Front Door | Ja | Ja | No |  |
-|Functions | Ja | Ja | No |  |
+|Funktioner | Ja | Ja | No |  |
 |HDInsight | No | Yes | No |  |
 |HPC Cache | Inga | Inga | Inga |  |
 |Information Protection | No | Yes | No |  |
@@ -120,7 +120,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |IoT Hub | Ja | Ja | No |  |
 |Key Vault | Ja | Ja | [Ja](insights/key-vaults-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Inga | Inga | [Ja](insights/container-insights-overview.md)  |  |
-|Lastbalanserare | Ja | Ja | No |  |
+|Load Balancer | Ja | Ja | No |  |
 |Logic Apps | Ja | Ja | No |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
 |Managed Applications  | Inga | Inga | Inga |  |
@@ -136,9 +136,8 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Network Watcher | Ja | Ja | No |  |
 |Notification Hubs | Yes | Inga | Inga |  |
 |Open Datasets | Inga | Inga | Inga |  |
-|Policy | Inga | Inga | Inga |  |
-|Power BI | Ja | Ja | Nej |  |
-|Power BI Embedded | Inga | Inga | Inga |  |
+|Policy | Inga | Inga | Nej |  |
+|Power BI Embedded | Ja | Ja | No |  |
 |Private Link | Inga | Inga | Inga |  |
 |Kommunikations plattform för bufferthanterare | Inga | Inga | Inga |  |
 |Red Hat OpenShift | Inga | Inga | Inga |  |
@@ -184,7 +183,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 | [Key Vault-analys](insights/azure-key-vault.md) | Analysera Azure Key Vault AuditEvent-loggar. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Skapa en diagnostisk inställning för att skicka loggar till Azure Monitor. Se [Skicka logg data till lagring, Event Hub eller Log Analytics i Intune (för hands version)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Nätverk  | [Övervakare av nätverksprestanda](insights/network-performance-monitor.md) -övervaka nätverks anslutningar och prestanda till tjänst-och program slut punkter.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analysera loggar och mått från Azure Application Gateway.<br>[Trafikanalys](/azure/network-watcher/traffic-analytics) -analyserar Network Watcher nätverks säkerhets grupps flödes loggar (NSG) för att ge insikter i trafikflödet i ditt Azure-moln. |
-| [Office 365](insights/solution-office-365.md) | Övervaka din Office 365-miljö. Uppdaterad version med förbättrad onboarding tillgänglig via Azure Sentinel. |
+| [Office 365](insights/solution-office-365.md) | Övervaka din Office 365-miljö. Uppdaterad version med förbättrad onboarding tillgänglig via Azure Sentinel. |
 | [SQL-analys](insights/azure-sql.md) | Övervaka prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. |
 | [Surface Hub](insights/surface-hubs.md) | Spåra hälsan och användningen av Surface Hub enheter. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Samla in data från Operations Manager-agenter genom att ansluta hanterings gruppen till Azure Monitor. Se [ansluta Operations Manager till Azure Monitor](platform/om-agents.md)<br> Utvärdera riskerna och hälsan i din System Center Operations Manager hanterings grupp med [Operations Manager utvärderings](insights/scom-assessment.md) lösning. |
@@ -201,7 +200,7 @@ Andra lösningar är tillgängliga för övervakning av olika program och tjäns
 |:---|:---|
 | [Active Directory hälso kontroll](insights/ad-assessment.md) | Utvärdera riskerna och hälso tillståndet i dina Active Directorys miljöer. |
 | [Active Directory replikeringsstatus](insights/ad-replication-status.md) | Övervakar regelbundet din Active Directorys miljö för eventuella replikeringsfel. |
-| [Aktivitets logg analys](platform/activity-log-view.md#azure-portal) | Visa aktivitets logg poster. |
+| [Aktivitets logg analys](platform/activity-log.md#activity-log-analytics-monitoring-solution) | Visa aktivitets logg poster. |
 | [DNS-analys (för hands version)](insights/dns-analytics.md) | Samlar in, analyserar och korrelerar Windows DNS analys-och gransknings loggar och andra relaterade data från dina DNS-servrar. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Samla in, Visa och analysera Cloud Foundry systemets hälso tillstånds-och prestanda mått i flera distributioner. |
 | [Containrar](insights/containers.md) | Visa och hantera Docker-och Windows container-värdar. |

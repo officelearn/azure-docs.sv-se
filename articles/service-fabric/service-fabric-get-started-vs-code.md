@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258491"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692606"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller en översikt över kraven och installationen av ti
 
 Följande krav måste vara installerade på alla miljöer.
 
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visuell Studio-kod](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
@@ -56,7 +56,7 @@ Följande krav måste vara installerade för .NET Core/C#-utveckling:
 2. Klicka på ikonen tillägg i **aktivitets fältet** på vänster sida om vs Code. Sök efter "Service Fabric". Klicka på **Installera** för Service Fabric Reliable Services-tillägget.
 
 ## <a name="commands"></a>Kommandon
-Service Fabric Reliable Services tillägget för VS Code innehåller många kommandon som hjälper utvecklare att skapa och distribuera Service Fabric-projekt. Du kan anropa kommandon från **paletten kommando** genom att `(Ctrl + Shift + p)`trycka på, skriva kommando namnet i indataströmmen och välja önskat kommando från listan med meddelanden. 
+Service Fabric Reliable Services tillägget för VS Code innehåller många kommandon som hjälper utvecklare att skapa och distribuera Service Fabric-projekt. Du kan anropa kommandon från **paletten kommando** genom att trycka på `(Ctrl + Shift + p)` , skriva kommando namnet i indataströmmen och välja önskat kommando från listan med meddelanden. 
 
 * Service Fabric: skapa program 
 * Service Fabric: publicera program 
@@ -87,10 +87,10 @@ Kommandot **Service Fabric: Lägg till tjänst** lägger till en ny tjänst i et
 5.  Den nya tjänsten visas i projekt katalogen. 
 
 ### <a name="service-fabric-publish-application"></a>Service Fabric: publicera program
-Kommandot **Service Fabric: publicera program** distribuerar ditt Service Fabric-program på ett fjärran slutet kluster. Mål klustret kan vara antingen ett säkert eller oskyddat kluster. Om parametrarna inte anges i Cloud. JSON, distribueras programmet till det lokala klustret.
+Kommandot **Service Fabric: publicera program** distribuerar ditt Service Fabric-program på ett fjärran slutet kluster. Mål klustret kan vara antingen ett säkert eller oskyddat kluster. Om parametrarna inte anges i Cloud.jspå, distribueras programmet till det lokala klustret.
 
-1.  Första gången som programmet har skapats genereras en Cloud. JSON-fil i projekt katalogen.
-2.  Mata in värdena för det kluster som du vill ansluta till i filen Cloud. JSON.
+1.  Första gången som programmet har skapats genereras en Cloud.jspå filen i projekt katalogen.
+2.  Mata in värdena för det kluster som du vill ansluta till i Cloud.jspå filen.
 3.  Välj kommandot **Service Fabric: publicera program** .
 4.  Visa mål klustret med Service Fabric Explorer för att bekräfta att programmet har installerats. 
 
@@ -98,8 +98,8 @@ Kommandot **Service Fabric: publicera program** distribuerar ditt Service Fabric
 Kommandot **Service Fabric: distribuera program** distribuerar ditt Service Fabric-program till det lokala klustret. Kontrol lera att ditt lokala kluster körs innan du använder kommandot. 
 
 1. Välj kommandot **Service Fabric: distribuera program**
-2. Visa det lokala klustret med Service Fabric Explorer (http:\//localhost: 19080/Explorer) för att bekräfta att programmet har installerats. Det kan ta lite tid, så därför måste du vara patient.
-3. Du kan också använda **Service Fabric: kommandot Publicera program** utan parametrar som angetts i Cloud. JSON-filen för distribution till ett lokalt kluster.
+2. Visa det lokala klustret med Service Fabric Explorer (http: \/ /localhost: 19080/Explorer) för att bekräfta att programmet har installerats. Det kan ta lite tid, så därför måste du vara patient.
+3. Du kan också använda **Service Fabric: kommandot Publicera program** utan parametrar som angetts i Cloud.jspå filen för att distribuera till ett lokalt kluster.
 
 > [!NOTE]
 > Distribution av Java-program till det lokala klustret stöds inte på Windows-datorer.

@@ -3,25 +3,25 @@ title: Publicera fjärr skrivbord med Azure AD App proxy | Microsoft Docs
 description: Beskriver grunderna för Azure AD-programproxy-kopplingar.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108467"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764527"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera fjärr skrivbord med Azure AD-programproxy
 
@@ -67,7 +67,7 @@ När du har konfigurerat RDS och Azure AD-programproxy för din miljö följer d
 ### <a name="publish-the-rd-host-endpoint"></a>Publicera värd slut punkten för fjärr skrivbord
 
 1. [Publicera ett nytt program för programproxy](application-proxy-add-on-premises-application.md) med följande värden:
-   - Intern URL: `https://\<rdhost\>.com/`, där `\<rdhost\>` är den gemensamma roten som resursen för webb-och Fjärrskrivbordsgateway-resurs.
+   - Intern URL: `https://\<rdhost\>.com/` , där `\<rdhost\>` är den gemensamma roten som resursen för webb-och Fjärrskrivbordsgateway-resurs.
    - Extern URL: det här fältet fylls i automatiskt baserat på namnet på programmet, men du kan ändra det. Användarna kommer att gå till denna URL när de ansluter till RDS.
    - Förautentiserings metod: Azure Active Directory
    - Översätt URL-huvuden: Nej
@@ -75,7 +75,7 @@ När du har konfigurerat RDS och Azure AD-programproxy för din miljö följer d
 3. Lämna metoden för enkel inloggning för programmet när **enkel inloggning med Azure AD har inaktiverats**. Användarna uppmanas att autentisera sig en gång till Azure AD och en gång till en webb server med enkel inloggning till RD Gateway.
 4. Välj **Azure Active Directory**och sedan **app-registreringar**. Välj din app i listan.
 5. Under **Hantera**väljer du **märkes anpassning**.
-6. Uppdatera **Start sidans URL** -fält så att de pekar på din webb slut `https://\<rdhost\>.com/RDWeb`punkt för fjärr skrivbord (till exempel).
+6. Uppdatera **Start sidans URL** -fält så att de pekar på din webb slut punkt för fjärr skrivbord (till exempel `https://\<rdhost\>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigera fjärr skrivbords trafik till Application Proxy
 
@@ -91,7 +91,7 @@ Anslut till RDS-distributionen som administratör och ändra Server namnet för 
 
    ![Sidan distributions egenskaper på RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Kör det här kommandot för varje samling. Ersätt * \<yourcollectionname\> * *och \<proxyfrontendurl\> * med din egen information. Det här kommandot möjliggör enkel inloggning mellan RD Web och RD Gateway och optimerar prestandan:
+8. Kör det här kommandot för varje samling. Ersätt *\<yourcollectionname\>* och *\<proxyfrontendurl\>* med din egen information. Det här kommandot möjliggör enkel inloggning mellan RD Web och RD Gateway och optimerar prestandan:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

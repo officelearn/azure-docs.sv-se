@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271647"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695342"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -108,7 +108,7 @@ Mer information om IoT Hub finns i [Azure IoT Hub](https://docs.microsoft.com/az
 
 Mer information om enhets anslutning i Azure IoT Central finns i [enhets anslutning](concepts-get-connected.md).
 
-## <a name="data-stores"></a>Data lager
+## <a name="data-stores"></a>Datalager
 
 Azure IoT Central lagrar program data i molnet. Program data som lagras innehåller:
 
@@ -119,7 +119,7 @@ Azure IoT Central lagrar program data i molnet. Program data som lagras innehål
 
 Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 

@@ -5,17 +5,17 @@ description: Lär dig hur du skapar och distribuerar anpassade R-moduler i ML St
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 90e654255691686225ddab3c294dcd62877d4622
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208439"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696413"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio (klassisk)
 
@@ -34,10 +34,10 @@ En anpassad R-modul definieras av en. zip-fil som innehåller minst två filer:
 Ytterligare tilläggsfiler kan också ingå i. zip-filen som innehåller funktioner som kan nås från den anpassade modulen. Det här alternativet beskrivs i **argument** delen av **elementen i referens avsnittet i XML-definitions filen** efter snabb starts exemplet.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Snabb starts exempel: definiera, paketera och registrera en anpassad R-modul
-Det här exemplet illustrerar hur du skapar de filer som krävs av en anpassad R-modul, paketerar dem i en zip-fil och sedan registrerar modulen i din Machine Learning-arbetsyta. Zip-paketet och exempelfilerna kan laddas ned från [Hämta CustomAddRows. zip-filen](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Det här exemplet illustrerar hur du skapar de filer som krävs av en anpassad R-modul, paketerar dem i en zip-fil och sedan registrerar modulen i din Machine Learning-arbetsyta. Zip-paketet och exempelfilerna kan laddas ned från [Ladda ned CustomAddRows.zip-filen](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>Käll filen
-Överväg exemplet på en anpassad modul för att **lägga till rader** som ändrar standard implementeringen av modulen **Lägg till rader** som används för att sammanfoga rader (observationer) från två data uppsättningar (data ramar). I modulen standard **Lägg till rader** läggs raderna i den andra data uppsättningen till i slutet av den första data uppsättningen med `rbind` algoritmen. Den anpassade `CustomAddRows` funktionen godkänner två data uppsättningar, men accepterar även en boolesk växlings parameter som ytterligare indata. Om växlings parametern har angetts till **false**returneras samma data uppsättning som standard implementeringen. Men om växlings parametern är **True**lägger funktionen till rader i första data uppsättningen i slutet av den andra data uppsättningen i stället. Den CustomAddRows. R-fil som innehåller implementeringen av R `CustomAddRows` -funktionen som exponeras av modulen för **anpassade Lägg till rader** har följande R-kod.
+Överväg exemplet på en anpassad modul för att **lägga till rader** som ändrar standard implementeringen av modulen **Lägg till rader** som används för att sammanfoga rader (observationer) från två data uppsättningar (data ramar). I modulen standard **Lägg till rader** läggs raderna i den andra data uppsättningen till i slutet av den första data uppsättningen med `rbind` algoritmen. Den anpassade `CustomAddRows` funktionen godkänner två data uppsättningar, men accepterar även en boolesk växlings parameter som ytterligare indata. Om växlings parametern har angetts till **false**returneras samma data uppsättning som standard implementeringen. Men om växlings parametern är **True**lägger funktionen till rader i första data uppsättningen i slutet av den andra data uppsättningen i stället. Den CustomAddRows. R-fil som innehåller implementeringen av R- `CustomAddRows` funktionen som exponeras av modulen för **anpassade Lägg till rader** har följande R-kod.
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
     {
@@ -52,7 +52,7 @@ Det här exemplet illustrerar hur du skapar de filer som krävs av en anpassad R
     } 
 
 ### <a name="the-xml-definition-file"></a>XML-definitions filen
-Om du vill `CustomAddRows` Visa den här funktionen som den Azure Machine Learning Studio (klassiska) modulen, måste du skapa en XML-definitions fil för att ange hur den **anpassade modulen Lägg till rader** ska se ut och bete sig. 
+Om du vill visa den här `CustomAddRows` funktionen som den Azure Machine Learning Studio (klassiska) modulen, måste du skapa en XML-definitions fil för att ange hur den **anpassade modulen Lägg till rader** ska se ut och bete sig. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -92,7 +92,7 @@ Det är viktigt att Observera att värdet för **ID-** attributen för **indata*
 Däremot motsvarar **ID-** attributet för **output** -elementet inte några variabler i R-skriptet. Om fler än en utmatning krävs behöver du bara returnera en lista från R-funktionen med resultat som har placerats *i samma ordning* som **utmatnings** elementen deklareras i XML-filen.
 
 ### <a name="package-and-register-the-module"></a>Paketera och registrera modulen
-Spara de här två filerna som *CustomAddRows. R* och *CustomAddRows. XML* och zippa sedan samman de två filerna i en *CustomAddRows. zip* -fil.
+Spara de här två filerna som *CustomAddRows. R* och *CustomAddRows.xml* och zippa sedan samman de två filerna i en *CustomAddRows.zip* fil.
 
 Om du vill registrera dem på arbets ytan Machine Learning går du till din arbets yta i Azure Machine Learning Studio (klassisk), klickar på knappen **+ ny** längst ned och väljer **modul-> från zip-paket** för att ladda upp den nya **anpassade modulen Lägg till rader** .
 
@@ -176,7 +176,7 @@ För anpassade R-moduler behöver inte ID: t för en zip-port matcha några para
 
 För utdata i anpassade R-moduler behöver inte värdet för **ID-** attributet motsvara vad som finns i R-skriptet, men det måste vara unikt. För utdata i en enda modul måste returvärdet från R-funktionen vara en *data. Frame*. För att kunna skriva ut fler än ett objekt av en datatyp som stöds måste rätt utgående portar anges i XML-definitions filen och objekten måste returneras som en lista. Utgående objekt tilldelas till utgående portar från vänster till höger, vilket återspeglar i vilken ordning objekten placeras i den returnerade listan.
 
-Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för att mata ut de ursprungliga två data uppsättningarna, *DataSet1* och *DataSet2*, förutom den nya kopplade data uppsättningen, *data uppsättningen*(i en ordning, från vänster till höger, som: *data uppsättning*, *Dataset1*, *DataSet2*) definierar du Utdataportarna i filen CustomAddRows. xml på följande sätt:
+Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för att mata ut de ursprungliga två data uppsättningarna, *DataSet1* och *DataSet2*, förutom den nya sammanfogade data uppsättningen, *data uppsättningen*, (i en ordning, från vänster till höger, som: *data uppsättning*, *DataSet1*, *DataSet2*) definierar du Utdataportarna i CustomAddRows.xml-filen på följande sätt:
 
     <Ports> 
         <Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -284,7 +284,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
     * Boolesk
     * Kategoriska
     * Sträng
-    * Label (Etikett)
+    * Etikett
     * Funktion
     * Poäng
     * Alla
@@ -356,7 +356,7 @@ Du kan källa till tilläggs filen RemoveDupNARows. R i CustomAddRows-funktionen
         return (dataset)
     }
 
-Sedan laddar du upp en zip-fil som innehåller "CustomAddRows. R", "CustomAddRows. xml" och "RemoveDupNARows. R" som en anpassad R-modul.
+Sedan laddar du upp en zip-fil som innehåller "CustomAddRows. R", "CustomAddRows.xml" och "RemoveDupNARows. R" som en anpassad R-modul.
 
 ## <a name="execution-environment"></a>Körnings miljö
 Körnings miljön för R-skriptet använder samma version av R som modulen **köra R-skript** och kan använda samma standard paket. Du kan också lägga till ytterligare R-paket i din anpassade modul genom att inkludera dem i zip-paketet för den anpassade modulen. Läs bara in dem i ditt R-skript som du skulle göra i din egen R-miljö. 

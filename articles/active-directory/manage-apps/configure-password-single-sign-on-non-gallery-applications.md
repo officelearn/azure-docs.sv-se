@@ -2,21 +2,21 @@
 title: Konfigurera enkel inloggning med lösen ord för Azure AD-appar | Microsoft Docs
 description: Så här konfigurerar du lösen ord för enkel inloggning (SSO) till dina Azure AD Enterprise-program i Microsoft Identity Platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063534"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763507"
 ---
 # <a name="configure-password-single-sign-on"></a>Konfigurera enkel inloggning för lösen ord
 
@@ -44,7 +44,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
 
-2. Gå till **Azure Active Directory** > **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
+2. Gå till **Azure Active Directory**  >  **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
 
 3. I menyn **program typ** väljer du **alla program**och väljer sedan **Använd**.
 
@@ -68,7 +68,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuellt.
 
-1. Under ** \<program namn> konfiguration**väljer du **Konfigurera \<program namn> lösen ords inställningar för enkel inloggning** för att visa sidan **Konfigurera inloggning** . 
+1. Under ** \<application name> konfiguration**väljer du **Konfigurera \<application name> Inställningar för enkel inloggning med lösen ord** för att visa sidan **Konfigurera inloggning** . 
 
 2. Välj **identifiera inloggnings fält manuellt**. Ytterligare instruktioner som beskriver manuell identifiering av inloggnings fält visas.
 

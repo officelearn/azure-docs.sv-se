@@ -4,20 +4,20 @@ description: Få svar på vanliga frågor om villkorlig åtkomst i Azure Active 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167816"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253247"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Vanliga frågor om villkorlig åtkomst för Azure Active Directory
 
@@ -54,6 +54,12 @@ Microsoft Teams stöds också separat som en molnbaserad app i principer för vi
 Microsoft team Desktop-klienter för Windows och Mac stöder modern autentisering. Modern autentisering ger inloggning baserat på Azure Active Directory Authentication Library (ADAL) för att Microsoft Office klient program på olika plattformar.
 
 Mer information finns i artikeln, [beroenden för tjänsten för villkorlig åtkomst](service-dependencies.md) och Tänk på mål principer för [Office 365-appen](concept-conditional-access-cloud-apps.md#office-365-preview) i stället.
+
+## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Varför fungerar inte vissa flikar i Microsoft Teams när du har aktiverat principer för villkorlig åtkomst?
+
+När du har aktiverat vissa principer för villkorlig åtkomst på klienten i Microsoft team, kan vissa flikar inte längre fungera i Skriv bords klienten som förväntat. De berörda flikarna fungerar dock när du använder Microsoft Teams webb klient. De flikar som påverkas kan vara Power BI, formulär, VSTS, PowerApps och SharePoint-lista.
+
+För att se de berörda flikarna måste du använda team webb klienten i Edge, Internet Explorer eller Chrome med tillägget Windows 10-konton installerat. Vissa flikar är beroende av webbautentisering, som inte fungerar i Microsoft Teams Skriv bords klient när villkorlig åtkomst är aktive rad. Microsoft samarbetar med partners för att aktivera dessa scenarier. Hittills har vi aktiverat scenrarios som berör Planner, OneNote och Stream.
 
 ## <a name="next-steps"></a>Nästa steg
 

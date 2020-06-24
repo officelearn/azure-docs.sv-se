@@ -2,14 +2,14 @@
 title: Hämta information om Azure Blockchain Workbench-databas
 description: Lär dig hur du hämtar Azure blockchain Workbench Preview-databas och databas server information.
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: 2b3190a9d042be8ead1ff3d5ef48d4a2a19e8963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 898360d8e22803e17ff4da7d3b63f5595cad47ba
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324695"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254658"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Hämta information om din Azure Blockchain Workbench-databas
 
@@ -31,7 +31,7 @@ Så här ansluter du till databasen:
 1. Logga in på Azure Portal med ett konto som har **ägar** behörigheter för Azure blockchain Workbench-resurserna.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
-4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**. Den sorterade listan i nästa skärmdump visar två SQL-databaser, ”master” och en som använder ”lhgn” som **resursprefix**.
+4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**. I den sorterade listan i nästa skärm bild visas två databaser, "Master" och en som använder "lhgn" som **resurs-prefix**.
 
    ![Sorterad lista över Blockchain Workbench-resurser](./media/getdb-details/sorted-workbench-resource-list.png)
 

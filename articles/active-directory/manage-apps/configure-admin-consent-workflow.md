@@ -2,22 +2,22 @@
 title: Konfigurera arbets flödet för administratörs medgivande – Azure Active Directory | Microsoft Docs
 description: Lär dig hur du konfigurerar ett sätt för slutanvändare att begära åtkomst till program som kräver administratörs medgivande.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430208"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763626"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurera arbets flödet för administratörs medgivande (för hands version)
 
@@ -123,7 +123,7 @@ I tabellen nedan beskrivs de scenarier och gransknings värden som är tillgäng
 |Administratör som aktiverar arbets flödet för medgivande förfrågan        |Åtkomstgranskningar           |UserManagement           |Skapa mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten            |
 |Administratör som inaktiverar arbets flödet för medgivande förfrågan       |Åtkomstgranskningar           |UserManagement           |Ta bort mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
 |Administratör som uppdaterar konfigurationen av medgivande arbets flöden        |Åtkomstgranskningar           |UserManagement           |Uppdatera mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
-|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Princip         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
+|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Policy         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
 |Granskare som godkänner en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            |För närvarande går det inte att hitta användar kontexten eller app-ID: t som har beviljats administrativt medgivande.           |
 |Granskare som nekar en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            | För närvarande går det inte att hitta användar kontexten för den aktör som nekade en administrativ begäran om godkännande          |
 
@@ -155,7 +155,7 @@ Mer information om samtycker till program finns i [Azure Active Directory medgiv
 
 [Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
 
-[Bevilja ett program administratörs medgivande för hela klienten](grant-admin-consent.md)
+[Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
 
 [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
 

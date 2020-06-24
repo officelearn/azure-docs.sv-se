@@ -3,23 +3,23 @@ title: Enkel inloggning till appar med Azure AD-programproxy | Microsoft Docs
 description: Aktivera enkel inloggning för dina publicerade lokala program med Azure AD-programproxy i Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025749"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764782"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösen ords valv för enkel inloggning med programproxy
 
@@ -32,7 +32,7 @@ Du bör redan ha publicerat och testat din app med Application Proxy. Annars fö
 ## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurera lösen ords valv för ditt program
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Välj **Azure Active Directory** > **företags program** > **alla program**.
+1. Välj **Azure Active Directory**  >  **företags program**  >  **alla program**.
 1. I listan väljer du den app som du vill konfigurera med SSO.  
 1. Välj **programproxy**. 
 1. Ändra **typen för autentisering** till **passthrough** och välj **Spara**. Senare kan du växla tillbaka till **Azure Active Directory** typ igen! 
@@ -51,7 +51,7 @@ Du bör redan ha publicerat och testat din app med Application Proxy. Annars fö
 1. Välj **användare och grupper**.
 1. Tilldela användare till programmet med att välja **Lägg till användare**. 
 1. Om du vill fördefiniera autentiseringsuppgifter för en användare markerar du kryss rutan framför användar namnet och väljer **uppdatera autentiseringsuppgifter**.
-1. Välj **Azure Active Directory** > **Appregistreringar** > **alla program**.
+1. Välj **Azure Active Directory**  >  **Appregistreringar**  >  **alla program**.
 1. I listan väljer du den app som du konfigurerade med lösen ordet SSO.
 1. Välj **anpassning**. 
 1. Uppdatera **Start sidans URL** med **inloggnings-URL:** en från inloggnings sidan för lösen ord och välj **Spara**.  

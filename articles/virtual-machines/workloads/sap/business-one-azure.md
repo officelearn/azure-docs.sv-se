@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 601af3a5e642b4bbda54f461b3139e72b01b21d6
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70101417"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193506"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -67,17 +67,17 @@ Företag ett är ett program som har två nivåer:
 - En klient nivå med en "fat"-klient
 - En databas nivå som innehåller databasschemat för en klient
 
-En bättre översikt över vilka komponenter som körs i klient delen och vilka delar som körs i Server delen finns dokumenterade i [SAP Business One administratörs guide](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) 
+En bättre översikt över vilka komponenter som körs i klient delen och vilka delar som körs i Server delen finns dokumenterade i [SAP Business One administratörs guide](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf) 
 
 Eftersom det finns en kritisk svars tid av hög latens mellan klient nivån och DBMS-nivån måste båda nivåerna finnas i Azure när de distribueras i Azure. Det är vanligt att användarna sedan får ett FJÄRRan vändare till en eller flera virtuella datorer som kör en RDS-tjänst för det företag en klient komponenter.
 
 ### <a name="sizing-vms-for-sap-business-one"></a>Ändra storlek på virtuella datorer för SAP Business One
 
-När det gäller storleken på klientens virtuella datorer, dokumenteras resurs kraven av SAP i [hand boken för SAP Business One-maskinvara](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2,4 i dokumentet.
+När det gäller storleken på klientens virtuella datorer, dokumenteras resurs kraven av SAP i [hand boken för SAP Business One-maskinvara](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2,4 i dokumentet.
 
 Som Azure Virtual Machines för att vara värd för företaget med en klient och DBMS-värden, tillåts endast virtuella datorer som är SAP-NetWeaver som stöds. Om du vill hitta en lista över SAP-NetWeaver som stöds av virtuella Azure-datorer kan du läsa [SAP obs #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-Kör SAP HANA som DBMS-backend för företag One, endast virtuella datorer som listas för företag på HANA i [listan Hana Certifeid IaaS Platform](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) stöds för Hana. Företaget en klient komponenter påverkas inte av den här starkare begränsningen för det SAP HANA som DBMS-systemet.
+Kör SAP HANA som DBMS-backend för företag One, endast virtuella datorer som listas för företag på HANA i den [Hana-certifierade IaaS plattforms listan](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) stöds för Hana. Företaget en klient komponenter påverkas inte av den här starkare begränsningen för det SAP HANA som DBMS-systemet.
 
 ### <a name="operating-system-releases-to-use-for-sap-business-one"></a>Operativ system versioner som ska användas för SAP Business One
 

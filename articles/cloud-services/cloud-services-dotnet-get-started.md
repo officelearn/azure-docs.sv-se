@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: dcaa87b8bf37cc0410c052b82014209327d5fe99
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310656"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255236"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -42,7 +42,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -104,9 +104,9 @@ I följande avsnitt får du konfigurera lösningen så att den använder Azure-m
 Följ dessa steg för att köra programmet i molnet:
 
 * Skapa en Azure-molntjänst.
-* Skapa en Azure SQL-databas.
+* Skapa en databas i Azure SQL Database.
 * Skapa ett Azure-lagringskonto.
-* Konfigurera lösningen så att den använder Azure SQL-databasen när den körs i Azure.
+* Konfigurera lösningen så att den använder databasen när den körs i Azure.
 * Konfigurera lösningen så att den använder ditt Azure-lagringskonto när den körs i Azure.
 * Distribuera projektet till Azure-molntjänsten.
 
@@ -130,7 +130,7 @@ En Azure-molntjänst är den miljö som programmet kommer att köras i.
 
     ![Ny molntjänst](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL-databas
+### <a name="create-a-database-in-azure-sql-database"></a>Skapa en databas i Azure SQL Database
 När appen körs i molnet använder den en molnbaserad databas.
 
 1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs > Databaser > SQL Database**.
@@ -182,8 +182,9 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
     I avbildningen skapas ett lagringskonto med URL:en `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder Azure SQL-databasen när den körs i Azure
-Webbprojektet och arbetsrollsprojektet har varsin databasanslutningssträng, och båda strängarna måste peka på Azure SQL-databasen när appen körs i Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder databasen i Azure SQL Database när den körs i Azure
+
+Webbprojektet och arbets Rolls projektet var och en har sin egen databas anslutnings sträng, och varje måste peka på databasen i Azure SQL Database när appen körs i Azure.
 
 Du kommer att använda en [Web.config-transformering](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) för webbrollen och en inställning för molntjänstmiljö för arbetsrollen.
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 319e6a4bff4d4d5675a03359176ac765cae80116
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f1a093b85c832adaf5f810913dcbe8ecb46a305a
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608086"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298930"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -40,9 +40,12 @@ Vi rekommenderar att du konfigurerar data flödet på behållar precisionen när
 
 Följande bild visar hur en fysisk partition är värd för en eller flera logiska partitioner i en behållare:
 
-![Fysisk partition](./media/set-throughput/resource-partition.png)
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Fysisk partition" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Ange data flöde för en databas
+
+> [!NOTE]
+> Det går för närvarande inte att samla in data flöde i en Azure Cosmos-databas i konton där [Kundhanterade nycklar](how-to-setup-cmk.md) är aktiverade.
 
 När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett tillhandahållet data flöde på specifika behållare i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md). Information om hur du konfigurerar autoskalning av data flödet i en databas finns i [etablera autoskalning genom strömning](how-to-provision-autoscale-throughput.md).
 
@@ -72,7 +75,7 @@ Om ditt Azure Cosmos DB-konto redan innehåller en delad data flödes databas me
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 
-![Fysisk partition](./media/set-throughput/resource-partition2.png)
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Fysisk partition" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ange data flöde för en databas och en behållare
 
@@ -81,7 +84,7 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
 * Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Observera att du bara kan konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
-   ![Ange data flödet på behållar nivån](./media/set-throughput/coll-level-throughput.png)
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ange data flödet på behållar nivån":::
 
 * *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden data flöde som är tillgängliga för *A*, *C*, *D*eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
@@ -91,11 +94,16 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Uppdatera data flödet för en databas eller en behållare
 
-När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. Det [lägsta allokerade data flödet](concepts-limits.md#storage-and-throughput) beror på följande faktorer: 
+När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. 
 
-* Den aktuella data storlek som du lagrar i behållaren
-* Det maximala data flöde som du någonsin etablerar på behållaren
-* Det aktuella antalet Azure Cosmos-behållare som du har i en databas med delat data flöde. 
+Om du vill uppskatta det [lägsta allokerade data flödet](concepts-limits.md#storage-and-throughput) för en databas eller behållare, hitta Max:
+
+* 400 RU/s 
+* Aktuellt lagrings utrymme i GB * 10 RU/s
+* Mest RU/s etablerad i databasen eller containern/100
+* Antal behållare * 100 RU/s (endast delad data flödes databas)
+
+Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) för att visa historiken över det etablerade data flödet (ru/s) och lagrings utrymme på en resurs.
 
 Du kan hämta det lägsta data flödet för en behållare eller en databas program mässigt genom att använda SDK: erna eller Visa värdet i Azure Portal. När du använder .NET SDK kan du skala det tillhandahållna data flöde svärdet med metoden [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) . När du använder Java SDK kan du använda metoden [RequestOptions. setOfferThroughput](sql-api-java-sdk-samples.md) för att skala det tillhandahållna data flöde svärdet. 
 

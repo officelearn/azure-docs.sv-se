@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188740"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202304"
 ---
 # <a name="display-controls"></a>Visa kontroller
 
@@ -34,7 +34,7 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
 
  I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Ett exempel:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -48,8 +48,8 @@ Elementet **Visa** poster innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för visnings kontrollen. Den kan [refereras till](#referencing-display-controls). |
-| UserInterfaceControlType | Ja | Typen av visnings kontroll. Stöds för närvarande [VerificationControl](display-control-verification.md) |
+| Id | Yes | En identifierare som används för visnings kontrollen. Den kan [refereras till](#referencing-display-controls). |
+| UserInterfaceControlType | Yes | Typen av visnings kontroll. Stöds för närvarande [VerificationControl](display-control-verification.md) |
 
 Elementet Visa poster innehåller **följande element:**
 
@@ -66,7 +66,7 @@ I en visnings kontroll kan du använda **InputClaims** -element för att förkon
 
 I följande exempel förfylls e-postadressen som ska verifieras med adressen som redan finns.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,11 +78,11 @@ I följande exempel förfylls e-postadressen som ska verifieras med adressen som
 
 Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, [utgående anspråk](#output-claims)och [åtgärder](#display-control-actions) som ska utföras.
 
-På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect`. Om ett visnings anspråks värde krävs av en **åtgärd**anger du det attribut som `true` **krävs** för att tvinga användaren att ange ett värde för det angivna visnings kravet.
+På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect` . Om ett visnings anspråks värde krävs av en **åtgärd**anger du det attribut som **krävs** för `true` att tvinga användaren att ange ett värde för det angivna visnings kravet.
 
 Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Ett exempel:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ En åtgärd definierar en lista över **tekniska verifierings profiler**. De anv
 
 I följande exempel skickas en kod i e-post eller SMS baserat på användarens val av **mfaType** -anspråket.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile
 
 Ett exempel:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

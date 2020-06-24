@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 7efcc4a9ec7da2bdd4005c124d5d0e8dd03c4363
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5a732683b52885173a60563f436b6ab01ea00710
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669706"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254114"
 ---
 # <a name="advanced-data-security"></a>Avancerad datasäkerhet
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -63,7 +63,7 @@ Om du vill visa och hantera ADS-inställningar går du till **Avancerad data sä
 ![Serverinställningar
 ](./media/advanced-data-security/server_settings.png)
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. hantera ADS-inställningar för en SQL-databas
+## <a name="4-manage-ads-settings-for-a-database"></a>4. hantera ADS-inställningar för en databas
 
 Om du vill åsidosätta ADS-inställningarna för en viss databas markerar du kryss rutan **aktivera avancerad data säkerhet på databas nivå** . Använd bara det här alternativet om du har ett särskilt krav för att ta emot separata varningar om Avancerat skydd eller sårbarhets bedömning för den enskilda databasen, i stället för de aviseringar och resultat som tagits emot för alla databaser på servern eller den hanterade instansen.
 

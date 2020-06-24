@@ -8,28 +8,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d1e9ec975a17be2675d2f56b2cee87f91d7e9aae
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982045"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733134"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
 Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitets leverantör.
 
->[!Note]
+>[!NOTE]
 >Om du lägger till anpassad anpassning måste du använda Azure Active Directory Premium 1, Premium 2 eller Basic-versioner, eller ha en Office 365-licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din inloggnings sida för Azure AD
-Du kan anpassa dina inloggnings sidor för Azure AD, som visas när användarna loggar in till din organisations klientbaserade appar, till exempel `https://outlook.com/contoso.com`eller när de skickar en domän variabel, till exempel. `https://passwordreset.microsoftonline.com/?whr=contoso.com`
+Du kan anpassa dina inloggnings sidor för Azure AD, som visas när användarna loggar in till din organisations klientbaserade appar, till exempel `https://outlook.com/contoso.com` eller när de skickar en domän variabel, till exempel `https://passwordreset.microsoftonline.com/?whr=contoso.com` .
 
-Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www\.-Office.com. Användaren måste i stället logga in innan din anpassade anpassning visas. När användaren har loggat in kan anpassningen ta 15 minuter eller längre visas. 
+Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www- \. Office.com. Användaren måste i stället logga in innan din anpassade anpassning visas. När användaren har loggat in kan anpassningen ta 15 minuter eller längre visas. 
 
 > [!NOTE]
 > Alla anpassnings element är valfria. Om du t. ex. anger en banderoll med ingen bakgrunds bild visas logo typen på inloggnings sidan med en standard bakgrunds bild från mål platsen (till exempel Office 365).<br><br>Dessutom överförs inte inloggnings sidan till personliga Microsoft-konton. Om dina användare eller affärs gäster loggar in med en personlig Microsoft-konto, visar inte inloggnings sidan anpassningen av din organisation.
@@ -43,7 +43,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
 3. På sidan **Konfigurera företags anpassning** anger du någon eller alla av följande uppgifter.
 
-    >[!Important]
+    >[!IMPORTANT]
     >Alla anpassade avbildningar som du lägger till på den här sidan har bild storlek (bild punkter) och potentiellt fil storlek (KB), begränsningar. På grund av dessa begränsningar behöver du förmodligen använda ett foto redigerings program för att skapa bilder med rätt storlek.
 
     - **Allmänna inställningar**
@@ -77,8 +77,10 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
         - **Bild av kvadratisk logo typ, mörkt tema.** Samma som fyrkant logo typ bilden ovan. Logo typ bilden tar platsen för fyrkant logo bilden när den används med en mörk bakgrund, till exempel med Windows 10 Azure AD-anslutna skärmar under OOBE (out-of-Box Experience).  Om din logo typ ser bra ut på vita, mörka blå och svarta bakgrunder, behöver du inte lägga till den här bilden. 
         
         - **Visa alternativet för att förbli inloggad.** Du kan välja att låta dina användare förbli inloggade på Azure AD tills de uttryckligen loggar ut. Om du väljer **Nej**är det här alternativet dolt och användarna måste logga in varje gången webbläsaren stängs och öppnas igen.
+
+            Mer information om hur du konfigurerar och felsöker alternativet för att förbli inloggad finns i avsnittet [om att förbli inloggad? "för Azure AD-konton](keep-me-signed-in.md)
         
-            >[!Note]
+            >[!NOTE]
             >För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
    
 
@@ -86,7 +88,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
     Om den här processen skapar din första anpassade anpassnings konfiguration blir den standard för din klient. Om du har ytterligare konfigurationer kan du välja din standard konfiguration.
     
-    >[!Important]
+    >[!IMPORTANT]
     >Om du vill lägga till fler konfigurationer för företags anpassning till din klient måste du välja **nytt språk** på sidan **contoso-Company varumärkes anpassning** . Då öppnas sidan **Konfigurera företags anpassning** där du kan följa samma steg som ovan.
 
 ## <a name="update-your-custom-branding"></a>Uppdatera din anpassade anpassning
@@ -125,7 +127,7 @@ Du kan inte ändra den ursprungliga konfigurationens språk från standard språ
     ![Contoso-sidan för företags anpassning, där standard konfigurationen visas](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Lägg till anpassad anpassning till sidor
-Lägg till anpassad anpassning till sidor genom att ändra slutet på URL: en med texten `?whr=yourdomainname`. Den här ändringen fungerar på flera sidor, inklusive installations sidan Multi-Factor Authentication (MFA), installations sidan för lösen ords återställning via självbetjäning (SSPR) och inloggnings sidan.
+Lägg till anpassad anpassning till sidor genom att ändra slutet på URL: en med texten `?whr=yourdomainname` . Den här ändringen fungerar på flera sidor, inklusive installations sidan Multi-Factor Authentication (MFA), installations sidan för lösen ords återställning via självbetjäning (SSPR) och inloggnings sidan.
 
 **Exempel:**
 
@@ -134,5 +136,3 @@ Lägg till anpassad anpassning till sidor genom att ändra slutet på URL: en me
 
 **Ursprunglig URL:**https://aka.ms/SSPR<br>
 **Anpassad URL:**`https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

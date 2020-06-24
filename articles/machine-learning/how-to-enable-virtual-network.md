@@ -9,38 +9,25 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: be78681ba01cf98f087331a5a9a6c7974f3b1122
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5415237a502116b597c1514f75f35203108237ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560252"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299083"
 ---
-# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Skydda dina Machine Learning-livscykler med privata virtuella nätverk
+# <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du isolerar experimentering/utbildnings jobb och jobb för jobb härledning/-Poäng i Azure Machine Learning i ett Azure-Virtual Network (VNet). Du lär dig också om några *avancerade säkerhets inställningar*, information som inte behövs för grundläggande eller experiment användnings fall.
-
-> [!WARNING]
-> Om det underliggande lagrings utrymmet finns i ett virtuellt nätverk, kan användarna inte använda Azure Machine Learning Studio-webbmiljön, inklusive:
-> - Dra-n-släpp designer
-> - Användar gränssnitt för automatisk maskin inlärning
-> - GRÄNSSNITT för data etiketter
-> - Användar gränssnitt för data uppsättningar
-> - Notebooks
-> 
-> Om du försöker igen får du ett meddelande som liknar följande fel:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## <a name="what-is-a-vnet"></a>Vad är ett VNET?
+I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livscykler genom att isolera Azure Machine Learning utbildning och jobb härlednings jobb i ett Azure-Virtual Network (VNet). Azure Machine Learning förlitar sig på andra Azure-tjänster för beräknings resurser, även kallade [beräknings mål](concept-compute-target.md), för att träna och distribuera modeller. Målen kan skapas i ett virtuellt nätverk. Du kan till exempel använda Azure Machine Learning Compute för att träna en modell och sedan distribuera modellen till Azure Kubernetes service (AKS). 
 
 Ett **virtuellt nätverk** fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-Azure Machine Learning förlitar sig på andra Azure-tjänster för beräknings resurser, även kallade [beräknings mål](concept-compute-target.md), för att träna och distribuera modeller. Målen kan skapas i ett virtuellt nätverk. Du kan till exempel använda Azure Machine Learning Compute för att träna en modell och sedan distribuera modellen till Azure Kubernetes service (AKS). 
+Om det **underliggande lagrings utrymmet finns i ett virtuellt nätverk kan användarna inte använda Azure Machine Learning Studio Web Experience**, inklusive dra n-släpp-designer eller användar gränssnittet för automatisk maskin inlärning, data etiketter och data uppsättningar eller integrerade antecknings böcker.  Om du försöker igen får du ett meddelande som liknar följande fel:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -77,7 +64,7 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 
 <a id="amlcompute"></a>
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Beräknings kluster & instanser
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Beräknings kluster & instanser 
 
 Om du vill använda en [hanterad Azure Machine Learning **beräknings mål** ](concept-compute-target.md#azure-machine-learning-compute-managed) eller en [Azure Machine Learning beräknings **instans** ](concept-compute-instance.md) i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
@@ -102,7 +89,9 @@ Om du vill använda en [hanterad Azure Machine Learning **beräknings mål** ](c
 
 ### <a name="required-ports"></a><a id="mlcports"></a>Portar som krävs
 
-Machine Learning-beräkning använder för närvarande tjänsten Azure Batch för att etablera virtuella datorer i det angivna virtuella nätverket. Under nätet måste tillåta inkommande kommunikation från batch-tjänsten. Du använder den här kommunikationen för att schemalägga körningar på Machine Learning-beräkning noder och för att kommunicera med Azure Storage och andra resurser. Batch-tjänsten lägger till nätverks säkerhets grupper (NSG: er) på nivån nätverks gränssnitt (NIC) som är anslutna till virtuella datorer. De här NSG:erna konfigurerar automatiskt regler för inkommande och utgående trafik för att tillåta följande trafik:
+Om du planerar att skydda det virtuella nätverket genom att begränsa nätverks trafiken till/från det offentliga Internet måste du tillåta inkommande kommunikation från tjänsten Azure Batch.
+
+Batch-tjänsten lägger till nätverks säkerhets grupper (NSG: er) på nivån nätverks gränssnitt (NIC) som är anslutna till virtuella datorer. De här NSG:erna konfigurerar automatiskt regler för inkommande och utgående trafik för att tillåta följande trafik:
 
 - Inkommande TCP-trafik på portarna 29876 och 29877 från en __service tag__ i __BatchNodeManagement__.
 
@@ -116,9 +105,10 @@ Machine Learning-beräkning använder för närvarande tjänsten Azure Batch fö
 
 - För Compute instance inkommande TCP-trafik på port 44224 från en __service tag__ i __AzureMachineLearning__.
 
-Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om en NSG blockerar kommunikation till datornoderna, anger beräknings tjänsten status för datornoderna till oanvändbar.
-
-Du behöver inte ange NSG: er på under näts nivån, eftersom Azure Batch tjänsten konfigurerar sin egen NSG: er. Men om det angivna under nätet har en associerad NSG: er eller en brand vägg, konfigurerar du de inkommande och utgående säkerhets reglerna enligt ovan.
+> [!IMPORTANT]
+> Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om en NSG blockerar kommunikation till datornoderna, anger beräknings tjänsten status för datornoderna till oanvändbar.
+>
+> Du behöver inte ange NSG: er på under näts nivån, eftersom Azure Batch tjänsten konfigurerar sin egen NSG: er. Men om det undernät som innehåller Azure Machine Learning Compute har tillhör ande NSG: er eller en brand vägg, måste du också tillåta trafiken som anges ovan.
 
 Regel konfigurationen för NSG i Azure Portal visas i följande avbildningar:
 
@@ -435,6 +425,9 @@ Mer information om hur du använder den interna belastningsutjämnaren med AKS f
 ## <a name="use-azure-container-instances-aci"></a>Använda Azure Container Instances (ACI)
 
 Azure Container Instances skapas dynamiskt när du distribuerar en modell. Om du vill aktivera Azure Machine Learning att skapa ACI i det virtuella nätverket måste du aktivera __under näts delegering__ för under nätet som används av distributionen.
+
+> [!WARNING]
+> Om du vill använda Azure Container Instances inuti det virtuella nätverket kan Azure Container Registry (ACR) för din arbets yta också inte finnas i det virtuella nätverket.
 
 Använd följande steg för att använda ACI i ett virtuellt nätverk på din arbets yta:
 

@@ -2,17 +2,17 @@
 title: GitHub åtgärder arbets flöden för Azures statiska Web Apps
 description: Lär dig hur du använder GitHub-databaser för att konfigurera kontinuerlig distribution till Azures statiska Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
-ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.author: cshoe
+ms.openlocfilehash: 4d69bb69081643e0223c23a9029aabb35c8d22ef
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434007"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254726"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub åtgärder arbets flöden för för hands versionen av Azure static Web Apps
 
@@ -136,9 +136,9 @@ with:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |---|---|---|
-| `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Ja |
-| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | Nej |
-| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | Nej |
+| `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Yes |
+| `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | No |
+| `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | No |
 
 `repo_token`Värdena, `action` och `azure_static_web_apps_api_token` anges för dig av azures statiska Web Apps bör inte ändras manuellt.
 
@@ -155,13 +155,13 @@ Distributionen anropar alltid `npm install` före ett anpassat kommando.
 
 ## <a name="route-file-location"></a>Sökväg till vägfil
 
-Du kan anpassa arbets flödet för att leta efter [routes. JSON](routes.md) i vilken mapp som helst i din lagrings plats. Följande egenskap kan definieras under ett jobb `with` avsnitt.
+Du kan anpassa arbets flödet för att leta efter [routes.js](routes.md) i i valfri mapp i din lagrings plats. Följande egenskap kan definieras under ett jobb `with` avsnitt.
 
 | Egenskap            | Beskrivning |
 |---------------------|-------------|
-| `routes_location` | Definierar den katalog plats där _routes. JSON_ -filen hittas. Den här platsen är relativ i förhållande till lagrings platsens rot. |
+| `routes_location` | Definierar den katalog plats där _routes.jspå_ filen hittas. Den här platsen är relativ i förhållande till lagrings platsens rot. |
 
- Det är särskilt viktigt att du är medveten om platsen för dina _vägar. JSON_ -fil om du inte flyttar den här filen till `app_artifact_location` som standard.
+ Det är särskilt viktigt att du är medveten om platsen för din _routes.jsi_ filen om det inte går att flytta den här filen till `app_artifact_location` som standard.
 
 ## <a name="next-steps"></a>Nästa steg
 

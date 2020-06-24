@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582602"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732063"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Tilldela anpassade roller med resurs omfång med PowerShell i Azure Active Directory
 
@@ -52,7 +52,7 @@ Nu kan du börja använda cmdlet: arna i modulen. En fullständig beskrivning av
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Tilldela en roll till en användare eller tjänstens huvud namn med resurs omfånget
 
 1. Öppna PowerShell-modulen för för hands versionen av Azure AD.
-1. Logga in genom att köra kommandot `Connect-AzureAD`.
+1. Logga in genom att köra kommandot `Connect-AzureAD` .
 1. Skapa en ny roll med hjälp av följande PowerShell-skript.
 
 ``` PowerShell

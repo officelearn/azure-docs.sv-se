@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ab2bb3d94a740ca25be15b64895c52d5c038add3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552450"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080236"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom Azure-brandväggen för Azure Machine Learning
 
 I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för användning med en Azure Machine Learning-arbetsyta.
 
-Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet. Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta.
+Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet. Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan, som beskrivs i den här artikeln.
 
 ## <a name="network-rules"></a>Nätverksregler
 
@@ -41,16 +41,18 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Tränings kluster |
 | **ml.azure.com** | Azure Machine Learning-studio |
+| **default.exp-tas.com** | Används av Azure Machine Learning Studio |
 | **\*. azureml.ms** | Används av Azure Machine Learning API: er |
-| **\*. experiments.azureml.net** | Används av experiment som körs i Azure Machine Learning|
+| **\*. experiments.azureml.net** | Används av experiment som körs i Azure Machine Learning |
 | **\*. modelmanagement.azureml.net** | Används för att registrera och distribuera modeller|
 | **mlworkspace.azure.ai** | Används av Azure Portal när du visar en arbets yta |
 | **\*. aether.ms** | Används när Azure Machine Learning pipeliner körs |
 | **\*. instances.azureml.net** | Azure Machine Learning beräknings instanser |
+| **\*. instances.azureml.ms** | Azure Machine Learning beräknings instanser när privat länk har Aktiver ATS för arbets ytan |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Grundläggande Docker-avbildningar |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
 
 ## <a name="python-hosts"></a>Python-värdar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87f1fcfa08ef2b7d2e4f72588eff8576c5ace146
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548670"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254301"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection – utforma elastiska lösningar
 
@@ -30,6 +30,7 @@ Förutom kärn DDoS-skyddet i plattformen tillhandahåller [Azure DDoS Protectio
 
 ![Rollen Azure DDoS Protection för att skydda kunder och ett virtuellt nätverk från en angripare](./media/ddos-best-practices/image1.png)
 
+Säkerhets rekommendationer om den här tekniken finns i [Azures säkerhets bas linje för DDoS Protection](ddos-protection-security-baseline.md).
 
 ## <a name="fundamental-best-practices"></a>Grundläggande metod tips
 
@@ -97,7 +98,7 @@ DDoS Protection standard exponerar avancerad telemetri via [Azure Monitor](/azur
 
 ##### <a name="ddos-mitigation-policies"></a>Principer för DDoS-minskning
 
-I Azure Portal väljer du **övervaka** > **mått**. I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress**och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
+I Azure Portal väljer du **övervaka**  >  **mått**. I fönstret **mått** väljer du resurs grupp, väljer en resurs typ för **offentlig IP-adress**och väljer din offentliga Azure-IP-adress. DDoS mått visas i fönstret **tillgängliga mått** .
 
 DDoS Protection standard tillämpar tre automatiskt justerade begränsnings principer (TCP-SYN, TCP och UDP) för varje offentlig IP-adress för den skyddade resursen i det virtuella nätverk där DDoS är aktiverat. Du kan visa princip tröskelvärdena genom att välja måttet **inkommande paket för att utlösa DDoS-minskning**.
 
@@ -235,7 +236,7 @@ I den här arkitekturen är DDoS Protection standard aktiverat i det virtuella n
 
 #### <a name="paas-web-application"></a>PaaS-webbprogram
 
-Den här referens arkitekturen visar körning av ett Azure App Service program i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webb program som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Den här referens arkitekturen visar körning av ett Azure App Service program i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webb program som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)   och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 En vänte region har kon figurer ATS för failover-scenarier.
 
 ![Diagram över referens arkitekturen för ett PaaS-webbprogram](./media/ddos-best-practices/image11.png)
@@ -268,8 +269,7 @@ Mer information om den här referens arkitekturen finns i [utöka Azure HDInsigh
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Azures säkerhets bas linje för DDoS Protection](ddos-protection-security-baseline.md)
 * [Delat ansvar i molnet](shared-responsibility.md)
-
 * [Sidan Azure DDoS Protection produkt](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Azure DDoS Protection dokumentation](/azure/virtual-network/ddos-protection-overview)

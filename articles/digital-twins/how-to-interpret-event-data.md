@@ -1,5 +1,5 @@
 ---
-title: Tolka händelse data
+title: Tolka händelsedata
 titleSuffix: Azure Digital Twins
 description: Se hur du tolkar olika händelse typer och deras olika meddelanden.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4c95e686de23654688d0d7c3182c6565a907b750
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e194c046cde623e0fcdd4c73ac24f2bf0755945c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612965"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299440"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Olika händelser i digitala Azure-meddelanden genererar **aviseringar**, vilket gör att lösningens Server del kan vara medveten när olika åtgärder sker. De [dirigeras](concepts-route-events.md) sedan till olika platser inuti och utanför Azures digitala dubbla, som kan använda den här informationen för att vidta åtgärder.
 
@@ -232,46 +235,6 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
     "ownershipDepartment": "Operations"
 }
 ```
-
-### <a name="digital-twin-model-change-notifications"></a>Digitala meddelanden om ändring av dubbla modeller
-
-**Aviseringar om modell ändringar** utlöses när en digital DTDL- [modell](concepts-models.md) (endefinierad Definition Language) laddas upp, läses in, korrigeras, tas ur bruk eller tas bort.
-
-#### <a name="properties"></a>Egenskaper
-
-Här är fälten i bröd texten i en modell ändrings avisering.
-
-| Name    | Värde |
-| --- | --- |
-| `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
-| `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload`(NAV-Specific)<br>`Microsoft.DigitalTwins.Model.Patch`(NAV-Specific)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
-| `datacontenttype` | application/json |
-| `subject` | ID för modellen i formatet`dtmi:<domain>:<unique model identifier>;<model version number>` |
-| `time` | Tidsstämpel för när åtgärden utfördes på modellen |
-| `sequence` | Värde som uttrycker händelsens position i den större sorterade sekvensen av händelser. Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. Serie numret ökar med varje meddelande. Det kommer att återställas till 1 om objektet tas bort och återskapas med samma ID. |
-| `sequencetype` | Mer information om hur fältet Sequence används. Den här egenskapen kan till exempel ange att värdet måste vara ett signerat 32-bitars heltal som börjar vid 1 och ökar med 1 varje tillfälle. |
-| `modelstatus` | Lösnings status för att lösa en modell. Möjliga värden: lyckades/NotFound/misslyckades (endast IoT Hub) | 
-| `updatereason` | Uppdatera modell orsak i schemat. Möjliga värden: skapa/Återställ/Åsidosätt (endast IoT Hub) | 
-
-#### <a name="body-details"></a>Information om brödtext
-
-Det finns ingen meddelande text för åtgärder vid överföring, inläsning och uppdatering av modeller. Användaren måste göra ett `GET` anrop för att hämta modell innehållet. 
-
-För och `Model.Decom` , kommer bröd texten i korrigeringen att vara i JSON patch-format, som alla andra korrigerings-API: er i Azure Digitals API-yta. Om du vill inaktivera en modell använder du:
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/decommissionedState",
-    "value": true
-  }
-]
-```
-
-För `Model.Delete` , är begär ande texten densamma som en `GET` begäran och den hämtar det senaste läget innan det tas bort.
 
 ### <a name="digital-twin-change-notifications"></a>Digitala dubbla ändrings meddelanden
 

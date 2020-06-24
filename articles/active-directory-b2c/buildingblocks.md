@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189879"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201233"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -24,7 +24,7 @@ ms.locfileid: "78189879"
 
 **BuildingBlocks** -elementet läggs till i [TrustFrameworkPolicy](trustframeworkpolicy.md) -elementet.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -70,7 +70,7 @@ ms.locfileid: "78189879"
   - Jämför två anspråk och returnerar ett anspråk med True och anger att anspråk matchar, annars falskt.
   - Skapar ett sträng anspråk från den angivna parametern i principen.
   - Skapar en slumpmässig sträng med slump tals generatorn.
-  - Formatera ett anspråk enligt den angivna format strängen. Den här omvandlingen använder C# `String.Format` -metoden.
+  - Formatera ett anspråk enligt den angivna format strängen. Den här omvandlingen använder C#- `String.Format` metoden.
 
 - InputValidation – det här elementet gör att du kan utföra booleska agg regeringar som liknar *och* och *eller*.
 

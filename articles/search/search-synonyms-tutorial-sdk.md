@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794243"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079440"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exempel: Lägg till synonymer för Azure Kognitiv sökning i C #
 
@@ -38,7 +38,7 @@ I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Kognitiv sökning-tjänst](search-create-service-portal.md)
-* [.NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk)
+* [.NET-biblioteket Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [Använda Azure Kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Översikt
@@ -128,7 +128,7 @@ Att aktivera synonymer är en tvåstegsprocess. Först definierar vi och laddar 
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   En synonymmappning måste följa det öppna standardformatet `solr`. Formatet förklaras i [synonymer i Azure kognitiv sökning](search-synonyms.md) under avsnittet `Apache Solr synonym format`.
+   En synonymmappning måste följa det öppna standardformatet `solr`. Formatet förklaras i [synonymer i Azure kognitiv sökning](search-synonyms.md) under avsnittet `Apache Solr synonym format` .
 
 2. Konfigurera sökbara fält så att synonymmappningen används i indexdefinitionen. I `EnableSynonymsInHotelsIndex` aktiverar vi synonymer för de två fälten `category` och `tags` genom att ange namnet på synonymmappningen för egenskapen `synonymMaps`.
    ```csharp

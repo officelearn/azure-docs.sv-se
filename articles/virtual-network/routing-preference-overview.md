@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 0ae06a1c3d486b5d5998b4c6d050d86f50910a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598040"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193370"
 ---
 # <a name="what-is-routing-preference-preview"></a>Vad är cirkulations inställningar (för hands version)?
 
@@ -69,7 +69,7 @@ För lagring använder primära slut punkter alltid **Microsofts globala nätver
 * Webb
 * Azure DataLake
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 Pris skillnaden mellan båda alternativen återspeglas i priset för utgående data överföring i Internet. Routning via **Microsofts globala nätverks** data överförings pris är detsamma som aktuellt pris för utgående Internet. Besök [pris sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/) för den senaste pris informationen. Routning via **offentlig Internet** priss ätts lägre enligt tabellen nedan:
 
 | Region för utgående källa | 0-5 GB/månad | 5 GB – 10 TB/månad | 10-50 TB/månad | 50-150 TB/månad | 150-500 TB/månad |
@@ -84,11 +84,11 @@ Pris skillnaden mellan båda alternativen återspeglas i priset för utgående d
 
 * Zon 3 – södra Brasilien, södra Afrika, sydöstra Sydafrika, västra USA, Förenade Arabemiraten Central och Förenade Arabemiraten Nord.
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 Stöd för routnings inställningar är tillgängligt i följande regioner för tjänster som virtuell dator och Internetbaserad belastningsutjämnare som använder en offentlig IP-adress för Internet utgående Europa, Västeuropa, Västeuropa, södra, Storbritannien, södra, östra USA, norra centrala USA, södra centrala USA, västra USA, västra centrala USA, Sydostasien, Tyskland, västra centrala, Schweiz, västra, Japan, östra och Japan, västra.
 
-Stöd för routning av inställningar för lagrings konto är tillgängligt i följande Azure-regioner – Frankrike, norra centrala USA och västra centrala USA.
+Stöd för routning av inställningar för lagrings konto är tillgängligt i följande Azure-regioner – Frankrike, norra centrala USA, västra centrala USA, Östra Japan, västra Japan, Tyskland, västra centrala och Schweiz, västra.
 ## <a name="limitations"></a>Begränsningar
 
 * Dirigerings inställningen är endast kompatibel med standard-SKU: n för offentlig IP-adress. Grundläggande SKU för offentlig IP-adress stöds inte.

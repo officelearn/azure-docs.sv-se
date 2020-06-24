@@ -3,13 +3,13 @@ title: Skapa ett privat Azure Kubernetes service-kluster
 description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster (AKS)
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
-ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 6/18/2020
+ms.openlocfilehash: d2705570f6993ecda0c88241d2dc517fac60695c
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849696"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194050"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -71,11 +71,11 @@ Att skapa en virtuell dator i samma VNET som AKS-klustret är det enklaste alter
 
 Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du vill använda VNet-peering måste du konfigurera en länk mellan det virtuella nätverket och den privata DNS-zonen.
     
-1. Gå till den MC_ * resurs gruppen i Azure Portal.  
+1. Gå till resurs gruppen för noden i Azure Portal.  
 2. Välj den privata DNS-zonen.   
 3. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
 4. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
-5. Gå tillbaka till MC_ *-resurs gruppen i Azure Portal.  
+5. I Azure Portal navigerar du till resurs gruppen som innehåller klustrets VNet.  
 6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \* *.  
 7. Välj **peering**i det vänstra fönstret.  
 8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
@@ -91,7 +91,7 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 
 2. Den privata DNS-zonen är länkad till det virtuella nätverk som klusternoderna är kopplade till (3). Det innebär att den privata slut punkten bara kan matchas av värdar i den länkade VNet. I scenarier där ingen anpassad DNS har kon figurer ATS i VNet (standard), fungerar detta utan problem som värd punkt på 168.63.129.16 för DNS, som kan lösa poster i den privata DNS-zonen på grund av länken.
 
-3. I scenarier där det virtuella nätverket som innehåller klustret har anpassade DNS-inställningar (4) Miss lyckas kluster distributionen om inte den privata DNS-zonen är länkad till det virtuella nätverk som innehåller de anpassade DNS-matcharna (5). Du kan skapa den här länken manuellt när den privata zonen har skapats under kluster etableringen eller via Automation när du har identifierat att zonen har skapats med hjälp av Azure Policy eller andra händelsebaserade distributions metoder (till exempel Azure Event Grid och Azure Functions).
+3. I scenarier där det virtuella nätverket som innehåller klustret har anpassade DNS-inställningar (4) Miss lyckas kluster distributionen om inte den privata DNS-zonen är länkad till det virtuella nätverk som innehåller de anpassade DNS-matcharna (5). Du kan skapa den här länken manuellt när den privata zonen har skapats under kluster etableringen eller via Automation när du har identifierat att zonen har skapats med hjälp av en Event-baserad distributions mekanism (till exempel Azure Event Grid och Azure Functions).
 
 ## <a name="dependencies"></a>Beroenden  
 
@@ -102,7 +102,6 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 * Det går inte att använda IP-auktoriserade intervall för den privata API-serverns slut punkt, de gäller bara för den offentliga API-servern
 * Tillgänglighetszoner stöds för närvarande för vissa regioner, se början av det här dokumentet 
 * [Begränsningar för Azure Private Link-tjänsten][private-link-service] gäller för privata kluster.
-* Inget stöd för virtuella noder i ett privat kluster för att snurra privat Azure Container Instances (ACI) i ett privat virtuellt Azure-nätverk
 * Inget stöd för Azure DevOps Microsoft-värdbaserat agenter med privata kluster. Överväg att använda [egen värdbaserade agenter][devops-agents]. 
 * För kunder som behöver aktivera Azure Container Registry för att fungera med privata AKS måste det Container Registry virtuella nätverket vara peer-kopplat med agent klustrets virtuella nätverk.
 * Inget aktuellt stöd för Azure dev Spaces

@@ -2,8 +2,8 @@
 title: Publicera appar i separata nätverk via anslutnings grupper – Azure AD
 description: Beskriver hur du skapar och hanterar grupper med kopplingar i Azure AD-programproxy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be3e99ca57957e1975313fed8609533f4a65b102
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275568"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764731"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program i separata nätverk och platser med anslutnings grupper
 
@@ -41,7 +41,7 @@ Om du vill gruppera dina anslutningar måste du kontrol lera att du har [install
 Använd de här stegen för att skapa så många kopplings grupper du vill.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Azure Active Directory** > **programproxy**för**företags program** > .
+1. Välj **Azure Active Directory**  >  **Enterprise applications**  >  **programproxy**för företags program.
 1. Välj **ny anslutnings grupp**. Bladet ny kopplings grupp visas.
 
    ![Visar skärmen för att välja en ny anslutnings grupp](./media/application-proxy-connector-groups/new-group.png)
@@ -53,7 +53,7 @@ Använd de här stegen för att skapa så många kopplings grupper du vill.
 
 Använd de här stegen för varje program som du har publicerat med Application Proxy. Du kan tilldela ett program till en kopplings grupp första gången du publicerar den, eller så kan du använda de här stegen för att ändra tilldelningen när du vill.
 
-1. Från hanterings instrument panelen för din katalog väljer du **företags program** > **alla program** > det program som du vill tilldela till en anslutnings grupp > **programproxy**.
+1. Från hanterings instrument panelen för din katalog väljer du **företags program**  >  **alla program** > det program som du vill tilldela till en anslutnings grupp > **programproxy**.
 1. Använd List Rute menyn för **kopplings grupper** för att välja den grupp som du vill att programmet ska använda.
 1. Välj **Spara** för att tillämpa ändringen.
 

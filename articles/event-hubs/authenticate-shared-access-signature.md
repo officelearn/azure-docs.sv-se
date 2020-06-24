@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d29fef42fb875c6ed55ac1d879b9c398490e1700
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676356"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298828"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst (SAS)
 Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här följer några av de kontroller som du kan ange i en SAS: 
@@ -63,13 +63,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token innehåller de värden som inte är hash-kodade, så att mottagaren kan beräkna hashen på samma parametrar och kontrol lera att utfärdaren har en giltig signerings nyckel.
 
-Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. <namespace>Till exempel http://.<entityPath> ServiceBus.Windows.net/eller `sb://<namespace>.servicebus.windows.net/<entityPath>;` dvs. `http://contoso.servicebus.windows.net/eventhubs/eh1`
+Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel http:// <namespace> . ServiceBus.Windows.net/ <entityPath> eller `sb://<namespace>.servicebus.windows.net/<entityPath>;` dvs `http://contoso.servicebus.windows.net/eventhubs/eh1` .
 
 URI: n måste vara i procent kodad.
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/eventhubs/eh1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
-En SAS-token är giltig för alla resurser som har <resourceURI> prefixet som används i Signature-sträng.
+En SAS-token är giltig för alla resurser som har prefixet som <resourceURI> används i Signature-sträng.
 
 > [!NOTE]
 > Du genererar en åtkomsttoken för Event Hubs med hjälp av principen för delad åtkomst. Mer information finns i [auktoriseringsprincipen för delad åtkomst](authorize-access-shared-access-signature.md#shared-access-authorization-policies).

@@ -4,12 +4,12 @@ description: Översikt över Azure blockchain Workbench Preview-arkitekturen och
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
-ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef56d0fdac74bf447fce01e772abed8a2b07c27b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324899"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253434"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench-arkitektur
 
@@ -43,12 +43,12 @@ Mer information finns i [exempel klient programmen för Azure blockchain Workben
 
 ## <a name="gateway-service-api"></a>API för Gateway-tjänsten
 
-Blockchain Workbench innehåller ett REST-baserat Gateway Service-API. När du skriver till en blockchain genererar API: et och levererar meddelanden till en händelse koordinator. När data begärs av API: t skickas frågor till SQL-databasen utanför kedjan. SQL-databasen innehåller en replik av data i kedjan och metadata som innehåller kontext-och konfigurations information om stödda smarta kontrakt. Frågor returnerar de data som krävs från off-Chain-replikeringen i ett format som informeras av kontraktets metadata.
+Blockchain Workbench innehåller ett REST-baserat Gateway Service-API. När du skriver till en blockchain genererar API: et och levererar meddelanden till en händelse koordinator. När data begärs av API: et, skickas frågor till databasen utanför kedjan. Databasen innehåller en replik av data i kedjan och metadata som innehåller kontext-och konfigurations information om stödda smarta kontrakt. Frågor returnerar de data som krävs från off-Chain-replikeringen i ett format som informeras av kontraktets metadata.
 
 Utvecklare kan komma åt Gateway Service API för att bygga eller integrera blockchain-lösningar utan att behöva lita på blockchain Workbench-klientprogram.
 
 > [!NOTE]
-> För att aktivera autentiserad åtkomst till API: n, registreras två klient program i Azure Active Directory. Azure Active Directory kräver distinkta program registreringar varje program typ (inbyggd och webb). 
+> För att aktivera autentiserad åtkomst till API: n, registreras två klient program i Azure Active Directory. Azure Active Directory kräver distinkta program registreringar varje program typ (inbyggd och webb).
 
 ## <a name="message-broker-for-incoming-messages"></a>Meddelande koordinator för inkommande meddelanden
 
@@ -70,7 +70,7 @@ DLT-meddelanden (Distributed Ledger Technology) innehåller metadata för transa
 
 ### <a name="database-consumer"></a>Databas konsument
 
-Databas konsumenten tar meddelanden från Service Bus och skickar data till en bifogad databas, till exempel SQL Database.
+Databas konsumenten tar meddelanden från Service Bus och skickar data till en bifogad databas, till exempel en databas i Azure SQL Database.
 
 ### <a name="storage-consumer"></a>Lagrings konsument
 
@@ -91,11 +91,11 @@ Transaktionsspecifikationer och redovisningar tar signerade transaktioner och di
 En fördelad Ledger-teknik (DLT) övervakar händelser som inträffar på block kedjor som är kopplade till blockchain Workbench.
 Händelser återspeglar information som är relevant för enskilda användare och system. Till exempel skapas nya kontrakt instanser, körning av transaktioner och tillstånds ändringar. Händelserna samlas in och skickas till den utgående meddelande utjämningen så att de kan användas av efterföljande konsumenter.
 
-SQL-klienten övervakar till exempel händelser, använder dem och fyller i SQL-databasen med de värden som ingår. Kopian gör det möjligt att återställa en replik av data i kedjan i en lagrings kedja.
+SQL-klienten övervakar till exempel händelser, använder dem och fyller i databasen med de värden som ingår. Kopian gör det möjligt att återställa en replik av data i kedjan i en lagrings kedja.
 
-## <a name="azure-sql-database"></a>Azure SQL-databas
+## <a name="azure-sql-database"></a>Azure SQL Database
 
-Azure SQL-databasen som är ansluten till blockchain Workbench lagrar kontrakts definitioner, konfigurations-metadata och en SQL-tillgänglig replik av data som lagras i blockchain. Dessa data kan enkelt frågas, visualiseras eller analyseras genom direkt åtkomst till databasen. Utvecklare och andra användare kan använda databasen för rapportering, analys eller andra datainriktade integreringar. Användare kan till exempel visualisera transaktions data med Power BI.
+Databasen som är kopplad till blockchain Workbench lagrar kontrakts definitioner, konfigurations-metadata och en SQL-tillgänglig replik av data som lagras i blockchain. Dessa data kan enkelt frågas, visualiseras eller analyseras genom direkt åtkomst till databasen. Utvecklare och andra användare kan använda databasen för rapportering, analys eller andra datainriktade integreringar. Användare kan till exempel visualisera transaktions data med Power BI.
 
 Den här lagrings kedjan ger företags organisationer möjlighet att fråga data i SQL i stället för en blockchain-redovisning. Genom att standardisera ett standard schema som är oberoende av blockchain Technology-stackar, kan du också använda lagrings kedjan för att återanvända rapporter och andra artefakter i projekt, scenarier och organisationer.
 

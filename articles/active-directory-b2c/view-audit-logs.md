@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33fa1b063a2c45af41c0da6450bac3f86683653b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264224"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202984"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -51,7 +51,7 @@ I den här exempel bilden från Azure Portal visas de data som registrerats när
 
 Panelen aktivitets information innehåller följande relevanta information:
 
-|Section|Field|Beskrivning|
+|Section|Fält|Beskrivning|
 |-------|-----|-----------|
 | Aktivitet | Name | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
 | Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
@@ -100,9 +100,9 @@ När du har registrerat ett program med rätt behörigheter, se avsnittet PowerS
 
 ### <a name="access-the-api"></a>Åtkomst till API: et
 
-Du kan hämta Azure AD B2C Gransknings logg händelser via API: et genom att filtrera `B2C` loggarna på kategorin. Om du vill filtrera efter kategori använder `filter` du frågesträngparametern när du anropar slut punkten för Azure AD repor ting API.
+Du kan hämta Azure AD B2C Gransknings logg händelser via API: et genom att filtrera loggarna på `B2C` kategorin. Om du vill filtrera efter kategori använder `filter` du frågesträngparametern när du anropar slut punkten för Azure AD repor ting API.
 
-```HTTP
+```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
@@ -158,7 +158,7 @@ if ($oauth.access_token -ne $null) {
 
 Här är en JSON-representation av exempel aktivitets händelsen som visades tidigare i artikeln:
 
-```JSON
+```json
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",

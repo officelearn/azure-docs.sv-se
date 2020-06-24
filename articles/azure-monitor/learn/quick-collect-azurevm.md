@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
 ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240340"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695376"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -77,7 +77,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 2. Välj **Data** och sedan **Windows-händelseloggar**.
 
-3. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **system** och välj sedan plus tecknet **+**.
+3. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **system** och välj sedan plus tecknet **+** .
 
 4. Kontrollera allvarlighetsgraderna **Fel** och **Varning** i tabellen.
 
@@ -97,7 +97,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 1. Välj **Syslog**.  
 
-2. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **syslog** och välj sedan plus tecknet **+**.  
+2. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **syslog** och välj sedan plus tecknet **+** .  
 
 3. I tabellen avmarkerar du allvarlighets GRADS **information**, **meddelande** och **fel sökning**. 
 

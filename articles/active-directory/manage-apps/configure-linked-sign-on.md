@@ -2,22 +2,22 @@
 title: Länkad inloggning för Azure AD-appar – Microsoft Identity Platform
 description: Konfigurera länkad enkel inloggning (SSO) till dina Azure AD Enterprise-program i Microsoft Identity Platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063551"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763490"
 ---
 # <a name="configure-linked-sign-on"></a>Konfigurera länkad inloggning
 
@@ -31,7 +31,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
 
-1. Gå till **Azure Active Directory** > **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
+1. Gå till **Azure Active Directory**  >  **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
 
 1. I menyn **program typ** väljer du **alla program**och väljer sedan **Använd**.
 

@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71211867"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253876"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrera den aktuella användaren för push-meddelanden med ASP.NET
 
@@ -61,7 +59,7 @@ Det här avsnittet visar hur du begär registrering av push-meddelanden med Azur
 
     - (IBAction)login:(id)sender;
     ```
-3. Skapa en klass med `DeviceInfo`namnet och kopiera följande kod till avsnittet Interface i filen deviceinfo. h:
+3. Skapa en klass med namnet `DeviceInfo` och kopiera följande kod till avsnittet Interface i filen deviceinfo. h:
 
     ```objc
     @property (readonly, nonatomic) NSString* installationId;
@@ -106,7 +104,7 @@ Det här avsnittet visar hur du begär registrering av push-meddelanden med Azur
     ```objc
     @property (strong, nonatomic) DeviceInfo* deviceInfo;
     ```
-6. Lägg till `didFinishLaunchingWithOptions` följande kod i-metoden i PushToUserAppDelegate. m:
+6. `didFinishLaunchingWithOptions`Lägg till följande kod i-metoden i PushToUserAppDelegate. m:
 
     ```objc
     self.deviceInfo = [[DeviceInfo alloc] init];
@@ -124,7 +122,7 @@ Det här avsnittet visar hur du begär registrering av push-meddelanden med Azur
     Detta anger enhets-token för begäran.
 
    > [!NOTE]
-   > I det här läget ska det inte finnas någon annan kod i den här metoden. Om du redan har ett anrop till `registerNativeWithDeviceToken` metoden som lades till när du slutförde guiden [kom igång med Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) måste du kommentera ut eller ta bort anropet.
+   > I det här läget ska det inte finnas någon annan kod i den här metoden. Om du redan har ett anrop till `registerNativeWithDeviceToken` metoden som lades till när du slutförde [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) själv studie kursen, måste du kommentera ut eller ta bort anropet.
 
 8. I `PushToUserAppDelegate.m` filen lägger du till följande hanterare-metod:
 
@@ -151,14 +149,14 @@ Det här avsnittet visar hur du begär registrering av push-meddelanden med Azur
     }
     ```
 
-10. I- `viewDidLoad` metoden i `PushToUserViewController.m` filen initierar du `installationId` etiketten på följande sätt:
+10. I `viewDidLoad` -metoden i `PushToUserViewController.m` filen initierar du etiketten på `installationId` följande sätt:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     Self.installationId.text = deviceInfo.installationId;
     ```
 
-11. Lägg till följande egenskaper i gränssnittet i `PushToUserViewController.m`:
+11. Lägg till följande egenskaper i gränssnittet i `PushToUserViewController.m` :
 
     ```objc
     @property (readonly) NSOperationQueue* downloadQueue;
@@ -258,4 +256,4 @@ Nu när klient programmet har uppdaterats går du tillbaka till [meddela använd
 
 <!-- URLs. -->
 [Meddela användare med Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Kom igång med Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Kom igång med Notification Hubs]: ios-sdk-get-started.md

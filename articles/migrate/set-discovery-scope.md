@@ -2,77 +2,62 @@
 title: Ange omfattning för identifiering av VMware VM med Azure Migrate
 description: Beskriver hur du ställer in identifierings omfånget för utvärdering av virtuella VMware-datorer och migrering med Azure Migrate.
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.openlocfilehash: 29b3077ead168cef2790468d6ac62d1c59c24c11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: e53eb0d01df2152aeced2901335f75879885fd22
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337641"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770398"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ange identifierings omfång för virtuella VMware-datorer
 
-I den här artikeln beskrivs hur du begränsar identifierings området för virtuella VMware-datorer som identifieras av [Azure Migrate-enheten](migrate-appliance-architecture.md).
+Den här artikeln beskriver hur du begränsar omfattningen för virtuella VMware-datorer som du upptäcker när du är:
 
-Azure Migrates enheten identifierar lokala virtuella VMware-datorer när du: 
+- Identifiera virtuella datorer med [Azure Migrate-enheten](migrate-appliance-architecture.md) när du använder verktyget Azure Migrate: Server bedömning.
+- Identifiera virtuella datorer med [Azure Migrate-enheten](migrate-appliance-architecture.md) när du använder verktyget Azure Migrate: Migreringsverktyg för att migrera virtuella VMware-datorer till Azure.
 
-- Använd verktyget [Azure Migrate: Server bedömning](migrate-services-overview.md#azure-migrate-server-assessment-tool) för att utvärdera virtuella VMware-datorer för migrering till Azure.
-- Använd verktyget [Azure Migrate: Migreringsverktyg](migrate-services-overview.md#azure-migrate-server-migration-tool) för migrering utan [agent](server-migrate-overview.md) för virtuella VMware-datorer till Azure.
+När du konfigurerar enheten ansluter den till vCenter Server och påbörjar identifieringen. Innan du ansluter enheten till vCenter Server kan du begränsa identifieringen till vCenter Server Data Center, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer. Om du vill ange ett omfång tilldelar du behörigheter för det konto som enheten använder för att få åtkomst till vCenter Server.
 
-## <a name="set-discovery-scope"></a>Ange identifierings omfång
+## <a name="before-you-start"></a>Innan du börjar
 
-
-När du har konfigurerat Azure Migrate-installationen för utvärdering eller migrering av virtuella VMware-datorer börjar installations programmet identifiera virtuella datorer och skicka VM-metadata till Azure. Innan du ansluter installationen till vCenter Server för identifiering kan du ange identifierings omfånget så att identifieringen begränsas till vCenter Server Data Center, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer.
-
-Om du vill ange omfånget tilldelar du behörigheter för kontot som Azure Migrate använder för att få åtkomst till vCenter Server.
-
-## <a name="create-a-vcenter-user-account"></a>Skapa ett vCenter-användarkonto
-
-Om du inte redan har konfigurerat ett vCenter-användarkonto som Azure Migrate-enheten använder för att identifiera, utvärdera och migrera virtuella VMware-datorer gör du det först.
-
-1.    Logga in på vSphere-webbklient som vCenter Server administratör.
-2.    Välj **Administration** > av**SSO-användare och grupper**och klicka på fliken **användare** .
-3.    Välj ikonen **ny användare** .
-4.    Fyll i den nya användar informationen > **OK**.
-
-Konto behörigheterna beror på vad du distribuerar.
-
-**Funktion** | **Konto behörigheter**
---- | ---
-[Beräknas](tutorial-assess-vmware.md)| Kontot behöver skrivskyddad åtkomst.
-[Identifiera appar/roller/funktioner](how-to-discover-applications.md) | Kontot behöver skrivskyddad åtkomst, med behörigheter som är aktiverade för virtuella datorer > gäst åtgärder.
-[Analysera beroenden (utan agent)](how-to-create-group-machine-dependencies-agentless.md) | Kontot behöver skrivskyddad åtkomst, med behörigheter som är aktiverade för virtuella datorer > gäst åtgärder.
-[Migrera (utan agent)](tutorial-migrate-vmware.md) | Du behöver en roll som har tilldelats rätt behörigheter.<br/><br/> Om du vill skapa en roll loggar du in på vSphere-webbklient som vCenter Server administratör. Välj vCenter Server-instansen > **skapa roll**. Ange ett rollnamn, till exempel <em>Azure_Migrate</em>, och tilldela de [behörigheter som krävs](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) för rollen.
+Om du inte har konfigurerat ett vCenter-användarkonto som Azure Migrate använder för identifiering, gör du det nu för [utvärdering](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) eller utan [agent migrering](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
 
 
-## <a name="assign-permissions-on-vcenter-objects"></a>Tilldela behörigheter för vCenter-objekt
+## <a name="assign-permissions-and-roles"></a>Tilldela behörigheter och roller
 
-Du kan tilldela behörigheter för lager objekt på något av två sätt:
+Du kan tilldela behörigheter för VMware Inventory-objekt med en av två metoder:
 
-- Tilldela en roll med de behörigheter som krävs, till det konto som du använder, för alla överordnade objekt som är värdar för de virtuella datorer som du vill identifiera/migrera.
-- Alternativt kan du tilldela rollen och användar kontot på data center nivå och sprida dem till de underordnade objekten. Ge sedan kontot **Ingen åtkomst** roll för varje objekt som du inte vill identifiera/migrera. Vi rekommenderar inte den här metoden eftersom den är besvärlig och kan exponera åtkomst kontroller, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade.
+- På det konto som används av enheten tilldelar du en roll med de behörigheter som krävs för de objekt som du vill använda som definitions område.
+- Du kan också tilldela en roll till kontot på data center nivå och sprida till de underordnade objekten. Ge sedan kontot **Ingen åtkomst** roll för varje objekt som du inte vill ha i omfånget. Vi rekommenderar inte den här metoden eftersom den är besvärlig och kan exponera åtkomst kontroller, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade.
 
-Gör så här om du vill tilldela en roll till det konto som du använder för alla relevanta objekt:
+Du kan inte omfattnings inventerings identifiering på den virtuella vCenter-mappens katalog nivå. Om du behöver omfattning för att identifiera virtuella datorer i en VM-mapp skapar du en användare och beviljar åtkomst individuellt till varje virtuell dator som krävs. Host-och cluster-mappar stöds.
 
-- **För bedömning**: Använd den **skrivskyddade** rollen för vCenter-användarkontot för alla överordnade objekt som är värdar för virtuella datorer som du vill identifiera för utvärdering av virtuell dator. Överordnade objekt som ingår: värd, mapp med värdar, kluster och mapp för kluster i hierarkin, upp till data centret. Sprid dessa behörigheter till underordnade objekt i hierarkin.
+
+### <a name="assign-a-role-for-assessment"></a>Tilldela en roll för utvärdering
+
+1. På det dator-vCenter-konto som du använder för identifiering använder du den **skrivskyddade** rollen för alla överordnade objekt som är värdar för de virtuella datorer som du vill identifiera och utvärdera (värd, kluster, värd mapp, mappen kluster, upp till data Center).
+2. Sprid dessa behörigheter till underordnade objekt i hierarkin.
 
     ![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
 
-- **För migrering**utan agent: Använd en användardefinierad roll med [nödvändiga behörigheter](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) till användar kontot för alla överordnade objekt som är värdar för virtuella datorer som du vill identifiera. Du kan namnge roll <em>Azure_Migrate</em>.
+### <a name="assign-a-role-for-agentless-migration"></a>Tilldela en roll för migrering utan agent
 
-### <a name="scope-support"></a>Stöd för omfattning
+1. På det dator-vCenter-konto som du använder för migrering använder du en användardefinierad roll som har de [behörigheter som krävs](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless)för alla överordnade objekt som är värdar för de virtuella datorer som du vill identifiera och migrera.
+2. Du kan ge rollen ett namn som är lättare att identifiera. Till exempel <em>Azure_Migrate</em>.
 
-För närvarande kan Server utvärderings verktyget inte identifiera virtuella datorer om vCenter-kontot har åtkomst som beviljats på den virtuella vCenter-mappens nivå. Mappar med värdar och kluster stöds.
+## <a name="work-around-vm-folder-restriction"></a>Lösning för begränsning av VM-mappar
 
-Om du vill begränsa identifieringen av VM-mappar slutför du nästa procedur för att se till att vCenter-kontot har skrivskyddad åtkomst som tilldelats på en VM-nivå.
+För närvarande kan Server utvärderings verktyget inte identifiera virtuella datorer om åtkomst beviljas på den virtuella vCenter-mappens nivå. Använd den här lösningen om du vill begränsa identifieringen och utvärderingen av VM-mappar.
 
-1. Tilldela skrivskyddade behörigheter för alla virtuella datorer i de VM-mappar som du vill använda för identifiering.
-2. Bevilja skrivskyddad åtkomst till alla överordnade objekt som är värdar för virtuella datorer.
-    - Alla överordnade objekt (värd, mapp med värdar, kluster, kluster kluster) i hierarkin till data centret ingår.
-    - Du behöver inte sprida behörigheterna till alla underordnade objekt.
-3. Använd autentiseringsuppgifterna för identifiering genom att välja Data Center som **samlings omfång**. Med den rollbaserad åtkomst kontroll inställningen ser du till att motsvarande vCenter-användarkonto har åtkomst till endast klient datorer som är användarspecifika.
+1. Tilldela skrivskyddade behörigheter för alla virtuella datorer som finns i de VM-mappar som du vill använda för identifiering och bedömning.
+2. Bevilja skrivskyddad åtkomst till alla överordnade objekt som är värdar för den virtuella datorns värd, kluster, värd mapp, klustrar mapp, upp till data Center). Du behöver inte sprida behörigheterna till alla underordnade objekt.
+3. Om du vill använda autentiseringsuppgifterna för identifiering väljer du data Center som **samlings omfång**.
+
+
+Med den rollbaserad åtkomst kontroll inställningen ser du till att motsvarande vCenter-användarkonto har åtkomst till endast klient datorer som är användarspecifika.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera enheten](how-to-set-up-appliance-vmware.md) och [Starta kontinuerlig identifiering](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Konfigurera enheten](how-to-set-up-appliance-vmware.md)och [Starta kontinuerlig identifiering](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).

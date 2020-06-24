@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4033437db5c14abcd0376fbfeca22cca915908d2
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677193"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298964"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -74,7 +74,12 @@ Distributioner och versioner som stöds:
 
 ### <a name="sample-installation"></a>Exempel installation
 
-Fyll i rätt värden för variablerna i det första avsnittet innan du kör:
+> [!NOTE]
+> För något av exemplen fyller du i rätt värden för variablerna i det första avsnittet innan du kör. 
+
+Exempel konfigurationen som hämtas i de här exemplen samlar in en uppsättning standard data och skickar dem till Table Storage. URL: en för exempel konfigurationen och dess innehåll kan komma att ändras. I de flesta fall bör du ladda ned en kopia av JSON-filen med Portal inställningar och anpassa den efter dina behov. därefter har du alla mallar eller automatiseringar som du skapar med din egen version av konfigurations filen i stället för att hämta URL: en varje tillfälle.
+
+#### <a name="azure-cli-sample"></a>Azure CLI-exempel
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-Exempel konfigurationen som hämtas i de här exemplen samlar in en uppsättning standard data och skickar dem till Table Storage. URL: en för exempel konfigurationen och dess innehåll kan komma att ändras. I de flesta fall bör du ladda ned en kopia av JSON-filen med Portal inställningar och anpassa den efter dina behov. därefter har du alla mallar eller automatiseringar som du skapar med din egen version av konfigurations filen i stället för att hämta URL: en varje tillfälle.
 
 #### <a name="powershell-sample"></a>PowerShell-exempel
 
@@ -439,6 +442,9 @@ Du måste ange antingen "table" eller "Sinks" eller båda.
 
 Styr avbildningen av loggfiler. LAD fångar nya text rader när de skrivs till filen och skriver dem till tabell rader och/eller angivna handfat (JsonBlob eller EventHub).
 
+> [!NOTE]
+> fileLogs fångas upp av en del komponent i LAD som anropas `omsagent` . För att kunna samla in fileLogs måste du se till att `omsagent` användaren har Läs behörighet för de filer som du anger, samt kör behörigheter för alla kataloger i sökvägen till filen. Du kan kontrol lera detta genom att köra `sudo su omsagent -c 'cat /path/to/file'` när lad har installerats.
+
 ```json
 "fileLogs": [
     {
@@ -564,23 +570,36 @@ BytesPerSecond | Antal lästa byte eller skrivna per sekund
 
 Sammanställda värden för alla diskar kan hämtas genom att ställa in `"condition": "IsAggregate=True"` . Om du vill hämta information om en speciell enhet (till exempel/dev/sdf1) anger du `"condition": "Name=\\"/dev/sdf1\\""` .
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>Installera och konfigurera LAD 3.0 via CLI
+## <a name="installing-and-configuring-lad-30"></a>Installera och konfigurera LAD 3,0
 
-Förutsatt att dina skyddade inställningar finns i filen PrivateConfig.jspå och din offentliga konfigurations information är i PublicConfig.jspå, kör du följande kommando:
+### <a name="azure-cli"></a>Azure CLI
+
+Förutsatt att dina skyddade inställningar finns i filen ProtectedSettings.jspå och din offentliga konfigurations information är i PublicSettings.jspå, kör du följande kommando:
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-Kommandot förutsätter att du använder Azures resurs hanterings läge (arm) i Azure CLI. Om du vill konfigurera LAD för virtuella datorer med klassisk distributions modell (ASM) växlar du till "ASM"-läge ( `azure config mode asm` ) och utelämnar resurs gruppens namn i kommandot. Mer information finns i dokumentationen för plattforms [oberoende CLI](https://docs.microsoft.com/azure/xplat-cli-connect).
+Kommandot förutsätter att du använder läget för Azure Resource Management (ARM) i Azure CLI. Om du vill konfigurera LAD för virtuella datorer med klassisk distributions modell (ASM) växlar du till "ASM"-läge ( `azure config mode asm` ) och utelämnar resurs gruppens namn i kommandot. Mer information finns i dokumentationen för plattforms [oberoende CLI](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### <a name="powershell"></a>PowerShell
+
+Under förutsättning att dina skyddade inställningar finns i `$protectedSettings` variabeln och din offentliga konfigurations information finns i `$publicSettings` variabeln, kör du följande kommando:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>Ett exempel på en LAD 3,0-konfiguration
 
 Baserat på föregående definitioner är här ett exempel på en LAD 3,0-tilläggs konfiguration med en förklaring. Om du vill använda det här exemplet i ditt fall bör du använda ditt eget lagrings konto namn, SAS-token för konto och EventHubs SAS-token.
 
-### <a name="privateconfigjson"></a>PrivateConfig.jspå
+> [!NOTE]
+> Beroende på om du använder Azure CLI eller PowerShell för att installera LAD, kommer metoden för att tillhandahålla offentliga och skyddade inställningar att variera. Om du använder Azure CLI sparar du följande inställningar för att ProtectedSettings.jspå och PublicSettings.jspå som ska användas med exempel kommandot ovan. Om du använder PowerShell sparar du inställningarna till `$protectedSettings` och `$publicSettings` genom att köra `$protectedSettings = '{ ... }'` .
 
-De här privata inställningarna konfigureras:
+### <a name="protected-settings"></a>Skyddade inställningar
+
+De här skyddade inställningarna konfigureras:
 
 * ett lagrings konto
 * en SAS-token för ett matchande konto
@@ -628,7 +647,7 @@ De här privata inställningarna konfigureras:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.jspå
+### <a name="public-settings"></a>Offentliga inställningar
 
 Dessa offentliga inställningar gör att LAD:
 

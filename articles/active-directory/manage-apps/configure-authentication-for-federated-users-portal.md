@@ -3,24 +3,24 @@ title: Konfigurera automatisk inloggnings acceleration med hjälp av identifieri
 description: Lär dig hur du konfigurerar identifierings princip för start sfär för Azure Active Directory autentisering för federerade användare, inklusive automatisk acceleration och domän tips.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690508"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763592"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -81,8 +81,8 @@ Mer information om automatisk acceleration med hjälp av de domän tips som stö
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Identifierings princip för start sfär för automatisk acceleration
 Vissa program har inget sätt att konfigurera autentiseringsbegäranden som de genererar. I dessa fall går det inte att använda domän tips för att kontrol lera automatisk acceleration. Automatisk acceleration kan konfigureras via en princip för att uppnå samma beteende.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Aktivera direkt autentisering för äldre program
-Bästa praxis är att programmen använder AAD-bibliotek och interaktiv inloggning för att autentisera användare. Biblioteken tar hand om de federerade användar flödena.  Ibland är äldre program inte skrivna för att förstå federationen. De utför inte identifiering av start sfär och interagerar inte med rätt federerade slut punkt för att autentisera en användare. Om du väljer till kan du använda HRD-principen för att aktivera vissa äldre program som skickar autentiseringsuppgifter för användar namn/lösen ord för att autentisera direkt med Azure Active Directory. Hash-synkronisering av lösen ord måste vara aktive rad. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Aktivera direkt ROPC-autentisering av federerade användare för äldre program
+Bästa praxis är att programmen använder AAD-bibliotek och interaktiv inloggning för att autentisera användare. Biblioteken tar hand om de federerade användar flödena.  Ibland är äldre program, särskilt sådana som använder ROPC-bidrag, skickar användar namn och lösen ord direkt till Azure AD och är inte skrivna för att förstå federationen. De utför inte identifiering av start sfär och interagerar inte med rätt federerade slut punkt för att autentisera en användare. Om du väljer till kan du använda HRD-principen för att aktivera vissa äldre program som skickar autentiseringsuppgifter för användar namn/lösen ord med hjälp av ROPC-tilldelningen för att autentisera direkt med Azure Active Directory. Hash-synkronisering av lösen ord måste vara aktive rad. 
 
 > [!IMPORTANT]
 > Aktivera endast direkt autentisering om du har aktiverat Lösenordssynkronisering och du vet att det går att autentisera programmet utan några principer som implementeras av din lokala IdP. Om du inaktiverar hash-synkronisering av lösen ord eller inaktiverar katalogens synkronisering med AD Connect bör du ta bort den här principen för att förhindra direkt autentisering med en föråldrad lösen ords-hash.
@@ -110,7 +110,7 @@ Följande är ett exempel på en HRD princip definition:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

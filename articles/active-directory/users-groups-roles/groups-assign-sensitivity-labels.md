@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 32dad942cf79933b2c44d3bc2d23581ead1238d6
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582946"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732760"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Tilldela känslighets etiketter till Office 365-grupper i Azure Active Directory (för hands version)
 
@@ -68,7 +68,7 @@ Om du vill tillämpa publicerade etiketter på grupper måste du först aktivera
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Klart! Du har aktiverat funktionen och du kan tillämpa publicerade etiketter på grupper.
+Och sedan är du klar. Du har aktiverat funktionen och du kan tillämpa publicerade etiketter på grupper.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Tilldela en etikett till en ny grupp i Azure Portal
 
@@ -104,7 +104,7 @@ Gruppen skapas och de webbplats-och grupp inställningar som är associerade med
 
 ## <a name="using-classic-azure-ad-classifications"></a>Använda klassiska Azure AD-klassificeringar
 
-När du har aktiverat den här funktionen visas klassificeringarna "klassiska" för grupper endast befintliga grupper och platser, och du bör endast använda dem för nya grupper om du skapar grupper i appar som inte stöder känslighets etiketter. Administratören kan konvertera dem till känslighets etiketter senare om det behövs. Klassiska klassificeringar är de gamla klassificeringar som du ställer in genom att definiera värden `ClassificationList` för inställningen i Azure AD PowerShell. När den här funktionen är aktive rad kommer dessa klassificeringar inte att tillämpas på grupper.
+När du har aktiverat den här funktionen visas klassificeringarna "klassiska" för grupper endast befintliga grupper och platser, och du bör endast använda dem för nya grupper om du skapar grupper i appar som inte stöder känslighets etiketter. Administratören kan konvertera dem till känslighets etiketter senare om det behövs. Klassiska klassificeringar är de gamla klassificeringar som du ställer in genom att definiera värden för `ClassificationList` inställningen i Azure AD PowerShell. När den här funktionen är aktive rad kommer dessa klassificeringar inte att tillämpas på grupper.
 
 ## <a name="troubleshooting-issues"></a>Felsökning av problem
 

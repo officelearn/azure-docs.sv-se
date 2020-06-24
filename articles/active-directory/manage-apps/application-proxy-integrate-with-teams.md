@@ -3,25 +3,25 @@ title: Åtkomst Azure AD App-proxy-appar i team | Microsoft Docs
 description: Använd Azure AD-programproxy för att få åtkomst till ditt lokala program via Microsoft Teams.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7afcd3bfe16775d5c99100278eda81da739b8d22
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67807765"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764493"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Få åtkomst till dina lokala program via Microsoft Teams
 
@@ -33,13 +33,13 @@ Användarna kan lägga till molnappar till sina team kanaler [med hjälp av flik
 
 Om du inte redan har gjort det [konfigurerar du programproxyn för din klient organisation och installerar anslutnings programmet](application-proxy-add-on-premises-application.md). Publicera sedan [ditt lokala program](application-proxy-add-on-premises-application.md) för fjärråtkomst. När du publicerar appen ska du anteckna den externa URL: en eftersom den används för att lägga till appen i Teams.
 
-Om du redan har dina appar publicerade, men inte kommer ihåg sina externa URL: er, kan du se dem i [Azure Portal](https://portal.azure.com). Logga in och gå sedan till **Azure Active Directory** > **företags program** > **alla program** > välj din app > **Application Proxy**.
+Om du redan har dina appar publicerade, men inte kommer ihåg sina externa URL: er, kan du se dem i [Azure Portal](https://portal.azure.com). Logga in och gå sedan till **Azure Active Directory**  >  **företags program**  >  **alla program** > välj din app > **Application Proxy**.
 
 ## <a name="add-your-app-to-teams"></a>Lägg till din app i Teams
 
 När du har publicerat appen via Application Proxy kan användarna se att de kan lägga till den som en flik direkt i deras team kanaler, och sedan är appen tillgänglig för alla i teamet som ska använda den. Följ dessa tre steg:
 
-1. Navigera till den Team kanal där du vill lägga till den här appen och **+** Välj att lägga till en flik.
+1. Navigera till den Team kanal där du vill lägga till den här appen och välj **+** att lägga till en flik.
 
    ![Välj + om du vill lägga till en flik i Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
 

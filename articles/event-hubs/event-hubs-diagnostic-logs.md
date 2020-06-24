@@ -4,24 +4,22 @@ description: Lär dig hur du konfigurerar aktivitets loggar och diagnostikloggar
 keywords: ''
 documentationcenter: ''
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: ''
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.custom: seodec18
-ms.date: 04/28/2020
-ms.author: shvija
-ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 30ce33adc8e33f8da67c745b52681d171e97db8d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259311"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299066"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
@@ -166,7 +164,7 @@ Kafka Coordinator log JSON innehåller element som anges i följande tabell:
 | RequestId | ID för begäran som används för spårnings syfte |
 | ResourceId | Resurs-ID för Azure Resource Manager |
 | Åtgärd | Namnet på åtgärden som utförs under grupp samordningen |
-| ClientId | Klientorganisations-ID |
+| ClientId | Klient-ID |
 | NamespaceName | Namn på namnområde | 
 | SubscriptionId | ID för Azure-prenumeration |
 | Meddelande | Informations-eller varnings meddelande som innehåller information om åtgärder som utförs under grupp samordningen. |
@@ -196,7 +194,7 @@ Kafka user error log JSON innehåller element som anges i följande tabell:
 | Eventhub | Namn på händelsehubb |
 | Partition | Partitions-ID |
 | GroupId | Grupp-ID |
-| ClientId | Klientorganisations-ID |
+| ClientId | Klient-ID |
 | ResourceId | Azure Resource Manager resurs-ID. |
 | Meddelande | Informations meddelande som innehåller information om ett fel |
 

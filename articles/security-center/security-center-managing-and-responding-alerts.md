@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398410"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84769799"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och besvara säkerhetsaviseringar i Azure Security Center
 
@@ -58,21 +58,26 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 
 1. När du har granskat informationen klickar du på en resurs som har angrips.
 
+    Den vänstra rutan på sidan säkerhets avisering visar information på hög nivå om säkerhets aviseringen: rubrik, allvarlighets grad, status, aktivitets tid, beskrivning av den misstänkta aktiviteten och den berörda resursen. Tillsammans med den berörda resursen är de Azure-taggar som är relevanta för resursen. Använd dessa för att härleda resursens organisatoriska kontext vid utredning av aviseringen.
+
+    Den högra rutan innehåller fliken **aviserings information** som innehåller mer information om aviseringen för att hjälpa dig att undersöka problemet: IP-adresser, filer, processer med mera.
+     
     ![Förslag på vad du kan göra om säkerhets aviseringar](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Avsnittet **allmän information** kan ge en insikt om vad som utlöste säkerhets aviseringen. Den visar information som mål resursen, källans IP-adress (när det är tillämpligt), om aviseringen fortfarande är aktiv och rekommendationer om hur du kan åtgärda detta.  
+    I den högra rutan är fliken **vidta åtgärd** . Använd den här fliken för att vidta ytterligare åtgärder för säkerhets aviseringen. Åtgärder som:
+    - *Minimera hotet* – ger manuella reparations steg för denna säkerhets avisering
+    - *Förhindra framtida attacker* – ger säkerhets rekommendationer för att minska attack ytan, öka säkerheten position och därmed förhindra framtida attacker
+    - *Utlös automatiserat svar* – ger möjlighet att utlösa en Logic app som ett svar på denna säkerhets avisering
+    - *Ignorera liknande aviseringar* – ger möjlighet att ignorera framtida aviseringar med liknande egenskaper om aviseringen inte är relevant för din organisation
 
-    > [!NOTE]
-    >I vissa fall är käll-IP-adressen inte tillgänglig, vissa säkerhets händelser i Windows-säkerhetshändelser inkluderar inte IP-adressen.
+    ![Vidta åtgärd-fliken](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. Vilka åtgärdssteg som föreslås av Security Center varierar beroende på typen av säkerhetsavisering. Följ dem för varje avisering. 
 
-    I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en säkerhets avisering. 
+
 
 ## <a name="see-also"></a>Se även
 
-I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
+I det här dokumentet har du lärt dig hur du visar säkerhets aviseringar. Se följande sidor för relaterat material:
 
-- [Microsoft Learn-modulen för att använda aviserings funktionerna i Azure Security Center för att se och svara på hot](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md).
-* [Hantera säkerhets incidenter](security-center-incident.md)
+- [Konfigurera regler för att utelämna varningar](alerts-suppression-rules.md)
+- [Automatisera svar på aviseringar och rekommendationer med automatisering av arbets flöden](workflow-automation.md)

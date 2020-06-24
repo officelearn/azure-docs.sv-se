@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747304"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888642"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN HTTP RAW-loggar
 Obehandlade loggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning och fel sökning. Obehandlade loggar skiljer sig från aktivitets loggar. Aktivitets loggarna ger insyn i de åtgärder som utförs på Azure-resurser. Obehandlade loggar innehåller en post med åtgärder för din resurs.
@@ -33,7 +33,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Så här konfigurerar du obehandlade loggar för din Azure CDN från Microsoft-profilen: 
 
-1. Från Azure Portal-menyn väljer du **alla resurser**  >>  ** \< din-CDN-profil>**.
+1. Välj **alla resurser**på Azure Portal-menyn  >>  **\<your-CDN-profile>** .
 
 2. Under **Övervakning** väljer du **Diagnostikinställningar**.
 

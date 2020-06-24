@@ -2,13 +2,13 @@
 title: Översikt över Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för behållare som övervakar AKS container Insights-lösning och det värde den ger genom att övervaka hälso tillståndet för dina AKS-kluster och Container Instances i Azure.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/21/2020
+ms.openlocfilehash: 709759d1a2b2eb5d8f919ed90e6525c664129f16
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118084"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770823"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Översikt över Azure Monitor för containrar
 
@@ -19,6 +19,7 @@ Azure Monitor för behållare är en funktion som har utformats för att överva
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Självhanterade Kubernetes-kluster som finns på [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) eller lokalt
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- [Azure Arc Enabled-Kubernetes](../../azure-arc/kubernetes/overview.md) (för hands version) 
 
 Azure Monitor for containers stöder kluster som kör operativ systemet Linux och Windows Server 2019. 
 
@@ -46,9 +47,11 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse som anv
     >Stöd för Azure Red Hat OpenShift är en funktion i offentlig för hands version för tillfället.
     >
 
+* Övervaka arbets belastningar [för behållare distribuerade till Azure Arc-aktiverade Kubernetes (för hands version)](../../azure-arc/kubernetes/overview.md).
+
 De största skillnaderna vid övervakning av ett Windows Server-kluster jämfört med ett Linux-kluster är följande:
 
-- Windows saknar RSS-mått för minnet och är därför inte tillgängligt för Windows-noden och behållare. Arbets minnet är tillgängligt. Lär dig mer om [minnes hantering i Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
+- Det finns inget RSS-minne i Windows och det är därför inte tillgängligt för Windows-noden och behållare. Måttet på [arbets minnet](https://docs.microsoft.com/windows/win32/memory/working-set) är tillgängligt.
 - Information om disk lagrings kapacitet är inte tillgänglig för Windows-noder.
 - Behållar loggar är inte tillgängliga för behållare som körs i Windows-noder.
 - Stöd för Live data (för hands version) är tillgängligt med undantag för Windows container-loggar.

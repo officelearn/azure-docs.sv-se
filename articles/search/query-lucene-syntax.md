@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efef4a5e3fd846b06d73211bc6cf63a8ecf24438
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258991"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255355"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Kognitiv sökning
 
@@ -35,15 +35,15 @@ Du kan skriva frågor mot Azure-Kognitiv sökning baserat på den avancerade Luc
 
 ## <a name="invoke-full-parsing"></a>Anropa fullständig parsning
 
-Ange `queryType` Sök parametern för att ange vilken parser som ska användas. Giltiga värden är `simple|full`, med `simple` som standard, och `full` för Lucene. 
+Ange `queryType` Sök parametern för att ange vilken parser som ska användas. Giltiga värden är `simple|full` , med `simple` som standard, och `full` för Lucene. 
 
 <a name="bkmk_example"></a> 
 
 ### <a name="example-showing-full-syntax"></a>Exempel som visar fullständig syntax
 
-I följande exempel hittar du dokument i indexet med hjälp av Lucene-frågesyntaxen, som `queryType=full` är uppenbart i parametern. Den här frågan returnerar hotell där fältet Category innehåller termen "budget" och alla sökbara fält som innehåller frasen "nyligen renovated". Dokument som innehåller frasen "nyligen renovated" rangordnas högre upp till följd av termen förstärknings värde (3).  
+I följande exempel hittar du dokument i indexet med hjälp av Lucene-frågesyntaxen, som är uppenbart i `queryType=full` parametern. Den här frågan returnerar hotell där fältet Category innehåller termen "budget" och alla sökbara fält som innehåller frasen "nyligen renovated". Dokument som innehåller frasen "nyligen renovated" rangordnas högre upp till följd av termen förstärknings värde (3).  
 
-`searchMode=all` Parametern är relevant i det här exemplet. När operatörer finns i frågan bör du vanligt vis ange `searchMode=all` att *alla* villkor matchas.
+`searchMode=all`Parametern är relevant i det här exemplet. När operatörer finns i frågan bör du vanligt vis ange att `searchMode=all` *alla* villkor matchas.
 
 ```
 GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
@@ -81,7 +81,7 @@ Exemplet ovan är tilde (~), men samma princip gäller för alla operatorer.
 
 ### <a name="escaping-special-characters"></a>Hoppar över specialtecken
 
-Om du vill använda någon av Sök operatorerna som en del av Sök texten, kan du undanta det genom att prefixet med ett enda omvänt snedstreck (`\`). Om du till exempel söker i `https://`jokertecken, där `://` är en del av frågesträngen, anger `search=https\:\/\/*`du. På samma sätt kan ett escapeat telefon mönster se ut så här `\+1 \(800\) 642\-7676`.
+Om du vill använda någon av Sök operatorerna som en del av Sök texten, kan du undanta det genom att prefixet med ett enda omvänt snedstreck ( `\` ). Om du till exempel söker i jokertecken `https://` , där `://` är en del av frågesträngen, anger du `search=https\:\/\/*` . På samma sätt kan ett escapeat telefon mönster se ut så här `\+1 \(800\) 642\-7676` .
 
 Specialtecken som kräver undantags tecken innehåller följande:  
 `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`  
@@ -93,7 +93,7 @@ Specialtecken som kräver undantags tecken innehåller följande:
 
 Kontrol lera att alla osäkra och reserverade tecken är kodade i en URL. Till exempel är ' # ' ett osäkert värde eftersom det är ett fragment/ankare-ID i en URL. Specialtecknet måste vara kodad till `%23` om den används i en URL. "&" och "=" är exempel på reserverade tecken när de begränsar parametrar och anger värden i Azure Kognitiv sökning. Mer information finns i [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) .
 
-Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]``. Reserverade tecken är `; / ? : @ = + &`.
+Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]`` . Reserverade tecken är `; / ? : @ = + &` .
 
 ###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Storleks gränser för fråga
 
@@ -103,29 +103,29 @@ Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]``. Reserverade tecken är `; / 
 
  Du kan använda parenteser för att skapa under frågor, inklusive operatorer inom den parentetiska instruktionen. Söker till exempel `motel+(wifi||luxury)` efter dokument som innehåller termen "Motel" och antingen "WiFi" eller "lyxen" (eller båda).
 
-Fält grupperingen liknar varandra men omfångerar grupperingen till ett enda fält. `hotelAmenities:(gym+(wifi||pool))` Söker till exempel fältet "hotelAmenities" för "gymmet" och "WiFi", eller "gymmet" och "pool".  
+Fält grupperingen liknar varandra men omfångerar grupperingen till ett enda fält. Söker till exempel `hotelAmenities:(gym+(wifi||pool))` fältet "hotelAmenities" för "gymmet" och "WiFi", eller "gymmet" och "pool".  
 
 ##  <a name="boolean-search"></a><a name="bkmk_boolean"></a>Boolesk sökning
 
  Ange alltid text booleska operatorer (och, eller, inte) med versaler.  
 
-### <a name="or-operator-or-or-"></a>ELLER- `OR` operator eller`||`
+### <a name="or-operator-or-or-"></a>ELLER-operator `OR` eller`||`
 
-Operatorn OR är ett lodrätt streck eller ett vertikalstreck. Till exempel: `wifi || luxury` söker efter dokument som innehåller antingen "WiFi" eller "lyxen" eller både och. Eftersom eller är standard operatorn, kan du också lämna ut den, till exempel `wifi luxury` motsvarande. `wifi || luxury`
+Operatorn OR är ett lodrätt streck eller ett vertikalstreck. Till exempel: `wifi || luxury` söker efter dokument som innehåller antingen "WiFi" eller "lyxen" eller både och. Eftersom eller är standard operatorn, kan du också lämna ut den, till exempel `wifi luxury` motsvarande `wifi || luxury` .
 
-### <a name="and-operator-and--or-"></a>AND- `AND` `&&` operatör eller`+`
+### <a name="and-operator-and--or-"></a>AND `AND` -operatör `&&` eller`+`
 
 Operatorn och är ett et-tecken eller ett plus tecken. Exempel: `wifi && luxury` söker efter dokument som innehåller både "WiFi" och "lyxen". Plus tecknet (+) används för obligatoriska villkor. Till exempel `+wifi +luxury` föreskriver att båda termerna måste visas någonstans i fältet i ett enda dokument.
 
-### <a name="not-operator-not--or--"></a>Not- `NOT` `!` operator eller`-`
+### <a name="not-operator-not--or--"></a>NOT `NOT` -operator `!` eller`-`
 
-Operatorn NOT är ett minus tecken. Söker till exempel `wifi –luxury` efter dokument som har `wifi` termen och/eller inte har. `luxury`
+Operatorn NOT är ett minus tecken. Söker till exempel `wifi –luxury` efter dokument som har `wifi` termen och/eller inte har `luxury` .
 
-Parametern **searchMode** i en förfrågan styr om en term med operatorn inte är ANDed eller Ored med andra villkor i frågan (förutsatt att det inte finns någon `+` eller `|` operator på de andra villkoren). Giltiga värden är `any` eller `all`.
+Parametern **searchMode** i en förfrågan styr om en term med operatorn inte är ANDed eller Ored med andra villkor i frågan (förutsatt att det inte finns någon `+` eller `|` operator på de andra villkoren). Giltiga värden är `any` eller `all` .
 
-`searchMode=any`ökar åter kallelsen av frågor genom att inkludera fler resultat och tolkas som standard `-` som "eller inte". `wifi -luxury` Kommer till exempel att matcha dokument som innehåller den `wifi` eller de som inte innehåller någon term `luxury`.
+`searchMode=any`ökar åter kallelsen av frågor genom att inkludera fler resultat och `-` tolkas som standard som "eller inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller den `wifi` eller de som inte innehåller någon term `luxury` .
 
-`searchMode=all`ökar precisionen för frågor genom att inkludera färre resultat och som standard tolkas som "och inte". `wifi -luxury` Kommer till exempel att matcha dokument som innehåller termen `wifi` och som inte innehåller termen "lyxen". Det här är utan tvekan ett mer intuitivt beteende `-` för operatorn. Därför bör du överväga att använda `searchMode=all` i stället `searchMode=any` för om du vill optimera sökningarna efter precision i stället för att återkalla, *och* användarna använder `-` ofta operatorn i sökningar.
+`searchMode=all`ökar precisionen för frågor genom att inkludera färre resultat och som standard tolkas som "och inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller termen `wifi` och som inte innehåller termen "lyxen". Det här är utan tvekan ett mer intuitivt beteende för `-` operatorn. Därför bör du överväga att använda `searchMode=all` i stället för `searchMode=any` om du vill optimera sökningarna efter precision i stället för att återkalla, *och* användarna använder ofta `-` operatorn i sökningar.
 
 När du bestämmer dig för en **searchMode** -inställning bör du tänka på användar interaktions mönstren för frågor i olika program. Användare som söker efter information är mer sannolika att inkludera en operatör i en fråga, i stället för e-handelsplatser som har fler inbyggda navigerings strukturer.
 
@@ -142,7 +142,7 @@ Se till att placera flera strängar inom citat tecken om du vill att båda strä
 Fältet som anges i `fieldName:searchExpression` måste vara ett `searchable` fält.  Se [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) för information om hur index-attribut används i fält definitioner.  
 
 > [!NOTE]
-> När du använder ett fält med sökuttryck behöver du inte använda `searchFields` parametern eftersom varje fält som är angivet i uttrycket har ett explicit angivet fält namn. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. `search=genre:jazz NOT history&searchFields=description` Frågan skulle `jazz` till exempel matcha enbart till `genre` fältet, men den matchar `NOT history` `description` fältet. Fält namnet som har angetts `fieldName:searchExpression` i har alltid företräde `searchFields` framför parametern, vilket är anledningen till att vi inte behöver inkludera `genre` i `searchFields` parametern i det här exemplet.
+> När du använder ett fält med sökuttryck behöver du inte använda `searchFields` parametern eftersom varje fält som är angivet i uttrycket har ett explicit angivet fält namn. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan skulle till exempel `search=genre:jazz NOT history&searchFields=description` matcha `jazz` enbart till `genre` fältet, men den matchar `NOT history` `description` fältet. Fält namnet som har angetts i `fieldName:searchExpression` har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `genre` i parametern i det här exemplet `searchFields` .
 
 ##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Fuzzy-sökning
 
@@ -166,21 +166,23 @@ I följande exempel kan du illustrera skillnaderna. Anta att det finns en bedöm
  Om du vill förstärka en term använder du cirkumflex, "^", symbol med en förstärknings faktor (ett tal) i slutet av den period som du söker. Du kan också öka fraser. Ju högre förstärknings faktor, desto mer relevant är termen i förhållande till andra Sök villkor. Som standard är förstärknings faktorn 1. Förstärknings faktorn måste vara positiv, men den kan vara mindre än 1 (till exempel 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Sökning efter reguljära uttryck  
- En sökning efter reguljära uttryck hittar en matchning baserat på innehållet mellan snedstreck "/", enligt beskrivningen i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ En sökning efter reguljära uttryck hittar en matchning baserat på mönster som är giltiga under Apache Lucene, enligt beskrivningen i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). I Azure Kognitiv sökning omges ett reguljärt uttryck mellan snedstreck `/` .
 
- Om du till exempel vill hitta dokument som innehåller "Motel" eller "hotell" `/[mh]otel/`anger du. Sökningar i reguljära uttryck matchas mot enstaka ord.
+ Om du till exempel vill hitta dokument som innehåller "Motel" eller "hotell" anger du `/[mh]otel/` . Sökningar i reguljära uttryck matchas mot enstaka ord.
 
 Vissa verktyg och språk har ytterligare krav på escape-tecken. För JSON undantas strängar som innehåller ett snedstreck med ett omvänt snedstreck: "microsoft.com/azure/" blir `search=/.*microsoft.com\/azure\/.*/` där `search=/.* <string-placeholder>.*/` anger det reguljära uttrycket och `microsoft.com\/azure\/` är strängen med ett escapeat snedstreck.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Sökning med jokertecken  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Sökning med jokertecken
 
-Du kan använda allmänt identifierad syntax för flera (*) eller enkla (?) Character-jokertecken. Observera att funktionen Lucene Query parser stöder användningen av dessa symboler med en enda term och inte en fras.
+Du kan använda allmänt identifierad syntax för jokertecken för flera ( `*` ) eller enkla ( `?` )-Character-sökningar. Ett frågeuttryck till exempel `search=alpha*` returnerar "alfanumerisk" eller "alfabetisk". Observera att funktionen Lucene Query parser stöder användningen av dessa symboler med en enda term och inte en fras.
 
-I prefixet används även asterisken`*`(). Ett frågeuttryck för `search=note*` returnerar till exempel "notebook" eller "notepad". Det krävs ingen fullständig Lucene-syntax för prefixs ökning. Den enkla syntaxen stöder det här scenariot.
+Fullständig Lucene-syntax stöder prefix, infix och suffix matchning. Men om allt du behöver är prefix matchning, kan du använda den enkla syntaxen (prefix matchning stöds i båda).
 
-Suffixs ökning, `*` där `?` eller föregår strängen, kräver fullständig Lucene-syntax och ett reguljärt uttryck (du kan inte använda * eller? symbol som det första tecknet i en sökning). Med termen "alfanumerisk" hittar du ett frågeuttryck (`search=/.*numeric.*/`) för att hitta matchningen.
+Matchning av suffix, där `*` eller `?` föregår strängen (som i `search=/.*numeric./` ) eller infix-matchning kräver fullständig Lucene-syntax, samt utgående snedstrecks avgränsare för reguljära uttryck `/` . Du kan inte använda * eller? symbol som det första tecknet i en term, eller inom en term, utan `/` . 
 
 > [!NOTE]  
+> Som regel är mönster matchning långsam, så du kanske vill utforska alternativa metoder, till exempel Edge n-gram tokenisering som skapar tokens för sekvenser av tecken på en term. Indexet är större, men frågor kan köras snabbare, beroende på mönster konstruktion och längden på de strängar som du indexerar.
+>
 > Vid frågans parsning skickas frågor som formuleras som prefix, suffix, jokertecken eller reguljära uttryck som de är i frågans träd, vilket kringgår [lexikal analys](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matchningar hittas bara om indexet innehåller strängarna i formatet som frågan anger. I de flesta fall behöver du en alternativ analys under indexeringen som bevarar sträng integritet så att partiell term och mönster matchning lyckas. Mer information finns i [partiell terms ökning i Azure kognitiv sökning-frågor](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a>Poängsättnings-och regex-frågor

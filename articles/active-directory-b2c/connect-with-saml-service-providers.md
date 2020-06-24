@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b40d9c95cec3e83ff02aa04ca39eb942635ee90d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295396"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202943"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -41,7 +41,7 @@ Sammanfatta de två icke-exklusiva huvud scenarierna med SAML:
 | Mitt program förväntar sig en SAML-kontroll för att slutföra en autentisering. | **Azure AD B2C fungerar som identitets leverantör (IdP)**<br />Azure AD B2C fungerar som en SAML-IdP i programmen. | Den här artikeln. |
 | Mina användare behöver en enkel inloggning med en SAML-kompatibel identitets leverantör som ADFS, Salesforce eller Shibboleth.  | **Azure AD B2C fungerar som tjänst leverantör (SP)**<br />Azure AD B2C fungerar som en tjänst leverantör vid anslutning till SAML Identity Provider. Det är en Federations-proxy mellan ditt program och SAML Identity Provider.  | <ul><li>[Konfigurera inloggning med ADFS som ett SAML-IdP med anpassade principer](identity-provider-adfs2016-custom.md)</li><li>[Konfigurera inloggning med en Salesforce-SAML-Provider med anpassade principer](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför stegen i [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md). Du behöver den anpassade principen *SocialAndLocalAccounts* från start paketet för anpassad princip som beskrivs i artikeln.
 * Grundläggande förståelse för Security Assertion Markup Language-protokollet (SAML).
@@ -119,7 +119,7 @@ Leta upp `<ClaimsProviders>` avsnittet och Lägg till följande XML-kodfragment.
 
 Du kan ändra värdet för `IssuerUri` metadata. Detta är utfärdar-URI: n som returneras i SAML-svaret från Azure AD B2C. Ditt förlitande parts program ska konfigureras för att godkänna en utfärdare-URI under verifieringen av SAML-kontroll.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -159,13 +159,13 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 Skapa registrerings-eller inloggnings princip
 
-1. Skapa en kopia av filen *SignUpOrSignin. XML* i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML. XML*. Detta är den förlitande partens princip fil.
+1. Skapa en kopia av *SignUpOrSignin.xml* -filen i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML.xml*. Detta är den förlitande partens princip fil.
 
-1. Öppna filen *SignUpOrSigninSAML. XML* i önskat redigerings program.
+1. Öppna *SignUpOrSigninSAML.xml* -filen i önskat redigerings program.
 
 1. Ändra `PolicyId` och `PublicPolicyUri` för principen till _B2C_1A_signup_signin_saml_ och `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` som visas nedan.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 1. Lägg till följande XML-kodfragment precis före `<RelyingParty>` elementet. Denna XML skriver över Orchestration-steg 7 i _SignUpOrSignIn_ -användar resan. Om du startade från en annan mapp i Start paketet, eller anpassat din användar resa genom att lägga till eller ta bort Orchestration-steg, kontrollerar du att numret (i `order` -elementet) är justerat med det som anges i användar resan för steget token Issuer (till exempel i de andra startpaket-mapparna det är steg 4 för `LocalAccounts` , 6 för `SocialAccounts` och 9 för `SocialAndLocalAccountsWithMfa` ).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 1. Ersätt hela `<TechnicalProfile>` elementet i `<RelyingParty>` elementet med följande tekniska profil-XML.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 Den slutgiltiga förlitande partens princip fil bör se ut så här:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -297,7 +297,7 @@ Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program 
 
 I den här självstudien, som använder SAML-testprogrammet, använder du följande värde för `samlMetadataUrl` :
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ Om du väljer att konfigurera svars-URL: en och en utloggnings-URL i applikation
 
 I den här självstudien, där du använder SAML-testprogrammet, anger du `url` egenskapen `replyUrlsWithType` till värdet som visas i följande JSON-kodfragment.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ Den här valfria egenskapen representerar `Logout` URL: en ( `SingleLogoutServic
 
 I den här självstudien, som använder SAML-testprogrammet, lämnar `logoutUrl` du in inställt på `https://samltestapp2.azurewebsites.net/logout` :
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

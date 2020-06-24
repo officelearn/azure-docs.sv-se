@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2020
+ms.date: 06/23/2020
 ms.author: shvija
-ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588f01e84405cfa82afd84971dbcf06a958bf89d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606735"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299372"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka fel söknings guide för Event Hubs
 Den här artikeln innehåller fel söknings tips för problem som du kan köra i när du använder Event Hubs för Apache Kafka. 
@@ -35,11 +35,11 @@ Om trafiken är för hög, har tjänsten följande beteende:
 ## <a name="no-records-received"></a>Inga mottagna poster
 Det kan hända att konsumenter inte hämtar några poster och ombalanserar hela tiden. I det här scenariot får inte konsumenter några poster och ombalansera hela tiden. Det finns inget undantag eller fel när det händer, men Kafka-loggarna visar att konsumenterna fastnar i försök att återansluta till gruppen och tilldela partitioner. Det finns några möjliga orsaker:
 
-- Se till att minst `request.timeout.ms` ett av de rekommenderade värdena är 60000 och att det `session.timeout.ms` är minst det rekommenderade värdet 30000. Om du har dessa inställningar för låg kan det orsaka timeout för konsumenten, som sedan orsakar ombalanser (som sedan orsakar fler tids gränser, vilket orsakar mer ombalansering osv.) 
+- Se till att minst ett av de `request.timeout.ms` rekommenderade värdena är 60000 och att `session.timeout.ms` det är minst det rekommenderade värdet 30000. Om du har dessa inställningar för låg kan det orsaka timeout för konsumenten, som sedan orsakar ombalanser (som sedan orsakar fler tids gränser, vilket orsakar mer ombalansering osv.) 
 - Om konfigurationen stämmer överens med de rekommenderade värdena och du fortfarande ser en konstant ombalansering, är det dags att öppna ett problem (se till att ta med hela konfigurationen i problemet så att vi kan hjälpa dig att felsöka)!
 
 ## <a name="compressionmessage-format-version-issue"></a>Problem med komprimering/meddelande format version
-Kafka stöder komprimering och Event Hubs för Kafka för närvarande inte. Fel som nämner en meddelande format version (till exempel `The message format version on the broker does not support the request.`) orsakas när en klient försöker skicka komprimerade Kafka-meddelanden till våra mäklare.
+Kafka stöder komprimering och Event Hubs för Kafka för närvarande inte. Fel som nämner en meddelande format version (till exempel `The message format version on the broker does not support the request.` ) orsakas när en klient försöker skicka komprimerade Kafka-meddelanden till våra mäklare.
 
 Om komprimerade data är nödvändiga komprimerar du dina data innan du skickar dem till utlösarna och dekomprimerar när du har fått en giltig lösning. Meddelande texten är bara en byte mat ris till tjänsten, så att komprimering/expandering på klient sidan inte orsakar några problem.
 
@@ -66,7 +66,7 @@ Kontrol lera följande objekt om du ser problem när du använder Kafka på Even
 ## <a name="limits"></a>Begränsningar
 Apache Kafka vs. Event Hubs Kafka. I de flesta fall har Event Hubs för Kafka eko system samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. De instanser där de här två uttryckligen skiljer sig åt (eller där Event Hubs tillämpar en gräns för att Kafka inte) visas nedan:
 
-- `group.id` Egenskapens max längd är 256 tecken
+- `group.id`Egenskapens max längd är 256 tecken
 - Max storleken på `offset.metadata.max.bytes` är 1024 byte
 - Förskjutnings skrivningar är begränsade till 4 anrop per sekund per partition med en maximal intern logg storlek på 1 MB
 

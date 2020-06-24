@@ -4,19 +4,19 @@ description: Kom igång med att använda Azure Active Directory användnings vil
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480971"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253332"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -92,10 +92,10 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
 1. Använd inställningarna för att **börja om från** och med **frekvensen** för att ange schemat för användnings villkor. I följande tabell visas resultatet av ett par exempel inställningar:
 
-   | Förfaller från | Frequency | Resultat |
+   | Förfaller från | Frekvens | Resultat |
    | --- | --- | --- |
-   | Dagens datum  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
-   | Datum i framtiden  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet inträffar upphör medgivanden att gälla och användarna måste sedan acceptera varje månad igen.  |
+   | Dagens datum  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
+   | Datum i framtiden  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet inträffar upphör medgivanden att gälla och användarna måste sedan acceptera varje månad igen.  |
 
    Om du t. ex. ställer in sista giltighets datum till **1 januari** och frekvens till **månatlig**, så kan det uppstå förfallo datum för två användare:
 
@@ -225,7 +225,7 @@ Du kan redigera viss information om användnings villkoren, men du kan inte änd
 
    ![Redigera användnings villkors fönstret som visar namn och visnings alternativ](./media/terms-of-use/edit-tou.png)
 
-1. Klicka på **Spara** för att spara ändringarna.
+1. Klicka på **Spara** för att spara dina ändringar.
 
    När du har sparat ändringarna behöver användarna inte acceptera dessa ändringar igen.
 
@@ -253,7 +253,7 @@ Inställningen **Kräv att användare samtycker till varje enhets** inställning
 Här är en lista över plattformar och program som stöds.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Annat |
+> |  | iOS | Android | Windows 10 | Övrigt |
 > | --- | --- | --- | --- | --- |
 > | **Inbyggd app** | Ja | Ja | Ja |  |
 > | **Microsoft Edge** | Ja | Ja | Ja |  |
@@ -387,7 +387,7 @@ A: du kan [Granska tidigare godkända](#how-users-can-review-their-terms-of-use)
 A: om du har konfigurerat både användnings villkoren för Azure AD och användar villkoren för [Intune](/intune/terms-and-conditions-create)måste användaren godkänna båda. Mer information finns i avsnittet [välja rätt lösning för din organisations blogg inlägg](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **F: vilka slut punkter används vid användnings användnings tjänsten för autentisering?**<br />
-A: Användningsvillkor använder följande slut punkter för autentisering: https://tokenprovider.termsofuse.identitygovernance.azure.com och. https://account.activedirectory.windowsazure.com Om din organisation har en lista över tillåtna URL: er för registrering måste du lägga till dessa slut punkter i listan över tillåtna platser, tillsammans med Azure AD-slutpunkter för inloggning.
+A: Användningsvillkor använder följande slut punkter för autentisering: https://tokenprovider.termsofuse.identitygovernance.azure.com och https://account.activedirectory.windowsazure.com . Om din organisation har en lista över tillåtna URL: er för registrering måste du lägga till dessa slut punkter i listan över tillåtna platser, tillsammans med Azure AD-slutpunkter för inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 

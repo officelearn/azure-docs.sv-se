@@ -2,25 +2,31 @@
 title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvärdering
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 47fd7e7c864e82400288bb67da952a18b648849e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 6/09/2020
+ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996878"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770585"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
-I den här artikeln beskrivs hur du konfigurerar en agent beroende analys i Azure Migrate: Server utvärdering. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
+I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i Azure Migrate: Server bedömning. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Läs mer om](concepts-dependency-visualization.md#agent-based-analysis) agentbaserade beroende analyser.
-- Granska kraven och support kraven för att konfigurera en agent-baserad beroende visualisering för [virtuella VMware-datorer](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [fysiska servrar](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)och [virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
-- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
-- Se till att du har konfigurerat en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera dina lokala datorer. Lär dig hur du konfigurerar en installation för [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)eller [fysiska servrar](how-to-set-up-appliance-physical.md). Enheten identifierar lokala datorer och skickar metadata, prestanda data till Azure Migrate: Server utvärdering.
+- Granska support-och distributions kraven för agent-baserad beroende analys för:
+    - [VMwares virtuella datorer](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [Fysiska servrar](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [Virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- Kontrol lera att du:
+    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](how-to-add-tool-first-time.md) du en nu.
+    - Kontrol lera att du har [lagt](how-to-assess.md) till verktyget Azure Migrate: Server utvärderings verktyg i projektet.
+    - Konfigurera en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera lokala datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. Konfigurera en installation för:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMS.
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMS.
+        - [Fysiska servrar](how-to-set-up-appliance-physical.md).
 - Om du vill använda beroende visualisering associerar du en [Log Analytics arbets yta](../azure-monitor/platform/manage-access.md) med ett Azure Migrate-projekt:
     - Du kan bara koppla en arbets yta när du har konfigurerat Azure Migrate-installationen och identifierat datorer i Azure Migrate projektet.
     - Se till att du har en arbets yta i prenumerationen som innehåller det Azure Migrate projektet.
@@ -32,7 +38,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent beroende analys i Azur
 
 ## <a name="associate-a-workspace"></a>Koppla en arbets yta
 
-1. När du har identifierat datorer för utvärdering klickar du på **Översikt**i **servrar** > **Azure Migrate: Server utvärdering**.  
+1. När du har identifierat datorer för utvärdering klickar du på Översikt i **servrar**  >  **Azure Migrate: Server utvärdering**. **Overview**  
 2. Klicka på **Essentials**i **Azure Migrate: Server bedömning**.
 3. I **OMS-arbetsytan**klickar du på **kräver konfiguration**.
 
@@ -72,7 +78,7 @@ Så här installerar du agenten på en Windows-dator:
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **licens villkor** klickar du på **Jag accepterar** att godkänna licensen.
 3. I **målmappen**, Behåll eller ändra standardmappen för installationen > **Nästa**.
-4. I **installations alternativ för agent**väljer du **Azure Log Analytics** > **Nästa**.
+4. I **installations alternativ för agent**väljer du **Azure Log Analytics**  >  **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager eller [Intigua](https://www.intigua.com/intigua-for-azure-migration).

@@ -3,25 +3,25 @@ title: 'Översätt länkar och URL: er Azure AD App proxy | Microsoft Docs'
 description: Beskriver grunderna för Azure AD-programproxy-kopplingar.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69533695"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764850"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy
 
@@ -75,7 +75,7 @@ När länk översättning är aktiverat söker Application Proxy-tjänsten igeno
 
 Efter autentiseringen, när proxyservern skickar program data till användaren, genomsöker Application Proxy programmet efter hårdkodad-länkar och ersätter dem med deras respektive publicerade externa URL: er.
 
-Programproxyn förutsätter att programmen kodas i UTF-8. Om så inte är fallet, anger du kodnings typen i ett HTTP-svarshuvuden, som `Content-Type:text/html;charset=utf-8`.
+Programproxyn förutsätter att programmen kodas i UTF-8. Om så inte är fallet, anger du kodnings typen i ett HTTP-svarshuvuden, som `Content-Type:text/html;charset=utf-8` .
 
 ### <a name="which-links-are-affected"></a>Vilka länkar påverkas?
 
@@ -83,8 +83,8 @@ Funktionen länk översättning söker bara efter länkar som finns i kodmoduler
 
 Det finns två vanliga typer av interna länkar i lokala program:
 
-- **Relativa interna länkar** som pekar på en delad resurs i en lokal fil struktur som `/claims/claims.html`. Dessa länkar fungerar automatiskt i appar som publiceras via programproxy och fortsätter att arbeta med eller utan länk översättning. 
-- **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som. `http://expenses/logo.jpg` Funktionen länk översättning fungerar på hårdkodad interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
+- **Relativa interna länkar** som pekar på en delad resurs i en lokal fil struktur som `/claims/claims.html` . Dessa länkar fungerar automatiskt i appar som publiceras via programproxy och fortsätter att arbeta med eller utan länk översättning. 
+- **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som `http://expenses/logo.jpg` . Funktionen länk översättning fungerar på hårdkodad interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
 
 Den fullständiga listan med HTML-taggar som Application Proxy stöder för länk översättning för inkluderar:
 * a
@@ -137,7 +137,7 @@ Om du behöver stöda ett av dessa två scenarier använder du samma interna och
 Att komma igång med länk översättning är lika enkelt som att klicka på en knapp:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Gå till **Azure Active Directory** > **företags program** > **alla program** > Välj den app som du vill hantera > **Application Proxy**.
+2. Gå till **Azure Active Directory**  >  **företags program**  >  **alla program** > Välj den app som du vill hantera > **Application Proxy**.
 3. Omvandla **URL: er i program texten** till **Ja**.
 
    ![Välj Ja om du vill översätta URL: er i program texten](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)

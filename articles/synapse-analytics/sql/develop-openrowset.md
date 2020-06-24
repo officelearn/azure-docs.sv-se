@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560859"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200587"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -49,7 +49,7 @@ Det här är ett snabbt och enkelt sätt att läsa innehållet i filerna utan f�
     Med det här alternativet kan du konfigurera lagrings kontots plats i data källan och ange den autentiseringsmetod som ska användas för åtkomst till lagringen. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjektet endast komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) och kan inte komma åt offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
+    > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjekten bara komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
 
 
 ## <a name="security"></a>Säkerhet
@@ -60,7 +60,8 @@ Lagrings administratören måste också göra det möjligt för en användare at
 
 `OPENROWSET`Använd följande regler för att avgöra hur du ska autentisera till lagring:
 - I `OPENROWSET` utan `DATA_SOURCE` autentiseringsmekanism beror på samtals typ.
-  - Azure AD-inloggningar kan bara komma åt filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har behörighet för lagrings läsare för lagring) och om du [aktiverar Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) på Synapse SQL-tjänsten.
+  - Alla användare kan använda `OPENROWSET` utan `DATA_SOURCE` att läsa offentligt tillgängliga filer i Azure Storage.
+  - Azure AD-inloggningar kan komma åt skyddade filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har `Storage Reader` behörighet för Azure Storage).
   - SQL-inloggningar kan också använda `OPENROWSET` utan `DATA_SOURCE` åtkomst till offentligt tillgängliga filer, filer som skyddas med SAS-token eller hanterad identitet för Synapse-arbetsytan. Du måste [skapa server-begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) för att tillåta åtkomst till lagringsfiler. 
 - I `OPENROWSET` med autentiseringsmekanismen `DATA_SOURCE` definieras den autentiseringsuppgifter som tilldelats den refererade data källan i databasens begränsade autentiseringsuppgifter. Med det här alternativet kan du få åtkomst till offentligt tillgängligt lagrings utrymme, eller åtkomst till lagring med SAS-token, hanterad identitet för arbets ytan eller [Azure AD-identiteten](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (om anroparen är Azure AD-huvudobjekt). Om `DATA_SOURCE` du refererar till Azure Storage som inte är offentligt måste du [skapa databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) och referera till den i `DATA SOURCE` för att tillåta åtkomst till lagringsfiler.
 
@@ -132,7 +133,7 @@ Om du anger att unstructured_data_path ska vara en mapp, kommer en fråga om SQL
 > [!NOTE]
 > Till skillnad från Hadoop och PolyBase returnerar SQL on-demand inte undermappar. Till skillnad från Hadoop och PolyBase returnerar till exempel SQL på begäran filer för vilka fil namnet börjar med en understrykning (_) eller en punkt (.).
 
-I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en SQL på begäran-fråga att returnera rader från data. txt och _hidden. txt. Den returnerar inte mydata2. txt och mydata3. txt eftersom de finns i en undermapp.
+I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en SQL-fråga på begäran returnera rader från mydata.txt och _hidden.txt. Den returnerar inte mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
 
 ![Rekursiva data för externa tabeller](./media/develop-openrowset/folder-traversal.png)
 
@@ -177,7 +178,7 @@ ESCAPE_CHAR = char
 
 Anger det tecken i filen som används för att undanta sig själv och alla avgränsare värden i filen. Om Escape-symbolen följs av ett annat värde än sig själv, eller någon av avgränsarna, ignoreras escape-tecken vid läsning av värdet. 
 
-Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktive rad. Den används inte för att undanta citat tecken. Citat tecken är avbrotts bara med dubbla citat tecken i justering med Excel CSV-beteende.
+Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktive rad. Den används inte för att undanta citat tecken. Citat tecken måste föregås av ett annat citat tecken. Citat tecken får bara förekomma i kolumn värden om värdet är kapslat med citat tecken.
 
 FIRSTROW = first_row 
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Om du får ett fel meddelande om att filerna inte kan visas måste du aktivera åtkomst till offentlig lagring i Synapse SQL på begäran:
-- Om du använder en SQL-inloggning måste du [skapa server-begränsade autentiseringsuppgifter som ger åtkomst till offentlig lagring](develop-storage-files-storage-access-control.md#examples).
-- Om du använder en Azure AD-huvudenhet för att komma åt offentlig lagring måste du [skapa autentiseringsuppgifter för Server omfång som ger åtkomst till offentlig lagring](develop-storage-files-storage-access-control.md#examples) och inaktivera [Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## <a name="next-steps"></a>Nästa steg
 
-Fler exempel finns i snabb starten för [fråga data Storage](query-data-storage.md) för att lära dig hur du använder "OpenRowSet" för att läsa [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)och [JSON](query-json-files.md) -filformat. Du kan också lära dig hur du sparar resultatet av din fråga till Azure Storage med [CETAS](develop-tables-cetas.md).
+Fler exempel finns i snabb starten för [fråga data Storage](query-data-storage.md) och lär dig hur du `OPENROWSET` använder för att läsa [CSV](query-single-csv-file.md)-, [PARQUET](query-parquet-files.md)-och [JSON](query-json-files.md) -filformat. Du kan också lära dig hur du sparar resultatet av din fråga till Azure Storage med [CETAS](develop-tables-cetas.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a8b97e5bef57b29f388c86628f0af5d05e1724a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731645"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298998"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
@@ -69,13 +69,13 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
 1. **Konfigurera syslog-daemon:**
 
-    1. Öppnar port 514 för TCP-kommunikation med syslog-konfigurationsfilen `/etc/rsyslog.conf`.
+    1. Öppnar port 514 för TCP-kommunikation med syslog-konfigurationsfilen `/etc/rsyslog.conf` .
 
-    1. Konfigurerar daemonen att vidarebefordra CEF-meddelanden till Log Analytics agent på TCP-port 25226 genom att infoga en särskild konfigurations fil `security-config-omsagent.conf` i syslog-katalogen `/etc/rsyslog.d/`.
+    1. Konfigurerar daemonen att vidarebefordra CEF-meddelanden till Log Analytics agent på TCP-port 25226 genom att infoga en särskild konfigurations fil `security-config-omsagent.conf` i syslog-katalogen `/etc/rsyslog.d/` .
 
-        `security-config-omsagent.conf` Filens innehåll:
+        `security-config-omsagent.conf`Filens innehåll:
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
 1. **Starta om syslog-daemon**
@@ -101,11 +101,11 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
 1. **Konfigurera syslog-daemon:**
 
-    1. Öppnar port 514 för TCP-kommunikation med syslog-konfigurationsfilen `/etc/syslog-ng/syslog-ng.conf`.
+    1. Öppnar port 514 för TCP-kommunikation med syslog-konfigurationsfilen `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Konfigurerar daemonen att vidarebefordra CEF-meddelanden till Log Analytics agent på TCP-port 25226 genom att infoga en särskild konfigurations fil `security-config-omsagent.conf` i syslog-katalogen `/etc/syslog-ng/conf.d/`.
+    1. Konfigurerar daemonen att vidarebefordra CEF-meddelanden till Log Analytics agent på TCP-port 25226 genom att infoga en särskild konfigurations fil `security-config-omsagent.conf` i syslog-katalogen `/etc/syslog-ng/conf.d/` .
 
-        `security-config-omsagent.conf` Filens innehåll:
+        `security-config-omsagent.conf`Filens innehåll:
 
             filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
             destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};

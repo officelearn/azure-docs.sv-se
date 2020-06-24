@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170621"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253451"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -150,7 +150,7 @@ Kör säkerhets kopieringar på samma sätt som vanligt, [manuellt](#create-a-ma
 ## <a name="how-backups-are-stored"></a>Så här lagras säkerhets kopior
 När du har gjort en eller flera säkerhets kopior för din app visas säkerhets kopiorna på sidan **behållare** för ditt lagrings konto och din app. I lagrings kontot består varje säkerhets kopiering av en `.zip` fil som innehåller säkerhets kopierings data och en `.xml` fil som innehåller ett manifest av `.zip` fil innehållet. Du kan packa upp och bläddra igenom dessa filer om du vill komma åt dina säkerhets kopior utan att faktiskt utföra en återställning av appen.
 
-Säkerhets kopieringen av databasen för appen lagras i roten i zip-filen. För en SQL-databas är detta en BACPAC-fil (inget fil namns tillägg) och kan importeras. Om du vill skapa en SQL-databas baserad på BACPAC-exporten kan du läsa [Importera en BACPAC-fil för att skapa en ny användar databas](https://technet.microsoft.com/library/hh710052.aspx).
+Säkerhets kopieringen av databasen för appen lagras i roten i zip-filen. För SQL Database är detta en BACPAC-fil (inget fil namns tillägg) och kan importeras. Om du vill skapa en databas i Azure SQL Database baserat på BACPAC export, se [Importera en BACPAC-fil för att skapa en databas i Azure SQL Database](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > Att ändra någon av filerna i **websitebackups** -behållaren kan orsaka att säkerhets kopieringen blir ogiltig och därför inte återställas.
@@ -164,7 +164,7 @@ Du kan automatisera säkerhets kopierings hanteringen med skript med hjälp av [
 Exempel finns i:
 
 - [Azure CLI-exempel](samples-cli.md)
-- [Azure PowerShell exempel](samples-powershell.md)
+- [Azure PowerShell-exempel](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

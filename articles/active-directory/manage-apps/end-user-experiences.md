@@ -2,22 +2,22 @@
 title: Slut användar upplevelse för program – Azure Active Directory
 description: Azure Active Directory (Azure AD) tillhandahåller flera anpassningsbara sätt att distribuera program till slutanvändare i din organisation.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266629"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763405"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Slut användar upplevelse för program i Azure Active Directory
 
@@ -44,7 +44,7 @@ Mer information om Azure AD-åtkomst panelen finns i [introduktionen till åtkom
 
 ## <a name="office-365-application-launcher"></a>Office 365-program start
 
-För organisationer som har distribuerat Office 365 visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på [https://portal.office.com/myapps](https://portal.office.com/myapps). Detta gör det enkelt och bekvämt för användare i en organisation att starta sina appar utan att behöva använda en andra Portal och är den rekommenderade app-lösningen för organisationer som använder Office 365.
+För organisationer som har distribuerat Office 365 visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på [https://portal.office.com/myapps](https://portal.office.com/myapps) . Detta gör det enkelt och bekvämt för användare i en organisation att starta sina appar utan att behöva använda en andra Portal och är den rekommenderade app-lösningen för organisationer som använder Office 365.
 
 ![Skärm bild som visar Office 365-portalen](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -60,7 +60,7 @@ De flesta federerade program som har stöd för SAML 2,0, WS-Federation eller Op
 
 Azure AD stöder även länkar med direkt enkel inloggning till enskilda program som stöder lösenordsbaserad enkel inloggning, länkad enkel inloggning och alla former av federerad enkel inloggning.
 
-Dessa länkar är särskilt utformade URL: er som skickar en användare via inloggnings processen för Azure AD för ett specifikt program utan att användaren behöver starta dem från Azure AD Access-panelen eller Office 365. Dessa **URL: er för användar åtkomst** kan hittas under egenskaperna för tillgängliga företags program. I Azure Portal väljer du **Azure Active Directory** > **företags program**. Välj programmet och välj sedan **Egenskaper**.
+Dessa länkar är särskilt utformade URL: er som skickar en användare via inloggnings processen för Azure AD för ett specifikt program utan att användaren behöver starta dem från Azure AD Access-panelen eller Office 365. Dessa **URL: er för användar åtkomst** kan hittas under egenskaperna för tillgängliga företags program. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj programmet och välj sedan **Egenskaper**.
 
 ![Exempel på URL för användar åtkomst i Twitter-egenskaper](media/end-user-experiences/direct-sign-on-link.png)
 

@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 182f51a150c2ef944b0104b73c63028e915c1a4a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048250"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728341"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -134,7 +134,7 @@ Här följer några exempel på hur du kan använda PowerShell-cmdlets för att 
    Connect-AzureAD
    ```
 
-1. Konfigurera förfallo inställningarna Använd cmdleten New-AzureADMSGroupLifecyclePolicy för att ange livs längden för alla Office 365-grupper i Azure AD-organisationen till 365 dagar. Förnyelse meddelanden för Office 365-grupper utan att ägare skickas tillemailaddress@contoso.com
+1. Konfigurera förfallo inställningarna Använd cmdleten New-AzureADMSGroupLifecyclePolicy för att ange livs längden för alla Office 365-grupper i Azure AD-organisationen till 365 dagar. Förnyelse meddelanden för Office 365-grupper utan att ägare skickas till emailaddress@contoso.com
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +144,7 @@ Här följer några exempel på hur du kan använda PowerShell-cmdlets för att 
 
    - Princip-ID
    - Livs längden för alla Office 365-grupper i Azure AD-organisationen är inställd på 365 dagar
-   - Förnyelse meddelanden för Office 365-grupper utan ägare skickas till "emailaddress@contoso.com."
+   - Förnyelse meddelanden för Office 365-grupper utan ägare skickas till " emailaddress@contoso.com ."
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

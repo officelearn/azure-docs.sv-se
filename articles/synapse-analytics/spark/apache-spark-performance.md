@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 6ffe7f3d9faf82c892975e9ffa03b383d3610c36
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424624"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194866"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimera Apache Spark jobb (för hands version) i Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vi
 
 ## <a name="use-the-cache"></a>Använd cachen
 
-Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()`, `.cache()`och `CACHE TABLE`. Denna inbyggda cachelagring är effektiv med små data uppsättningar samt i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark-intern cachelagring fungerar dock för närvarande inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data.
+Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()` , `.cache()` och `CACHE TABLE` . Denna inbyggda cachelagring är effektiv med små data uppsättningar samt i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark-intern cachelagring fungerar dock för närvarande inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data.
 
 ## <a name="use-memory-efficiently"></a>Använd minne effektivt
 
@@ -77,8 +77,8 @@ Apache Spark i Azure Synapse använder garn [Apache HADOOP garn](https://hadoop.
 Prova följande om du vill ta bort meddelanden om slut på minne:
 
 * Läs om DAG hantering, blandade. Minska genom att minska från kopplings sidan, bucketiseras (eller) käll data, maximera enskilda blandade blandade och minska mängden data som skickas.
-* Föredra `ReduceByKey` med den fasta minnes gränsen till `GroupByKey`, som tillhandahåller agg regeringar, fönster och andra funktioner, men har den obegränsade minnes gränsen för Ann.
-* Föredra `TreeReduce`, som fungerar mer i körnings-eller partitionerna, till `Reduce`, som gör allt arbete på driv rutinen.
+* Föredra `ReduceByKey` med den fasta minnes gränsen till `GroupByKey` , som tillhandahåller agg regeringar, fönster och andra funktioner, men har den obegränsade minnes gränsen för Ann.
+* Föredra `TreeReduce` , som fungerar mer i körnings-eller partitionerna, till `Reduce` , som gör allt arbete på driv rutinen.
 * Utnyttja DataFrames i stället för RDD-objekt på lägre nivå.
 * Skapa ComplexTypes som kapslar in åtgärder, till exempel "Top N", olika agg regeringar eller fönster åtgärder.
 
@@ -105,11 +105,11 @@ Du kan använda partitionering och Bucket på samma tid.
 
 Om du har långsamma jobb för en koppling eller blanda är orsaken förmodligen *dataskevning*, som är asymmetry i dina jobb data. Till exempel kan ett kart jobb ta 20 sekunder, men att köra ett jobb där data är anslutna eller blandade tar timmar. Om du vill åtgärda data skevningen bör du salta hela nyckeln eller använda ett *isolerat salt* för vissa nycklar. Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera din delmängd av saltade nycklar i kart kopplingar. Ett annat alternativ är att introducera en Bucket-kolumn och församlad i Bucket först.
 
-En annan faktor som orsakar långsamma kopplingar kan vara kopplings typen. Som standard använder Spark typen `SortMerge` Join. Den här typen av anslutning lämpar sig bäst för stora data mängder, men är i övrigt kostsam eftersom det måste först sortera vänster och höger om data innan de sammanfogas.
+En annan faktor som orsakar långsamma kopplingar kan vara kopplings typen. Som standard använder Spark `SortMerge` typen Join. Den här typen av anslutning lämpar sig bäst för stora data mängder, men är i övrigt kostsam eftersom det måste först sortera vänster och höger om data innan de sammanfogas.
 
 En `Broadcast` koppling passar bäst för mindre data uppsättningar eller där en sida av kopplingen är mycket mindre än den andra sidan. Den här typen av anslutning sänder ut en sida till alla körningar och kräver därför mer minne för sändningar i allmänhet.
 
-Du kan ändra kopplings typen i konfigurationen genom att ange `spark.sql.autoBroadcastJoinThreshold`eller så kan du ange ett JOIN-tips med DataFrame-API`dataframe.join(broadcast(df2))`: erna ().
+Du kan ändra kopplings typen i konfigurationen genom att ange `spark.sql.autoBroadcastJoinThreshold` eller så kan du ange ett JOIN-tips med DataFrame-API: erna ( `dataframe.join(broadcast(df2))` ).
 
 ```scala
 // Option 1
@@ -124,7 +124,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Om du använder Bucket tabeller har du en tredje kopplings typ, `Merge` kopplingen. En korrekt fördelad och försorterad data uppsättning hoppar över den dyra sorterings fasen från `SortMerge` en koppling.
+Om du använder Bucket tabeller har du en tredje kopplings typ, `Merge` kopplingen. En korrekt fördelad och försorterad data uppsättning hoppar över den dyra sorterings fasen från en `SortMerge` koppling.
 
 Ordningen på kopplingar, särskilt i mer komplexa frågor. Börja med de mest selektiva kopplingarna. Du kan också flytta kopplingar som ökar antalet rader efter AGG regeringar när det är möjligt.
 
@@ -160,7 +160,7 @@ Tänk på följande när du kör samtidiga frågor:
 
 Övervaka dina frågeresultat för avvikande eller andra prestanda problem genom att titta på vyn tids linje, SQL graf, jobb statistik och så vidare. Ibland är ett eller flera av körningarna långsammare än de andra, och uppgifter tar mycket längre tid att köra. Detta händer ofta i större kluster (> 30 noder). I det här fallet delar du in arbetet i ett större antal aktiviteter så att Scheduler kan kompensera för långsamma aktiviteter. 
 
-Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
+Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true` .
 
 ## <a name="optimize-job-execution"></a>Optimera jobb körningen
 
@@ -170,7 +170,7 @@ Du kan till exempel ha minst två gånger så många uppgifter som antalet utfö
 
 Nyckeln till Spark 2. x-frågans prestanda är Tungsten-motorn, som är beroende av kodgenerering i hela fasen. I vissa fall kan generering av kod i hela fasen inaktive ras. 
 
-Om du till exempel använder en icke-föränderligt typ (`string`) i agg regerings uttrycket `SortAggregate` visas i stället för. `HashAggregate` För bättre prestanda kan du till exempel prova följande och sedan återaktivera kodgenerering:
+Om du till exempel använder en icke-föränderligt typ ( `string` ) i agg regerings uttrycket visas i `SortAggregate` stället för `HashAggregate` . För bättre prestanda kan du till exempel prova följande och sedan återaktivera kodgenerering:
 
 ```sql
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))

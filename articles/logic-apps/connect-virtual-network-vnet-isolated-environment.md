@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: a55aebf13b341d1a722ddcb9525c4539b2f000e6
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/18/2020
+ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656771"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298862"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -44,25 +44,31 @@ Du kan också skapa en ISE med hjälp av [exemplet Azure Resource Manager snabb 
   > [!IMPORTANT]
   > Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris plan som skiljer sig från den förbruknings bara pris planen. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md).
+* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Ditt virtuella nätverk måste ha fyra *tomma* undernät som inte har delegerats till någon tjänst för att skapa och distribuera resurser i din ISE. Varje undernät har stöd för en annan Logic Apps-komponent som används i ISE. Du kan skapa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
 
-  * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Varje undernät har stöd för en annan Logic Apps-komponent som används i ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
-
-  * Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck och får inte använda dessa tecken:,,,,, `<` `>` `%` `&` `\\` `?` , `/` . 
-  
-  * Om du vill distribuera ISE via en Azure Resource Manager-mall ska du först kontrol lera att du delegerar ett tomt undernät till Microsoft. Logic/integrationServiceEnvironment. Du behöver inte utföra den här delegeringen när du distribuerar via Azure Portal.
+  > [!IMPORTANT]
+  >
+  > Använd inte följande IP-adressutrymme för ditt virtuella nätverk eller undernät eftersom de inte går att matcha med Azure Logic Apps:<p>
+  > 
+  > * 0.0.0.0/8
+  > * 100.64.0.0/10
+  > * 127.0.0.0/8
+  > * 168.63.129.16/32
+  > * 169.254.169.254/32
+  > 
+  > Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck och får inte använda dessa tecken:,,,,, `<` `>` `%` `&` `\\` `?` , `/` . Om du vill distribuera din ISE via en Azure Resource Manager-mall ska du först kontrol lera att du delegerar ett tomt undernät till `Microsoft.Logic/integrationServiceEnvironment` . Du behöver inte utföra den här delegeringen när du distribuerar via Azure Portal.
 
   * Se till att ditt virtuella nätverk [ger åtkomst till din ISE](#enable-access) så att din ISE kan fungera korrekt och vara tillgänglig.
 
-  * [ExpressRoute](../expressroute/expressroute-introduction.md) hjälper dig att utöka dina lokala nätverk till Microsoft-molnet och ansluta till Microsofts moln tjänster via en privat anslutning som under lättas av anslutnings leverantören. Mer specifikt är ExpressRoute ett virtuellt privat nätverk som dirigerar trafik över ett privat nätverk, i stället för via det offentliga Internet. Dina Logic Apps kan ansluta till lokala resurser som finns i samma virtuella nätverk när de ansluter via ExpressRoute eller ett virtuellt privat nätverk.
-     
-    Om du använder ExpressRoute kontrollerar du att du inte använder [Tvingad tunnel trafik](../firewall/forced-tunneling.md). Om du använder Tvingad tunnel trafik måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som anger följande väg:
-  
+  * Om du använder eller vill använda [ExpressRoute](../expressroute/expressroute-introduction.md) tillsammans med [Tvingad tunnel trafik](../firewall/forced-tunneling.md)måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell med följande angivna väg och länka routningstabellen till varje undernät som används av din ISE:
+
     **Namn**: <*Route-Name*><br>
     **Adressprefix**: 0.0.0.0/0<br>
     **Nästa hopp**: Internet
     
-    Du måste länka den här routningstabellen till varje undernät som används av din ISE. Routningstabellen krävs så att Logic Apps-komponenter kan kommunicera med andra beroende Azure-tjänster, till exempel Azure Storage och Azure SQL DB. Mer information om den här vägen finns i adressprefixet [0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route).
+    Den här typen av väg tabell krävs så att Logic Apps-komponenter kan kommunicera med andra beroende Azure-tjänster, till exempel Azure Storage och Azure SQL DB. Mer information om den här vägen finns i adressprefixet [0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Om du inte använder Tvingad tunnel trafik med ExpressRoute behöver du inte den här en speciell routningstabell.
+    
+    Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet och ansluta till Microsofts moln tjänster via en privat anslutning som under lättas av anslutnings leverantören. Mer specifikt är ExpressRoute ett virtuellt privat nätverk som dirigerar trafik över ett privat nätverk, i stället för via det offentliga Internet. Dina Logic Apps kan ansluta till lokala resurser som finns i samma virtuella nätverk när de ansluter via ExpressRoute eller ett virtuellt privat nätverk.
    
   * Om du använder en [virtuell nätverks installation (NVA)](../virtual-network/virtual-networks-udr-overview.md#user-defined)ser du till att du inte aktiverar TLS/SSL-terminering eller ändrar utgående TLS/SSL-trafik. Se också till att du inte aktiverar inspektion för trafik som kommer från din ISEs undernät. Mer information finns i [trafik dirigering för virtuella nätverk](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -101,7 +107,7 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
 
 #### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Obs! |
+| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Kommentarer |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Kommunikation mellan undernät i det virtuella nätverket | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Krävs för att trafik ska flöda *mellan* under näten i det virtuella nätverket. <p><p>**Viktigt**: för att trafik ska flöda mellan *komponenterna* i varje undernät, se till att du öppnar alla portar i varje undernät. |
 | Båda: <p>Kommunikation till din Logic app <p><p>Kör historik för Logic app| Intern ISE: <br>**VirtualNetwork** <p><p>Extern ISE: **Internet** eller se **kommentarer** | * | **VirtualNetwork** | 443 | I stället för att använda taggen **Internet** service kan du ange käll-IP-adressen för följande objekt: <p><p>– Datorn eller tjänsten som anropar alla begär ande utlösare eller Webhooks i din Logic app <p>– Datorn eller tjänsten som du vill få åtkomst till kör historik för Logic app <p><p>**Viktigt**: om du stänger eller blockerar den här porten förhindras anrop till Logic Apps som har begär ande utlösare eller Webhooks. Du hindras också från att komma åt indata och utdata för varje steg i körnings historiken. Du kommer dock inte hindras från att komma åt körnings historiken för Logic app.|
@@ -116,7 +122,7 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
 
 #### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
-| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Obs! |
+| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Kommentarer |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Kommunikation mellan undernät i det virtuella nätverket | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Krävs för att trafik ska flöda *mellan* under näten i det virtuella nätverket. <p><p>**Viktigt**: för att trafik ska flöda mellan *komponenterna* i varje undernät, se till att du öppnar alla portar i varje undernät. |
 | Kommunikation från din Logic app | **VirtualNetwork** | * | Varierar beroende på mål | 80, 443 | Målet varierar beroende på slut punkterna för den externa tjänst som din Logic app behöver för att kommunicera med. |
@@ -129,6 +135,12 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
 | Beroende från logg till Event Hub-princip och övervaknings agent | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383, plus se **kommentarer**| För att ISE ska fungera med Azure cache för Redis måste du öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 |||||||
+
+Du måste också lägga till utgående regler för [App Service-miljön (ASE)](../app-service/environment/intro.md):
+
+* Om du använder Azure-brandväggen måste du konfigurera din brand vägg med taggen App Service-miljön (ASE) [fullständigt kvalificerade domän namn (FQDN)](../firewall/fqdn-tags.md#current-fqdn-tags)som tillåter utgående åtkomst till ASE-plattforms trafik.
+
+* Om du använder en annan brand vägg än Azure Firewall måste du konfigurera brand väggen med *alla* regler i [brand väggens integrations beroenden](../app-service/environment/firewall-integration.md#dependencies) som krävs för App Service-miljön.
 
 <a name="create-environment"></a>
 
@@ -169,7 +181,7 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder en `/27` i adress utrymmet eftersom varje undernät kräver 32 adresser. Har till exempel `10.0.0.0/27` 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32. Fler adresser ger inga ytterligare förmåner.  Mer information om hur du beräknar adresser finns i [IPv4 CIDR-block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Använder en `/27` i adress utrymmet eftersom varje undernät kräver 32 adresser. Har till exempel `10.0.0.0/27` 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32. Fler adresser ger inga ytterligare förmåner. Mer information om hur du beräknar adresser finns i [IPv4 CIDR-block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md)måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell med följande väg och länka tabellen till varje undernät som används av din ISE:
 
@@ -216,7 +228,7 @@ I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och s
    Annars följer du Azure Portal anvisningarna för fel sökning av distribution.
 
    > [!NOTE]
-   > Om distributionen Miss lyckas eller om du tar bort din ISE kan Azure ta upp till en timme innan du släpper upp dina undernät. Den här fördröjningen innebär att du kan behöva vänta innan du återanvänder dessa undernät i en annan ISE.
+   > Om distributionen Miss lyckas eller om du tar bort din ISE kan Azure ta upp till en timme eller kanske längre i sällsynta fall innan du släpper dina undernät. Så du kan behöva vänta innan du kan återanvända dessa undernät i en annan ISE.
    >
    > Om du tar bort det virtuella nätverket tar Azure vanligt vis upp till två timmar innan du frigör dina undernät, men den här åtgärden kan ta längre tid. 
    > Se till att inga resurser fortfarande är anslutna när du tar bort virtuella nätverk. 

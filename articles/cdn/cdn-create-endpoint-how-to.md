@@ -10,16 +10,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254023"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887730"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
 I den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network-slutpunkt (CDN)](cdn-overview.md) i en befintlig CDN-profil. När du har skapat en profil och en slut punkt kan du börja leverera innehåll till dina kunder. En snabb start för att skapa en profil och slut punkt finns i [snabb start: skapa en Azure CDN profil och slut punkt](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    
     ![Sidan Lägg till slut punkt](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _ \<endpointname>_. azureedge.net.
+3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _\<endpointname>_ . azureedge.net.
 
 4. För **typ av ursprung**väljer du någon av följande ursprungs typer: 
    - **Lagring** för Azure Storage
@@ -62,7 +62,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
     
-8. För **protokoll** och **ursprungs port**anger du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungs servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-tillhandahållna domänen (_\<endpointname>_. azureedge.net) för att komma åt https-innehåll. 
+8. För **protokoll** och **ursprungs port**anger du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungs servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-tillhandahållna domänen ( _\<endpointname>_ . azureedge.net) för att komma åt https-innehåll. 
    
    > [!NOTE]
    > Värdet för **ursprungs porten** bestämmer bara porten som slut punkten använder för att hämta information från ursprungs servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  

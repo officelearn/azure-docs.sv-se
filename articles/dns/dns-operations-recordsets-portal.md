@@ -4,15 +4,15 @@ description: Azure DNS ger möjlighet att hantera DNS-postuppsättningar och-pos
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936845"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696839"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och post uppsättningar med hjälp av Azure Portal
 
@@ -93,7 +93,7 @@ NS-och SOA-poster som skapas automatiskt hanteras annorlunda än andra post type
 
 ### <a name="modify-soa-records"></a>Ändra SOA-poster
 
-Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (namn = "\@"). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
+Det går inte att lägga till eller ta bort poster från den automatiskt skapade SOA-postuppsättningen vid zonens Apex (namn = " \@ "). Du kan dock ändra någon av parametrarna i SOA-posten (förutom "värd") och post uppsättningens TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Ändra NS-poster vid zonens Apex
 
@@ -105,7 +105,7 @@ Observera att detta endast gäller för NS-postuppsättningen i zonens Apex. And
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Ta bort SOA-eller NS-postuppsättningar
 
-Du kan inte ta bort SOA-och NS-postuppsättningarna i zonens Apex\@(namn =) som skapas automatiskt när zonen skapas. De tas bort automatiskt när du tar bort zonen.
+Du kan inte ta bort SOA-och NS-postuppsättningarna i zonens Apex (namn = \@ ) som skapas automatiskt när zonen skapas. De tas bort automatiskt när du tar bort zonen.
 
 ## <a name="next-steps"></a>Nästa steg
 

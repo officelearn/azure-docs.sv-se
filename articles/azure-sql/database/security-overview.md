@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 6204600cde1b9776e5edbbe129d550065cebf331
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 78af56e0b6f9e8e195ab77fdc57da336dd170c25
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322124"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255066"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Den här artikeln beskriver grunderna för att skydda data nivån för ett program med hjälp av [Azure SQL Database](sql-database-paas-overview.md) och [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md). Säkerhets strategin som beskrivs följer efter det skiktade försvars fördjupet, som visas i bilden nedan, och som rör sig från utsidan i:
 
-![SQL-Security-Layer. png](./media/security-overview/sql-security-layer.png)
+![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
@@ -54,7 +54,7 @@ Autentisering är en process för att bevisa att användaren är den som han ell
 
 - **SQL-autentisering**:
 
-    SQL Database-autentisering syftar på autentisering av en användare vid anslutning till Azure SQL Database eller Azure SQL-hanterad instans med hjälp av användar namn och lösen ord. Du måste ange en inloggning med ett användar namn och lösen ord för **Server administratören** när servern skapas. Med dessa autentiseringsuppgifter kan en **Server administratör** autentisera till valfri databas på servern eller instansen som databas ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
+    SQL-autentisering syftar på autentisering av en användare vid anslutning till Azure SQL Database eller Azure SQL-hanterad instans med hjälp av användar namn och lösen ord. Du måste ange en inloggning med ett användar namn och lösen ord för **Server administratören** när servern skapas. Med dessa autentiseringsuppgifter kan en **Server administratör** autentisera till valfri databas på servern eller instansen som databas ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
 
 - **Azure Active Directory autentisering**:
 
@@ -77,7 +77,7 @@ Vi rekommenderar att du skapar anpassade roller vid behov. Lägg till användare
 
 Säkerhet på radnivå gör det möjligt för kunder att styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (till exempel grupp medlemskap eller körnings kontext). Säkerhet på radnivå kan också användas för att implementera anpassade, märkta säkerhets begrepp. Mer information finns i [säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
 
-![Azure-Database-RLS. png](./media/security-overview/azure-database-rls.png)
+![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Skydd mot hot
 
@@ -91,7 +91,7 @@ SQL Database-och SQL-hanterad instans granskning spårar databas aktiviteter och
 
 Avancerat skydd analyserar dina loggar för att identifiera onormalt beteende och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter, till exempel SQL-inmatning, potentiell data intrånget och brutna force-attacker eller för avvikelser i åtkomst mönster för att fånga in behörighets eskaleringar och avslöjade autentiseringsuppgifter. Aviseringar visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/), där information om misstänkta aktiviteter tillhandahålls och rekommendationer för ytterligare undersökning ges tillsammans med åtgärder för att minimera hotet. Avancerat skydd kan aktive ras per server för ytterligare en avgift. Mer information finns i [Kom igång med SQL Database Avancerat skydd](threat-detection-configure.md).
 
-![Azure-Database-TD. jpg](./media/security-overview/azure-database-td.jpg)
+![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Informations skydd och kryptering
 
@@ -122,13 +122,13 @@ I Azure krypteras alla nyligen skapade databaser som standard och databas krypte
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (kryptering används)
 
-![Azure-Database-AE. png](./media/security-overview/azure-database-ae.png)
+![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) är en funktion som har utformats för att skydda känsliga data som lagras i vissa databas kolumner från åtkomst (till exempel kreditkorts nummer, nationella identifierings nummer eller data på ett _behov av att känna till_ grunden). Detta inkluderar databas administratörer eller andra privilegierade användare som har behörighet att komma åt databasen för att utföra hanterings uppgifter, men inte ha någon verksamhet som behöver komma åt specifika data i de krypterade kolumnerna. Data krypteras alltid, vilket innebär att krypterade data endast dekrypteras för bearbetning av klient program med åtkomst till krypterings nyckeln. Krypterings nyckeln exponeras aldrig för SQL Database eller SQL-hanterad instans och kan lagras antingen i [Windows certifikat Arkiv](always-encrypted-certificate-store-configure.md) eller i [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
 
-![Azure-Database-DDM. png](./media/security-overview/azure-database-ddm.png)
+![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
 
 Dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. Dynamisk data maskning identifierar automatiskt potentiellt känsliga data i Azure SQL Database-och SQL-hanterad instans och ger rekommendationer som kan användas för att maskera dessa fält, med minimal påverkan på program skiktet. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Kom igång med SQL Database och SQL-hanterad instans dynamisk data maskning](dynamic-data-masking-overview.md).
 

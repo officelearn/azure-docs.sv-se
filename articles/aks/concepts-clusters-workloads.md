@@ -4,12 +4,12 @@ description: Lär dig mer om de grundläggande kluster-och arbets belastnings ko
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ddf6543ff0e4313b28c183718b6ac3b2395e0dbf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208167"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729979"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -42,12 +42,12 @@ När du skapar ett AKS-kluster skapas och konfigureras ett kontroll plan automat
 
 Kontroll planet innehåller följande kärn Kubernetes-komponenter:
 
-- *Kube-apiserver* – API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till `kubectl` exempel eller Kubernetes-instrumentpanelen.
+- *Kube-apiserver* – API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 - *etcd* – för att underhålla status för ditt Kubernetes-kluster och-konfiguration är hög tillgänglig *etcd* ett nyckel värdes lager inom Kubernetes.
 - *Kube-Scheduler* – när du skapar eller skalar program bestämmer Scheduler vilka noder som kan köra arbets belastningen och startar dem.
 - *Kube-Controller-Manager* – Controller Manager ser över ett antal mindre styrenheter som utför åtgärder som att replikera poddar och hantera Node-åtgärder.
 
-AKS tillhandahåller ett kontroll plan för en enskild klient, med en dedikerad API-Server, Scheduler, osv. Du definierar antalet och storleken på noderna, och Azure-plattformen konfigurerar den säkra kommunikationen mellan kontroll planet och noderna. Interaktion med kontroll planet sker via Kubernetes-API: er, `kubectl` till exempel eller Kubernetes-instrumentpanelen.
+AKS tillhandahåller ett kontroll plan för en enskild klient, med en dedikerad API-Server, Scheduler, osv. Du definierar antalet och storleken på noderna, och Azure-plattformen konfigurerar den säkra kommunikationen mellan kontroll planet och noderna. Interaktion med kontroll planet sker via Kubernetes-API: er, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 
 Det här hanterade kontroll planet innebär att du inte behöver konfigurera komponenter som en hög tillgänglig *etcd* -butik, men det innebär också att du inte kan komma åt kontroll planet direkt. Uppgraderingar av Kubernetes dirigeras via Azure CLI eller Azure Portal, som uppgraderar kontroll planet och noderna. Om du vill felsöka eventuella problem kan du granska kontroll Plans loggarna via Azure Monitor loggar.
 
@@ -59,7 +59,7 @@ För associerade metod tips, se [metod tips för kluster säkerhet och uppgrader
 
 Om du vill köra program och stöd tjänster behöver du en Kubernetes- *nod*. Ett AKS-kluster har en eller flera noder, som är en virtuell Azure-dator (VM) som kör Kubernetes-nodens komponenter och behållar körningen:
 
-- `kubelet` Är Kubernetes-agenten som bearbetar Orchestration-begärandena från kontroll planet och schemaläggning av att köra de begärda behållarna.
+- `kubelet`Är Kubernetes-agenten som bearbetar Orchestration-begärandena från kontroll planet och schemaläggning av att köra de begärda behållarna.
 - Virtuella nätverk hanteras av *Kube-proxy* på varje nod. Proxyservern dirigerar nätverks trafik och hanterar IP-adresser för tjänster och poddar.
 - *Container runtime* är den komponent som gör det möjligt för program i behållare att köra och interagera med ytterligare resurser, till exempel det virtuella nätverket och lagringen. I AKS används Moby som container Runtime.
 
@@ -69,7 +69,7 @@ Storleken på virtuella Azure-datorer för dina noder definierar hur många proc
 
 I AKS baseras den virtuella dator avbildningen för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skalar ut antalet noder, skapar Azure-plattformen det begärda antalet virtuella datorer och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra. Agent-noder faktureras som standard virtuella datorer så att eventuella rabatter som du har på den virtuella dator storleken som du använder (inklusive [Azure-reservationer][reservation-discounts]) används automatiskt.
 
-Om du behöver använda ett annat värd operativ system, container runtime eller inkludera anpassade paket kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine]. De överordnade `aks-engine` versions funktionerna och innehåller konfigurations alternativ innan de stöds officiellt i AKS-kluster. Om du till exempel vill använda en annan behållar körning än Moby kan du använda `aks-engine` för att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina aktuella behov.
+Om du behöver använda ett annat värd operativ system, container runtime eller inkludera anpassade paket kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine]. De överordnade versions `aks-engine` funktionerna och innehåller konfigurations alternativ innan de stöds officiellt i AKS-kluster. Om du till exempel vill använda en annan behållar körning än Moby kan du använda `aks-engine` för att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina aktuella behov.
 
 ### <a name="resource-reservations"></a>Resurs reservationer
 
@@ -165,7 +165,7 @@ De flesta tillstånds lösa program i AKS bör använda distributions modellen i
 
 Om ett program kräver ett kvorum av instanser för att alltid vara tillgängligt för hanterings beslut, vill du inte att en uppdaterings process ska störa den möjligheten. *Pod avbrott i budgetar* kan användas för att definiera hur många repliker i en distribution som kan tas offline under en uppdatering eller nod-uppgradering. Om du till exempel har *fem* repliker i distributionen kan du definiera ett Pod-avbrott på *4* för att bara tillåta att en replik tas bort/ombokas i taget. Precis som med Pod resurs gränser är det en bra idé att definiera Pod avbrotts budgetar för program som kräver att det alltid finns ett minsta antal repliker.
 
-Distributioner skapas och hanteras vanligt vis med `kubectl create` eller `kubectl apply`. Om du vill skapa en distribution definierar du en manifest fil i formatet YAML (YAML Ain't Markup Language). I följande exempel skapas en grundläggande distribution av NGINX-webbservern. I distributionen anges *tre* repliker som ska skapas och port *80* vara öppen i behållaren. Resurs begär Anden och gränser definieras också för processor och minne.
+Distributioner skapas och hanteras vanligt vis med `kubectl create` eller `kubectl apply` . Om du vill skapa en distribution definierar du en manifest fil i formatet YAML (YAML Ain't Markup Language). I följande exempel skapas en grundläggande distribution av NGINX-webbservern. I distributionen anges *tre* repliker som ska skapas och port *80* vara öppen i behållaren. Resurs begär Anden och gränser definieras också för processor och minne.
 
 ```yaml
 apiVersion: apps/v1
@@ -204,11 +204,7 @@ Mer information finns i [Kubernetes-distributioner][kubernetes-deployments].
 
 En vanlig metod för att hantera program i Kubernetes är med [Helm][helm]. Du kan bygga och använda befintliga offentliga Helm- *diagram* som innehåller en paketerad version av program koden och Kubernetes yaml-manifest för att distribuera resurser. Dessa Helm-diagram kan lagras lokalt eller ofta i en fjärrlagringsplats, till exempel ett [Azure Container Registry Helm-diagram lagrings platsen][acr-helm].
 
-Om du vill använda Helm installeras en Server komponent som kallas för *till* i ditt Kubernetes-kluster. Till-aren hanterar installationen av diagram i klustret. Själva Helm-klienten installeras lokalt på datorn eller kan användas inom [Azure Cloud Shell][azure-cloud-shell]. Du kan söka efter eller skapa Helm-diagram med klienten och sedan installera dem i ditt Kubernetes-kluster.
-
-![Helm innehåller en klient komponent och en komponent på Server sidan som skapar resurser i Kubernetes-klustret](media/concepts-clusters-workloads/use-helm.png)
-
-Mer information finns i [installera program med Helm i Azure Kubernetes service (AKS)][aks-helm].
+Om du vill använda Helm installerar du Helm-klienten på datorn eller använder Helm-klienten i [Azure Cloud Shell][azure-cloud-shell]. Du kan söka efter eller skapa Helm-diagram med klienten och sedan installera dem i ditt Kubernetes-kluster. Mer information finns i [Installera befintliga program med Helm i AKS][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets och DaemonSets
 
@@ -223,7 +219,7 @@ Det finns två Kubernetes-resurser som låter dig hantera följande typer av pro
 
 Modern program utveckling syftar ofta till tillstånds lösa program, men *StatefulSets* kan användas för tillstånds känsliga program, till exempel program som innehåller databas komponenter. En StatefulSet liknar en distribution i som en eller flera identiska poddar skapas och hanteras. Repliker i en StatefulSet följer en korrekt, sekventiell metod för distribution, skalning, uppgraderingar och avslutning. Med en StatefulSet (som repliker omplaneras) namngivnings konventionen, nätverks namn och lagrings utrymme.
 
-Du definierar programmet i YAML-format med `kind: StatefulSet`, och StatefulSet-kontrollanten hanterar sedan distributionen och hanteringen av de nödvändiga replikerna. Data skrivs till beständig lagring, som tillhandahålls av Azure Managed Disks eller Azure Files. Med StatefulSets förblir den underliggande beständiga lagringen även om StatefulSet tas bort.
+Du definierar programmet i YAML-format med `kind: StatefulSet` , och StatefulSet-kontrollanten hanterar sedan distributionen och hanteringen av de nödvändiga replikerna. Data skrivs till beständig lagring, som tillhandahålls av Azure Managed Disks eller Azure Files. Med StatefulSets förblir den underliggande beständiga lagringen även om StatefulSet tas bort.
 
 Mer information finns i [Kubernetes StatefulSets][kubernetes-statefulsets].
 
@@ -235,14 +231,14 @@ För specifik logg samling eller övervaknings behov kan du behöva köra en vis
 
 DaemonSet-kontrollanten kan schemalägga poddar på noderna tidigt i kluster start processen, innan standard-Kubernetes Scheduler har startat. Den här funktionen säkerställer att poddar i en DaemonSet startas innan traditionella poddar i en distribution eller StatefulSet schemaläggs.
 
-Som StatefulSets definieras en DaemonSet som en del av en YAML-definition med `kind: DaemonSet`hjälp av.
+Som StatefulSets definieras en DaemonSet som en del av en YAML-definition med hjälp av `kind: DaemonSet` .
 
 Mer information finns i [Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
 > Om du använder [tillägg för virtuella noder](virtual-nodes-cli.md#enable-virtual-nodes-addon)kommer DaemonSets inte att skapa poddar på den virtuella noden.
 
-## <a name="namespaces"></a>Namnområden
+## <a name="namespaces"></a>Namnrymder
 
 Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett *namn område*. Dessa grupperingar ger ett sätt att logiskt dela upp ett AKS-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Du kan till exempel skapa namn områden för att separera affärs grupper. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
 
@@ -250,7 +246,7 @@ Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i
 
 När du skapar ett AKS-kluster är följande namn rymder tillgängliga:
 
-- *standard* – det här namn området är där poddar och distributioner skapas som standard när inget anges. I mindre miljöer kan du distribuera program direkt till standard namn området utan att skapa ytterligare logiska separationer. När du interagerar med Kubernetes-API: t `kubectl get pods`, till exempel med, används standard namn området när inget anges.
+- *standard* – det här namn området är där poddar och distributioner skapas som standard när inget anges. I mindre miljöer kan du distribuera program direkt till standard namn området utan att skapa ytterligare logiska separationer. När du interagerar med Kubernetes-API: t, till exempel med `kubectl get pods` , används standard namn området när inget anges.
 - *Kube-system* – det här namn området är där kärn resurser finns, till exempel nätverks funktioner som DNS och proxy eller Kubernetes-instrumentpanelen. Du distribuerar vanligt vis inte dina egna program till det här namn området.
 - *Kube* – det här namn området används vanligt vis inte, men kan användas för att visa resurser över hela klustret och kan visas av alla användare.
 

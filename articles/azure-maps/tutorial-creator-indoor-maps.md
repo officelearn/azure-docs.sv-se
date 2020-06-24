@@ -3,17 +3,17 @@ title: Använd skapare för att skapa inliggande kartor
 description: Använd Azure Maps Creator för att skapa inomhus Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/28/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c27752d7a4b8e99dd70563cece02a4fd4e67bdc1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 93827e4d5f6bcf66191ae78c18adac71b5dd0a22
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560351"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255185"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa inomhus Maps:
 
@@ -64,25 +64,30 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
 5. Klicka på knappen blå **sändning** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
 
-6. Om du vill kontrol lera status för API-anropet skapar du en GET HTTP-begäran på `status URL` . Du måste lägga till din primära prenumerations nyckel till URL: en för autentisering.
+6. Om du vill kontrol lera status för API-anropet skapar du en **Get** http-begäran på `status URL` . Du måste lägga till din primära prenumerations nyckel till URL: en för autentisering. **Get** -begäran bör likna följande URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. När **hämtningen** av http-begäran har slutförts kan du använda `resourceLocation` URL: en för att hämta metadata från den här resursen i nästa steg.
+7. När **Get** http-begäran har slutförts returneras en `resourceLocation` . `resourceLocation`Innehåller det unika `udid` för det överförda innehållet. Du kan också använda `resourceLocation` URL: en för att hämta metadata från den här resursen i nästa steg.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. Om du vill hämta metadata för innehåll skapar du **en http** -begäran på den `resourceLocation` URL som du kopierade i steg 7. Svars texten innehåller ett unikt värde `udid` för det överförda innehållet, platsen för att komma åt/Ladda ned innehållet i framtiden och några andra metadata om innehållet som skapat/uppdaterat datum, storlek och så vidare. Ett exempel på det övergripande svaret är:
+8. Om du vill hämta metadata för innehåll skapar **du en http** -begäran på den `resourceLocation` URL som hämtades i steg 7. Se till att lägga till din primära prenumerations nyckel till URL: en för autentisering. **Get** -begäran bör likna följande URL:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. När **Get** http-begäran har slutförts innehåller svars texten som `udid` anges i i `resourceLocation` steg 7, platsen för att komma åt/Ladda ned innehållet i framtiden och några andra metadata om innehållet som skapat/uppdaterat datum, storlek och så vidare. Ett exempel på det övergripande svaret är:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -102,7 +107,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 2. Välj metoden **post** http på fliken Builder och ange följande URL för att konvertera det överförda ritnings paketet till kart data. Använd `udid` för det överförda paketet.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
 
 3. Klicka på knappen **Skicka** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret och letar efter **plats** nyckeln. Kopiera värdet för **plats** nyckeln, som är `status URL` för konverterings förfrågan.
@@ -163,7 +168,7 @@ Data uppsättningen är en samling kart funktioner, till exempel byggnader, niv�
 4. Gör en **Get** -begäran på `statusURL` för att hämta `datasetId` . Lägg till din Azure Maps primära prenumerations nyckel för autentisering. Begäran bör se ut som följande URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. När **Get** http-begäran har slutförts, kommer svars huvudet att innehålla `datasetId` för den skapade data uppsättningen. Kopiera `datasetId` . Du måste använda `datasetId` för att skapa en TILESET.
@@ -192,7 +197,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 3. Gör en **Get** -begäran `statusURL` för TILESET. Lägg till din Azure Maps primära prenumerations nyckel för autentisering. Begäran bör se ut som följande URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. När **Get** http-begäran har slutförts innehåller svars huvudet `tilesetId` för den skapade TILESET. Kopiera `tilesetId` .

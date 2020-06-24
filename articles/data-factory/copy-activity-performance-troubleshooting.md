@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 6a7c04bec8a794a234f2f0c6fad75dc94c12d291
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668363"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770989"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
 
@@ -53,11 +53,11 @@ Som en referens ger för närvarande prestanda justerings tips förslag på föl
 
 Körnings informationen och varaktigheterna längst ned i vyn kopierings aktivitets övervakning beskriver de viktiga steg som din kopierings aktivitet går igenom (se exemplet i början av den här artikeln), vilket är särskilt användbart för att felsöka kopierings prestanda. Flask halsen för din kopierings körning är den som har den längsta varaktigheten. Se följande tabell i varje Stadiums definition och lär dig hur du [felsöker kopierings aktivitet på Azure IR](#troubleshoot-copy-activity-on-azure-ir) och [felsöker kopierings aktivitet på egen värd-IR](#troubleshoot-copy-activity-on-self-hosted-ir) med sådan information.
 
-| Fas           | Description                                                  |
+| Fas           | Beskrivning                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Kö           | Den tid som förflutit tills kopierings aktiviteten faktiskt börjar på integration Runtime. |
 | Skript före kopiering | Tiden mellan kopierings aktiviteten som startar på IR-och kopierings aktiviteten som kör skriptet för att kopiera i mottagar data lagret. Använd när du konfigurerar skriptet för att kopiera för databas handfat, t. ex. När du skriver data i Azure SQL Database rensa innan du kopierar nya data. |
-| Överföring        | Tiden i slutet av föregående steg och IR-överföring av alla data från källan till Sink. <br/>Observera under stegen under överförings körning parallellt, och vissa åtgärder visas inte nu, t. ex. tolkning/generering av fil format.<br><br/>- **Tid till första byte:** Tiden som förflutit mellan föregående stegs slut och den tid då IR tar emot den första byten från käll data lagret. Gäller icke-filbaserade källor.<br>- **Registrerings Källa:** Hur lång tid det tog att räkna upp källfiler eller datapartitioner. Den senare gäller när du konfigurerar partitionsalternativ för databas källor, t. ex. När du kopierar data från databaser som Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Läser från Källa:** Hur lång tid det tar att hämta data från käll data lagret.<br/>- **Skriver till Sink:** Hur lång tid det tog att skriva data till data lagret för mottagare. |
+| Överföring        | Tiden i slutet av föregående steg och IR-överföring av alla data från källan till Sink. <br/>Observera under stegen under överförings körning parallellt, och vissa åtgärder visas inte nu, t. ex. tolkning/generering av fil format.<br><br/>- **Tid till första byte:** Tiden som förflutit mellan föregående stegs slut och den tid då IR tar emot den första byten från käll data lagret. Gäller icke-filbaserade källor.<br>- **Registrerings Källa:** Hur lång tid det tog att räkna upp källfiler eller datapartitioner. Den senare gäller när du konfigurerar partitionsalternativ för databas källor, t. ex. När du kopierar data från databaser som Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Läser från Källa:** Hur lång tid det tar att hämta data från käll data lagret.<br/>- **Skriver till Sink:** Hur lång tid det tog att skriva data till data lagret för mottagare. Observera att vissa anslutningar inte har detta mått för tillfället, inklusive Azure Kognitiv sökning, Azure Datautforskaren, Azure Table Storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce-tjänstemolnet. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Felsöka kopierings aktivitet på Azure IR
 
@@ -142,7 +142,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
   - Kontrol lera den självbetjänings-och minnes användnings trenden i Azure Portal > din Data Factory-> översikts sida. Överväg att [skala upp/ut IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om processor användningen är hög eller tillgängligt minne är lågt.
 
-  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Exempel:
+  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Ett exempel:
 
     - När du kopierar data från [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)och [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) aktiverar du alternativ för datapartitioner för att kopiera data parallellt.
 

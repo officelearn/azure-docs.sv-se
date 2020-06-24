@@ -3,25 +3,25 @@ title: Problem med att installera agent anslutnings programmet för programproxy
 description: Så här felsöker du problem som du kan stöta på när du installerar Application Proxy agent-anslutningen
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172414"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764697"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
@@ -48,7 +48,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 2.  Om någon av dessa portar inte lyckas kontrollerar du att brand väggen eller backend-proxyn har åtkomst till de nödvändiga domänerna och portarna i, [förbereder din lokala miljö](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Öppna en webbläsare (separat flik) och gå till följande webb sida: `https://login.microsoftonline.com`, se till att du kan logga in på sidan.
+3.  Öppna en webbläsare (separat flik) och gå till följande webb sida: `https://login.microsoftonline.com` , se till att du kan logga in på sidan.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verifiera stöd för maskin-och Server dels komponenter för certifikat för programproxy-förtroende
 
@@ -93,8 +93,8 @@ Följ stegen för att verifiera certifikatet:
 
 Följ stegen för att verifiera certifikatet:
 
-1. Hämta [PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT Authority\Network Service" cmd. exe** från en upphöjd kommando tolk.
+1. Ladda ned [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT authority\network service" cmd.exe** från en upphöjd kommando tolk.
 3. Kör **certmgr. msc** i den nyligen visade kommando tolken
 2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
 3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**

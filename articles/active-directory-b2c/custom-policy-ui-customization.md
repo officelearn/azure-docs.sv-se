@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901fb73c58a074a37b410785ed3bb92a4d250c1c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396372"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202525"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -34,12 +34,12 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
 
-1. Öppna bas filen för din princip. Till exempel <em> `SocialAndLocalAccounts/` </em>. Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
-1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
+1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
-1. Sök efter det **ContentDefinition** -element som `Id="api.signuporsignin"` innehåller i XML-filen som du kopierade.
-1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Sök efter det **ContentDefinition** -element som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
+1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Exempelvis `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     Den anpassade principen bör se ut som följande kodfragment:
 
@@ -79,13 +79,13 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
 
 ## <a name="configure-dynamic-custom-page-content-uri"></a>Konfigurera innehålls-URI för dynamiskt anpassad sida
 
-Genom att använda Azure AD B2C anpassade principer kan du skicka en parameter i URL-sökvägen eller en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. Parametern kan vara alla [anspråks lösare](claim-resolver-overview.md), till exempel program-ID, språk-ID eller anpassad frågesträngparametern, till exempel `campaignId`.
+Genom att använda Azure AD B2C anpassade principer kan du skicka en parameter i URL-sökvägen eller en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. Parametern kan vara alla [anspråks lösare](claim-resolver-overview.md), till exempel program-ID, språk-ID eller anpassad frågesträngparametern, till exempel `campaignId` .
 
 ### <a name="sending-query-string-parameters"></a>Parametrar för frågesträng skickas
 
-Om du vill skicka frågesträngs parametrar i [principen för förlitande part](relyingparty.md), `ContentDefinitionParameters` lägger du till ett-element som visas nedan.
+Om du vill skicka frågesträngs parametrar i [principen för förlitande part](relyingparty.md), lägger du till ett- `ContentDefinitionParameters` element som visas nedan.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -99,9 +99,9 @@ Om du vill skicka frågesträngs parametrar i [principen för förlitande part](
 </RelyingParty>
 ```
 
-Ändra värdet för `LoadUri` till `https://<app_name>.azurewebsites.net/home/unified`i din innehålls definition. Den anpassade principen `ContentDefinition` bör se ut som följande kodfragment:
+Ändra värdet för till i din innehålls definition `LoadUri` `https://<app_name>.azurewebsites.net/home/unified` . Den anpassade principen `ContentDefinition` bör se ut som följande kodfragment:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -118,14 +118,14 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 Innehållet kan hämtas från olika platser baserat på de parametrar som används. I den CORS-aktiverade slut punkten ställer du in en mappstruktur som värd för innehåll. Du kan till exempel organisera innehållet i följande struktur. Rotmapp */mapp per språk/dina HTML-filer*. Din anpassade sid-URI kan till exempel se ut så här:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
 </ContentDefinition>
 ```
 
-Azure AD B2C skickar ISO- `fr` koden med två bokstäver för språket franska:
+Azure AD B2C skickar ISO-koden med två bokstäver för språket `fr` franska:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html

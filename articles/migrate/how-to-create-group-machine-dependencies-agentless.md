@@ -2,45 +2,44 @@
 title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 68c95c74768f9d9628f92b061754c942b080565c
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 6/08/2020
+ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659979"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771384"
 ---
-# <a name="set-up-agentless-dependency-visualization"></a>Konfigurera beroende visualisering för agent utan agent 
+# <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
-I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i Azure Migrate: Server bedömning. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer som du vill utvärdera och migrera till Azure.
+I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i Azure Migrate: Server bedömning. Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera och förstå beroenden mellan datorer för utvärdering och migrering till Azure.
 
 
 > [!IMPORTANT]
-> Det finns för närvarande en för hands version av beroende visualisering för virtuella VMware-datorer som har identifierats med verktyget Azure Migrate: Server bedömning.
+> Det finns för närvarande en för hands version av en beroende visualisering för virtuella VMware-datorer som har identifierats med verktyget Azure Migrate: Server bedömning.
 > Funktioner kan vara begränsade eller ofullständiga.
 > Den här för hands versionen täcks av kund support och kan användas för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## <a name="current-limitations"></a>Aktuella begränsningar
 
+- I vyn beroende analys kan du för närvarande inte lägga till eller ta bort en server från en grupp.
+- En beroende karta för en grupp med servrar är inte tillgänglig för närvarande.
+- Det går inte att hämta beroende data i tabell format.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Läs mer om](concepts-dependency-visualization.md#agentless-analysis) beroende analys av agenter.
-- [Granska](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) kraven och support kraven för att konfigurera en agent utan beroende visualisering för virtuella VMware-datorer
-- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
-- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
-- Se till att du har konfigurerat en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera dina lokala datorer. Lär dig hur du konfigurerar en installation för virtuella [VMware](how-to-set-up-appliance-vmware.md) -datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering.
+- [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds och de behörigheter som krävs.
+- Kontrol lera att du:
+    - Ha ett Azure Migrate-projekt. Om du inte gör det [skapar](how-to-add-tool-first-time.md) du en nu.
+    - Kontrol lera att du har [lagt](how-to-assess.md) till verktyget Azure Migrate: Server utvärderings verktyg i projektet.
+    - Konfigurera en [Azure Migrate-apparat](migrate-appliance.md) för att identifiera lokala datorer. [Konfigurera en installation](how-to-set-up-appliance-vmware.md) för virtuella VMware-datorer. Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering.
+- Kontrol lera att VMware-verktygen (senare än 10,2) är installerade på varje virtuell dator som du vill analysera.
 
-
-## <a name="current-limitations"></a>Aktuella begränsningar
-
-- Just nu kan du inte lägga till eller ta bort en server från en grupp i vyn beroende analys.
-- En beroende karta för en Server grupp är inte tillgänglig för tillfället.
-- Beroende data kan för närvarande inte hämtas i tabell format.
 
 ## <a name="create-a-user-account-for-discovery"></a>Skapa ett användar konto för identifiering
 
-Konfigurera ett användar konto så att Server utvärderingen kan komma åt den virtuella datorn för identifiering. [Läs mer](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) om konto krav.
+Konfigurera ett användar konto så att Server utvärderingen kan komma åt den virtuella datorn för att identifiera beroenden. [Lär dig](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) mer om konto krav för virtuella Windows-och Linux-datorer.
 
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Lägg till användar kontot till enheten
@@ -105,6 +104,25 @@ Beroende data exporteras och hämtas i CSV-format. Den hämtade filen innehålle
 
 ![Exportera beroenden](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
+### <a name="dependency-information"></a>Beroende information
+
+Varje rad i den exporterade CSV-filen motsvarar ett beroende som observerats inom den angivna tids perioden. 
+
+I följande tabell sammanfattas fälten i den exporterade CSV-filen. Observera att fälten Server namn, program och process endast fylls i för servrar som har en agent lös beroende analys aktive rad.
+
+**Fältnamn** | **Information**
+--- | --- 
+Timeslot | Timeslot under vilken beroendet observerades. <br/> Beroende data samlas in över 6 timmars fack för närvarande.
+Käll Server namn | Namnet på käll datorn 
+Käll program | Namnet på programmet på käll datorn 
+Käll process | Namnet på processen på käll datorn 
+Mål server namn | Namnet på mål datorn
+Mål-IP-adress | Mål datorns IP-adress
+Mål program | Namnet på programmet på mål datorn
+Mål process | Namnet på processen på mål datorn 
+Målport | Port nummer på mål datorn
+
+
 ## <a name="stop-dependency-discovery"></a>Stoppa beroende identifiering
 
 Välj de datorer där du vill stoppa beroende identifiering.
@@ -119,4 +137,4 @@ Välj de datorer där du vill stoppa beroende identifiering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Gruppera datorerna](how-to-create-a-group.md) för utvärdering.
+[Gruppera datorer](how-to-create-a-group.md) för utvärdering.

@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d7227a0eeaa496dd774eb962946a4ee85e22009
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72791934"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080015"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Kognitiv kompetens för entitets igenkänning
 
-Den **namngivna Recognition** -kompetensen extraherar namngivna entiteter från text. Tillgängliga entiteter innehåller typerna `person` `location` och `organization`.
+Den **namngivna Recognition** -kompetensen extraherar namngivna entiteter från text. Tillgängliga entiteter innehåller typerna `person` `location` och `organization` .
 
 > [!IMPORTANT]
 > Den namngivna kunskapen om enhets igenkänning har nu ersatts av [Microsoft. skicklighets. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Supporten stoppades den 15 februari 2019 och API: et togs bort från produkten den 2 maj 2019. Följ rekommendationerna i [inaktuella kognitiva Sök kunskaper](cognitive-search-skill-deprecated.md) för att migrera till en färdighet som stöds.
@@ -25,14 +25,14 @@ Den **namngivna Recognition** -kompetensen extraherar namngivna entiteter från 
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. färdigheter. text. NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -40,7 +40,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"`, `"Location"`, `"Organization"`. Om ingen kategori anges returneras alla typer.|
+| kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"` , `"Location"` , `"Organization"` . Om ingen kategori anges returneras alla typer.|
 |defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds:`de, en, es, fr, it`|
 | minimumPrecision  | Ett tal mellan 0 och 1. Om precisionen är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0.|
 
@@ -48,7 +48,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Inmatat namn      | Beskrivning                   |
 |---------------|-------------------------------|
-| languageCode  | Valfri. Standardvärdet är `"en"`.  |
+| languageCode  | Valfritt. Standardvärdet är `"en"`.  |
 | text          | Den text som ska analyseras.          |
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
@@ -58,7 +58,7 @@ Parametrar är skiftlägeskänsliga.
 | ansvariga      | En sträng mat ris där varje sträng representerar namnet på en person. |
 | platser  | En sträng mat ris där varje sträng representerar en plats. |
 | organisationer  | En sträng mat ris där varje sträng representerar en organisation. |
-| poster | En matris med komplexa typer. Varje komplex typ innehåller följande fält: <ul><li>kategori (`"person"`, `"organization"`eller `"location"`)</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (ett värde mellan 0 och 1 som representerar det förtroende att värdet är en faktisk entitet)</li></ul> |
+| poster | En matris med komplexa typer. Varje komplex typ innehåller följande fält: <ul><li>kategori ( `"person"` , `"organization"` eller `"location"` )</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (ett värde mellan 0 och 1 som representerar det förtroende att värdet är en faktisk entitet)</li></ul> |
 
 ##  <a name="sample-definition"></a>Exempel definition
 

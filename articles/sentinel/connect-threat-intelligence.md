@@ -5,19 +5,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529102"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84769881"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från hot Intelligence-leverantörer
 
@@ -70,7 +71,7 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 2. [Konfigurera API-behörigheter](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) för det registrerade programmet: Lägg till behörigheten Microsoft Graph Application **ThreatIndicators. readwrite. OwnedBy** i det registrerade programmet.
 
-3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory** > **Appregistreringar** > **\<_appens namn_>** > **Visa API-behörigheter** > **bevilja administrativt medgivande \<för _klient organisations namn_>**.
+3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory**  >  **Appregistreringar**  >  **\<_app name_>**  >  **Visa API-behörigheter**  >  **bevilja administrativt medgivande för \<_tenant name_> **.
 
 4. Konfigurera TIP-produkten eller appen som använder direkt integrering med Microsoft Graph Security tiIndicators API för att skicka indikatorer till Azure Sentinel genom att ange följande:
     
@@ -80,11 +81,11 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
     
     c. Ange avisering för åtgärden.
 
-5. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Hot information Platforms (för hands version)** Connector.
+5. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **Hot information Platforms (för hands version)** Connector.
 
 6. Välj **Öppna anslutnings sidan**och **Anslut**sedan.
 
-7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs** > **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Anslut Azure Sentinel till TAXIi-servrar
 
@@ -96,7 +97,7 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 ## <a name="instructions"></a>Instruktioner
 
-1. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Threat Intelligence-anslutningen (för hands version)** .
+1. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **Threat Intelligence-anslutningen (för hands version)** .
 
 2. Välj **Öppna kopplings sida**.
 
@@ -106,7 +107,7 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 5. Om du har ytterligare TAXI 2,0-servrar: Upprepa steg 3 och 4.
 
-6. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs** > **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+6. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Nästa steg
 

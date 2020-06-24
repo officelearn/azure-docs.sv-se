@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75690889"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695971"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera nätverks data flöde för virtuella Azure-datorer
 
@@ -29,7 +29,7 @@ Virtuella Azure-datorer har standard nätverks inställningar som kan optimeras 
 
 Om din virtuella Windows-dator har stöd för [accelererat nätverk](create-vm-accelerated-networking-powershell.md), kan det vara en optimal konfiguration för data flödet. För alla andra virtuella Windows-datorer kan med hjälp av skalning på mottagar sidan (RSS) uppnå högre maximalt data flöde än en virtuell dator utan RSS. RSS kan vara inaktiverat som standard på en virtuell Windows-dator. För att avgöra om RSS är aktiverat och aktivera det om det är inaktiverat, slutför du följande steg:
 
-1. Se om RSS är aktiverat för ett nätverkskort med `Get-NetAdapterRss` PowerShell-kommandot. I följande exempel utdata som returneras från `Get-NetAdapterRss`, är RSS inte aktiverat.
+1. Se om RSS är aktiverat för ett nätverkskort med PowerShell- `Get-NetAdapterRss` kommandot. I följande exempel utdata som returneras från `Get-NetAdapterRss` , är RSS inte aktiverat.
 
     ```powershell
     Name                    : Ethernet
@@ -42,7 +42,7 @@ Om din virtuella Windows-dator har stöd för [accelererat nätverk](create-vm-a
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
     Föregående kommando saknar utdata. Kommandot ändrade NIC-inställningar, vilket orsakar tillfälligt anslutnings avbrott i ungefär en minut. En dialog ruta för att återansluta visas när anslutningen bryts. Anslutningen återställs vanligt vis efter det tredje försöket.
-3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att `Get-NetAdapterRss` ange kommandot igen. Om det lyckas returneras följande exempel utdata:
+3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange `Get-NetAdapterRss` kommandot igen. Om det lyckas returneras följande exempel utdata:
 
     ```powershell
     Name                    : Ethernet

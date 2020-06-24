@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330375"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201522"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) ger stöd för Azure Active Directory 
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` . Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null` .
 
 I de tekniska profilerna för [anpassade principer för start paket](custom-policy-get-started.md#custom-policy-starter-pack) för Azure AD ingår **AAD-vanliga** tekniska profiler. De tekniska profilerna för Azure AD anger inte protokollet eftersom protokollet har kon figurer ATS i **AAD-common** Technical Profile:
  
@@ -41,7 +41,7 @@ I de tekniska profilerna för [anpassade principer för start paket](custom-poli
 
 I följande exempel visas **AAD – vanlig** teknisk profil:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -96,7 +96,7 @@ Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett l
 
 Den tekniska profilen **AAD-UserWriteUsingLogonEmail** , som skapar ett nytt lokalt konto, behåller följande anspråk:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -116,17 +116,17 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 - Det måste finnas exakt ett **InputClaim** -element i anspråks säcken för alla Azure AD-tekniska profiler.
 - I [artikeln med användar profil attribut](user-profile-attributes.md) beskrivs de Azure AD B2C-användarattribut som stöds som du kan använda i indata-anspråk, utgående anspråk och beständiga anspråk. 
-- Om åtgärden är `Write` eller `DeleteClaims`, måste den också visas i ett **PersistedClaims** -element.
-- Värdet för **userPrincipalName** -anspråket måste ha formatet `user@tenant.onmicrosoft.com`.
+- Om åtgärden är `Write` eller `DeleteClaims` , måste den också visas i ett **PersistedClaims** -element.
+- Värdet för **userPrincipalName** -anspråket måste ha formatet `user@tenant.onmicrosoft.com` .
 - Detta **DisplayName** -anspråk krävs och kan inte vara en tom sträng.
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
-### <a name="read"></a>Läsa
+### <a name="read"></a>Läs
 
 **Läs** åtgärden läser data om ett enda användar konto. Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -156,7 +156,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 **Skriv** åtgärden skapar eller uppdaterar ett enskilt användar konto. Följande tekniska profil skapar ett nytt socialt konto:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -196,7 +196,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 **DeleteClaims** -åtgärden rensar informationen från en angiven lista över anspråk. Följande tekniska profil tar bort anspråk:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -217,7 +217,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 Åtgärden **DeleteClaimsPrincipal** tar bort ett enskilt användar konto från katalogen. Följande tekniska profil tar bort ett användar konto från katalogen med hjälp av User Principal Name:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -232,7 +232,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 Följande tekniska profil tar bort ett socialt användar konto med **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -248,12 +248,12 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller `DeleteClaimsPrincipal`. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Inga | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Inga | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
-| ApplicationObjectId | Inga | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
-| ClientId | Inga | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | Inga | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`, eller `false`  (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
+| Åtgärd | Yes | Åtgärden som ska utföras. Möjliga värden: `Read` , `Write` , `DeleteClaims` eller `DeleteClaimsPrincipal` . |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false` . |
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false` .|
+| ApplicationObjectId | No | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
+| ClientId | No | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
+| IncludeClaimResolvingInClaimsHandling  | No | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
  
@@ -261,8 +261,8 @@ Följande inställningar kan användas för att konfigurera fel meddelandet som 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalAlreadyExists | Inga | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Inga | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. |
+| UserMessageIfClaimsPrincipalAlreadyExists | No | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. |
 
 
 ## <a name="next-steps"></a>Nästa steg

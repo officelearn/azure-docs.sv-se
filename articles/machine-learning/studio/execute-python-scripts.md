@@ -5,17 +5,17 @@ description: Lär dig hur du använder modulen kör Python-skript för att anvä
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 1d164a5ab3d1ea9c1b07f11ee074670d3e5124c5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558912"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696311"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Köra python Machine Learning-skript i Azure Machine Learning Studio (klassisk)
 
@@ -75,13 +75,13 @@ Anta till exempel att filen Hello.py innehåller en enkel "Hello, World"-funktio
 
 ![Användardefinierad funktion i Hello.py-fil](./media/execute-python-scripts/figure4.png)
 
-Därefter skapar vi en fil Hej. zip som innehåller Hello.py:
+Därefter skapar vi en fil Hello.zip som innehåller Hello.py:
 
 ![Zip-fil som innehåller användardefinierad python-kod](./media/execute-python-scripts/figure5.png)
 
-Överför zip-filen som en data uppsättning till Studio (klassisk). Skapa och kör sedan ett experiment som använder python-koden i filen Hello. zip genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
+Överför zip-filen som en data uppsättning till Studio (klassisk). Skapa och kör sedan ett experiment som använder python-koden i Hello.zip-filen genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
 
-![Exempel på experiment med Hello. zip som ininformation till en EXECUTE python-skriptfil](./media/execute-python-scripts/figure6a.png)
+![Exempel på experiment med Hello.zip som ininformation i en EXECUTE Python-skript-modul](./media/execute-python-scripts/figure6a.png)
 
 ![Användardefinierad python-kod som laddats upp som en zip-fil](./media/execute-python-scripts/figure6b.png)
 

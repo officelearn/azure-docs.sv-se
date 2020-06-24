@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280188"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695835"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -41,7 +41,7 @@ Med TCP-tunnlar kan du skapa en nätverks anslutning mellan din utvecklings dato
 
 För att komma igång måste du installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Öppna [Azure Cloud Shell](../../cloud-shell/overview.md)om du vill se hur det fungerar utan att installera Azure CLI. 
 
-Öppna en fjärr anslutning till din app med kommandot [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Ange _ \<prenumerations-ID>_, _ \<grupp namn>_ och \_ \<App-Name>_ för din app.
+Öppna en fjärr anslutning till din app med kommandot [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Ange _\<subscription-id>_ _\<group-name>_ och \_ \<app-name> _ för din app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -64,7 +64,7 @@ Start your favorite client and connect to port 21382
 ssh root@127.0.0.1 -p <port>
 ```
 
-När du uppmanas till `yes` det skriver du för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!`, som visades tidigare.
+När du uppmanas till det skriver `yes` du för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!` , som visades tidigare.
 
 ```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
@@ -87,7 +87,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 Du är nu ansluten till din anslutning.  
 
-Försök köra det [översta](https://ss64.com/bash/top.html) kommandot. Du bör kunna se appens process i process listan. I exemplet nedan är det en med `PID 263`.
+Försök köra det [översta](https://ss64.com/bash/top.html) kommandot. Du bör kunna se appens process i process listan. I exemplet nedan är det en med `PID 263` .
 
 ```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
@@ -117,7 +117,7 @@ Du kan publicera frågor och problem i [Azure-forumet](https://docs.microsoft.co
 
 Mer information om Web App for Containers finns i:
 
-* [Introduktion till fjärrfelsökning av Node. js-appar på Azure App Service från VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
+* [Introduktion till fjärrfelsökning av Node.js appar på Azure App Service från VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
 * [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)
 * [Använda Ruby i Azure App Service i Linux](quickstart-ruby.md)

@@ -4,12 +4,12 @@ description: Översikt över Smart kontrakts integrerings mönster i Azure block
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325973"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254641"
 ---
 # <a name="smart-contract-integration-patterns"></a>Integreringsmönster för smart kontrakt
 
@@ -31,7 +31,7 @@ Funktioner i Azure blockchain Workbench-genererade webb programmet exponeras via
 
 REST API används främst för interaktiva klienter som webb-, mobil-och bot-program.
 
-Det här avsnittet tittar på mönster som fokuserar på de aspekter av REST API som skickar transaktioner till en distribuerad redovisning och mönster som frågar data om transaktioner från Azure blockchain Workbench *SQL Database* .
+Det här avsnittet tittar på mönster som fokuserar på de aspekter av REST API som skickar transaktioner till en distribuerad redovisning och mönster som frågar data om transaktioner från Azure blockchain Workbench från *kedje* databasen.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Skicka transaktioner till en distribuerad redovisning från ett externt system
 
@@ -204,7 +204,7 @@ Data integreringen är välkänd:
 
 -   Azure blockchain Workbench lagrar metadata om program, arbets flöden, kontrakt och transaktioner som en del av det normala drift beteendet.
 -   Externa system eller verktyg ger en eller flera dialog rutor för att under lätta insamling av information om databasen, till exempel databas server namn, databas namn, typ av autentisering, inloggnings uppgifter och vilka databasvyer som ska användas.
--   Frågor skrivs mot SQL Database-vyer för att under lätta konsumtionen av externa system, tjänster, rapportering, utvecklingsverktyg och produktivitets verktyg för företag.
+-   Frågor skrivs mot databasvyer för att under lätta konsumtionen av externa system, tjänster, rapportering, utvecklarverktyg och produktivitets verktyg för företag.
 
 ## <a name="storage-integration"></a>Lagrings integrering
 

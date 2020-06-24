@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för att hantera klust
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208099"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298029"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metod tips för kluster säkerhet och uppgraderingar i Azure Kubernetes service (AKS)
 
@@ -57,7 +57,7 @@ Om du vill ha mer detaljerad kontroll över container åtgärder kan du också a
 
 ### <a name="app-armor"></a>App-skydd
 
-Om du vill begränsa vilka åtgärder som behållare kan utföra kan du använda [apparmor][k8s-apparmor] Linux kernel-säkerhetsmodulen. AppArmor är tillgänglig som en del av den underliggande AKS Node OS och är aktiverat som standard. Du skapar AppArmor-profiler som begränsar åtgärder som Läs-, Skriv-eller körnings-eller systemfunktioner, till exempel monterings fil system. Standard profiler för AppArmor begränsar åtkomsten `/proc` till `/sys` olika platser och platser, och ger ett sätt att isolera behållare logiskt från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes poddar.
+Om du vill begränsa vilka åtgärder som behållare kan utföra kan du använda [apparmor][k8s-apparmor] Linux kernel-säkerhetsmodulen. AppArmor är tillgänglig som en del av den underliggande AKS Node OS och är aktiverat som standard. Du skapar AppArmor-profiler som begränsar åtgärder som Läs-, Skriv-eller körnings-eller systemfunktioner, till exempel monterings fil system. Standard profiler för AppArmor begränsar åtkomsten till olika `/proc` `/sys` platser och platser, och ger ett sätt att isolera behållare logiskt från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes poddar.
 
 ![AppArmor-profiler som används i ett AKS-kluster för att begränsa container åtgärder](media/operator-best-practices-container-security/apparmor.png)
 
@@ -74,7 +74,7 @@ profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
 }
 ```
 
-AppArmor-profiler läggs till med `apparmor_parser` hjälp av kommandot. Lägg till profilen i AppArmor och ange namnet på profilen som du skapade i föregående steg:
+AppArmor-profiler läggs till med hjälp av `apparmor_parser` kommandot. Lägg till profilen i AppArmor och ange namnet på profilen som du skapade i föregående steg:
 
 ```console
 sudo apparmor_parser deny-write.profile
@@ -82,7 +82,7 @@ sudo apparmor_parser deny-write.profile
 
 Inga utdata returneras om profilen tolkas korrekt och tillämpas på AppArmor. Du kommer tillbaka till kommando tolken.
 
-På den lokala datorn skapar du ett Pod-manifest med namnet *AKS-AppArmor. yaml* och klistrar in följande innehåll. Detta manifest definierar en anteckning för `container.apparmor.security.beta.kubernetes` Lägg till referenser till den *neka-Skriv-* profil som skapades i föregående steg:
+På den lokala datorn skapar du ett Pod-manifest med namnet *AKS-AppArmor. yaml* och klistrar in följande innehåll. Detta manifest definierar en anteckning för `container.apparmor.security.beta.kubernetes` Lägg till referenser till *den neka-Skriv-* profil som skapades i föregående steg:
 
 ```yaml
 apiVersion: v1
@@ -133,7 +133,7 @@ Om du vill se seccomp i praktiken skapar du ett filter som förhindrar ändring 
 }
 ```
 
-På den lokala datorn skapar du ett Pod-manifest med namnet *AKS-seccomp. yaml* och klistrar in följande innehåll. Det här manifestet definierar en anteckning `seccomp.security.alpha.kubernetes.io` för och refererar till filtret för *att förhindra chmod* som skapats i föregående steg:
+På den lokala datorn skapar du ett Pod-manifest med namnet *AKS-seccomp. yaml* och klistrar in följande innehåll. Det här manifestet definierar en anteckning för `seccomp.security.alpha.kubernetes.io` och refererar till filtret för *att förhindra chmod* som skapats i föregående steg:
 
 ```yaml
 apiVersion: v1
@@ -160,7 +160,7 @@ Distribuera exempel-Pod med kommandot [kubectl Apply][kubectl-apply] :
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-Visa status för poddar med kommandot [kubectl get poddar][kubectl-get] . Pod rapporterar ett fel. `chmod` Kommandot förhindras från att köras av seccomp-filtret, som visas i följande exempel på utdata:
+Visa status för poddar med kommandot [kubectl get poddar][kubectl-get] . Pod rapporterar ett fel. `chmod`Kommandot förhindras från att köras av seccomp-filtret, som visas i följande exempel på utdata:
 
 ```
 $ kubectl get pods
@@ -173,7 +173,7 @@ Mer information om tillgängliga filter finns i [Seccomp Security profils for Do
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Uppdatera regelbundet till den senaste versionen av Kubernetes
 
-**Rekommendationer om bästa praxis** – du kan hålla dig uppdaterad om nya funktioner och fel korrigeringar, och regelbundet uppgradera till Kubernetes-versionen i ditt AKS-kluster.
+**Vägledning för bästa praxis** – du kan hålla dig uppdaterad om nya funktioner och fel korrigeringar, och regelbundet uppgradera Kubernetes-versionen i ditt AKS-kluster.
 
 Kubernetes släpper nya funktioner i snabbare takt än mer traditionella infrastruktur plattformar. Kubernetes-uppdateringar omfattar nya funktioner, fel-eller säkerhets korrigeringar. Nya funktioner går vanligt vis igenom en *alfa* och sedan *beta* status innan de blir *stabila* och är allmänt tillgängliga och rekommenderas för produktions användning. Den här versionen av versionen gör att du kan uppdatera Kubernetes utan att regelbundet räkna upp de ändringar som har brutits eller att du behöver justera dina distributioner och mallar.
 
@@ -199,11 +199,11 @@ Mer information om uppgraderingar i AKS finns i [Kubernetes-versioner som stöds
 
 Varje kväll får Linux-noder i AKS säkerhets korrigeringar som är tillgängliga via sin distribution Update-kanal. Detta beteende konfigureras automatiskt när noderna distribueras i ett AKS-kluster. För att minimera störningar och potentiell påverkan på att köra arbets belastningar, startas inte noderna om automatiskt om en säkerhets korrigering eller kernel-uppdatering kräver det.
 
-Kured-projektet med öppen källkod [(KUbernetes REboot)][kured] av Weaveworks söker efter väntande Node-omstarter. När en Linux-nod använder uppdateringar som kräver en omstart, är noden säkert avspärrade och töms för att flytta och schemalägga poddar på andra noder i klustret. När noden har startats om läggs den tillbaka i klustret och Kubernetes återupptar schemaläggningen poddar på den. För att minimera störningar får endast en nod i taget startas om `kured`.
+Kured-projektet med öppen källkod [(KUbernetes REboot)][kured] av Weaveworks söker efter väntande Node-omstarter. När en Linux-nod använder uppdateringar som kräver en omstart, är noden säkert avspärrade och töms för att flytta och schemalägga poddar på andra noder i klustret. När noden har startats om läggs den tillbaka i klustret och Kubernetes återupptar schemaläggningen poddar på den. För att minimera störningar får endast en nod i taget startas om `kured` .
 
 ![Startprocessen för AKS-noden med kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
-Om du vill ha en bättre kornig het för att kontrol lera om `kured` omstarter sker kan du integrera med Prometheus för att förhindra omstarter om det finns andra underhålls händelser eller pågående kluster problem. Den här integrationen minimerar ytterligare komplikationer genom att starta om noderna medan du vid ett aktivt fel sökning av andra problem.
+Om du vill ha en bättre kornig het för att kontrol lera om omstarter sker `kured` kan du integrera med Prometheus för att förhindra omstarter om det finns andra underhålls händelser eller pågående kluster problem. Den här integrationen minimerar ytterligare komplikationer genom att starta om noderna medan du vid ett aktivt fel sökning av andra problem.
 
 Mer information om hur du hanterar omstarter av noder finns i [tillämpa säkerhets-och kernel-uppdateringar på noder i AKS][aks-kured].
 

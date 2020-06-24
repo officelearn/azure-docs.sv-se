@@ -2,60 +2,69 @@
 title: Beroende analys i Azure Migrate Server-utvärdering
 description: Beskriver hur du använder beroende analys för utvärdering med Azure Migrate Server bedömning.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: b269322f5426a68b072452bc2f79531685be3742
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.date: 06/14/2020
+ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447585"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771350"
 ---
 # <a name="dependency-analysis"></a>Beroende analys
 
 I den här artikeln beskrivs beroende analys i Azure Migrate: Server utvärdering.
 
-## <a name="overview"></a>Översikt
 
-Beroende analys hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. 
+Beroende analys identifierar beroenden mellan identifierade lokala datorer. Det ger följande fördelar: 
 
-- I Azure Migrate: Server utvärdering, samla in datorer i en grupp och sedan utvärdera gruppen. Med hjälp av beroende analys kan du gruppera datorer mer noggrant, med hög exakthet för utvärdering.
-- Med beroende analys kan du identifiera datorer som måste migreras tillsammans. Du kan identifiera om datorer används eller om de kan tas ur bruk i stället för att migreras.
-- Analys av beroenden hjälper till att se till att ingenting är kvar och Undvik oväntade avbrott under migreringen.
-- Analys är särskilt användbart om du inte är säker på om datorerna är en del av en app-distribution som du vill migrera till Azure.
+- Du kan samla in datorer i grupper för utvärdering, mer exakt, med större exakthet.
+- Du kan identifiera datorer som måste migreras tillsammans. Detta är särskilt användbart om du inte är säker på vilka datorer som ingår i en app-distribution som du vill migrera till Azure.
+- Du kan identifiera om datorer används och vilka datorer som kan tas ur bruk i stället för att migreras.
+- Att analysera beroenden hjälper till att se till att ingenting är kvar bakom och undviker därför oväntade avbrott efter migreringen.
 - [Läs](common-questions-discovery-assessment.md#what-is-dependency-visualization) vanliga frågor om beroende analyser.
+
+
+## <a name="analysis-types"></a>Analys typer
 
 Det finns två alternativ för att distribuera beroende analyser
 
-- **Agent-baserad**: agent-baserad beroende analys kräver att agenter installeras på varje lokal dator som du vill analysera.
-- Utan **agent**: med en agent lös analys behöver du inte installera agenter på datorer som du vill kryssa för. Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer.
+**Alternativet** | **Information** | **Offentligt moln** | **Azure Government**
+----  |---- | ---- 
+**Utan agent** | Avsöker data från virtuella VMware-datorer med vSphere-API: er.<br/><br/> Du behöver inte installera agenter på virtuella datorer.<br/><br/> Det här alternativet är för närvarande en för hands version, endast för virtuella VMware-datorer. | Stöds. | Stöds.
+**Agent-baserad analys** | Använder [tjänstkarta lösning](../azure-monitor/insights/service-map.md) i Azure Monitor för att aktivera beroende visualisering och analys.<br/><br/> Du måste installera agenter på varje lokal dator som du vill analysera. | Stöds | Stöds inte.
 
-> [!NOTE]
-> Agent-baserad beroende analys är inte tillgänglig i Azure Government. Du kan använda agentlös beroendeanalys.
 
 ## <a name="agentless-analysis"></a>Analys utan agent
 
-Analytiska beroende analyser fungerar genom att samla in TCP-anslutningsfel från datorer som den är aktive rad för. Inga agenter är installerade på datorer som du vill analysera.
+Analytiska beroende analyser fungerar genom att samla in TCP-anslutningsfel från datorer som den är aktive rad för. Inga agenter är installerade på virtuella datorer. Anslutningar med samma käll Server och process, och mål servern, processen och porten grupperas logiskt i ett beroende. Du kan visualisera insamlade beroende data i en Map-vy eller exportera den som en CSV. Inga agenter är installerade på datorer som du vill analysera.
 
-### <a name="collected-data"></a>Insamlade data
+### <a name="dependency-data"></a>Beroende data
 
-När beroende identifiering startar avsöker enheten data från datorer var femte minut för att samla in data. Dessa data samlas in från virtuella gäst datorer via vCenter Server med hjälp av vSphere-API: er. Insamlade data bearbetas på Azure Migrates enheten, för att härleda identitets information och skickas till Azure Migrate var sjätte timme.
+Efter identifieringen av beroende data börjar avsökningen:
 
-Avsökningen samlar in dessa data från datorer: 
-- Namn på processer som har aktiva anslutningar.
-- Namnet på programmet som kör processer som har aktiva anslutningar.
-- Målport på aktiva anslutningar.
+- Azure Migrates apparaten avsöker TCP-anslutningsfel från datorer var femte minut för att samla in data.
+- Data samlas in från virtuella gäst datorer via vCenter Server med hjälp av vSphere-API: er.
+- Avsökningen samlar in dessa data:
+
+    - Namn på processer som har aktiva anslutningar.
+    - Namnet på programmet som kör processer som har aktiva anslutningar.
+    - Målport på aktiva anslutningar.
+
+- Insamlade data bearbetas på Azure Migrates enheten, för att härleda identitets information och skickas till Azure Migrate var sjätte timme
+
 
 ## <a name="agent-based-analysis"></a>Agent-baserad analys
 
-För agentbaserade analyser använder Server utvärderingen [tjänstkarta lösning](../azure-monitor/insights/service-map.md) i Azure Monitor för att aktivera beroende visualisering och analys. [Microsoft Monitoring Agent/Log Analytics-agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent) och [beroende agenten](../azure-monitor/platform/agents-overview.md#dependency-agent)måste installeras på varje dator som du vill analysera.
+Vid en agent-baserad analys använder Server utvärderingen [tjänstkarta](../azure-monitor/insights/service-map.md) lösning i Azure Monitor. Du installerar [Microsoft Monitoring Agent/Log Analytics-agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent) och [beroende agenten](../azure-monitor/platform/agents-overview.md#dependency-agent)på varje dator som du vill analysera.
 
-### <a name="collected-data"></a>Insamlade data
+### <a name="dependency-data"></a>Beroende data
 
-För en agent-baserad analys samlas följande data in:
+Med en agent-baserad analys får du följande data:
 
 - Käll datorns Server namn, process, program namn.
 - Mål datorns Server namn, process, program namn och port.
 - Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
+
 
 
 ## <a name="compare-agentless-and-agent-based"></a>Jämför agent utan agent och agent-baserad
@@ -64,20 +73,19 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 
 **Krav** | **Utan agent** | **Agent-baserad**
 --- | --- | ---
-Support | Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) operativ system som stöds. | Allmän tillgänglighet (GA).
-Agent | Du behöver inte installera agenter på datorer som du vill kryssa för. | Agenter som ska installeras på varje lokal dator som du vill analysera: [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)och [beroende agenten](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
-Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) -lösningen i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) för beroende analys. 
-Så här fungerar det | Fångar upp TCP-anslutningsfel på datorer aktiverade för beroende visualisering. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
-Data | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
-Visualisering | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Kartan kan endast visas över en timme.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
+**Support** | I för hands version för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds. | Allmän tillgänglighet (GA).
+**Agent** | Inga agenter behövs på de datorer som du vill analysera. | Agenter som krävs på varje lokal dator som du vill analysera.
+**Log Analytics** | Krävs inte. | Azure Migrate använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) -lösningen i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) för beroende analys. 
+**Process** | Fångar in TCP-anslutningsfel. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
+**Data** | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
+**Visualisering** | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/>  Kartan kan endast visas över en timme.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
 Dataexport | De senaste 30 dagarna kan hämtas i CSV-format. | Data kan frågas med Log Analytics.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska kraven för att ställa in en agent-baserad analys för virtuella [VMware-datorer](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [fysiska servrar](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)och [virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- [Granska](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) kraven för agent analys av virtuella VMware-datorer.
-- [Konfigurera](how-to-create-group-machine-dependencies.md) en agent baserad beroende visualisering
+
+- [Konfigurera](how-to-create-group-machine-dependencies.md) en agent-baserad beroende visualisering.
 - [Testa övervakning utan](how-to-create-group-machine-dependencies-agentless.md) agent beroende för virtuella VMware-datorer.
 - Läs [vanliga frågor](common-questions-discovery-assessment.md#what-is-dependency-visualization) om beroende visualisering.
 

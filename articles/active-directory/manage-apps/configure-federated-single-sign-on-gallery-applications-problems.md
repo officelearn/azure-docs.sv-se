@@ -3,24 +3,24 @@ title: Problem med att konfigurera federerad SSO för Azure AD Gallery-appar
 description: Åtgärda några av de vanliga problem som kan uppstå när du konfigurerar federerad enkel inloggning med SAML för program som listas i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 858e61c6371aac28d709a9016e4b9cbed6befe3f
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274644"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763609"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera federerad enkel inloggning för ett Azure AD Gallery-program
 
@@ -64,7 +64,7 @@ För att veta vilka mönster som är förkonfigurerade för programmet:
 
 10. Det finns tre sätt att känna till de mönster som stöds för programmet:
 
-    * I text rutan ser du de mönster som stöds som ett exempel på en plats hållare *:* <https://contoso.com>.
+    * I text rutan ser du de mönster som stöds som ett exempel på en plats hållare *:* <https://contoso.com> .
 
     * Om mönstret inte stöds visas ett rött utrops tecken när du försöker ange värdet i text rutan. Om du hovrar med musen över det röda utrops tecknet ser du de mönster som stöds.
 

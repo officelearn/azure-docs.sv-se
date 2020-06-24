@@ -2,22 +2,22 @@
 title: Arbeta med befintliga lokala proxyservrar och Azure AD | Microsoft Docs
 description: Beskriver hur du arbetar med befintliga lokala proxyservrar.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827055"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764935"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -39,7 +39,7 @@ OS-komponenterna försöker hitta en proxyserver genom att utföra en DNS-sökni
 
 Du kan konfigurera anslutningsappen till att kringgå den lokala proxyn för att säkerställa att den använder direktanslutning till Azure-tjänsterna. Vi rekommenderar den här metoden förutsatt att din nätverksprincip tillåter det, eftersom det innebär att det blir en färre konfiguration att underhålla.
 
-Om du vill inaktivera utgående proxy-användning för anslutningen redigerar du filen C:\Program Files\Microsoft AAD App proxy Connector\ApplicationProxyConnectorService.exe.config och lägger till *system.net* -avsnittet som visas i följande kod exempel:
+Om du vill inaktivera utgående proxy-användning för anslutningen redigerar du Connector\ApplicationProxyConnectorService.exe.config filen C:\Program Files\Microsoft AAD App proxy och lägger till avsnittet *system.net* som visas i följande kod exempel:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -56,7 +56,7 @@ Om du vill inaktivera utgående proxy-användning för anslutningen redigerar du
 </configuration>
 ```
 
-För att säkerställa att tjänsten Connector Updater också kringgå proxyn, gör en liknande ändring i filen ApplicationProxyConnectorUpdaterService. exe. config. Den här filen finns i C:\Program Files\Microsoft AAD App proxy Connector Updater.
+För att säkerställa att tjänsten Connector Updater också kringgå proxyn, gör en liknande ändring i ApplicationProxyConnectorUpdaterService.exe.configs filen. Den här filen finns i C:\Program Files\Microsoft AAD App proxy Connector Updater.
 
 Se till att göra kopior av originalfilerna i fall du behöver återställa till de standardmässiga .config-filerna.
 
@@ -77,7 +77,7 @@ På grund av att endast utgående trafik behövs behöver du inte konfigurera in
 
 Om WPAD har Aktiver ATS i miljön och kon figurer ATS korrekt identifierar anslutnings tjänsten automatiskt den utgående proxyservern och försöker använda den. Du kan dock uttryckligen konfigurera anslutningen att gå via en utgående proxy.
 
-Det gör du genom att redigera Connector\ApplicationProxyConnectorService.exe.config-filen C:\Program\Microsoft AAD App proxy och lägga till *system.net* -avsnittet som visas i det här kod exemplet. Ändra *proxyserver: 8080* för att återspegla namnet på den lokala proxyservern eller IP-adressen och porten som den lyssnar på. Värdet måste ha prefixet http://även om du använder en IP-adress.
+Det gör du genom att redigera Connector\ApplicationProxyConnectorService.exe.config-filen C:\Program\Microsoft AAD App proxy och lägga till avsnittet *system.net* som visas i det här kod exemplet. Ändra *proxyserver: 8080* för att återspegla namnet på den lokala proxyservern eller IP-adressen och porten som den lyssnar på. Värdet måste ha prefixet http://även om du använder en IP-adress.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -96,7 +96,7 @@ Det gör du genom att redigera Connector\ApplicationProxyConnectorService.exe.co
 </configuration>
 ```
 
-Konfigurera sedan Connector Updater-tjänsten så att den använder proxyn genom att göra en liknande ändring i C:\Program Files\Microsoft AAD App proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config-filen.
+Konfigurera sedan Connector Updater-tjänsten så att den använder proxyn genom att göra en liknande ändring i mappen C:\Program Files\Microsoft AAD App proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config-filen.
 
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Steg 2: Konfigurera proxyservern för att tillåta trafik från anslutningen och relaterade tjänster att flöda genom
 
@@ -152,9 +152,9 @@ Aktivera detta genom att följa nästa steg:
 3.  Starta en upphöjd kommando tolk med administratörs behörighet och ange `control inetcpl.cpl` .
 4.  Konfigurera de proxyinställningar som krävs. 
 
-De här inställningarna gör att anslutningen använder samma vidarebefordrande proxy för kommunikationen till Azure och Server dels programmet. Om anslutningen till Azure-kommunikationen inte kräver någon vidarebefordrande proxy eller en annan vidarebefordran proxy kan du konfigurera detta med ändra filen ApplicationProxyConnectorService. exe. config enligt beskrivningen i avsnitten kringgå utgående proxyservrar eller använda den utgående proxyservern.
+De här inställningarna gör att anslutningen använder samma vidarebefordrande proxy för kommunikationen till Azure och Server dels programmet. Om anslutningen till Azure-kommunikationen inte kräver någon vidarebefordrande proxy eller en annan vidarebefordran proxy kan du konfigurera detta med att ändra filen ApplicationProxyConnectorService.exe.config enligt beskrivningen i avsnitten kringgå utgående proxyservrar eller använda den utgående proxyservern.
 
-I anslutnings tjänsten för anslutningar används även datorns proxyserver. Du kan ändra det här beteendet genom att ändra filen ApplicationProxyConnectorUpdaterService. exe. config.
+I anslutnings tjänsten för anslutningar används även datorns proxyserver. Du kan ändra det här beteendet genom att ändra filen ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Felsök problem med anslutnings proxy och tjänst anslutnings problem
 

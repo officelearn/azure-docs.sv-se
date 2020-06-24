@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267315"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253621"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ För att slutföra den här snabb starten krävs följande objekt:
   > [!IMPORTANT]
   > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
-Om du bara vill köra vissa ad hoc-frågor utan att installera SSMS, se [snabb start: använd Azure portalens Frågeredigeraren för att fråga en SQL-databas](connect-query-portal.md).
+Om du bara vill köra vissa ad hoc-frågor utan att installera SSMS, se [snabb start: använd Azure portalens Frågeredigeraren för att fråga en databas i Azure SQL Database](connect-query-portal.md).
 
 ## <a name="get-server-connection-information"></a>Hämta information om Server anslutning
 
@@ -73,10 +73,10 @@ I SSMS ansluter du till servern.
 
 2. Dialogrutan **Anslut till server** visas. Ange följande information:
 
-   | Inställning      | Föreslaget värde    | Beskrivning |
+   | Inställningen      | Föreslaget värde    | Beskrivning |
    | ------------ | ------------------ | ----------- |
    | **Servertyp** | Databasmotor | Obligatoriskt värde. |
-   | **Server namn** | Fullständigt kvalificerat servernamn | Något som liknar: **servername.Database.Windows.net**. |
+   | **Servernamn** | Fullständigt kvalificerat servernamn | Något som liknar: **servername.Database.Windows.net**. |
    | **Autentisering** | SQL Server-autentisering | Den här självstudien använder SQL-autentisering. |
    | **Inloggning** | Serveradministratörskontots användar-ID | Användar-ID från det serveradministratörskonto som användes när servern skapades. |
    | **Lösenord** | Serveradministratörskontots lösenord | Lösenord från det serveradministratörskonto som användes när servern skapades. |

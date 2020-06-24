@@ -3,24 +3,24 @@ title: Problem med att konfigurera SSO för lösen ord för appar som inte är g
 description: Vanliga problem som uppstår när du konfigurerar enkel inloggning för lösen ord (SSO) för anpassade appar som inte finns i Azure AD-programgalleriet.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274134"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763456"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera enkel inloggning för lösen ord för ett program som inte är ett galleri program
 
@@ -42,7 +42,7 @@ Om det inte går att skapa automatiska inloggnings fält i allmänhet, kan du pr
 
 Följ dessa steg om du vill konfigurera lösenordsbaserad SSO med hjälp av automatisk registrering av inloggnings fält:
 
-1. Öppna [Azure-portalen](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
+1. Öppna [Azure Portal](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
 
 2. I navigerings fönstret till vänster väljer du **alla tjänster** för att öppna tillägget Azure AD.
 
@@ -75,7 +75,7 @@ Information om hur du installerar tillägget finns i avsnittet [Installera åtko
 
 Följ dessa steg om du vill konfigurera lösenordsbaserad SSO för en app med hjälp av manuella inloggnings fält för registrering:
 
-1. Öppna [Azure-portalen](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
+1. Öppna [Azure Portal](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
 
 2. I navigerings fönstret till vänster väljer du **alla tjänster** för att öppna tillägget Azure AD.
 
@@ -96,7 +96,7 @@ Följ dessa steg om du vill konfigurera lösenordsbaserad SSO för en app med hj
 
 9. Ange **inloggnings-URL**, som är sidan där användarna anger användar namn och lösen ord för att logga in. *Kontrol lera att inloggnings fälten är synliga på sidan för den URL som du anger*.
 
-10. Välj **Konfigurera * &lt;&gt; * inställningar för lösen ord för enkel inloggning för APPNAME**.
+10. Välj **Konfigurera inställningar för lösen ord för enkel inloggning för * &lt; APPNAME &gt; * **.
 
 11. Välj **identifiera inloggnings fält manuellt**.
 
@@ -140,7 +140,7 @@ Om du upplever något av dessa problem kan du göra följande:
 
 - Försök att utföra manuell inhämtning igen. Se till att de röda markeringarna är över rätt fält.
 
-- Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "*&lt;den inloggnings-URL som du angav när du konfigurerade appen&gt;*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
+- Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "* &lt; den inloggnings-URL som du angav när du konfigurerade &gt; appen*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
 
 ### <a name="contact-support"></a>Kontakta supporten
 
@@ -219,7 +219,7 @@ Följande information förklarar vad varje meddelande objekt innebär och inneh�
 
 - **UPN**: den användare som körde åtgärden.
 
-    Exempel: *tperkins\@f128.info*
+    Exempel: *tperkins \@ f128.info*
 
 - **Klient-ID**: det unika ID: t för den klient som den användare som körde åtgärden är medlem i.
 
@@ -245,7 +245,7 @@ Följande information förklarar vad varje meddelande objekt innebär och inneh�
 
 - **Information**: den detaljerade beskrivningen av vad som har uppstått till följd av åtgärden.
 
-    Exempel: *den interna URL<https://bing.com/>: en är ogiltig eftersom den redan används.*
+    Exempel: *den interna URL: en <https://bing.com/> är ogiltig eftersom den redan används.*
 
 - **Kopierings fel**: gör att du kan välja **kopierings ikonen** till höger om text rutan **Kopiera fel** för att kopiera meddelande informationen så att du får hjälp med supporten.
 

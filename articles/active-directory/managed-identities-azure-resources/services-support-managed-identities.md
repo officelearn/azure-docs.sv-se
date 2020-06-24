@@ -4,19 +4,19 @@ description: Lista över tjänster som stöder hanterade identiteter för Azure-
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/04/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 66f3e8b07ecb3bceb2f147aa27b1fb1ad585be91
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 0dc8b77f75cffdd0b2017d8a9b0f7c168fb796cb
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673689"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193778"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -56,6 +56,14 @@ I följande lista kan du konfigurera hanterad identitet för Azure App Service (
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc-aktiverade Kubernetes
+
+| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | Förhandsgranskning | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | 
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+
+Azure Arc-aktiverade Kubernetes [stöder för närvarande systemtilldelad identitet](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes). Det hanterade tjänst identitets certifikatet används av alla Azure Arc-aktiverade Kubernetes-agenter för kommunikation med Azure.
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
 
@@ -68,6 +76,14 @@ Se följande lista för att använda en hanterad identitet med [Azure-skisser](.
 
 - [Azure Portal skiss tilldelning](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API skiss tilldelning](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+
+
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgänglig | ![Tillgänglig][check] |
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
 
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
@@ -115,6 +131,22 @@ I följande lista kan du konfigurera hanterad identitet för Azure Data Factory 
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+
+
+### <a name="azure-event-grid"></a>Azure Event Grid 
+
+Hanterad identitets typ |Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | Förhandsgranskning | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelad användare | Inte tillgänglig | Inte tillgänglig  | Inte tillgänglig  | Inte tillgänglig |
+
+
+
+
+
+
+
 
 
 ### <a name="azure-functions"></a>Azure Functions
@@ -255,6 +287,16 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 | Tilldelad användare | [Tillgängligt i regioner som stöds](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 Information om hur du konfigurerar hanterad identitet för Azure VM Image Builder (i regioner där tillgänglig) finns i [Översikt över Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
+### <a name="azure-signalr-service"></a>Azure SignalR Service
+
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Tilldelat system | Förhandsgranskning | Förhandsgranskning | Inte tillgänglig | Förhandsgranskning |
+| Tilldelad användare | Förhandsgranskning | Förhandsgranskning | Inte tillgänglig | Förhandsgranskning |
+
+I följande lista kan du konfigurera hanterad identitet för Azure SignalR service (i regioner där det finns):
+
+- [Azure Resource Manager-mall](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
 

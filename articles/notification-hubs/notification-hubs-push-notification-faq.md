@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: push-meddelande, push-meddelanden, iOS push-meddelanden, Android push-meddelanden, iOS-push, Android-push
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 29ef1ec551169bb84680f343e38949f73724f5ae
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307392"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255134"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
@@ -65,11 +63,11 @@ Gå till **[Azure Portal]**  >  **Notification Hubs namnrum** eller **Notificati
 
 ### <a name="which-server-side-platforms-do-you-support"></a>Vilka plattform för Server sidan har du stöd för?
 
-Server-SDK: er är tillgängliga för .NET, Java, Node. js, PHP och python. Notification Hubs-API: er baseras på REST-gränssnitt, så du kan arbeta direkt med REST-API: er om du använder olika plattformar eller inte vill ha något extra beroende. Mer information finns på sidan [Notification HUBS REST-API: er] .
+Server-SDK: er är tillgängliga för .NET, Java, Node.js, PHP och python. Notification Hubs-API: er baseras på REST-gränssnitt, så du kan arbeta direkt med REST-API: er om du använder olika plattformar eller inte vill ha något extra beroende. Mer information finns på sidan [Notification HUBS REST-API: er] .
 
 ### <a name="which-client-platforms-do-you-support"></a>Vilka klient plattformar stöder du?
 
-Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information finns på sidan med [självstudier för Notification Hubs komma igång] .
+Push-meddelanden stöds för [iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information finns på sidan om [Notification Hubs komma igång självstudier](ios-sdk-get-started.md) .
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Stöder du SMS, e-post eller webb meddelanden?
 
@@ -206,7 +204,6 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 [Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Självstudier för Notification Hubs Komma igång]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Vägledning för Server dels registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Guide för registrering av Server del 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

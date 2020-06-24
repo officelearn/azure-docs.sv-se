@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1642c90f0a345bdaf5dd69ddb6c0e26c34faba91
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196011"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248453"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -92,7 +92,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 }
 ```
 
-| Tagga | Description | Obligatorisk |
+| Tagga | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | name |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Yes |
 | description | Ange texten som beskriver vad pipeline används till. |Yes |
@@ -130,7 +130,7 @@ Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje ak
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-| Tagga | Description | Obligatorisk |
+| Tagga | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Yes |
 | description | Text som beskriver vad aktiviteten används till |Yes |
@@ -156,7 +156,7 @@ Principer påverkar körnings beteendet för en aktivitet, särskilt när en tab
 | longRetryInterval |TimeSpan |00:00:00 |Fördröjningen mellan långsamma försök |
 
 ## <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
-I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exempel kopierar [kopieringsaktiviteten](data-factory-data-movement-activities.md) data från Azure Blob Storage till en Azure SQL-databas.
+I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exemplet kopierar [kopierings aktiviteten](data-factory-data-movement-activities.md) data från en Azure Blob storage till Azure SQL Database.
 
 ```json
 {

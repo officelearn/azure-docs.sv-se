@@ -1,6 +1,6 @@
 ---
 title: Azure SQL-granskning för Azure SQL Database och Azure Synapse Analytics
-description: Använd Azure SQL Database-granskning för att spåra databas händelser i en Gransknings logg.
+description: Använd Azure SQL Database granskning för att spåra databas händelser till en Gransknings logg.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: d4ea36a0d24f120885472f07ade5f587361ae6fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 26569606ce2aeb9d645f82e474b728cc4044ca93
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041565"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250952"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

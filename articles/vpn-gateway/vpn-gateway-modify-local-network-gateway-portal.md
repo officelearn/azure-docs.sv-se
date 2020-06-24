@@ -4,17 +4,17 @@ description: Den här artikeln vägleder dig genom att ändra IP-adressprefix f�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: fdb98242cede36f818604a7a5d713f5f7c75daad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa43df8c4f17bff4e97d999c6653bdcb045bfec3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75864034"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985217"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra inställningarna för lokal nätverksgateway med hjälp av Azure Portal
+# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra inställningar för lokal nätverksgateway med Azure-portalen
 
 Ibland ändras inställningarna för din lokala nätverksgateway AddressPrefix eller GatewayIPAddress. Den här artikeln visar hur du ändrar inställningarna för din lokala nätverksgateway. Du kan också ändra dessa inställningar med en annan metod genom att välja ett annat alternativ i listan nedan:
 

@@ -4,15 +4,15 @@ description: Skapa en VPN-gateway-anslutning mellan virtuella nätverk med hjäl
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674159"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985576"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
@@ -165,7 +165,7 @@ När de virtuella Nätverksgatewayen för både VNet1 och VNet4 har slutförts k
 
      - **Delad nyckel (PSK)**: Ange en delad nyckel för anslutningen i det här fältet. Du kan generera eller skapa den här nyckeln själv. I en plats-till-plats-anslutning är nyckeln du använder densamma som för din lokala enhet och anslutningen via din virtuella nätverksgateway. Konceptet är i princip samma här, förutom att du istället för att ansluta till en VPN-enhet ansluter till en annan virtuell nätverksgateway.
     
-4. Spara ändringarna genom att välja **OK**.
+4. Klicka på **OK** för att spara ändringarna.
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>Konfigurera VNet4 Gateway-anslutning
 Skapa sedan en anslutning från VNet4 till VNet1. Leta upp den virtuella nätverksgateway som är associerad med VNet4 i portalen. Följ stegen i föregående avsnitt och ersätt värdena för att skapa en anslutning från VNet4 till VNet1. Kontrollera att du använder samma delad nyckel.

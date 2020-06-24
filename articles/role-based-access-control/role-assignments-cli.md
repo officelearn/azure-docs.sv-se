@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 95ec9a25f97154d8e2d0e2e5b5f9cd29cf7a9c31
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735784"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983333"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI
 
@@ -34,7 +34,7 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
 
-Om du vill lägga till eller ta bort roll tilldelningar kan du behöva ange ett unikt ID för ett objekt. ID: t har formatet: `11111111-1111-1111-1111-111111111111`. Du kan hämta ID: t med hjälp av Azure Portal eller Azure CLI.
+Om du vill lägga till eller ta bort roll tilldelningar kan du behöva ange ett unikt ID för ett objekt. ID: t har formatet: `11111111-1111-1111-1111-111111111111` . Du kan hämta ID: t med hjälp av Azure Portal eller Azure CLI.
 
 ### <a name="user"></a>Användare
 
@@ -69,10 +69,10 @@ I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 Om du vill lägga till en roll tilldelning för en användare i ett resurs grupps omfång använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
-I följande exempel tilldelas rollen *virtuell dator deltagare* till *\@patlong contoso.com* -användare i resurs grupps omfånget *Pharma-Sales* :
+I följande exempel tilldelas rollen *virtuell dator deltagare* till *patlong \@ contoso.com* -användare i resurs grupps omfånget *Pharma-Sales* :
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
@@ -94,10 +94,10 @@ Det finns ett par gånger när ett roll namn kan ändras, till exempel:
 Om du vill lägga till en roll tilldelning med det unika roll-ID: t i stället för roll namnet använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
-I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *\@patlong contoso.com* -användaren i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list) eller se [inbyggda Azure-roller](built-in-roles.md).
+I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *patlong \@ contoso.com* -användaren i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list) eller se [inbyggda Azure-roller](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -108,7 +108,7 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 Om du vill lägga till en roll tilldelning för en grupp använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create). Information om hur du hämtar objekt-ID för gruppen finns i [Hämta objekt](#get-object-ids)-ID: n.
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 I följande exempel tilldelas rollen *Reader* till den *Ann Mack team* gruppen med ID 22222222-2222-2222-2222-222222222222 i ett prenumerations omfång.
@@ -132,7 +132,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Om du vill lägga till en roll tilldelning för ett program använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create). Information om hur du hämtar objekt-ID för programmet finns i [Hämta objekt](#get-object-ids)-ID: n.
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup}
 ```
 
 I följande exempel tilldelas rollen *virtuell dator deltagare* till ett program med objekt-ID 44444444-4444-4444-4444-444444444444 i resurs grupps omfånget *Pharma-Sales* .
@@ -146,10 +146,10 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Om du vill lägga till en roll tilldelning för en användare i ett prenumerations omfång använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create). Om du vill hämta prenumerations-ID: t kan du hitta det på bladet **prenumerationer** i Azure Portal eller så kan du använda [konto listan AZ](/cli/azure/account#az-account-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --subscription <subscription_name_or_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --subscription {subscriptionNameOrId}
 ```
 
-I följande exempel tilldelas *läsaren* rollen *annm\@example.com* -användare i ett prenumerations omfång.
+I följande exempel tilldelas *läsaren* rollen *annm \@ example.com* -användare i ett prenumerations omfång.
 
 ```azurecli
 az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
@@ -160,10 +160,10 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 Om du vill lägga till en roll tilldelning för en användare i en hanterings grupps omfattning använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --scope /providers/Microsoft.Management/managementGroups/{groupId}
 ```
 
-I följande exempel tilldelas rollen *\@Alain example.com* *användare i ett* hanterings grupps omfång.
+I följande exempel tilldelas rollen *alain \@ example.com* *användare i ett* hanterings grupps omfång.
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
@@ -173,10 +173,10 @@ az role assignment create --role "Billing Reader" --assignee alain@example.com -
 
 Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel använder ett skript för att skapa en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn, kan roll tilldelningen Miss förvänta. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot bör du ange typ av huvud konto när du skapar roll tilldelningen.
 
-Om du vill lägga till en roll tilldelning använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create), anger `--assignee-object-id`ett värde för och `--assignee-principal-type` anger `ServicePrincipal`sedan till.
+Om du vill lägga till en roll tilldelning använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create), anger ett värde för `--assignee-object-id` och anger sedan `--assignee-principal-type` till `ServicePrincipal` .
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --assignee-principal-type {assigneePrincipalType} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 I följande exempel tilldelas rollen *virtuell dator deltagare* till *MSI-test* -hanterad identitet i resurs grupps omfånget *Pharma-Sales* :
@@ -190,10 +190,10 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning genom att använda [AZ roll tilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
+az role assignment delete --assignee {assignee} --role {roleNameOrId} --resource-group {resourceGroup}
 ```
 
-I följande exempel tas roll tilldelningen för *virtuell dator deltagare* bort *från\@patlong contoso.com* -användaren på resurs gruppen *Pharma-Sales* :
+I följande exempel tas roll tilldelningen för *virtuell dator deltagare* bort från *patlong \@ contoso.com* -användaren på resurs gruppen *Pharma-Sales* :
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
@@ -205,7 +205,7 @@ I följande exempel tas rollen *läsare* bort från *Ann Mack-team* gruppen med 
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-I följande exempel tas rollen för *fakturerings läsaren* bort från *Alain\@example.com* -användaren i hanterings gruppens omfång. Om du vill hämta ID för hanterings gruppen kan du använda [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
+I följande exempel tas rollen för *fakturerings läsaren* bort från *Alain \@ example.com* -användaren i hanterings gruppens omfång. Om du vill hämta ID för hanterings gruppen kan du använda [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group

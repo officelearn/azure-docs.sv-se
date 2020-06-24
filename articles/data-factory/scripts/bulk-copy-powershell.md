@@ -10,16 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: efc79f82a2181099f832da0d4a17fc370bf4f7f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0fedd2a304c73347b7ec72818b5289c1df2e561
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74929871"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248634"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell-skript – kopiera flera tabeller i bulk genom att använda Azure Data Factory
 
-Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i en Azure SQL-databas till ett Azure SQL Data Warehouse.
+Det här exemplet på PowerShell-skriptet kopierar data från flera tabeller i Azure SQL Database till ett Azure SQL Data Warehouse.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-azdatafactoryv2) | Skapa en datafabrik. |

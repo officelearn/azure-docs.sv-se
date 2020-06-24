@@ -4,9 +4,7 @@ description: Lär dig att använda Azure Notification Hubs till att skicka push-
 documentationcenter: ios
 author: sethm
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72387466"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248810"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
 
@@ -42,14 +40,14 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Den här själv studie kursen är också nödvändig för självstudierna [säker push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
+Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md). Den här själv studie kursen är också nödvändig för självstudierna [säker push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
 Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång med push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>Ändra din iOS-app
 
-1. Öppna den enkla sidan Visa app som du skapade i självstudien [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+1. Öppna den enkla sidan Visa app som du skapade i guiden [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) själv studie kursen.
 
    > [!NOTE]
    > Det här avsnittet förutsätter att ditt projekt har kon figurer ATS med ett tomt organisations namn. Annars måste du lägga organisations namnet till alla klass namn.
@@ -66,7 +64,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
    * **APN**: etikett och växel för att aktivera sändning av meddelandet till Apple Platform Notification Service.
    * **Mottagarens användar namn: en** UITextField med platshållartext, *taggen mottagarens användar namn*, direkt under etiketten GCM och är begränsad till vänster och höger MARGINALer och under GCM-etiketten.
 
-     Vissa komponenter har lagts till i självstudierna [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+     Vissa komponenter har lagts till i guiden [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) själv studie kursen.
 
 3. **CTRL** dra från komponenterna i vyn till `ViewController.h` och Lägg till dessa nya utsändnings möjligheter.
 
@@ -88,13 +86,13 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. I `ViewController.h`lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net`.
+4. I `ViewController.h` lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Exempelvis `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. I ditt projekt skapar du en ny enhets touch- `RegisterClient` klass med namnet till gränssnittet med ASP.net-backend som du skapade. Skapa klassen som ärver från `NSObject`. Lägg sedan till följande kod i `RegisterClient.h`.
+5. I ditt projekt skapar du en ny enhets touch `RegisterClient` -klass med namnet till gränssnittet med ASP.net-backend som du skapade. Skapa klassen som ärver från `NSObject` . Lägg sedan till följande kod i `RegisterClient.h` .
 
     ```objc
     @interface RegisterClient : NSObject
@@ -109,7 +107,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     @end
     ```
 
-6. `RegisterClient.m`I uppdaterar du `@interface` avsnittet:
+6. I `RegisterClient.m` uppdaterar du `@interface` avsnittet:
 
     ```objc
     @interface RegisterClient ()
@@ -290,9 +288,9 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
 
     Den här koden implementerar logiken som beskrivs i vägledningen som [registreras från din app-backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) med NSURLSession för att utföra rest-anrop till din app-backend och NSUserDefaults för att lokalt lagra registrationId som returnerades av Notification Hub.
 
-    Den här klassen kräver att `authorizationHeader` egenskapen anges för att fungera korrekt. Den här egenskapen anges av `ViewController` klassen efter inloggningen.
+    Den här klassen kräver `authorizationHeader` att egenskapen anges för att fungera korrekt. Den här egenskapen anges av `ViewController` klassen efter inloggningen.
 
-8. I `ViewController.h`lägger du till `#import` en instruktion `RegisterClient.h`för. Lägg sedan till en deklaration för enhetens token och referens `RegisterClient` till en instans `@interface` i avsnittet:
+8. I `ViewController.h` lägger du till en `#import` instruktion för `RegisterClient.h` . Lägg sedan till en deklaration för enhetens token och referens till en `RegisterClient` instans i `@interface` avsnittet:
 
     ```objc
     #import "RegisterClient.h"
@@ -301,7 +299,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     @property (strong, nonatomic) RegisterClient* registerClient;
     ```
 
-9. I ViewController. m lägger du till en deklaration för privat metod `@interface` i avsnittet:
+9. I ViewController. m lägger du till en deklaration för privat metod i `@interface` avsnittet:
 
     ```objc
     @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
@@ -316,7 +314,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     > [!NOTE]
     > Följande kodfragment är inte ett säkert autentiseringsschema, du bör ersätta implementeringen av `createAndSetAuthenticationHeaderWithUsername:AndPassword:` med din speciella autentiseringsmekanism som genererar en autentiseringstoken som ska användas av den registrerade klient klassen, t. ex. OAuth, Active Directory.
 
-10. I `@implementation` avsnittet i `ViewController.m`lägger du till följande kod, som lägger till implementeringen för att ange enhets-token och Authentication-huvudet.
+10. I `@implementation` avsnittet i `ViewController.m` lägger du till följande kod, som lägger till implementeringen för att ange enhets-token och Authentication-huvudet.
 
     ```objc
     -(void) setDeviceToken: (NSData*) deviceToken
@@ -343,7 +341,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     }
     ```
 
-    Observera hur du anger enhets-token som aktiverar knappen Logga in. Det beror på att som en del av inloggnings åtgärden registrerar visnings styrenheten för push-meddelanden med appens Server del. Vill därför inte att inloggnings åtgärder ska vara tillgängliga förrän enhetens token har kon figurer ATS korrekt. Du kan koppla från inloggningen från push-registreringen så länge den tidigare inträffar före den senare.
+    Observera hur du anger enhets-token som aktiverar knappen **Logga in** . Det beror på att som en del av inloggnings åtgärden registrerar visnings styrenheten för push-meddelanden med appens Server del. Du vill inte att **inloggnings** åtgärden ska vara tillgänglig förrän enhetens token har kon figurer ATS korrekt. Du kan koppla från inloggningen från push-registreringen så länge den tidigare inträffar före den senare.
 
 11. I ViewController. m använder du följande kodfragment för att implementera åtgärds metoden för **inloggnings** knappen och en metod för att skicka meddelandet med hjälp av ASP.net-backend-servern.
 
@@ -455,7 +453,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. Ta nu `AppDelegate.m`bort allt innehåll för metoden `application:didRegisterForPushNotificationWithDeviceToken:` i och ersätt den med följande (för att se till att visnings styrenheten innehåller den senaste enhets-token som hämtats från APN):
+14. Ta nu `AppDelegate.m` bort allt innehåll för metoden i `application:didRegisterForPushNotificationWithDeviceToken:` och ersätt den med följande (för att se till att visnings styrenheten innehåller den senaste enhets-token som hämtats från APN):
 
     ```objc
     // Add import to the top of the file

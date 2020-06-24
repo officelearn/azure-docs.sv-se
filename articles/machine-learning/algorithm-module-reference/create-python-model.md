@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189862"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984897"
 ---
 # <a name="create-python-model-module"></a>Skapa python modell-modul
 
@@ -25,7 +25,7 @@ Lär dig hur du använder modulen skapa python-modell för att skapa en modell s
 När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att göra förutsägelser. Sedan kan du spara den tränade modellen och publicera bedömnings arbets flödet som en webb tjänst.
 
 > [!WARNING]
-> För närvarande går det inte att skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva ett anpassat Python-skript och köra det med hjälp av modulen [Kör Python-skript](execute-python-script.md) .  
+> För närvarande går det inte att ansluta den här modulen för att **finjustera modulen modellens egenskaper** eller skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver justera de båda parametrarna eller utvärdera en modell kan du skriva ett anpassat Python-skript med hjälp av [köra Python-skript](execute-python-script.md) -modulen.
 
 
 ## <a name="configure-the-module"></a>Konfigurera modulen

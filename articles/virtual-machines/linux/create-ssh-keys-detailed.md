@@ -6,19 +6,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 44923a124b864083b1badfc617ce0303be66a10e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142477"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84985343"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure 
 Med ett SSH-nyckelpar (Secure Shell) kan du skapa en virtuell Linux-dator på Azure som använder SSH-nycklar som standard för autentisering, vilket eliminerar behovet av lösen ord för att logga in. Virtuella datorer som har skapats med Azure Portal, Azure CLI, Resource Manager-mallar eller andra verktyg kan innehålla din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckel-autentisering för SSH-anslutningar. 
 
 Den här artikeln innehåller detaljerad bakgrund och steg för att skapa och hantera ett SSH RSA-filpar med offentlig och privat nyckel för SSH-klientanslutningar. Om du vill ha snabb kommandon, se [hur du skapar ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md).
 
-Ytterligare sätt att skapa och använda SSH-nycklar på en Windows-dator finns i [så här använder du SSH-nycklar med Windows på Azure](ssh-from-windows.md).
+Information om hur du skapar SSH-nycklar och använder dem för att ansluta till en från en **Windows** -dator finns i [så här använder du SSH-nycklar med Windows på Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 

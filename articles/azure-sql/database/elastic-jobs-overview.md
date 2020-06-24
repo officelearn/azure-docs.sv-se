@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 995d70419edb374c3761fe2f989ce3a757cc7a47
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050067"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251197"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Om du inte har använt elastiska jobb kan du [läsa mer om jobb automatiserings 
 
 ## <a name="create-and-configure-the-agent"></a>Skapa och konfigurera agenten
 
-1. Skapa eller identifiera en tom SQL-databas på S0-nivå eller högre. Den här databasen kommer att användas som *jobb databas* när en elastisk jobb agent skapas.
+1. Skapa eller identifiera en tom S0 eller högre databas. Den här databasen kommer att användas som *jobb databas* när en elastisk jobb agent skapas.
 2. Skapa en elastisk jobb agent i [portalen](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) eller med [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
    ![Skapa en elastisk jobb agent](./media/elastic-jobs-overview/create-elastic-job-agent.png)

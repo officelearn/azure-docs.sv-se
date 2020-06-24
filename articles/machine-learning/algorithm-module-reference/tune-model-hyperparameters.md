@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064165"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983418"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
@@ -43,33 +43,35 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 
 2.  Anslut en modell som inte är tränad till intill vänster. 
 
+    > [!NOTE] 
+    > Det **går bara** att ansluta till inbyggda Machine Learning algorithm-moduler och stöder inte anpassad modell som skapats i **create python-modellen**.
 
 
-4.  Lägg till den data uppsättning som du vill använda för utbildning och Anslut den till den mittersta indatan för justerings modellens parametrar.  
+3.  Lägg till den data uppsättning som du vill använda för utbildning och Anslut den till den mittersta indatan för justerings modellens parametrar.  
 
     Om du har en taggad data uppsättning kan du ansluta den till porten längst till höger (**valfri verifierings data uppsättning**). På så sätt kan du mäta noggrannhet medan du tränar och justerar.
 
-5.  Välj ett värde för **parameter rensnings läge**i den högra panelen om du vill justera modellens egenskaper. Det här alternativet styr hur parametrarna väljs.
+4.  Välj ett värde för **parameter rensnings läge**i den högra panelen om du vill justera modellens egenskaper. Det här alternativet styr hur parametrarna väljs.
 
     - **Hela rutnätet**: när du väljer det här alternativet upprepas modulen över ett rutnät som är fördefinierat i systemet, för att testa olika kombinationer och identifiera den bästa bättre eleven. Det här alternativet är användbart när du inte vet vad de bästa parameter inställningarna kan vara och vill testa alla möjliga kombinationer av värden.
 
     - **Slumpmässig svep**: när du väljer det här alternativet kommer modulen slumpmässigt att välja parameter värden över ett Systemdefinierat intervall. Du måste ange det maximala antalet körningar som du vill att modulen ska köra. Det här alternativet är användbart när du vill öka modell prestandan genom att använda de mått som du väljer, men ändå spara dator resurser.    
 
-6.  För **kolumnen etikett**öppnar du kolumn väljaren för att välja en enskild etikett kolumn.
+5.  För **kolumnen etikett**öppnar du kolumn väljaren för att välja en enskild etikett kolumn.
 
-7.  Välj antal körningar:
+6.  Välj antal körningar:
 
-    1. **Maximalt antal körningar vid slumpmässig svep**: om du väljer en slumpmässig svep kan du ange hur många gånger modellen ska tränas genom att använda en slumpmässig kombination av parameter värden.
+    - **Maximalt antal körningar vid slumpmässig svep**: om du väljer en slumpmässig svep kan du ange hur många gånger modellen ska tränas genom att använda en slumpmässig kombination av parameter värden.
 
-8.  I **rangordning**väljer du ett mått som ska användas för att rangordna modellerna.
+7.  I **rangordning**väljer du ett mått som ska användas för att rangordna modellerna.
 
     När du kör en parameter rensning beräknar modulen alla tillämpliga mått för modell typen och returnerar dem i rapporten **svep resultat** . Modulen använder separata mått för Regressions-och klassificerings modeller.
 
     Men det mått du väljer avgör hur modellerna rangordnas. Endast den översta modellen, som rangordnas av det valda måttet, är utdata som en utbildad modell som kan användas för poängsättning.
 
-9.  För **slumpmässigt utsäde**anger du ett tal som ska användas för att starta parametern svep. 
+8.  För **slumpmässigt utsäde**anger du ett tal som ska användas för att starta parametern svep. 
 
-10. Skicka pipelinen.
+9. Skicka pipelinen.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Resultat av inställning av min parameter
 

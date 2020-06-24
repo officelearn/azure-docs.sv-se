@@ -4,15 +4,15 @@ description: Den här artikeln hjälper dig att förstå hur du kan lösa 128 sa
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398369"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983343"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Över gång till OpenVPN-protokoll eller IKEv2 från SSTP
 
@@ -22,7 +22,7 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Punkt-till-plats-VPN kan använda något av följande protokoll:
 
-* **OpenVPN&reg; -protokoll**, ett SSL/TLS-baserat VPN-protokoll. En SSL VPN-lösning kan tränga in brand väggar, eftersom de flesta brand väggar öppnar TCP-port 443 utgående, som SSL använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11,0 och senare), Windows-, Linux-och Mac-enheter (OSX-versioner 10,13 och senare).
+* **OpenVPN &reg; Protokoll**, ett SSL/TLS-baserat VPN-protokoll. En SSL VPN-lösning kan tränga in brand väggar, eftersom de flesta brand väggar öppnar TCP-port 443 utgående, som SSL använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11,0 och senare), Windows-, Linux-och Mac-enheter (OSX-versioner 10,13 och senare).
 
 * **SSTP (Secure Socket Tunneling Protocol)**, ett patentskyddat SSL-baserat VPN-protokoll. En SSL VPN-lösning kan tränga in brand väggar, eftersom de flesta brand väggar öppnar TCP-port 443 utgående, som SSL använder. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare). **SSTP har stöd för upp till 128 samtidiga anslutningar endast oavsett Gateway-SKU: n**.
 
@@ -64,7 +64,7 @@ Om du använder Windows 10 kan du också använda [Azure VPN-klienten för Windo
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-### <a name="what-are-the-client-configuration-requirements"></a>Vilka är klient konfigurations kraven?
+### <a name="what-are-the-client-configuration-requirements"></a>Vilka är klientkonfigurationskraven?
 
 >[!NOTE]
 >För Windows-klienter måste du ha administratörs behörighet på klient enheten för att kunna initiera VPN-anslutningen från klient enheten till Azure.

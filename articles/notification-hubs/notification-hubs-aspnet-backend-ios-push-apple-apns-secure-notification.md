@@ -4,9 +4,7 @@ description: Lär dig hur du skickar säkra push-meddelanden till en iOS-app fr�
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530756"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248708"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker push
 
@@ -50,7 +48,7 @@ Det är viktigt att Observera att i föregående flöde (och i den här självst
 Den här säkra självstudien visar hur du skickar ett push-meddelande på ett säkert sätt. Själv studie Kursen bygger vidare på själv studie kursen om att [meddela användarna](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , så du bör slutföra stegen i den här självstudien först.
 
 > [!NOTE]
-> Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -60,12 +58,12 @@ Nu när du ändrade appens Server del för att skicka bara *ID: t* för ett medd
 
 För att uppnå det här målet måste vi skriva logiken för att hämta det säkra innehållet från appens Server del.
 
-1. I `AppDelegate.m`kontrollerar du att appen registrerar sig för meddelanden om tyst meddelande så att den bearbetar det meddelande-ID som skickas från Server delen. Lägg till `UIRemoteNotificationTypeNewsstandContentAvailability` alternativet i didFinishLaunchingWithOptions:
+1. I `AppDelegate.m` kontrollerar du att appen registrerar sig för meddelanden om tyst meddelande så att den bearbetar det meddelande-ID som skickas från Server delen. Lägg till `UIRemoteNotificationTypeNewsstandContentAvailability` alternativet i didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. I avsnittet `AppDelegate.m` Lägg till ett implementering överst med följande deklaration:
+2. I `AppDelegate.m` avsnittet Lägg till ett implementering överst med följande deklaration:
 
     ```objc
     @interface AppDelegate ()

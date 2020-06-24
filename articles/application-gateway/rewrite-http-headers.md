@@ -4,15 +4,15 @@ description: Den här artikeln innehåller en översikt över hur du skriver om 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562244"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248691"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
@@ -62,28 +62,28 @@ Application Gateway stöder följande servervariabler:
 
 | Variabelnamn | Beskrivning                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | Det X-vidarebefordrade – för fältet för klient begär ande huvud `client_ip` med variabeln (se förklaringen senare i den här tabellen) som läggs till i formatet IP1, IP2, IP3 och så vidare. Om fältet X-forwarded inte finns i klient begär ande huvudet är `add_x_forwarded_for_proxy` variabeln lika med `$client_ip` variabeln. Den här variabeln är särskilt användbar när du vill skriva om den X-vidarebefordrade-för-rubrik som angetts av Application Gateway så att sidhuvudet endast innehåller IP-adressen utan portinformation. |
+| add_x_forwarded_for_proxy  | Det X-vidarebefordrade – för fältet för klient begär ande huvud med `client_ip` variabeln (se förklaringen senare i den här tabellen) som läggs till i formatet IP1, IP2, IP3 och så vidare. Om fältet X-forwarded inte finns i klient begär ande huvudet `add_x_forwarded_for_proxy` är variabeln lika med `$client_ip` variabeln. Den här variabeln är särskilt användbar när du vill skriva om den X-vidarebefordrade-för-rubrik som angetts av Application Gateway så att sidhuvudet endast innehåller IP-adressen utan portinformation. |
 | ciphers_supported          | En lista över de chiffer som stöds av klienten.          |
 | ciphers_used               | Den sträng med chiffer som används för en upprättad TLS-anslutning. |
 | client_ip                  | IP-adressen för den klient som Application Gateway tog emot begäran från. Om det finns en omvänd proxy före programgatewayen och den ursprungliga klienten kommer *client_ip* att returnera IP-adressen för den omvända proxyn. |
 | client_port                | Klient porten.                                                  |
 | client_tcp_rtt             | Information om klientens TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
 | client_user                | När HTTP-autentisering används anges användar namnet för autentisering. |
-| värd                       | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*är värd värdet *contoso.com* |
+| värd                       | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* är värd värdet *contoso.com* |
 | cookie_*namn*              | Cookie- *namn* .                                            |
 | http_method                | Den metod som används för att göra URL-begäran. Till exempel GET eller POST. |
 | http_status                | Sessionens status. Till exempel 200, 400 eller 403.                       |
 | http_version               | Protokollet för begäran. Vanligt vis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
-| query_string               | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*blir QUERY_STRING värde *id = 123&title = Fabrikam* |
+| query_string               | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran blir *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING värde *ID = 123&title = Fabrikam* |
 | received_bytes             | Längden på begäran (inklusive raden för begäran, sidhuvud och brödtext). |
 | request_query              | Argumenten på raden för begäran.                                |
 | request_scheme             | Begär ande schema: http eller https.                            |
-| request_uri                | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*kommer REQUEST_URI värde att */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* kommer REQUEST_URI värde att */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | Antalet byte som har skickats till en klient.                             |
 | server_port                | Porten för den server som godkände en begäran.                 |
 | ssl_connection_protocol    | Protokollet för en etablerad TLS-anslutning.        |
 | ssl_enabled                | "On" om anslutningen fungerar i TLS-läge. Annars är en tom sträng. |
-| uri_path                   | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*blir uri_path värde */article.aspx*  |
+| uri_path                   | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran blir *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path värde */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Skriv om konfigurationen
 
@@ -131,8 +131,8 @@ Du kan lösa det här problemet genom att ange värd namnet i plats rubriken til
 
 Här följer stegen för att ersätta värd namnet:
 
-1. Skapa en Rewrite-regel med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Ange mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
-1. Utför en åtgärd för att skriva om plats rubriken så att den har Application Gateway-värdnamnet. Gör detta genom att `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` ange som rubrik värde.
+1. Skapa en Rewrite-regel med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Ange mönstret `(https?):\/\/.*azurewebsites\.net(.*)$` .
+1. Utför en åtgärd för att skriva om plats rubriken så att den har Application Gateway-värdnamnet. Gör detta genom att ange `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som rubrik värde.
 
 ![Ändra plats rubrik](media/rewrite-http-headers/app-service-redirection.png)
 
@@ -156,13 +156,13 @@ Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en h
 
 ## <a name="limitations"></a>Begränsningar
 
-- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` exempel: och en annan för Application Gateway-tillhörighet, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`till exempel. Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
+- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till exempel: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för Application Gateway-tillhörighet, till exempel `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
 
 - Omskrivningar stöds inte när Application Gateway har kon figurer ATS för att omdirigera begär Anden eller för att visa en anpassad felsida.
 
 - Det finns för närvarande inte stöd för att skriva om anslutningen, uppgradera och värdhuvuden.
 
-- Rubrik namn får innehålla alfanumeriska tecken och vissa symboler som definieras i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte under streck (\_) med specialtecken i rubrik namn.
+- Rubrik namn får innehålla alfanumeriska tecken och vissa symboler som definieras i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte under streck ( \_ ) med specialtecken i rubrik namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

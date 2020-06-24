@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 0833215449c92a1710dcaf4f2fe13ce9a16685ba
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434055"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983384"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -32,11 +32,11 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 ## <a name="known-issues"></a>Kända problem
 
 > [!NOTE]
-> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md) och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. För alla andra hanterings aktiviteter (till exempel Hantera transformeringar och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+>
+> Mer information finns i: [Azure Portal begränsningar för Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
-
-## <a name="june-2020"></a>2020 juni
+## <a name="june-2020"></a>Juni 2020
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Video analys i real tid för IoT Edge för hands version
 
@@ -207,7 +207,7 @@ Nya uppdateringar som omfattar Media Services prestanda förbättringar.
 
 ## <a name="march-2019"></a>Mars 2019
 
-Dynamisk paketering stöder nu Dolby Atmos. Mer information finns i [codec för ljud som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs).
+Dynamisk paketering stöder nu Dolby Atmos. Mer information finns i [codec för ljud som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
 Nu kan du ange en lista över till gångs-eller konto filter som ska gälla för din strömmande positionerare. Mer information finns i [associera filter med strömmande positionerare](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -314,7 +314,7 @@ Azure AD-autentisering och rollbaserad Access Control (RBAC) möjliggör säker 
 
 #### <a name="client-sdks"></a>Klient-SDK: er  
 
-Språk som stöds i Media Services v3: .NET Core, Java, Node. js, ruby, typescript, python, go.
+Språk som stöds i Media Services v3: .NET Core, Java, Node.js, ruby, typescript, python, go.
 
 #### <a name="live-encoding-updates"></a>Live encoding-uppdateringar
 
@@ -370,11 +370,15 @@ Följande funktioner finns i .NET SDK:
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du skickar ett jobb kan du ange att du vill mata in din käll video med hjälp av HTTPS-URL: er, SAS-URL: er eller sökvägar till filer som finns i Azure Blob Storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
+* När du skickar ett jobb kan du ange att du vill mata in din käll video med hjälp av HTTPS-URL: er, SAS-URL: er eller sökvägar till filer som finns i Azure Blob Storage. För närvarande stöder Media Services v3 inte Chunked Transfer Encoding över HTTPS-URL: er.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
 Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+
+## <a name="see-also"></a>Se även
+
+[Vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="next-steps"></a>Nästa steg
 

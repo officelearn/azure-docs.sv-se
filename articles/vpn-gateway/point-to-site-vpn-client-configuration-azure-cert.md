@@ -5,15 +5,15 @@ description: Skapa och installera Windows, Linux, Linux (strongSwan) och Mac OS 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: d15efee635e131d658cd650b7f80eb9e670a0dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d917bc1d52cc2a43e87affcc9c5e3c2ab533da07
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279421"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984870"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -78,7 +78,7 @@ Använd följande steg för att konfigurera den interna Windows VPN-klienten fö
 
  Du måste konfigurera den inbyggda IKEv2 VPN-klienten manuellt på varje Mac som ska ansluta till Azure. Azure tillhandahåller inte mobileconfig-filen för intern Azure-certifikatautentisering. Den **generiska** innehåller all information som du behöver för konfigurationen. Om du inte ser mappen Generic i nedladdningen beror det antagligen på att du inte valde IKEv2 som tunneltyp. Observera att VPN gateway Basic SKU inte stöder IKEv2. När du har valt IKEv2 genererar du ZIP-filen igen för att hämta mappen Generic.<br>Mappen Generic innehåller följande filer:
 
-* **VpnSettings. XML**, som innehåller viktiga inställningar som server adress och tunnel typ. 
+* **VpnSettings.xml**, som innehåller viktiga inställningar som server adress och tunnel typ. 
 * **VpnServerRoot. cer**, som innehåller rot certifikatet som krävs för att verifiera Azure-VPN gateway under installationen av P2s-anslutningen.
 
 Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac för certifikatautentisering. Du måste utföra de här stegen på varje Mac som ska ansluta till Azure:
@@ -97,7 +97,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
    ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
+4. I den **allmänna** mappen, från **VpnSettings.xml** -filen, kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
 5. Klicka på **autentiseringsinställningar** och välj **certifikat**.För **Catalina**klickar du på **ingen** och sedan **certifikat**
@@ -149,7 +149,7 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
 4. Välj **IPSec/IKEv2 (strongSwan)** på menyn och dubbelklicka på. Du kan ge anslutningen ett namn i det här steget.
 
    ![Välj en Anslutnings typ](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
-5. Öppna filen **VpnSettings. XML** från den **allmänna** mappen som finns i hämtade konfigurationsfiler för klienter. Hitta taggen med namnet **VpnServer** och kopiera namnet, från och med "azuregateway" och sluta med ". cloudapp.net".
+5. Öppna **VpnSettings.xml** -filen från den **allmänna** mappen som finns i hämtade konfigurationsfiler för klienter. Hitta taggen med namnet **VpnServer** och kopiera namnet, från och med "azuregateway" och sluta med ". cloudapp.net".
 
    ![namn på kopia](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Klistra in det här namnet i fältet **adress** i den nya VPN-anslutningen i **Gateway** -avsnittet. Sedan väljer du mappikonen i slutet av fältet **certifikat** , bläddrar till den **allmänna** mappen och väljer filen **VpnServerRoot** .
@@ -176,7 +176,7 @@ Om du inte redan har skapat certifikat kan du använda följande steg:
 2. Extrahera filen.
 3. Kopiera eller flytta VpnServerRoot. cer till/etc/IPSec.d/cacerts. i den **allmänna** mappen
 4. Kopiera eller flytta CP-klienten. p12 till/etc/IPSec.d/Private/. Den här filen är klient certifikatet för Azure VPN Gateway.
-5. Öppna filen VpnSettings. xml och kopiera `<VpnServer>` värdet. Du kommer att använda det här värdet i nästa steg.
+5. Öppna VpnSettings.xml-filen och kopiera `<VpnServer>` värdet. Du kommer att använda det här värdet i nästa steg.
 6. Justera värdena i exemplet nedan och Lägg sedan till exemplet i/etc/IPSec.conf-konfigurationen.
   
    ```

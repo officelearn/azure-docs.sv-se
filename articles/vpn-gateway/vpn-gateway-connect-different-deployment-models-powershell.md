@@ -5,22 +5,22 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7c00a2cd8363ae67a7a82d54e1b779bec9e94b9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152014"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984693"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
 Den här artikeln hjälper dig att ansluta klassiska virtuella nätverk till Resource Manager-virtuella nätverk så att resurserna som finns i de separata distributions modellerna kan kommunicera med varandra. Stegen i den här artikeln använder PowerShell, men du kan också skapa den här konfigurationen med hjälp av Azure Portal genom att välja artikeln i den här listan.
 
 > [!div class="op_single_selector"]
-> * [Portalen](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
@@ -229,7 +229,7 @@ Kraven förutsätter att du redan har skapat ett RM VNet. I det här steget skap
    -Name gwipconfig -SubnetId $subnet.id `
    -PublicIpAddressId $ipaddress.id
    ```
-7. Skapa den virtuella Resource Manager-Nätverksgatewayen genom att köra följande kommando. `-VpnType` Måste vara *routningsbaserad*. Det kan ta 45 minuter eller mer för gatewayen att skapa.
+7. Skapa den virtuella Resource Manager-Nätverksgatewayen genom att köra följande kommando. `-VpnType`Måste vara *routningsbaserad*. Det kan ta 45 minuter eller mer för gatewayen att skapa.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `

@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418821"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248980"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten SQL Server lagrad procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -33,13 +33,13 @@ Du använder data omvandlings aktiviteter i en Data Factory [pipeline](concepts-
 Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i något av följande data lager i företaget eller på en virtuell Azure-dator (VM): 
 
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)
 - SQL Server databas.  Om du använder SQL Server ska du installera integration runtime med egen värd på samma dator som är värd för databasen eller på en annan dator som har åtkomst till databasen. Integration runtime med egen värd är en komponent som ansluter data källor lokalt/på virtuella Azure-datorer med moln tjänster på ett säkert och hanterat sätt. Mer information finns i artikeln om [integration runtime med egen värd](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
-> När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md). Det går inte att anropa en lagrad procedur medan data kopieras till en Azure SQL Data Warehouse med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i en SQL Data Warehouse. 
+> När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md). Det går inte att anropa en lagrad procedur medan data kopieras till en Azure Synapse-analys (tidigare Azure SQL Data Warehouse) med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i en SQL Data Warehouse. 
 >
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md) [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -68,21 +68,21 @@ Här är JSON-formatet för att definiera en lagrad procedur aktivitet:
 
 Följande tabell beskriver de här JSON-egenskaperna:
 
-| Egenskap                  | Beskrivning                              | Krävs |
+| Egenskap                  | Beskrivning                              | Obligatorisk |
 | ------------------------- | ---------------------------------------- | -------- |
-| namn                      | Namn på aktiviteten                     | Ja      |
-| description               | Text som beskriver vad aktiviteten används för | Inga       |
-| typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Ja      |
-| linkedServiceName         | Referens till **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Ja      |
-| storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder `"param1": { "value": null }` du (alla gemener). | Inga       |
+| name                      | Namn på aktiviteten                     | Yes      |
+| description               | Text som beskriver vad aktiviteten används för | No       |
+| typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Yes      |
+| linkedServiceName         | Referens till **Azure SQL Database** -eller **Azure Synapse-analys (tidigare Azure SQL Data Warehouse)** eller **SQL Server** registrerad som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Yes      |
+| storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Yes      |
+| storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder du `"param1": { "value": null }` (alla gemener). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Parameter data typs mappning
 Den datatyp som du anger för parametern är den Azure Data Factorys typ som mappar till data typen i data källan som du använder. Du kan hitta data typs mappningar för data källan i kopplings avsnittet. Några exempel är
 
 | Datakälla          | Data typs mappning |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |

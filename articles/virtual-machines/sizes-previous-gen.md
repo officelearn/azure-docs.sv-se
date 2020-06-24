@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 3284db031214dfaa631efa6f9f40e6a069998843
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677074"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119230"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -169,7 +169,7 @@ Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva ins
 
 ### <a name="d-series"></a>D-serien  
 
-**Nyare storleks rekommendation**: [dv3-serien](dv3-dsv3-series.md)
+**Nyare storleks rekommendation**: [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -190,7 +190,7 @@ Premium Storage caching: stöds inte
 
 ### <a name="d-series---memory-optimized"></a>D-serien-minnesoptimerade  
 
-**Nyare storleks rekommendation**: [dv3-serien](dv3-dsv3-series.md)
+**Nyare storleks rekommendation**: [Dav4-serien](dav4-dasv4-series.md), [DV4-serien](dv4-dsv4-series.md) och [Ddv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -231,7 +231,7 @@ DC-serien använder den senaste generationen av 3,7 GHz Intel XEON E-2176G-proce
 
 ### <a name="ds-series"></a>DS-serien  
 
-**Nyare storleks rekommendation**: [Dsv3-serien](dv3-dsv3-series.md)
+**Nyare storleks rekommendation**: [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -252,7 +252,7 @@ Premium Storage caching: stöds
 
 ### <a name="ds-series---memory-optimized"></a>DS-seriens minnesoptimerade  
 
-**Nyare storleks rekommendation**: [Dsv3-serien](dv3-dsv3-series.md)
+**Nyare storleks rekommendation**: [Dasv4-serien](dav4-dasv4-series.md), [Dsv4-serien](dv4-dsv4-series.md) och [Ddsv4-serien](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -273,6 +273,8 @@ Premium Storage caching: stöds
 <br>
 
 ### <a name="ls-series"></a>Ls-serien
+
+**Nyare storleks rekommendation**: [Lsv2-serien](lsv2-series.md)
 
 Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.
 
@@ -297,6 +299,8 @@ Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serie
 
 ### <a name="gs-series"></a>GS-serien
 
+**Nyare storleks rekommendation**: [Easv4-serien](eav4-easv4-series.md), [Esv4-serien](ev4-esv4-series.md), [Edsv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
+
 ACU: 180-240 <sup>1</sup>
 
 Premium Storage: stöds
@@ -320,6 +324,8 @@ Premium Storage caching: stöds
 <br>
 
 ### <a name="g-series"></a>G-serien
+
+**Nyare storleks rekommendation**: [Eav4-serien](eav4-easv4-series.md), [Ev4-serien](ev4-esv4-series.md) och [Edv4-serien](edv4-edsv4-series.md) och [M-serien](m-series.md)
 
 ACU: 180–240
 

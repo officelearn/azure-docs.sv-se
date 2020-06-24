@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87da588806908566bd1980da4c3120c0d4537b4a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673147"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905144"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -99,9 +99,11 @@ Azure AD stöder externa identitets leverantörer som Facebook, Microsoft-konton
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Skapa ett användar flöde för självbetjänings registrering (förhands granskning)
 
 Med ett användar flöde för självbetjänings registrering kan du skapa en registrerings miljö för externa användare som vill ha åtkomst till dina appar. Som en del av registrerings flödet kan du ange alternativ för olika sociala eller företags identitets leverantörer och samla in information om användaren. Lär dig om självbetjänings [registrering och hur du konfigurerar det](self-service-sign-up-overview.md).
-<!-- You can also use [API connectors](api-connectors-overview.md) to integrate your user flows with external systems, for example user approval systems, user input validation systems, or custom business logic. -->
+
+Du kan också använda [API-kopplingar](api-connectors-overview.md) för att integrera dina självbetjänings registrerings användar flöden med externa moln system. Du kan ansluta med anpassade arbets flöden för godkännande, utföra identitets verifiering, validera information från användare och mycket annat.
 
 ![Skärm bild som visar sidan användar flöden](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80367556"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252448"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
@@ -62,7 +62,7 @@ Som standard hålls inte anslutningar för NodeJS i livet. Nedan visas populära
 HTTP Keep-Alive
 
 * [agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Node. js v 13.9.0-dokumentation](https://nodejs.org/api/http.html)
+* [Dokumentation omNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -111,12 +111,12 @@ För andra miljöer granskar du provider-eller drivrutinsspecifika dokument för
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>Använd keepalive för att återställa tids gränsen för utgående inaktivitet
 
-* För att implementera keepalive för Node. js-appar, se till [att min Node-applikation gör alltför utgående samtal](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
+* För att implementera keepalive-program för Node.js-appar gör granskningen av [mitt Node-program att det gör alltför utgående samtal](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
 
 ### <a name="additional-guidance-specific-to-app-service"></a>Ytterligare vägledning som är speciell för App Service:
 
 * Ett [belastnings test](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) bör simulera verkliga världs data i en konstant matnings hastighet. Testning av appar och funktioner under verklig världs belastning kan identifiera och lösa problem med SNAT-port överbelastning i förväg.
-* Se till att Server dels tjänsterna kan returnera svar snabbt. Om du vill felsöka prestanda problem med Azure SQL Database kan du läsa [felsök Azure SQL Database prestanda problem med intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
+* Se till att Server dels tjänsterna kan returnera svar snabbt. Om du vill felsöka prestanda problem med Azure SQL Database granskar du [fel sökning Azure SQL Database prestanda problem med intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Skala ut App Service plan till fler instanser. Mer information om skalning finns i [skala en app i Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Varje arbets instans i en app service-plan tilldelas ett antal SNAT-portar. Om du sprider din användning över flera instanser kan du få SNAT-port användningen per instans under den rekommenderade gränsen på 100 utgående anslutningar per unik fjärrslutpunkt.
 * Överväg att flytta till [App Service-miljön (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), där du tilldelas en enda utgående IP-adress och gränserna för anslutningar och SNAT-portar är mycket högre.
 
@@ -160,7 +160,7 @@ TCP-anslutningar och SNAT-portar är inte direkt relaterade. En användnings det
 
 ### <a name="webjobs-and-database-connections"></a>WebJobs och databas anslutningar
  
-Om SNAT-portar är uttömda, där WebJobs inte kan ansluta till Azure SQL Database, finns det inget mått för att visa hur många anslutningar som öppnas av varje enskild webb program process. Om du vill hitta ett problematiskt webb jobb flyttar du flera WebJobs till ett annat App Service plan för att se om situationen förbättras eller om ett problem kvarstår i ett av planerna. Upprepa processen tills du hittar det problematiska webb jobbet.
+Om SNAT-portar är uttömda, där WebJobs inte kan ansluta till SQL Database, finns det inget mått för att visa hur många anslutningar som öppnas av varje enskild webb program process. Om du vill hitta ett problematiskt webb jobb flyttar du flera WebJobs till ett annat App Service plan för att se om situationen förbättras eller om ett problem kvarstår i ett av planerna. Upprepa processen tills du hittar det problematiska webb jobbet.
 
 ### <a name="using-snat-ports-sooner"></a>Använda SNAT-portar tidigare
 

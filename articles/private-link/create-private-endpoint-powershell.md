@@ -4,15 +4,15 @@ description: Lär dig mer om Azures privata länk
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83207c70b147e4f0d416f47a6b12f9826f49f2db
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267791"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737384"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
@@ -206,10 +206,10 @@ mstsc /v:<publicIpAddress>
 3. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 4. I **Anslut till Server**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | --- | --- |
     | Servertyp | Databasmotor |
-    | servernamn | myserver.database.windows.net |
+    | Servernamn | myserver.database.windows.net |
     | Användarnamn | Ange det användar namn som angavs vid skapandet |
     | lösenordsinställning | Ange lösen ordet som angavs när det skapas |
     | Kom ihåg lösen ord | Yes |

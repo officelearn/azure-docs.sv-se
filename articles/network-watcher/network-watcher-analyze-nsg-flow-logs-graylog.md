@@ -9,17 +9,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842911"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737435"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och Graylog
 
@@ -194,7 +194,7 @@ Nu när du har upprättat en anslutning till flödes loggarna med Logstash och k
 
    Läs mer om Graylog-indata i [dokumentationen](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
-4. När dessa konfigurationer har gjorts kan du starta Logstash för att börja läsa i Flow-loggar med följande kommando: `sudo systemctl start logstash.service`.
+4. När dessa konfigurationer har gjorts kan du starta Logstash för att börja läsa i Flow-loggar med följande kommando: `sudo systemctl start logstash.service` .
 
 ### <a name="search-through-graylog-messages"></a>Sök igenom Graylog-meddelanden
 

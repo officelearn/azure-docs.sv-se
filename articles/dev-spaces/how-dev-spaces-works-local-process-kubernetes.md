@@ -1,18 +1,18 @@
 ---
-title: Så här fungerar lokal process med Kubernetes
+title: Så fungerar lokal process med Kubernetes
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Beskriver processer för att använda lokal process med Kubernetes för att ansluta din utvecklings dator till ditt Kubernetes-kluster
 keywords: Lokal process med Kubernetes, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 443783eb7f5359318cf8efbec8b6466a80fa1e85
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316602"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974429"
 ---
-# <a name="how-local-process-with-kubernetes-works"></a>Så här fungerar lokal process med Kubernetes
+# <a name="how-local-process-with-kubernetes-works"></a>Så fungerar lokal process med Kubernetes
 
 Lokal process med Kubernetes gör att du kan köra och felsöka kod på din utvecklings dator, medan du fortfarande är ansluten till ditt Kubernetes-kluster med resten av dina program eller tjänster. Om du till exempel har en stor mikrotjänsters arkitektur med många beroende tjänster och databaser, kan det vara svårt att replikera dessa beroenden på din utvecklings dator. Dessutom kan du skapa och distribuera kod till ditt Kubernetes-kluster för varje kod ändring under en inre loop-utveckling kan vara långsam, tids krävande och svårt att använda med en fel sökare.
 
@@ -42,6 +42,15 @@ När du har upprättat en anslutning till klustret kan du köra och felsöka kod
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 
 När du använder den lokala processen med Kubernetes för att ansluta till klustret loggas diagnostikloggar från klustret till utvecklings datorns [tillfälliga katalog][azds-tmp-dir]. Med hjälp av Visual Studio Code kan du också använda kommandot *Visa diagnostisk information* för att skriva ut aktuella miljövariabler och DNS-poster från klustret.
+
+## <a name="limitations"></a>Begränsningar
+
+Lokal process med Kubernetes har följande begränsningar:
+
+* Lokal process med Kubernetes omdirigerar trafik för en enskild tjänst till din utvecklings dator. Du kan inte använda lokal process med Kubernetes för att omdirigera flera tjänster på samma gång.
+* En tjänst måste backas upp av en enda Pod för att du ska kunna ansluta till den tjänsten. Du kan inte ansluta till en tjänst med flera poddar, till exempel en tjänst med repliker.
+* En POD kan bara ha en enda behållare som körs i den POD för lokal process med Kubernetes för att lyckas ansluta. Lokal process med Kubernetes kan inte ansluta till tjänster med poddar som har ytterligare behållare, till exempel sidvagn-behållare som injiceras av nät för tjänster.
+* Lokal process med Kubernetes kräver förhöjd behörighet för att köras på utvecklings datorn för att du ska kunna redigera värd filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

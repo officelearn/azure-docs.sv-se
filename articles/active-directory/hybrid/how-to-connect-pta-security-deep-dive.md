@@ -15,12 +15,12 @@ ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4c3d8fdf4467a1a4c932ab6ec8fd6067d2d2ef34
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014374"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252737"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory djupgående säkerhets djup
 
@@ -106,7 +106,7 @@ Autentiserings agenter använder följande steg för att registrera sig för Azu
     - CA: n används endast av funktionen för direkt autentisering. CA: n används bara för att signera kund service representanter under registreringen av Autentiseringstjänsten.
     -  Ingen av de andra Azure AD-tjänsterna använder den här certifikat utfärdaren.
     - Certifikatets ämne (unikt namn eller DN) har angetts till ditt klient-ID. Detta unika namn är ett GUID som unikt identifierar din klient. Detta DN omfångerar certifikatet för användning endast med din klient.
-6. Azure AD lagrar Authentication agentens offentliga nyckel i en Azure SQL-databas som bara Azure AD har åtkomst till.
+6. Azure AD lagrar Authentication agentens offentliga nyckel i en databas i Azure SQL Database, som bara Azure AD har åtkomst till.
 7. Certifikatet (utfärdat i steg 5) lagras på den lokala servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) plats). Den används av både autentiseringstjänsten och uppdaterings programmen.
 
 ### <a name="authentication-agent-initialization"></a>Initiering av autentiserings agent
@@ -178,7 +178,7 @@ Förnya en Autentiseringstyps förtroende med Azure AD:
 6. Om det befintliga certifikatet har upphört att gälla tar Azure AD bort Autentiseringstjänsten från klientens lista över registrerade autentiseringsprinciper. Sedan måste en global administratör installera och registrera en ny autentiseringstjänst manuellt.
     - Använd Azure AD-rot certifikat utfärdaren för att signera certifikatet.
     - Ange certifikatets ämne (unikt namn eller DN) till klient-ID: t, ett GUID som unikt identifierar din klient. DN omfångerar certifikatet enbart till din klient organisation.
-6. Azure AD lagrar den nya offentliga nyckeln för Autentiseringstjänsten i en Azure SQL-databas som bara den har åtkomst till. Det gör också att den gamla offentliga nyckeln som är kopplad till Authentication agent ogiltig förklaras.
+6. Azure AD lagrar den nya offentliga nyckeln för Autentiseringstjänsten i en databas i Azure SQL Database att den bara har åtkomst till. Det gör också att den gamla offentliga nyckeln som är kopplad till Authentication agent ogiltig förklaras.
 7. Det nya certifikatet (utfärdat i steg 5) lagras sedan på servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) plats).
     - Eftersom processen för förnyelse av förtroende inträffar icke-interaktivt (utan den globala administratörens närvaro), har Autentiseringstjänsten inte längre åtkomst för att uppdatera det befintliga certifikatet på den CERT_SYSTEM_STORE_LOCAL_MACHINE platsen. 
     

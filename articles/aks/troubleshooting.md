@@ -3,13 +3,13 @@ title: Felsök vanliga problem med Azure Kubernetes-tjänsten
 description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
-ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/20/2020
+ms.openlocfilehash: 36b3f20b866e7bad1d27f9fa92c02601ec21602c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725002"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125437"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -46,6 +46,19 @@ Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta
 
 Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Jag får `TCP timeouts` när jag använder `kubectl` eller andra verktyg från tredje part som ansluter till API-servern
+AKS har kontroll plan som skalas lodrätt i enlighet med antalet kärnor för att säkerställa dess service nivå mål (SLO: erna) och service nivå avtal (service avtal). Om du råkar ut för anslutnings tids gränsen kontrollerar du följande:
+
+- **Är alla API-kommandon timeout-bara konsekventa eller bara några?** Om det bara är några få `tunnelfront` POD eller `aks-link` pod, som ansvarar för kommunikation mellan noder i > kontroll planet, kanske inte är i körnings tillstånd. Se till att noderna som är värdar för denna Pod inte är överutnyttjade eller under stress. Överväg att flytta dem till en egen [ `system` Node-pool](use-system-pools.md).
+- **Har du öppnat alla obligatoriska portar, FQDN-namn och IP-adresser som anges i [AKS-begränsningen av utgående trafikflöden](limit-egress-traffic.md)?** Annars går det inte att anropa flera kommandon.
+- **Omfattas den aktuella IP-adressen av [API IP-auktoriserade intervall](api-server-authorized-ip-ranges.md)?** Om du använder den här funktionen och din IP-adress inte ingår i de intervall som dina samtal ska blockeras. 
+- **Har du en klient eller ett program som läcker anrop till API-servern?** Se till att använda arm i stället för att få frekventa samtal och att program från tredje part inte läcker sådana samtal. Ett fel i Istio-mixern gör till exempel att en ny API Server Watch-anslutning skapas varje gång en hemlighet läses internt. Eftersom det här beteendet sker med jämna mellanrum kan du titta på anslutningar snabbt och på så vis få API-servern att bli överbelastad oavsett skalnings mönstret. https://github.com/istio/istio/issues/19481
+- **Har du många versioner av dina Helm-distributioner?** Det här scenariot kan orsaka att båda till att använda för mycket minne på noderna, samt en stor mängd `configmaps` , vilket kan orsaka onödiga toppar på API-servern. Överväg att konfigurera `--history-max` på `helm init` och utnyttja den nya Helm 3. Mer information om följande problem: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera rollbaserad Access Control (RBAC) i ett befintligt kluster. Hur kan jag göra det?
 
 Att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
@@ -53,12 +66,6 @@ Att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster stöds in
 ## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat och nu ser jag många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
 
 Orsaken till varningarna är att klustret har RBAC aktiverat och åtkomst till instrument panelen är nu begränsad som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
-
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Det går inte att ansluta till instrumentpanelen. Vad ska jag göra?
-
-Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy` , vilka proxyservrar som begär att skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/` .
-
-Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs i `kube-system` namn området. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
@@ -166,14 +173,14 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disk.
 
-I Linux kan du se ett felaktigt format fel för DevicePath. Till exempel:
+I Linux kan du se ett felaktigt format fel för DevicePath. Ett exempel:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-I Windows kan du se fel numret för DevicePath (LUN). Till exempel:
+I Windows kan du se fel numret för DevicePath (LUN). Ett exempel:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -220,7 +227,7 @@ spec:
   >[!NOTE]
   > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används Kubernetes för `chown` att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Till exempel:
+* Använd `chown` i initContainers för att ange GID och UID. Ett exempel:
 
 ```yaml
 initContainers:
@@ -379,13 +386,13 @@ Om din lagrings konto nyckel har ändrats kan du se Azure Files Mount-felen.
 
 Du kan åtgärda problemet genom att manuellt uppdatera `azurestorageaccountkey` fältet manuellt i en Azure-filhemlighet med din base64-kodade lagrings konto nyckel.
 
-Du kan använda för att koda lagrings konto nyckeln i base64 `base64` . Till exempel:
+Du kan använda för att koda lagrings konto nyckeln i base64 `base64` . Ett exempel:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Om du vill uppdatera din Azure-hemlig fil använder du `kubectl edit secret` . Till exempel:
+Om du vill uppdatera din Azure-hemlig fil använder du `kubectl edit secret` . Ett exempel:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

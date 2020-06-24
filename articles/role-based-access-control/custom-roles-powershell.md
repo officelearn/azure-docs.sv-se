@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734815"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790219"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Skapa eller uppdatera Azure-anpassade roller med hjälp av Azure PowerShell
 
@@ -72,7 +72,7 @@ Name                     IsCustom
 Virtual Machine Operator     True
 ```
 
-Om den valda prenumerationen inte finns `AssignableScopes` i rollen visas inte den anpassade rollen.
+Om den valda prenumerationen inte finns i `AssignableScopes` rollen visas inte den anpassade rollen.
 
 ## <a name="list-a-custom-role-definition"></a>Lista en anpassad roll definition
 
@@ -161,7 +161,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 ### <a name="create-a-custom-role-with-the-psroledefinition-object"></a>Skapa en anpassad roll med PSRoleDefinition-objektet
 
-När du använder PowerShell för att skapa en anpassad roll kan du använda en av de [inbyggda rollerna](built-in-roles.md) som start punkt eller så kan du börja från början. Det första exemplet i det här avsnittet börjar med en inbyggd roll och anpassar sedan den med fler behörigheter. Redigera attributen för att lägga `Actions`till `NotActions`den, `AssignableScopes` eller så du vill, och spara sedan ändringarna som en ny roll.
+När du använder PowerShell för att skapa en anpassad roll kan du använda en av de [inbyggda rollerna](built-in-roles.md) som start punkt eller så kan du börja från början. Det första exemplet i det här avsnittet börjar med en inbyggd roll och anpassar sedan den med fler behörigheter. Redigera attributen för att lägga till den `Actions` , `NotActions` eller så `AssignableScopes` du vill, och spara sedan ändringarna som en ny roll.
 
 Följande exempel börjar med den inbyggda rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) för att skapa en anpassad roll med namnet *Virtual Machine-operator*. Den nya rollen beviljar åtkomst till alla Läs åtgärder i *Microsoft. Compute*, *Microsoft. Storage*och *Microsoft. Network* Resource providers och ger åtkomst till Start, omstart och övervakning av virtuella datorer. Den anpassade rollen kan användas i två prenumerationer.
 
@@ -187,7 +187,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-I följande exempel visas ett annat sätt att skapa den anpassade rollen för den *virtuella datorn* . Den börjar med att skapa ett `PSRoleDefinition` nytt objekt. Åtgärds åtgärderna anges i `perms` variabeln och anges till `Actions` egenskapen. `NotActions` Egenskapen anges genom att läsa `NotActions` från den inbyggda rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) . Eftersom den [virtuella dator deltagaren](built-in-roles.md#virtual-machine-contributor) inte har `NotActions`några, krävs inte den här raden, men den visar hur information kan hämtas från en annan roll.
+I följande exempel visas ett annat sätt att skapa den anpassade rollen för den *virtuella datorn* . Den börjar med att skapa ett nytt `PSRoleDefinition` objekt. Åtgärds åtgärderna anges i `perms` variabeln och anges till `Actions` egenskapen. `NotActions`Egenskapen anges genom `NotActions` att läsa från den inbyggda rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) . Eftersom den [virtuella dator deltagaren](built-in-roles.md#virtual-machine-contributor) inte har några `NotActions` , krävs inte den här raden, men den visar hur information kan hämtas från en annan roll.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -238,7 +238,7 @@ New-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 ## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 
-På samma sätt som du skapar en anpassad roll kan du ändra en befintlig anpassad roll med `PSRoleDefinition` hjälp av antingen objektet eller en JSON-mall.
+På samma sätt som du skapar en anpassad roll kan du ändra en befintlig anpassad roll med hjälp av antingen `PSRoleDefinition` objektet eller en JSON-mall.
 
 ### <a name="update-a-custom-role-with-the-psroledefinition-object"></a>Uppdatera en anpassad roll med PSRoleDefinition-objektet
 

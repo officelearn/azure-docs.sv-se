@@ -1,5 +1,5 @@
 ---
-title: Konvertera till avbildnings katalog
+title: Konvertera till bildkatalog
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder modulen konvertera till avbildnings katalog för att konvertera data uppsättningen till avbildnings katalog format.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: dc40e0a644f692b397b1f2107b27b1d940d2b284
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450635"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904600"
 ---
-# <a name="convert-to-image-directory"></a>Konvertera till avbildnings katalog
+# <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
 Den här artikeln beskriver hur du använder modulen konvertera till avbildnings katalog för att konvertera avbildnings data uppsättningen till data typen image Directory, som är ett standardiserat data format i bildrelaterade uppgifter som bild klassificering i Azure Machine Learning designer (för hands version).
 
@@ -28,11 +28,21 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
     Följande data uppsättnings format stöds:
 
     - Komprimerad fil i dessa tillägg: '. zip ', '. tar ', '. gz ', '. bz2 '.
-    - Mapp som innehåller en komprimerad fil i över giltiga tillägg. 
-    - Mapp som innehåller bilder.
+    - Mapp som innehåller bilder. Vi **rekommenderar att du först komprimerar mappen och använder sedan den komprimerade filen som data uppsättning**.
 
     > [!NOTE]
-    > Bild kategori kan registreras i modulens utdata om den här avbildnings data uppsättningen är ordnad i torchvision ImageFolder-format, se [torchvision data uppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) för mer information. Annars sparas bara bilder.
+    > Om Använd bild data uppsättning i övervakad inlärning krävs etikett.
+    > För bild klassificerings aktivitet kan etiketter skapas som bild "kategori" i modulens utdata om den här avbildnings data uppsättningen är ordnad i torchvision ImageFolder-format. Annars sparas bara bilder utan etikett. Här är ett exempel på hur du kan organisera bild data uppsättningen för att få etikett, använda bild kategori som undermapps namn. Mer information finns i [torchvision-datauppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
+    >
+    > ```
+    > root/dog/xxx.png
+    > root/dog/xxy.png
+    > root/dog/xxz.png
+    >
+    > root/cat/123.png
+    > root/cat/nsdf3.png
+    > root/cat/asd932_.png
+    > ```
 
 3.  Skicka pipelinen.
 
@@ -44,13 +54,13 @@ Utdata från **konvertering till avbildnings katalog** är i avbildnings katalog
 
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Namn          | Typ                  | Beskrivning   |
+| Name          | Typ                  | Beskrivning   |
 | ------------- | --------------------- | ------------- |
 | Indata-datauppsättning | AnyDirectory, ZipFile | Indata-datauppsättning |
 
-###  <a name="output"></a>Resultat  
+###  <a name="output"></a>Utdata  
 
-| Namn                   | Typ           | Beskrivning            |
+| Name                   | Typ           | Beskrivning            |
 | ---------------------- | -------------- | ---------------------- |
 | Avbildnings katalog för utdata | ImageDirect | Avbildnings katalog för utdata |
 

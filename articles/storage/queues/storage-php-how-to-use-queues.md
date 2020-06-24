@@ -7,13 +7,13 @@ ms.date: 01/11/2018
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
-ms.openlocfilehash: 3cdaeffe15dc637d2b988ce7a51030398ee53d9d
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.reviewer: dineshm
+ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465379"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809206"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Använda Queue Storage från PHP
 
@@ -37,7 +37,7 @@ I den här guiden använder du funktionerna i kö Storage service som kan anropa
 
 ### <a name="install-via-composer"></a>Installera via Composer
 
-1. Skapa en fil med namnet **Compose. JSON** i roten i projektet och Lägg till följande kod i den:
+1. Skapa en fil med namnet **composer.js** i roten i projektet och Lägg till följande kod i den:
    
     ```json
     {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb3f7f3d641f33e4b4deb1775600595cc382f68e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873981"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119383"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Ändringsflöde i Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Du kan arbeta med ändrings flöden med följande alternativ:
 
 Ändrings flödet är tillgängligt för varje logisk partitionsnyckel i behållaren, och den kan distribueras över en eller flera konsumenter för parallell bearbetning som visas i bilden nedan.
 
-![Distribuerad bearbetning av Azure Cosmos DB ändra feed](./media/change-feed/changefeedvisual.png)
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distribuerad bearbetning av Azure Cosmos DB ändra feed" border="false":::
 
 ## <a name="features-of-change-feed"></a>Funktioner i ändrings flöde
 

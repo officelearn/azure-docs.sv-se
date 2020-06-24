@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505966"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118941"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimera kostnaden för reserverad kapacitet i Azure Cosmos DB
 
 Reserverad Azure Cosmos DB-kapacitet hjälper dig att spara pengar genom att allokera till en reservation för Azure Cosmos DB-resurser i ett år eller tre år. Med reserverad Azure Cosmos DB-kapacitet kan du få rabatt på det dataflöde som tillhandahålls för Cosmos DB-resurser. Exempel på resurser är databaser och containrar (tabeller, samlingar och diagram).
 
-Azure Cosmos DB reserverad kapacitet kan avsevärt minska dina&mdash;Cosmos DBS kostnader upp till 65 procent på vanliga priser med ett års-eller tre års åtagande. Reserverad kapacitet ger en fakturerings rabatt och påverkar inte körnings statusen för dina Azure Cosmos DB-resurser.
+Azure Cosmos DB reserverad kapacitet kan avsevärt minska dina Cosmos DBs kostnader &mdash; upp till 65 procent på vanliga priser med ett års-eller tre års åtagande. Reserverad kapacitet ger en fakturerings rabatt och påverkar inte körnings statusen för dina Azure Cosmos DB-resurser.
 
 Azure Cosmos DB reserverad kapacitet täcker data flöde som har allokerats för dina resurser. Den omfattar inte avgifter för lagring och nätverk. Så snart du köper en reservation debiteras inte längre de data flödes kostnader som matchar reservations attributen enligt priserna för betala per användning. Mer information om reservationer finns i artikeln [Azure-reservationer](../cost-management-billing/reservations/save-compute-costs-reservations.md) .
 
@@ -36,7 +36,7 @@ Vi beräknar inköps rekommendationer baserat på ditt användnings mönster per
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).  
 
-2. Välj **alla tjänster** > -**reservationer** > **Lägg till**.
+2. Välj **alla tjänster**-  >  **reservationer**  >  **Lägg till**.
 
 3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB**.
 
@@ -52,7 +52,7 @@ Dessutom kan du begränsa rekommendationerna till en enda resurs grupp, en enda 
 
 Här är en exempel rekommendation:
 
-![Rekommendationer för reserverad kapacitet](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Rekommendationer för reserverad kapacitet":::
 
 Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan 3 års reservationer, en 30 000 RU/s reservations storlek kommer att maximera besparingarna. I det här fallet beräknas rekommendationen utifrån de senaste 30 dagarna efter Azure Cosmos DB användning. Om kunden förväntar sig att de senaste 30 dagarna av Azure Cosmos DB användning är representativa för framtida användning, skulle de kunna göra besparingar genom att köpa en 30 000 RU/s-reservation.
 
@@ -60,20 +60,20 @@ Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).  
 
-2. Välj **alla tjänster** > -**reservationer** > **Lägg till**.  
+2. Välj **alla tjänster**-  >  **reservationer**  >  **Lägg till**.  
 
 3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB** för att köpa en ny reservation.  
 
 4. Fyll i de obligatoriska fälten enligt beskrivningen i följande tabell:
 
-   ![Fylla i formuläret för reserverad kapacitet](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Fylla i formuläret för reserverad kapacitet":::
 
-   |Field  |Beskrivning  |
+   |Fält  |Beskrivning  |
    |---------|---------|
    |Omfång   |   Alternativ som styr hur många prenumerationer som kan använda fakturerings förmånen som är associerad med reservationen. Den styr också hur reservationen tillämpas på vissa prenumerationer. <br/><br/>  Om du väljer **delad**tillämpas reservations rabatten på Azure Cosmos DB instanser som körs i en prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt den reserverade kapaciteten.  |
    |Prenumeration  |   Prenumeration som används för att betala för Azure Cosmos DB reserverad kapacitet. Betalnings metoden för den valda prenumerationen används för att debitera kostnaderna. Prenumerationen måste vara någon av följande typer: <br/><br/>  Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P): för en företags prenumeration dras avgifterna från registreringen av betalnings åtagande belopp eller debiteras som överanvändning. <br/><br/> Individuell prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P): för en enskild prenumeration med taxan betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.    |
    | Resursgrupp | Resurs grupp som den reserverade kapacitets rabatten tillämpas på. |
-   |Period  |   Ett år eller tre år.   |
+   |Term  |   Ett år eller tre år.   |
    |Data flödes typ   |  Data flödet tillhandahålls som enheter för programbegäran. Du kan köpa en reservation för det etablerade data flödet för båda konfigurationerna – enstaka region skrivningar och flera region skrivningar. Data flödes typen har två värden att välja mellan: 100 RU/s per timme och 100 multi-master RU/s per timme.|
    | Reserverade kapacitets enheter| Den mängd data flöde som du vill reservera. Du kan beräkna det här värdet genom att fastställa det data flöde som krävs för alla Cosmos DB resurser (till exempel databaser eller behållare) per region. Sedan multiplicerar du det med antalet regioner som du associerar med din Cosmos-databas. Exempel: om du har fem regioner med 1 000 000 RU/SEK i varje region väljer du 5 000 000 RU/SEK för reservations kapacitets köpet. |
 
@@ -82,7 +82,7 @@ Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan
 
 6. I fönstret **inköps reservationer** granskar du rabatten och priset för reservationen. Detta reservations pris gäller Azure Cosmos DB resurser med data flöde som har allokerats i alla regioner.  
 
-   ![Reserverad kapacitets Sammanfattning](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Reserverad kapacitets Sammanfattning":::
 
 7. Välj **Granska + köp** och **Köp nu**. Följande sida visas när köpet har slutförts:
 
@@ -92,7 +92,7 @@ När reservationen går ut fortsätter dina Azure Cosmos DB instanser att köras
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

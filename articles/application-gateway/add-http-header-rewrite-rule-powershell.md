@@ -4,21 +4,21 @@ description: Den här artikeln innehåller information om hur du skriver om HTTP
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64947195"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808255"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure PowerShell
 
 Den här artikeln beskriver hur du använder Azure PowerShell för att konfigurera en instans av [Application Gateway v2-SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) för att skriva om HTTP-huvudena i begär Anden och svar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Ange en regel konfiguration för att skriva om HTTP-huvud
 
-I det här exemplet ändrar vi en URL för omdirigering genom att skriva om plats rubriken i HTTP-svaret när plats huvudet innehåller en referens till azurewebsites.net. Det gör du genom att lägga till ett villkor för att utvärdera om plats rubriken i svaret innehåller azurewebsites.net. Vi använder mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`. Vi ska använda `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvud värde. Det här värdet kommer att ersätta *azurewebsites.net* med *contoso.com* i plats rubriken.
+I det här exemplet ändrar vi en URL för omdirigering genom att skriva om plats rubriken i HTTP-svaret när plats huvudet innehåller en referens till azurewebsites.net. Det gör du genom att lägga till ett villkor för att utvärdera om plats rubriken i svaret innehåller azurewebsites.net. Vi använder mönstret `(https?):\/\/.*azurewebsites\.net(.*)$` . Vi ska använda `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvud värde. Det här värdet kommer att ersätta *azurewebsites.net* med *contoso.com* i plats rubriken.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

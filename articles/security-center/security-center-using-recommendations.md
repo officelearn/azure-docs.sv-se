@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603276"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783239"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använda Azure Security Center-rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
@@ -57,7 +57,7 @@ Som en del av de dagliga övervaknings aktiviteterna loggar Jeff in på Azure oc
 
 2. Jeff kontrollerar de **säkra poängen** för att få en övergripande bild av hur säkra prenumerationerna är och ser att poängen är 548.
 
-3. Jeff måste bestämma vilka rekommendationer som ska hanteras först. Så Jeff klickar du på säkra poäng och börjar hantera rekommendationer baserat på hur mycket det förbättrar sin [säkra Poäng påverkan](security-center-secure-score.md).
+3. Jeff måste bestämma vilka rekommendationer som ska hanteras först. Jeff klickar på säkra poäng och börjar hantera rekommendationer baserat på hur mycket det förbättrar sina [säkra Poäng](secure-score-security-controls.md).
 
 4. Eftersom Jeff har många anslutna virtuella datorer och servrar, bestämmer Jeff att fokusera på data **behandling och appar**.
 

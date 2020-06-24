@@ -4,15 +4,15 @@ description: Den här artikeln vägleder dig genom konfigureringen av BGP med en
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d71e8af607ac15c708ff18a2f2a91e11ed36a987
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863622"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987743"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Så här konfigurerar du BGP på en Azure VPN-gateway med CLI
 
@@ -93,7 +93,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Route-baserad VPN-gateway. Du behöver också ytterligare en parameter `-Asn` för att ange autonomt system nummer (ASN) för TestVNet1. Att skapa en gateway kan ta en stund (45 minuter eller mer) att slutföra. 
 
-Om du kör det här kommandot med hjälp `--no-wait` av-parametern visas inga synpunkter eller utdata. `--no-wait` Parametern gör att gatewayen kan skapas i bakgrunden. Det innebär inte att VPN-gatewayen skapas direkt.
+Om du kör det här kommandot med hjälp av `--no-wait` -parametern visas inga synpunkter eller utdata. `--no-wait`Parametern gör att gatewayen kan skapas i bakgrunden. Det innebär inte att VPN-gatewayen skapas direkt.
 
 ```azurecli
 az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP -g TestBGPRG1 --vnet TestVNet1 --gateway-type Vpn --sku HighPerformance --vpn-type RouteBased --asn 65010 --no-wait
@@ -133,7 +133,7 @@ Den här övningen fortsätter att bygga konfigurationen som visas i diagrammet.
 * Det minsta prefix som du behöver deklarera för den lokala Nätverksgatewayen är värd adressen för din IP-adress för BGP-peer på din VPN-enhet. I det här fallet är det ett/32-prefix för 10.51.255.254/32.
 * Som en påminnelse måste du använda olika BGP-ASN: er mellan dina lokala nätverk och det virtuella Azure-nätverket. Om de är desamma måste du ändra ditt VNet ASN om dina lokala VPN-enheter redan använder ASN för att peer-koppla med andra BGP-grannar.
 
-Innan du fortsätter kontrollerar du att du har slutfört avsnittet [Aktivera BGP för din VPN-gateway](#enablebgp) i den här övningen och att du fortfarande är ansluten till prenumeration 1. Observera att i det här exemplet skapar du en ny resurs grupp. Lägg också märke till de två ytterligare parametrarna för den lokala Nätverksgatewayen: `Asn` och `BgpPeerAddress`.
+Innan du fortsätter kontrollerar du att du har slutfört avsnittet [Aktivera BGP för din VPN-gateway](#enablebgp) i den här övningen och att du fortfarande är ansluten till prenumeration 1. Observera att i det här exemplet skapar du en ny resurs grupp. Lägg också märke till de två ytterligare parametrarna för den lokala Nätverksgatewayen: `Asn` och `BgpPeerAddress` .
 
 ```azurecli
 az group create -n TestBGPRG5 -l eastus2 
@@ -155,7 +155,7 @@ Använd utdata från följande kommando för att hämta resurs-ID: t för VNet1G
 az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 ```
 
-Leta upp `"id":` raden i utdata. Du behöver värdena inom citat tecknen för att skapa anslutningen i nästa avsnitt.
+Leta upp raden i utdata `"id":` . Du behöver värdena inom citat tecknen för att skapa anslutningen i nästa avsnitt.
 
 Exempel på utdata:
 
@@ -222,7 +222,7 @@ Följande instruktioner fortsätter från stegen i föregående avsnitt. Om du v
 
 Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätverket, TestVNet2, inte överlappar något av dina VNet-intervall.
 
-I det här exemplet tillhör de virtuella nätverken samma prenumeration. Du kan konfigurera VNet-till-VNet-anslutningar mellan olika prenumerationer. Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](vpn-gateway-howto-vnet-vnet-cli.md). Se till att du lägger `-EnableBgp $True` till när du skapar anslutningarna för att aktivera BGP.
+I det här exemplet tillhör de virtuella nätverken samma prenumeration. Du kan konfigurera VNet-till-VNet-anslutningar mellan olika prenumerationer. Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](vpn-gateway-howto-vnet-vnet-cli.md). Se till att du lägger till `-EnableBgp $True` när du skapar anslutningarna för att aktivera BGP.
 
 #### <a name="1-create-a-new-resource-group"></a>1. skapa en ny resurs grupp
 
@@ -262,7 +262,7 @@ az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2
 
 ### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Steg 2: Anslut TestVNet1-och TestVNet2-gatewayerna
 
-I det här steget skapar du anslutningen från TestVNet1 till site5. Om du vill aktivera BGP för den här anslutningen måste du `--enable-bgp` ange parametern.
+I det här steget skapar du anslutningen från TestVNet1 till site5. Om du vill aktivera BGP för den här anslutningen måste du ange `--enable-bgp` parametern.
 
 I följande exempel finns den virtuella Nätverksgatewayen och den lokala Nätverksgatewayen i olika resurs grupper. När gatewayerna finns i olika resurs grupper måste du ange hela resurs-ID: t för de två gatewayerna för att skapa en anslutning mellan de virtuella nätverken. 
 

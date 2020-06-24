@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b7139c458d2cc2a59f4202e9cbc7d48433514f34
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996946"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792104"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -24,7 +24,7 @@ ms.locfileid: "82996946"
 
 ## <a name="iot-hub-names"></a>IoT Hub namn
 
-Du kan hitta värd namnet för IoT-hubben som är värd för dina slut punkter i portalen på din Hubbs **översikts** sida. DNS-namnet för en IoT-hubb ser som standard ut så `{your iot hub name}.azure-devices.net`här:.
+Du kan hitta värd namnet för IoT-hubben som är värd för dina slut punkter i portalen på din Hubbs **översikts** sida. DNS-namnet för en IoT-hubb ser som standard ut så här: `{your iot hub name}.azure-devices.net` .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista över inbyggda IoT Hub slut punkter
 
@@ -85,14 +85,9 @@ IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slut 
 
 Begränsningarna för antalet slut punkter som du kan lägga till finns i [kvoter och begränsning](iot-hub-devguide-quotas-throttling.md).
 
-Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få hälso status för slut punkterna. Vi rekommenderar att du använder [IoT Hub mått](iot-hub-metrics.md) som rör svars tiden för routning av meddelanden för att identifiera och felsöka fel när slut punktens hälso tillstånd är död eller ohälsosamt, eftersom fördröjningen blir högre när slut punkten är i något av dessa tillstånd.
+## <a name="endpoint-health"></a>Slut punkts hälsa
 
-|Hälsostatus|Beskrivning|
-|---|---|
-|felfri|Slut punkten accepterar meddelanden som förväntat.|
-|fel tillstånd|Slut punkten accepterar inte meddelanden som förväntat och IoT Hub försöker skicka data till den här slut punkten igen. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.|
-|okänd|IoT Hub har inte upprättat en anslutning till slut punkten. Inga meddelanden har levererats till eller avvisats från den här slut punkten.|
-|meddelanden|Slut punkten accepterar inte meddelanden, efter att IoT Hub försökt att skicka meddelanden för utvärderings perioden.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Fält-gatewayer
 

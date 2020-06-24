@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536181"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803527"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell
 
@@ -32,7 +32,7 @@ Om du vill skapa en användar Delegerings-SAS med PowerShell installerar du vers
 1. Avinstallera tidigare installationer av Azure PowerShell:
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
-    - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
+    - Ta bort alla **Azure** -moduler från `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
 
@@ -98,7 +98,7 @@ När du skapar en användar Delegerings-SAS med Azure PowerShell skapas den anv�
 
 Eftersom det maximala intervallet med vilken användar Delegerings nyckeln är giltigt är 7 dagar från start datumet, bör du ange en förfallo tid för SAS som ligger inom 7 dagar från start tiden. SAS är ogiltig när användar Delegerings nyckeln upphör att gälla, så en SAS med en förfallo tid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
 
-Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell genom att först skapa ett nytt Azure Storage-kontext `-UseConnectedAccount` objekt och ange parametern. `-UseConnectedAccount` Parametern anger att kontext objekt skapas under det Azure AD-konto som du loggade in med.
+Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure PowerShell genom att först skapa ett nytt Azure Storage-kontext objekt och ange `-UseConnectedAccount` parametern. `-UseConnectedAccount`Parametern anger att kontext objekt skapas under det Azure AD-konto som du loggade in med.
 
 Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 

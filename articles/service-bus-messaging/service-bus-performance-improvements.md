@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: aschhab
-ms.openlocfilehash: 267965ee41280a677050d1676285dda8734bc044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40dfa48c9c154aefa68947aa65aa6511a40d7562
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606062"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803614"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Bra metoder för att öka prestanda med hjälp av meddelanden i Service Bus
 
@@ -53,11 +53,11 @@ Mer information om lägsta stöd för .NET standard Platform finns i [.net imple
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. Service Bus SDK](#tab/net-standard-sdk)
 
-Service Bus klient objekt, till exempel implementeringar av [`IQueueClient`][QueueClient] eller [`IMessageSender`][MessageSender], ska registreras för beroende inmatning som singleton (eller instansieras en gång och delad). Vi rekommenderar att du inte stänger meddelande fabriker eller kö-, ämnes-och prenumerations klienter när du har skickat ett meddelande och sedan skapar det igen när du skickar nästa meddelande. Om du stänger en meddelande fabrik tas anslutningen till Service Bus-tjänsten bort och en ny anslutning upprättas när fabriken skapas på nytt. Att upprätta en anslutning är en dyr åtgärd som du kan undvika genom att återanvända samma fabriks-och klient objekt för flera åtgärder. Du kan använda dessa klient objekt på ett säkert sätt för samtidiga asynkrona åtgärder och från flera trådar.
+Service Bus klient objekt, till exempel implementeringar av [`IQueueClient`][QueueClient] eller [`IMessageSender`][MessageSender] , ska registreras för beroende inmatning som singleton (eller instansieras en gång och delad). Vi rekommenderar att du inte stänger meddelande fabriker eller kö-, ämnes-och prenumerations klienter när du har skickat ett meddelande och sedan skapar det igen när du skickar nästa meddelande. Om du stänger en meddelande fabrik tas anslutningen till Service Bus-tjänsten bort och en ny anslutning upprättas när fabriken skapas på nytt. Att upprätta en anslutning är en dyr åtgärd som du kan undvika genom att återanvända samma fabriks-och klient objekt för flera åtgärder. Du kan använda dessa klient objekt på ett säkert sätt för samtidiga asynkrona åtgärder och från flera trådar.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. Service Bus SDK](#tab/net-framework-sdk)
 
-Service Bus klient objekt, till exempel `QueueClient` eller `MessageSender`, skapas via ett [MessagingFactory][MessagingFactory] -objekt, vilket även ger intern hantering av anslutningar. Vi rekommenderar att du inte stänger meddelande fabriker eller kö-, ämnes-och prenumerations klienter när du har skickat ett meddelande och sedan skapar det igen när du skickar nästa meddelande. Om du stänger en meddelande fabrik tas anslutningen till Service Bus-tjänsten bort och en ny anslutning upprättas när fabriken skapas på nytt. Att upprätta en anslutning är en dyr åtgärd som du kan undvika genom att återanvända samma fabriks-och klient objekt för flera åtgärder. Du kan använda dessa klient objekt på ett säkert sätt för samtidiga asynkrona åtgärder och från flera trådar.
+Service Bus klient objekt, till exempel `QueueClient` eller `MessageSender` , skapas via ett [MessagingFactory][MessagingFactory] -objekt, vilket även ger intern hantering av anslutningar. Vi rekommenderar att du inte stänger meddelande fabriker eller kö-, ämnes-och prenumerations klienter när du har skickat ett meddelande och sedan skapar det igen när du skickar nästa meddelande. Om du stänger en meddelande fabrik tas anslutningen till Service Bus-tjänsten bort och en ny anslutning upprättas när fabriken skapas på nytt. Att upprätta en anslutning är en dyr åtgärd som du kan undvika genom att återanvända samma fabriks-och klient objekt för flera åtgärder. Du kan använda dessa klient objekt på ett säkert sätt för samtidiga asynkrona åtgärder och från flera trådar.
 
 ---
 
@@ -115,7 +115,7 @@ Följande kod är ett exempel på en asynkron mottagnings åtgärd.
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. Service Bus SDK](#tab/net-standard-sdk)
 
-Se GitHub-lagringsplatsen för fullständiga <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">käll kod <span class="docon docon-navigate-external x-hidden-focus"> </span>exempel </a>:
+Se GitHub-lagringsplatsen för fullständiga <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">käll kod <span class="docon docon-navigate-external x-hidden-focus"></span> exempel </a>:
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -139,11 +139,11 @@ receiver.RegisterMessageHandler(
     });
 ```
 
-`MessageReceiver` Objektet instansieras med anslutnings strängen, könamnet och ett gransknings se mottagnings läge. Sedan används `receiver` instansen för att registrera meddelande hanteraren.
+`MessageReceiver`Objektet instansieras med anslutnings strängen, könamnet och ett gransknings se mottagnings läge. Sedan `receiver` används instansen för att registrera meddelande hanteraren.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. Service Bus SDK](#tab/net-framework-sdk)
 
-Se GitHub-lagringsplatsen för fullständiga <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">käll kod <span class="docon docon-navigate-external x-hidden-focus"> </span>exempel </a>:
+Se GitHub-lagringsplatsen för fullständiga <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">käll kod <span class="docon docon-navigate-external x-hidden-focus"></span> exempel </a>:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -163,15 +163,15 @@ receiver.OnMessageAsync(
     });
 ```
 
-`MessagingFactory` Skapar ett `factory` objekt från anslutnings strängen. Med `factory` instansen instansieras en `MessageReceiver` . Sedan används `receiver` instansen för att registrera meddelande hanteraren.
+`MessagingFactory`Skapar ett `factory` objekt från anslutnings strängen. Med `factory` instansen `MessageReceiver` instansieras en. Sedan `receiver` används instansen för att registrera meddelande hanteraren.
 
 ---
 
 ## <a name="receive-mode"></a>Mottagnings läge
 
-När du skapar en kö eller en prenumerations klient kan du ange ett mottagnings läge: *Peek-lock* eller *ta emot och ta bort*. Förvalt mottagnings läge `PeekLock`är. Vid användning i standard läget skickar klienten en begäran om att ta emot ett meddelande från Service Bus. När klienten har tagit emot meddelandet skickar den en förfrågan om att slutföra meddelandet.
+När du skapar en kö eller en prenumerations klient kan du ange ett mottagnings läge: *Peek-lock* eller *ta emot och ta bort*. Förvalt mottagnings läge är `PeekLock` . Vid användning i standard läget skickar klienten en begäran om att ta emot ett meddelande från Service Bus. När klienten har tagit emot meddelandet skickar den en förfrågan om att slutföra meddelandet.
 
-När du ställer in mottagnings `ReceiveAndDelete`läget till kombineras båda stegen i en enskild begäran. De här stegen minskar det övergripande antalet åtgärder och kan förbättra det övergripande meddelande data flödet. Den här prestandan ger risk för att förlora meddelanden.
+När du ställer in mottagnings läget till `ReceiveAndDelete` kombineras båda stegen i en enskild begäran. De här stegen minskar det övergripande antalet åtgärder och kan förbättra det övergripande meddelande data flödet. Den här prestandan ger risk för att förlora meddelanden.
 
 Service Bus stöder inte transaktioner för Receive-och-Delete-åtgärder. Dessutom krävs Peek-lock-semantik för alla scenarier där klienten vill skjuta upp eller [döda](service-bus-dead-letter-queues.md) ett meddelande.
 
@@ -226,7 +226,7 @@ När du skapar en ny kö, ämne eller prenumeration, aktive ras grupp åtkomst s
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. Service Bus SDK](#tab/net-standard-sdk)
 
-Om du vill inaktivera grupp åtkomst måste du ha en instans av en `ManagementClient`. Skapa en kö från en beskrivning av kön som anger `EnableBatchedOperations` egenskapen till `false`.
+Om du vill inaktivera grupp åtkomst måste du ha en instans av en `ManagementClient` . Skapa en kö från en beskrivning av kön som anger `EnableBatchedOperations` egenskapen till `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -243,7 +243,7 @@ Mer information finns i följande:
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. Service Bus SDK](#tab/net-framework-sdk)
 
-Om du vill inaktivera grupp åtkomst måste du ha en instans av en `NamespaceManager`. Skapa en kö från en beskrivning av kön som anger `EnableBatchedOperations` egenskapen till `false`.
+Om du vill inaktivera grupp åtkomst måste du ha en instans av en `NamespaceManager` . Skapa en kö från en beskrivning av kön som anger `EnableBatchedOperations` egenskapen till `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -264,11 +264,11 @@ Mer information finns i följande:
 
 ## <a name="prefetching"></a>För hämtning
 
-För [hämtning](service-bus-prefetch.md) gör att kön eller prenumerations klienten kan läsa in ytterligare meddelanden från tjänsten när en Receive-åtgärd utförs. Klienten lagrar dessa meddelanden i en lokal cache. Storleken på cachen bestäms av egenskaperna `QueueClient.PrefetchCount` eller. `SubscriptionClient.PrefetchCount` Varje klient som aktiverar för hämtning bevarar sin egen cache. Ett cacheminne delas inte mellan klienter. Om klienten initierar en mottagnings åtgärd och dess cacheminne är tom, skickar tjänsten en batch med meddelanden. Storleken på batchen är lika med storleken på cachen eller 256 KB, beroende på vilket som är mindre. Om klienten initierar en mottagnings åtgärd och cachen innehåller ett meddelande, hämtas meddelandet från cachen.
+För [hämtning](service-bus-prefetch.md) gör att kön eller prenumerations klienten kan läsa in ytterligare meddelanden från tjänsten när en Receive-åtgärd utförs. Klienten lagrar dessa meddelanden i en lokal cache. Storleken på cachen bestäms av `QueueClient.PrefetchCount` `SubscriptionClient.PrefetchCount` egenskaperna eller. Varje klient som aktiverar för hämtning bevarar sin egen cache. Ett cacheminne delas inte mellan klienter. Om klienten initierar en mottagnings åtgärd och dess cacheminne är tom, skickar tjänsten en batch med meddelanden. Storleken på batchen är lika med storleken på cachen eller 256 KB, beroende på vilket som är mindre. Om klienten initierar en mottagnings åtgärd och cachen innehåller ett meddelande, hämtas meddelandet från cachen.
 
 När ett meddelande förhämtas låser tjänsten det förhämtade meddelandet. Med låset kan det förhämtade meddelandet inte tas emot av en annan mottagare. Om mottagaren inte kan slutföra meddelandet innan låset förfaller blir meddelandet tillgängligt för andra mottagare. Den förhämtade kopian av meddelandet finns kvar i cacheminnet. Mottagaren som använder den förfallna cachelagrade kopian får ett undantag när den försöker slutföra meddelandet. Som standard upphör meddelande låset att gälla efter 60 sekunder. Det här värdet kan utökas till 5 minuter. För att förhindra att förfallna meddelanden används bör cachestorleken alltid vara mindre än antalet meddelanden som kan användas av en klient inom tids gränsen för låsning.
 
-När du använder standard låsets förfallo tid på 60 sekunder är ett utmärkt `PrefetchCount` värde för 20 gånger den maximala bearbetnings takten för alla mottagare av fabriken. Till exempel skapar en fabrik tre mottagare och varje mottagare kan bearbeta upp till 10 meddelanden per sekund. För hämtnings antalet får inte överstiga 20 × 3 X 10 = 600. Som standard `PrefetchCount` är 0 inställt på 0, vilket innebär att inga ytterligare meddelanden hämtas från tjänsten.
+När du använder standard låsets förfallo tid på 60 sekunder är ett utmärkt värde för `PrefetchCount` 20 gånger den maximala bearbetnings takten för alla mottagare av fabriken. Till exempel skapar en fabrik tre mottagare och varje mottagare kan bearbeta upp till 10 meddelanden per sekund. För hämtnings antalet får inte överstiga 20 × 3 X 10 = 600. Som standard `PrefetchCount` är 0 inställt på 0, vilket innebär att inga ytterligare meddelanden hämtas från tjänsten.
 
 För hämtning av meddelanden ökar det totala data flödet för en kö eller prenumeration eftersom det minskar det övergripande antalet meddelande åtgärder, eller tur och ingångar. Att hämta det första meddelandet tar dock längre tid (på grund av den ökade meddelande storleken). Det går snabbare att ta emot förhämtade meddelanden eftersom dessa meddelanden redan har hämtats av klienten.
 
@@ -278,14 +278,14 @@ För hämtning påverkar inte antalet fakturerbara meddelande åtgärder och är
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. Service Bus SDK](#tab/net-standard-sdk)
 
-Mer information finns i följande `PrefetchCount` egenskaper:
+Mer information finns i följande `PrefetchCount` Egenskaper:
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. Service Bus SDK](#tab/net-framework-sdk)
 
-Mer information finns i följande `PrefetchCount` egenskaper:
+Mer information finns i följande `PrefetchCount` Egenskaper:
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -297,13 +297,13 @@ Mer information finns i följande `PrefetchCount` egenskaper:
 > [!NOTE]
 > Det här avsnittet gäller endast för SDK för WindowsAzure. Service Bus, eftersom Microsoft. Azure. Service Bus SDK inte visar batch-funktioner.
 
-Även om begreppen för att hämta flera meddelanden tillsammans har liknande semantik för att bearbeta meddelanden i en batch (`ReceiveBatch`), finns det vissa mindre skillnader som måste behållas i åtanke när de används tillsammans.
+Även om begreppen för att hämta flera meddelanden tillsammans har liknande semantik för att bearbeta meddelanden i en batch ( `ReceiveBatch` ), finns det vissa mindre skillnader som måste behållas i åtanke när de används tillsammans.
 
-För hämtning är en konfiguration (eller läge) på klienten (`QueueClient` och `SubscriptionClient`) och `ReceiveBatch` är en åtgärd (som har semantik för begäran-svar).
+För hämtning är en konfiguration (eller läge) på klienten ( `QueueClient` och `SubscriptionClient` ) och `ReceiveBatch` är en åtgärd (som har semantik för begäran-svar).
 
 Tänk på följande när du använder dem tillsammans:
 
-* Prefetch ska vara större än eller lika med antalet meddelanden som du förväntar dig att ta emot från `ReceiveBatch`.
+* Prefetch ska vara större än eller lika med antalet meddelanden som du förväntar dig att ta emot från `ReceiveBatch` .
 * För hämtning kan vara upp till n/3 gånger antalet behandlade meddelanden per sekund, där n är standard längden för låset.
 
 Det finns vissa utmaningar med att ha en girig metod (dvs. behålla antalet för hämtningar mycket högt), eftersom det innebär att meddelandet är låst till en viss mottagare. Rekommendationen är att testa för hämtnings värden mellan tröskelvärdena ovan och identifiera vad som passar.
@@ -317,7 +317,7 @@ Om den förväntade inläsningen inte kan hanteras av en enskild kö eller ett �
 > [!NOTE]
 > Det här avsnittet gäller endast för SDK för WindowsAzure. Service Bus, eftersom den här funktionen inte exponeras av Microsoft. Azure. Service Bus SDK.
 
-Service Bus har en funktion som används specifikt för utveckling och som **aldrig ska användas i produktions konfigurationerna**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
+Service Bus har en funktion som används specifikt för utveckling och som **aldrig ska användas i produktions konfigurationerna**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
 När nya regler eller filter läggs till i ämnet kan du använda [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] för att kontrol lera att det nya filter uttrycket fungerar som förväntat.
 
@@ -355,7 +355,7 @@ Mål: minimera svars tid från slut punkt till slut punkt för en kö eller ett 
 
 Mål: maximera data flödet för en kö eller ett ämne med ett stort antal avsändare. Varje avsändare skickar meddelanden med en måttlig taxa. Antalet mottagare är litet.
 
-Service Bus möjliggör upp till 1000 samtidiga anslutningar till en meddelande enhet (eller 5000 med AMQP). Den här gränsen tillämpas på namn områdes nivå, och köer/ämnen/prenumerationer är begränsade av gränsen för samtidiga anslutningar per namnrymd. För köer delas numret mellan avsändare och mottagare. Om alla 1000 anslutningar krävs för avsändare ersätter du kön med ett ämne och en enda prenumeration. Ett ämne accepterar upp till 1000 samtidiga anslutningar från avsändare, medan prenumerationen godkänner ytterligare 1000 samtidiga anslutningar från mottagare. Om det krävs fler än 1000 samtidiga avsändare skickas meddelanden till Service Bus protokollet via HTTP.
+Service Bus möjliggör upp till 1000 samtidiga anslutningar till en meddelande enhet. Den här gränsen tillämpas på namn områdes nivå, och köer/ämnen/prenumerationer är begränsade av gränsen för samtidiga anslutningar per namnrymd. För köer delas numret mellan avsändare och mottagare. Om alla 1000 anslutningar krävs för avsändare ersätter du kön med ett ämne och en enda prenumeration. Ett ämne accepterar upp till 1000 samtidiga anslutningar från avsändare, medan prenumerationen godkänner ytterligare 1000 samtidiga anslutningar från mottagare. Om det krävs fler än 1000 samtidiga avsändare skickas meddelanden till Service Bus protokollet via HTTP.
 
 Gör så här för att maximera data flödet:
 

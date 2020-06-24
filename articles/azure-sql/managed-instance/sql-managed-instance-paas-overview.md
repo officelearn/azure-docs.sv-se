@@ -2,8 +2,8 @@
 title: Vad är en hanterad Azure SQL-instans?
 description: Lär dig mer om hur Azure SQL Managed instance ger nära 100% kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motor
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 2f7422d01b2058cafed33c9d10118f78d35727df
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: db476d32d3b087e86329f8ed40446caf122c0a00
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337792"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944805"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,18 +50,18 @@ SQL-hanterad instans kombinerar de bästa funktionerna som finns tillgängliga b
 
 Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 
-|Funktion | Description|
+|Funktion | Beskrivning|
 |---|---|
 | SQL Server version/build | SQL Server databas motor (senaste stabila) |
-| Hanterade automatiserade säkerhets kopieringar | Ja |
-| Inbyggd instans och databas övervakning och mått | Ja |
-| Automatisk uppdatering av program vara | Ja |
-| De senaste databas motor funktionerna | Ja |
+| Hanterade automatiserade säkerhets kopieringar | Yes |
+| Inbyggd instans och databas övervakning och mått | Yes |
+| Automatisk uppdatering av program vara | Yes |
+| De senaste databas motor funktionerna | Yes |
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
-| VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Inga |
-| Portal stöd | Ja|
+| VNet – Azure Resource Manager distribution | Yes |
+| VNet – klassisk distributions modell | No |
+| Portal stöd | Yes|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Inbyggd repor ting service (SSRS) | Använd [Power BI sid färdiga rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället för att vara värd för SSRS på en virtuell Azure-dator. SQL-hanterad instans kan inte köra SSRS som en tjänst, men den kan vara värd för SSRS 2019-katalog databaser för en extern rapport server med SQL Server autentisering. |
@@ -165,12 +165,12 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 
 ### <a name="instance-availability-during-management-operations"></a>Tillgänglighet för instanser under hanterings åtgärder
 
-SQL-hanterad instans är inte tillgänglig för klient program under distributions-och borttagnings åtgärder.
-
-SQL-hanterad instans är tillgänglig under uppdaterings åtgärder, förutom ett kort stillestånd som orsakas av redundansväxlingen som inträffar i slutet av uppdateringen. Det tar vanligt vis upp till 10 sekunder, även om tids krävande transaktioner har avbrutits, tack vare den [påskyndade databas återställningen](../accelerated-database-recovery.md).
+SQL-hanterad instans **är tillgänglig under uppdaterings åtgärder**, förutom ett kort stillestånd som orsakas av redundansväxlingen som inträffar i slutet av uppdateringen. Det tar vanligt vis upp till 10 sekunder, även om tids krävande transaktioner har avbrutits, tack vare den [påskyndade databas återställningen](../accelerated-database-recovery.md).
 
 > [!IMPORTANT]
 > Det rekommenderas inte att skala beräkning eller lagring av Azure SQL-hanterade instanser eller ändra tjänst nivån samtidigt med tids krävande transaktioner (data import, data bearbetnings jobb, index återuppbyggnad osv.). Redundansväxling av databasen som utförs i slutet av åtgärden avbryter alla pågående transaktioner.
+
+SQL-hanterad instans är inte tillgänglig för klient program under distributions-och borttagnings åtgärder.
 
 ### <a name="management-operations-cross-impact"></a>Hanterings åtgärder över-påverkan
 
@@ -191,14 +191,14 @@ I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgä
 
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
-|Distribution |Skapa instans |Inga |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Ta bort |Borttagning av instans |Inga |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
+|Distribution |Skapa instans |No |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |No |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
+|Ta bort |Borttagning av instans |No |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |No |  |
 
 Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för den pågående åtgärden. På den högra sidan visas en skärm med den pågående åtgärden och det kommer att finnas en knapp för att avbryta åtgärden. Efter den första klickningen uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
 

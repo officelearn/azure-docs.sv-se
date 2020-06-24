@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847369"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945417"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Utforska Azure Monitor för Azure cache för Redis (för hands version)
 
@@ -179,6 +179,10 @@ Arbets böcker sparas i en resurs grupp i antingen **Mina rapporter** -eller **d
 När du har sparat en anpassad arbets bok går du till arbets boks galleriet för att öppna den.
 
 ![Ett kommando fält med Galleri markerat](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Felsökning
+
+Information om fel sökning finns i [artikeln](troubleshoot-workbooks.md)om att hitta en dedikerad arbets bok baserad insikter.
 
 ## <a name="next-steps"></a>Nästa steg
 

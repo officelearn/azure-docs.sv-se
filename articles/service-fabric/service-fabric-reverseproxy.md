@@ -5,12 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282229"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735344"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy inbyggd i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
@@ -78,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** Detta anger hur mål repliken eller instansen ska väljas.
   * När mål tjänsten är tillstånds känslig kan TargetReplicaSelector vara något av följande: "PrimaryReplica", "RandomSecondaryReplica" eller "RandomReplica". När den här parametern inte anges är standardvärdet ' PrimaryReplica '.
   * När mål tjänsten är tillstånds lös, använder omvänd proxy en slumpmässig instans av tjänstepartitionen för att vidarebefordra begäran till.
-* **Tids gräns:**  Detta anger tids gränsen för HTTP-begäran som skapats av den omvända proxyn till tjänsten å klientens vägnar. Standardvärdet är 60 sekunder. Detta är en valfri parameter.
+* **Tids gräns:**  Detta anger tids gränsen för HTTP-begäran som skapats av den omvända proxyn till tjänsten å klientens vägnar. Standardvärdet är 120 sekunder. Detta är en valfri parameter.
 
 ### <a name="example-usage"></a>Exempel på användning
 Vi kan till exempel ta tjänsten *Fabric:/MyApp/unservice* som öppnar en http-lyssnare på följande URL:
@@ -115,7 +115,7 @@ Gatewayen vidarebefordrar sedan dessa förfrågningar till tjänstens URL:
 ## <a name="special-handling-for-port-sharing-services"></a>Särskild hantering för port delnings tjänster
 Service Fabric reverse proxy försöker matcha en tjänst adress igen och försöker utföra begäran igen när det inte går att nå en tjänst. När en tjänst inte kan nås har tjänst instansen eller repliken i allmänhet flyttats till en annan nod som en del av dess normala livs cykel. När detta inträffar kan den omvända proxyn ta emot ett nätverks anslutnings fel som anger att en slut punkt inte längre är öppen på den ursprungliga matchade adressen.
 
-Repliker eller tjänst instanser kan dock dela en värd process och kan också dela en port som finns på en http. sys-baserad webb server, inklusive:
+Repliker eller tjänst instanser kan dock dela en värd process och kan också dela en port som finns på en http.sys-baserad webb server, inklusive:
 
 * [System .net. HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
 * [ASP.NET Core weblyssnare](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
@@ -139,7 +139,7 @@ Detta HTTP-svarshuvuden visar en normal HTTP 404-situation där den begärda res
 
 ## <a name="special-handling-for-services-running-in-containers"></a>Särskild hantering för tjänster som körs i behållare
 
-För tjänster som körs i behållare kan du använda miljövariabeln `Fabric_NodeIPOrFQDN` för att skapa URL: en för [omvänd proxy](#uri-format-for-addressing-services-by-using-the-reverse-proxy) som i följande kod:
+För tjänster som körs i behållare kan du använda miljövariabeln `Fabric_NodeIPOrFQDN` för att skapa [URL: en för omvänd proxy](#uri-format-for-addressing-services-by-using-the-reverse-proxy) som i följande kod:
 
 ```csharp
     var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");

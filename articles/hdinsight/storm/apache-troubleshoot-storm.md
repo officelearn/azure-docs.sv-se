@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271933"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700373"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
@@ -46,9 +46,9 @@ När du utvecklar topologier som läses från Azure Event Hubs med hjälp av HDI
 
 Kontroll punkts data för förskjutningar lagras av Event Hub-kanalen i ZooKeeper i två rot Sök vägar:
 
-- Kanalen-kontrollpunkter lagras i `/eventhubspout`.
+- Kanalen-kontrollpunkter lagras i `/eventhubspout` .
 
-- Transaktions kontroll punkts data för kanalen lagras `/transactional`i.
+- Transaktions kontroll punkts data för kanalen lagras i `/transactional` .
 
 ### <a name="how-to-restore"></a>Så här återställer du
 
@@ -65,7 +65,7 @@ Export kommandot skriver metadata till en Apache Hadoop Distributed File System-
 #### <a name="export-offset-metadata"></a>Exportera metadata för förskjutning
 
 1. Använd SSH för att gå till ZooKeeper-klustret i det kluster som kontroll punktens förskjutning ska exporteras från.
-2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att exportera ZooKeeper förskjutnings `/stormmetadta/zkdata` data till HDFS-sökvägen:
+2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att exportera ZooKeeper förskjutnings data till `/stormmetadta/zkdata` HDFS-sökvägen:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ Export kommandot skriver metadata till en Apache Hadoop Distributed File System-
 #### <a name="import-offset-metadata"></a>Importera förskjutna metadata
 
 1. Använd SSH för att gå till ZooKeeper-klustret i det kluster som kontroll punktens förskjutning ska importeras från.
-2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att importera ZooKeeper förskjutnings data från `/stormmetadata/zkdata` HDFS-sökvägen till ZooKeeper-servern i mål klustret:
+2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att importera ZooKeeper förskjutnings data från HDFS-sökvägen `/stormmetadata/zkdata` till ZooKeeper-servern i mål klustret:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ Export kommandot skriver metadata till en Apache Hadoop Distributed File System-
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Hur gör jag för att hittar du Storm-binärfiler i ett kluster?
 
-Storm-binärfiler för den aktuella HDP-stacken finns i `/usr/hdp/current/storm-client`. Platsen är samma både för huvudnoder och för arbetsnoder.
+Storm-binärfiler för den aktuella HDP-stacken finns i `/usr/hdp/current/storm-client` . Platsen är samma både för huvudnoder och för arbetsnoder.
 
-Det kan finnas flera binärfiler för vissa HDP-versioner i/usr/HDP (till exempel `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` Mappen är symlinked till den senaste versionen som körs i klustret.
+Det kan finnas flera binärfiler för vissa HDP-versioner i/usr/HDP (till exempel `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`Mappen är symlinked till den senaste versionen som körs i klustret.
 
 Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Apache Storm](https://storm.apache.org/).
 
@@ -157,13 +157,13 @@ För att identifiera [Apache log4j 2](https://logging.apache.org/log4j/2.x/) -ko
 
 ### <a name="on-head-nodes"></a>På Head-noder
 
-Nimbus Log4J-konfigurationen läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+Nimbus Log4J-konfigurationen läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
 ### <a name="on-worker-nodes"></a>På arbetsnoder
 
-Konfigurationen av den överordnade Log4J läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+Konfigurationen av den överordnade Log4J läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
-Konfigurations filen för Worker-Log4J `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`läses från.
+Konfigurations filen för Worker-Log4J läses från `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
 Fler`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
@@ -172,9 +172,9 @@ Fler`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 ## <a name="not-a-leader-exception"></a>Inget ledar undantag
 
-När du skickar en topologi kan användaren få ett fel meddelande som liknar: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
+När du skickar en topologi kan användaren få ett fel meddelande som liknar: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-För att lösa problemet kan användaren behöva File a Ticket för att noderna ska starta om/starta om. Mer information finns i [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+För att lösa problemet kan användaren behöva File a Ticket för att noderna ska starta om/starta om. Mer information finns i [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html) .
 
 ---
 

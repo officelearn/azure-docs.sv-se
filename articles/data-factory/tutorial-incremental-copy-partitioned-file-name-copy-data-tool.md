@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/17/2020
-ms.openlocfilehash: 6cc089a1efc3f5960a8bca8a36063bb1019bbcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409400"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736583"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer stegvis baserat på partitionerat fil namn med hjälp av Kopiera data-verktyget
 
@@ -45,7 +45,7 @@ I den här självstudien får du göra följande:
 
 Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
-1. Skapa en behållare med namnet **Source**.  Skapa en mappsökväg som **2020/03/17/03** i din behållare. Skapa en tom textfil och ge den namnet **fil1. txt**. Överför filen Fil1. txt till mappens sökväg **källa/2020/03/17/03** i ditt lagrings konto.  Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
+1. Skapa en behållare med namnet **Source**.  Skapa en mappsökväg som **2020/03/17/03** i din behållare. Skapa en tom textfil och ge den namnet **file1.txt**. Ladda upp file1.txt till sökvägen **källa/2020/03/17/03** i ditt lagrings konto.  Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
     ![Ladda upp filer](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
@@ -56,7 +56,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -155,16 +155,16 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
 10. Observera att fliken **Övervaka** till vänster väljs automatiskt.  Du måste vänta på att pipelinen ska köras när den utlöses automatiskt (ungefär en timme). När den körs klickar du på länken pipeline-namn **DeltaCopyFromBlobPipeline** för att visa information om aktivitets körningen eller kör pipelinen igen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
 
-    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Justera kolumn bredden för **käll** -och **mål** kolumnerna (om det behövs) om du vill visa mer information kan du se att käll filen (fil1. txt) har kopierats från *källan/2020/03/17/03/* till *destinationen/2020/03/17/03* /med samma fil namn. 
+    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Justera kolumn bredden för **käll** -och **mål** kolumnerna (om det behövs) om du vill visa mer information, kan du se käll filen (file1.txt) har kopierats från *källan/2020/03/17/03/* till *destinationen/2020/03/17* /03/med samma fil namn. 
 
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
-    Du kan också kontrol lera att du använder Azure Storage Explorer (https://storageexplorer.com/) om du vill genomsöka filerna.
+    Du kan också kontrol lera att du använder Azure Storage Explorer ( https://storageexplorer.com/) om du vill genomsöka filerna.
 
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Skapa en annan tom textfil med det nya namnet som **fil2. txt**. Överför filen fil2. txt till mappens sökväg **källa/2020/03/17/04** i ditt lagrings konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
+12. Skapa en annan tom textfil med det nya namnet som **file2.txt**. Ladda upp file2.txt-filen till sökvägen **källa/2020/03/17/04** i ditt lagrings konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
     > [!NOTE]
     > Du kan vara medveten om att en ny mappsökväg krävs för att kunna skapas. Justera mappnamnet med din UTC-tid.  Om den aktuella UTC-tiden till exempel är 4:20 AM på Mar. 17, 2020, kan du skapa mappsökvägen som **källa/2020/03/17/04/** av regeln **{year}/{month}/{Day}/{Hour}/**.
@@ -173,7 +173,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Välj den nya **DeltaCopyFromBlobPipeline** -länken för den andra pipelinen som körs när den kommer och gör samma sak för att granska information. Du ser käll filen (fil2. txt) har kopierats från **källan/2020/03/17/04/** till **destinationen/2020/03/17/04/** med samma fil namn. Du kan också kontrol lera att du använder Azure Storage Explorer (https://storageexplorer.com/) om du vill genomsöka filerna i **mål** behållaren.
+14. Välj den nya **DeltaCopyFromBlobPipeline** -länken för den andra pipelinen som körs när den kommer och gör samma sak för att granska information. Du kommer att se käll filen (file2.txt) har kopierats från **källa/2020/03/17/04/** till **destinationen/2020/03/17/04/** med samma fil namn. Du kan också kontrol lera att du använder Azure Storage Explorer ( https://storageexplorer.com/) om du vill genomsöka filerna i **mål** behållaren.
 
 
 ## <a name="next-steps"></a>Nästa steg

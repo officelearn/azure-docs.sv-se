@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f58afa41a27427f8deabb945261d96763edb4bc
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436180"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126186"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Integrering med Azure Kubernetes Services med Security Center
 
@@ -61,4 +61,4 @@ Mer information om Security Center behållar säkerhetsfunktioner finns i:
 
 * [Integration med Azure Container Registry](azure-container-registry-integration.md)
 
-* [Data hantering på Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) – beskriver data principerna för Microsoft-tjänster (inklusive Azure, Intune och Office 365), information om Microsofts data hantering och de bevarande principer som påverkar dina data
+* [Data hantering på Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) – beskriver data principerna för Microsoft-tjänster (inklusive Azure, Intune och Microsoft 365), information om Microsofts data hantering och de bevarande principer som påverkar dina data

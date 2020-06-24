@@ -4,16 +4,16 @@ description: Anslut ett VNet till en Azure ExpressRoute-krets. Anvisningar.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272921"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737078"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Länka ett virtuellt nätverk till en ExpressRoute-krets med Azure-portalen
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtu
 1. Se till att din ExpressRoute-krets och Azures privata peering har kon figurer ATS korrekt. Följ anvisningarna i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-arm.md). Din ExpressRoute-krets bör se ut som på följande bild:
 
    [![Skärm bild av ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Visa krets")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. Nu kan du starta etableringen av en anslutning för att länka din virtuella nätverksgateway till ExpressRoute-kretsen. Klicka på **anslutning** > **Lägg** till för att öppna sidan **Lägg till anslutning** och konfigurera sedan värdena.
+2. Nu kan du starta etableringen av en anslutning för att länka din virtuella nätverksgateway till ExpressRoute-kretsen. Klicka på **anslutning**  >  **Lägg** till för att öppna sidan **Lägg till anslutning** och konfigurera sedan värdena.
 
    [![Skärm bild för Lägg till anslutning](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Skärm bild för Lägg till anslutning")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. När anslutningen har kon figurer ATS visas informationen för anslutningen i anslutnings objektet.
@@ -120,7 +120,7 @@ Krets användaren behöver resurs-ID och en auktoriseringskod från krets ägare
 3. Kontrol lera att **anslutnings typen** är inställd på "ExpressRoute".
 4. Fyll i informationen och klicka sedan på **OK** på sidan grundläggande.
 
-   ![Sidan Grundläggande inställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Sidan Grundinställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. På sidan **Inställningar** väljer du den **virtuella Nätverksgatewayen** och markerar kryss rutan **Lös in auktorisering** .
 6. Ange **verifierings nyckeln** och **peer-kretsens URI** och ge anslutningen ett namn. Klicka på **OK**. **Peer-kretsens URI** är resurs-ID för ExpressRoute-kretsen (som du hittar under egenskaps inställnings fönstret i ExpressRoute-kretsen).
 

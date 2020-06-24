@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249690"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702183"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Självstudie: konfigurera SAP-SuccessFactors för att Active Directory användar etablering (för hands version)
 Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera användare från SuccessFactors personal Central till Active Directory (AD) och Azure AD, med valfri Skriv åtgärd e-postadress till SuccessFactors. Den här integrationen är i offentlig för hands version och stöder hämtning av fler än [70 + användarattribut](../app-provisioning/sap-successfactors-attribute-reference.md) från SuccessFactors personal Central.
@@ -247,7 +247,7 @@ I det här steget upprättar vi anslutningen till SuccessFactors och Active Dire
 
 1. Slutför avsnittet **admin credentials** enligt följande:
 
-   * **Administratörens användar namn** – Ange användar namnet för SuccessFactors-API: t med det företags-ID som lagts till. Formatet: **användar namn\@companyID**
+   * **Administratörens användar namn** – Ange användar namnet för SuccessFactors-API: t med det företags-ID som lagts till. Formatet: **användar namn \@ companyID**
 
    * **Administratörs lösen ord –** Ange lösen ordet för SuccessFactors-API-användarkontot. 
 

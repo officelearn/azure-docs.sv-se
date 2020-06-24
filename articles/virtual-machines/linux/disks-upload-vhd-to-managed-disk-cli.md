@@ -4,16 +4,16 @@ description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-han
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
+ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2802907d9e3ddb1c09c2f94074a977d00d191a84
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658805"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945638"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure CLI
 
@@ -47,6 +47,9 @@ Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil s
 Skapa en tom standard hård disk för uppladdning genom att ange både parametrarna **-– för-upload** och parametern **--upload-size-byte** i en [disk Create](/cli/azure/disk#az-disk-create) -cmdlet:
 
 Ersätt `<yourdiskname>` , `<yourresourcegroupname>` , `<yourregion>` med värden som du väljer. `--upload-size-bytes`Parametern innehåller ett exempel värde för `34359738880` och ersätter det med ett lämpligt värde.
+
+> [!TIP]
+> Om du skapar en operativ system disk lägger du till--Hyper-v-generation <yourGeneration> till `az disk create` .
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -100,6 +103,9 @@ Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, m
 > Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
 
 Ersätt `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` ,, `<targetDiskNameHere>` `<targetResourceGroupHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+
+> [!TIP]
+> Om du skapar en operativ system disk lägger du till--Hyper-v-generation <yourGeneration> till `az disk create` .
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

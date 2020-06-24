@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: femila
-ms.openlocfilehash: a3d67f3b1217aa7ab4c8122ae958685490a2ad34
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559023"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126084"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicera händelser till Azure Active Directory skyddade slut punkter
 
@@ -29,7 +29,7 @@ Börja med att skapa ett Azure AD-program för den skyddade slut punkten. Se htt
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Aktivera Event Grid att använda Azure AD-programmet
 
-Använd PowerShell-skriptet nedan för att skapa en roll-och tjänst princip i ditt Azure AD-program. Du behöver klient-ID och objekt-ID från ditt Azure AD-program:
+Använd PowerShell-skriptet nedan för att skapa en roll och tjänstens huvud namn i Azure AD-programmet. Du behöver klient-ID och objekt-ID från ditt Azure AD-program:
 
    > [!NOTE]
    > Du måste vara medlem i [rollen Azure AD-programadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) för att köra det här skriptet.

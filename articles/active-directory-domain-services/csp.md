@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: e7276dcfca6ba033942d62f347ac3a799524cac4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519092"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734868"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure Active Directory Domain Services distribution och hantering av Azure Cloud solution providers
 
@@ -78,11 +78,11 @@ Den här distributions modellen kan vara lämplig för scenarier där en ISV til
 
 Följande viktiga överväganden gäller när du administrerar en hanterad domän i en Azure CSP-prenumeration:
 
-* **CSP admin-agenter kan etablera en hanterad domän med sina autentiseringsuppgifter:** Azure AD DS har stöd för Azure CSP-prenumerationer. Användare som tillhör en CSP-partners grupp med administratörs agenter kan etablera en ny Azure AD DS-hanterad domän.
+* **CSP admin-agenter kan etablera en hanterad domän med sina autentiseringsuppgifter:** Azure AD DS har stöd för Azure CSP-prenumerationer. Användare som tillhör en CSP-partners grupp med administratörs agenter kan etablera en ny hanterad domän.
 
 * **Kryptografiproviders kan skapa skript för nya hanterade domäner för sina kunder med hjälp av PowerShell:** Mer information finns i [Aktivera Azure AD DS med hjälp av PowerShell](powershell-create-instance.md) .
 
-* **CSP admin-agenter kan inte utföra pågående hanterings uppgifter på den hanterade domänen med sina autentiseringsuppgifter:** Användare av CSP-administratörer kan inte utföra rutin hanterings uppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa för kundens Azure AD-klient och deras autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-klient. Azure AD DS har inte åtkomst till Kerberos-och NTLM-hashvärden för dessa användare, så användare kan inte autentiseras på Azure AD DS-hanterade domäner.
+* **CSP admin-agenter kan inte utföra pågående hanterings uppgifter på den hanterade domänen med sina autentiseringsuppgifter:** Användare av CSP-administratörer kan inte utföra rutin hanterings uppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa för kundens Azure AD-klient och deras autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-klient. Azure AD DS har inte åtkomst till Kerberos-och NTLM-hashvärden för dessa användare, vilket innebär att användarna inte kan autentiseras på hanterade domäner.
 
   > [!WARNING]
   > Du måste skapa ett användar konto i kundens katalog för att utföra pågående administrations uppgifter på den hanterade domänen.

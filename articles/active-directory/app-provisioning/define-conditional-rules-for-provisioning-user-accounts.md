@@ -2,20 +2,20 @@
 title: Etablera appar med omfångs filter | Microsoft Docs
 description: Lär dig hur du använder omfångs filter för att förhindra att objekt i appar som har stöd för automatisk användar etablering är etablerade om ett objekt inte uppfyller dina affärs krav.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
-ms.openlocfilehash: 5ccec4174020d8b6586384a71ffe84fccd753640
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605450"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781964"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.

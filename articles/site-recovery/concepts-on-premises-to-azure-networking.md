@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281995"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770500"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ansluta till virtuella Azure-datorer efter redundansväxling från lokal plats 
 
@@ -149,11 +149,21 @@ Före redundans anger du nätverks inställningar och IP-adress för den virtuel
 
 ## <a name="get-new-ip-addresses"></a>Hämta nya IP-adresser
 
-I det här scenariot hämtar den virtuella Azure-datorn en ny IP-adress efter redundansväxlingen. En DNS-uppdatering för att uppdatera poster för misslyckade datorer för att peka på IP-adressen för den virtuella Azure-datorn.
+I det här scenariot hämtar den virtuella Azure-datorn en ny IP-adress efter redundansväxlingen. Om du vill konfigurera en ny IP-adress för den virtuella datorn som skapats efter en redundansväxling kan du referera till följande steg:
 
+1. Gå till **replikerade objekt**.
+2. Välj önskad virtuell Azure-dator.
+3. Välj **beräkning och nätverk** och välj **Redigera**.
 
+     ![Anpassa nätverks konfigurationerna för redundans](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. Om du vill uppdatera inställningarna för nätverks växling vid fel väljer du **Redigera** för det nätverkskort som du vill konfigurera. På nästa sida som öppnas anger du motsvarande förskapad IP-adress på platsen för redundanstest och redundansväxlingen.
+
+    ![Redigera NIC-konfigurationen](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. Välj **OK**.
+
+Site Recovery kommer nu att respektera dessa inställningar och se till att den virtuella datorn vid redundansväxling är ansluten till den valda resursen via motsvarande IP-adress, om den är tillgänglig i mål-IP-intervallet. I det här scenariot behöver du inte redundansväxla hela under nätet. En DNS-uppdatering krävs för att uppdatera poster för att det ska gå att peka på den nya IP-adressen för den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 [Lär dig mer om](site-recovery-active-directory.md) att replikera lokala Active Directory och DNS till Azure.
-
-

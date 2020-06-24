@@ -173,7 +173,7 @@ Du kan ändra den till detta för att åtgärda eventuella build-fel:
         };
 
 ### <a name="model-class-changes"></a>Ändringar i modell klass
-På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Ett exempel:
+På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Exempel:
 
 * `IndexDefinitionResponse`har ersatts av`AzureOperationResponse<Index>`
 * `DocumentSearchResponse` har bytt namn till `DocumentSearchResult`

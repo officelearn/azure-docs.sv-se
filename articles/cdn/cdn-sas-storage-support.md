@@ -39,7 +39,7 @@ När du har skapat en SAS-token kan du komma åt Blob Storage-filen genom att l�
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Ett exempel:
+Exempel:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ Det här alternativet är det enklaste och använder en enkel SAS-token, som ski
    
    Den resulterande CDN-slutpunktens URL har följande format:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Ett exempel:   
+   Exempel:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ Det här alternativet är endast tillgängligt för **Azure CDN Premium från Ve
 
 2. När den nya regeln blir aktiv, kan vem som helst komma åt filer i den angivna behållaren på CDN-slutpunkten oavsett om de använder en SAS-token i URL: en. Här är formatet:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Ett exempel:   
+   Exempel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Om du vill använda autentisering med Azure CDN säkerhetstoken måste du ha ett
    En URL för säkerhetstoken har följande format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Ett exempel:   
+   Exempel:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```

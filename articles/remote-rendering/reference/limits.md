@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: c35930a93751cc82c3145d414a2a09b3a1e90c53
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659833"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808548"
 ---
 # <a name="limitations"></a>Begränsningar
 
@@ -26,9 +26,10 @@ Ett antal funktioner har storlek, antal eller andra begränsningar.
 * Totalt antal tillåtna objekt av en enskild typ (entitet, CutPlaneComponent osv.): 16 777 215.
 * Totalt antal tillåtna aktiva klipp plan: 8.
 
-## <a name="materials"></a>Material
+## <a name="geometry"></a>Geometri
 
 * Totalt tillåtet material i en till gång: 65 535.
+* Högsta dimension för en enda textur: 16 384 x 16 384. Större käll texturer skalas ned av konverterings processen.
 
 ## <a name="overall-number-of-polygons"></a>Totalt antal polygoner
 
@@ -39,6 +40,7 @@ Det tillåtna antalet polygoner för alla laddade modeller beror på storleken p
 |standard| 20 000 000 |
 |denaturering| ingen gräns |
 
+Mer detaljerad information om den här begränsningen finns i kapitel för [VM-storlek](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Plattforms begränsningar
 

@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225247"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808377"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för Load Balancer med hjälp av REST API
 
@@ -48,8 +48,8 @@ Följande huvuden krävs:
 | resourceGroupName | Namnet på den resurs grupp som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | loadBalancerName | Namnet på Azure Load Balancer. |
 | mått namn | Kommaavgränsad lista över giltiga [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API- `2018-01-01`versionen, som ingår i ovanstående URL.  |
-| tidsintervall | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO`. Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
+| api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API-versionen `2018-01-01` , som ingår i ovanstående URL.  |
+| tidsintervall | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO` . Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Begärandetext

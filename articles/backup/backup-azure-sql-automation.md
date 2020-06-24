@@ -4,12 +4,12 @@ description: Säkerhetskopiera och Återställ SQL-databaser på virtuella Azure
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246993"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255151"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -499,7 +499,7 @@ Om utdata förloras eller om du vill hämta det relevanta jobb-ID: t [hämtar du
 
 ### <a name="change-policy-for-backup-items"></a>Ändra princip för säkerhets kopierings objekt
 
-Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
+Användaren kan ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ Kommandot väntar tills den konfigurerade säkerhets kopieringen har slutförts 
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>Redigera en befintlig säkerhets kopierings princip
+
+Om du vill redigera en befintlig princip använder du kommandot [set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0) .
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+Kontrol lera säkerhets kopierings jobben efter en stund att spåra eventuella problem. I så fall måste du åtgärda problemen. Kör sedan kommandot edit policy igen med parametern **FixForInconsistentItems** för att försöka redigera principen på alla säkerhets kopierings objekt som åtgärden misslyckades tidigare.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>Registrera virtuella SQL-datorer på nytt
@@ -597,4 +610,4 @@ Anta till exempel att en SQL AG har två noder: SQL-Server-0 och SQL-Server-1 oc
 
 SQL-Server-0, SQL-Server-1 visas också som "AzureVMAppContainer" när [säkerhets kopierings behållarna visas](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Hämta bara den relevanta SQL-databasen för att [Aktivera säkerhets](#configuring-backup) kopiering och [säkerhets kopiering på begäran](#on-demand-backup) och [Återställ PS-cmdletar](#restore-sql-dbs) är identiska.
+Hämta bara den relevanta databasen för att [Aktivera säkerhets](#configuring-backup) kopiering och [säkerhets kopiering på begäran](#on-demand-backup) och [Återställ PS-cmdletar](#restore-sql-dbs) är identiska.

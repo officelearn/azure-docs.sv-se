@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 11/19/2019
-ms.openlocfilehash: c3f843de6eaa621ecdd04c5a3418dc0d620f841e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/10/2020
+ms.openlocfilehash: eac5814eb977a01135ad2fcd9551b3475673dbca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343395"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691772"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,13 +53,13 @@ För resurs lagrings storlekar för enskilda databaser, referera till antingen [
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databas resurs gränser nås
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Compute (DTU: er och eDTU: er/virtuella kärnor)
+### <a name="compute-cpu"></a>Beräknings-CPU
 
-När databas beräknings användningen (uppmätt av DTU: er och eDTU: er, eller virtuella kärnor) blir hög, ökar svars tiden för frågor och frågor kan till och med ta lång tid. Under dessa villkor kan frågor placeras i kö av tjänsten och de tillhandahålls resurser för att köras när resurser blir kostnads fria.
+När databas beräknings processor användningen blir hög ökar svars tiden för frågor och frågor kan till och med ta lång tid. Under dessa villkor kan frågor placeras i kö av tjänsten och de tillhandahålls resurser för att köras när resurser blir kostnads fria.
 När du räknar med hög beräknings användning är följande alternativ för minskning:
 
 - Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
-- Optimera frågor för att minska resursutnyttjande för varje fråga. Mer information finns i [fråga om justering/tips](performance-guidance.md#query-tuning-and-hinting).
+- Optimera frågor för att minska användningen av CPU-resurser för varje fråga. Mer information finns i [fråga om justering/tips](performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
 
@@ -82,7 +82,28 @@ När du räknar med hög arbets belastning eller arbets belastning, är alternat
 - Minska inställningen för [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximal grad av parallellitet).
 - Optimera fråge arbets belastningen för att minska antalet förekomster och varaktighet för frågans blockering.
 
-### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Resursförbrukning efter användar arbets belastningar och interna processer
+### <a name="memory"></a>Minne
+
+Till skillnad från andra resurser (CPU, arbetare, lagring) som når minnes gränsen påverkar inte frågans prestanda negativt, och orsakar inga fel och fel. Som det beskrivs i detalj i [arkitektur guiden för minnes hantering](https://docs.microsoft.com/sql/relational-databases/memory-management-architecture-guide), använder SQL Server Database Engine ofta allt tillgängligt minne, efter design. Minne används främst för cachelagring av data för att undvika dyrare lagrings åtkomst. Den högre minnes användningen förbättrar därför vanligt vis frågornas prestanda på grund av snabbare läsningar från minnet, i stället för långsammare läsningar från lagringen.
+
+När databas motorn startades, när arbets belastningen börjar läsa data från lagring cachelagrar databas motorn aggressivt data i minnet. Efter den här inledande ramp-up-perioden är det vanligt och förväntas `avg_memory_usage_percent` se `avg_instance_memory_percent` kolumnerna och i [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) ska vara nära eller lika med 100%, särskilt för databaser som inte är inaktiva och som inte ryms i minnet.
+
+Förutom Datacachen används minnet i andra komponenter i databas motorn. När det finns efter frågan på minnet och allt tillgängligt minne har använts av Datacachen, krymper databas motorn dynamiskt datacache-storlek för att göra minnet tillgängligt för andra komponenter och kommer att utöka Datacachen dynamiskt när andra komponenter frigör minne.
+
+I sällsynta fall kan en tillräckligt mycket krävande arbets belastning orsaka ett otillräckligt minnes tillstånd, vilket leder till minnes brist. Detta kan ske på valfri minnes användnings nivå mellan 0% och 100%. Detta är mer troligt vid mindre beräknings storlekar som har proportionellt mindre minnes gränser och/eller med arbets belastningar som använder mer minne för bearbetning av frågor, till exempel i [kompakta elastiska pooler](elastic-pool-resource-management.md).
+
+När du ska räkna ut minnes fel visas följande alternativ för minskning:
+- Öka tjänst nivån eller beräknings storleken för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
+- Optimera frågor och konfiguration för att minska minnes användningen. Vanliga lösningar beskrivs i följande tabell.
+
+|Lösning|Beskrivning|
+| :----- | :----- |
+|Minska storleken på minnes bidrag|Mer information om minnes bidrag finns i blogg inlägget om att [förstå SQL Server minnes tilldelning](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) . En vanlig lösning för att undvika alltför stora minnes bidrag håller [statistiken](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) uppdaterad. Detta resulterar i mer exakta uppskattningar av minnes förbrukning av frågemotor, vilket undviker onödigt stora minnes bidrag.</br></br>I databaser som använder kompatibilitetsnivå 140 och senare, kan databas motorn automatiskt justera minnes tilldelningens storlek med hjälp av [återkoppling i batch-läge](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#batch-mode-memory-grant-feedback). I databaser som använder kompatibilitetsnivå 150 och senare, använder databas motorn samma [återkoppling i rad läge](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#row-mode-memory-grant-feedback)för att ge fler vanliga frågor om rad läge. Den här inbyggda funktionen hjälper till att undvika minnes brists fel på grund av onödigt stora minnes bidrag.|
+|Minska storleken på cachen för frågeplan|Databas motorn cachelagrar fråge planer i minnet för att undvika att kompilera en frågeplan för varje frågekörningen. För att undvika överdriven storlek av frågor som orsakas av programplaner som bara används en gång, aktiverar du den OPTIMIZE_FOR_AD_HOC_WORKLOADS [databas-omfångs konfigurationen](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|
+|Minska storleken på Lås minnet|Databas motorn använder minne för [Lås](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Lock_Engine). Undvik, om möjligt, stora transaktioner som kan förvärva ett stort antal lås och orsaka minnes förbrukning med hög lock.|
+
+
+## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Resursförbrukning efter användar arbets belastningar och interna processer
 
 PROCESSOR-och minnes förbrukning av användar arbets belastningar i varje databas rapporteras i [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) och [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) vyer, i `avg_cpu_percent` och `avg_memory_usage_percent` kolumner. För elastiska pooler rapporteras resursförbrukning på resurs nivå i vyn [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . CPU-förbrukningen för användar arbets belastningen rapporteras också via `cpu_percent` Azure Monitors mått, för [enskilda databaser](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) och [elastiska pooler](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) på Poolnivå.
 
@@ -137,7 +158,7 @@ De faktiska taxan för logg skapande som påförs vid körning kan också påver
 
 Trafikstyrningen för logg hastighets styrning sker via följande vänte lägen (visas i [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) vyer):
 
-| Wait-typ | Anteckningar |
+| Wait-typ | Kommentarer |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Databas begränsning |
 | POOL_LOG_RATE_GOVERNOR | Begränsning av pool |

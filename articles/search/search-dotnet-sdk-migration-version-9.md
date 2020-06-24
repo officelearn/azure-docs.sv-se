@@ -151,7 +151,7 @@ Egenskaper som hålls valfria värden av dessa typer skrivs nu explicit som null
 
 ### <a name="removed-facetresults-and-hithighlights"></a>Tog bort FacetResults och HitHighlights
 
-`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Ett exempel:
+`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Exempel:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

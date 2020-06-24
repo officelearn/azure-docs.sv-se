@@ -1,5 +1,5 @@
 ---
-title: Delegera hantering av program administratörs behörighet – Azure AD | Microsoft Docs
+title: Delegera program hantering administratörs behörighet – Azure AD | Microsoft Docs
 description: Bevilja behörigheter för program åtkomst hantering i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253044"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731825"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
@@ -60,8 +60,8 @@ I vissa fall inkluderar företags program som skapats från program galleriet b�
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Tilldela en ägare till ett företags program
 
-1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
-1. På [sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Appregistreringar för organisationen väljer du en app för att öppna översikts sidan för appen.
+1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)   med ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
+1. På [sidan Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)   för organisationen väljer du en app för att öppna översikts sidan för appen.
 1. Välj **ägare** om du vill se en lista över ägare för appen.
 1. Välj **Lägg till** för att välja en eller flera ägare som ska läggas till i appen.
 

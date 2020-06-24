@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282281"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692571"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik-och prestanda övervakning för Reliable service Remoting
 Den Reliable ServiceRemoting-körningen genererar [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur ServiceRemoting fungerar och hjälper till med fel sökning och prestanda övervakning.
@@ -32,7 +32,7 @@ Var och en av de föregående kategorierna har en eller flera räknare.
 Ett kluster som har ett stort antal ServiceRemoting-tjänster eller partitioner har ett stort antal prestanda räknar instanser. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna partitionen och tjänst metoden (om tillämpligt) som prestanda räknar instansen är associerad med.
 
 #### <a name="service-fabric-service-category"></a>Service Fabric tjänste kategori
-För kategorin `Service Fabric Service`är räknar instans namnen i följande format:
+För kategorin `Service Fabric Service` är räknar instans namnen i följande format:
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
@@ -46,10 +46,10 @@ Följande är ett exempel på ett räknar instans namn för en räknare som till
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-I föregående exempel `2740af29-78aa-44bc-a20b-7e60fb783264` är sträng representationen av Service Fabric partitions-ID: `635650083799324046` t en sträng representation av replik/InstanceID `5008379932` och är 64-bitars-ID som genereras för körningens interna användning.
+I föregående exempel `2740af29-78aa-44bc-a20b-7e60fb783264` är sträng representationen av Service Fabric partitions-ID: t en `635650083799324046` sträng representation av replik/InstanceID och `5008379932` är 64-bitars-ID som genereras för körningens interna användning.
 
 #### <a name="service-fabric-service-method-category"></a>Service Fabric tjänst metod kategori
-För kategorin `Service Fabric Service Method`är räknar instans namnen i följande format:
+För kategorin `Service Fabric Service Method` är räknar instans namnen i följande format:
 
 `MethodName_ServiceRuntimeMethodId_ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
@@ -67,7 +67,7 @@ Följande är ett exempel på ett räknar instans namn för en räknare som till
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-I föregående `ivoicemailboxservice.leavemessageasync` exempel är metod namnet, `2` det 32-bitars ID som genereras för körningens interna användning, `89383d32-e57e-4a9b-a6ad-57c6792aa521` sträng representationen av Service Fabric partitions-ID,`635650083804480486` är sträng representationen av Service Fabric replikens/instans-ID och `5008380` är 64-bitars-ID som genereras för körningens interna användning.
+I föregående exempel `ivoicemailboxservice.leavemessageasync` är metod namnet, `2` det 32-bitars ID som genereras för körningens interna användning, `89383d32-e57e-4a9b-a6ad-57c6792aa521` sträng representationen av Service Fabric partitions-ID, `635650083804480486` är sträng representationen av Service Fabric REPLIKENS/instans-ID och `5008380` är 64-bitars-ID som genereras för körningens interna användning.
 
 ## <a name="list-of-performance-counters"></a>Lista över prestanda räknare
 ### <a name="service-method-performance-counters"></a>Prestanda räknare för tjänst metod

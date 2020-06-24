@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 2625e1f55c0b7e7df44da6c1f36e024911577d63
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457277"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255014"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -171,7 +171,7 @@ Om du behöver återställa en storskalig databas i Azure SQL Database till en a
 Den Azure SQL Database skalnings nivån är tillgänglig i alla regioner, men aktive ras som standard i följande regioner som anges nedan.
 Om du vill skapa en storskalig databas i en region som inte är listad som stöds kan du skicka en onboarding-begäran via Azure Portal. Anvisningar finns i [begär kvot ökningar för Azure SQL Database](quota-increase-request.md) . Använd följande rikt linjer när du skickar in din begäran:
 
-- Använd kvot typen [region åtkomst](quota-increase-request.md#region) för SQL-databas.
+- Använd kvot typen [region åtkomst](quota-increase-request.md#region) SQL Database.
 - I text informationen lägger du till beräknings-SKU: n/total kärnor, inklusive läsbara repliker.
 - Ange även Beräknad TB.
 
@@ -218,8 +218,8 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser, de kommer att filtreras från vyn  | Storskaligt har en separat metod för att hantera säkerhets kopior och som sådana inställningar för långsiktig kvarhållning och tidpunkten för kvarhållning av säkerhets kopior gäller inte. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.|
-| Återställning från tidpunkt | En databas som inte är storskalig kan inte återställas som en storskalig databas och en storskalig databas kan inte återställas som en databas som inte är storskalig. För en icke-storskalig databas som har migrerats till storskalig genom att ändra dess tjänst nivå återställer du till en tidpunkt innan migreringen och inom lagrings perioden för säkerhets kopior av databasen är möjlig [program mässigt](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). Den återställda databasen får inte skalas. |
+| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser. De kommer att filtreras från vyn.  | Den storskaliga metoden för att hantera säkerhets kopieringar har en separat metod för att hantera säkerhets kopior, så den långsiktiga kvarhållning och inställningarna för kvarhållning av säkerhets kopior av tidpunkt gäller inte. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.|
+| Återställning från tidpunkt | En databas som inte är storskalig kan inte återställas som en storskalig databas och en storskalig databas kan inte återställas som en databas som inte är storskalig. För en icke-storskalig databas som har migrerats till storskalig genom att ändra dess tjänst nivå återställer du till en tidpunkt innan migreringen och inom lagrings perioden för säkerhets kopior av databasen är möjlig [program mässigt](recovery-using-backups.md#programmatic-recovery-using-automated-backups). Den återställda databasen får inte skalas. |
 | Om en databas har en eller flera datafiler som är större än 1 TB, Miss lyckas migreringen | I vissa fall kan det vara möjligt att undvika det här problemet genom att minska de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen ser du till att ingen fil får större än 1 TB. Använd följande fråga för att fastställa storleken på databasfilerna. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL-hanterad instans | Azure SQL Managed instance stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds inte för närvarande med skalning.|

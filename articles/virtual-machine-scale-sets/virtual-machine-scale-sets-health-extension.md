@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124116"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783052"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
 Övervakning av din program hälsa är en viktig signal för att hantera och uppgradera distributionen. Skalnings uppsättningar för virtuella Azure-datorer ger stöd för [rullande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , inklusive [automatiska uppgraderingar av operativ system avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälso övervakning av de enskilda instanserna för att uppgradera distributionen. Du kan också använda hälso tillägg för att övervaka program hälsan för varje instans i din skalnings uppsättning och utföra instans reparationer med [automatiska instans reparationer](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -59,7 +59,7 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 
 | Name | Värde/exempel | Datatyp
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | datum |
+| apiVersion | `2018-10-01` | date |
 | utgivare | `Microsoft.ManagedServices` | sträng |
 | typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | sträng |
 | typeHandlerVersion | `1.0` | int |
@@ -154,7 +154,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-Innehållet i fil namns tillägget. JSON.
+extension.jspå fil innehåll.
 
 ```json
 {
@@ -173,7 +173,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 Loggarna avbildar också program hälso status regelbundet.

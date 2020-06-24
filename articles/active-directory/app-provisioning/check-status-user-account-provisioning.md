@@ -2,21 +2,21 @@
 title: Rapportera automatisk användar konto etablering till SaaS-program
 description: Lär dig hur du kontrollerar status för automatiska etablerings jobb för användar konton och hur du felsöker etablering av enskilda användare.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 102a0b60c917d5ee24177ac4b52e97fe72c343e7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593887"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782015"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: rapportering om automatisk etablering av användar konton
 

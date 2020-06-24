@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 2f9b8ec0a4f0449a3d4f767d08ddd4c65e8ce8a1
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: a1413e0f7f8fb9a28d657c32171c518a1bf64a41
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424774"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907422"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
@@ -126,6 +126,8 @@ För Azure Database for PostgreSQL gränser, se [begränsningar i Azure Database
 ## <a name="azure-functions-limits"></a>Azure Functions gränser
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+
+Mer information finns i [funktions värds planer jämförelse](../../azure-functions/functions-scale.md#hosting-plans-comparison).
 
 ## <a name="azure-kubernetes-service-limits"></a>Service gränser i Azure Kubernetes
 

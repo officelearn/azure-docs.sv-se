@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 668406bb90e1f1e064adf01d7dbab42923fe30aa
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657139"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789284"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
@@ -103,7 +103,7 @@ Start version för våren | Våren Cloud-version | Azure våren Cloud-version
 2.1 | Greenwich. RELEASE | 2.1
 2.2 | Hoxton. RELEASE | 2.2
 
-Inkludera något av följande beroenden i din Pom. XML-fil. Välj det beroende vars Azure våren Cloud-version matchar din egen.
+Inkludera något av följande beroenden i pom.xml-filen. Välj det beroende vars Azure våren Cloud-version matchar din egen.
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Beroende av Azure våren Cloud version 2,1
 
@@ -135,7 +135,7 @@ Om du vill aktivera de inbyggda funktionerna i Azure våren Cloud från tjänst 
 
 ### <a name="service-registry"></a>Tjänst register
 
-Om du vill använda den hanterade tjänsten för Azure-tjänsten ska du inkludera `spring-cloud-starter-netflix-eureka-client` beroendet i Pom. XML-filen som visas här:
+Om du vill använda den hanterade tjänsten för Azure-tjänsten ska du inkludera `spring-cloud-starter-netflix-eureka-client` beroendet i pom.xml-filen som visas här:
 
 ```xml
     <dependency>
@@ -174,7 +174,7 @@ public class GatewayApplication {
 
 ### <a name="distributed-configuration"></a>Distribuerad konfiguration
 
-Om du vill aktivera distribuerad konfiguration inkluderar du följande beroende `spring-cloud-config-client` i avsnittet beroenden i din Pom. XML-fil:
+Om du vill aktivera distribuerad konfiguration inkluderar du följande beroende `spring-cloud-config-client` i avsnittet beroenden i pom.xml-filen:
 
 ```xml
 <dependency>
@@ -188,7 +188,7 @@ Om du vill aktivera distribuerad konfiguration inkluderar du följande beroende 
 
 ### <a name="metrics"></a>Mått
 
-Inkludera beroendet `spring-boot-starter-actuator` i avsnittet beroenden i Pom. XML-filen som visas här:
+Inkludera `spring-boot-starter-actuator` beroendet i avsnittet beroenden i pom.xml-filen som visas här:
 
 ```xml
 <dependency>
@@ -199,9 +199,12 @@ Inkludera beroendet `spring-boot-starter-actuator` i avsnittet beroenden i Pom. 
 
  Måtten hämtas regelbundet från JMX-slutpunkterna. Du kan visualisera måtten med hjälp av Azure Portal.
 
+ > [!WARNING]
+ > Ange `spring.jmx.enabled=true` i konfigurations egenskapen. Annars kan inte måtten visualiseras i Azure Portal.
+
 ### <a name="distributed-tracing"></a>Distribuerad spårning
 
-Ta med följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipkin` beroenden i avsnittet beroenden i din Pom. XML-fil:
+Inkludera följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipkin` beroenden i avsnittet beroenden i pom.xml-filen:
 
 ```xml
 <dependency>

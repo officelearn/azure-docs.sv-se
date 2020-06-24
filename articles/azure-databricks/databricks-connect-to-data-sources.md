@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 79a821a4c8fe4cb2d048f0dcb0a6e091462a1779
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b6d234c3845c220fd63c24db5bdbdae0f7c63fd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548796"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255083"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Anslut till data källor från Azure Databricks
 
@@ -30,12 +30,12 @@ I följande lista visas de data källor i Azure som du kan använda med Azure Da
 
 - [Azure SQL Database](/azure/databricks/data/data-sources/sql-databases)
 
-    Den här länken ger DataFrame-API: et för att ansluta till SQL-databaser med JDBC och hur du styr den parallella läsningen med hjälp av JDBC-gränssnittet. Det här avsnittet innehåller detaljerade exempel med Scala-API: et, med förkortade python-och Spark SQL-exempel i slutet.
+    Den här länken ger DataFrame-API: et för att ansluta till SQL Database med JDBC och hur du styr den parallella läsningen med hjälp av JDBC-gränssnittet. Det här avsnittet innehåller detaljerade exempel med Scala-API: et, med förkortade python-och Spark SQL-exempel i slutet.
 - [Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
 
     Den här länken innehåller exempel på hur du använder Azure Active Directory tjänstens huvud namn för att autentisera med Azure Data Lake Storage. Den innehåller också anvisningar om hur du kommer åt data i Azure Data Lake Storage från Azure Databricks.
 
-- [Azure-Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage)
+- [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage)
 
     Den här länken innehåller exempel på hur du direkt får åtkomst till Azure-Blob Storage från Azure Databricks med hjälp av åtkomst nyckeln eller SAS för en specifik behållare. Länken ger också information om hur du kommer åt Azure-Blob Storage från Azure Databricks med RDD-API: et.
 

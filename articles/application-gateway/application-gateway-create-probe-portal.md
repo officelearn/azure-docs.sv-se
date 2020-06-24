@@ -5,15 +5,15 @@ description: Lär dig hur du skapar en anpassad avsökning för Application Gate
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74074614"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808222"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Application Gateway med hjälp av portalen
 
@@ -47,10 +47,10 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
    |**Inställning** | **Värde** | **Information**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
-   |**Protokollhanterare**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
+   |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
    |**Värd**|säga contoso.com|Det här värdet är namnet på den virtuella värden (skiljer sig från värd namnet för den virtuella datorn) som körs på program servern. Avsökningen skickas till (protokoll)://(värd namn):(port från httpsetting)/urlPath.  Detta gäller när flera platser har kon figurer ATS på Application Gateway. Om Application Gateway har kon figurer ATS för en enda plats anger du 127.0.0.1.|
    |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet för backend-resursen i backend-poolen som är kopplad till den http-inställning som den här avsökningen är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Sökväg**|/eller en annan sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http:\//contoso.com Använd bara "/" |
+   |**Sökväg**|/eller en annan sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http: \/ /contoso.com Använd bara "/" |
    |**Intervall (SEK)**|30|Hur ofta avsökningen körs för att kontrol lera hälso tillståndet. Vi rekommenderar inte att du anger de lägre än 30 sekunderna.|
    |**Tids gräns (SEK)**|30|Den tid som avsökningen väntar innan tids gränsen uppnåddes. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. Timeout-intervallet måste vara tillräckligt högt så att ett HTTP-anrop kan göras för att se till att sidan för Server dels hälsa är tillgänglig. Observera att timeout-värdet inte ska vara mer än värdet för ' Interval ' som används i den här avsöknings inställningen eller värdet för timeout för begäran i HTTP-inställningen som ska associeras med den här avsökningen.|
 |**Tröskelvärde för ej felfri**|3|Antalet misslyckade på varandra följande försök anses vara ohälsosamt. Tröskelvärdet kan anges till 1 eller mer.|
@@ -96,10 +96,10 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
    |**Inställning** | **Värde** | **Information**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
-   |**Protokollhanterare**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
+   |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
    |**Värd**|säga contoso.com|Det här värdet är namnet på den virtuella värden (skiljer sig från värd namnet för den virtuella datorn) som körs på program servern. Avsökningen skickas till (protokoll)://(värd namn):(port från httpsetting)/urlPath.  Detta gäller när flera platser har kon figurer ATS på Application Gateway. Om Application Gateway har kon figurer ATS för en enda plats anger du 127.0.0.1.|
    |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet för backend-resursen i backend-poolen som är kopplad till den http-inställning som den här avsökningen är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Sökväg**|/eller en annan sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http:\//contoso.com Använd bara "/" |
+   |**Sökväg**|/eller en annan sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http: \/ /contoso.com Använd bara "/" |
    |**Intervall (SEK)**|30|Hur ofta avsökningen körs för att kontrol lera hälso tillståndet. Vi rekommenderar inte att du anger de lägre än 30 sekunderna.|
    |**Tids gräns (SEK)**|30|Den tid som avsökningen väntar innan tids gränsen uppnåddes. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. Timeout-intervallet måste vara tillräckligt högt så att ett HTTP-anrop kan göras för att se till att sidan för Server dels hälsa är tillgänglig. Observera att timeout-värdet inte ska vara mer än värdet för ' Interval ' som används i den här avsöknings inställningen eller värdet för timeout för begäran i HTTP-inställningen som ska associeras med den här avsökningen.|
 |**Tröskelvärde för ej felfri**|3|Antalet misslyckade på varandra följande försök anses vara ohälsosamt. Tröskelvärdet kan anges till 1 eller mer.|

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 0f348ea67583d10dae2ebc548a48b7e74b66a958
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343361"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255005"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera servrar och enkla databaser i Azure SQL Database
 
@@ -43,7 +43,7 @@ Om du vill skapa en enskild Azure SQL Database med hjälp av [Azure Portal](http
 
 ## <a name="manage-an-existing-server"></a>Hantera en befintlig server
 
-Om du vill hantera en befintlig server navigerar du till servern med ett antal metoder – till exempel från en SQL Database-sida, sidan **SQL-servrar** eller sidan **alla resurser** .
+Om du vill hantera en befintlig server navigerar du till servern med ett antal metoder – till exempel från en speciell databas sida, sidan **SQL-servrar** eller sidan **alla resurser** .
 
 Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och väljer den databas som du vill hantera. Följande skärm bild visar hur du börjar ställa in en brand vägg på server nivå för en databas från **översikts** sidan för en databas.
 
@@ -65,7 +65,7 @@ Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkl
 > [!TIP]
 > För PowerShell-exempel skript, se [Använd PowerShell för att skapa en databas i SQL Database och konfigurera en brand Väggs regel på server nivå](scripts/create-and-configure-database-powershell.md) och [övervaka och skala en databas i SQL Database med PowerShell](scripts/monitor-and-scale-database-powershell.md).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en databas |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser|
@@ -90,7 +90,7 @@ Använd följande [Azure CLI](/cli/azure/sql/db) -kommandon om du vill skapa och
 > En snabb start för Azure CLI finns i [skapa en enda Azure SQL Database med hjälp av Azure CLI](az-cli-script-samples-content-guide.md). För Azure CLI-exempel skript, se [Använd CLI för att skapa en databas i Azure SQL Database och konfigurera en SQL Database brand Väggs regel](scripts/create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en databas i Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
 |[AZ SQL DB-lista](/cli/azure/sql/db#az-sql-db-list)|Visar alla databaser och informations lager på en server, eller alla databaser i en elastisk pool|
@@ -121,7 +121,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Transact-S
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en server med hjälp av Transact-SQL.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[SKAPA DATABAS](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Skapar en ny enkel databas. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ÄNDRA DATABAS](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Ändrar en databas eller elastisk pool. |
@@ -142,7 +142,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Transact-S
 
 Använd dessa REST API begär Anden för att skapa och hantera servrar, databaser och brand väggar.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
 |[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en SQL-Server.|

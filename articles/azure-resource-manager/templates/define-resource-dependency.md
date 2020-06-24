@@ -3,16 +3,16 @@ title: Ange distributions ordning för resurser
 description: Beskriver hur du anger en resurs som beroende av en annan resurs under distributionen för att säkerställa att resurser distribueras i rätt ordning.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535476"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255219"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiera ordningen för att distribuera resurser i ARM-mallar
 
-När du distribuerar en resurs kan du behöva kontrol lera att det finns andra resurser innan den distribueras. Du behöver till exempel en SQL-Server innan du distribuerar en SQL-databas. Du definierar den här relationen genom att markera en resurs som beroende av den andra resursen. Du definierar ett beroende med **dependsOn** -elementet eller med hjälp av **referens** funktionen.
+När du distribuerar en resurs kan du behöva kontrol lera att det finns andra resurser innan den distribueras. Du behöver till exempel en logisk SQL-Server innan du distribuerar en databas. Du definierar den här relationen genom att markera en resurs som beroende av den andra resursen. Du definierar ett beroende med **dependsOn** -elementet eller med hjälp av **referens** funktionen.
 
 Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Du behöver bara definiera beroenden för resurser som har distribuerats i samma mall.
 
@@ -59,7 +59,7 @@ Med egenskapen resurser kan du ange underordnade resurser som är relaterade til
 
 Varje överordnad resurs accepterar bara vissa resurs typer som underordnade resurser. Godkända resurs typer anges i det [mall schema](https://github.com/Azure/azure-resource-manager-schemas) som tillhör den överordnade resursen. Namnet på den underordnade resurs typen innehåller namnet på den överordnade resurs typen, t. ex. **Microsoft. Web/Sites/config** och **Microsoft. Web/Sites/Extensions** är både underordnade resurser för **Microsoft. Web/Sites**.
 
-I följande exempel visas en SQL-Server och SQL-databas. Observera att ett explicit beroende har definierats mellan SQL Database och SQL Server, även om databasen är underordnad-servern.
+I följande exempel visas en logisk SQL-Server och-databas. Observera att ett explicit beroende har definierats mellan databasen och servern, även om databasen är underordnad servern.
 
 ```json
 "resources": [

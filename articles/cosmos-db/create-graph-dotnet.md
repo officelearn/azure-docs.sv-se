@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730020"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118261"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett .NET Framework-eller kärn program med hjälp av Azure Cosmos DB Gremlin API-konto
 
@@ -95,7 +95,7 @@ Följande kodfragment är alla hämtade från filen Program.cs.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Kör varje Gremlin-fråga med `GremlinClient` hjälp av objektet med en asynkron uppgift. Du kan läsa Gremlin-frågorna från ord listan som definierades i föregående steg och köra dem. Hämta sedan resultatet och Läs värdena, som är formaterade som en ord lista, med hjälp `JsonSerializer` av klassen från Newtonsoft. JSON-paketet:
+* Kör varje Gremlin-fråga med hjälp av `GremlinClient` objektet med en asynkron uppgift. Du kan läsa Gremlin-frågorna från ord listan som definierades i föregående steg och köra dem. Hämta sedan resultatet och Läs värdena, som är formaterade som en ord lista, med hjälp av `JsonSerializer` klassen från Newtonsoft.Jsi paketet:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -109,9 +109,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
    **Gremlin-slutpunkt** – Det här värdet används när du ansluter till Graph-kontot via biblioteket Gremlin.Net.
 
-    ![Kopiera slutpunkten](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Kopiera slutpunkten":::
 
-   Om du vill köra det här exemplet kopierar du **slut punkt** svärdet för Gremlin, tar bort port numret i slutet, vilket är `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`URI: n blir. Slut punkt svärdet bör se ut så här`testgraphacct.gremlin.cosmosdb.azure.com`
+   Om du vill köra det här exemplet kopierar du **slut punkt** svärdet för Gremlin, tar bort port numret i slutet, vilket är URI: n blir `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Slut punkt svärdet bör se ut så här`testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Gå sedan till fliken **nycklar** och kopiera värdet för **primär nyckel** från Azure Portal. 
 
@@ -146,7 +146,7 @@ Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland oc
 
     Du kan zooma in och ut i diagrammet, du kan expandera diagrammets skärmutrymme, lägga till ytterligare hörn och flytta hörn på skärmytan.
 
-    ![Visa diagrammet i Datautforskaren på Azure-portalen](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Visa diagrammet i Datautforskaren på Azure-portalen":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

@@ -5,15 +5,15 @@ description: Den här artikeln innehåller anvisningar för att konfigurera TLS-
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312681"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808243"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera TLS-princip versioner och chiffersviter på Application Gateway
 
@@ -23,7 +23,7 @@ Lär dig hur du konfigurerar TLS/SSL-principinställningar och chiffersviter på
 
 ## <a name="get-available-tls-options"></a>Hämta tillgängliga TLS-alternativ
 
-`Get-AzApplicationGatewayAvailableSslOptions` Cmdleten innehåller en lista över tillgängliga fördefinierade principer, tillgängliga chiffersviter och protokoll versioner som kan konfigureras. I följande exempel visas ett exempel på utdata från att köra cmdleten.
+`Get-AzApplicationGatewayAvailableSslOptions`Cmdleten innehåller en lista över tillgängliga fördefinierade principer, tillgängliga chiffersviter och protokoll versioner som kan konfigureras. I följande exempel visas ett exempel på utdata från att köra cmdleten.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -73,9 +73,9 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-tls-policies"></a>Visa en lista över fördefinierade TLS-principer
 
-Application Gateway innehåller tre fördefinierade principer som kan användas. Cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` : en hämtar dessa principer. Varje princip har olika protokoll versioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en TLS-princip på din Application Gateway. Som standard väljs **AppGwSslPolicy20150501** om ingen viss TLS-princip har definierats.
+Application Gateway innehåller tre fördefinierade principer som kan användas. `Get-AzApplicationGatewaySslPredefinedPolicy`Cmdlet: en hämtar dessa principer. Varje princip har olika protokoll versioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en TLS-princip på din Application Gateway. Som standard väljs **AppGwSslPolicy20150501** om ingen viss TLS-princip har definierats.
 
-Följande utdata är ett exempel på att köra `Get-AzApplicationGatewaySslPredefinedPolicy`.
+Följande utdata är ett exempel på att köra `Get-AzApplicationGatewaySslPredefinedPolicy` .
 
 ```
 Name: AppGwSslPolicy20150501

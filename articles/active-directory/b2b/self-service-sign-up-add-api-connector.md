@@ -1,23 +1,22 @@
 ---
-title: Lägga till en API-anslutning till ett användar flöde
+title: Lägg till API-kopplingar till självbetjänings registrerings flöden – Azure AD
 description: Konfigurera ett webb-API som ska användas i ett användar flöde.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 04/20/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738e25a0cd9778f3ee767fc3f9b6944c9c2e6473
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 3f186bdc60ed5a30dd51b293e168c7a41377e621
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680058"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905105"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -30,22 +29,23 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **alla API-kopplingar (förhands granskning)** och välj sedan **ny API-anslutning**.
 
-    ![Lägg till en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
+   ![Lägg till en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
 5. Ange ett visnings namn för anropet. Du kan till exempel **kontrol lera godkännande statusen**.
 6. Ange **slut punkts-URL** för API-anropet.
 7. Ange autentiseringsinformation för API: et.
-    - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+
+   - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
    ![Lägg till en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
 8. Välj de anspråk som du vill skicka till API: et.
 9. Välj eventuella anspråk som du planerar att ta emot tillbaka från API: et.
- 
-    ![Ange anspråk för API-koppling](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+
+   ![Ange anspråk för API-koppling](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
 
 10. Välj **Spara**.
- 
+
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 
 Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjänings registrerings användar flöde.
@@ -55,6 +55,7 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjän
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **användar flöden (förhands granskning)** och välj sedan det användar flöde som du vill lägga till API-kopplingen till.
 5. Välj **API-kopplingar**och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
+
    - **När du har loggat in med en identitets leverantör**
    - **Innan du skapar användaren**
 
@@ -65,9 +66,11 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjän
 Lär dig mer om [var du kan aktivera en API-koppling i ett användar flöde](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow).
 
 ## <a name="request-sent-to-the-api"></a>Begäran skickades till API: et
+
 En API-anslutning materialiseras som en HTTP POST-begäran, vilket skickar valda anspråk som nyckel/värde-par i en JSON-text. Svaret bör även ha HTTP-huvudet `Content-Type: application/json` . Attributen serialiseras på samma sätt som Microsoft Graph användarattribut. <!--# TODO: Add link to MS Graph or create separate reference.-->
 
 ### <a name="example-request"></a>Exempelbegäran
+
 ```http
 POST <API-endpoint>
 Content-type: application/json
@@ -83,8 +86,8 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "postalCode": "33971",
- "extension_<aad-extensions-app-id>_CustomAttribute1": "custom attribute value",
- "extension_<aad-extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -93,11 +96,10 @@ Det **lokala användar gränssnittet (ui_locales)** skickas som standard i alla 
 
 Om ett anspråk att skicka inte har något värde när API-slutpunkten anropas skickas inte anspråket till API: et.
 
-Du kan skapa anpassade attribut för användaren med hjälp av **formatet \<aad-extensions-app-id> extension_ \<AttributeName> _** . Ditt API bör förvänta sig att ta emot anspråk i samma serialiserade format. Ditt API kan returnera anspråk i samma format men utan `<aad-extensions-app-id>` . <!--TODO: update once fix is rolled out--> Mer information om anpassade attribut finns i [definiera anpassade attribut för](user-flow-add-custom-attributes.md)självbetjänings registrerings flöden.
+Du kan skapa anpassade attribut för användaren med hjälp av **extension_ \<extensions-app-id> _AttributeName** format. Ditt API bör förvänta sig att ta emot anspråk i samma serialiserade format. Ditt API kan returnera anspråk med eller utan `<extensions-app-id>` . Mer information om anpassade attribut finns i [definiera anpassade attribut för](user-flow-add-custom-attributes.md)självbetjänings registrerings flöden.
 
-> [!TIP]
-> [**Identiteter ("identiteter")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) och anspråk för **e-postadressen (email_address)** kan användas för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med ett Google eller Facebook och "email_address" alltid skickas.
-
+> [!TIP] 
+> [**identiteter ("identiteter")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) och anspråk för **e-postadressen (email_address)** kan användas för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med ett Google eller Facebook och "email_address" alltid skickas.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Förväntade svars typer från webb-API: et
 
@@ -118,28 +120,29 @@ Om ett anspråk returneras av API: et och väljs som ett **anspråk att ta emot*
 - Tilldelar ett värde till anspråket om det tidigare var null.
 
 #### <a name="example-of-a-continuation-response"></a>Exempel på ett fortsättnings svar
+
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "version": "1.0.0", 
-    "action": "Continue",  
-    "postalCode": "12349", // return claim 
-    "extension_CustomAttribute": "value" // return claim 
+    "version": "1.0.0",
+    "action": "Continue",
+    "postalCode": "12349", // return claim
+    "extension_<extensions-app-id>_CustomAttribute": "value" // return claim
 }
 ```
 
-| Parameter  | Typ  | Obligatorisk | Beskrivning |
-|---|---|---|---|
-| version | Sträng | Yes | API-versionen. |
-| åtgärd  | Sträng | Yes | Värdet måste vara `Continue` . |
-| \<builtInUserAttribute> | \<attribute-type> | No  | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**. |
-| \<extension_CustomAttribute> | \<attribute-type> | No  | Retur anspråket *saknar* `_<aad-extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
+| -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| version                                            | Sträng            | Yes      | API-versionen.                                                                                                                                                                                                                                                                |
+| åtgärd                                             | Sträng            | Yes      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket kan eventuellt inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
 ### <a name="blocking-response"></a>Blockerar svar
 
-Ett blockerande svar avslutar användar flödet. Det kan användas av API: et för att stoppa användar flödet genom att visa en blockera-sida för användaren. Sidan blockera visar den `userMessage` som tillhandahålls av API: et. 
+Ett blockerande svar avslutar användar flödet. Det kan användas av API: et för att stoppa användar flödet genom att visa en blockera-sida för användaren. Sidan blockera visar den `userMessage` som tillhandahålls av API: et.
 
 Följande är ett exempel på blockerings svaret:
 
@@ -149,19 +152,19 @@ Content-type: application/json
 
 {
     "version": "1.0.0",
-    "action": "ShowBlockPage", 
+    "action": "ShowBlockPage",
     "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
     "code": "CONTOSO-BLOCK-00"
 }
 
 ```
 
-| Parameter  | Typ  | Obligatorisk | Beskrivning |
-|---|---|---|---|
-| version         | Sträng           | Yes      | API-versionen.    |
-| åtgärd          | Sträng           | Yes      | Värdet måste vara`ShowBlockPage`  |
-| userMessage     | Sträng           | Yes      | Meddelande som ska visas för användaren.    |
-| kod            | Sträng           | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren.    |
+| Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
+| ----------- | ------ | -------- | -------------------------------------------------------------------------- |
+| version     | Sträng | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng | Yes      | Värdet måste vara`ShowBlockPage`                                              |
+| userMessage | Sträng | Yes      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Slut användar upplevelse med ett blockerande svar
 
@@ -178,29 +181,32 @@ HTTP/1.1 400 Bad Request
 Content-type: application/json
 
 {
-    "version": "1.0.0", 
+    "version": "1.0.0",
     "status": 400,
-    "action": "ValidationError",  
+    "action": "ValidationError",
     "userMessage": "Please enter a valid Postal Code.",
     "code": "CONTOSO-VALIDATION-00"
 }
 ```
 
-| Parameter  | Typ  | Obligatorisk | Beskrivning |
-|---|---|---|---|
-| version         | Sträng           | Yes      | API-versionen.   |
-| åtgärd          | Sträng           | Yes      | Värdet måste vara `ValidationError` .   |
-| status          | Heltal          | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.  |
-| userMessage     | Sträng           | Yes      | Meddelande som ska visas för användaren.   |
-| kod            | Sträng           | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren.    |
+| Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
+| ----------- | ------- | -------- | -------------------------------------------------------------------------- |
+| version     | Sträng  | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng  | Yes      | Värdet måste vara `ValidationError` .                                           |
+| status      | Integer | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| userMessage | Sträng  | Yes      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng  | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Slut användar upplevelse med ett verifierings fel svar
 
 ![Exempel på validerings sida](./media/api-connectors-overview/validation-error-postal-code.png)
 
+### <a name="integration-with-azure-functions"></a>Integrering med Azure-funktioner
+Du kan använda en HTTP-utlösare i Azure Functions som ett enkelt sätt skapa ett API som ska användas med API-kopplingen. Du kan använda Azure-funktionen till att till [exempel](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)utföra validerings logik och begränsa registreringen till vissa domäner. Du kan också anropa och anropa andra webb-API: er, användar lager och andra moln tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig [hur ditt API bör svara](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api)
-- Lär dig [var du kan aktivera en API-anslutning](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow)
+
+<!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Lär dig hur du [lägger till ett anpassat godkännande arbets flöde till självbetjänings registrering](self-service-sign-up-add-approvals.md)
-<!-- - Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing) -->
+- Kom igång med våra [snabb starts exempel för Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+<!-- - Learn how to [use API connectors to verify a user identity](code-samples-self-service-sign-up.md#identity-verification) -->

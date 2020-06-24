@@ -8,17 +8,17 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a13a2a081815f2a3b668caf9b4e78c2208601cb2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420936"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703017"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Distribuera ett IPv6-program med dubbla stackar i Azure – PowerShell
 
@@ -307,7 +307,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Fastställa IP-adresser för IPv4-och IPv6-slutpunkter
-Hämta alla nätverks gränssnitts objekt i resurs gruppen för att sammanfatta de IP-adresser som används i den `get-AzNetworkInterface`här distributionen med. Hämta också Load Balancerens frontend-adresser för IPv4-och IPv6-slutpunkterna `get-AzpublicIpAddress`med.
+Hämta alla nätverks gränssnitts objekt i resurs gruppen för att sammanfatta de IP-adresser som används i den här distributionen med `get-AzNetworkInterface` . Hämta också Load Balancerens frontend-adresser för IPv4-och IPv6-slutpunkterna med `get-AzpublicIpAddress` .
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

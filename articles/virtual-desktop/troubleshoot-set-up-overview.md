@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f177c0961c1ab408916d046b36a0a1b54e816751
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84455815"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976497"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Översikt, feedback och support för felsökning
 
@@ -40,7 +40,7 @@ Använd följande tabell för att identifiera och lösa problem som kan uppstå 
 | **Problem**                                                            | **Föreslagen lösning**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Session Host pool Azure-Virtual Network (VNET) och Express Route-inställningar               | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj lämplig tjänst (under kategorin nätverk). |
-| Skapa virtuell dator för Session Host pool (VM) när Azure Resource Manager mallar som medföljer Windows Virtual Desktop används inte | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj sedan **virtuell dator som kör Windows** för tjänsten. <br> <br> Om du har problem med Azure Resource Manager mallar som medföljer Windows Virtual Desktop kan du läsa avsnittet Azure Resource Manager mall fel i [skapa en Fakturapool](troubleshoot-set-up-issues.md). |
+| Skapa virtuell dator för Session Host pool (VM) när Azure Resource Manager mallar som medföljer Windows Virtual Desktop används inte | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/)och välj sedan **Windows Virtual Desktop** för tjänsten. <br> <br> Om du har problem med Azure Resource Manager mallar som medföljer Windows Virtual Desktop kan du läsa avsnittet Azure Resource Manager mall fel i [skapa en Fakturapool](troubleshoot-set-up-issues.md). |
 | Hantera Windows virtuell skrivbord värd miljö från Azure Portal    | [Öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> För hanterings problem när du använder Fjärrskrivbordstjänster/Windows Virtual Desktop PowerShell, se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) eller [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), Välj **Windows Virtual Desktop** för tjänsten, Välj **konfiguration och hantering** för problem typen och välj sedan **problem med att konfigurera miljön med PowerShell** för problem under typen. |
 | Hantera konfiguration av virtuella Windows-skrivbordet knutna till värdar och program grupper (app-grupper)      | Se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)eller [öppna en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), Välj **Windows Virtual Desktop** för tjänsten och välj sedan lämplig problem typ.|
 | Distribuera och hantera FSLogix profil behållare | Se [fel söknings guide för FSLogix-produkter](/fslogix/fslogix-trouble-shooting-ht/) och om det inte löser [problemet öppnar du en support förfrågan för Azure](https://azure.microsoft.com/support/create-ticket/), väljer **Windows Virtual Desktop** för tjänsten, väljer **FSLogix** för problem typen och väljer sedan motsvarande typ av problem. |

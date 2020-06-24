@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: da7164fbf9148764ef8da0205b147b0fd188de9d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457260"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975800"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Skapa en virtuell Windows-dator med accelererat nätverk med Azure PowerShell
 
@@ -66,6 +66,10 @@ Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimer
 På instanser som stöder hyperthreading stöds accelererat nätverk på VM-instanser med fyra eller fler virtuella processorer. Serien som stöds är: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS och MS/Mmsv2.
 
 Mer information om VM-instanser finns i [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Anpassade avbildningar
+
+Om du använder en anpassad avbildning och din avbildning har stöd för accelererat nätverk måste du se till att du har de driv rutiner som krävs för Mellanox ConnectX-3-och ConnectX-4 LX-nätverkskort på Azure.
 
 ### <a name="regions"></a>Regioner
 

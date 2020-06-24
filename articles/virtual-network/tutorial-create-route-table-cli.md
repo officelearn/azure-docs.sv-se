@@ -4,25 +4,25 @@ description: I den här artikeln får du lära dig hur du dirigerar nätverks tr
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235053"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703357"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverks trafik med en routningstabell med hjälp av Azure CLI
 
@@ -36,7 +36,7 @@ Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nät
 * Distribuera virtuella datorer till olika undernät
 * Dirigera trafik från ett undernät till ett annat via en NVA
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 En NVA är en virtuell dator som utför en nätverksfunktion, som routning, brandvägg eller WAN-optimering.
 
-Skapa en NVA i *DMZ* -undernätet med [AZ VM Create](/cli/azure/vm). När du skapar en virtuell dator skapar Azure och tilldelar en offentlig IP-adress till den virtuella datorn som standard. `--public-ip-address ""` Parametern instruerar Azure att inte skapa och tilldela den virtuella datorn en offentlig IP-adress, eftersom den virtuella datorn inte behöver vara ansluten till från Internet. Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Skapa en NVA i *DMZ* -undernätet med [AZ VM Create](/cli/azure/vm). När du skapar en virtuell dator skapar Azure och tilldelar en offentlig IP-adress till den virtuella datorn som standard. `--public-ip-address ""`Parametern instruerar Azure att inte skapa och tilldela den virtuella datorn en offentlig IP-adress, eftersom den virtuella datorn inte behöver vara ansluten till från Internet. Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -162,7 +162,7 @@ Det kan ta upp till en minut att köra kommandot.
 
 Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafiken från det *offentliga* under nätet dirigeras till det *privata* under nätet via NVA i ett senare steg. 
 
-Skapa en virtuell dator i det *offentliga* under nätet med [AZ VM Create](/cli/azure/vm). `--no-wait` Parametern gör det möjligt för Azure att köra kommandot i bakgrunden så att du kan fortsätta till nästa kommando. För att förenkla den här artikeln används ett lösen ord. Nycklar används vanligt vis i produktions distributioner. Om du använder nycklar måste du också konfigurera vidarebefordran av SSH-agenten. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösen ord som du väljer själv.
+Skapa en virtuell dator i det *offentliga* under nätet med [AZ VM Create](/cli/azure/vm). `--no-wait`Parametern gör det möjligt för Azure att köra kommandot i bakgrunden så att du kan fortsätta till nästa kommando. För att förenkla den här artikeln används ett lösen ord. Nycklar används vanligt vis i produktions distributioner. Om du använder nycklar måste du också konfigurera vidarebefordran av SSH-agenten. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösen ord som du väljer själv.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -210,7 +210,7 @@ Anteckna **publicIpAddress**. Den här adressen används för att komma åt den 
 
 ## <a name="route-traffic-through-an-nva"></a>Dirigera trafik via NVA
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn *myVmPrivate* . Ersätt * \<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan är IP-adressen *13.90.242.231*.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn *myVmPrivate* . Ersätt *\<publicIpAddress>* med den offentliga IP-adressen för den virtuella datorn. I exemplet ovan är IP-adressen *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>

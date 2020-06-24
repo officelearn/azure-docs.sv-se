@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 51999572dc9ebf7e3a5d537f5e902c50cd473279
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835656"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791239"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: identifiering av bedrägerier i real tid
 
@@ -31,14 +31,14 @@ I den här självstudien används exemplet på identifiering av bedrägerier i r
 
 Ett tele bolag har en stor mängd data för inkommande samtal. Företaget vill kunna identifiera bedrägliga samtal i real tid så att de kan meddela kunder eller stänga av tjänsten för ett särskilt nummer. En typ av SIM-bedrägeri omfattar flera anrop från samma identitet ungefär samma tid, men i geografiskt olika platser. För att identifiera den här typen av bedrägerier måste företaget undersöka inkommande telefon poster och leta efter vissa mönster, i det här fallet för samtal som görs runt samma tid i olika länder/regioner. Alla telefon poster som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien ska du simulera telefon samtals data med hjälp av en klient app som genererar metadata för telefonsamtal. Några av de poster som appen skapar ser ut som bedrägliga samtal. 
 
 Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
-* Appen anropa-Event generator, [TelcoGenerator. zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), som kan laddas ned från Microsoft Download Center. Zippa upp det här paketet till en mapp på datorn. Om du vill se käll koden och köra appen i en fel sökare kan du hämta käll koden för appen från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* Appen anropa-Event generator, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), som kan laddas ned från Microsoft Download Center. Zippa upp det här paketet till en mapp på datorn. Om du vill se käll koden och köra appen i en fel sökare kan du hämta käll koden för appen från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows kan blockera den hämtade ZIP-filen. Om du inte kan zippa upp den högerklickar du på filen och väljer **Egenskaper**. Om du ser meddelandet "den här filen kom från en annan dator och kan blockeras för att skydda den här datorn" väljer du alternativet **Häv blockering** och klickar sedan på **Använd**.
@@ -47,7 +47,7 @@ Om du vill undersöka resultatet av streaming Analytics-jobbet behöver du ocks�
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Skapa ett Azure-Event Hubs för att mata in händelser
 
-Du kan analysera en data ström genom *att mata in den i* Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), vilket gör att du kan mata in miljon tals händelser per sekund och sedan bearbeta och lagra händelse informationen. I den här självstudien skapar du en Event Hub och använder sedan appen anropa-Event generator för att skicka anrops data till den händelsehubben. Mer information om Event Hub finns i [Azure Service Bus-dokumentationen](https://docs.microsoft.com/azure/service-bus/).
+Du kan analysera en data ström genom *att mata in den i* Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), vilket gör att du kan mata in miljon tals händelser per sekund och sedan bearbeta och lagra händelse informationen. I den här självstudien skapar du en Event Hub och använder sedan appen anropa-Event generator för att skicka anrops data till den händelsehubben.
 
 >[!NOTE]
 >En mer detaljerad version av den här proceduren finns i [skapa ett Event Hubs-namnområde och en Event Hub med hjälp av Azure Portal](../event-hubs/event-hubs-create.md). 
@@ -123,7 +123,7 @@ Innan du startar TelcoGenerator-appen måste du konfigurera den så att den skic
 
 1. Anteckna värdet i redigeraren där du kopierade anslutnings strängen `EntityPath` och ta sedan bort `EntityPath` paret (Glöm inte att ta bort det semikolon som föregår det). 
 
-2. I mappen där du zippade TelcoGenerator. zip-filen öppnar du filen telcodatagen. exe. config i en redigerare. (Det finns mer än en. config-fil så se till att du öppnar rätt.)
+2. I mappen där du zippade TelcoGenerator.zip-filen öppnar du telcodatagen.exe.config filen i ett redigerings program. (Det finns mer än en. config-fil så se till att du öppnar rätt.)
 
 3. I `<appSettings>` elementet:
 
@@ -162,7 +162,7 @@ Innan du startar TelcoGenerator-appen måste du konfigurera den så att den skic
 
 Några av de nyckel fält som du kommer att använda i det här programmet för bedrägeri identifiering i real tid är följande:
 
-|**Spela in**|**Definition**|
+|**Post**|**Definition**|
 |----------|--------------|
 |`CallrecTime`|Tidsstämpeln för samtalets starttid. |
 |`SwitchNum`|Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar ursprungslandet/regionen (USA, Kina, Storbritannien, Tyskland eller Australien). |
@@ -202,7 +202,7 @@ Nu när du har en data ström med samtals händelser kan du konfigurera ett Stre
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias  |  CallStream   |  Ange ett namn för att identifiera jobbets indatatyper.   |
-   |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration som har händelsehubben som du skapade.   |
+   |Prenumeration   |  \<Your subscription\> |  Välj den Azure-prenumeration som har händelsehubben som du skapade.   |
    |Namnområde för händelsehubb  |  ASA-händelsehubbnamnområde-ns-demo |  Ange namnet på Event Hub-namnområdet.   |
    |Namn på händelsehubb  | ASA-händelsehubbnamnområde-frauddetection-demo | Välj namnet på Händelsehubben.   |
    |Principnamn för Event Hub  | ASA-policy-hantera-demo | Välj den åtkomst princip som du skapade tidigare.   |
@@ -372,7 +372,7 @@ Om du har ett befintligt Blob Storage-konto kan du använda det. I den här sjä
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Utdataalias  |  CallStream – FraudulentCalls   |  Ange ett namn för att identifiera jobbets utdata.   |
-   |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
+   |Prenumeration   |  \<Your subscription\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto  |  asaehstorage |  Ange namnet på det lagrings konto som du har skapat. |
    |Container  | ASA-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållar namn. |
 

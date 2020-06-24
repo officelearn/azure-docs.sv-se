@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189070"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738642"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverks trafik mönster till och från dina virtuella datorer med hjälp av verktyg med öppen källkod
 
@@ -35,7 +35,7 @@ Du har ett enkelt webb program som distribueras på en virtuell dator i Azure vi
 
 ### <a name="install-capanalysis"></a>Installera CapAnalysis
 
-Om du vill installera CapAnalysis på en virtuell dator kan du läsa de officiella anvisningarna här https://www.capanalysis.net/ca/how-to-install-capanalysis.
+Om du vill installera CapAnalysis på en virtuell dator kan du läsa de officiella anvisningarna här https://www.capanalysis.net/ca/how-to-install-capanalysis .
 För att få åtkomst till CapAnalysis måste du öppna port 9877 på den virtuella datorn genom att lägga till en ny inkommande säkerhets regel. Mer information om hur du skapar regler i nätverks säkerhets grupper finns i [skapa regler i en befintlig NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). När regeln har lagts till ska du kunna komma åt CapAnalysis från`http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Använd Azure-Network Watcher för att starta en paket insamlings session

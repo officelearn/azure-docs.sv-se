@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/16/2020
+ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: adaf385293d48f76e5daaccf3b42895c4acf5dfc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559392"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976769"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Det här dokumentet är uppdelat i två delar:
 * Skapa en anpassad bas avbildning: ger information till administratörer och DevOps för att skapa en anpassad avbildning och konfigurera autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
 * Distribuera en modell med hjälp av en anpassad bas avbildning: ger information till data vetenskaps-och DevOps/ML-tekniker med anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
@@ -175,7 +175,7 @@ Mer information om hur du överför befintliga avbildningar till en Azure Contai
 
 Om du vill använda en anpassad avbildning behöver du följande information:
 
-* __Avbildningens namn__. Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` är sökvägen till en grundläggande Docker-avbildning från Microsoft.
+* __Avbildningens namn__. Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` är sökvägen till en grundläggande Docker-avbildning från Microsoft.
 
     > [!IMPORTANT]
     > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1` . Om du inte använde en speciell tagg när du skapade avbildningen användes en-tagg `:latest` .
@@ -191,7 +191,7 @@ Om du vill använda en anpassad avbildning behöver du följande information:
 
 Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgänglig lagrings plats som kan användas med stegen i det här avsnittet:
 
-| Bild | Description |
+| Bild | Beskrivning |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Grundläggande avbildning för Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Innehåller ONNX runtime för CPU inferencing |
@@ -205,15 +205,7 @@ Mer information om ONNX för körnings bas avbildningar finns i [avsnittet ONNX 
 > [!TIP]
 > Eftersom dessa bilder är offentligt tillgängliga behöver du inte ange någon adress, användar namn eller lösen ord när du använder dem.
 
-Mer information finns i [Azure Machine Learning behållare](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd om du vill identifiera namnet på den här avbildningen `run.properties["AzureML.DerivedImageName"]` . Följande exempel visar hur du använder den här avbildningen:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+Mer information finns i [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers) -lagringsplatsen på GitHub.
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Använd en avbildning med Azure Machine Learning SDK
 
@@ -228,7 +220,7 @@ from azureml.core.environment import Environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
 myenv.docker.enabled = True
-myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest"
 ```
 
 Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets yta, måste du använda `docker.base_image_registry` för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
@@ -289,7 +281,7 @@ Innan du distribuerar en modell med hjälp av Machine Learning CLI skapar du en 
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995767"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296346"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Övervaka Key Vault med Azure Event Grid (förhands granskning)
 
-Key Vault integration med Event Grid är för närvarande en för hands version. Det gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. En status ändring definieras som en hemlighet som håller på att gå ut (inom 30 dagar efter förfallo datum), en hemlighet som har upphört att gälla eller en hemlighet med en ny version som är tillgänglig. Aviseringar för alla tre hemliga typer (nyckel, certifikat och hemlighet) stöds.
+Key Vault integration med Event Grid är för närvarande en för hands version. Det gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. En status ändring definieras som en hemlighet som håller på att gå ut (30 dagar före förfallo datum), en hemlighet som har upphört att gälla eller en hemlighet med en ny version som är tillgänglig. Aviseringar för alla tre hemliga typer (nyckel, certifikat och hemlighet) stöds.
 
 Program kan reagera på dessa händelser med hjälp av moderna serverbaserade arkitekturer, utan behov av komplicerade kod eller dyra och ineffektiva avsöknings tjänster. Händelser överförs via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till händelse hanterare som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med din egen webhook, och du betalar bara för det du använder. Information om priser finns i [Event Grid priser](https://azure.microsoft.com/pricing/details/event-grid/).
 
@@ -42,7 +42,7 @@ Program som hanterar Key Vault händelser bör följa några rekommenderade meto
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Key Vault](overview.md))
+- [Översikt över Azure Key Vault](overview.md)
 - [Översikt för Azure Event Grid](../../event-grid/overview.md)
 - Gör så här: [dirigera Key Vault händelser till Automation Runbook (för hands version)](event-grid-tutorial.md).
 - Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](event-grid-logicapps.md)

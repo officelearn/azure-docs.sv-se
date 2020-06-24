@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715706"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118958"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra feed design mönster i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Azure Cosmos DB passar bra för IoT-, spel-, detalj-och drift loggnings program.
 
 Med ändrings flödet i Azure Cosmos DB kan du bygga effektiva och skalbara lösningar för var och en av dessa mönster, som du ser i följande bild:
 
-![Använda Azure Cosmos DB ändra feed till Power real tids analys och händelse drivna scenarier](./media/change-feed/changefeedoverview.png)
+:::image type="content" source="./media/change-feed/changefeedoverview.png" alt-text="Använda Azure Cosmos DB ändra feed till Power real tids analys och händelse drivna scenarier" border="false":::
 
 ## <a name="event-computing-and-notifications"></a>Händelse bearbetning och meddelanden
 
@@ -38,7 +38,7 @@ Du kan också selektivt utlösa ett meddelande eller skicka ett anrop till ett A
 Azure Cosmos DB ändra feed kan användas för data ström bearbetning i real tid för IoT-eller real tids analys bearbetning av drift data.
 Du kan till exempel ta emot och lagra händelse data från enheter, sensorer, infrastruktur och program och bearbeta dessa händelser i real tid med hjälp av [Spark](../hdinsight/spark/apache-spark-overview.md). Följande bild visar hur du kan implementera en lambda-arkitektur med hjälp av Azure Cosmos DB via ändra feed:
 
-![Azure Cosmos DB-baserad lambda-pipeline för inmatning och fråga](./media/change-feed/lambda.png)
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB-baserad lambda-pipeline för inmatning och fråga" border="false":::
 
 I många fall får implementationen av data bearbetningen först en stor mängd inkommande data till en tillfällig meddelandekö, till exempel Azure Event Hub eller Apache Kafka. Ändrings flödet är ett bra alternativ på grund av Azure Cosmos DBs möjlighet att stödja en varaktig hög takt med data inmatning med garanterad låg Läs-och skriv fördröjning. Fördelarna med Azure Cosmos DB ändra feed över en meddelandekö är:
 

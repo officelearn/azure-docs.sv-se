@@ -16,7 +16,7 @@ ms.locfileid: "80117049"
 
 Med hjälp av anpassnings funktionen för sid gränssnitt kan du anpassa utseendet på en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 
-### <a name="how-it-works"></a>Hur det fungerar
+### <a name="how-it-works"></a>Så här fungerar det
 
 Azure AD B2C kör kod i kundens webbläsare genom att använda [resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/). Vid körning läses innehållet in från en URL som du anger i ditt användar flöde eller en anpassad princip. Varje sida i användar gränssnittet läser in innehållet från den URL som du anger för sidan. När innehållet har lästs in från din URL sammanfogas det med ett HTML-fragment som infogats av Azure AD B2C och sedan visas sidan för kunden.
 
@@ -24,9 +24,9 @@ Azure AD B2C kör kod i kundens webbläsare genom att använda [resurs delning m
 
 ## <a name="custom-html-page-content"></a>Innehåll för anpassad HTML-sida
 
-Skapa en HTML-sida med ditt eget varumärke för att hantera ditt anpassade sid innehåll. Den här sidan kan vara en `*.html` statisk sida eller en dynamisk sida som .net, Node. js eller php.
+Skapa en HTML-sida med ditt eget varumärke för att hantera ditt anpassade sid innehåll. Den här sidan kan vara en statisk `*.html` sida eller en dynamisk sida som .net, Node.js eller php.
 
-Ditt anpassade sid innehåll kan innehålla alla HTML-element, inklusive CSS och Java Script, men kan inte innehålla osäkra element som iframes. Det enda obligatoriska elementet är ett div-element `id` med inställt på `api`, till `<div id="api"></div>` exempel det här i din HTML-sida.
+Ditt anpassade sid innehåll kan innehålla alla HTML-element, inklusive CSS och Java Script, men kan inte innehålla osäkra element som iframes. Det enda obligatoriska elementet är ett div-element med `id` inställt på `api` , till exempel det här `<div id="api"></div>` i din HTML-sida.
 
 ```html
 <!DOCTYPE html>
@@ -48,11 +48,11 @@ I följande tabell visas standard sid innehållet som tillhandahålls av Azure A
 
 | Standard sida | Beskrivning | ID för innehålls definition<br/>(endast anpassad princip) |
 |:-----------------------|:--------|-------------|
-| [exception. html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. | *API. error* |
-| [selfasserted. html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Själv kontrollerad sida**. Använd den här filen som ett anpassat sid innehåll för registrerings sidan för ett socialt konto, en registrerings sida för lokalt konto, en inloggnings sida för lokalt konto, lösen ords återställning med mera. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
-| [Multifactor-1.0.0. html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Sidan Multi-Factor Authentication**. På den här sidan kan användarna verifiera sina telefonnummer (med hjälp av text eller röst) under registreringen eller inloggningen. | *API. phonefactor* |
-| [updateprofile. html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering**. Den här sidan innehåller ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. | *API. selfasserted. profileupdate* |
-| [Unified. html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrerings-eller inloggnings sida**. Den här sidan hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. | *API. signuporsignin* |
+| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. | *API. error* |
+| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Själv kontrollerad sida**. Använd den här filen som ett anpassat sid innehåll för registrerings sidan för ett socialt konto, en registrerings sida för lokalt konto, en inloggnings sida för lokalt konto, lösen ords återställning med mera. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
+| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Sidan Multi-Factor Authentication**. På den här sidan kan användarna verifiera sina telefonnummer (med hjälp av text eller röst) under registreringen eller inloggningen. | *API. phonefactor* |
+| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering**. Den här sidan innehåller ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. | *API. selfasserted. profileupdate* |
+| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrerings-eller inloggnings sida**. Den här sidan hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. | *API. signuporsignin* |
 
 ## <a name="hosting-the-page-content"></a>Värd för sid innehållet
 
@@ -61,7 +61,7 @@ När du använder egna HTML-och CSS-filer för att anpassa användar gränssnitt
 ## <a name="guidelines-for-using-custom-page-content"></a>Rikt linjer för att använda anpassat sid innehåll
 
 - Använd en absolut URL när du inkluderar externa resurser som media, CSS och JavaScript-filer i HTML-filen.
-- Med hjälp av 1.2.0 [och senare kan](../articles/active-directory-b2c/page-layout.md) du lägga till `data-preload="true"` attributet i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script. Med `data-preload=true`konstrueras sidan innan den visas för användaren. Det här attributet förhindrar sidan från att flimra genom att i förväg läsa in CSS-filen utan att den icke-formaterade HTML-koden visas för användaren. Följande HTML-kodfragment visar hur `data-preload` taggen används.
+- Med hjälp av 1.2.0 [och senare kan](../articles/active-directory-b2c/page-layout.md) du lägga till `data-preload="true"` attributet i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script. Med `data-preload=true` konstrueras sidan innan den visas för användaren. Det här attributet förhindrar sidan från att flimra genom att i förväg läsa in CSS-filen utan att den icke-formaterade HTML-koden visas för användaren. Följande HTML-kodfragment visar hur `data-preload` taggen används.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -73,14 +73,14 @@ När du använder egna HTML-och CSS-filer för att anpassa användar gränssnitt
   - Google Chrome 42,0 och senare
   - Mozilla Firefox 38,0 och senare
   - Safari för iOS och macOS, version 12 och senare
-- På grund av säkerhets begränsningar stöder `frame`Azure AD B2C inte, `iframe`eller `form` HTML-element.
+- På grund av säkerhets begränsningar stöder Azure AD B2C inte `frame` , `iframe` eller `form` HTML-element.
 
 ## <a name="custom-page-content-walkthrough"></a>Genom gång av anpassat sid innehåll
 
 Här är en översikt över processen:
 
 1. Förbered en plats som ska vara värd för ditt anpassade sid innehåll (en offentligt tillgänglig, CORS-aktiverad HTTPS-slutpunkt).
-1. Hämta och anpassa en standard innehålls fil för sidor, till `unified.html`exempel.
+1. Hämta och anpassa en standard innehålls fil för sidor, till exempel `unified.html` .
 1. Publicera ditt anpassade sid innehåll till en offentligt tillgänglig HTTPS-slutpunkt.
 1. Ange resurs delning mellan ursprung (CORS) för din webbapp.
 1. Peka din princip till din anpassade princip innehålls-URI.
@@ -89,7 +89,7 @@ Här är en översikt över processen:
 
 Skapa ett anpassat sid innehåll med produktens märkes namn i rubriken.
 
-1. Kopiera följande HTML-kodfragment. Den är välformulerad HTML5 med ett tomt element som kallas * \<div ID = "API\>\<"\> /div* finns i * \<Body\> * -taggarna. Det här elementet anger var Azure AD B2C innehåll ska infogas.
+1. Kopiera följande HTML-kodfragment. Den är välformulerad HTML5 med ett tomt element som kallas * \< div ID = "API" \> \< /div \> * finns i * \< Body \> * -taggarna. Det här elementet anger var Azure AD B2C innehåll ska infogas.
 
    ```html
    <!DOCTYPE html>
@@ -103,7 +103,7 @@ Skapa ett anpassat sid innehåll med produktens märkes namn i rubriken.
    </html>
    ```
 
-1. Klistra in det kopierade kodfragmentet i en text redigerare och spara sedan filen som *Customize-UI. html*.
+1. Klistra in det kopierade kodfragmentet i en text redigerare och spara sedan filen som *customize-ui.html*.
 
 > [!NOTE]
 > HTML-formulärets element tas bort på grund av säkerhets begränsningar om du använder login.microsoftonline.com. [Använd b2clogin.com](../articles/active-directory-b2c/b2clogin.md)om du vill använda HTML-formulär element i ditt anpassade HTML-innehåll.
@@ -115,7 +115,7 @@ I den här artikeln använder vi Azure Blob Storage för att vara värd för vå
 Utför följande steg för att vara värd för HTML-innehåll i Blob Storage:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. På menyn **hubb** väljer du **nytt** > **lagrings** > **lagrings konto**.
+1. På menyn **hubb** väljer du **nytt**  >  **lagrings**  >  **lagrings konto**.
 1. Välj en **prenumeration** för ditt lagrings konto.
 1. Skapa en **resurs grupp** eller Välj en befintlig.
 1. Ange ett unikt **namn** för ditt lagrings konto.
@@ -142,20 +142,20 @@ Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 
 1. Välj **Överför**.
 1. Välj mappikonen bredvid **Välj en fil**.
-1. Gå till och välj **Customize-UI. html**, som du skapade tidigare i avsnittet anpassning av sid gränssnitt.
+1. Navigera till och välj **customize-ui.html**, som du skapade tidigare i avsnittet sid UI anpassning.
 1. Om du vill överföra till en undermapp expanderar du **Avancerat** och anger ett mappnamn i **mappen överför till**.
 1. Välj **Överför**.
-1. Välj den **Customize-UI. html-** blob som du laddade upp.
+1. Välj den **customize-ui.html** -blob som du överförde.
 1. Till höger om text rutan **URL** väljer du ikonen **Kopiera till Urklipp** för att kopiera webb adressen till Urklipp.
-1. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du `ResourceNotFound` stöter på ett fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
+1. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du stöter `ResourceNotFound` på ett fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
 
 ### <a name="3-configure-cors"></a>3. Konfigurera CORS
 
 Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra följande steg:
 
 1. I menyn väljer du **CORS**.
-1. För **tillåtna ursprung**anger `https://your-tenant-name.b2clogin.com`du. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
-1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS`.
+1. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Exempelvis `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
+1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS` .
 1. För **tillåtna huvuden**anger du en asterisk (*).
 1. För **exponerade rubriker**anger du en asterisk (*).
 1. Ange 200 för **högsta ålder**.
@@ -169,5 +169,5 @@ Verifiera att du är redo genom att utföra följande steg:
 1. Navigera till [www.test-CORS.org](https://www.test-cors.org/) 
 1. I rutan **Fjärradress** klistrar du in URL: en för HTML-filen. Till exempel, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Välj **skicka begäran**.
-    Resultatet bör vara `XHR status: 200`. 
+    Resultatet bör vara `XHR status: 200` . 
     Kontrol lera att CORS-inställningarna är korrekta om du får ett fel meddelande. Du kan också behöva rensa webbläsarens cacheminne eller öppna en privat webbläsarsession genom att trycka på CTRL + SKIFT + P.

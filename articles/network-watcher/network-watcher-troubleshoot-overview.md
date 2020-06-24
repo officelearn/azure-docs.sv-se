@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840697"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738659"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
@@ -47,36 +47,36 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Anledning | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Inga|
-| PlannedMaintenance |  Gateway-instansen är under underhåll  |Inga|
-| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | Inga |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Inga |
-| PlatformInActive | Det är något problem med plattformen. | Inga|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Inga|
-| ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
-| GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
+| NoFault | När inget fel har identifierats |Yes|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |No|
+| PlannedMaintenance |  Gateway-instansen är under underhåll  |No|
+| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | No |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | No |
+| PlatformInActive | Det är något problem med plattformen. | No|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | No|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| No|
+| ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Yes|
+| GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Yes |
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Anledning | Logga|
 |---|---|---|
-| NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Inga|
-| PlannedMaintenance | Gateway-instansen är under underhåll  |Inga|
-| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | Inga |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Inga |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Inga |
-| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Inga|
-| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
-| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte | Ja|
-| PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
-| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
+| NoFault | När inget fel har identifierats |Yes|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |No|
+| PlannedMaintenance | Gateway-instansen är under underhåll  |No|
+| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | No |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | No |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | No |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |No|
+| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Yes |
+| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Yes|
+| Autentisering | I förväg delad nyckel matchar inte | Yes|
+| PeerReachability | Det går inte att komma åt peer-gatewayen. | Yes|
+| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Yes|
+| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Yes|
 
 ## <a name="supported-gateway-types"></a>Gateway-typer som stöds
 
@@ -107,12 +107,12 @@ De resurs fel söknings loggfilerna lagras i ett lagrings konto när resurs fel 
 
 Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
-### <a name="connectionstatstxt"></a>ConnectionStats. txt
+### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-Filen **ConnectionStats. txt** innehåller övergripande statistik för anslutningen, inklusive ingångs-och utgående byte, anslutnings status och tidpunkten då anslutningen upprättades.
+**ConnectionStats.txt** -filen innehåller övergripande statistik för anslutningen, inklusive ingångs-och utgående byte, anslutnings status och tidpunkten då anslutningen upprättades.
 
 > [!NOTE]
-> Om anropet till fel söknings-API: t returnerar felfri, är det enda som returneras i zip-filen en **ConnectionStats. txt** -fil.
+> Om anropet till fel söknings-API: t returnerar felfri, är det enda som returneras i zip-filen en **ConnectionStats.txt** -fil.
 
 Innehållet i den här filen liknar följande exempel:
 
@@ -124,19 +124,19 @@ Egress Bytes (Since last connected) : 288 B
 Connected Since : 2/1/2017 8:22:06 PM
 ```
 
-### <a name="cpustatstxt"></a>CPUStats. txt
+### <a name="cpustatstxt"></a>CPUStats.txt
 
-Filen **CPUStats. txt** innehåller CPU-användning och tillgängligt minne vid test tillfället.  Innehållet i den här filen liknar följande exempel:
+**CPUStats.txt** -filen innehåller CPU-användning och minne som är tillgängliga vid test tillfället.  Innehållet i den här filen liknar följande exempel:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
 ```
 
-### <a name="ikeerrorstxt"></a>IKEErrors. txt
+### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-Filen **IKEErrors. txt** innehåller alla IKE-fel som påträffades under övervakningen.
+**IKEErrors.txt** -filen innehåller eventuella IKE-fel som påträffades under övervakningen.
 
-I följande exempel visas innehållet i en IKEErrors. txt-fil. Felen kan variera beroende på problemet.
+I följande exempel visas innehållet i en IKEErrors.txt-fil. Felen kan variera beroende på problemet.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -145,11 +145,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag. txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-Logg filen **Scrubbed-wfpdiag. txt** innehåller WFP-loggen. Den här loggen innehåller loggning av ignorerade paket och IKE/AuthIP-problem.
+Logg filen **Scrubbed-wfpdiag.txt** innehåller logg filen för WFP. Den här loggen innehåller loggning av ignorerade paket och IKE/AuthIP-problem.
 
-I följande exempel visas innehållet i filen Scrubbed-wfpdiag. txt. I det här exemplet var den delade nyckeln till en anslutning inte korrekt eftersom kan ses från den tredje raden från den nedre. Följande exempel är bara ett kodfragment till hela loggen, eftersom loggen kan vara lång beroende på problemet.
+I följande exempel visas innehållet i Scrubbed-wfpdiag.txts filen. I det här exemplet var den delade nyckeln till en anslutning inte korrekt eftersom kan ses från den tredje raden från den nedre. Följande exempel är bara ett kodfragment till hela loggen, eftersom loggen kan vara lång beroende på problemet.
 
 ```
 ...
@@ -178,11 +178,11 @@ I följande exempel visas innehållet i filen Scrubbed-wfpdiag. txt. I det här 
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag. txt. sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt. sum
 
-Filen **wfpdiag. txt. sum** är en logg som visar de buffertar och händelser som bearbetas.
+Filen **wfpdiag.txt. sum** är en logg som visar de buffertar och händelser som bearbetas.
 
-Följande exempel är innehållet i en wfpdiag. txt. SUM-fil.
+Följande exempel är innehållet i en wfpdiag.txt. SUM-fil.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl

@@ -32,7 +32,7 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
 
 ## <a name="prerequisites"></a>Krav
 
- I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Ett exempel:
+ I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Exempel:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -80,7 +80,7 @@ Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, 
 
 På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect` . Om ett visnings anspråks värde krävs av en **åtgärd**anger du det attribut som **krävs** för `true` att tvinga användaren att ange ett värde för det angivna visnings kravet.
 
-Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Ett exempel:
+Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Exempel:
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -129,7 +129,7 @@ I följande exempel skickas en kod i e-post eller SMS baserat på användarens v
 
 Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile.md#display-claims) för den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md).
 
-Ett exempel:
+Exempel:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

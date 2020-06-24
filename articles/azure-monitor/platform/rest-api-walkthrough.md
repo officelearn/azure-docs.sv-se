@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610895"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945349"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
@@ -95,7 +95,7 @@ Använd [Azure Monitor mått definitioner REST API](https://docs.microsoft.com/r
 
 **Metod**: Hämta
 
-**Begärande-URI**: https\/\/:*Management.Azure.com/Subscriptions/{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/Microsoft.Insights/metricDefinitions? API-version =*{API version}*
+**Begärande-URI**: https: \/ \/ Management.Azure.com/Subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}*/providers/Microsoft.Insights/metricDefinitions? API-version =*{API version}*
 
 Om du till exempel vill hämta mått definitionerna för ett Azure Storage konto ser begäran ut så här:
 
@@ -239,7 +239,7 @@ Använd måttets namn värde (inte localizedValue) för alla filtrerings begär 
 
 **Metod**: Hämta
 
-**Begärande-URI**:\:https//Management.Azure.com/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-namn}*/providers/*{Resource-Provider-namespace}*/*{resurs typ}*/*{Resource-Name}*/providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime}*&$filter =*{filter}*&resultType = metadata&API-version =*{API version}*
+**Begärande-URI**: \: https//Management.Azure.com/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-namn}*/providers/*{Resource-Provider-namespace}* / *{resurs typ}* / *{Resource-Name}*/providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime}*&$filter =*{filter}*&resultType = metadata&API-version =*{API version}*
 
 Om du till exempel vill hämta listan med dimensions värden som har genererats för "API-namnets dimension" för måttet "transaktioner", där typen dimension = "primär" under det angivna tidsintervallet, skulle begäran vara följande:
 
@@ -312,7 +312,7 @@ Använd måttets namn värde (inte localizedValue) för alla filtrerings begär 
 
 **Metod**: Hämta
 
-**Begärande-URI**: https\/:/*Management.Azure.com/Subscriptions/{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/*{Resource-Provider-namespace}*/*{resurs typ}*/*{Resource-Name}*/providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/* slut tid}&$filter =*{filter}*&intervall =*{timeGrain}*&agg regering =*{aggreation}*&API-version =*{API version}*
+**Begärande-URI**: https: \/ /*Management.Azure.com/Subscriptions/{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/*{Resource-Provider-namespace}* / *{resurs typ}* / *{Resource-Name}*/providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/* slut tid}&$filter =*{filter}*&intervall =*{timeGrain}*&agg regering =*{aggreation}*&API-version =*{API version}*
 
 För att till exempel hämta de tre främsta API: erna, i fallande värde, efter antalet ' transaktioner ' under en 5 minuters intervall, där GeotType var "primär", skulle begäran vara följande:
 
@@ -391,7 +391,7 @@ Använd [Azure Monitor mått definitioner REST API](https://msdn.microsoft.com/l
 
 **Metod**: Hämta
 
-**Begärande-URI**: https\/\/:*Management.Azure.com/Subscriptions/{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/Microsoft.Insights/metricDefinitions? API-version =*{API version}*
+**Begärande-URI**: https: \/ \/ Management.Azure.com/Subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}*/providers/Microsoft.Insights/metricDefinitions? API-version =*{API version}*
 
 Om du till exempel vill hämta mått definitionerna för en Azure Logic-app ser begäran ut så här:
 
@@ -582,7 +582,7 @@ Den resulterande JSON-svars texten liknar följande exempel:
 En annan metod är att använda [ARMClient](https://github.com/projectkudu/armclient) på din Windows-dator. ARMClient hanterar Azure AD-autentiseringen (och den resulterande JWT-token) automatiskt. Följande steg beskriver hur du använder ARMClient för att hämta mått data:
 
 1. Installera [choklad](https://chocolatey.org/) och [ARMClient](https://github.com/projectkudu/armclient).
-2. Skriv *armclient. exe-inloggning*i ett terminalfönster. Om du gör det blir du ombedd att logga in på Azure.
+2. Skriv *armclient.exe inloggning*i ett terminalfönster. Om du gör det blir du ombedd att logga in på Azure.
 3. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/metricdefinitions? API-version = 2016-03-01*
 4. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/Metrics? API-version = 2016-09-01*
 
@@ -605,7 +605,7 @@ Följande lista innehåller några exempel på resurs-ID-format för olika Azure
 * **IoT Hub** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.Devices/IotHubs/*{IoT-hubb-Name}*
 * **Elastisk SQL-pool** –*/Subscriptions/{Subscription-ID}*/resourceGroups/*{resurs grupp-namn}*/providers/Microsoft.SQL/Servers/*{pool-DB}*/elasticpools/*{SQL-pool-Name}*
 * **SQL Database (V12)** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs grupp-namn}*/providers/Microsoft.SQL/Servers/*{Server-Name}*/databases/*{Database-Name}*
-* **Service Bus** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{Service Bus-Name}*
+* **Service Bus** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.ServiceBus/*{namespace}* / *{Service Bus-Name}*
 * **Skalnings uppsättningar för virtuella datorer** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{VM-Name}*
 * **VM** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.Compute/virtualMachines/*{VM-Name}*
 * **Event Hubs** -/Subscriptions/*{Subscription-ID}*/resourceGroups/*{resurs-grupp-Name}*/providers/Microsoft.EventHub/Namespaces/*{EventHub-namespace}*
@@ -654,7 +654,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill hämta resurs-ID för ett Azure Storage konto med hjälp av Azure CLI `az storage account show` kör du kommandot, som visas i följande exempel:
+Om du vill hämta resurs-ID för ett Azure Storage konto med hjälp av Azure CLI kör du `az storage account show` kommandot, som visas i följande exempel:
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
@@ -705,16 +705,30 @@ Resultatet bör likna följande exempel:
 
 ## <a name="retrieve-activity-log-data"></a>Hämta aktivitets logg data
 
-Förutom mått definitioner och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter relaterade till Azure-resurser. Som exempel är det möjligt att fråga efter [aktivitets logg](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. Följande exempel visar hur du använder Azure Monitor REST API för att fråga efter aktivitets logg data inom ett visst datum intervall för en Azure-prenumeration:
+Förutom mått definitioner och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter relaterade till Azure-resurser. Som exempel är det möjligt att fråga efter [aktivitets logg](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. Följande exempel begär Anden använder Azure Monitor REST API för att fråga aktivitets loggen.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+Hämta aktivitets loggar med filter:
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+Hämta aktivitets loggar med filter och välj:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Hämta aktivitets loggar med Select:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Hämta aktivitets loggar utan filter eller välj:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>Nästa steg

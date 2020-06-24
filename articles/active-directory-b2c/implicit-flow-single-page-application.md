@@ -129,7 +129,7 @@ För att avgöra vilket användar flöde som användes för att signera en ID-to
 När du har köpt Metadatadokumentet från slut punkten för OpenID Connect-metadata kan du använda de offentliga RSA-256-nycklarna (finns i den här slut punkten) för att verifiera signaturen för ID-token. Det kan finnas flera nycklar i den här slut punkten vid en angiven tidpunkt, som var och en identifieras av en `kid` . Rubriken för `id_token` innehåller också ett `kid` anspråk. Den visar vilken av dessa nycklar som användes för att signera ID-token. Mer information, inklusive information om [validering av tokens](tokens-overview.md), finns i referens för [Azure AD B2C-token](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
-När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Ett exempel:
+När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Exempel:
 
 * Verifiera `nonce` anspråk för att förhindra repetition av token-attacker. Värdet bör vara det du angav i inloggnings förfrågan.
 * Verifiera `aud` anspråket för att säkerställa att ID-token har utfärdats för din app. Värdet ska vara appens program-ID.
@@ -223,7 +223,7 @@ ID-token och åtkomsttoken upphör att gälla efter en kort tids period. Din app
 ## <a name="send-a-sign-out-request"></a>Skicka en inloggningsbegäran
 När du vill signera användaren från appen omdirigerar du användaren till Azure AD för att logga ut. Om du inte omdirigerar användaren kan de kunna autentisera till din app igen utan att ange sina autentiseringsuppgifter igen eftersom de har en giltig enkel inloggnings-session med Azure AD.
 
-Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Ett exempel:
+Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Exempel:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F

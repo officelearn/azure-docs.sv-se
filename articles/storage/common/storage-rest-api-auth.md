@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee37745b35071893ff504c56a4a6883b589f1d0e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916072"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804627"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Anropa REST API åtgärder med autentisering med delad nyckel
 
@@ -27,7 +27,7 @@ Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto.
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med arbets belastningen **Azure Development** .
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 - Ett allmänt lagrings konto. Om du inte har ett lagrings konto än kan du läsa [skapa ett lagrings konto](storage-account-create.md).
 
@@ -65,7 +65,7 @@ Granska referensen för [ListContainers](/rest/api/storageservices/List-Containe
 
 **Metod för begäran**: Hämta. Det här verbet är den HTTP-metod som du anger som egenskap för objektet Request. Andra värden för det här verbet omfattar HEAD, placering och DELETE, beroende på vilket API som du anropar.
 
-**URI**för begäran `https://myaccount.blob.core.windows.net/?comp=list`:.Begärd URI skapas från slut punkten `http://myaccount.blob.core.windows.net` för Blob Storage-kontot och resurs strängen `/?comp=list`.
+**URI för begäran**: `https://myaccount.blob.core.windows.net/?comp=list` .Begärd URI skapas från slut punkten för Blob Storage-kontot `http://myaccount.blob.core.windows.net` och resurs strängen `/?comp=list` .
 
 [URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Ett par av dessa parametrar är *timeout* för anropet (i sekunder) och *prefix*, som används för filtrering.
 
@@ -102,14 +102,14 @@ Om du vill bygga begäran, som är ett HttpRequestMessage-objekt, går du till L
 
 Grundläggande information som du behöver:
 
-- För ListContainers är `GET` **metoden** . Det här värdet anges när en instans av begäran skapas.
-- **Resursen** är den fråge del av URI: n som anger vilket API som anropas, så värdet är `/?comp=list`. Som tidigare nämnts finns resursen på referens dokument sidan som visar information om ListContainers-API: [et](/rest/api/storageservices/List-Containers2).
-- URI: n konstrueras genom att Blob Service slut punkten för det lagrings kontot skapas och resursen sammanfogas. Värdet för **begärande-URI: n** slutar `http://contosorest.blob.core.windows.net/?comp=list`.
+- För ListContainers är **metoden** `GET` . Det här värdet anges när en instans av begäran skapas.
+- **Resursen** är den fråge del av URI: n som anger vilket API som anropas, så värdet är `/?comp=list` . Som tidigare nämnts finns resursen på referens dokument sidan som visar information om ListContainers-API: [et](/rest/api/storageservices/List-Containers2).
+- URI: n konstrueras genom att Blob Service slut punkten för det lagrings kontot skapas och resursen sammanfogas. Värdet för **begärande-URI: n** slutar `http://contosorest.blob.core.windows.net/?comp=list` .
 - För ListContainers är **requestBody** null och det finns inga extra **huvuden**.
 
 Olika API: er kan ha andra parametrar för att skickas till som *ifMatch*. Ett exempel på var du kan använda ifMatch är när du anropar PutBlob. I så fall ställer du in ifMatch till en eTag och uppdaterar bara blobben om den eTag som du tillhandahåller matchar den aktuella eTag: en i blobben. Om någon annan har uppdaterat blobben sedan den hämtade eTag-filen, kommer deras ändring inte att åsidosättas.
 
-Börja med att ange `uri` och `payload`.
+Börja med att ange `uri` och `payload` .
 
 ```csharp
 // Construct the URI. It will look like this:
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Lägg till begärandehuvuden för `x-ms-date` och. `x-ms-version` Den här platsen i koden är också där du lägger till eventuella ytterligare begärandehuvuden som krävs för anropet. I det här exemplet finns det inga ytterligare huvuden. Ett exempel på ett API som skickar extra huvuden är den angivna ACL-åtgärden för behållare. Detta API-anrop lägger till ett sidhuvud med namnet "x-MS-BLOB-Public-Access" och värdet för åtkomst nivån.
+Lägg till begärandehuvuden för `x-ms-date` och `x-ms-version` . Den här platsen i koden är också där du lägger till eventuella ytterligare begärandehuvuden som krävs för anropet. I det här exemplet finns det inga ytterligare huvuden. Ett exempel på ett API som skickar extra huvuden är den angivna ACL-åtgärden för behållare. Detta API-anrop lägger till ett sidhuvud med namnet "x-MS-BLOB-Public-Access" och värdet för åtkomst nivån.
 
 ```csharp
 // Add the request headers for x-ms-date and x-ms-version.
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-De flesta av dessa fält används sällan. För Blob Storage anger du VERB, MD5, innehålls längd, kanoniska huvuden och kanoniskt resurs. Du kan lämna det andra tomt (men `\n` låta det vara tomt).
+De flesta av dessa fält används sällan. För Blob Storage anger du VERB, MD5, innehålls längd, kanoniska huvuden och kanoniskt resurs. Du kan lämna det andra tomt (men låta det `\n` vara tomt).
 
 Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga! Vad faktiskt är, vad är det kanoniska medelvärdet? Microsoft Word känner inte ens igen som ett ord. Det här är vad [Wikipedia säger om kanoniska](https://en.wikipedia.org/wiki/Canonicalization): *i dator vetenskap är kanoniska (ibland standardisering eller normalisering) en process för att konvertera data som har fler än en möjlig representation till en "standard", "normal" eller kanonisk form.* I normal-Speak innebär detta att ta med listan över objekt (till exempel rubriker när det gäller kanoniska rubriker) och standardisera dem i ett format som krävs. Microsoft beslutade i princip ett format och du måste matcha det.
 
@@ -308,7 +308,7 @@ Vi börjar med de två kanoniska fälten, eftersom de krävs för att skapa ett 
 
 ### <a name="canonicalized-headers"></a>Kanoniska rubriker
 
-Om du vill skapa det här värdet hämtar du de huvuden som börjar med "x-MS-" och sorterar dem och formaterar dem `[key:value\n]` sedan i en sträng med instanser, sammanfogade till en sträng. I det här exemplet ser de kanoniska rubrikerna ut så här:
+Om du vill skapa det här värdet hämtar du de huvuden som börjar med "x-MS-" och sorterar dem och formaterar dem sedan i en sträng med `[key:value\n]` instanser, sammanfogade till en sträng. I det här exemplet ser de kanoniska rubrikerna ut så här:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -353,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 ### <a name="canonicalized-resource"></a>Kanonisk resurs
 
-Den här delen av Signature-strängen representerar det lagrings konto som är målet för begäran. Kom ihåg att begärd URI `<http://contosorest.blob.core.windows.net/?comp=list>`är, med det faktiska konto namnet`contosorest` (i det här fallet). I det här exemplet returneras detta:
+Den här delen av Signature-strängen representerar det lagrings konto som är målet för begäran. Kom ihåg att begärd URI är `<http://contosorest.blob.core.windows.net/?comp=list>` , med det faktiska konto namnet ( `contosorest` i det här fallet). I det här exemplet returneras detta:
 
 ```
 /contosorest/\ncomp:list

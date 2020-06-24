@@ -5,15 +5,15 @@ description: Den här artikeln visar hur du konfigurerar belastnings utjämning 
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d71333bb29720afd82c7dbbde7126b30a7f6d6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77590018"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803690"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ Varje klient del refererar till en offentlig IP-adress. I det här scenariot ski
 
 Scenariot använder två server dels pooler: en för inkommande trafik och en för utgående trafik. Dessa pooler illustrerar kapaciteten och ger flexibilitet för scenariot.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -35,10 +35,10 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 I det här avsnittet skapar du en belastningsutjämnare som ska belastningsutjämna virtuella datorer. Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. När du skapar en offentlig belastningsutjämnare skapar du en ny offentlig IP-adress som är konfigurerad som klient del för belastningsutjämnaren. Klient delen får namnet **LoadBalancerFrontEnd** som standard.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Load Balancer**.
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupSLB** i text rutan.|
@@ -79,7 +79,7 @@ En hälso avsökning används för att övervaka appens status. Hälso avsöknin
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -106,7 +106,7 @@ I följande avsnitt skapar du en:
 2. Välj **belastnings Utjämnings regler**under **Inställningar**och välj sedan **Lägg till**.
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | Protokoll | Välj **TCP**. |
@@ -128,7 +128,7 @@ Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för vir
 
 3. Använd de här värdena för att konfigurera klient delens IP-konfiguration för utgående:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **LoadBalancerFrontEndOutbound**. |
     | IP-version | Välj **IPv4**. |
@@ -153,7 +153,7 @@ Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för vir
 
 3. Använd de här värdena för att konfigurera de utgående reglerna:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
     | IP-adress för klient del | Välj **LoadBalancerFrontEndOutbound**. |

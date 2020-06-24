@@ -1,5 +1,5 @@
 ---
-title: 'Använd Azure Digitals dubbla API: er och SDK: er'
+title: Använda Azure Digital Twins-API:er och -SDK:er
 titleSuffix: Azure Digital Twins
 description: 'Se hur du arbetar med Azure Digitals dubbla API: er, inklusive via SDK.'
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbc79458c1fe68b05a40f476c298d5fe94e86871
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: ebac7fb6cf4addaa43367d27a4926a85770dd595
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629603"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296142"
 ---
-# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använd Azure Digitals dubbla API: er och SDK: er
+# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digitals dubbla är utrustade med både **kontroll Plans-API: er** och **data Plans-API: er** för att hantera din instans och dess element. Den här artikeln ger en översikt över de API: er som är tillgängliga och metoderna för att interagera med dem. Du kan antingen använda REST-API: er direkt med deras associerade swaggers eller via en SDK.
 
@@ -26,7 +29,7 @@ Den mest aktuella API-versionen för kontroll plan för den offentliga för hand
 
 Använda API: er för kontroll plan:
 * Du kan anropa API: erna direkt genom att referera till den senaste [Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
-* Du kan för närvarande komma åt SDK: er för kontroll-API: er i [Go](https://github.com/Azure/azure-sdk-for-go/releases).
+* Du kan för närvarande komma åt SDK: er för kontroll av API: er i [.net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1), [python](https://pypi.org/project/azure-mgmt-digitaltwins/)eller [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
 
 Du kan också öva på att kontrol lera plan-API: er genom att interagera med Azure Digitals sammanflätar via [Azure Portal](https://portal.azure.com) och [CLI](how-to-use-cli.md).
 
@@ -256,6 +259,12 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Allmän information om API/SDK-användning
 
 Det här avsnittet innehåller allmän information om och rikt linjer för att använda API: er och SDK: er.
+
+> [!NOTE]
+> Tänk på att under för hands versionen stöder inte Azure Digitals dubbla, **resurs delning över ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
+> För att lösa det här felet kan du göra något av följande:
+> * Remsans CORS-rubrik `Access-Control-Allow-Origin` från meddelandet. Den här rubriken anger om svaret kan delas. 
+> * Du kan också skapa en CORS-proxy och göra Azures digitala dubblare REST API begäran via den. 
 
 * Om du vill använda SDK instansierar du `DigitalTwinsClient` klassen. Konstruktorn kräver autentiseringsuppgifter som kan erhållas med en rad autentiseringsmetoder i `Azure.Identity` paketet. Mer `Azure.Identity` information finns i dokumentationen för [namn området](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
 * Du kan `InteractiveBrowserCredential` komma igång med att komma igång, men det finns flera andra alternativ, inklusive autentiseringsuppgifter för [hanterad identitet](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), som du kommer att använda för att autentisera [Azure Functions som är inställda med MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) mot digitala Azure-dubbla. Mer information `InteractiveBrowserCredential` finns i [klass dokumentationen](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).

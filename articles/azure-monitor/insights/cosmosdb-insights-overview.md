@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797583"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945502"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Utforska Azure Monitor för Azure Cosmos DB
 
@@ -88,7 +88,7 @@ Välj **kapacitet** överst på sidan och **kapacitets** delen i arbets boks mal
 
 Precis som med översikts arbets boken kan du välja den nedrullningsbara List rutan bredvid en Azure Cosmos DB-resurs i kolumnen **prenumeration** för att visa en uppdelning av de enskilda behållare som utgör databasen.
 
-### <a name="operations"></a>Åtgärder 
+### <a name="operations"></a>Operations 
 
 Välj **åtgärder** överst på sidan och **drift** delen av arbets bokens mall öppnas. Det ger dig möjlighet att se dina begär Anden uppdelade efter den typ av förfrågningar som görs. 
 
@@ -119,6 +119,10 @@ Eftersom den här upplevelsen bygger på Azure Monitor arbetsboksmall kan du **A
 Arbets böcker sparas i en resurs grupp, antingen i avsnittet **Mina rapporter** som är privat för dig eller i avsnittet **delade rapporter** som är tillgängliga för alla som har åtkomst till resurs gruppen. När du har sparat den anpassade arbets boken måste du gå till arbets boks galleriet för att starta den.
 
 ![Starta arbets boks galleriet från kommando fältet](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Felsökning
+
+Information om fel sökning finns i [artikeln](troubleshoot-workbooks.md)om att hitta en dedikerad arbets bok baserad insikter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,8 +3,7 @@ title: Avbilda strömmande händelser – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en översikt över insamlings funktionen som gör att du kan avbilda händelser som strömmas via Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
@@ -13,14 +12,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: shvija
-ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 07d3424b73f8716bfe6f9b5f187714b36ef821a2
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726102"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296618"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
 Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto, med den extra flexibiliteten att ange en tid eller ett storleks intervall. Att konfigurera avbildningen är snabbt, det finns inga administrativa kostnader att köra den och skalar automatiskt med Event Hubs [data flödes enheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och du kan fokusera på data bearbetning i stället för på data fångst.

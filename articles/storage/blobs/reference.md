@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage-referens
+title: Referens för Azure Blob Storage
 description: Hitta Azure Blob Storage API-referens, README-filer och klient biblioteks paket.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d470864dd12f5ded511f9a6e02b3e4cab0ee66d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 477170cf3c2bab54efc5ef74495f39fb89f62c77
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346082"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976701"
 ---
-# <a name="azure-blob-storage-reference"></a>Azure Blob Storage-referens
+# <a name="azure-blob-storage-reference"></a>Referens för Azure Blob Storage
 
 Hitta Azure Blob Storage API-referens, biblioteks paket, viktigt-filer och komma igång-artiklar.
 
@@ -67,8 +67,8 @@ I följande tabell visas referens och exempel dokumentation för python-API: er 
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Azure Storage blobs klient bibliotek för python](/python/api/overview/azure/storage-blob-readme) | [Paket (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Snabb start: hantera blobbar med python V12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2x | [Azure-Storage – BLOB](/python/api/azure-storage-blob/?view=azure-python-previous) | [Paket (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Snabb start: hantera blobbar med python v 2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 12. x | [Azure Storage klient bibliotek V12 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Paket (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Snabb start: hantera blobbar med python V12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
+| 2x | [Azure Storage klient bibliotek v2 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Paket (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Snabb start: hantera blobbar med python v 2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ## <a name="javascript-client-libraries"></a>Java Script-klient bibliotek
 
@@ -76,8 +76,8 @@ I följande tabell visas referens och exempel dokumentation för API: er för Az
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Azure Storage Blob klient bibliotek för Java Script](/javascript/api/overview/azure/storage-blob-readme) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob) | [Snabb start: hantera blobbar med Java Script V12 SDK i Node. js](/azure/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [Snabb start: hantera blobbar med Java Script V12 SDK i en webbläsare](/azure/storage/blobs/quickstart-blobs-javascript-browser) |
-| 10. x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Snabb start: hantera blobbar med Java Script v10 SDK i Node. js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Snabb start: hantera blobbar med Java Script v10 SDK i webbläsare](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
+| 12. x | [Azure Storage Blob klient bibliotek för Java Script](/javascript/api/overview/azure/storage-blob-readme) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob) | [Snabb start: hantera blobbar med Java Script V12 SDK i Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [Snabb start: hantera blobbar med Java Script V12 SDK i en webbläsare](/azure/storage/blobs/quickstart-blobs-javascript-browser) |
+| 10. x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Snabb start: hantera blobbar med Java Script v10 SDK i Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Snabb start: hantera blobbar med Java Script v10 SDK i webbläsare](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
 
 ## <a name="rest-apis"></a>REST API:er
 

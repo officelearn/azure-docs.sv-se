@@ -73,7 +73,7 @@ Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD 
 
     Du använder det här värdet i nästa avsnitt när du konfigurerar ditt API i Azure API Management.
 
-Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Ett exempel:
+Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Exempel:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -154,7 +154,7 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 
 När du har registrerat åtkomst-token och APIM prenumerations nyckel är du nu redo att testa om du har konfigurerat säker åtkomst till API: et korrekt.
 
-1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Ett exempel:
+1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Exempel:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

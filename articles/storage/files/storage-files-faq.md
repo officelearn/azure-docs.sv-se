@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 3724392cc50e910c5caf4a3f6cba85070a6d107f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2111ccd65a2944ec5f5ea0526e6e7f577261b213
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661097"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906827"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -105,9 +105,9 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Prestandan varierar beroende på dina miljö inställningar, konfiguration och om detta är en inledande synkronisering eller en pågående synkronisering. Mer information finns i [Azure File Sync prestanda mått](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
-    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras på två servrar på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen har "källa"-datorn och konflikt numret som lagts till i namnet. Den följer denna taxonomi: 
+    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras i två slut punkter på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen (som bestäms av LastWriteTime) har slut punkts namnet och konflikt numret som läggs till i fil namnet. För Server slut punkter är slut punktens namn namnet på servern. För moln slut punkter är slut punktens namn **moln**. Namnet följer den här taxonomin: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
     Den första CompanyReport.docx skulle till exempel bli CompanyReport-CentralServer.docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten får namnet CompanyReport-CentralServer-1.docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 
@@ -133,6 +133,10 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="afs-effective-vfs"></a>
   **Hur tolkas det *lediga volym utrymmet* när jag har flera Server slut punkter på en volym?**  
   Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **Jag har inaktiverat moln nivå, varför finns det filer på Server slut punkten?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Vilka filer eller mappar undantas automatiskt av Azure File Sync?**  

@@ -1,24 +1,30 @@
 ---
 title: Virtuella Azure-datorer-storlekar – minne | Microsoft Docs
 description: Visar en lista över de olika minnesoptimerade storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
+services: virtual-machines
+documentationcenter: ''
 author: mimckitt
+manager: gwallace
+editor: ''
+tags: azure-resource-manager,azure-service-management
 keywords: Isolering av virtuella datorer, isolerad virtuell dator, isolerad
+ms.assetid: ''
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6e2486dfeae221e7e3ddadcdcac0d9779d49542c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e920f165232ec79dcced1de632d90f463ff58d9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678672"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791477"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 
-Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
+Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är perfekt för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
 - [Dv2 och DSv2-serien](dv2-dsv2-series-memory.md), som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor. Dv2-serien är cirka 35% snabbare än D-serien. Den körs på Intel &reg; Xeon &reg; 8171M 2,1 GHz (Skylake) eller Intel &reg; Xeon &reg; e5-2673 v4 2,3 GHz (Broadwell) eller Intel &reg; xeon &reg; E5-2673 v3 2,4 GHz-processorer (Haswell) och med Intel Turbo Boost-tekniken 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
@@ -28,7 +34,9 @@ Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och 
 
 - [Ev3-och Esv3-serien](ev3-esv3-series.md) Intel &reg; Xeon &reg; 8171M 2,1 GHz (Skylake) eller Intel &reg; xeon &reg; E5-2673 v4 2,3 GHz-processorn (Broadwell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och ger Ev3 till justering med de flesta virtuella datorerna i de flesta andra moln. Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till Hyper-Threading. Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
 
-- [Edv4 och Edsv4-serien](edv4-edsv4-series.md) körs på de andra generationens Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), idealiska för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [Ev4 och Esv4-serien](ev4-esv4-series.md) körs på andra generationen Intel &reg; Xeon &reg; platina-processorer (Cascade Lake) i en Hyper-threadd konfiguration, är idealiska för olika minnes intensiva företags program och funktioner upp till 504 GIB RAM-minne. Den innehåller [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+
+- [Edv4 och Edsv4-serien](edv4-edsv4-series.md) körs på andra generationens Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), idealiska för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - [M-serien](m-series.md) erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TIB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne.
 

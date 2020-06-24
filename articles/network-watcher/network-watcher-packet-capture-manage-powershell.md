@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 06263f85f7d6ad6cc80724baab01124833498739
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 100a8ed1987b2edbc0aea1708c8a60b48bf391b1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79129648"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737928"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera paket fångster med Azure Network Watcher med hjälp av PowerShell
 
@@ -48,7 +48,7 @@ Den här artikeln förutsätter att du har följande resurser:
 * En virtuell dator med paket insamlings tillägget aktiverat.
 
 > [!IMPORTANT]
-> Paket fångst kräver ett tillägg `AzureNetworkWatcherExtension`för virtuell dator. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paket fångst kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension` . För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Installera VM-tillägg
 
@@ -81,7 +81,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-Följande exempel är ett lyckat svar när du `Set-AzVMExtension` har kört cmdleten.
+Följande exempel är ett lyckat svar när du har kört `Set-AzVMExtension` cmdleten.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -159,7 +159,7 @@ Kör `New-AzNetworkWatcherPacketCapture` cmdleten för att starta paket fångst 
 New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-I följande exempel visas förväntade utdata från att `New-AzNetworkWatcherPacketCapture` köra cmdleten.
+I följande exempel visas förväntade utdata från att köra `New-AzNetworkWatcherPacketCapture` cmdleten.
 
 ```
 Name                    : PacketCaptureTest
@@ -246,7 +246,7 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Stoppa en paket fångst
 
-Genom att `Stop-AzNetworkWatcherPacketCapture` köra cmdleten stoppas den om en insamlings session pågår.
+Genom att köra `Stop-AzNetworkWatcherPacketCapture` cmdleten stoppas den om en insamlings session pågår.
 
 ```powershell
 Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

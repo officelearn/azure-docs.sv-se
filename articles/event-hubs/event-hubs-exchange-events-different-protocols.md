@@ -3,22 +3,18 @@ title: Azure Event Hubs-Exchange-händelser med olika protokoll
 description: Den här artikeln visar hur konsumenter och producenter som använder olika protokoll (AMQP, Apache Kafka och HTTPS) kan utbyta händelser när de använder Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
-author: femila
-manager: ''
+author: spelluru
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: femila
-ms.openlocfilehash: 368cc568c40e878338e6b45205e74cba1d0b6378
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 7ebcf1fc838fbe6b1c70b1fe422f40de3c47e752
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372204"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296448"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-händelser mellan konsumenter och producenter som använder olika protokoll: AMQP, Kafka och HTTPS
 Azure Event Hubs stöder tre protokoll för konsumenter och producenter: AMQP, Kafka och HTTPS. Var och en av dessa protokoll har sitt eget sätt att representera ett meddelande, så naturligt är följande fråga: om ett program skickar händelser till en Event Hub med ett protokoll och förbrukar dem med ett annat protokoll, vad ser de olika delarna och värdena i händelsen ut när de kommer till konsumenten? Den här artikeln beskriver metod tips för både tillverkare och konsument för att säkerställa att värdena i en händelse tolkas korrekt av det krävande programmet.
@@ -208,7 +204,7 @@ if (headerNamedAMQPheaders != null) {
 }
 ```
 
-Den andra riktningen är mer engagerad, eftersom huvuden som anges av en Kafka-tillverkare alltid ses av en AMQP-konsument som RAW-byte (typ org. apache. qpid. Proton. AMQP. Binary för Microsoft Azure Event Hubs-klienten för `System.Byte[]` Java eller för Microsoft .net AMQP-klienter). Den enklaste sökvägen är att använda en av de Kafka serialiserarna för att generera byte för huvud värden på Kafka-producent sidan och sedan skriva en kompatibel deserialiserings kod på AMQP-konsument sidan.
+Den andra riktningen är mer engagerad, eftersom huvuden som anges av en Kafka-tillverkare alltid ses av en AMQP-konsument som RAW-byte (typ org. apache. qpid. Proton. AMQP. Binary för Microsoft Azure Event Hubs-klienten för Java eller `System.Byte[]` för Microsoft .net AMQP-klienter). Den enklaste sökvägen är att använda en av de Kafka serialiserarna för att generera byte för huvud värden på Kafka-producent sidan och sedan skriva en kompatibel deserialiserings kod på AMQP-konsument sidan.
 
 Precis som med AMQP-to-Kafka rekommenderar vi att du lägger till en egenskap i meddelanden som skickas via Kafka. AMQP-konsumenten kan använda egenskapen för att avgöra om huvud värden behöver deserialiseras. Egenskapens värde är inte viktigt. Det behöver bara ett välkänt namn som AMQP-konsumenten kan hitta i listan över rubriker och anpassa dess beteende. Om Kafka-producenten inte kan ändras är det också möjligt att använda programmet för att kontrol lera om egenskap svärdet är av typen Binary eller byte och försök att deserialisera baserat på typen.
 

@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299476"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117887"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörs roller efter administratörs uppgift i Azure Active Directory
 
@@ -38,7 +38,7 @@ Inaktivera programproxy | Program administratör |
 Hämta kopplings tjänst | Program administratör | 
 Läs all konfiguration | Program administratör | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Externa identiteter/B2C
 
 Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -47,11 +47,11 @@ Skapa B2C-program | Global administratör |
 Skapa företags program | Molnprogramadministratör | Programadministratör
 Skapa, läsa, uppdatera och ta bort B2C-principer | B2C IEF-princip administratör | 
 Skapa, läsa, uppdatera och ta bort identitets leverantörer | Administratör för extern identitetsprovider | 
-Skapa, läsa, uppdatera och ta bort användar flöden för lösen ords återställning | B2C användar flödes administratör | 
-Skapa, läsa, uppdatera och ta bort profil redigera användar flöden | B2C användar flödes administratör | 
-Skapa, läsa, uppdatera och ta bort användar flöden för inloggning | B2C användar flödes administratör | 
-Skapa, läsa, uppdatera och ta bort användar flöde för registrering |B2C användar flödes administratör | 
-Skapa, läsa, uppdatera och ta bort användarattribut | B2C-administratör för användar flöde | 
+Skapa, läsa, uppdatera och ta bort användar flöden för lösen ords återställning | Användar flödes administratör för externt ID | 
+Skapa, läsa, uppdatera och ta bort profil redigera användar flöden | Användar flödes administratör för externt ID | 
+Skapa, läsa, uppdatera och ta bort användar flöden för inloggning | Användar flödes administratör för externt ID | 
+Skapa, läsa, uppdatera och ta bort användar flöde för registrering |Användar flödes administratör för externt ID | 
+Skapa, läsa, uppdatera och ta bort användarattribut | Administratör för externt ID-attribut för användar flöde | 
 Skapa, läsa, uppdatera och ta bort användare | Användar administratör
 Läs all konfiguration | Global läsare | 
 Läs gransknings loggar för B2C | Global läsare ([Se dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
@@ -73,6 +73,14 @@ Uppgift | Minst privilegie rad roll | Ytterligare roller
 Konfigurera företags egenskaper | Global administratör | 
 
 ## <a name="connect"></a>Anslut
+
+Uppgift | Minst privilegie rad roll | Ytterligare roller
+---- | --------------------- | ----------------
+Genom strömnings autentisering | Global administratör  | 
+Läs all konfiguration | Global läsare | Global administratör  |
+Sömlös enkel inloggning | Global administratör  | 
+
+## <a name="cloud-provisioning"></a>Moln etablering
 
 Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -109,7 +117,7 @@ Läs all konfiguration | Katalog läsare | Standard användar roll ([se dokument
 Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Skapa Azure AD Domain Services instans | Global administratör | 
-Utföra alla Azure AD Domain Services uppgifter | Gruppen Azure AD DC-administratörer ([Se dokumentationen](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Utföra alla Azure AD Domain Services uppgifter | Gruppen Azure AD DC-administratörer ([Se dokumentationen](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Läs all konfiguration | Läsare på Azure-prenumeration som innehåller AD DS-tjänsten | 
 
 ## <a name="devices"></a>Enheter
@@ -203,7 +211,7 @@ Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Läs inloggnings loggar | Rapport läsare | Säkerhets läsare, säkerhets administratör
 
-## <a name="multi-factor-authentication"></a>Multifaktorautentisering
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------

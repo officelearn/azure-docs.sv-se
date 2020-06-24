@@ -3,17 +3,17 @@ title: Ladda upp en virtuell hård disk till Azure eller kopiera en disk i flera
 description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-hanterad disk och kopierar en hanterad disk över flera regioner med hjälp av Azure PowerShell via direkt uppladdning.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
+ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 153bbc39ceba52548d667fa4c83d0edc867fcb93
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660600"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944635"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure PowerShell
 
@@ -47,6 +47,9 @@ Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil s
 I det lokala gränssnittet skapar du en tom standard hård disk för uppladdning genom att ange **uppladdnings** inställningen i parametern **-CreateOption** och parametern **-UploadSizeInBytes** i cmdleten [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Anropa sedan [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) för att skapa disken.
 
 Ersätt `<yourdiskname>` , `<yourresourcegroupname>` och `<yourregion>` kör sedan följande kommandon:
+
+> [!TIP]
+> Om du skapar en OS-disk lägger du till-HyperVGeneration <yourGeneration> i `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -98,6 +101,9 @@ Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, m
 > Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
 
 Ersätt `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` ,, `<targetDiskNameHere>` `<targetResourceGroupHere>` `<yourOSTypeHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+
+> [!TIP]
+> Om du skapar en OS-disk lägger du till-HyperVGeneration <yourGeneration> i `New-AzDiskConfig` .
 
 ```powershell
 

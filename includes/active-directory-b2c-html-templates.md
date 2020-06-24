@@ -25,9 +25,9 @@ Det här projektet innehåller följande mallar:
 
 Så här använder du exemplet:
 
-1. Klona lagrings platsen på den lokala datorn. Välj en mall- `/ocean_blue` mapp `/slate_gray`eller.
+1. Klona lagrings platsen på den lokala datorn. Välj en mall-mapp `/ocean_blue` eller `/slate_gray` .
 1. Ladda upp alla filer under mappen mallar och `/assets` mappen till Blob Storage enligt beskrivningen i föregående avsnitt.
-1. Sedan öppnar du varje `\*.html` fil i roten för antingen `/ocean_blue` eller `/slate_gray`, ersätter alla instanser av relativa URL: er med URL: er för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2. Ett exempel:
+1. Sedan öppnar du varje `\*.html` fil i roten för antingen `/ocean_blue` eller `/slate_gray` , ersätter alla instanser av relativa URL: er med URL: er för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2. Exempel:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -38,4 +38,4 @@ Så här använder du exemplet:
     ```
 1. Spara `\*.html` filerna och överför dem till Blob Storage.
 1. Ändra principen genom att peka på HTML-filen som tidigare nämnts.
-1. Om du ser saknade teckensnitt, avbildningar eller CSS, kontrollerar du dina referenser i tillägg-principen och \*HTML-filerna.
+1. Om du ser saknade teckensnitt, avbildningar eller CSS, kontrollerar du dina referenser i tillägg-principen och \* HTML-filerna.

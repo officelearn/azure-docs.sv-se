@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488128"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771180"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
@@ -58,7 +58,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
    > - Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina och Tyskland (suverän). Data som genereras av Azure Sentinel (t. ex. incidenter, bok märken och varnings regler som kan innehålla vissa kund uppgifter från dessa arbets ytor) sparas antingen i Europa (för arbets ytor som finns i Europa) i Australien (för arbets ytor i Australien) eller i östra USA (för arbets ytor som finns i en annan region).
 
    >[!IMPORTANT]
-   > - När Azure Sentinel har Aktiver ATS på en arbets yta stöds inte flyttningen av arbets ytan till andra resurs grupper eller prenumerationer. Om du behöver flytta arbets ytan kan du kontakta supporten för vägledning.
+   > - När Azure Sentinel har Aktiver ATS på en arbets yta stöds inte flyttningen av arbets ytan till andra resurs grupper eller prenumerationer. Kontakta [Azure Sentinel](mailto:AzureSentinel@microsoft.com)om du behöver flytta arbets ytan.
 
 1. Välj **Lägg till Azure Sentinel**.
   

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79140005"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791188"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviseringsverifiering (EICAR-testfil) i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -37,9 +37,9 @@ Mer information finns i [säkerhets aviseringar i Security Center](security-cent
 
 När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
 
-1. Kopiera en körbar fil (till exempel **calc. exe**) till datorns skriv bord, eller någon annan katalog och Byt namn på den som **ASC_AlertTest_662jfi039N. exe**.
+1. Kopiera en körbar fil (till exempel **calc.exe**) till datorns skriv bord eller någon annan katalog och Byt namn på den som **ASC_AlertTest_662jfi039N.exe**.
 1. Öppna kommando tolken och kör den här filen med ett argument (bara ett falsk argument namn), till exempel:```ASC_AlertTest_662jfi039N.exe -foo```
-1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar [exemplet](#alert-validate) nedan ska visas:
+1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering ska visas.
 
 > [!NOTE]
 > När du granskar test aviseringen för Windows kontrollerar du att fält **argumenten granskning är aktive rad** är **Sant**. Om det är **falskt**måste du aktivera granskning av kommando rads argument. Använd följande kommando för att aktivera det:
@@ -57,11 +57,7 @@ När Security Center agent har installerats på datorn följer du de här stegen
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar [exemplet](#alert-validate) nedan ska visas:
-
-### <a name="alert-example"></a>Aviserings exempel<a name="alert-validate"></a>
-
-![Exempel på aviserings verifiering](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering ska visas.
 
 
 ## <a name="validate-alerts-on-kubernetes"></a>Verifiera aviseringar på Kubernetes<a name="validate-kubernetes"></a>

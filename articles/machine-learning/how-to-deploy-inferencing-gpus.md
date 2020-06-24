@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 766b7720d9a126276f4e86ff549b3047bf127691
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557214"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976752"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 > [!NOTE]
 > Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -213,9 +213,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Om `InferenceConfig` objektet har `enable_gpu=True` , `deployment_target` måste parametern referera till ett kluster som tillhandahåller en GPU. Annars Miss kommer distributionen.
 
 Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

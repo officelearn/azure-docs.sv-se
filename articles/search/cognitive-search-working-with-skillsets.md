@@ -7,39 +7,93 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/15/2020
+ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744790"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976684"
 ---
-# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
+# <a name="skillset-concepts-in-azure-cognitive-search"></a>Färdigheter-koncept i Azure Kognitiv sökning
 
-Den här artikeln är för utvecklare som behöver en djupare förståelse för hur anriknings pipelinen fungerar och förutsätter att du har en konceptuell förståelse för AI-anrikningen. Om du har nytt det här konceptet börjar du med:
-+ [AI-anrikning i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
-+ [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md)
+Den här artikeln är för utvecklare som behöver en djupare förståelse för färdigheter-koncept och-sammansättning, och som förutsätter att AI-anrikningen är välbekant. Om du är nybörjare på det här konceptet börjar du med [AI-anrikning i Azure kognitiv sökning](cognitive-search-concept-intro.md).
 
-## <a name="specify-the-skillset"></a>Ange färdigheter
-En färdigheter är en återanvändbar resurs i Azure Kognitiv sökning som anger en samling kognitiva kunskaper som används för att analysera, transformera och berika text-eller bild innehåll under indexeringen. Genom att skapa en färdigheter kan du koppla text-och avbildnings berikare i data inmatnings fasen, extrahera och skapa ny information och strukturer från RAW-innehåll.
+## <a name="introducing-skillsets"></a>Introduktion till färdighetsuppsättningar
 
-En färdigheter har tre egenskaper:
+En färdigheter är en återanvändbart resurs i Azure Kognitiv sökning som är kopplad till en indexerare, och den specificerar en samling kunskaper som används för att analysera, transformera och berika text-eller bild innehåll under indexeringen. Färdigheter har indata och utdata, och ofta blir resultatet av en färdighet indata för en annan i en kedja eller sekvens med processer.
 
-+    ```skills```, en osorterad samling kunskaper för vilka plattformen fastställer körnings ordningen baserat på de indata som krävs för varje färdighet
-+    ```cognitiveServices```är den kognitiva tjänst nyckeln som krävs för att fakturera de kognitiva färdigheter som anropas
-+    ```knowledgeStore```, lagrings kontot där dina berikade dokument kommer att projiceras
+En färdigheter har tre huvud egenskaper:
+
++ `skills`, en osorterad samling kunskaper för vilka plattformen fastställer körnings ordningen baserat på de indata som krävs för varje färdighet.
++ `cognitiveServices`, nyckeln för en Cognitive Services resurs som utför bild-och text bearbetning för färdighetsuppsättningar som innehåller inbyggda kunskaper.
++ `knowledgeStore`, (valfritt) ett Azure Storage konto där dina berikade dokument kommer att projiceras. Omfattande dokument används också av Sök index.
+
+Färdighetsuppsättningar har skapats i JSON. Följande exempel är en något förenklad version av denna [hotell gransknings färdigheter](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json), som används för att illustrera koncept i den här artikeln. 
+
+De två första färdigheterna visas nedan:
+
++ Kunskaps #1 är en [text delnings färdighet](cognitive-search-skill-textsplit.md) som accepterar innehållet i fältet "reviews_text" som indata och delar innehållet i "sidor" av 5000 tecken som utdata.
++ Kunskaps #2 är en [sentiment identifierings färdighet](cognitive-search-skill-sentiment.md) accepterar "Pages" som indata och skapar ett nytt fält med namnet "sentiment" som utdata som innehåller resultatet av sentiment-analys.
 
 
-
-Färdighetsuppsättningar har skapats i JSON. Du kan bygga komplexa färdighetsuppsättningar med slingor och [förgreningar](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) med hjälp av [uttrycks språket](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Uttrycks språkets sökvägar använder [JSON-pekaren](https://tools.ietf.org/html/rfc6901) med några ändringar för att identifiera noder i ett berikande träd. En ```"/"``` korsar en nivå som är lägre i trädet och ```"*"``` fungerar som en for-each-operator i kontexten. Dessa begrepp beskrivs bäst med ett exempel. För att illustrera några av begreppen och funktionerna går vi igenom exempel färdigheter för [hotell granskning](knowledge-store-connect-powerbi.md) . Om du vill visa färdigheter när du har följt arbets flödet för att importera data, måste du använda en REST API-klient för att [Hämta färdigheter](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
+```json
+{
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "#1",
+            "description": null,
+            "context": "/document/reviews_text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+            "name": "#2",
+            "description": null,
+            "context": "/document/reviews_text/pages/*",
+            "defaultLanguageCode": "en",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text/pages/*",
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "score",
+                    "targetName": "Sentiment"
+                }
+            ]
+        },
+  "cognitiveServices": null,
+  "knowledgeStore": {  }
+}
+```
+> [!NOTE]
+> Du kan skapa komplexa färdighetsuppsättningar med slingor och förgreningar med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att skapa uttrycken. Syntaxen baseras på JSON- [pekarens](https://tools.ietf.org/html/rfc6901) Sök vägs notation, med några ändringar för att identifiera noder i berikande trädet. En `"/"` korsar en nivå som är lägre i trädet och `"*"` fungerar som en for-each-operator i kontexten. I många exempel i den här artikeln visas syntaxen. 
 
 ### <a name="enrichment-tree"></a>Anriknings träd
 
-För att Envision hur en färdigheter progressivt berikar ditt dokument, så börjar vi med vad dokumentet ser ut innan en berikning. Utmatningen av dokument sprickor är beroende av data källan och det angivna tolknings läget har valts. Detta är även läget för det dokument som [fält mappningar](search-indexer-field-mappings.md) kan käll innehåll från när data läggs till i sökindexet.
-![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Kunskaps lager i Pipeline-diagram")
+Vid förloppet av [stegen i en anriknings pipeline](cognitive-search-concept-intro.md#enrichment-steps)följer innehålls bearbetningen den *dokument sprickors* fas där text och bilder extraheras från källan. Bild innehåll kan sedan dirigeras till färdigheter som anger bild bearbetning, medan text innehåll placeras i kö för text bearbetning. För käll dokument som innehåller stora mängder text kan du ange ett *tolknings läge* på indexeraren för att segmentera text i mindre segment för mer optimal bearbetning. 
 
-När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor. Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
+![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Kunskaps lager i Pipeline-diagram")
+
+När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor.  Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
 
 |Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
 |---|---|---|
@@ -50,61 +104,82 @@ När ett dokument har berikats pipelinen visas det som ett träd med innehåll o
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. 
 
 Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
-För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell gransknings exempel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), men samma koncept gäller för att ge dokument från alla andra data källor.
 
 ### <a name="context"></a>Kontext
+
 Varje färdighet kräver en kontext. En kontext fastställer:
-+    Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en i slutet av Sammanhangs värden av typen samling leder det till att en ```/*``` färdighet anropas en gång för varje instans i samlingen. 
-+    Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
-+    Figuren för indata. För samlingar med flera nivåer påverkar att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett anriknings träd med en lista över länder/regioner, var och en med en lista med tillstånd som innehåller en lista över ZipCodes.
+
++ Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en i slutet av Sammanhangs värden av typen samling leder det till att en `/*` färdighet anropas en gång för varje instans i samlingen. 
+
++ Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
+
++ Figuren för indata. För samlingar med flera nivåer påverkar att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett berikande träd med en lista över länder/regioner, var och en med en lista med delstater som innehåller en lista med post nummer.
 
 |Kontext|Indata|Inmatad form|Kompetens anrop|
-|---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över alla ZipCodes i landet/regionen |En gång per land/region |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över ZipCodes i status | En gång per kombination av land/region och delstat|
-
-### <a name="sourcecontext"></a>SourceContext
-
-`sourceContext`Används endast i färdighets inmatning och [projektioner](knowledge-store-projection-overview.md). Den används för att skapa kapslade objekt på flera nivåer. Du kan behöva skapa ett nytt objekt för att antingen skicka det som inmatat till en kunskap eller ett projekt i kunskaps lagret. Eftersom anriknings noder kanske inte är ett giltigt JSON-objekt i ett berikande träd och som refererar till en nod i trädet, returnerar bara det läget för noden när den skapades, med hjälp av användnings området som kunskaps inmatning eller projektioner, vilket innebär att du kan skapa ett välformulerat JSON-objekt. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket kräver flera kunskaper om du bara använde kontexten. Med `sourceContext` visas i nästa avsnitt. Titta på de kunskaps utdata som genererade en anrikning för att avgöra om det är ett giltigt JSON-objekt och inte en primitiv typ.
-
-### <a name="projections"></a>Projektioner
-
-Projektion är processen att välja noderna från det berikande trädet som ska sparas i kunskaps lagret. Projektioner är anpassade former i dokumentet (innehåll och anrikninger) som kan matas ut antingen som tabell-eller objekt projektioner. Mer information om hur du arbetar med projektioner finns i [arbeta med projektioner](knowledge-store-projection-overview.md).
-
-![Alternativ för fält mappning](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Fält mappnings alternativ för anriknings pipeline")
-
-Diagrammet ovan beskriver väljaren som du arbetar med, baserat på var du befinner dig i pipelinen för anrikning.
+|-------|-----|--------------|----------------|
+|`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |En lista över alla post nummer i landet/regionen |En gång per land/region |
+|`/document/countries/*/states/*` |'/Document/countries/*/States/*/ZipCodes/* ' ' |En lista med post nummer i status | En gång per kombination av land/region och delstat|
 
 ## <a name="generate-enriched-data"></a>Generera utförliga data 
 
-Nu ska vi gå igenom färdigheter för hotell granskningar, du kan följa [självstudien](knowledge-store-connect-powerbi.md) för att skapa färdigheter eller [Visa](https://github.com/Azure-Samples/azure-search-postman-samples/) färdigheter. Vi ska titta på:
+Med [hotell gransknings färdigheter](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) som en referens punkt ska vi titta på:
 
-* Hur anriknings trädet utvecklas med körningen av varje färdighet 
-* så här fungerar kontext och indata för att avgöra hur många gånger en färdighet körs 
-* Hur indatatypen är baserat på kontexten. 
++ Hur anriknings trädet utvecklas med körningen av varje färdighet
++ Så här fungerar kontext och indata för att avgöra hur många gånger en färdighet körs
++ Hur indatatypen baseras på sammanhanget
 
-Eftersom vi använder avgränsat text tolknings läge för indexeraren representerar ett dokument i beriknings processen en enda rad i CSV-filen.
+Ett "dokument" i beriknings processen representerar en enda rad (en hotell granskning) i hotel_reviews.csv käll filen.
 
-### <a name="skill-1-split-skill"></a>Kunskaps #1: dela kunskaper 
+### <a name="skill-1-split-skill"></a>Kunskaps #1: dela kunskaper
+
+När käll innehållet består av stora delar av text är det bra att dela upp det i mindre delar för att öka precisionen för språk, sentiment och nyckel fras identifiering. Det finns två tillgängliga kärnor: sidor och meningar. En sida består av ungefär 5000 tecken.
+
+En text delnings färdighet är vanligt vis först i en färdigheter.
+
+```json
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document/reviews_text",
+      "defaultLanguageCode": "en",
+      "textSplitMode": "pages",
+      "maximumPageLength": 5000,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/reviews_text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+```
+
+Med kunskaps kontexten `"/document/reviews_text"` utför den delade kunskapen en gång för `reviews_text` . Kunskaps resultatet är en lista där `reviews_text` är segmenterad i 5000-Character-segment. Resultatet från den delade kunskapen namnges `pages` och läggs till i berikande trädet. Med `targetName` funktionen kan du byta namn på en färdighets utmatning innan du lägger till den i berikande trädet.
+
+Ditt anriknings träd har nu en ny nod som placerats under kunskaps kontexten. Den här noden är tillgänglig för alla kunskaper, projektioner och fält mappningar. Trädet ser ut så här:
 
 ![anriknings träd efter dokument sprickor](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Anriknings träd efter dokument sprickor och innan kompetens körning")
 
-Med kunskaps kontexten för ```"/document/reviews_text"``` kommer den här kunskapen att köras en gång för `reviews_text` . Kunskaps resultatet är en lista där `reviews_text` är segmenterad i 5000-Character-segment. Resultatet från den delade kunskapen namnges `pages` och läggs till i berikande trädet. Med `targetName` funktionen kan du byta namn på en färdighets utmatning innan du lägger till den i berikande trädet.
+Rotnoden för alla-berikningar är `"/document"` . När du arbetar med BLOB-indexerare, `"/document"` kommer noden att ha underordnade noder till `"/document/content"` och `"/document/normalized_images"` . När du arbetar med CSV-data, som vi är i det här exemplet, kommer kolumn namnen att mappas till noderna under `"/document"` . 
 
-Ditt anriknings träd har nu en ny nod som placerats under kunskaps kontexten. Den här noden är tillgänglig för alla kunskaper, projektioner och fält mappningar.
-
-
-Rotnoden för alla-berikningar är `"/document"` . När du arbetar med BLOB-indexerare, `"/document"` kommer noden att ha underordnade noder till `"/document/content"` och `"/document/normalized_images"` . När du arbetar med CSV-data, som vi är i det här exemplet, kommer kolumn namnen att mappas till noderna under `"/document"` . För att få åtkomst till någon av de omfattande tillägg som läggs till i en nod av en färdighet behövs den fullständiga sökvägen för berikning. Om du till exempel vill använda texten från ```pages``` noden som inmatad till en annan färdighet måste du ange den som ```"/document/reviews_text/pages/*"``` .
+För att få åtkomst till någon av de omfattande tillägg som läggs till i en nod av en färdighet behövs den fullständiga sökvägen för berikning. Om du till exempel vill använda texten från ```pages``` noden som inmatad till en annan färdighet måste du ange den som ```"/document/reviews_text/pages/*"``` .
  
  ![anriknings träd efter färdighets #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Anriknings träd efter att kunskaps #1 körts")
 
 ### <a name="skill-2-language-detection"></a>Identifiering av kunskaps #2 språk
- Även om språket för språk identifiering är den tredje kunskaps #3s kompetensen som definierats i färdigheter, är det nästa färdighet att köra. Eftersom den inte blockeras genom att kräva några indata körs den parallellt med den tidigare kunskapen. Precis som den delade kunskapen som föregår den, anropas även språk identifierings kunskapen en gång för varje dokument. Ditt anriknings träd har nu en ny nod för språk.
+
+Hotell gransknings dokument innehåller kundfeedback som uttrycks på flera språk. Språk identifierings kunskapen avgör vilket språk som används. Resultatet skickas sedan till extrahering av nyckel fraser och sentiment, vilket kan vara ett språk att tänka på när man identifierar sentiment och fraser.
+
+Även om språket för språk identifiering är den tredje kunskaps #3s kompetensen som definierats i färdigheter, är det nästa färdighet att köra. Eftersom den inte blockeras genom att kräva några indata körs den parallellt med den tidigare kunskapen. Precis som den delade kunskapen som föregår den, anropas även språk identifierings kunskapen en gång för varje dokument. Ditt anriknings träd har nu en ny nod för språk.
+
  ![anriknings träd efter färdighets #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Anriknings träd efter att kunskaps #2 körts")
  
  ### <a name="skill-3-key-phrases-skill"></a>Kompetens #3: kompetens för nyckel fraser 
 
-Med tanke på att ```/document/reviews_text/pages/*``` nyckel frasernas färdighet anropas en gång för varje objekt i `pages` samlingen. Utdata från färdigheten är en nod under det associerade sid elementet. 
+Med tanke på att `/document/reviews_text/pages/*` nyckel frasernas färdighet anropas en gång för varje objekt i `pages` samlingen. Utdata från färdigheten är en nod under det associerade sid elementet. 
 
  Nu bör du kunna titta på resten av färdigheterna i färdigheter och visualisera hur trädet i berikarna kommer att fortsätta att växa med körningen av varje färdighet. Vissa kunskaper, till exempel sammanfognings kunskaper och formaren-kunskaper, skapar också nya noder, men använder bara data från befintliga noder och skapar inte nya, nya-anrikninger.
 
@@ -112,9 +187,23 @@ Med tanke på att ```/document/reviews_text/pages/*``` nyckel frasernas färdigh
 
 Färgerna på kopplingarna i trädet ovan anger att berikarna har skapats av olika kunskaper och att noderna måste adresseras individuellt och kommer inte att ingå i det objekt som returneras när den överordnade noden väljs.
 
-## <a name="save-enrichments-in-a-knowledge-store"></a>Spara berikningar i ett kunskaps lager 
+## <a name="save-enrichments"></a>Spara omfattande funktioner
 
-Färdighetsuppsättningar definierar också ett kunskaps lager där dina berikade dokument kan projiceras som tabeller eller objekt. Om du vill spara dina berikade data i kunskaps lagret definierar du en uppsättning projektioner för ditt berikade dokument. Mer information om kunskaps lagret finns i [Översikt över kunskaps Arkiv](knowledge-store-concept-intro.md)
+I Azure Kognitiv sökning sparar en indexerare de utdata som skapas. En av utdata är alltid ett [sökbart index](search-what-is-an-index.md). Att ange ett index är ett krav, och när du bifogar en färdigheter, innehåller data som matas in av ett index innehållet i berikarna. Vanligt vis matas utdata av vissa kunskaper, till exempel nyckel fraser eller sentiment poäng, in i indexet i ett fält som skapats för detta ändamål.
+
+Alternativt kan en indexerare även skicka utdata till ett [kunskaps lager](knowledge-store-concept-intro.md) för användning i andra verktyg eller processer. Ett kunskaps lager definieras som en del av färdigheter. Den här definitionen bestämmer om dina berikade dokument projiceras som tabeller eller objekt (filer eller blobbar). Tabell projektioner lämpar sig väl för interaktiv analys i verktyg som Power BI, medan filer och blobbar vanligt vis används i data vetenskap eller liknande processer. I det här avsnittet får du lära dig hur färdigheter-sammansättningen kan forma de tabeller eller objekt som du vill projicera.
+
+### <a name="projections"></a>Projektioner
+
+För innehåll som är riktat till ett kunskaps lager bör du fundera över hur innehållet är strukturerat. *Projektion* är en process för att välja noderna från det berikande trädet och skapa ett fysiskt uttryck för dem i kunskaps lagret. Projektioner är anpassade former i dokumentet (innehåll och anrikninger) som kan matas ut antingen som tabell-eller objekt projektioner. Mer information om hur du arbetar med projektioner finns i [arbeta med projektioner](knowledge-store-projection-overview.md).
+
+![Alternativ för fält mappning](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Fält mappnings alternativ för anriknings pipeline")
+
+### <a name="sourcecontext"></a>SourceContext
+
+`sourceContext`Elementet används endast i färdighets inmatning och projektioner. Den används för att skapa kapslade objekt på flera nivåer. Du kan behöva skapa ett nytt objekt för att antingen skicka det som inmatat till en kunskap eller ett projekt i kunskaps lagret. Eftersom anriknings noder kanske inte är ett giltigt JSON-objekt i ett berikande träd och som refererar till en nod i trädet, returnerar bara det läget för noden när den skapades, med hjälp av användnings området som kunskaps inmatning eller projektioner, vilket innebär att du kan skapa ett välformulerat JSON-objekt. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket kräver flera kunskaper om du bara använde kontexten. 
+
+Med `sourceContext` visas i följande exempel. Titta på de kunskaps utdata som genererade en anrikning för att avgöra om det är ett giltigt JSON-objekt och inte en primitiv typ.
 
 ### <a name="slicing-projections"></a>Projektion av segmentering
 
@@ -122,14 +211,19 @@ När du definierar en tabell projektions grupp kan en enda nod i ett berikande t
 
 ### <a name="shaping-projections"></a>Utformning av projektioner
 
-Det finns två sätt att definiera en projektion. Du kan använda en formaren-färdighet för att skapa en ny nod som är rotnoden för alla berikade projekt. I dina projektioner refererar du sedan bara till utdata från formaren-kompetensen. Du kan också infoga en projektion i själva projektions definitionen.
+Det finns två sätt att definiera en projektion:
 
-Formaren-metoden är mer utförlig än infogad form men säkerställer att alla Mutations träd finns i kunskaperna och att utdata är ett objekt som kan återanvändas. Med infogad form givning kan du skapa den form du behöver, men är ett anonymt objekt och är bara tillgängligt för projektionen som den har definierats för. Metoderna kan användas tillsammans eller separat. Färdigheter som skapas åt dig i Portal arbets flödet innehåller båda. Den använder en formaren-färdighet för tabell projektioner, men använder infogad form för att projicera nyckel fraserna.
++ Använd texten formaren skicklighet för att skapa en ny nod som är rotnoden för alla berikade projekt. I dina projektioner refererar du sedan bara till utdata från formaren-kompetensen.
+
++ Använd en infogad form som en projektion i själva projektions definitionen.
+
+Formaren-metoden är mer utförlig än infogad form men säkerställer att alla Mutations träd finns i kunskaperna och att utdata är ett objekt som kan återanvändas. Med hjälp av infogad form givning kan du däremot skapa den form du behöver, men är ett anonymt objekt och är bara tillgängligt för projektionen som den har definierats för. Metoderna kan användas tillsammans eller separat. Färdigheter som skapas åt dig i Portal arbets flödet innehåller båda. Den använder en formaren-färdighet för tabell projektioner, men använder infogad form för att projicera nyckel fraserna.
 
 Om du vill utöka exemplet kan du välja att ta bort infogad form och använda en formaren-färdighet för att skapa en ny nod för nyckel fraserna. För att skapa en form projicerad i tre tabeller, nämligen,, `hotelReviewsDocument` `hotelReviewsPages` och `hotelReviewsKeyPhrases` , beskrivs de två alternativen i följande avsnitt.
 
+#### <a name="shaper-skill-and-projection"></a>Formaren-kunskaper och projektion
 
-#### <a name="shaper-skill-and-projection"></a>Formaren-kunskaper och projektion 
+Detta 
 
 > [!Note]
 > Några av kolumnerna från dokument tabellen har tagits bort från det här exemplet för det kortfattat.

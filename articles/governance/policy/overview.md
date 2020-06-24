@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097378"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944669"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -145,7 +145,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Princip | Parameternamn |Parametertyp  |Obs! |
+| Policy | Parameternamn |Parametertyp  |Anteckning |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |
@@ -158,6 +158,8 @@ I det här scenariot, när du definierar initiativparametrar för **initiativC**
 
 När du skapar värdealternativ i en initiativdefinition kan du inte ange ett annat värde under initiativtilldelningen eftersom det inte ingår i listan.
 
+Om du vill veta mer om strukturerna för initiativ definitioner granskar du [initiativ definitions strukturen](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Tilldelningar
 
 En tilldelning är en princip definition eller ett initiativ som har tilldelats för att äga rum inom ett angivet omfång. Det här omfånget kan vara ett intervall från en [hanterings grupp](../management-groups/overview.md) till en enskild resurs. Termen _definitions område_ syftar på alla resurser, resurs grupper, prenumerationer eller hanterings grupper som definitionen är tilldelad till. Tilldelningar ärvs av alla underordnade resurser. Den här designen innebär att en definition som tillämpas på en resurs grupp också tillämpas på resurser i den resurs gruppen. Du kan dock undanta ett under omfång från tilldelningen.
@@ -166,7 +168,7 @@ I prenumerations omfattningen kan du till exempel tilldela en definition som fö
 
 I ett annat exempel kanske du vill tilldela en resurs typ Tillåt List definition på hanterings grupps nivå. Sedan tilldelar du en mer tillåtande princip (vilket tillåter fler resurs typer) i en underordnad hanterings grupp eller till och med direkt på prenumerationer. Det här exemplet skulle dock inte fungera eftersom Azure Policy är ett explicit Deny system. I stället måste du undanta den underordnade hanterings gruppen eller prenumerationen från tilldelningen på hanterings grupps nivå. Tilldela sedan den mer tillåtna definitionen för den underordnade hanterings gruppen eller prenumerations nivån. Om en tilldelning resulterar i att en resurs får åtkomst, är det enda sättet att tillåta resursen att ändra den nekande tilldelningen.
 
-Mer information om hur du ställer in tilldelningar via portalen finns i [skapa en princip tilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-portal.md). Steg för [PowerShell](assign-policy-powershell.md) och [Azure CLI](assign-policy-azurecli.md) är också tillgängliga.
+Mer information om hur du ställer in tilldelningar via portalen finns i [skapa en princip tilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](./assign-policy-portal.md). Steg för [PowerShell](./assign-policy-powershell.md) och [Azure CLI](./assign-policy-azurecli.md) är också tillgängliga. Information om tilldelnings strukturen finns i avsnittet [tilldelningar](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Maximalt antal Azure Policy objekt
 

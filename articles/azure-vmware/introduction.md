@@ -3,16 +3,16 @@ title: Introduktion
 description: Lär dig om funktionerna och fördelarna med Azure VMware-lösningen (AVS) för att distribuera och hantera VMware-baserade arbets belastningar i Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740334"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749682"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>Vad är Azure VMware-lösning (AVS) Preview?
 
-Azure VMware-lösningen (AVS) tillhandahåller privata moln i Azure. Privata moln innehåller vSphere-kluster som bygger på dedikerade Azure-infrastrukturer utan operativ system. Du kan skala privata moln kluster från 3 till 16 värdar, med möjligheten att ha flera kluster i ett enda privat moln. Alla privata moln är etablerade med vCenter Server, virtuellt San, vSphere och NSX-T. Du kan migrera arbets belastningar från dina lokala miljöer, skapa eller distribuera nya virtuella datorer och använda Azure-tjänster från dina privata moln.
+Azure VMware Solution (AVS) tillhandahåller privata moln i Azure. De privata molnen innehåller vSphere-kluster som bygger på dedikerad Azure-infrastruktur. Du kan skala ut privata molnkluster från 3 till 16 värdar och ha flera kluster i samma privata moln. Alla privata moln är etablerade med vCenter Server, virtuellt San, vSphere och NSX-T. Du kan migrera arbetsbelastningar från din lokala miljö, skapa och distribuera nya virtuella datorer och använda Azure-tjänster från dina privata moln.
 
 AVS är en VMware-verifierad lösning med pågående validering och testning av förbättringar och uppgraderingar. Den privata moln infrastrukturen och program varan hanteras och underhålls av Microsoft, så att du kan fokusera på att utveckla och köra arbets belastningar i dina privata moln.
 

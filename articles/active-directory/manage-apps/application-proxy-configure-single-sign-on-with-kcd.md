@@ -3,25 +3,25 @@ title: Enkel inloggning med programproxy | Microsoft Docs
 description: Beskriver hur du ger enkel inloggning med Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017, it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 69ac1e70684b2c4396bb15a439edab37a7e45040
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583135"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975596"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -55,10 +55,10 @@ Innan du börjar med enkel inloggning för IWA-program kontrollerar du att din m
 Active Directory-konfigurationen varierar beroende på om din Application Proxy Connector och program servern finns i samma domän eller inte.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Anslutnings-och program server i samma domän
-1. I Active Directory går du till **verktyg** > **användare och datorer**.
+1. I Active Directory går du till **verktyg**  >  **användare och datorer**.
 2. Välj den server som kör anslutningen.
-3. Högerklicka och välj **Egenskaper** > **delegering**.
-4. Välj **lita bara på den här datorn för delegering till angivna tjänster**. 
+3. Högerklicka och välj **Egenskaper**  >  **delegering**.
+4. Välj **lita på den här datorn enbart för delegering till angivna tjänster**. 
 5. Välj **Använd valfritt autentiseringsprotokoll**.
 6. Under **tjänster som det här kontot kan presentera delegerade autentiseringsuppgifter** för lägger du till värdet för program SERVERns SPN-identitet. Detta gör att Application Proxy Connector kan personifiera användare i AD mot de program som definierats i listan.
 
@@ -66,9 +66,9 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Anslutnings-och program server i olika domäner
 1. En lista över krav för att arbeta med KCD över domäner finns i Kerberos- [begränsad delegering över domäner](https://technet.microsoft.com/library/hh831477.aspx).
-2. Använd `principalsallowedtodelegateto` egenskapen för tjänst kontot (dator eller dedikerat domän användar konto) för webb programmet för att aktivera delegering av Kerberos-autentisering från programproxyn (anslutnings programmet). Program servern körs i kontexten `webserviceaccount` och den delegerande servern är. `connectorcomputeraccount` Kör kommandona nedan på en domänkontrollant (som kör Windows Server 2012 R2 eller senare) i domänen för `webserviceaccount`. Använd fasta namn (icke-UPN) för båda kontona.
+2. Använd `principalsallowedtodelegateto` egenskapen för tjänst kontot (dator eller dedikerat domän användar konto) för webb programmet för att aktivera delegering av Kerberos-autentisering från programproxyn (anslutnings programmet). Program servern körs i kontexten `webserviceaccount` och den delegerande servern är `connectorcomputeraccount` . Kör kommandona nedan på en domänkontrollant (som kör Windows Server 2012 R2 eller senare) i domänen för `webserviceaccount` . Använd fasta namn (icke-UPN) för båda kontona.
 
-   Om är `webserviceaccount` ett dator konto använder du följande kommandon:
+   Om `webserviceaccount` är ett dator konto använder du följande kommandon:
 
    ```powershell
    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
@@ -78,7 +78,7 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
    Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-   Om är `webserviceaccount` ett användar konto använder du följande kommandon:
+   Om `webserviceaccount` är ett användar konto använder du följande kommandon:
 
    ```powershell
    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
@@ -93,7 +93,7 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
 2. När ditt program visas i listan över företags program markerar du det och klickar på **enkel inloggning**.
 3. Ställ in läget för enkel inloggning på **integrerad Windows-autentisering**.  
 4. Ange applikations serverns **interna program-SPN** . I det här exemplet är SPN för vårt publicerade program http/www. contoso. com. Detta SPN måste finnas i listan över tjänster som anslutnings programmet kan presentera delegerade autentiseringsuppgifter för. 
-5. Välj den **delegerade inloggnings identitet** för anslutningen som du vill använda för användarens räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](#working-with-different-on-premises-and-cloud-identities)
+5. Välj **Delegerad inloggningsidentitet** för anslutningen som ska användas för användarnas räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](#working-with-different-on-premises-and-cloud-identities)
 
    ![Avancerad program konfiguration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
@@ -119,8 +119,6 @@ Så här aktiverar du SPNEGO:
     net stop WAPCSvc & net start WAPCSvc
     ```
 
-Mer information om Kerberos finns i [alla du vill veta om Kerberos-begränsad delegering (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
-
 Appar som inte är Windows-appar vanligt vis användar namn eller SAM-kontonamn i stället för domän-e-postadresser. Om den situationen gäller för dina program måste du konfigurera fältet delegerad inloggnings identitet för att ansluta dina moln identiteter till dina program identiteter. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Arbeta med olika lokala och molnbaserade identiteter
@@ -128,8 +126,8 @@ Application Proxy förutsätter att användarna har exakt samma identitet i moln
 
 Den här funktionen gör det möjligt för många organisationer som har olika lokala och molnbaserade identiteter att ha SSO från molnet till lokala appar utan att användarna måste ange olika användar namn och lösen ord. Detta omfattar organisationer som:
 
-* Ha flera domäner internt (joe@us.contoso.com, joe@eu.contoso.com) och en enda domän i molnet (joe@contoso.com).
-* Ha ett icke-dirigerbart domän namn interntjoe@contoso.usa() och ett giltigt i molnet.
+* Ha flera domäner internt ( joe@us.contoso.com , joe@eu.contoso.com ) och en enda domän i molnet ( joe@contoso.com ).
+* Ha ett icke-dirigerbart domän namn internt ( joe@contoso.usa ) och ett giltigt i molnet.
 * Använd inte domän namn internt (Johan)
 * Använd olika alias lokalt och i molnet. Till exempel joe-johns@contoso.com vs.joej@contoso.com  
 
@@ -144,8 +142,8 @@ Om delegerad inloggnings identitet används kanske värdet inte är unikt för a
    ![Identifiera användare skärm bild – List rutan för användarens huvud namn](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. I programmets konfigurations inställningar för det program som du vill ändra väljer du den **delegerade inloggnings identitet** som ska användas:
 
-   * Användarens huvud namn (till exempel joe@contoso.com)
-   * Alternativt huvud namn för användare (till exempel joed@contoso.local)
+   * Användarens huvud namn (till exempel joe@contoso.com )
+   * Alternativt huvud namn för användare (till exempel joed@contoso.local )
    * Användar namn del av användarens huvud namn (till exempel Johan)
    * Användar namn som är en del av alternativt huvud namn för användare (till exempel joed)
    * Namn på lokal SAM-konto (beroende på domänkontrollantens konfiguration)
@@ -158,6 +156,3 @@ Men i vissa fall skickas begäran till Server dels programmet medan det här pro
 
 * [Så här konfigurerar du ett Application Proxy-program för att använda Kerberos-begränsad delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
-
-
-Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)

@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187944"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124511"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -61,12 +61,12 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
     ![Säkerhets kopierings blad](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. I **säkerhets kopierings mål** > **var din arbets belastning körs? väljer du** **Azure**.
-4. I **vad vill du säkerhetskopiera?** Välj **virtuell dator** > **OK**.
+3. I **säkerhets kopierings mål**  >  **var din arbets belastning körs? väljer du** **Azure**.
+4. I **vad vill du säkerhetskopiera?** Välj **virtuell dator**  >  **OK**.
 
       ![Bladet scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. Välj**säkerhets kopierings**princip i **säkerhets kopierings princip** > och välj den princip som du vill associera med valvet. Klicka sedan på **OK**.
+5. Välj säkerhets kopierings princip i **säkerhets kopierings princip**  >  **Choose backup policy**och välj den princip som du vill associera med valvet. Klicka sedan på **OK**.
     - En säkerhets kopierings princip anger när säkerhets kopieringar görs och hur länge de lagras.
     - Information om standardprincipen visas under den nedrullningsbara menyn.
 
@@ -99,7 +99,7 @@ Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan 
 3. I listan **säkerhets kopierings objekt** klickar du på ellipserna (...).
 4. Klicka på **Säkerhetskopiera nu**.
 5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
-6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
+6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
 ## <a name="provide-permissions"></a>Ange behörigheter
 
@@ -112,13 +112,13 @@ Ange behörigheter:
 
 1. I Azure Portal väljer du **alla tjänster**och söker efter **nyckel valv**.
 2. Välj nyckel valvet som är associerat med den krypterade virtuella datorn som du säkerhetskopierar.
-3. Välj **åtkomst principer** > **Lägg till ny**.
+3. Välj **åtkomst principer**  >  **Lägg till ny**.
 4. Välj **Välj huvud konto**och skriv sedan **säkerhets kopierings hantering**.
-5. Välj **säkerhets kopierings hanterings tjänst** > **Välj**.
+5. Välj **säkerhets kopierings hanterings tjänst**  >  **Välj**.
 
     ![Val av säkerhets kopierings tjänst](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. I **Lägg till åtkomst princip** > **Konfigurera från mall (valfritt)** väljer du **Azure Backup**.
+6. I **Lägg till åtkomst princip**  >  **Konfigurera från mall (valfritt)** väljer du **Azure Backup**.
     - De behörigheter som krävs är förifyllda för **nyckel behörigheter** och **hemliga behörigheter**.
     - Om den virtuella datorn är krypterad med **endast Bek**tar du bort valet för **nyckel behörigheter** eftersom du bara behöver behörighet för hemligheter.
 
@@ -132,7 +132,9 @@ Ange behörigheter:
 
 ## <a name="restore-an-encrypted-vm"></a>Återställa en krypterad virtuell dator
 
-Du återställer krypterade virtuella datorer på följande sätt:
+Krypterade virtuella datorer kan bara återställas genom att återställa den virtuella dator disken enligt beskrivningen nedan. Det finns inte stöd för att **ersätta befintliga** och **återställa virtuella datorer** .
+
+Återställa krypterade virtuella datorer enligt följande:
 
 1. [Återställa den virtuella dator disken](backup-azure-arm-restore-vms.md#restore-disks).
 2. Återskapa den virtuella dator instansen genom att göra något av följande:

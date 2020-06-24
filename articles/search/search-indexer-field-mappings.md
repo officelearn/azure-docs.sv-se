@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005805"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975341"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
@@ -22,7 +22,7 @@ När du använder Azure Kognitiv sökning indexerare ser du ibland till att inda
 
 Några situationer där fält mappningar är användbara:
 
-* Data källan har ett fält med namnet `_id`, men Azure kognitiv sökning tillåter inte fält namn som börjar med ett under streck. Med en fält mappning kan du effektivt byta namn på ett fält.
+* Data källan har ett fält med namnet `_id` , men Azure kognitiv sökning tillåter inte fält namn som börjar med ett under streck. Med en fält mappning kan du effektivt byta namn på ett fält.
 * Du vill fylla i flera fält i indexet från samma data käll data. Du kanske till exempel vill använda olika analys verktyg för dessa fält.
 * Du vill fylla i ett index fält med data från fler än en data källa och data källorna använder olika fält namn.
 * Du måste base64 koda eller avkoda dina data. Fält mappningar har stöd för flera **mappnings funktioner**, inklusive funktioner för base64-kodning och avkodning.
@@ -34,11 +34,14 @@ Några situationer där fält mappningar är användbara:
 
 En fält mappning består av tre delar:
 
-1. En `sourceFieldName`, som representerar ett fält i data källan. Den här egenskapen är obligatorisk.
-2. En valfri `targetFieldName`, som representerar ett fält i Sök indexet. Om det utelämnas används samma namn som i data källan.
-3. En valfri `mappingFunction`, som kan transformera dina data med hjälp av en av flera fördefinierade funktioner. Detta kan användas både för mappningar för in-och utgående fält. Den fullständiga listan över funktioner finns [nedan](#mappingFunctions).
+1. En `sourceFieldName` , som representerar ett fält i data källan. Den här egenskapen är obligatorisk.
+2. En valfri `targetFieldName` , som representerar ett fält i Sök indexet. Om det utelämnas används samma namn som i data källan.
+3. En valfri `mappingFunction` , som kan transformera dina data med hjälp av en av flera fördefinierade funktioner. Detta kan användas både för mappningar för in-och utgående fält. Den fullständiga listan över funktioner finns [nedan](#mappingFunctions).
 
 Fält mappningar läggs till i `fieldMappings` matrisen för index definition.
+
+> [!NOTE]
+> Om inga fält mappningar läggs till antar indexerarna att data käll fält ska mappas till index fält med samma namn. Om du lägger till en fält mappning tas dessa standard fält mappningar bort för fältet källa och mål. Vissa indexerare, till exempel [Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md), lägger till standard fält mappningar för fältet index nyckel.
 
 ## <a name="map-fields-using-the-rest-api"></a>Mappa fält med hjälp av REST API
 
@@ -75,9 +78,9 @@ Det går att referera till ett käll fält i flera fält mappningar. I följande
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mappa fält med hjälp av .NET SDK
 
-Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName`, och en valfri `MappingFunction` referens.
+Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName` , och en valfri `MappingFunction` referens.
 
-Du kan ange fält mappningar när du konstruerar indexeraren eller senare genom att `Indexer.FieldMappings` ange egenskapen direkt.
+Du kan ange fält mappningar när du konstruerar indexeraren eller senare genom att ange egenskapen direkt `Indexer.FieldMappings` .
 
 I följande C#-exempel anges fält mappningar när du skapar en indexerare.
 
@@ -137,7 +140,28 @@ När du hämtar den kodade nyckeln vid sökning kan du använda `base64Decode` f
   }]
  ```
 
-Om du inte inkluderar en parameter egenskap för mappnings funktionen används värdet `{"useHttpServerUtilityUrlTokenEncode" : true}`som standard.
+#### <a name="example---preserve-original-values"></a>Exempel – Behåll ursprungliga värden
+
+[Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md) lägger automatiskt till en fält mappning från `metadata_storage_path` , URI: n för blobben, till fältet index nyckel om ingen fält mappning har angetts. Det här värdet är Base64-kodat så att det är säkert att använda som en Azure Kognitiv sökning-dokument nyckel. I följande exempel visas hur du samtidigt mappar en *URL-säker base64-* kodad version av `metadata_storage_path` till ett `index_key` fält och behåller det ursprungliga värdet i ett `metadata_storage_path` fält:
+
+```JSON
+
+"fieldMappings": [
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "metadata_storage_path"
+  },
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "index_key",
+    "mappingFunction": {
+       "name": "base64Encode"
+    }
+  }
+]
+```
+
+Om du inte inkluderar en parameter egenskap för mappnings funktionen används värdet som standard `{"useHttpServerUtilityUrlTokenEncode" : true}` .
 
 Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64 encoding-alternativ](#base64details) för att avgöra vilka parametrar som ska användas.
 
@@ -164,7 +188,7 @@ Dina källdata kan innehålla base64-kodade strängar, till exempel BLOB-metadat
   }]
 ```
 
-Om du inte tar med en parameter egenskap används värdet `{"useHttpServerUtilityUrlTokenEncode" : true}`som standard.
+Om du inte tar med en parameter egenskap används värdet som standard `{"useHttpServerUtilityUrlTokenEncode" : true}` .
 
 Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64 encoding-alternativ](#base64details) för att avgöra vilka parametrar som ska användas.
 
@@ -174,14 +198,14 @@ Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda sa
 
 Azure Kognitiv sökning stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är Base64-kodad vid indexering ska avkodas senare med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
 
-Om- `useHttpServerUtilityUrlTokenEncode` eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true`, beter `base64Encode` sig sedan som [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Om `useHttpServerUtilityUrlTokenEncode` -eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true` , `base64Encode` beter sig sedan som [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
 > [!WARNING]
 > Om `base64Encode` används för att skapa nyckel värden `useHttpServerUtilityUrlTokenEncode` måste anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings regler &#40;Azure Kognitiv sökning&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
 
-.NET-biblioteken i Azure Kognitiv sökning antar den fullständiga .NET Framework, som innehåller inbyggd kodning. Alternativen `useHttpServerUtilityUrlTokenEncode` och `useHttpServerUtilityUrlTokenDecode` utnyttjar denna inbyggda funktion. Om du använder .NET Core eller ett annat ramverk rekommenderar vi att du ställer in de `false` här alternativen till och anropar ramverkets kodning och avkodnings funktioner direkt.
+.NET-biblioteken i Azure Kognitiv sökning antar den fullständiga .NET Framework, som innehåller inbyggd kodning. `useHttpServerUtilityUrlTokenEncode`Alternativen och `useHttpServerUtilityUrlTokenDecode` utnyttjar denna inbyggda funktion. Om du använder .NET Core eller ett annat ramverk rekommenderar vi att du ställer in de här alternativen till `false` och anropar ramverkets kodning och avkodnings funktioner direkt.
 
-I följande tabell jämförs olika base64-kodningar för `00>00?00`strängen. Om du vill fastställa nödvändig ytterligare bearbetning (om det finns någon) för dina base64-funktioner använder du din biblioteks kodnings funktion i strängen `00>00?00` och jämför utdata med `MDA-MDA_MDA`förväntade utdata.
+I följande tabell jämförs olika base64-kodningar för strängen `00>00?00` . Om du vill fastställa nödvändig ytterligare bearbetning (om det finns någon) för dina base64-funktioner använder du din biblioteks kodnings funktion i strängen `00>00?00` och jämför utdata med förväntade utdata `MDA-MDA_MDA` .
 
 | Kodning | Base64-koda utdata | Ytterligare bearbetning efter biblioteks kodning | Ytterligare bearbetning före biblioteks avkodning |
 | --- | --- | --- | --- |
@@ -201,11 +225,11 @@ Den här funktionen använder följande parametrar:
 * `delimiter`: en sträng som ska användas som avgränsare vid delning av Indatasträngen.
 * `position`: en heltal noll-baserad position för den token som ska väljas efter att Indatasträngen har delats upp.
 
-Om till exempel indatatypen är `Jane Doe`, `delimiter` är `" "`(blank steg) och `position` är 0, blir resultatet. `Jane` Om `position` är 1 är `Doe`resultatet. Om positionen refererar till en token som inte finns returneras ett fel.
+Om till exempel indatatypen är `Jane Doe` , `delimiter` är `" "` (blank steg) och `position` är 0, blir resultatet `Jane` `position` . om är 1 är resultatet `Doe` . Om positionen refererar till en token som inte finns returneras ett fel.
 
 #### <a name="example---extract-a-name"></a>Exempel – extrahera ett namn
 
-Data källan innehåller ett `PersonName` fält och du vill indexera det som två separata `FirstName` fält och `LastName` fält. Du kan använda den här funktionen för att dela upp indatamängden med blank stegs tecken som avgränsare.
+Data källan innehåller ett `PersonName` fält och du vill indexera det som två separata `FirstName` `LastName` fält och fält. Du kan använda den här funktionen för att dela upp indatamängden med blank stegs tecken som avgränsare.
 
 ```JSON
 
@@ -226,13 +250,13 @@ Data källan innehåller ett `PersonName` fält och du vill indexera det som tv�
 
 ### <a name="jsonarraytostringcollection-function"></a>funktionen jsonArrayToStringCollection
 
-Transformerar en sträng formaterad som en JSON-matris med strängar till en sträng mat ris som kan användas för att fylla `Collection(Edm.String)` ett fält i indexet.
+Transformerar en sträng formaterad som en JSON-matris med strängar till en sträng mat ris som kan användas för att fylla ett `Collection(Edm.String)` fält i indexet.
 
-Om till `["red", "white", "blue"]`exempel Indatasträngen är, fylls mål fält av typ `Collection(Edm.String)` med de tre värdena `red`, `white`och. `blue` Ett fel returneras för inmatade värden som inte kan parsas som JSON-sträng mat ris.
+Om till exempel Indatasträngen är `["red", "white", "blue"]` , fylls mål fält av typ `Collection(Edm.String)` med de tre värdena `red` , `white` och `blue` . Ett fel returneras för inmatade värden som inte kan parsas som JSON-sträng mat ris.
 
 #### <a name="example---populate-collection-from-relational-data"></a>Exempel – fylla i samling från Relations data
 
-Azure SQL Database har inte någon inbyggd datatyp som naturligt mappar till `Collection(Edm.String)` fält i Azure kognitiv sökning. För att fylla i sträng samlings fält kan du Förbearbeta dina källdata som en JSON-sträng mat ris och sedan `jsonArrayToStringCollection` använda mappnings funktionen.
+Azure SQL Database har inte någon inbyggd datatyp som naturligt mappar till `Collection(Edm.String)` fält i Azure kognitiv sökning. För att fylla i sträng samlings fält kan du Förbearbeta dina källdata som en JSON-sträng mat ris och sedan använda `jsonArrayToStringCollection` mappnings funktionen.
 
 ```JSON
 
@@ -253,7 +277,7 @@ Den här funktionen kan användas för att koda en sträng så att den är "säk
 
 `urlEncode`funktionen kan användas som ett alternativ till `base64Encode` funktionen, om bara URL-osäkra tecken ska konverteras, samtidigt som de behåller andra tecken.
 
-Anta att Indatasträngen är `<hello>` -och sedan fylls mål fält av typ `(Edm.String)` i med värdet`%3chello%3e`
+Anta att Indatasträngen är-och `<hello>` sedan fylls mål fält av typ i `(Edm.String)` med värdet`%3chello%3e`
 
 När du hämtar den kodade nyckeln vid sökning kan du använda `urlDecode` funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta käll dokumentet.
 

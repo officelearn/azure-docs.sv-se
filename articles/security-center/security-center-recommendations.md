@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245309"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791392"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Säkerhetsrekommendationer i Azure Security Center 
 I det här avsnittet beskrivs hur du visar och förstår rekommendationerna i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -53,7 +53,7 @@ Security Center analyserar dina resursers säkerhets tillstånd för att identif
     Du kan filtrera rekommendationer. Om du vill filtrera rekommendationerna väljer du **filter** på bladet **rekommendationer** . **Filter** bladet öppnas och du väljer de allvarlighets grad och tillstånds värden som du vill se.
 
    * **Rekommendationer**: rekommendationen.
-   * **Säker Poäng effekt**: en poäng som skapats av Security Center med hjälp av dina säkerhets rekommendationer och tillämpar avancerade algoritmer för att fastställa hur viktiga varje rekommendation är. Mer information finns i [säker Poäng beräkning](security-center-secure-score.md#secure-score-calculation).
+   * **Säker Poäng effekt**: en poäng som skapats av Security Center med hjälp av dina säkerhets rekommendationer och tillämpar avancerade algoritmer för att fastställa hur viktiga varje rekommendation är. Mer information finns i [säker Poäng beräkning](secure-score-security-controls.md#how-your-secure-score-is-calculated).
    * **Resurs**: visar de resurser som den här rekommendationen gäller för.
    * **Statusfält**: beskriver allvarlighets graden för den specifika rekommendationen:
        * **Hög (röd)**: det finns ett säkerhets problem med en meningsfull resurs (till exempel ett program, en virtuell dator eller en nätverks säkerhets grupp) och kräver en åtgärd.

@@ -5,12 +5,12 @@ description: Läs om kända begränsningar när du kör Windows Server-nodkonfig
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 89cfb42da4433f17298cf2cb68f1a4b3d8f9e549
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433008"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976616"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -101,7 +101,7 @@ GMSA-stöd (Group Managed Service accounts) är för närvarande inte tillgängl
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Kan jag använda Azure Monitor för behållare med Windows-noder och behållare?
 
-Ja, men du kan Azure Monitor inte samla in loggar (STDOUT) från Windows-behållare. Du kan fortfarande ansluta till den aktiva strömmen av STDOUT-loggar från en Windows-behållare.
+Ja, men Azure Monitor har en uppsättning [begränsningar][azure-monitor] för Windows-supporten.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Vad händer om jag behöver en funktion som inte stöds?
 
@@ -131,3 +131,4 @@ Kom igång med Windows Server-behållare i AKS genom att [skapa en noduppsättni
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

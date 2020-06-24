@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3c38a67b13a6b5c12767d38ecf2297d2417ebdb
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176778"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808412"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -24,21 +24,6 @@ I den här artikeln får du svar på vanliga frågor om Azure våren Cloud.
 Azure våren Cloud tillhandahåller en PaaS (Platform as a Service) för vår moln utvecklare. Azure våren Cloud hanterar din program infrastruktur så att du kan fokusera på program kod och affärs logik. Kärn funktioner som är inbyggda i Azure våren Cloud inkluderar Eureka, konfigurations Server, tjänst register Server, pivotal Build Service, blå-grön distributioner med mera. Den här tjänsten gör det också möjligt för utvecklare att binda sina program till andra Azure-tjänster, till exempel Azure Cosmos DB, Azure Database for MySQL och Azure cache för Redis.
 
 Azure våren Cloud förbättrar programdiagnostikens upplevelse för utvecklare och operatörer genom att integrera Azure Monitor, Application Insights och Log Analytics.
-
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Vilka tjänst planer erbjuder Azure våren Cloud?
-
-Azure våren Cloud erbjuder en service plan under för hands perioden.  En våren Cloud-distribution innehåller 16 vCPU kärnor och 32 GB minne.  Den övre kanten för varje mikrotjänst instans i en distribution är 4 vCPU kärnor med 8 GB minne.
-
-Resurs | Belopp
-------- | -------
-App-instanser per fjäder program | 20
-Totalt antal App-instanser per Azure våren Cloud Service-instans | 500
-Azure våren Cloud Service-instanser per region per prenumeration | 10
-Beständiga volymer | 10 x 50 GBytes
-
-\*_Öppna ett [support ärende](https://azure.microsoft.com/support/faq/)om du vill höja gränsen._
-
-Mer information finns i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/).
 
 ### <a name="how-secure-is-azure-spring-cloud"></a>Hur säkert är Azure våren Cloud?
 
@@ -59,7 +44,10 @@ I för hands versionen har Azure våren Cloud följande kända begränsningar:
 * `spring.application.name`kommer att åsidosättas av det program namn som används för att skapa varje program.
 * `server.port`tillåts inte i konfigurations filen från git-lagrings platsen. Om du lägger till den i konfigurations filen återges troligen programmet inte kan komma åt från andra program eller Internet.
 * Azure Portal-och Azure Resource Manager-mallarna stöder inte överföring av programpaket. Du kan bara överföra program paket genom att distribuera programmet via Azure CLI.
-* Om du vill veta mer om kvot begränsningar, se [vilka tjänst prenumerationer erbjuder Azure våren Cloud?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### <a name="what-pricing-tiers-are-available"></a>Vilka pris nivåer är tillgängliga? 
+Vilken av dem ska jag använda och vilka är gränserna inom varje nivå?
+* Azure våren Cloud erbjuder två pris nivåer: Basic och standard. Basic-nivån är avsedd för utveckling/testning och testar Azure våren Cloud. Standard nivån är optimerad för att köra generell användning av produktions trafiken. Se [pris information för Azure våren Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) för gränser och jämförelse av funktions nivåer.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Hur kan jag ge feedback och rapportera problem?
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Queue Storage-referens
+title: Lagringsreferens för Azure-kö
 description: Hitta Azure Storage API-referens, README-filer och klient biblioteks paket.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d01fb4d467b34f4093cbeb1346786ad793eede7d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346012"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976667"
 ---
-# <a name="azure-queue-storage-reference"></a>Azure Queue Storage-referens
+# <a name="azure-queue-storage-reference"></a>Lagringsreferens för Azure-kö
 
 Hitta Azure Queue Storage API-referens, biblioteks paket, viktigt-filer och komma igång-artiklar.
 
@@ -67,8 +67,8 @@ I följande tabell visas referens och exempel dokumentation för python-API: er 
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Klient bibliotek för Azure Storage köer för python](/python/api/overview/azure/storage-queue-readme) | [Paket (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Snabb start: Azure Queue Storage klient bibliotek V12 för python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2x | [Azure-lagring-kö](/python/api/azure-storage-queue/?view=azure-python-previous) | [Paket (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Så här använder du Azure Queue Storage v 2.1 från python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12. x | [Azure Storage klient bibliotek V12 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Paket (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Snabb start: Azure Queue Storage klient bibliotek V12 för python](/azure/storage/queues/storage-quickstart-queues-python) |
+| 2x | [Azure Storage klient bibliotek v2 för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Paket (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Så här använder du Azure Queue Storage v 2.1 från python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ## <a name="javascript-client-libraries"></a>Java Script-klient bibliotek
 
@@ -77,7 +77,7 @@ I följande tabell visas referens och exempel dokumentation för JavaScript-API:
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12. x | [Klient bibliotek för Azure Storage kö för Java Script](/javascript/api/overview/azure/storage-queue-readme) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-queue) | [Snabb start: Azure Queue Storage klient bibliotek V12 för Java Script](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Använd Azure Queue Service för att skapa och ta bort köer från Node. js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Använd Azure Queue Service för att skapa och ta bort köer från Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
 
 ## <a name="rest-apis"></a>REST API:er
 

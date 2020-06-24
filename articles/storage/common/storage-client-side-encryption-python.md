@@ -9,14 +9,14 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74895369"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804909"
 ---
 # <a name="client-side-encryption-with-python"></a>Kryptering på klient sidan med python
 
@@ -92,7 +92,7 @@ Tabell data kryptering fungerar på följande sätt:
 
 1. Användarna anger vilka egenskaper som ska krypteras.
 2. Klient biblioteket genererar en slumpmässig initierings vektor (IV) av 16 byte tillsammans med en slumpmässig innehålls krypterings nyckel (CEK) på 32 byte för varje entitet och utför kuvert kryptering på de enskilda egenskaperna som ska krypteras genom att härleda en ny IV per egenskap. Den krypterade egenskapen lagras som binära data.
-3. Den omslutna CEK och vissa ytterligare krypterings-metadata lagras sedan som två ytterligare reserverade egenskaper. Den första reserverade egenskapen (\_ClientEncryptionMetadata1) är en sträng egenskap som innehåller information om IV, version och rad bruten nyckel. Den andra reserverade egenskapen (\_ClientEncryptionMetadata2) är en binär egenskap som innehåller information om de egenskaper som är krypterade. Informationen i den här andra egenskapen (\_ClientEncryptionMetadata2) är själva krypterad.
+3. Den omslutna CEK och vissa ytterligare krypterings-metadata lagras sedan som två ytterligare reserverade egenskaper. Den första reserverade egenskapen ( \_ ClientEncryptionMetadata1) är en sträng egenskap som innehåller information om IV, version och rad bruten nyckel. Den andra reserverade egenskapen ( \_ ClientEncryptionMetadata2) är en binär egenskap som innehåller information om de egenskaper som är krypterade. Informationen i den här andra egenskapen ( \_ ClientEncryptionMetadata2) är själva krypterad.
 4. På grund av dessa ytterligare reserverade egenskaper som krävs för kryptering kan användarna nu bara ha 250 anpassade egenskaper i stället för 252. Entitetens totala storlek måste vara mindre än 1 MB.
 
    Observera att endast sträng egenskaper kan krypteras. Om andra typer av egenskaper ska krypteras måste de konverteras till strängar. De krypterade strängarna lagras i tjänsten som binära egenskaper och konverteras tillbaka till strängar (obehandlade strängar, inte EntityProperties med typen EdmType. STRING) efter dekrypteringen.
@@ -109,7 +109,7 @@ Observera att entiteter krypteras när de infogas i batchen med hjälp av batche
 > Eftersom entiteterna är krypterade kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du provar blir resultatet felaktigt, eftersom tjänsten försöker jämföra krypterade data med okrypterade data.
 > 
 > 
-> Om du vill utföra frågor måste du ange en nyckel lösare som kan matcha alla nycklar i resultat uppsättningen. Om en entitet som ingår i frågeresultatet inte kan matchas till en provider, kommer klient biblioteket att utlösa ett fel. För alla frågor som utför Server sidans projektioner, lägger klient biblioteket till de särskilda egenskaperna för krypterings\_-metadata \_(ClientEncryptionMetadata1 och ClientEncryptionMetadata2) som standard i de markerade kolumnerna.
+> Om du vill utföra frågor måste du ange en nyckel lösare som kan matcha alla nycklar i resultat uppsättningen. Om en entitet som ingår i frågeresultatet inte kan matchas till en provider, kommer klient biblioteket att utlösa ett fel. För alla frågor som utför Server sidans projektioner, lägger klient biblioteket till de särskilda egenskaperna för krypterings-metadata ( \_ ClientEncryptionMetadata1 och \_ ClientEncryptionMetadata2) som standard i de markerade kolumnerna.
 > 
 > [!IMPORTANT]
 > Tänk på följande viktiga punkter när du använder kryptering på klient sidan:

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554247"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975321"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Snabb start: hantera blobbar med python V12 SDK
 
@@ -21,7 +21,7 @@ I den här snabb starten lär du dig att hantera blobbar med hjälp av python. B
 
 [API-referens dokumentation](/python/api/azure-storage-blob)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)  |  [Paket (python-paket index)](https://pypi.org/project/azure-storage-blob/)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -290,5 +290,5 @@ Om du vill se exempel appar för Blob Storage fortsätter du till:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage SDK V12 python-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Mer information finns i [Azure SDK för python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* Mer information finns i [Azure Storage klient bibliotek för python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
 * Självstudier, exempel, snabb starter och annan dokumentation finns på [Azure för python-utvecklare](/azure/python/).

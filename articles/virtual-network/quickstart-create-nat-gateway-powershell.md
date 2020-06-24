@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en NAT-gateway – Azure PowerShell'
+title: 'Självstudie: skapa en NAT-gateway – Azure PowerShell'
 titlesuffix: Azure Virtual Network NAT
 description: Den här snabb starten visar hur du skapar en NAT-gateway med Azure PowerShell
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 4878707524c7c7083035163ae2709334cc83e039
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 1c6a9fff7b3bafc927b0d032dc7345c262f6037c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342229"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707488"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>Snabb start: skapa en NAT-gateway med Azure PowerShell
+# <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure PowerShell
 
-Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
+Den här självstudien visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

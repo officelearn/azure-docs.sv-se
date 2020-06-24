@@ -4,12 +4,12 @@ description: Lär dig hur du migrerar en anpassad Windows-behållare till Azure 
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046622"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205630"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrera en ASP.NET-app till Azure App Service med hjälp av en Windows-container (förhandsversion)
 
@@ -25,12 +25,12 @@ För att slutföra den här kursen behöver du:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
-    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **söka efter uppdateringar**.
-    - Lägg till arbets belastningarna i Visual Studio genom att klicka på **verktyg** > **Hämta verktyg och funktioner**.
+    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp**  >  **söka efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att klicka på **verktyg**  >  **Hämta verktyg och funktioner**.
 
 ## <a name="set-up-the-app-locally"></a>Konfigurera appen lokalt
 
-### <a name="download-the-sample"></a>Hämta exemplet
+### <a name="download-the-sample"></a>Ladda ned exemplet
 
 I det här steget konfigurerar du det lokala .NET-projektet.
 
@@ -61,7 +61,7 @@ I Solution Explorer högerklickar du på projektet **CustomFontSample** och väl
 
 ![Dialogrutan Nytt ASP.NET-projekt](media/app-service-web-tutorial-windows-containers-custom-fonts/enable-container-orchestration.png)
 
-Välj **Docker Skriv** > **OK**.
+Välj **Docker Skriv**  >  **OK**.
 
 Nu har projektet konfigurerats för att köra i en Windows-container. En _Dockerfile_ läggs till i **CustomFontSample**-projektet och ett **docker-compose**-projekt läggs till i lösningen. 
 
@@ -69,13 +69,13 @@ Från Solution Explorer öppnar du **Dockerfile**.
 
 Du måste använda en [överordnad avbildning som stöds](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod:
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Lägg till följande rad i slutet av filen och spara filen:
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -97,7 +97,7 @@ I Solution Explorer högerklickar du på projektet **CustomFontSample** och väl
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
-I guiden publicera väljer du **container Registry** > **Skapa ny Azure Container Registry** > **publicera**.
+I guiden publicera väljer du **container Registry**  >  **Skapa ny Azure Container Registry**  >  **publicera**.
 
 ![Dialogrutan Nytt ASP.NET-projekt](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 
@@ -128,7 +128,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-På den vänstra menyn väljer du **skapa en resurs** > **webb** > **Web App for containers**.
+På den vänstra menyn väljer du **skapa en resurs**  >  **webb**  >  **Web App for containers**.
 
 ### <a name="configure-app-basics"></a>Konfigurera grundläggande program
 
@@ -185,7 +185,7 @@ Vänta några minuter och försök igen tills startsidan visas med det snygga te
 
 ## <a name="see-container-start-up-logs"></a>Se containerns startloggar
 
-Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande URL genom att ersätta * \<App-Name->* med namnet på din app.
+Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande URL genom att ersätta *\<app-name>* med namnet på din app.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
@@ -201,4 +201,3 @@ De strömmade loggarna ser ut så här:
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

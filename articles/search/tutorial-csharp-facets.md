@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780597"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85257524"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Självstudie: Lägg till en fasett-navigering med .NET SDK
 
@@ -21,7 +21,7 @@ Ansikte används för att under lätta navigeringen genom att förse användaren
 
 Den här självstudien bygger på det växlings projekt som skapats i [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Ange modell egenskaper som _IsFacetable_
 > * Lägg till aspekt navigering till din app
@@ -109,7 +109,7 @@ Vi behöver styrenheten för att skicka listor över ansikte till vyn. Vi måste
 
 Hem styrenheten behöver en ny åtgärd, **aspekt**och uppdateringar av befintliga **index** -och **sid** åtgärder, samt uppdateringar av **RunQueryAsync** -metoden.
 
-1. Öppna filen med hemkontrollanten och Lägg till **using** -instruktionen för att **aktivera&lt;List&gt; sträng** konstruktionen.
+1. Öppna filen med hemkontrollanten och Lägg till **using** -instruktionen för att **aktivera &lt; list &gt; sträng** konstruktionen.
 
     ```cs
     using System.Collections.Generic;
@@ -344,7 +344,7 @@ Vyn kommer att kräva några betydande ändringar.
     }
     ```
 
-2. För vyn organiserar vi resultatet i en tabell, så att du kan justera fasett-listorna till vänster och resultatet till höger. Öppna filen index. cshtml. Ersätt hela innehållet i HTML Body &lt;&gt; -taggarna med följande kod.
+2. För vyn organiserar vi resultatet i en tabell, så att du kan justera fasett-listorna till vänster och resultatet till höger. Öppna filen index. cshtml. Ersätt hela innehållet i HTML Body- &lt; &gt; taggarna med följande kod.
 
     ```cs
     <body>

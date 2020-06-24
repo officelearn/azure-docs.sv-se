@@ -4,16 +4,16 @@ description: Hur du skapar en Windows-pool för virtuella skriv bord med hjälp 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8afc8b70257f07c95b34c4e372e0e7425ae20fcd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112669"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204752"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
@@ -33,7 +33,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/23/2020
+ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780767"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261026"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
 
 Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL Database och skicka dem till ett Sök index i Azure kognitiv sökning. 
 
-I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa en data källa som ansluter till Azure SQL Database
@@ -27,7 +27,7 @@ I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk) f
 > * Köra en indexerare för att läsa in data i ett index
 > * Fråga ett index som ett verifierings steg
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -78,7 +78,7 @@ Om du har en befintlig Azure SQL Database resurs kan du lägga till hotell tabel
     SELECT * FROM Hotels
     ```
 
-1. Kopiera ADO.NET-anslutningssträngen för databasen. Under **Inställningar** > **anslutnings strängar**kopierar du anslutnings strängen ADO.net, som liknar exemplet nedan.
+1. Kopiera ADO.NET-anslutningssträngen för databasen. Under **Inställningar**  >  **anslutnings strängar**kopierar du anslutnings strängen ADO.net, som liknar exemplet nedan.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -96,7 +96,7 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -104,11 +104,11 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. Starta Visual Studio och öppna **DotNetHowToIndexers. SLN**.
 
-1. I Solution Explorer öppnar du **appSettings. JSON** för att tillhandahålla anslutnings information.
+1. I Solution Explorer öppnar du **appsettings.jspå** för att ange anslutnings information.
 
-1. För `searchServiceName`, om den fullständiga URL: enhttps://my-demo-service.search.windows.netär "", är tjänst namnet som ska tillhandahållas "min-demo-service".
+1. För `searchServiceName` , om den fullständiga URL: en är " https://my-demo-service.search.windows.net ", är tjänst namnet som ska tillhandahållas "min-demo-service".
 
-1. För `AzureSqlConnectionString`, liknar sträng formatet följande:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
+1. För `AzureSqlConnectionString` , liknar sträng formatet följande:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {

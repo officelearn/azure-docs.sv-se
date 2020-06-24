@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238904"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699625"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
@@ -69,7 +69,7 @@ När du kör ett redundanstest händer följande:
 
 Kör redundanstestet på följande sätt:
 
-1. I **Inställningar** > **replikerade objekt**klickar du på den virtuella datorn > **+ testa redundansväxlingen**.
+1. I **Inställningar**  >  **replikerade objekt**klickar du på den virtuella datorn > **+ testa redundansväxlingen**.
 2. Välj återställningspunkten **Senast bearbetade** för den här självstudien. Då redundansväxlar den virtuella datorn till den senast tillgängliga tidpunkten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
 3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans.
 4. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **Testa redundans** i valvnamnet > **Inställningar** > **Jobb** >
@@ -87,6 +87,6 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Köra en redundansväxling och återställning efter fel för virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md)
-> [Kör redundans och återställning efter fel för virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md)
-> [Kör redundans och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)
+> [Köra en redundansväxling och återställning efter fel för virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md) 
+>  [Köra en redundansväxling och återställning efter fel för virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md) 
+>  [Köra en redundansväxling och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)

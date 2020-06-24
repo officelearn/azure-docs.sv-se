@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239576"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687199"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -34,7 +34,7 @@ I den här självstudien skapar du ett förenklat virtuellt nätverk med tre und
 
 ![Självstudie om nätverksinfrastruktur](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
@@ -46,7 +46,7 @@ I den här guiden får du lära dig att:
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](deploy-ps.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -71,7 +71,7 @@ Det här virtuella nätverket innehåller tre undernät.
 > Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
-1. Välj **nätverk** > **virtuellt nätverk**.
+1. Välj **nätverk**  >  **virtuellt nätverk**.
 1. I fältet **Namn** skriver du **Test-FW-VN**.
 1. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
 1. I fältet **Prenumeration** väljer du din prenumeration.
@@ -87,7 +87,7 @@ Skapa sedan undernät för hoppservern och ett undernät för arbetsbelastningss
 
 1. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj sedan **test-VB-RG**.
 2. Välj det virtuella nätverket **test-VB-VN** .
-3. Välj **undernät** > och**undernät.**
+3. Välj **undernät**  >  **och undernät**.
 4. I fältet **Namn** skriver du **Workload-SN**.
 5. I fältet **Adressintervall** skriver du **10.0.2.0/24**.
 6. Välj **OK**.
@@ -102,7 +102,7 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 2. Välj **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Resursgrupp     |**Test-VB-RG**|
    |Namn på virtuell dator     |**SRV-hoppa**|
@@ -123,7 +123,7 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 
 Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **SRV-Work**. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
 
-|Inställning  |Värde  |
+|Inställningen  |Värde  |
 |---------|---------|
 |Undernät|**Workload-SN**|
 |Offentlig IP-adress|**Inga**|
@@ -138,12 +138,12 @@ Distribuera brandväggen till det virtuella nätverket.
 3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
-   |Prenumeration     |\<din prenumeration\>|
+   |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**Test-VB-RG** |
    |Name     |**Test-FW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
    |Offentlig IP-adress     |**Lägg till ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
@@ -168,7 +168,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 8. Välj **Skapa**.
 9. Välj **Uppdatera**och välj sedan tabellen **brand Väggs** väg väg.
 10. Välj **undernät** och välj sedan **associera**.
-11. Välj **Virtual Network** > **test-VB-VN**.
+11. Välj **Virtual Network**  >  **test-VB-VN**.
 12. För **undernät**väljer du **arbets belastning-SN**. Se till att du bara väljer **arbets belastningen – SN** under nätet för den här vägen, annars fungerar inte brand väggen korrekt.
 
 13. Välj **OK**.
@@ -239,7 +239,7 @@ Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
 2. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** .
 3. Öppna Internet Explorer och navigera till https://www.google.com.
-4. Välj **OK** > **Stäng** i Internet Explorers säkerhets aviseringar.
+4. Välj **OK**  >  **Stäng** i Internet Explorers säkerhets aviseringar.
 
    Du bör se Googles start sida.
 

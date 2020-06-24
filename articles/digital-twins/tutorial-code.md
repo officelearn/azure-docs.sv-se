@@ -1,5 +1,5 @@
 ---
-title: Koda en klient app
+title: Koda en klientapp
 titleSuffix: Azure Digital Twins
 description: Självstudie för att skriva den minimala koden för en klient app med hjälp av .NET (C#) SDK.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613370"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298403"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Koda med Azure Digitals dubbla API: er
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen för utvecklare ger en introduktion till programmering mot Azure Digitals-tjänsten med [Azure IoT Digital-klient biblioteket för .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
 
@@ -99,8 +102,8 @@ Det första du behöver göra är att autentisera mot tjänsten Azure Digitals d
 
 Du behöver tre delar av information för att kunna autentisera:
 * *Katalog-ID* för din prenumeration
-* Det *program-ID (klient)* som skapades när du konfigurerade tjänst instansen tidigare
-* *Värd namnet* för din tjänst instans
+* Det *program-ID (klient)* som skapades när du konfigurerade Azure Digitals-instansen tidigare
+* *Värd namnet* för Azure Digitals dubbla instanser
 
 >[!TIP]
 > Om du inte känner till ditt *katalog-ID*kan du hämta det genom att köra det här kommandot i [Azure Cloud Shell](https://shell.azure.com):
@@ -148,7 +151,7 @@ Azure Digital-dubbla har ingen inbyggd vokabulär i domänen. De typer av elemen
 
 Det första steget i att skapa en Azure digital-lösning med dubbla lösningar är att definiera minst en modell i en DTDL-fil.
 
-Skapa en ny *. JSON* -fil med namnet *SampleModel. JSON*i katalogen där du skapade projektet. Klistra in följande fil text: 
+Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå*i katalogen där du skapade projektet. Klistra in följande fil text: 
 
 ```json
 {
@@ -174,7 +177,7 @@ Skapa en ny *. JSON* -fil med namnet *SampleModel. JSON*i katalogen där du skap
 > Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always*. Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
 
 > [!TIP] 
-> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://github.com/Azure-Samples/DTDL-Validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [instruktion: parsa och validera modeller](how-to-use-parser.md).
+> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [instruktion: parsa och validera modeller](how-to-use-parser.md).
 
 Lägg sedan till ytterligare kod i *program.cs* för att ladda upp den modell som du precis har skapat i Azure Digitals-instansen.
 
@@ -216,8 +219,7 @@ Kör programmet med det här kommandot i kommando fönstret:
 ```cmd/sh
 dotnet run
 ```
-
-Nu finns det inga utdata som indikerar att anropet lyckades. 
+"Överför en modell" skrivs ut i utdata, men det finns inga utdata än att ange om modeller har överförts eller inte.
 
 Om du vill lägga till en Print-instruktion som anger om modeller faktiskt har laddats upp, lägger du till följande kod direkt efter föregående avsnitt:
 
@@ -291,24 +293,19 @@ using System.Text.Json;
 Lägg sedan till följande kod i slutet av- `Main` metoden för att skapa och initiera tre digitala dubbla, baserade på den här modellen.
 
 ```csharp
-// Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+// Initialize twin data
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", $"Hello World!");
+
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+        twinData.Id = $"{prefix}{i}";
+        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin: {rex.Status}:{rex.Message}");  
+        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
     }
 }
 ```
@@ -449,6 +446,7 @@ namespace minimal
             var typeList = new List<string>();
             string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
+
             // Upload the model to the service
             try {
                 await client.CreateModelsAsync(typeList);
@@ -462,21 +460,16 @@ namespace minimal
                 Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
             }
 
-            // Initialize twin metadata
-            var meta = new Dictionary<string, object>
-            {
-                { "$model", "dtmi:com:contoso:SampleModel;1" },
-            };
-            // Initialize the twin properties
-            var initData = new Dictionary<string, object>
-            {
-                { "$metadata", meta },
-                { "data", "Hello World!" }
-            };
+            // Initialize twin data
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+            twinData.CustomProperties.Add("data", $"Hello World!");
+    
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  

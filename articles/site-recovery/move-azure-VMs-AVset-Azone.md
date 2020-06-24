@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1d771d1e13d1ffd92a18658d08bb948d97e55999
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209017"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699727"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszoner i Azure hjälper dig att skydda dina program och data från data Center fel. Varje tillgänglighetszon består av ett eller flera datacenter som är utrustade med oberoende ström, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska separeringen av Tillgänglighetszoner inom en region hjälper till att skydda program och data från data Center problem. Med Tillgänglighetszoner erbjuder Azure ett service avtal (SLA) på 99,99% för drift tid för virtuella datorer (VM). Tillgänglighetszoner stöds i SELECT-regioner, som anges i [regioner som stöder Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-region).
@@ -23,7 +23,7 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 - Flytta virtuella datorer i en tillgänglighets uppsättning till Tillgänglighetszoner i en mål region
 
 > [!IMPORTANT]
-> För närvarande har Azure Site Recovery stöd för att flytta virtuella datorer från en region till en annan men det går inte att flytta i en region.
+> För närvarande har Azure Site Recovery stöd för att flytta virtuella datorer från en region till en annan. Den stöder bara förflyttning mellan zoner inom en region i några regioner. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 ## <a name="check-prerequisites"></a>Kontrollera krav
 
@@ -85,7 +85,7 @@ Följande steg vägleder dig när du använder Azure Site Recovery för att akti
 
 1. I Azure Portal väljer du **virtuella datorer**och väljer den virtuella dator som du vill flytta till Tillgänglighetszoner.
 2. I **Åtgärder** väljer du **Haveriberedskap**.
-3. I **Konfigurera** > **mål region**för haveri beredskap väljer du den mål region som du vill replikera till. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-region) Tillgänglighetszoner.
+3. I **Konfigurera**  >  **mål region**för haveri beredskap väljer du den mål region som du vill replikera till. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-region) Tillgänglighetszoner.
 
     ![Val av mål region](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -123,7 +123,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
     > [!IMPORTANT]
     > Vi rekommenderar att du använder ett separat Azure VM-nätverk för test felen och inte produktions nätverket i mål regionen dit du vill flytta dina virtuella datorer.
 
-4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess egenskaper. Alternativt kan du välja jobbet **testa redundans** i valv namnet > **Inställningar** > **jobb** > **Site Recovery jobb**.
+4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess egenskaper. Alternativt kan du välja jobbet **testa redundans** i valv namnet > **Inställningar**  >  **jobb**  >  **Site Recovery jobb**.
 5. När redundansväxlingen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
 6. Om du vill ta bort den virtuella datorn som skapats som en del i testningen av flyttningen väljer du **rensning** av redundanstest på det replikerade objektet. I **Kommentarer** skriver du ned och sparar eventuella observationer från testet.
 
@@ -132,7 +132,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 1.  I menyn virtuell dator väljer du **haveri beredskap**.
 2. Välj ikonen för **redundans** .
 3. I **Redundans** väljer du **Senaste**. 
-4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**. 
+4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan. 
 5. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Genomför**. Detta avslutar flytten till målregionen. Vänta tills inchecknings jobbet är klart.
 

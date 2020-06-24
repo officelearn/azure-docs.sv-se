@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238526"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693236"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudier: Förbereda ett geo-replikerat Azure Container Registry
 
@@ -39,7 +39,7 @@ Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slut
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-Välj **skapa en resurs** > **behållare** > **Azure Container Registry**.
+Välj **skapa en resurs**  >  **behållare**  >  **Azure Container Registry**.
 
 ![Skapa ett containerregister i Azure-portalen][tut-portal-01]
 
@@ -55,7 +55,7 @@ Välj **Skapa** för att distribuera ACR-instansen.
 
 ![Skapa ett containerregister i Azure-portalen][tut-portal-02]
 
-I resten av den här självstudien använder `<acrName>` vi som plats hållare för det behållar **register namn** som du har valt.
+I resten av den här självstudien använder vi `<acrName>` som plats hållare för det behållar **register namn** som du har valt.
 
 > [!TIP]
 > Eftersom Azure-containerregister vanligtvis är långlivade resurser som används av flera containervärdar rekommenderar vi att du skapar ditt register i en egen resursgrupp. När du konfigurerar georeplikerade register och webhooks placeras de här ytterligare resurserna i samma resursgrupp.

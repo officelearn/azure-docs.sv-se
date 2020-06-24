@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82106210"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85299389"
 landingContent:
 - title: Om röst assistenter
   linkLists:
@@ -42,24 +42,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa en app för anpassade kommandon
-      url: quickstart-custom-speech-commands-create-new.md
-    - text: Skapa ett anpassat kommando med parametrar
-      url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Använda anpassade kommandon med Anpassad röst
-      url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Använda anpassade kommandon med Speech SDK
-      url: quickstart-custom-speech-commands-speech-sdk.md
+    - text: Skapa en röstassistent med Anpassade kommandon
+      url: quickstart-custom-commands-application.md
   - linkListType: how-to-guide
     links:
-    - text: Utföra kommandon från en klient
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Lägga till parametervalidering
-      url: how-to-custom-speech-commands-validations.md
-    - text: Lägga till en bekräftelse
-      url: how-to-custom-speech-commands-confirmations.md
-    - text: Lägga till en korrigering i ett steg
-      url: how-to-custom-speech-commands-one-step-correction.md
+    - text: Skapa program med enkla kommandon
+      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: Lägga till parametrar till dina kommandon
+      url: how-to-custom-commands-add-parameters-to-commands.md
+    - text: Lägg till verifieringar i parametrar och prompter för korrigering
+      url: how-to-custom-commands-add-parameter-configuration.md
+    - text: Integrera med hjälp av tal-SDK
+      url: how-to-custom-commands-setup-speech-sdk.md
+    - text: Konfigurera kontinuerlig distribution för din anpassade kommando-app med Azure DevOps
+      url: how-to-custom-commands-deploy-cicd.md
 - title: Utveckla med direkt linje tal
   linkLists:
   - linkListType: quickstart

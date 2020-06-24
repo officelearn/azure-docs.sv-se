@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239842"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691109"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för haveriberedskap till Azure
 
@@ -84,8 +84,8 @@ Under ett failover-scenario kanske du vill ansluta till det replikerade lokala n
 
 För att ansluta till virtuella Windows-datorer med RDP efter redundans, Tillåt åtkomst enligt följande:
 
-1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Se till att TCP-och UDP-regler läggs till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
-2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP bör tillåtas i **Windows-brandväggen** -> **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.
+1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Se till att TCP-och UDP-regler läggs till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen**  >  **tillåtna appar** för alla profiler.
+2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP bör tillåtas i **Windows-brandväggen**  ->  **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.
    Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. I så fall kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
 3. Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -94,5 +94,5 @@ Efter redundansväxlingen kan du komma åt virtuella Azure-datorer med samma IP-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera katastrof återställning till Azure för virtuella Hyper-v-datorer](tutorial-hyper-v-to-azure.md)
-> [Konfigurera haveri beredskap till Azure för virtuella Hyper-v-datorer i VMM-moln](tutorial-hyper-v-vmm-to-azure.md)
+> [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer](tutorial-hyper-v-to-azure.md) 
+>  [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer i VMM-moln](tutorial-hyper-v-vmm-to-azure.md)

@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239688"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687930"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -57,7 +57,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
 3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
 
-   ![Virtuellt WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
+   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
 
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resurs grupp** – skapa ny eller Använd befintlig.

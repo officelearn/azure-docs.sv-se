@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746996"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687182"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -25,6 +25,10 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 |**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="2111"></a>2.11.1
+
+- I den här versionen åtgärdas några buggar som rör emulator Datautforskaren. I vissa fall när du använder emulatorn Datautforskaren via en webbläsare, går det inte att ansluta till Cosmos-emulatorns slut punkt och alla relaterade åtgärder som att skapa en databas eller en behållare kommer att Miss lyckas. Det andra problem som har åtgärd ATS är relaterat till att skapa ett objekt från en JSON-fil med Datautforskaren överförings åtgärd.
 
 ### <a name="2110"></a>2.11.0
 

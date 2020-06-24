@@ -2,7 +2,7 @@
 title: SQL-hanterad instans säkerhet med Azure AD server-Huvudkonton (inloggningar)
 description: Lär dig mer om tekniker och funktioner för att skydda den hanterade Azure SQL-instansen och Använd Azure AD server-Huvudkonton (inloggningar)
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219802"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706451"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Självstudie: säkerhet i Azure SQL-hanterad instans med hjälp av Azure AD server-huvudobjekt (inloggningar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Azure SQL-hanterad instans innehåller nästan alla säkerhetsfunktioner som den
 - Använda auktorisering med rollbaserade medlemskap och behörigheter
 - Aktivera säkerhetsfunktioner
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 
 Mer information finns i [Översikt över Azure SQL Managed instance](sql-managed-instance-paas-overview.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 

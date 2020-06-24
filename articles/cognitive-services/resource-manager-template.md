@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 9b2091c7acd42d4c967ec5baef82d970344f9231
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081587"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299491"
 ---
-# <a name="create-a-cognitive-services-resource-using-an-azure-resource-manager-template"></a>Skapa en Cognitive Services resurs med hjälp av en Azure Resource Manager-mall
+# <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Snabb start: skapa en Cognitive Services resurs med en ARM-mall
 
 Använd den här artikeln för att skapa och distribuera en Cognitive Services resurs med en Azure Resource Manager ARM-mall (ARM). Med den här resursen med flera tjänster kan du:
 * Få åtkomst till flera Azure-Cognitive Services med en enda nyckel och slut punkt.
@@ -24,23 +24,24 @@ Använd den här artikeln för att skapa och distribuera en Cognitive Services r
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
 
-## <a name="prerequisites"></a>Krav 
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
+## <a name="prerequisites"></a>Krav
 
-## <a name="create-a-cognitive-services-resource"></a>Skapa en -resurs för Cognitive Services
+* Om du inte har någon Azure-prenumeration kan du [skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services).
 
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts arm-mallar](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
 En Azure-resurs har definierats i mallen:
 * [Microsoft. CognitiveServices/Accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): skapar en Cognitive Services-resurs.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -63,7 +64,6 @@ En Azure-resurs har definierats i mallen:
 
 3. Välj **Granska + skapa** och klicka sedan på **Skapa**. När resursen har slutfört distributionen markeras knappen **gå till resurs** .
 
-    
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
@@ -97,7 +97,7 @@ När distributionen är klar kan du klicka på knappen **gå till resurs** för 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
-Använd Azure CLI och kör följande skript och ange namnet på den resurs grupp som du skapade tidigare. 
+Använd Azure CLI och kör följande skript och ange namnet på den resurs grupp som du skapade tidigare.
 
 ```azurecli-interactive
 echo "Enter the resource group where the Cognitive Services resource exists:" &&

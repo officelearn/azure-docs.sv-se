@@ -5,17 +5,17 @@ description: Beskrivningar av de data uppsättningar som används i exempel mode
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 0ecce4db01217bc182687818af365dff334e7d10
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115495"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705907"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
 
@@ -142,7 +142,7 @@ Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (
 <tr>
   <td>CRM-datauppsättning delad</td>
   <td>
-Dessa data kommer från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train. data. zip</a>).
+Dessa data kommer från KDD-bägaren 2009 kund Relations förutsägelse kontroll (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa.
   </td>
@@ -359,48 +359,48 @@ Observera att för vissa företag gick det inte att hitta en artikel, så antale
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
 Data uppsättningen innehåller kund information och uppgifter om deras svar på en direkt kopplings kampanj. Varje rad representerar en kund. Data uppsättningen innehåller nio funktioner för användar demografiskhet och tidigare beteende och tre etikett kolumner (besök, konvertering och spendera).  Besök är en binär kolumn som visar att en kund besökt efter marknadsförings kampanjen. Omvandlingen innebär att en kund har köpt något. Spenderat är det belopp som spenderades.  Data uppsättningen har gjorts tillgänglig av Kevin Hillstrom för MineThatData e-post analys och data utvinnings utmaning.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
 Funktioner i test exempel i RCV1-v2 Reuters News-datauppsättningen. Data uppsättningen har 781K nyhets artiklar tillsammans med deras ID (första kolumnen i data uppsättningen). Varje artikel är token, stopworded och påfylld. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
 Funktioner i övnings exempel i RCV1-v2 Reuters News-datauppsättningen. Data uppsättningen har 23K nyhets artiklar tillsammans med deras ID (första kolumnen i data uppsättningen). Varje artikel är token, stopworded och påfylld. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a><br></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Data uppsättning från KDD-bägaren 1999 kunskaps identifiering och data utvinnings verktyg, tävling (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99. html</a>).
+Data uppsättning från KDD-bägaren 1999 kunskaps identifiering och data utvinnings verktyg tävling (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
-Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a>) och omfattar både utbildning och testning av data uppsättningar. Data uppsättningen för träning har ungefär 126K rader och 43 kolumner, inklusive etiketter. Tre kolumner är en del av etikett informationen och 40 kolumner, som består av numeriska och sträng/kategoriska funktioner, är tillgängliga för att träna modellen. Test data har ungefär 22.5 K test-exempel med samma 43-kolumner som i tränings data.
+Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) och omfattar både utbildning och testning av data uppsättningar. Data uppsättningen för träning har ungefär 126K rader och 43 kolumner, inklusive etiketter. Tre kolumner är en del av etikett informationen och 40 kolumner, som består av numeriska och sträng/kategoriska funktioner, är tillgängliga för att träna modellen. Test data har ungefär 22.5 K test-exempel med samma 43-kolumner som i tränings data.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. topics. qrels. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Ämnes tilldelningar för nyhets artiklar i RCV1-v2 Reuters News-datauppsättningen. En nyhets artikel kan tilldelas till flera ämnen. Formatet på varje rad är " &lt; ämnes namn &gt; &lt; dokument-ID &gt; 1". Data uppsättningen innehåller ämnes tilldelningar 2.6 M. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Dessa data kommer från KDD-bägaren 2010 student prestanda utvärderings utmaning (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student Performance Evaluation</a>). De data som används är Algebra_2008_2009 inlärnings uppsättning (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Utmanings data uppsättning från KDD-bägare 2010 utbildnings data utvinnings utmaning. Hitta den vid <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">hämtningar. jsp</a>.
+Dessa data kommer från KDD-bägaren 2010 student prestanda utvärderings utmaning (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student Performance Evaluation</a>). De data som används är Algebra_2008_2009 inlärnings uppsättning (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Utmanings data uppsättning från KDD-bägare 2010 utbildnings data utvinnings utmaning. Hitta den på <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
-Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a>) och innehåller loggfiler från ett student Utlärnings-system. De tillhandahållna funktionerna inkluderar problem-ID och dess kort beskrivning, Student-ID, tidsstämpel och hur många försök student som gjorts innan problemet löses på rätt sätt. Den ursprungliga data uppsättningen innehåller 8,9 M-poster; den här data uppsättningen har inaktiverats för de första 100 000 raderna. Data uppsättningen har 23 tabbavgränsade kolumner av olika typer: numeric, kategoriska och timestamp.
+Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfiler från ett student Utlärnings-system. De tillhandahållna funktionerna inkluderar problem-ID och dess kort beskrivning, Student-ID, tidsstämpel och hur många försök student som gjorts innan problemet löses på rätt sätt. Den ursprungliga data uppsättningen innehåller 8,9 M-poster; den här data uppsättningen har inaktiverats för de första 100 000 raderna. Data uppsättningen har 23 tabbavgränsade kolumner av olika typer: numeric, kategoriska och timestamp.
   </td>
 </tr>
 

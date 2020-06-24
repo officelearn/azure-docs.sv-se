@@ -1,7 +1,7 @@
 ---
-title: Anpassade kommandon (för hands version) – tal tjänst
+title: Anpassade kommandon – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: En översikt över funktionerna, funktionerna och begränsningarna för anpassade kommandon (för hands version), en lösning för att skapa röst program.
+description: En översikt över funktioner, funktioner och begränsningar för anpassade kommandon, en lösning för att skapa röst program.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,46 +10,49 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 3c02e823202aa848a4de94885276835899562e4b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9954e4fe739c055a00c2e3bc52b73200a7824a43
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266023"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299117"
 ---
-# <a name="what-is-custom-commands-preview"></a>Vad är anpassade kommandon (för hands version)?
+# <a name="what-is-custom-commands"></a>Vad är anpassade kommandon?
 
 Röst program, till exempel [röst assistenter](voice-assistants.md) , lyssnar på användare och vidtar en åtgärd som svar, och talar ofta tillbaka. De använder [tal-till-text](speech-to-text.md) för att skriva över användarens tal och sedan vidta åtgärder för textens naturliga språk förståelse. Den här åtgärden innehåller ofta talade utdata från assistenten som genererades med [text till tal](text-to-speech.md). Enheter ansluter till assistenter med tal SDK: s `DialogServiceConnector` objekt.
 
-**Anpassade kommandon (förhands granskning)** är en strömlinjeformad lösning för att skapa röst program. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet jämfört med andra alternativ som [direkt linje tal](direct-line-speech.md). Den här förenklingen kommer dock att ha en lägre flexibilitet. Det innebär att anpassade kommandon (förhands granskning) passar bäst för slut för ande av aktiviteter eller kommando-och-kontroll-scenarier. Den är särskilt väl matchad för Sakernas Internet (IoT) och omdirigerings enheter.
+Med **anpassade kommandon** kan du enkelt bygga avancerade röst kommando program som är optimerade för röst-och första interaktions upplevelser. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet, vilket hjälper dig att fokusera på att skapa den bästa lösningen för röst kommando scenarier.
 
-För komplex interaktion och integrering med andra lösningar som den [virtuella assistent lösningen och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) rekommenderar vi att du använder direkt linje tal.
+Anpassade kommandon lämpar sig bäst för slut för ande av aktiviteter eller kommando-och kontroll scenarier, särskilt väl matchade för Sakernas Internet-enheter (IoT), omgivande och omdirigerings enheter. I exemplen ingår lösningar för service, detaljist-och bil industrier, så att du kan bygga de bästa lokala, röst kontrollerade upplevelserna för dina gäster, hantera inventering i butiken och styra funktioner i bilen i farten.
 
-Bra kandidater för anpassade kommandon (förhands granskning) har en fast vokabulär med väldefinierade uppsättningar variabler. Till exempel är start automatiserings uppgifter, som att styra en termostat, idealiska.
+> [!TIP]
+> Visa våra exempel demonstrationer på vår landnings sida på [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
+
+Om du är intresse rad av att skapa komplexa konversationer, rekommenderar vi att du testar bot-ramverket med hjälp av den [virtuella assistent lösningen](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Du kan lägga till röst till all bot Framework-robot med direkt linje tal.
+
+Bra kandidater för anpassade kommandon har en fast ord lista med väldefinierade uppsättningar variabler. Till exempel är start automatiserings uppgifter, som att styra en termostat, idealiska.
 
    ![Exempel på scenarier för slut för ande av uppgift](media/voice-assistants/task-completion-examples.png "exempel på slutförd uppgift")
 
-## <a name="getting-started-with-custom-commands-preview"></a>Komma igång med anpassade kommandon (förhands granskning)
+## <a name="getting-started-with-custom-commands"></a>Komma igång med anpassade kommandon
 
-Det första steget för att använda anpassade kommandon (för hands version) för att göra ett röst program är att [Hämta en tal prenumerations nyckel](get-started.md) och komma åt de anpassade kommandona (för hands version) på [tal Studio](https://speech.microsoft.com). Därifrån kan du skapa ett nytt anpassat kommando (för hands version) och publicera det, och sedan använda ett program på enheten för att kommunicera med det med hjälp av tal-SDK.
+Vårt mål med anpassade kommandon är att minska din kognitiva belastning för att lära dig om alla olika tekniker och fokusera på att skapa din app för röst kommandon. Första steget för att använda anpassade kommandon för att <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">skapa en Azure <span class="docon docon-navigate-external x-hidden-focus"></span> tal-resurs </a>. Du kan redigera appen anpassade kommandon i tal Studio och publicera den, och sedan kan ett program på enheten kommunicera med det med hjälp av tal-SDK.
 
-   ![Redigerings flöde för anpassade kommandon (förhands granskning)](media/voice-assistants/custom-commands-flow.png "Redigerings flödet för anpassade kommandon (förhands granskning)")
+#### <a name="authoring-flow-for-custom-commands"></a>Redigerings flöde för anpassade kommandon
+   ![Redigerings flöde för anpassade kommandon](media/voice-assistants/custom-commands-flow.png "De anpassade kommandona som redigerar flödet")
 
-Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på mindre än 10 minuter.
+Följ snabb starten för att få din första anpassade kommando-app att köra kod på mindre än 10 minuter.
 
-* [Skapa ett anpassat kommando (för hands version)](quickstart-custom-speech-commands-create-new.md)
-* [Skapa ett anpassat kommando (för hands version) med parametrar](quickstart-custom-speech-commands-create-parameters.md)
-* [Ansluta till ett anpassat kommando (för hands version) med talet SDK, C #](quickstart-custom-speech-commands-speech-sdk.md)
+* [Skapa en röstassistent med Anpassade kommandon](quickstart-custom-commands-application.md)
 
-När du är klar med snabb starterna kan du utforska vår instruktion.
+När du är klar med snabb starten kan du utforska våra instruktions guider för detaljerade steg för att utforma, utveckla, felsöka, distribuera och integrera ett program för anpassade kommandon.
 
-- [Lägg till verifieringar i anpassade kommando parametrar](./how-to-custom-speech-commands-validations.md)
-- [Utföra kommandon på klienten med talet SDK](./how-to-custom-speech-commands-fulfill-sdk.md)
-- [Lägga till en bekräftelse till ett anpassat kommando](./how-to-custom-speech-commands-confirmations.md)
-- [Lägga till en korrigering i ett steg till ett anpassat kommando](./how-to-custom-speech-commands-one-step-correction.md)
+## <a name="building-voice-assistants-with-custom-commands"></a>Skapa röst assistenter med anpassade kommandon
+> [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
-* [Gå till tal Studio för att testa anpassade kommandon](https://speech.microsoft.com)
+* [Visa våra röst assistenter lagrings platsen på GitHub for samples](https://aka.ms/speech/cc-samples)
+* [Gå till tal Studio för att testa anpassade kommandon](https://speech.microsoft.com/customcommands)
 * [Hämta tal-SDK](speech-sdk.md)

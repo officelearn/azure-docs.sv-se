@@ -2,18 +2,19 @@
 title: Självstudie – Azure Toolkit for IntelliJ (Spark-program)
 description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som är skrivna i Scala och skicka dem till en Apache Spark pool (för hands version).
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657828"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194962"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
@@ -146,7 +147,7 @@ När du har skapat ett Scala-program kan du köra det på distans.
     |Kommandoradsargument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
     |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Jobb överförings lagring|Expandera för att visa fler alternativ.|
-    |Lagringstyp|Välj **Använd Azure Blob för att överföra** från List rutan.|
+    |Lagringstyp|Välj **Använd Azure Blob för att ladda upp** eller **använda klustrets standard lagrings konto för att ladda upp** från List rutan.|
     |Lagringskonto|Ange ditt lagrings konto.|
     |Lagrings nyckel|Ange din lagrings nyckel.|
     |Lagrings behållare|Välj din lagrings behållare i list rutan när **lagrings kontot** och **lagrings nyckeln** har angetts.|
@@ -250,6 +251,7 @@ Det stöds endast på IntelliJ 2018,2 och 2018,3.
 
     |Egenskap |Värde |
     |----|----|
+    |Huvud klass namn| Välj huvud klass namnet.| 
     |Spark-pooler|Välj de Spark-pooler som du vill köra programmet på.|
     ||
 

@@ -4,7 +4,6 @@ description: I den här självstudien beskrivs hur du konfigurerar routningsmeto
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
-ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c541f8318bd7e75de7526e6b7a9e3a32462782d
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76938734"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706757"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Självstudie: Konfigurera prioritet för trafik cirkulation i Traffic Manager
 
@@ -34,7 +33,7 @@ Ett vanligt mönster för redundansväxling av tjänster är att skicka trafik t
     1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning är **prioritet**. Om så inte är fallet klickar du på **prioritet** i list rutan.
     2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
         1. Välj lämpligt **protokoll**och ange **port** numret. 
-        2. För **sökväg** anger du ett snedstreck */*. Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
         3. Klicka på **Spara**längst upp på sidan.
 5. I avsnittet **Inställningar** klickar du på **slut punkter**.
 6. På bladet **slut punkter** granskar du prioritets ordningen för dina slut punkter. När du väljer metoden **prioriterad** trafikroutning är ordningen för de valda slut punkterna. Kontrol lera prioritetsordningen för slut punkter.  Den primära slut punkten är överst. Dubbel kontroll av den ordning som den visas. alla begär Anden dirigeras till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt. 

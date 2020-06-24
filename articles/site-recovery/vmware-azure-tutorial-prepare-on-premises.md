@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238862"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704258"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
@@ -93,7 +93,7 @@ Om du vill ansluta till virtuella Windows-datorer med RDP efter en redundans, g�
 - **Internet åtkomst**. Innan redundans, aktiverar du RDP på den lokala virtuella datorn före redundans. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
 - **Plats-till-plats VPN-åtkomst**:
     - Innan redundans, aktiverar du RDP på den lokala datorn.
-    - RDP bör tillåtas i **Windows-brandväggen** -> **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.
+    - RDP bör tillåtas i **Windows-brandväggen**  ->  **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.
     - Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).
 - Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. I så fall kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
 - Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
@@ -116,5 +116,5 @@ Om du planerar att växla tillbaka till din lokala plats finns det ett antal [kr
 
 Konfigurera katastrof återställning. Om du replikerar flera virtuella datorer bör du planera kapaciteten.
 > [!div class="nextstepaction"]
-> [Konfigurera katastrof återställning till Azure för virtuella VMware-datorer](vmware-azure-tutorial.md)
-> [utför kapacitets planering](site-recovery-deployment-planner.md).
+> [Konfigurera katastrof återställning till Azure för virtuella VMware-datorer](vmware-azure-tutorial.md) 
+>  [Utför kapacitets planering](site-recovery-deployment-planner.md).

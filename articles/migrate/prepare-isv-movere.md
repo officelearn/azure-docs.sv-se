@@ -2,13 +2,13 @@
 title: Förbereda Azure Migrate att arbeta med ett ISV-verktyg/arbets kraft
 description: Den här artikeln beskriver hur du förbereder Azure Migrate att arbeta med ett ISV-verktyg eller en arbets kraft och hur du börjar använda verktyget.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682645"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770381"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Förbered för att arbeta med ett ISV-verktyg eller en arbets kraft
 
@@ -33,11 +33,23 @@ Ditt Azure-användarkonto behöver följande behörigheter:
  
 I din Azure-prenumeration måste ditt konto ha **Microsoft. Authorization/*/Write-** åtkomst för att tilldela en roll till en Azure AD-App. 
 
-1. Öppna **prenumerationer**i Azure Portal.
+1. Öppna **Prenumerationer** i Azure-portalen.
 2. Välj relevant prenumeration. Om du inte ser det väljer du **filtret globala prenumerationer**. 
 3. Välj **mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
 4. **Role assignments**  >  Kontrol lera behörigheterna i**vyn**roll tilldelningar. Om ditt konto inte har behörigheter ber du prenumerations administratören att lägga till dig i rollen som [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rollen.
- 
+
+## <a name="allow-access-to-urls"></a>Tillåt åtkomst till webbadresser
+
+För ISV-verktyg och Azure Database-Migration Assistant kan du ge åtkomst till de offentliga moln-URL: erna sammanfattade i tabellen. Om du använder en URL-baserad proxy för att ansluta till Internet, måste du kontrol lera att proxyn matchar eventuella CNAME-poster som tas emot vid sökning av URL: erna. 
+
+**URL** | **Information**
+--- | ---
+*.portal.azure.com  | Navigera till Azure Portal. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *. live.com   | Logga in på din Azure-prenumeration. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate. 
+management.azure.com | Gör Azure Resource Manager anrop till Azure Migrate projektet.
+*.servicebus.windows.net | Kommunikation mellan enheten och EventHub för att skicka meddelanden.
+
 
 ## <a name="start-using-the-tool"></a>Börja använda verktyget
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810467"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771299"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -175,33 +175,17 @@ När rekommendationerna i Security Center har ställts in och tillämpats är de
 > [!NOTE]
 > Security Center påverkar inte de normala driftrutinerna. Alla distributioner övervakas passivt och rekommendationer går ut baserat på de säkerhetsprinciper som du har aktiverat.
 
-Första gången du väljer att använda Security Center för din befintliga Azure-miljö är det viktigt att du läser igenom alla rekommendationer. Det kan du göra på bladet **Rekommendationer** eller för varje resurs (**Compute**, **Networking**, **Storage & data** och **Application**).
-
-När du har genomfört alla rekommendationer bör **skyddsdelen** vara grön för alla resurser som du har åtgärdat. Den fortlöpande övervakningen blir enklare efter det här eftersom du hädanefter bara behöver vidta åtgärder om det sker förändringar i resursernas säkerhetshälsa och i rekommendationsrutorna.
-
-**Identifieringsdelen** är mer reaktiv. Här visas varningar om problem som antingen precis uppstått eller som uppkommit tidigare men som nyss upptäckts genom kontrollerna i Security Center och i tredjepartssystem. I panelen säkerhets aviseringar visas stapeldiagram som representerar antalet aviseringar som hittades under varje dag och deras distribution bland de olika allvarlighets GRADS kategorierna (låg, medium, hög). Mer information om säkerhetsaviseringar finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+När du först väljer att använda Security Center för din aktuella Azure-miljö bör du kontrol lera att du har granskat alla rekommendationer, som du kan göra på sidan **rekommendationer** .
 
 Planera in att använda Hotinformation som en del av dina dagliga säkerhetsåtgärder. Där kan du identifiera säkerhetshot mot miljön, till exempel identifiera om en viss dator är en del av ett botnät.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Övervakning av nya och ändrade resurser
+
 De flesta Azure-miljöer är dynamiska, och de resurser som regelbundet skapas, anpassas upp eller ned, konfigureras om och ändras. Med Security Center har du bra insyn i de nya objektens säkerhetsstatus.
 
 När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azure-miljön identifierar Security Center de här resurserna automatiskt och börjar övervaka deras säkerhet. Detta omfattar även arbetarroller och webbroller i PaaS. Om data insamling har Aktiver ATS i [säkerhets principen](tutorial-security-policy.md)aktive ras ytterligare övervaknings funktioner automatiskt för dina virtuella datorer.
 
-![Huvuddelar](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
-
-1. För virtuella datorer klickar du på **compute & Apps**i avsnittet **resurs säkerhets hygien** . Eventuella problem med att aktivera datainsamling eller tillhörande rekommendationer visas i fliken **Översikt** och **Monitoring Recommendations** (Övervakningsrekommendationer).
-2. Under **Recommendations (Rekommendationer)** kan du se om några säkerhetsrisker har upptäckts i den nya resursen.
-3. När nya virtuella datorer läggs till i miljön brukar det först bara vara operativsystemet som är installerat. Resursägaren kan behöva lite tid för att distribuera andra program som ska användas på de här datorerna.  Helst bör du veta vilka planerna för arbetsbelastningen är. Ska det vara en programserver? Beroende på vad den nya arbetsbelastningen ska bli kan du aktivera en **säkerhetsprincip** som passar, vilket är det tredje steget i det här arbetsflödet.
-4. När nya resurser läggs till i din Azure-miljö kan nya aviseringar visas i panelen **säkerhets aviseringar** . Sök efter nya aviseringar i den här panelen och följ rekommendationerna.
-
-Du bör också regelbundet övervaka befintliga resurser för konfigurations ändringar som kan ha skapat säkerhets risker, avvikelse från rekommenderade bas linjer och säkerhets aviseringar. Starta på instrumentpanelen för Security Center. Därifrån finns det tre viktiga områden att granska konsekvent.
-
-![Åtgärder](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
-
-1. I rutan **Förebyggande** kan du snabbt gå till dina viktigaste resurser. Använd det här alternativet om du vill övervaka beräkning, nätverk, lagring och data samt program.
-2. I rutan **Rekommendationer** ser du rekommendationerna från Security Center. Under den pågående övervakningen kanske du upptäcker att du inte har rekommendationer per dag, vilket är normalt eftersom du har åtgärdat alla rekommendationer på den inledande Security Center installationen. Så det finns kanske inte ny information här varje dag och du behöver bara gå hit ibland.
-3. Hur ofta innehållet i **identifieringspanelen** ändras kan variera ganska mycket. Du bör alltid kontrollera säkerhetsaviseringarna och vidta åtgärder enligt rekommendationerna i Security Center.
+Du bör också regelbundet övervaka befintliga resurser för konfigurations ändringar som kan ha skapat säkerhets risker, avvikelse från rekommenderade bas linjer och säkerhets aviseringar. 
 
 ### <a name="hardening-access-and-applications"></a>Härdning av åtkomst och program
 

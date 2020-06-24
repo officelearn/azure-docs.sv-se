@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om hur du exponerar en We
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68d4ff7e4617136e4c58ce672f34de56e46f0229
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297840"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207795"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Exponera en WebSocket-Server för Application Gateway
 
@@ -78,7 +78,7 @@ spec:
 Eftersom alla krav är uppfyllda och du har en Application Gateway som styrs av en Kubernetes ingress i din AKS, skulle distributionen ovan leda till att en WebSockets-Server exponeras på port 80 i Application Gateways offentliga IP och `ws.contoso.com` domänen.
 
 Följande spiral-kommando testar distributionen av WebSocket-servern:
-```sh
+```shell
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
         -H "Origin: http://localhost" \
@@ -91,7 +91,7 @@ curl -i -N -H "Connection: Upgrade" \
 ## <a name="websocket-health-probes"></a>WebSocket Health-avsökningar
 
 Om distributionen inte uttryckligen definierar hälso avsökningar försöker Application Gateway ett HTTP-fel på WebSocket-serverns slut punkt.
-Beroende på Server implementeringen ([här är ett vi älskar](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) kan WebSocket-speciella huvuden krävas (`Sec-Websocket-Version` till exempel).
-Eftersom Application Gateway inte lägger till WebSocket-huvuden, är Application Gateway s hälso avsöknings svar från din WebSocket-Server `400 Bad Request`förmodligen troligt vis.
-Som ett resultat Application Gateway Markera din poddar som ohälsosam, vilket kommer att leda till en `502 Bad Gateway` för användare av WebSocket-servern.
-För att undvika detta kan du behöva lägga till en HTTP GET-hanterare för en hälso kontroll på servern`/health` (till exempel, som `200 OK`returnerar).
+Beroende på Server implementeringen ([här är ett vi älskar](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) kan WebSocket-speciella huvuden krävas ( `Sec-Websocket-Version` till exempel).
+Eftersom Application Gateway inte lägger till WebSocket-huvuden, är Application Gateway s hälso avsöknings svar från din WebSocket-Server förmodligen troligt vis `400 Bad Request` .
+Som ett resultat Application Gateway Markera din poddar som ohälsosam, vilket kommer att leda `502 Bad Gateway` till en för användare av WebSocket-servern.
+För att undvika detta kan du behöva lägga till en HTTP GET-hanterare för en hälso kontroll på servern ( `/health` till exempel, som returnerar `200 OK` ).

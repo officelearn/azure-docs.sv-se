@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0c8b984801a0db2af648b0711d95de34bc9386f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273519"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114817"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -25,7 +25,7 @@ Kryptering i vila är nu tillgängligt för dokument och säkerhets kopior som l
 
 Data säkerhet är ett delat ansvar mellan dig, kunden och din databas leverantör. Beroende på vilken databas leverantör du väljer kan du variera mängden ansvar som du bär. Om du väljer en lokal lösning måste du ge allt från slut punkts skydd till fysisk säkerhet för din maskin vara, vilket inte är enkelt. Om du väljer en moln databas leverantör för PaaS, till exempel Azure Cosmos DB, minskar ditt eget intresse avsevärt. Följande bild, som lånas från Microsofts [delade ansvar för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) White Paper, visar hur ditt ansvar minskar med en PaaS-provider som Azure Cosmos dB.
 
-![Kund-och databas leverantörs ansvar](./media/database-security/nosql-database-security-responsibilities.png)
+:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Kund-och databas leverantörs ansvar":::
 
 Föregående diagram visar moln säkerhets komponenter på hög nivå, men vilka objekt behöver du bekymra dig om specifikt för din databas lösning? Och hur kan du jämföra lösningar med varandra?
 
@@ -73,13 +73,13 @@ Låt oss titta närmare på var och en.
 |Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, startas en process med 5 stegs incident svar. Målet med en 5-stegs process är att återställa normala tjänst säkerhet och-åtgärder så snabbt som möjligt när ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure säkerhets svar i molnet](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-staket|Azure Cosmos DB garanterar data styrning för suveräna regioner (till exempel Tyskland, Kina, US Gov).|
 |Skyddade anläggningar|Data i Azure Cosmos DB lagras på SSD i Azures skyddade data Center.<br><br>Läs mer i [Microsofts globala data Center](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2.<br>Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)du.|
+|HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2.<br>Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar du [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .|
 |Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB kryptering i vila](./database-encryption-at-rest.md)|
 |Korrigerade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och korrigera servrar, som du gör automatiskt.|
 |Administrativa konton med starka lösen ord|Det är svårt att tro att vi ens behöver nämna detta krav, men till skillnad från några av våra konkurrenter är det omöjligt att ha ett administrativt konto utan lösen ord i Azure Cosmos DB.<br><br> Säkerhet via TLS och HMAC-baserad autentisering är bakade i som standard.|
 |Säkerhets-och data skydds certifieringar| Den senaste listan över certifieringar finns i den övergripande [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) samt det senaste [Azure Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (Sök efter Cosmos). För en mer fokuserad läsning kolla den 25 april 2018 post [Azure #CosmosDB: säker, privat, kompatibel med SOCS 1/2 typ 2, HITRUST, PCI DSS nivå 1, ISO 27001, HIPAA, FedRAMP hög och många andra.
 
-Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt ![konto: aktivitets loggar för Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt konto: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="aktivitets loggar för Azure Cosmos DB":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311695"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206945"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Förstå filen LocalConfiguration.json – C-agent
 
@@ -29,7 +29,7 @@ Säkerhets agenten läser konfigurationen en gång, vid agent start.
 Konfigurationen som påträffades i den lokala konfigurations filen innehåller konfiguration av autentisering och andra Agent-relaterade konfigurationer.
 Filen innehåller konfigurationer i nyckel värdes par i JSON-format och konfigurationerna fylls i när agenten installeras.
 
-Filen finns som standard på:/var/ASCIoTAgent/LocalConfiguration.json
+Filen finns som standard på:/var/ASCIoTAgent/LocalConfiguration.jspå
 
 Ändringar i konfigurations filen sker när agenten startas om.
 
@@ -55,7 +55,7 @@ Filen finns som standard på:/var/ASCIoTAgent/LocalConfiguration.json
 
 ## <a name="security-agent-configurations-code-example"></a>Kod exempel för konfiguration av säkerhets agent
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",

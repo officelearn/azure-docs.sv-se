@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371843"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210379"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning vs Machine Learning Studio (klassisk)
 
@@ -29,7 +29,7 @@ I följande tabell sammanfattas några av de viktigaste skillnaderna mellan Azur
 
 | | Machine Learning Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
-| Dra och släpp gränssnitt | Stöds | Stödd [Azure Machine Learning designer (för hands version)](concept-designer.md) | 
+| Dra och släpp gränssnitt | Stöds | Stödd [Azure Machine Learning designer (för hands version)](concept-designer.md) <br/>(Kräver Enterprise-arbetsyta) | 
 | Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Inlärnings mål | Patentskyddat beräknings mål, endast CPU-stöd | Brett utbud av anpassningsbara [inlärnings mål](concept-compute-target.md#train). Innehåller stöd för GPU och CPU | 
 | Beräknings mål för distribution | Eget webb tjänst format, inte anpassningsbart | Brett utbud av anpassningsbara [beräknings mål för distribution](concept-compute-target.md#deploy). Innehåller stöd för GPU och CPU |

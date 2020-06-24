@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 14bbbb3cdbaa0074eaedaea81d273331fbd5abcd
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9129eb905bbdc7d9be24f403f3b3bf318d6d6a6f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672603"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211381"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -111,7 +111,7 @@ Om du vill använda standard kontraktet markerar du kryss rutan **Använd standa
 > [!NOTE]
 > När du har publicerat ett erbjudande med standard kontraktet för Microsoft Marketplace kan du inte använda dina egna anpassade villkor. Erbjud antingen lösningen enligt standard kontraktet eller enligt dina egna villkor.
 
-![Visar hur du använder standard kontraktet för Microsofts handels Marketplace-kryss ruta.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
+![Visar hur du använder standard kontraktet för Microsofts handels Marketplace-kryss ruta.](media//iot-edge-module-standard-contract-checkbox.png)
 
 ##### <a name="your-own-terms-and-conditions"></a>Egna villkor
 
@@ -144,7 +144,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -165,7 +165,7 @@ Ange webb adressen till din organisations sekretess policy. Du är ansvarig för
 Ge kompletterande online-dokument om ditt erbjudande. Du kan lägga till upp till 25 länkar. Om du vill lägga till en länk väljer du **+ Lägg till en länk** och fyller sedan i följande fält:
 
 - **Title** – kunder kommer att se rubriken på ditt erbjudandes informations sida.
-- **Länk (URL)** – ange en länk till kunder för att visa ditt online-dokument. Länken måste börja med http://eller https://.
+- **Länk (URL)** – ange en länk till kunder för att visa ditt online-dokument. Länken måste börja med `http://` eller `https://` .
 
 Se till att lägga till minst en länk till din dokumentation och en länk till de kompatibla IoT Edge enheterna från [Azure IoT-katalogen](https://catalog.azureiotsolutions.com/).
 
@@ -194,7 +194,7 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange. png-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
+Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
 
 - **Liten (48 x 48)**
 - **Medel (90 x 90)**
@@ -205,33 +205,63 @@ Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 
-Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 bild punkter i storlek och i PNG-format.
+Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 pixlar i storlek och i PNG-format.
 
 #### <a name="videos-optional"></a>Videor (valfritt)
 
-Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adressen och en thumbnail. png-bild av videon med 1280 x 720 pixlar i storlek.
+Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adressen och en miniatyr bild av videon med 1280 x 720 pixlar i storlek.
 
-#### <a name="offer-examples"></a>Exempel på erbjudanden
+#### <a name="marketplace--examples"></a>Marketplace-exempel
 
-I följande exempel visas hur fälten för erbjudande listan visas på olika ställen i erbjudandet.
+Här är ett exempel på hur information om erbjudandet visas på Azure Marketplace:
 
-Den här skärm bilden visar sidan med **erbjudande listan** i Azure Marketplace.
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Visar sidan med erbjudande listan i Azure Marketplace.":::
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-Den här skärm bilden visar Sök resultatet i Azure Marketplace:
+1. Stor logo typ
+2. Kategorier
+3. Support adress (länk)
+4. Villkor
+5. Sekretess policy adress (länk)
+6. Name
+7. Sammanfattning
+8. Beskrivning
+9. Användbara länkar
+10. Skärm bilder/videor
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Visar Sök resultatet i Azure Marketplace.":::
+<br>Här är ett exempel på hur information om erbjudandet visas i Sök resultaten för Azure Marketplace:
 
-Den här skärm bilden visar sidan med **erbjudande listan** i Azure Portal.
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas i Sök resultaten för Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Visar sidan med erbjudande listan i Azure Portal.":::
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-Den här skärm bilden visar Sök resultat i Azure Portal.
+1. Liten logo typ
+2. Erbjudandets namn
+3. Sammanfattning av Sök Resultat
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Visar sidan med erbjudande listan i Azure Portal.":::
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, förhands granskning.
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Name
+2. Beskrivning
+3. Användbara länkar
+4. Skärmbilder
+
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal Sök Resultat:
+
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal Sök resultat.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Liten logo typ
+2. Erbjudandets namn
+3. Sammanfattning av Sök Resultat
+
+<br>Välj **Spara utkast** innan du fortsätter till nästa avsnitt, förhands granskning.
 
 ## <a name="preview"></a>Förhandsgranskning
 
@@ -286,18 +316,18 @@ Välj **Skapa**.
 
 På den här fliken kan du konfigurera vilka moln som planen är tillgänglig i. Dina svar på den här fliken påverkar vilka fält som visas på andra flikar.
 
-#### <a name="cloud-availability"></a>Moln tillgänglighet
+#### <a name="azure-regions"></a>Azure-regioner
 
 Alla planer för IoT Edge modul-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder Marketplace. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Välj alternativet [Azure Government molnet](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) så att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA). Innan du [publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Om du vill mellanlagra och testa din lösning kan du begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Välj alternativet [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA). Innan du [publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Om du vill mellanlagra och testa din lösning kan du begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> När planen har publicerats och är tillgänglig i ett särskilt moln kan du inte ta bort det molnet.
+> När planen har publicerats och är tillgänglig i en speciell region kan du inte ta bort den regionen.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government moln certifieringar
+#### <a name="azure-government-certifications"></a>Azure Government certifieringar
 
-Det här alternativet visas bara om **Azure Government Cloud** är valt under **moln tillgänglighet**.
+Det här alternativet visas bara om **Azure Government** har valts under **moln tillgänglighet**.
 
 Azure Government Services hanterar data som omfattas av vissa myndighets bestämmelser och krav. Till exempel FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att få kännedom om dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dina certifieringar. Det kan vara länkar till dina program tablåer direkt eller till din egen webbplats. Dessa länkar är bara synliga för Azure Government kunder.
 
@@ -321,15 +351,25 @@ Välj **Spara utkast** när du har slutfört fälten.
 
 #### <a name="plan-examples"></a>Planera exempel
 
-I följande exempel visas hur plan List fälten visas i olika vyer.
+Här är ett exempel på Azure Marketplace-plan information (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
 
-Detta är fälten på Azure Marketplace när du visar plan information:
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Visar information om Azure Marketplace-planer.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Visar de fält som visas när du visar plan information på Azure Marketplace.":::
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-Detta är plan information på Azure Portal:
+1. Erbjudandets namn
+2. Plan namn
+3. Beskrivning av plan
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Visar plan information på Azure Portal.":::
+<br>Här är ett exempel på Azure Portal Plans information (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Visar Azure Portal Plans information.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Erbjudandets namn
+2. Plan namn
+3. Beskrivning av plan
 
 ## <a name="availability"></a>Tillgänglighet
 
@@ -364,11 +404,21 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 **Administratörens användar namn för Azure Container Registry**: Ange det [Administratörs användar namn](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är associerat med den Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Du kan också ange att **Administratörs användare** ska kunna **Aktivera** i Azure Portal.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
-**Lösen ord för Azure Container Registry**: Ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+#### <a name="call-out-description"></a>Beskrivning av anrop
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Visar åtkomst nyckel skärmen i Azure Portal.":::
+1. Administratörsanvändare
+
+<br>**Lösen ord för Azure Container Registry**: Ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Visar åtkomst nyckel skärmen i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Åtkomstnycklar
+2. Användarnamn
+3. lösenordsinställning
 
 **Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
 

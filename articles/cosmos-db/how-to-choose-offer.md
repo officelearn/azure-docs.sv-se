@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664433"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116816"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Välja mellan standard (manuell) och autoskalning av allokerat data flöde 
 
@@ -26,7 +26,7 @@ När du använder ett tillhandahållet data flöde ställer du in data flödet, 
 
 Följande tabell visar en jämförelse på hög nivå mellan standard (manuell) och autoskalning.
 
-|Description|Standard (manuell)|Automatisk skalning|
+|Beskrivning|Standard (manuell)|Automatisk skalning|
 |-------------|------|-------|
 |Passar bäst för|Arbets belastningar med konstant eller förutsägbar trafik|Arbets belastningar med varierande eller oförutsägbar trafik. Se [användnings fall för autoskalning](provision-throughput-autoscale.md#use-cases-of-autoscale).|
 |Så här fungerar det|Du etablerar en angiven mängd RU/s `T` som är statisk över tid, om du inte ändrar dem manuellt. Varje sekund kan du använda upp till `T` ru/s-dataflöde. <br/><br/>Om du till exempel anger standard (manuell) 400 RU/s, stannar data flödet på 400 RU/s.|Du anger högsta eller högsta RU/s `Tmax` som du inte vill att systemet ska överskrida. Systemet skalar automatiskt genom strömningen `T` , till exempel `0.1* Tmax <= T <= Tmax` . <br/><br/>Om du till exempel ställer in maximalt antal RU/s av 4000 RU/s, kommer systemet att skalas mellan 400-4000 RU/s.|
@@ -61,7 +61,7 @@ Med tiden bör du övervaka ditt program och göra justeringar efter behov när 
 
 När du använder autoskalning använder du Azure Monitor för att se den allokerade autoskalning Max RU/s (**autoskalning Max-genomflöde**) och ru/s-systemet skalas för närvarande till (**etablerings data flöde**). Nedan visas ett exempel på en variabel eller oförutsägbar arbets belastning med hjälp av autoskalning. Observera att när det inte finns någon trafik skalar systemet RU/s till minst 10% av Max RU/s, som i det här fallet är 5000 RU/s respektive 50 000 RU/s respektive. 
 
-![Exempel på arbets belastning med autoskalning](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exempel på arbets belastning med autoskalning":::
 
 > [!NOTE]
 > När du använder standard (manuellt) tillhandahållet data flöde, refererar det **tillhandahållna data flödes** måttet till det som användaren har angett. När du använder autoskalning av data flöde refererar detta mått till RU/s-systemet är för närvarande skalat till.

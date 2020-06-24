@@ -3,15 +3,15 @@ title: Databas bearbetning utan server med Azure Cosmos DB och Azure Functions
 description: Lär dig hur Azure Cosmos DB och Azure Functions kan användas tillsammans för att skapa program med händelse drivna Server lös data behandling.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985260"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263270"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas bearbetning utan server med hjälp av Azure Cosmos DB och Azure Functions
 
@@ -33,7 +33,7 @@ Azure Cosmos DB och Azure Functions kan du integrera dina databaser och appar ut
 
 Följande diagram illustrerar var och en av dessa tre integreringar: 
 
-![Hur Azure Cosmos DB och Azure Functions integrera](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Hur Azure Cosmos DB och Azure Functions integrera" border="false":::
 
 Azure Functions utlösare, indata bindning och utgående bindning för Azure Cosmos DB kan användas i följande kombinationer:
 
@@ -61,7 +61,7 @@ I IoT-implementeringar kan du anropa en funktion när kontroll motor lampan visa
 
 Följande bild visar koden som skrivits i Azure Portal för den här utlösaren.
 
-![Skapa en Azure Functions-utlösare för Cosmos DB i Azure Portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Skapa en Azure Functions-utlösare för Cosmos DB i Azure Portal":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Ekonomiskt användnings fall – timer-utlösare och ingående bindning
 
@@ -75,13 +75,13 @@ I finansiella implementeringar kan du anropa en funktion när ett bank kontos sa
 
 Följande bilder visar koden i Azure Portal för det här scenariot.
 
-![Index. js-fil för en timer-utlösare för ett finansiellt scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js fil för en timer-utlösare för ett finansiellt scenario":::
 
-![Kör. CSX-fil för en timer-utlösare för ett finansiellt scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Kör. CSX-fil för en timer-utlösare för ett finansiellt scenario":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Användnings fall för spel – Azure Functions utlösare och utgående bindning för Cosmos DB 
 
-När en ny användare skapas i spel kan du söka efter andra användare som kan känna till dem med hjälp av [API: et för Azure Cosmos DB Gremlin](graph-introduction.md). Du kan sedan skriva resultatet till en [Azure Cosmos DB SQL-databas] för enkel hämtning.
+När en ny användare skapas i spel kan du söka efter andra användare som kan känna till dem med hjälp av [API: et för Azure Cosmos DB Gremlin](graph-introduction.md). Du kan sedan skriva resultatet till en [Azure Cosmos DB eller SQL-databas]() för enkel hämtning.
 
 **Implementering:** Använd en Azure Functions utlösare och utgående bindning för Cosmos DB
 

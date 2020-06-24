@@ -6,15 +6,15 @@ keywords: ''
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 338135561a462fec3b0bfc619a3518cb420908f0
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310721"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764000"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
@@ -57,7 +57,7 @@ Du kan lägga till en markdown-panel till dina Azure-instrumentpaneler för att 
 
 Du kan använda valfri kombination av oformaterad text, markdown-syntax och HTML-innehåll på markdown-panelen. I Azure Portal används ett bibliotek med öppen källkod som heter _markerad_ för att transformera ditt innehåll till HTML som visas på panelen. Den HTML-kod som tillverkas av har _marker ATS_ i förväg av portalen innan den renderas. Det här steget ser till att anpassningen inte påverkar portalens säkerhet eller layout. Under den för bearbetningen tas alla delar av HTML-koden som utgör ett potentiellt hot bort. Följande typer av innehåll tillåts inte av portalen:
 
-* Java Script `<script>` – Taggar och infogade JavaScript-utvärderingar tas bort.
+* Java Script – `<script>` taggar och infogade JavaScript-utvärderingar tas bort.
 * iframes – `<iframe>` taggar tas bort.
 * Style- `<style>` taggar tas bort. Inline Style-attribut för HTML-element stöds inte officiellt. Det kan hända att vissa infogade format element fungerar för dig, men om de stör portalens layout kan de sluta fungera när som helst. Markdown-panelen är avsedd för grundläggande, statiskt innehåll som använder portalens standardformat.
 

@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203373"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731515"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Mass borttagning av användare i Azure Active Directory
 
@@ -35,7 +35,7 @@ Hämta och fyll i CSV-mallen så att du kan ta bort Azure AD-användare i bulk. 
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `User name [userPrincipalName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `User name [userPrincipalName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -48,7 +48,7 @@ Raderna i en Hämtad CSV-mall är följande:
 ## <a name="to-bulk-delete-users"></a>För Mass borttagning av användare
 
 1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
-1. I Azure AD väljer **du användare** > **Mass borttagning**.
+1. I Azure AD väljer **du användare**  >  **Mass borttagning**.
 1. På sidan **Mass borttagning av användare** väljer du **Hämta** för att ta emot en giltig CSV-fil med användar egenskaper.
 
    ![Välj en lokal CSV-fil där du visar de användare som du vill ta bort](./media/users-bulk-delete/bulk-delete.png)
@@ -76,7 +76,7 @@ Sedan kan du kontrol lera att de användare som du har tagit bort finns i Azure 
 
 1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
 1. I navigerings fönstret väljer du **Azure Active Directory**.
-1. Under **Hantera** väljer du **Användare**.
+1. Under **Hantera** väljer du **Användare**.
 1. Under **Visa**väljer du **alla användare** och kontrollerar att de användare som du har tagit bort inte längre visas.
 
 ### <a name="verify-deleted-users-with-powershell"></a>Verifiera borttagna användare med PowerShell

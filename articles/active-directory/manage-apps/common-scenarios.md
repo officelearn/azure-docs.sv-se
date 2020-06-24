@@ -2,25 +2,25 @@
 title: Vanliga program hanterings scenarier för Azure Active Directory | Microsoft Docs
 description: Centralisera program hantering med Azure AD
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115616"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763643"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
 
@@ -89,6 +89,6 @@ Identiteten kan bara vara ditt kontroll plan om den kan ansluta allt över molne
 - [Programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Programetablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Hybrid säker åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Identitets styrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
-- [Microsoft-identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+- [Identitetsstyrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identitets säkerhet](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769991"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261349"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -23,7 +23,7 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 >
 >
 
-|Typ|Plattform|Plats|Beskrivning|
+|Typ|Plattform|Location|Beskrivning|
 |-|-|-|-|
 | Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
 | Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
@@ -46,10 +46,10 @@ Om du vill aktivera program loggning för Windows-appar i [Azure Portal](https:/
 
 Välj **antingen för** **program loggning (fil system)** eller **program loggning (BLOB)** eller båda. 
 
-Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg`InstanceId`meddelandet (), tråd`Tid`-ID () och en mer detaljerad[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)tidsstämpel ().
+Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg meddelandet ( `InstanceId` ), tråd-ID ( `Tid` ) och en mer detaljerad tidsstämpel ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
-> För närvarande kan endast .NET-program loggar skrivas till blob-lagringen. Java, PHP, Node. js, python-programloggarna kan bara lagras i App Service fil system (utan kod ändringar för att skriva loggar till extern lagring).
+> För närvarande kan endast .NET-program loggar skrivas till blob-lagringen. Java-, PHP-, Node.js-och python-programloggarna kan bara lagras i det App Service fil systemet (utan kod ändringar för att skriva loggar till extern lagring).
 >
 > Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-create-storage-account.md)måste du också återställa respektive loggnings konfiguration för att använda de uppdaterade åtkomst nycklarna. Gör så här:
 >
@@ -62,9 +62,9 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Inaktiverats** | Inga |
+|**Inaktiverad** | Inga |
 |**Fel** | Fel, kritiskt |
-|**Honom** | Varning, fel, kritiskt|
+|**Varning** | Varning, fel, kritiskt|
 |**Information** | Information, varning, fel, kritiskt|
 |**Verbose** | Spåra, felsöka, info, varning, fel, kritiskt (alla kategorier) |
 
@@ -171,7 +171,7 @@ För Windows-appar innehåller ZIP-filen innehållet i *D:\Home\LogFiles* -katal
 | **Program loggar** |*/LogFiles/Application/* | Innehåller en eller flera textfiler. Formatet på logg meddelandena beror på vilken loggnings leverantör du använder. |
 | **Spårning av misslyckade begär Anden** | */LogFiles/W3SVC#########/* | Innehåller XML-filer och en XSL-fil. Du kan visa de formaterade XML-filerna i webbläsaren. |
 | **Detaljerade fel loggar** | */LogFiles/DetailedErrors/* | Innehåller HTM-felfiler. Du kan visa HTM-filerna i webbläsaren.<br/>Ett annat sätt att Visa spårningen av misslyckade begär Anden är att navigera till din app-sida i portalen. På den vänstra menyn väljer du **diagnostisera och löser problem**, sedan söker du efter **spårnings loggar för misslyckade begär Anden**och klickar sedan på ikonen för att bläddra och visa den spårning som du vill använda. |
-| **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder inte fälten `s-computername`, `s-ip`, eller `cs-version` . |
+| **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder inte `s-computername` fälten, `s-ip` , eller `cs-version` . |
 | **Distributions loggar** | */LogFiles/git/* och */Deployments/* | Innehåller loggar som genereras av interna distributions processer samt loggar för git-distributioner. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Skicka loggar till Azure Monitor (förhands granskning)
@@ -187,12 +187,14 @@ I följande tabell visas de logg typer och beskrivningar som stöds:
 
 | Loggtyp | Windows-support | Stöd för Linux (Docker) | Beskrivning |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Ja | Standardutdata och standard fel |
+| AppServiceConsoleLogs | TBA | Yes | Standardutdata och standard fel |
 | AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
 | AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Ja | TBD | Fil ändringar via FTP och kudu |
+| AppServiceFileAuditLogs | Yes | TBD | Fil ändringar via FTP och kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Program loggar |
+| AppServiceIPSecAuditLogs  | Ja | Ja | Begär Anden från IP-regler |
+| AppServicePlatformLogs  | TBA | Yes | Behållar loggar |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

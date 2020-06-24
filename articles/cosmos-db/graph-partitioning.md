@@ -5,15 +5,15 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623377"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261774"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Använda en partitionerad graf i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ En av de viktigaste funktionerna i Gremlin-API: et i Azure Cosmos DB är möjlig
 
 **Partitionering krävs** om behållaren förväntas lagra mer än 20 GB i storlek eller om du vill allokera mer än 10 000 enheter för programbegäran per sekund (ru: er). Samma allmänna principer från mekanismen för [Azure Cosmos DB partitionering](partition-data.md) gäller med några diagram olika optimeringar som beskrivs nedan.
 
-![Diagram partitionering.](./media/graph-partitioning/graph-partitioning.png)
+:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Diagram partitionering." border="false":::
 
 ## <a name="graph-partitioning-mechanism"></a>Diagram partitionerings funktion
 
@@ -29,9 +29,9 @@ Följande rikt linjer beskriver hur partitionerings strategin i Azure Cosmos DB 
 
 - **Både hörn och kanter lagras som JSON-dokument**.
 
-- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör i vilken partition som hörnen ska lagras via en hash-algoritm. Egenskaps namnet för partitionsnyckel definieras när du skapar en ny behållare och har formatet: `/partitioning-key-name`.
+- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör i vilken partition som hörnen ska lagras via en hash-algoritm. Egenskaps namnet för partitionsnyckel definieras när du skapar en ny behållare och har formatet: `/partitioning-key-name` .
 
-- **Kanterna kommer att lagras med deras käll-hörn**. Med andra ord definierar dess partitionsnyckel var de lagras tillsammans med dess utgående kanter. Den här optimeringen görs för att undvika frågor över partitioner när du `out()` använder kardinalitet i graf-frågor.
+- **Kanterna kommer att lagras med deras käll-hörn**. Med andra ord definierar dess partitionsnyckel var de lagras tillsammans med dess utgående kanter. Den här optimeringen görs för att undvika frågor över partitioner när du använder `out()` kardinalitet i graf-frågor.
 
 - **Kanterna innehåller referenser till de hörn som de pekar på**. Alla kanter lagras med partitionsalternativ och ID: n för de hörn som de pekar på. Den här beräkningen gör `out()` att alla riktnings frågor alltid är en omfångs partition med partitionerad fråga och inte en fråga om en hemlig partition. 
 

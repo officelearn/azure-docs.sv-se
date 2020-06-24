@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264003"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691071"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -111,7 +111,7 @@ Normalisering har två delar.  För det första ändras alla versaler till gemen
 | '$'  | formulär |
 | '\@'  | en |
 
-Exempel: Antag att lösen ordet "Tom" är förbjudet och att en användare försöker ändra sitt lösen ord till "Bl@nK". Även om "Bl@nk" inte är särskilt blockerad konverterar normaliserings processen detta lösen ord till "tomt", vilket är ett blockerat lösen ord.
+Exempel: Antag att lösen ordet "Tom" är förbjudet och att en användare försöker ändra sitt lösen ord till " Bl@nK ". Även om " Bl@nk " inte är särskilt blockerad konverterar normaliserings processen detta lösen ord till "tomt", vilket är ett blockerat lösen ord.
 
 ### <a name="step-2-check-if-password-is-considered-banned"></a>Steg 2: kontrol lera om lösen ordet anses vara förbjudet
 
@@ -133,7 +133,7 @@ Exempel: Antag att vi har en användare, pol, som vill återställa sina lösen 
 
 #### <a name="score-calculation"></a>Poäng beräkning
 
-Nästa steg är att identifiera alla instanser av förbjudna lösen ord i användarens normaliserade nya lösen ord. Sedan:
+Nästa steg är att identifiera alla instanser av förbjudna lösen ord i användarens normaliserade nya lösen ord. Efter det:
 
 1. Varje blockerat lösen ord som finns i en användares lösen ord får en punkt.
 2. Varje återstående unikt tecken får en punkt.
@@ -147,7 +147,7 @@ Efter normalisering blir det här lösen ordet "contosoblank12". Matchnings proc
 
 [contoso] + [blank] + [1] + [2] = 4 punkter eftersom det här lösen ordet är under fem (5) punkter kommer det att avvisas.
 
-Exempel: en användare ändrar sitt lösen ord tillContoS0Bl@nkf9"!".
+Exempel: en användare ändrar sitt lösen ord till " ContoS0Bl@nkf9 !".
 
 Efter normalisering blir det här lösen ordet "contosoblankf9!". Matchnings processen upptäcker att det här lösen ordet innehåller två förbjudna lösen ord: Contoso och tomt. Det här lösen ordet tilldelas sedan en poäng:
 

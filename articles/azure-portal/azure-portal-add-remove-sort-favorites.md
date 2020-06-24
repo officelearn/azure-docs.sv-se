@@ -6,16 +6,16 @@ keywords: favoriter, Portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310823"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764136"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Lägg till, ta bort och ordna om favoriter
 
@@ -23,7 +23,7 @@ Lägg till eller ta bort objekt från listan **Favoriter** så att du snabbt kan
 
 ## <a name="add-a-favorite"></a>Lägg till en favorit
 
-Objekt som listas under **Favoriter** väljs från **alla tjänster**. Hovra över ett tjänst namn för att visa information och resurser som är relaterade till tjänsten. En fylld stjärn ikon ![fylld med stjärn](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) ikonen bredvid tjänst namnet anger att objektet visas i listan **Favoriter** . Välj stjärn ikonen för att lägga till en tjänst i listan **Favoriter** .
+Objekt som listas under **Favoriter** väljs från **alla tjänster**. Hovra över ett tjänst namn för att visa information och resurser som är relaterade till tjänsten. En fylld stjärn ikon ![ fylld med stjärn ikonen ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) bredvid tjänst namnet anger att objektet visas i listan **Favoriter** . Välj stjärn ikonen för att lägga till en tjänst i listan **Favoriter** .
 
 ### <a name="add-cost-management--billing-to-favorites"></a>Lägg till Cost Management + fakturering till favoriter
 

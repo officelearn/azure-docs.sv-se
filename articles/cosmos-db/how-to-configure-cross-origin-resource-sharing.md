@@ -3,21 +3,21 @@ title: Resurs delning mellan ursprung (CORS) i Azure Cosmos DB
 description: Den här artikeln beskriver hur du konfigurerar CORS (Cross-Origin resurs delning) i Azure Cosmos DB med Azure Portal och Azure Resource Manager mallar.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 331b78737000a51b09d393160f07150f81058412
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77082989"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261655"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Konfigurera resurs delning mellan ursprung (CORS)
 
 Resurs delning mellan ursprung (CORS) är en HTTP-funktion som gör det möjligt för ett webb program att köras under en domän för att få åtkomst till resurser i en annan domän. Webbläsare implementerar en säkerhets begränsning som kallas samma-Origin-princip som förhindrar att en webb sida anropar API: er i en annan domän. CORS är dock ett säkert sätt att tillåta att ursprungs domänen anropar API: er i en annan domän. Huvud-API: n (SQL) i Azure Cosmos DB stöder nu resurs delning mellan ursprung (CORS) med hjälp av rubriken "allowedOrigins". När du har aktiverat CORS-stöd för ditt Azure Cosmos-konto utvärderas bara autentiserade begär Anden för att avgöra om de är tillåtna enligt de regler som du har angett.
 
-Du kan konfigurera CORS-inställningen (Cross-Origin resurs delning) från Azure Portal eller från en Azure Resource Manager mall. För Cosmos-konton med kärn-API: n (SQL) stöder Azure Cosmos DB ett JavaScript-bibliotek som fungerar i både Node. js och webbläsare-baserade miljöer. Det här biblioteket kan nu dra nytta av CORS-stöd när du använder Gateway-läge. Det finns ingen konfiguration på klient sidan som krävs för att använda den här funktionen. Med CORS-stöd kan resurser från en webbläsare direkt komma åt Azure Cosmos DB via [JavaScript-biblioteket](https://www.npmjs.com/package/@azure/cosmos) eller direkt från [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) för enkla åtgärder.
+Du kan konfigurera CORS-inställningen (Cross-Origin resurs delning) från Azure Portal eller från en Azure Resource Manager mall. För Cosmos-konton med kärn-API: n (SQL) stöder Azure Cosmos DB ett JavaScript-bibliotek som fungerar i både Node.js och webbläsare-baserade miljöer. Det här biblioteket kan nu dra nytta av CORS-stöd när du använder Gateway-läge. Det finns ingen konfiguration på klient sidan som krävs för att använda den här funktionen. Med CORS-stöd kan resurser från en webbläsare direkt komma åt Azure Cosmos DB via [JavaScript-biblioteket](https://www.npmjs.com/package/@azure/cosmos) eller direkt från [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) för enkla åtgärder.
 
 > [!NOTE]
 > CORS-stöd gäller endast och stöds för API: et för Azure Cosmos DB Core (SQL). Det gäller inte för Azure Cosmos DB-API: erna för Cassandra, Gremlin eller MongoDB, eftersom dessa protokoll inte använder HTTP för kommunikation mellan klienter och server.
@@ -28,12 +28,12 @@ Använd följande steg för att aktivera resurs delning mellan ursprung genom at
 
 1. Gå till ditt Azure Cosmos DB-konto. Öppna **CORS** -bladet.
 
-2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel `https://www.mydomain.com` `https://mydomain.com`,,, `https://api.mydomain.com`. Du kan också använda jokertecken\*för att tillåta alla ursprung och välja **Skicka**. 
+2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel,,, `https://www.mydomain.com` `https://mydomain.com` `https://api.mydomain.com` . Du kan också använda jokertecken \* för att tillåta alla ursprung och välja **Skicka**. 
 
    > [!NOTE]
-   > För närvarande kan du inte använda jokertecken som en del av domän namnet. Formatet stöds `https://*.mydomain.net` till exempel inte ännu. 
+   > För närvarande kan du inte använda jokertecken som en del av domän namnet. `https://*.mydomain.net`Formatet stöds till exempel inte ännu. 
 
-   ![Aktivera resurs delning mellan ursprung med Azure Portal](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
+   :::image type="content" source="./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png" alt-text="Aktivera resurs delning mellan ursprung med Azure Portal":::
 
 ## <a name="enable-cors-support-from-resource-manager-template"></a>Aktivera CORS-stöd från Resource Manager-mall
 
@@ -61,7 +61,7 @@ Om du vill aktivera CORS med hjälp av en Resource Manager-mall lägger du till 
 
 ## <a name="using-the-azure-cosmos-db-javascript-library-from-a-browser"></a>Använda Azure Cosmos DB JavaScript-biblioteket från en webbläsare
 
-I dag har Azure Cosmos DB JavaScript-biblioteket bara den CommonJS version av biblioteket som levererades med paketet. Om du vill använda det här biblioteket från webbläsaren måste du använda ett verktyg som till exempel Rollup eller WebPack för att skapa ett webb läsar bibliotek. Vissa Node. js-bibliotek måste ha en webb läsar modell. Följande är ett exempel på en WebPack-konfigurationsfil som har de nödvändiga inställningarna för bildfilerna.
+I dag har Azure Cosmos DB JavaScript-biblioteket bara den CommonJS version av biblioteket som levererades med paketet. Om du vill använda det här biblioteket från webbläsaren måste du använda ett verktyg som till exempel Rollup eller WebPack för att skapa ett webb läsar bibliotek. Vissa Node.js bibliotek bör ha webb läsar modeller för dem. Följande är ett exempel på en WebPack-konfigurationsfil som har de nödvändiga inställningarna för bildfilerna.
 
 ```javascript
 const path = require("path");

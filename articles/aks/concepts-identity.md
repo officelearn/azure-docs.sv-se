@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259609"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690429"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Säkerheten för AKS-kluster kan förbättras med integrering av Azure Active Di
 
 ![Azure Active Directory integrering med AKS-kluster](media/concepts-identity/aad-integration.png)
 
-Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta `kubectl` en konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl`, uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
+Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta en `kubectl` konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl` , uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
 
 Azure AD-autentisering i AKS-kluster använder OpenID Connect, ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. OAuth 2,0 definierar mekanismer för att hämta och använda åtkomsttoken för att komma åt skyddade resurser och OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen av OAuth 2,0. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][openid-connect]. För att verifiera de autentiseringstoken som erhålls från Azure AD via OpenID Connect, använder AKS-kluster Kubernetes webhook-token-autentisering. Mer information finns i dokumentationen för [webhook token-autentisering][webhook-token-docs].
 

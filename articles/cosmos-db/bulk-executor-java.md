@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: fec11b930be0487a7fbc0968c3c8a8003a2fb911
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559267"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260601"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -22,7 +22,7 @@ Den här självstudien innehåller instruktioner om hur du använder Azure Cosmo
 
 För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Mer information om hur du använder bulk utförar .NET-bibliotek med Gremlin API finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md). Det samlings utförar-bibliotek som beskrivs är tillgängligt endast för [Azure Cosmos DB Java-synkronisering SDK v2](sql-api-sdk-java.md) och det är den aktuella rekommenderade lösningen för Java Mass stöd. Den är för närvarande inte tillgänglig för de 3. x, 4. x eller andra högre SDK-versionerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
@@ -133,7 +133,7 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
-   Mass import programmet skapar en ny databas och en samling med databas namnet, samlings namnet och data flödes värden som anges i filen app. config. 
+   Mass import verktyget skapar en ny databas och en samling med databas namnet, samlings namnet och data flödes värden som anges i App.config-filen. 
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Mass uppdaterings data i Azure Cosmos DB
 

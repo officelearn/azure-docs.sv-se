@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 56a31caeefb3589527fdbbac118fa3a544a0d1a1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747704"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208901"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 
@@ -33,15 +33,17 @@ Du kan ge oss feedback och diskutera Windows Virtual Desktop-tjänsten med produ
 
 En användare kan starta fjärr skrivbords klienter och kan autentisera, men användaren ser inga ikoner i webb identifierings flödet.
 
-Bekräfta att användaren som rapporterar problemen har tilldelats program grupper genom att använda den här kommando raden:
+1. Bekräfta att användaren som rapporterar problemen har tilldelats program grupper genom att använda den här kommando raden:
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Bekräfta att användaren har loggat in med rätt autentiseringsuppgifter.
+2. Bekräfta att användaren har loggat in med rätt autentiseringsuppgifter.
 
-Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
+3. Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
+
+4. Om användaren är en del av en Azure Active Directory (AD)-användar grupp kontrollerar du att användar gruppen är en säkerhets grupp i stället för en distributions grupp. Virtuella Windows-datorer stöder inte Azure AD-distributions grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 

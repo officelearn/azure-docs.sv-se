@@ -3,16 +3,16 @@ title: Så här använder du en systemtilldelad hanterad identitet för att få 
 description: Lär dig hur du konfigurerar en Azure Active Directory (Azure AD) systemtilldelad hanterad identitet (hanterad tjänst identitet) för att komma åt nycklar från Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 8136ad7a1fe29bc3394e959c10aafc52988c0a23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b277ae91dbdd747aba012d6e7302ed6cba61d938
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641172"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262275"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -28,13 +28,13 @@ I det här steget tilldelar du en systemtilldelad hanterad identitet till din Fu
 
 1. Öppna **Azure Function** -fönstret i [Azure Portal](https://portal.azure.com/)och gå till din Function-app. 
 
-1. Öppna fliken**identitet** för **plattforms funktioner** > : 
+1. Öppna fliken identitet för **plattforms funktioner**  >  **Identity** : 
 
-   ![Skärm bild som visar plattforms funktioner och identitets alternativ för Function-appen.](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Skärm bild som visar plattforms funktioner och identitets alternativ för Function-appen.":::
 
 1. På fliken **identitet** **aktiverar du** system identitetens **status** och väljer **Spara**. Fönstret **identitet** bör se ut så här:  
 
-   ![Skärm bild som visar systemets identitets status inställt på på.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Skärm bild som visar systemets identitets status inställt på på.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Bevilja åtkomst till ditt Azure Cosmos-konto
 
@@ -55,19 +55,19 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
 
 1. Logga in på Azure Portal och gå till ditt Azure Cosmos DB-konto. Öppna fönstret **åtkomst kontroll (IAM)** och sedan fliken **roll tilldelningar** :
 
-   ![Skärm bild som visar åtkomst kontroll panelen och fliken roll tilldelningar.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Skärm bild som visar åtkomst kontroll panelen och fliken roll tilldelningar.":::
 
-1. Välj **+ Lägg** > till**Lägg till roll tilldelning**.
+1. Välj **+ Lägg till** > **Lägg till rolltilldelning**.
 
 1. Panelen **Lägg till roll tilldelning** öppnas till höger:
 
-   ![Skärm bild som visar fönstret Lägg till roll tilldelning.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Skärm bild som visar fönstret Lägg till roll tilldelning.":::
 
    * **Roll**: Välj **DocumentDB-konto deltagare**
    * **Tilldela åtkomst till**: Välj **Funktionsapp**under avsnittet **Välj systemtilldelad hanterad identitet** .
    * **Välj**: fönstret fylls i med alla Function-appar i din prenumeration som har en **hanterad system identitet**. I det här fallet väljer du appen **FishTankTemperatureService** -funktion: 
 
-      ![Skärm bild som visar fönstret Lägg till roll tilldelning ifyllt med exempel.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Skärm bild som visar fönstret Lägg till roll tilldelning ifyllt med exempel.":::
 
 1. När du har valt din Function-app väljer du **Spara**.
 
@@ -80,7 +80,7 @@ I det här exemplet används [API: erna List nycklar](https://docs.microsoft.com
 > [!IMPORTANT] 
 > Om du vill [tilldela rollen som Cosmos DB konto läsare](#grant-access-to-your-azure-cosmos-account) måste du använda [API: et för skrivskyddade nycklar](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Detta fyller bara på skrivskyddade nycklar.
 
-API: erna för List nycklar `DatabaseAccountListKeysResult` returnerar objektet. Den här typen är inte definierad i C#-biblioteken. Följande kod visar implementeringen av den här klassen:  
+API: erna för List nycklar returnerar `DatabaseAccountListKeysResult` objektet. Den här typen är inte definierad i C#-biblioteken. Följande kod visar implementeringen av den här klassen:  
 
 ```csharp 
 namespace Monitor 

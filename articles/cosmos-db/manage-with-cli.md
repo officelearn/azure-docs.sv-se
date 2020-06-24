@@ -3,15 +3,15 @@ title: Hantera Azure Cosmos DB-resurser med Azure CLI
 description: Använd Azure CLI för att hantera ditt Azure Cosmos DB konto, databas och behållare.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 86045ee05e4acb15e2268dce4f68387b1527e4b6
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509533"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262420"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
 

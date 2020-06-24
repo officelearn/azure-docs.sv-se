@@ -5,14 +5,14 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 735c68a3aec4d7bbb5626497de445f61e375b34b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065937"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263406"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Den här artikeln vägleder dig genom vanliga användnings fall och hur Azure Co
 
 1. Öppna fönstret **mått** . Som standard visar fönstret mått lagring, index, enheter för enhets mått för alla databaser i ditt Azure Cosmos-konto. Du kan filtrera dessa mått per databas, behållare eller region. Du kan också filtrera måtten vid en angiven tids kornig het. Mer information om data flöde, lagring, tillgänglighet, svars tid och konsekvens mått finns på separata flikar. 
 
-   ![Cosmos DB prestanda mått i Azure Portal](./media/use-metrics/performance-metrics.png)
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB prestanda mått i Azure Portal":::
 
 Följande mått är tillgängliga från fönstret **mått** : 
 
@@ -50,7 +50,7 @@ Kom igång genom att gå till [Azure Portal](https://portal.azure.com) och navig
 
 Den vanligaste fel status koden är 429 (hastighets begränsning/begränsning). Det här felet innebär att begär anden till Azure Cosmos DB är mer än det etablerade data flödet. Den vanligaste lösningen på det här problemet är att [skala upp ru: er](./set-throughput.md) för den aktuella samlingen.
 
-![Antal begär Anden per minut](media/use-metrics/metrics-12.png)
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Antal begär Anden per minut":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Fastställa data flödes distributionen över partitioner
 
@@ -64,11 +64,11 @@ En ojämn distribution av data flödet kan orsaka *varma* partitioner, vilket ka
 
 Att ha en bra kardinalitet för din partition är viktig för alla skalbara program. För att fastställa lagrings distributionen av en partitionerad behållare uppdelad efter partition, head to the Metrics-bladet i [Azure Portal](https://portal.azure.com). På fliken lagring visas lagrings uppdelningen i diagrammet data + index lagring som förbrukas av främsta partitionerings nycklar. Följande bild illustrerar en dålig distribution av data lagring som visas av den sneda partitionen längst till vänster.
 
-![Exempel på dålig data distribution](media/use-metrics/metrics-07.png)
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exempel på dålig data distribution":::
 
 Du kan rotor Saks vilken partitionsnyckel som skevar distributionen genom att klicka på partitionen i diagrammet.
 
-![Partitionsnyckel skevar fördelningen](media/use-metrics/metrics-05.png)
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Partitionsnyckel skevar fördelningen":::
 
 När du har identifierat vilken partitionsnyckel som orsakar snedheten i distributionen kan du behöva partitionera om behållaren med en mer distribuerad partitionsnyckel. Mer information om partitionering i Azure Cosmos DB finns i [partition och skala i Azure Cosmos DB](./partition-data.md).
 

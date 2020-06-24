@@ -3,15 +3,15 @@ title: Power BI själv studie kurs för Azure Cosmos DB koppling
 description: Använd den här Power BI själv studie kursen för att importera JSON, skapa informativa rapporter och visualisera data med hjälp av Azure Cosmos DB och Power BI koppling.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89d7e46563182bf7808eb118f4526571c631fa23
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69616814"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262522"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera Azure Cosmos DB-data med hjälp av anslutningsprogrammet för Power BI
 
@@ -46,7 +46,7 @@ Innan du följer anvisningarna i den här Power BI själv studie kursen, se till
 
       * **Samlings data flöde:** 1000 
 
-Om du vill dela dina rapporter i PowerBI.com måste du ha ett konto i PowerBI.com.  Mer information om Power BI och Power BI Pro finns i [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+Om du vill dela dina rapporter i PowerBI.com måste du ha ett konto i PowerBI.com.  Mer information om Power BI och Power BI Pro finns i [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing) .
 
 ## <a name="lets-get-started"></a>Nu sätter vi igång
 I den här självstudien ska vi föreställa dig att du är en Geologist-Volcanoes över hela världen. Volcano-data lagras i ett Azure Cosmos DB konto och JSON-dokumentets format är följande:
@@ -120,7 +120,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
     ![Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – koordinater-lista](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Skapa en **anpassad kolumn** med namnet LatLong för att förenkla koordinaten.  Välj menyfliksområdet **Lägg till kolumn** och klicka på **anpassad kolumn**.  Fönstret **anpassad kolumn** visas.
 8. Ange ett namn för den nya kolumnen, t. ex. LatLong.
-9. Ange sedan den anpassade formeln för den nya kolumnen.  I vårt exempel sammanfogar vi värdena för latitud och longitud, avgränsade med kommatecken, som du ser nedan med hjälp `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`av följande formel:. Klicka på **OK**.
+9. Ange sedan den anpassade formeln för den nya kolumnen.  I vårt exempel sammanfogar vi värdena för latitud och longitud, avgränsade med kommatecken, som du ser nedan med hjälp av följande formel: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Klicka på **OK**.
    
     Mer information om data analys uttryck (DAX) inklusive DAX-funktioner finns [i grunderna för DAX i Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -132,7 +132,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
     
     Om du får ett fel i den nya kolumnen ser du till att de tillämpade stegen under frågeinställningar matchar följande figur:
     
-    ![Tillämpade steg ska vara källa, navigering, expanderat dokument, expanderat dokument. location, tillagd anpassad](./media/powerbi-visualize/power-bi-applied-steps.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Tillämpade steg ska vara källa, navigering, expanderat dokument, expanderat dokument. location, tillagd anpassad":::
     
     Om stegen är olika tar du bort de extra stegen och försöker lägga till den anpassade kolumnen igen. 
 
@@ -179,11 +179,11 @@ Nu när du har en rapport kan du dela den på PowerBI.com
 
 När du publicerar rapporten från Power BI Desktop till PowerBI.com, genererar den en **rapport** och en **data uppsättning** i PowerBI.com-klienten. När du till exempel har publicerat en rapport som heter **PowerBITutorial** till PowerBI.com visas PowerBITutorial i avsnittet **rapporter** och **data uppsättningar** på PowerBI.com.
 
-   ![Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com](./media/powerbi-visualize/powerbi-reports-datasets.png)
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com":::
 
 Om du vill skapa en delbar instrument panel klickar du på knappen **Fäst live-sida** i PowerBI.com-rapporten.
 
-   ![Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com":::
 
 Följ sedan anvisningarna i [fästa en panel från en rapport](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) för att skapa en ny instrument panel. 
 
@@ -194,13 +194,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

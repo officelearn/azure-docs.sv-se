@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8d385e956aaa2888d72d711571fa8e7cb91da772
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323815"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106576"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -47,8 +47,8 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Distribution som stöds** | Distribuera som virtuell VMware-dator med hjälp av en ägg mall.<br/><br/> Distribuera som en virtuell VMware-dator eller fysisk dator med hjälp av installations skriptet för PowerShell.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
-**Mall för ägg** | Ladda ned från portalen eller från https://aka.ms/migrate/appliance/vmware .<br/><br/> Hämtnings storleken är 11,2 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
-**PowerShell-skript** | [Hämtning](https://go.microsoft.com/fwlink/?linkid=2105112)av skript.<br/><br/> 
+**Mall för ägg** | Ladda ned från portalen eller från https://aka.ms/migrate/appliance/vmware .<br/><br/> Hämtnings storleken är 10,9 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**PowerShell-skript** | Läs mer i den här [artikeln](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware).<br/><br/> 
 **Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 32 GB RAM, 8 virtuella processorer, runt 80 GB disk lagring och en extern virtuell växel.<br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en virtuell VMware-dator måste du ha tillräckligt med resurser på vCenter Server för att allokera en virtuell dator som uppfyller kraven.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.
 **Krav för VMware** | Om du distribuerar installationen som en virtuell VMware-dator måste den distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
 **VDDK (utan agent migrering)** | Om du distribuerar-installationen som en virtuell VMware-dator och du kör en agent utan migrering, måste VMware vSphere VDDK installeras på den virtuella datorn.
@@ -68,8 +68,8 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 **VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller från https://aka.ms/migrate/appliance/hyperv .<br/><br/> Hämtnings storleken är 10 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
-**PowerShell-skript** | [Hämtning](https://go.microsoft.com/fwlink/?linkid=2105112)av skript.<br/><br/> 
-**Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 32 GB RAM, 8 virtuella processorer, runt 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
+**PowerShell-skript** | Läs mer i den här [artikeln](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v).<br/><br/> 
+**Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
 **Krav för Hyper-V** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
 **Hash-värde – VHD** | [Verifiera](tutorial-assess-hyper-v.md#verify-security) hash-värden för VHD-mallen.
 **Hash-värde – PowerShell-skript** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
@@ -83,9 +83,9 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Utrustnings komponenter** | Enheten har följande komponenter: <br/><br/> - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Bedömnings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
 **Distribution som stöds** | Distribuera som dedikerad fysisk dator eller en virtuell dator med hjälp av ett PowerShell-installations skript. Skriptet är tillgängligt för hämtning från portalen.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
-**Identifierings gränser** | En apparat kan identifiera upp till 250 fysiska servrar.
-**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller. ps1) i en zippad mapp från portalen. [Läs mer](tutorial-assess-physical.md#set-up-the-appliance). Du kan också [Hämta direkt](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Hämtnings storleken är 59,7 MB.
-**Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 32 GB RAM, 8 virtuella processorer, runt 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/> Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.
+**Identifierings gränser** | En apparat kan identifiera upp till 1000 fysiska servrar.
+**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad mapp från portalen. [Läs mer](tutorial-assess-physical.md#set-up-the-appliance). Du kan också [Hämta direkt](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Hämtnings storleken är 63,1 MB.
+**Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/> Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.
 **Hash-värde** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
 ## <a name="url-access"></a>URL-åtkomst
@@ -148,18 +148,18 @@ Här är en fullständig lista över de virtuella VMware-metadata som enheten sa
 **DATA** | **MEDELVÄRDE**
 --- | --- 
 **Dator information** | 
-VM-ID | datorn. Config. InstanceUuid 
-VM-namn | datorn. Config.Name
+VM-ID | vm.Config. InstanceUuid 
+VM-namn | vm.Config. Namn
 vCenter Server-ID | VMwareClient. instance. uuid
-Beskrivning av virtuell dator | datorn. Summary. config. Annotation
+Beskrivning av virtuell dator | vm.Summary.Config. Antecknings
 Licens produkt namn | datorn. Client. ServiceContent. about. LicenseProductName
 Typ av operativsystem | datorn. SummaryConfig.GuestFullName
-Start typ | datorn. Config. firmware
-Antal kärnor | datorn. Config. Hardware. NumCPU
-Minne (MB) | datorn. Config. Hardware. MemoryMB
-Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk). Count
-Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk)
-Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualEthernet). Count
+Start typ | vm.Config. Inbyggd program vara
+Antal kärnor | vm.Config. Maskin vara. NumCPU
+Minne (MB) | vm.Config. Maskin vara. MemoryMB
+Antal diskar | vm.Config. Maskin vara. Device. ToList (). FindAll (x => är VirtualDisk). Count
+Lista över disk storlekar | vm.Config. Maskin vara. Device. ToList (). FindAll (x => är VirtualDisk)
+Lista med nätverkskort | vm.Config. Maskin vara. Device. ToList (). FindAll (x => är VirtualEthernet). Count
 CPU-användning | processor. Usage. genomsnitt
 Minnes användning |minnes användning. genomsnitt
 **Per disk information** | 
@@ -235,7 +235,7 @@ Funktions typ | Get-WindowsFeature  | FeatureType
 
 Här är SQL Server-metadata som enheten samlar in från virtuella datorer som kör Microsoft SQL Server aktiverat för program identifiering. Dessa data skickas till Azure.
 
-**Data**  | **Registerplats**  | **Knapp**
+**Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
 Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
@@ -424,7 +424,7 @@ Här är prestanda data för Windows Server som enheten samlar in och skickar ti
 
 **Data** | **WMI-klass** | **Egenskap för WMI-klass**
 --- | --- | ---
-CPU-användning | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Processoranvändning | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
 Minnes användning | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Antal nätverkskort | Win32_PerfFormattedData_Tcpip_NetworkInterface | Hämta antalet nätverks enheter.
 Mottagna data per nätverkskort | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
@@ -438,7 +438,7 @@ Här är de prestanda data för Linux-servern som enheten samlar in och skickar 
 
 **Data** | **Linux** 
 --- | --- 
-CPU-användning | katt/proc/stat/| grep ' CPU '-/proc/stat
+Processoranvändning | katt/proc/stat/| grep ' CPU '-/proc/stat
 Minnes användning | gratis \| grep MEM- \| awk {Print $3/$ 2 * 100,0}
 Antal nätverkskort | lshw-klass nätverk \| grep ETH [0-60] \| WC-l
 Mottagna data per nätverkskort | katt/sys/Class/net/ETH $ NIC/statistik/rx_bytes
@@ -505,8 +505,8 @@ Så här kontrollerar du i kontroll panelen:
 
 Om du kör en äldre version för någon av komponenterna måste du avinstallera tjänsten och manuellt uppdatera till den senaste versionen.
 
-1. Om du vill söka efter de senaste versionerna av service-tjänsterna [laddar du ned](https://aka.ms/latestapplianceservices) filen LatestComponents. JSON.
-2.    När du har hämtat öppnar du filen LatestComponents. json i anteckningar.
+1. Om du vill söka efter de senaste versionerna av service-tjänsterna [laddar du ned](https://aka.ms/latestapplianceservices) LatestComponents.jspå filen.
+2.    När du har laddat ned öppnar du LatestComponents.jsfilen i anteckningar.
 3. Hitta den senaste tjänst versionen i filen och nedladdnings länken för den. Ett exempel:
 
     "Namn": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
@@ -514,7 +514,7 @@ Om du kör en äldre version för någon av komponenterna måste du avinstallera
 4.    Hämta den senaste versionen av en föråldrad tjänst med hjälp av länken Hämta i filen.
 5. När du har laddat ned kör du följande kommando i ett administratörs kommando fönster för att kontrol lera integriteten för den hämtade MSI-filen.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Exempel: C: \> certutil-HashFile C:\USERS\PUBLIC\DOWNLOADS\MICROSOFTAZUREAPPLIANCECONFIGURATIONMANAGER.msi MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Exempel: C: \> certutil-HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
 5. Kontrol lera att kommandots utdata matchar hash-värdens post för tjänsten i filen (till exempel MD5 hash-värdet ovan).
 6. Kör nu MSI för att installera tjänsten. Det är en tyst installation och installations fönstret stängs när det är färdigt.

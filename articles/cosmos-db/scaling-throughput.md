@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cc8f2c90e74b5b3ab6df3169df0524f1134b66e
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873513"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113610"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Skala etablerat dataflöde globalt 
 
 I Azure Cosmos DB representeras det etablerade data flödet som begär ande enheter per sekund (RU/s eller plural form ru: er). Ru: er mäter kostnaden för både Läs-och skriv åtgärder mot din Cosmos-behållare som visas i följande bild:
 
-![Enheter för programbegäran](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+:::image type="content" source="./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png" alt-text="Enheter för programbegäran" border="false":::
 
 Du kan etablera ru: er på en Cosmos-behållare eller en Cosmos-databas. Ru: er som har allokerats på en behållare är exklusivt tillgängliga för de åtgärder som utförs på behållaren. Ru: er som har allokerats på en databas delas av alla behållare i databasen (utom för behållare med exklusivt tilldelade ru: er).
 

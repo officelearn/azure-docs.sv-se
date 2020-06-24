@@ -3,15 +3,15 @@ title: Migrera icke-partitionerade Azure Cosmos-behållare till partitionerade b
 description: Lär dig hur du migrerar alla befintliga icke-partitionerade behållare till partitionerade behållare.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 619ec7e5510f9d3a5a17dcd5961fbd2182674df4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623356"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263491"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerade behållare till partitionerade behållare
 
@@ -24,7 +24,7 @@ Icke-partitionerade behållare är äldre och du bör migrera befintliga icke-pa
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrera behållare med den systemdefinierade partitionsnyckel
 
-För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefinierad partitionsnyckel med `/_partitionkey` namnet på alla behållare som inte har någon partitionsnyckel. Du kan inte ändra partitionens nyckel definition efter att behållarna har migrerats. Definitionen av en behållare som migreras till en partitionerad behållare är till exempel följande:
+För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefinierad partitionsnyckel med namnet `/_partitionkey` på alla behållare som inte har någon partitionsnyckel. Du kan inte ändra partitionens nyckel definition efter att behållarna har migrerats. Definitionen av en behållare som migreras till en partitionerad behållare är till exempel följande:
 
 ```json
 {
@@ -38,7 +38,7 @@ För att stödja migreringen tillhandahåller Azure Cosmos DB en systemdefiniera
 }
 ```
 
-När behållaren har migrerats kan du skapa dokument genom att fylla i `_partitionKey` egenskapen tillsammans med de andra egenskaperna för dokumentet. `_partitionKey` Egenskapen representerar partitionens partitionsnyckel.
+När behållaren har migrerats kan du skapa dokument genom att fylla i `_partitionKey` egenskapen tillsammans med de andra egenskaperna för dokumentet. `_partitionKey`Egenskapen representerar partitionens partitionsnyckel.
 
 Det är viktigt att välja rätt partitionsnyckel för att använda det etablerade data flödet optimalt. Mer information finns i [så här väljer du en partitionsnyckel](partitioning-overview.md) .
 
@@ -95,7 +95,7 @@ Det fullständiga exemplet finns i .net- [exempel][1] GitHub-lagringsplatsen.
                       
 ## <a name="migrate-the-documents"></a>Migrera dokumenten
 
-Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras inte dokumenten i behållaren automatiskt. Vilket innebär att `/_partitionKey` sökvägen till system partition Key inte automatiskt läggs till i de befintliga dokumenten. Du måste partitionera om de befintliga dokumenten genom att läsa dokumenten som har skapats utan en partitionsnyckel och skriva tillbaka dem igen med `_partitionKey` egenskapen i dokumenten.
+Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras inte dokumenten i behållaren automatiskt. Vilket innebär att sökvägen till system partition Key `/_partitionKey` inte automatiskt läggs till i de befintliga dokumenten. Du måste partitionera om de befintliga dokumenten genom att läsa dokumenten som har skapats utan en partitionsnyckel och skriva tillbaka dem igen med `_partitionKey` egenskapen i dokumenten.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Åtkomst till dokument som saknar partitionsnyckel
 

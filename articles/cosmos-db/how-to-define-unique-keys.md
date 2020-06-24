@@ -3,16 +3,16 @@ title: Definiera unika nycklar för en Azure Cosmos-behållare
 description: 'Lär dig hur du definierar unika nycklar för en Azure Cosmos-behållare med hjälp av Azure Portal, PowerShell, .net, Java och diverse andra SDK: er.'
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: tracking-python
-ms.openlocfilehash: bb1fc927b52f9b59c1a71cdc4369bdea428f4586
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561140"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261553"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiera unika nycklar för en Azure Cosmos-behållare
 
@@ -34,7 +34,7 @@ Den här artikeln visar olika sätt att definiera [unika nycklar](unique-keys.md
 
 1. Om det behövs lägger du till fler unika nyckel poster genom att klicka på **+ Lägg till unik nyckel**
 
-    ![Skärm bild av unik nyckel begränsnings post på Azure Portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Skärm bild av unik nyckel begränsnings post på Azure Portal":::
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
@@ -117,9 +117,9 @@ container.setUniqueKeyPolicy(uniqueKeyPolicy);
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
+## <a name="use-the-nodejs-sdk"></a>Använd Node.js SDK
 
-När du skapar en ny behållare med hjälp av [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) `UniqueKeyPolicy` kan du använda ett objekt för att definiera unika nyckel begränsningar.
+När du skapar en ny behållare med hjälp av [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) `UniqueKeyPolicy` kan du använda ett objekt för att definiera unika nyckel begränsningar.
 
 ```javascript
 client.database('database').containers.create({

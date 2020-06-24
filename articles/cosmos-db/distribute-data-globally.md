@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982131"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114749"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Global datadistribution med Azure Cosmos DB – Översikt
 
@@ -23,7 +23,7 @@ Du kan konfigurera dina databaser så att de distribueras globalt och är tillg�
 
 Med Azure Cosmos DB kan du när som helst lägga till eller ta bort regioner som är kopplade till ditt konto. Ditt program behöver inte pausas eller omdistribueras för att lägga till eller ta bort en region. Den fortsätter att vara hög tillgänglig hela tiden på grund av de värdar-funktioner som tjänsten har inbyggt.
 
-![Topologi för distribution med hög tillgänglighet](./media/distribute-data-globally/deployment-topology.png)
+:::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="Topologi för distribution med hög tillgänglighet" border="false":::
 
 ## <a name="key-benefits-of-global-distribution"></a>Viktiga fördelar med global distribution
 

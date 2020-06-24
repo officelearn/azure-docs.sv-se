@@ -3,12 +3,12 @@ title: Nätverks mönster för Azure Service Fabric
 description: Beskriver vanliga nätverks mönster för Service Fabric och hur du skapar ett kluster med hjälp av funktioner i Azure-nätverk.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466287"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106624"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
 Du kan integrera ditt Azure Service Fabric-kluster med andra funktioner i Azure-nätverk. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
@@ -68,7 +68,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric mall
 
-I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du kan använda standard Portal guiden för att ladda ned mallen från portalen innan du skapar ett kluster. Du kan också använda en av [exempel mallarna](https://github.com/Azure-Samples/service-fabric-cluster-templates), t. ex. ett [säkert Service Fabric kluster med fem noder](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
+I exemplen i den här artikeln använder vi Service Fabric template.jspå. Du kan använda standard Portal guiden för att ladda ned mallen från portalen innan du skapar ett kluster. Du kan också använda en av [exempel mallarna](https://github.com/Azure-Samples/service-fabric-cluster-templates), t. ex. ett [säkert Service Fabric kluster med fem noder](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Befintligt virtuellt nätverk eller undernät
@@ -100,7 +100,7 @@ I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du ka
             },*/
     ```
 
-2. Kommentera ut `nicPrefixOverride` attributet av `Microsoft.Compute/virtualMachineScaleSets`, eftersom du använder ett befintligt undernät och du har inaktiverat den här variabeln i steg 1.
+2. Kommentera ut `nicPrefixOverride` attributet av `Microsoft.Compute/virtualMachineScaleSets` , eftersom du använder ett befintligt undernät och du har inaktiverat den här variabeln i steg 1.
 
     ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
@@ -113,7 +113,7 @@ I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du ka
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-4. Ta `Microsoft.Network/virtualNetworks` bort från dina resurser så att Azure inte skapar ett nytt virtuellt nätverk:
+4. Ta bort `Microsoft.Network/virtualNetworks` från dina resurser så att Azure inte skapar ett nytt virtuellt nätverk:
 
     ```json
     /*{
@@ -143,7 +143,7 @@ I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du ka
     },*/
     ```
 
-5. Kommentera det virtuella nätverket från `dependsOn` attributet för `Microsoft.Compute/virtualMachineScaleSets`, så du är inte beroende av att skapa ett nytt virtuellt nätverk:
+5. Kommentera det virtuella nätverket från `dependsOn` attributet för `Microsoft.Compute/virtualMachineScaleSets` , så du är inte beroende av att skapa ett nytt virtuellt nätverk:
 
     ```json
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -171,7 +171,7 @@ I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du ka
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Ett annat exempel finns i [en som inte är unik för Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Ett annat exempel finns i [en som inte är unik för Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>
@@ -207,7 +207,7 @@ Ett annat exempel finns i [en som inte är unik för Service Fabric](https://git
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
-4. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser så att Azure inte skapar någon ny IP-adress:
+4. Ta bort `Microsoft.Network/publicIPAddresses` från dina resurser så att Azure inte skapar någon ny IP-adress:
 
     ```json
     /*
@@ -229,7 +229,7 @@ Ett annat exempel finns i [en som inte är unik för Service Fabric](https://git
     }, */
     ```
 
-5. Kommentera ut IP-adressen från `dependsOn` attributet för `Microsoft.Network/loadBalancers`, så du är inte beroende av att skapa en ny IP-adress:
+5. Kommentera ut IP-adressen från `dependsOn` attributet för `Microsoft.Network/loadBalancers` , så du är inte beroende av att skapa en ny IP-adress:
 
     ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -305,7 +305,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standard Servi
             }
     ```
 
-3. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser så att Azure inte skapar någon ny IP-adress:
+3. Ta bort `Microsoft.Network/publicIPAddresses` från dina resurser så att Azure inte skapar någon ny IP-adress:
 
     ```json
     /*
@@ -327,7 +327,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standard Servi
     }, */
     ```
 
-4. Ta bort IP- `dependsOn` adressprefixet för `Microsoft.Network/loadBalancers`, så du är inte beroende av att skapa en ny IP-adress. Lägg till attributet för `dependsOn` det virtuella nätverket eftersom belastningsutjämnaren nu är beroende av under nätet från det virtuella nätverket:
+4. Ta bort IP-adressprefixet `dependsOn` för `Microsoft.Network/loadBalancers` , så du är inte beroende av att skapa en ny IP-adress. Lägg till attributet för det virtuella nätverket `dependsOn` eftersom belastningsutjämnaren nu är beroende av under nätet från det virtuella nätverket:
 
     ```json
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -340,7 +340,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standard Servi
                 ],
     ```
 
-5. Ändra belastnings Utjämnings `frontendIPConfigurations` inställningen från att använda en `publicIPAddress`, för att använda ett undernät `privateIPAddress`och. `privateIPAddress`använder en fördefinierad statisk intern IP-adress. Om du vill använda en dynamisk IP-adress `privateIPAddress` tar du bort elementet och `privateIPAllocationMethod` ändrar sedan till **dynamiskt**.
+5. Ändra belastnings Utjämnings `frontendIPConfigurations` inställningen från att använda en `publicIPAddress` , för att använda ett undernät och `privateIPAddress` . `privateIPAddress`använder en fördefinierad statisk intern IP-adress. Om du vill använda en dynamisk IP-adress tar du bort `privateIPAddress` elementet och ändrar sedan `privateIPAllocationMethod` till **dynamiskt**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -487,7 +487,7 @@ I ett kluster med två noder-typ finns en nodtyp på den externa belastningsutj�
     "inboundNatPools": [
     ```
 
-5. Lägg till en `Microsoft.Network/loadBalancers` andra resurs. Den ser ut ungefär som den interna belastningsutjämnaren som skapats i avsnittet [intern belastnings utjämning](#internallb) , men använder belastnings Utjämnings variablerna "-int" och implementerar bara program porten 80. Detta tar också `inboundNatPools`bort för att behålla RDP-slutpunkter på den offentliga belastningsutjämnaren. Om du vill använda RDP på den interna belastningsutjämnaren flyttar `inboundNatPools` du från den externa belastningsutjämnaren till den här interna belastningsutjämnaren:
+5. Lägg till en andra `Microsoft.Network/loadBalancers` resurs. Den ser ut ungefär som den interna belastningsutjämnaren som skapats i avsnittet [intern belastnings utjämning](#internallb) , men använder belastnings Utjämnings variablerna "-int" och implementerar bara program porten 80. Detta tar också bort `inboundNatPools` för att behålla RDP-slutpunkter på den offentliga belastningsutjämnaren. Om du vill använda RDP på den interna belastningsutjämnaren flyttar du `inboundNatPools` från den externa belastningsutjämnaren till den här interna belastningsutjämnaren:
 
     ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */

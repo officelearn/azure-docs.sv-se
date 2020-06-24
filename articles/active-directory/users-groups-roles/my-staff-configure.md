@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 791f2e9bf825bb0a1d1ce555c9fbd879106213df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 40d1efd5d5e8dc5fed07bf5b9ab1cfa70927b5cf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995829"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732590"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Hantera dina användare med min personal (förhands granskning)
 
@@ -54,7 +54,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 När du har konfigurerat Australien kan du tillämpa det här omfånget på dina användare som har åtkomst till min personal. Endast användare som har tilldelats en administrativ roll har åtkomst till min personal. Utför följande steg för att aktivera min personal:
 
 1. Logga in på Azure Portal som användar administratör.
-2. Bläddra till **Azure Active Directory** > **användar inställningar** > **användar funktions** > förhands**granskningar hantera användar funktions förhands gransknings inställningar**.
+2. Bläddra till **Azure Active Directory**  >  **användar inställningar**  >  **användar funktions**förhands  >  **granskningar hantera användar funktions förhands gransknings inställningar**.
 3. Under **Administratörer kan komma åt min personal**kan du välja att aktivera för alla användare, valda användare eller ingen användar åtkomst.
 
 > [!Note]
@@ -80,7 +80,7 @@ Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst pr
 
 ## <a name="using-my-staff"></a>Använda min personal
 
-När en användare går till min personal visas namnen på de [administrativa enheter](directory-administrative-units.md) som de har administratörs behörighet för. I [användar dokumentationen för min personal](../user-help/my-staff-team-manager.md)använder vi termen "plats" för att referera till administrativa enheter. Om en administratörs behörighet inte har någon AU-omfattning gäller behörigheterna i hela organisationen. När min personal har Aktiver ATS kan de användare som är aktiverade och har tilldelats en administrativ roll komma åt den via [https://mystaff.microsoft.com](https://mystaff.microsoft.com). De kan välja en AU för att visa användarna i den AU och välja en användare för att öppna profilen.
+När en användare går till min personal visas namnen på de [administrativa enheter](directory-administrative-units.md) som de har administratörs behörighet för. I [användar dokumentationen för min personal](../user-help/my-staff-team-manager.md)använder vi termen "plats" för att referera till administrativa enheter. Om en administratörs behörighet inte har någon AU-omfattning gäller behörigheterna i hela organisationen. När min personal har Aktiver ATS kan de användare som är aktiverade och har tilldelats en administrativ roll komma åt den via [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . De kan välja en AU för att visa användarna i den AU och välja en användare för att öppna profilen.
 
 ## <a name="reset-a-users-password"></a>Återställa ett användarlösenord
 
@@ -90,7 +90,7 @@ Följande roller har behörighet att återställa en användares lösen ord:
 - [Administratör för privilegie rad autentisering](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administratör](directory-assign-admin-roles.md#global-administrator--company-administrator)
 - [Support administratör](directory-assign-admin-roles.md#helpdesk-administrator)
-- [Användar administratör](directory-assign-admin-roles.md#user-administrator)
+- [Användaradministratör](directory-assign-admin-roles.md#user-administrator)
 - [Lösenordsadministratör](directory-assign-admin-roles.md#password-administrator)
 
 Öppna en användar profil från **min personal**. Välj **Återställ lösen ord**.
@@ -130,5 +130,5 @@ Du kan visa gransknings loggar för åtgärder som vidtagits i min personal på 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Dokumentation om mina anställdas användar dokumentation](../user-help/my-staff-team-manager.md)
-[administrativa enheter](directory-administrative-units.md)
+Dokumentation om min [personal användare](../user-help/my-staff-team-manager.md) 
+ [Dokumentation om administrativa enheter](directory-administrative-units.md)

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 70c7ae006c2ce7b91e1e47e12d9880ab48d42c76
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208728"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116476"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -53,7 +53,7 @@ Processen att rotera huvud nyckeln är enkel.
 4. Verifiera att den nya primär nyckeln fungerar mot alla resurser. Nyckel rotations processen kan ta var som helst om från mindre än en minut till timmar beroende på storleken på Cosmos DB kontot.
 5. Ersätt den sekundära nyckeln med den nya primära nyckeln.
 
-![Huvud nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Huvud nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>Kod exempel för att använda en huvud nyckel
 
@@ -97,9 +97,9 @@ Här är ett typiskt design mönster där du kan begära, generera och leverera 
 7. Phone-appen kan fortsätta att använda resurs-token för att direkt komma åt Cosmos DB resurser med behörigheterna som definierats av resurs-token och för intervallet som tillåts av resurs-token.
 8. När resursens token upphör att gälla får efterföljande begär Anden ett 401 obehörigt undantag.  I det här läget upprättar Phone-appen identiteten igen och begär en ny resurs-token.
 
-    ![Arbets flöde för Azure Cosmos DB-resurs-token](./media/secure-access-to-data/resourcekeyworkflow.png)
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Arbets flöde för Azure Cosmos DB-resurs-token" border="false":::
 
-Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) -eller [Node. js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Ett exempel på en tjänst mellan nivåer som används för att generera eller Broker-resursfiler finns i [ResourceTokenBroker-appen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -117,7 +117,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Varje Cosmos DB användare har en ReadAsync ()-metod som kan användas för att hämta listan över [behörigheter](#permissions) som är associerade med användaren.
 
-## <a name="permissions"></a>Åtkomst<a id="permissions"></a>
+## <a name="permissions"></a>Behörigheter<a id="permissions"></a>
 
 En behörighets resurs är kopplad till en användare och tilldelad till behållaren samt partitionens nyckel nivå. Varje användare kan innehålla noll eller fler behörigheter. En behörighets resurs ger åtkomst till en säkerhetstoken som användaren behöver när de försöker komma åt en speciell behållare eller data i en angiven partitionsnyckel. Det finns två tillgängliga åtkomst nivåer som kan tillhandahållas av en behörighets resurs:
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 06/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b56fab132b36b63dae39d32f3ab9979b3d00a828
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 60d2f8017454cd73e91bb022bab79a48b0af8a36
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021202"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209614"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -284,9 +284,9 @@ ms.locfileid: "84021202"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -370,7 +370,7 @@ Start punkten för SAP-arbetsbelastningen på Azure-dokumentationen finns [här]
 
 Följande SAP-anteckningar är relaterade till ämnet i SAP på Azure:
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -391,7 +391,7 @@ Allmänna standard begränsningar och maximala begränsningar för Azure-prenume
 ## <a name="possible-scenarios"></a>Möjliga scenarier
 SAP visas ofta som ett av de mest verksamhets kritiska programmen i företag. Arkitekturen och åtgärderna i dessa program är huvudsakligen komplexa och säkerställer att du uppfyller kraven på tillgänglighet och prestanda är viktigt.
 
-Därför måste företag tänka noga om vilken moln leverantör som ska väljas för att köra affärs kritiska affärs processer på. Azure är den perfekta offentliga moln plattformen för affärs kritiska SAP-program och affärs processer. Med tanke på den stora mängden Azure-infrastruktur kan nästan alla befintliga SAP-NetWeaver och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 processorer. Utöver att Azure erbjuder [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket gör att du kan skala upp Hana-distributioner på upp till 24TB och SAP HANA skalbara distributioner av upp till 120 TB. En kan ange idag att nästan alla lokala SAP-scenarier kan köras i Azure också. 
+Därför måste företag tänka noga om vilken moln leverantör som ska väljas för att köra affärs kritiska affärs processer på. Azure är den perfekta offentliga moln plattformen för affärs kritiska SAP-program och affärs processer. Med tanke på den stora mängden Azure-infrastruktur kan nästan alla befintliga SAP-NetWeaver och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 processorer. Utöver att Azure erbjuder [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket gör att du kan skala upp Hana-distributioner på upp till 24 TB och SAP HANA skalbara distributioner på upp till 120 TB. En kan ange idag att nästan alla lokala SAP-scenarier kan köras i Azure också. 
 
 En grov Beskrivning av scenarierna och vissa scenarier som inte stöds finns i dokumentet SAP- [arbetsbelastning i scenarier med virtuella Azure-datorer som stöds](./sap-planning-supported-configurations.md).
 
@@ -449,6 +449,9 @@ Principen för tillgänglighets uppsättning och relaterad uppdatering och fel d
 > [!IMPORTANT]
 > Begreppen för Azure-tillgänglighetszoner och Azures tillgänglighets uppsättningar kan inte anges samtidigt. Det innebär att du kan antingen distribuera ett par eller flera virtuella datorer till en angiven tillgänglighets zon eller en Azure-tillgänglighets uppsättning. Men inte båda.
 
+### <a name="azure-paired-regions"></a>Azure-kopplade regioner
+Azure erbjuder Azures region par där replikering av vissa data är aktiverat mellan dessa fasta region par. Region länkningen dokumenteras i artikeln [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Som artikeln beskriver är replikeringen av data bundna till Azure Storage-typer som kan konfigureras av dig till att replikeras till den kopplade regionen. Se även artikeln [lagrings redundans i en sekundär region](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). De lagrings typer som tillåter sådan replikering är lagrings typer som inte lämpar sig för DBMS-arbetsbelastningar. Eftersom användningen av Azure Storage-replikeringen skulle vara begränsad till Azure Blob Storage (t. ex. i säkerhets kopierings syfte) eller andra lagrings scenarier med hög latens. När du söker efter kopplade regioner och de tjänster som du vill använda som primär eller sekundär region kan du stöta på situationer där de Azure-tjänster och/eller VM-typer som du avser att använda i den primära regionen inte är tillgängliga i den kopplade regionen. Eller så kan du stöta på en situation där den kopplade Azure-regionen inte kan godkännas av olika orsaker till datakompatibilitet. I dessa fall måste du använda en icke-kopplad region som sekundär/katastrof återställnings region. I sådana fall måste du vara noga med att replikera en del av de data som Azure skulle ha replikerat själv. Ett exempel på hur du replikerar Active Directory och DNS till din katastrof återställnings region beskrivs i artikeln [Konfigurera haveri beredskap för Active Directory och DNS](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory)
+ 
 
 ## <a name="azure-virtual-machine-services"></a>Azure Virtual Machine-tjänster
 Azure erbjuder många olika virtuella datorer som du kan välja att distribuera. Det finns inget behov av teknik-och infrastruktur köp. Azure VM service erbjuder fören klar underhåll och drift program genom att tillhandahålla beräkning och lagring på begäran för att vara värd för, skala och hantera webb program och anslutna program. Infrastruktur hantering automatiseras med en plattform som är utformad för hög tillgänglighet och dynamisk skalning för att matcha användnings behov med alternativet för flera olika pris modeller.
@@ -468,7 +471,7 @@ För SAP-arbetsbelastningen begränsar vi valet till olika VM-familjer som är l
 > [!NOTE]
 > De VM-typer som är certifierade för SAP-arbetsbelastningar, det finns ingen överbelastning av processor-och minnes resurser.
 
-Utöver valet av rent virtuella datorer som stöds måste du också kontrol lera om de är tillgängliga i en speciell region baserat på de plats [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/). Men viktigare är att du måste utvärdera om:
+Utöver valet av rent VM-typer som stöds måste du också kontrol lera om dessa VM-typer är tillgängliga i en speciell region baserat på de plats [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/). Men viktigare är att du måste utvärdera om:
 
 - PROCESSOR-och minnes resurser för olika VM-typer 
 - IOPS-bandbredd för olika VM-typer
@@ -496,57 +499,16 @@ Mer information om prissättning finns i artikeln [Azure-Virtual Machines](https
 Dessutom erbjuder Azure koncepten för en dedikerad värd. Med det dedikerade värd konceptet får du mer kontroll över de uppdaterings cykler som utförs av Azure. Du kan använda uppdaterings tiden enligt dina egna scheman. Det här erbjudandet riktar sig specifikt till kunder med arbets belastning som kanske inte följer den normala arbets belastnings cykeln. Läs artikeln [Azures dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)för att läsa mer om begreppen i Azures dedikerade erbjudande. Att använda det här erbjudandet stöds för SAP-arbetsbelastningar och används av flera SAP-kunder som vill ha mer kontroll över korrigering av infrastruktur och eventuella underhålls planer för Microsoft. För ytterligare information om hur Microsoft underhåller och uppdaterar Azure-infrastrukturen som är värd för virtuella datorer, kan du läsa artikeln [underhåll för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Virtuella datorer i generation 1 och generation 2
-Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2**. **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller också viktiga funktions skillnader för virtuella datorer i generation 2 eftersom de kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure. 
+Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2**. **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller även de viktiga funktions skillnaderna för virtuella datorer i generation 2 som kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure. 
 
 > [!NOTE]
 > Det finns funktions skillnader i generation 1 och generation 2 virtuella datorer som körs i Azure. Läs artikeln [stöd för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) för att se en lista över dessa skillnader.  
  
-Det går inte att flytta en befintlig virtuell dator från en generation till den andra generationen. Om du vill ändra den virtuella datorns generation måste du distribuera en ny virtuell dator med den generation som du vill och installera om den program vara som du kör på den virtuella datorn av generationen. Detta påverkar endast den virtuella datorns virtuella hård disk avbildning och har ingen inverkan på data diskarna eller anslutna NFS-eller SMB-resurser. Data diskar, NFS-eller SMB-resurser som ursprungligen tilldelades till, till exempel på en virtuell dator i generation 1
+Det går inte att flytta en befintlig virtuell dator från en generation till den andra generationen. Om du vill ändra den virtuella datorns generation måste du distribuera en ny virtuell dator med den generation som du vill och installera om den program vara som du kör på den virtuella datorn för generationen. Den här ändringen påverkar endast den virtuella datorns virtuella hård disk avbildning och har ingen inverkan på data diskarna eller anslutna NFS-eller SMB-resurser. Data diskar, NFS-eller SMB-resurser som ursprungligen tilldelades till, till exempel, på en virtuell dator i generation 1. 
 
 > [!NOTE]
 > Distribution av Mv1 VM Family-VM: ar för virtuella datorer i generation 2 är möjligt från och med maj 2020. Med det är det möjligt att det blir mindre upp och downsizing mellan Mv1 och virtuella datorer med Mv2-familjen.
-
-
-#### <a name="quotas-in-azure-virtual-machine-services"></a>Kvoter i Azure Virtual Machine-tjänster
-Azure Storage och nätverks infrastruktur delas mellan virtuella datorer som kör en mängd olika tjänster i Azure-infrastrukturen. Och precis som i dina egna data Center, sker överetablering av vissa infrastruktur resurser i en viss grad. Microsoft Azures plattformen använder disk, processor, nätverk och andra kvoter för att begränsa resursanvändningen och bevara konsekvent och deterministisk prestanda. De olika VM-typerna och-familjerna (E32s_v3, D64s_v3 osv.) har olika kvoter för antalet diskar, CPU, RAM och nätverk.
-
-> [!NOTE]
-> PROCESSOR-och minnes resurser för de VM-typer som stöds av SAP är förallokerade på noderna. Det innebär att när den virtuella datorn har distribuerats är resurserna på värden tillgängliga som de definieras av VM-typen.
-
-
-När du planerar och ändrar storlek på SAP på Azure-lösningar måste kvoterna för varje virtuell dator storlek beaktas. De virtuella dator kvoterna beskrivs [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]. 
-
-Förutom processor-och minnes resurs kvoter är andra kvoter definierade för VM-SKU: er kopplade till:
-
-- Data flöde för nätverks trafik till den virtuella datorn
-- IOPS för lagrings trafik
-- Data flöde för nätverks trafik
-
-Data flödes gränserna för lagring av ett nätverk definieras så att brusets intilliggande effekter kan behållas till ett absolut minimum. Den lagrings kvot som tillhör en virtuell dator skriver över kvoterna för de ackumulerade diskarna som är anslutna (se även senare i lagrings delen). Eller med andra ord, om du monterar lagrings diskar som i ackumuleringen skulle överskrida data flödet och IOPS-kvoten för den virtuella datorn, prioriteras kvot gränserna för den virtuella datorn.
-
-#### <a name="rough-sizing-of-vms-for-sap"></a>Grov storlek på virtuella datorer för SAP 
-
-Som ett grovt besluts träd för att avgöra om ett SAP-system passar in i Azures tjänster för virtuella datorer och dess funktioner eller om ett befintligt system måste konfigureras på ett annat sätt för att kunna distribuera systemet på Azure, kan besluts trädet nedan användas:
-
-![Besluts träd för att bestämma möjlighet att distribuera SAP på Azure][planning-guide-figure-700]
-
-**Steg 1**: den viktigaste informationen att börja med är SAPS-kravet för ett angivet SAP-system. SAPS-kraven måste delas upp i DBMS-delen och SAP-programdelen, även om SAP-systemet redan har distribuerats lokalt i en konfiguration på två nivåer. För befintliga system kan SAPS som är relaterade till maskin varan som används ofta bestämmas eller beräknas utifrån befintliga SAP-benchmarks. Resultaten finns här: <https://sap.com/about/benchmark.html> .
-För nyligen distribuerade SAP-system bör du ha genomgått en storleks bedömning, vilket bör fastställa systemets krav på SAPS.
-Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure:<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
-
-**Steg 2**: för befintliga system ska i/o-volymer och i/o-åtgärder per sekund på DBMS-servern mätas. För nyligen planerade system bör storleks övningen för det nya systemet också ge grova idéer om I/O-kraven på DBMS-sidan. Om du är osäker måste du utföra ett koncept bevis.
-
-**Steg 3**: jämför SAPS-kravet för DBMS-servern med SAPS de olika VM-typerna för Azure kan tillhandahålla. Informationen om SAPS av olika typer av virtuella Azure-datorer finns dokumenterad i SAP NOTE [1928533]. Fokus bör vara på den virtuella DBMS-datorn först eftersom databas skiktet är skiktet i ett SAP NetWeaver-system som inte skalas ut i de flesta distributioner. SAP-programlagret kan däremot skalas ut. Om inget av de SAP-typer som stöds av Azure VM-typer kan leverera nödvändiga SAPS, kan arbets belastningen för det planerade SAP-systemet inte köras på Azure. Du måste antingen distribuera systemet lokalt eller så måste du ändra arbets belastnings volymen för systemet.
-
-**Steg 4**: som dokumenteras [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]tillämpar Azure en IOPS-kvot per disk oberoende om du använder standard lagring eller Premium Storage. Beroende på typ av virtuell dator, antalet data diskar som kan monteras varierar. Det innebär att du kan beräkna ett högsta IOPS-nummer som kan uppnås med var och en av de olika typerna av virtuella datorer. Beroende av databasens fillayout kan du göra stripe-diskar för att bli en volym i gäst operativ systemet. Men om den aktuella IOPS-volymen i ett distribuerat SAP-system överskrider de beräknade gränserna för den största VM-typen i Azure och om det inte finns någon risk att kompensera med mer minne, kan arbets belastningen för SAP-systemet påverkas allvarligt. I sådana fall kan du trycka på en punkt där du inte bör distribuera systemet på Azure.
-
-**Steg 5**: särskilt i SAP-system, som distribueras lokalt i konfigurationer på två nivåer, är sannolikheten att systemet kan behöva konfigureras på Azure i en konfiguration på tre nivåer. I det här steget måste du kontrol lera om det finns en komponent i SAP-programlagret, som inte kan skalas ut och som inte passar in i processor-och minnes resurser som de olika Azure VM-typerna erbjuder. Om det verkligen finns en sådan komponent kan inte SAP-systemet och dess arbets belastning distribueras till Azure. Men om du kan skala ut SAP-programkomponenter till flera virtuella Azure-datorer kan systemet distribueras till Azure.
-
-**Steg 6**: om DBMS-och SAP-programmets skikt komponenter kan köras i virtuella Azure-datorer måste konfigurationen definieras med avseende på:
-
-* Antal virtuella Azure-datorer
-* VM-typer för enskilda komponenter
-* Antal virtuella hård diskar i DBMS VM för att tillhandahålla tillräckligt med IOPS 
+ 
 
 ### <a name="storage-microsoft-azure-storage-and-data-disks"></a><a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Lagring: Microsoft Azure Storage och data diskar
 Microsoft Azure Virtual Machines använder olika lagrings typer. När du implementerar SAP på Azure Virtual Machine-tjänster är det viktigt att förstå skillnaderna mellan dessa två huvud typer av lagring:
@@ -567,86 +529,35 @@ Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator 
 > 
 > 
 
----
+#### <a name="azure-storage-accounts"></a>Azure Storage-konton
 
-Microsoft Azure Storage tillhandahåller beständig lagring och de typiska skydds nivåer och redundans som visas på SAN-lagring. Diskar som baseras på Azure Storage är virtuella hård diskar (VHD: er) som finns i Azure Storage-tjänsterna. Den lokala OS-disken (Windows C: \, Linux/dev/sda1) lagras på Azure Storage och ytterligare volymer/diskar som monteras på den virtuella datorn lagras där.
+När du distribuerar tjänster eller virtuella datorer i Azure ordnas distributionen av virtuella hård diskar och VM-avbildningar i enheter som kallas Azure Storage-konton. [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-account-overview) har begränsningar, antingen i IOPS, data flöde eller storlekar som de kan innehålla. Tidigare de här begränsningarna, som dokumenteras i: 
 
-Det går att ladda upp en befintlig virtuell hård disk lokalt eller skapa en tom virtuell hård disk i Azure och koppla de virtuella hård diskarna till distribuerade virtuella datorer.
+- [Skalbarhets mål för standard lagrings konton](../../../storage/common/scalability-targets-standard-account.md)
+- [Skalbarhets mål för Premium Page Blob Storage-konton](../../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
-När du har skapat eller laddat upp en virtuell hård disk i Azure Storage kan du montera och koppla dem till en befintlig virtuell dator och kopiera befintliga (demonterade) VHD.
+spelade en viktig roll vid planering av en SAP-distribution i Azure. Det var på dig att hantera antalet beständiga diskar i ett lagrings konto. Du behövde hantera lagrings kontona och slutligen skapa nya lagrings konton för att skapa mer beständiga diskar. 
 
-Eftersom de virtuella hård diskarna är bestående, är data och ändringar i de virtuella hård diskarna säkra när de startar om och återskapar en virtuell dator instans. Även om en instans tas bort förblir de här virtuella hård diskarna säkra och kan distribueras om, eller om det går att montera icke-OS-diskar på andra virtuella datorer.
+Under de senaste åren visade introduktionen av [Azure Managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) från dessa uppgifter. Rekommendationerna för SAP-distributioner är att använda Azure Managed disks i stället för att hantera Azure Storage-konton. Azure Managed disks distribuerar diskar över olika lagrings konton, så att gränserna för de enskilda lagrings kontona inte överskrids.
 
-Mer information om Azure Storage hittar du här:
+I ett lagrings konto har du en typ av mappobjekt som kallas "behållare" och som kan användas för att gruppera vissa diskar i specifika behållare.
 
-* <https://azure.microsoft.com/documentation/services/storage/>
-* <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
-* <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
-
-#### <a name="azure-standard-storage"></a>Azure Standard Storage
-Azure standard Storage var den typ av lagring som är tillgänglig när Azure-IaaS släpptes. Det gällde IOPS-kvoter per enskild disk. Svars tiden upplevde inte i samma klass som SAN/NAS-enheter som vanligt vis har distribuerats för avancerade SAP-system som finns lokalt. Azure standard-lagring visat sig vara tillräckligt för många hundratals SAP-system under tiden som distribuerats i Azure.
-
-Diskar som lagras på Azures standard lagrings konton debiteras baserat på faktiska data som lagras, volymen lagrings transaktioner, utgående data överföringar och alternativ för redundans som valts. Många diskar kan skapas med maximalt 1 TB storlek, men om de inte är tomma är det ingen kostnad. Om du sedan fyller en virtuell hård disk med 100 GB, debiteras du för lagring av 100 GB och inte för den nominella storlek som den virtuella hård disken skapades med.
-
-#### <a name="azure-premium-storage"></a><a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure-Premium Storage
-Azure Premium Storage lanserades med målet att tillhandahålla:
-
-* Bättre I/O-latens.
-* Bättre data flöde.
-* Mindre variation i i/O-latens.
-
-I detta syfte har många ändringar införts och vilka de två viktigaste är:
-
-* Användning av SSD-diskar i Azure Storage noder
-* En ny Read cache som backas upp av den lokala SSD-noden i en Azure-datornod
-
-I motsats till standard lagring där funktionerna inte ändrades beroende på storleken på disken (eller VHD) har Premium Storage för närvarande tre olika disk kategorier, som visas i den här artikeln:<https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/>
-
-Du ser att IOPS/disk och disk data flöde/disk är beroende av storleks kategorin för diskarna
-
-Kostnads grund för Premium Storage är inte den faktiska data volym som lagras på sådana diskar, men storleks kategorin för en sådan disk, oberoende av mängden data som lagras på disken.
-
-Du kan också skapa diskar på Premium Storage som inte är direkt mappar till de storleks kategorier som visas. Detta kan vara fallet, särskilt när du kopierar diskar från standard lagring till Premium Storage. I sådana fall utförs en mappning till nästa största Premium Storage disk alternativ.
-
-De flesta Azure VM-familjer som certifierats med SAP kan arbeta med Premium Storage och eller en blandning mellan Azure standard och Premium Storage.
-
-Om du checkar ut delen i VM-seriens virtuella datorer i [den här artikeln (Linux)][virtual-machines-sizes-linux] och [den här artikeln (Windows)][virtual-machines-sizes-windows]inser du att det finns data volym begränsningar för Premium Storage diskar på VM-nivåns kornig het. Andra virtuella datorer i DS-serien eller GS-serien har också olika begränsningar för antalet data diskar som kan monteras. Dessa gränser beskrivs också i den artikel som nämns ovan. Men i grunden innebär det att om du t. ex. monterar 32 x P30-diskar till en enskild DS14 VM kan du inte få 32 x maximalt data flöde för en P30-disk. I stället begränsas det maximala data flödet på VM-nivå enligt beskrivningen i artikeln.
-
-Mer information om Premium Storage hittar du här:<https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
-
-#### <a name="azure-storage-accounts"></a>Azure Storage konton
-
-När du distribuerar tjänster eller virtuella datorer i Azure kan distribution av virtuella hård diskar och VM-avbildningar ordnas i enheter som kallas Azure Storage-konton. När du planerar en Azure-distribution måste du noggrant överväga begränsningarna i Azure. På den ena sidan finns det ett begränsat antal lagrings konton per Azure-prenumeration. Även om varje Azure Storage konto kan innehålla ett stort antal VHD-filer, finns det en fast gräns för det totala antalet IOPS per lagrings konto. När du distribuerar hundratals virtuella SAP-datorer med DBMS-system som skapar betydande IO-anrop, rekommenderar vi att du distribuerar virtuella IOPS-DBMS virtuella datorer mellan flera Azure Storage-konton. Vård måste inte överskrida den aktuella gränsen för Azure Storage konton per prenumeration. Eftersom lagring är en viktig del av databas distributionen för ett SAP-system, diskuteras det här konceptet i detalj i den redan refererade [DBMS-distributions guiden][dbms-guide].
-
-Mer information om Azure Storage-konton finns i [skalbarhets målen för standard lagrings konton](../../../storage/common/scalability-targets-standard-account.md) och [skalbarhets mål för Premium Page Blob Storage-konton](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Genom att läsa de här artiklarna inser du att det finns skillnader i begränsningarna mellan Azure standard Storage-konton och Premium Storage-konton. Större skillnader är mängden data som kan lagras i ett sådant lagrings konto. I standard lagring är volymen en större storlek än med Premium Storage. På den andra sidan är standard lagrings kontot i hög grad begränsat i IOPS (se kolumn **Total begär ande frekvens**), medan Azure Premium Storage-kontot inte har någon sådan begränsning. Vi kommer att diskutera information och resultat av dessa skillnader när du diskuterar distributioner av SAP-system, särskilt DBMS-servrarna.
-
-Inom ett lagrings konto har du möjlighet att skapa olika behållare i syfte att organisera och kategorisera olika virtuella hård diskar. Dessa behållare används till exempel separata virtuella hård diskar för olika virtuella datorer. Det finns inga prestanda konsekvenser i att bara använda en behållare eller flera behållare under ett enda Azure Storage konto.
-
-I Azure visas ett VHD-namn efter följande namn anslutning som måste ange ett unikt namn för den virtuella hård disken i Azure:
+I Azure följer ett disk-eller VHD-namn följande namngivnings anslutning som måste ange ett unikt namn för den virtuella hård disken i Azure:
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
-Strängen ovan måste vara unikt identifiera den virtuella hård disk som lagras på Azure Storage.
+Strängen ovan måste vara unikt identifiera den disk/VHD som lagras på Azure Storage.
+
 
 #### <a name="managed-disks"></a><a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 
-Managed Disks är en ny resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage konton. Managed Disks automatiskt justeras mot tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till och därför ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i [översikts artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed disks är en resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage-konton. Managed Disks automatiskt justeras mot tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till och därför ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i [översikts artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 
-Vi rekommenderar att du använder hanterad disk, eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
-SAP stöder för närvarande endast Premium Managed Disks. Mer information finns i SAP NOTE [1928533].
-
-#### <a name="microsoft-azure-storage-resiliency"></a>Microsoft Azure Storage återhämtning
-
-Microsoft Azure Storage lagrar den grundläggande virtuella hård disken (med OS) och anslutna diskar eller BLOBBAR på minst tre separata lagringsnoder. Detta faktum kallas lokalt redundant lagring (LRS). LRS är standard för alla typer av lagring i Azure. 
-
-Det finns flera olika typer av redundans, som beskrivs i artikeln [Azure Storage replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
-
-> [!NOTE]
->Från och med Azure Premium Storage, vilket är den rekommenderade typen av lagring för virtuella DBMS-datorer och diskar som lagrar databas-och logg-/återskapa-filer, är den enda tillgängliga metoden LRS. Därför måste du konfigurera databas metoder, t. ex. SQL Server Always on, Oracle data Guard eller HANA-systemreplikering för att aktivera databasreplikering till en annan Azure-region eller en annan Azure-tillgänglighets zon.
+Vi rekommenderar att du använder Azure Managed disks, eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
 
 
-> [!NOTE]
-> För DBMS-distributioner rekommenderas inte användningen av Geo-redundant lagring som tillgänglig med Azure standard Storage eftersom den har allvarlig prestanda påverkan och inte besvarar Skriv ordningen mellan olika virtuella hård diskar som är anslutna till en virtuell dator. Det faktum att det inte går att använda Skriv ordningen mellan olika virtuella hård diskar är en hög potential för att få fram inkonsekventa databaser på replikerings sidan om databasen och logg/gör om filer sprids över flera virtuella hård diskar (så ofta fallet) på den virtuella käll datorn.
+#### <a name="azure-persisted-storage-types"></a>Azure-sparade lagrings typer
+Azure erbjuder en mängd bestående lagrings alternativ som kan användas för SAP-arbetsbelastningar och vissa SAP stack-komponenter. Mer information finns i dokumentet [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md).
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure nätverk
@@ -766,6 +677,33 @@ Det här kapitlet innehåller många viktiga punkter om Azure-nätverk. Här är
 * Om du vill konfigurera en plats-till-plats-eller punkt-till-plats-anslutning måste du först skapa en Azure-Virtual Network
 * När en virtuell dator har distribuerats går det inte längre att ändra Virtual Network som tilldelats den virtuella datorn
 
+### <a name="quotas-in-azure-virtual-machine-services"></a>Kvoter i Azure Virtual Machine-tjänster
+Vi måste vara tydliga om det faktum att lagrings-och nätverks infrastrukturen delas mellan virtuella datorer som kör en mängd olika tjänster i Azure-infrastrukturen. Som i kundens egna data Center, sker överetablering av några av infrastruktur resurserna i en viss grad. Microsoft Azures plattformen använder disk, processor, nätverk och andra kvoter för att begränsa resursanvändningen och bevara konsekvent och deterministisk prestanda.  De olika typerna av virtuella datorer (A5, A6 osv.) har olika kvoter för antalet diskar, CPU: n, RAM-minne och nätverk.
+
+> [!NOTE]
+> PROCESSOR-och minnes resurser för de VM-typer som stöds av SAP är förallokerade på noderna. Det innebär att när den virtuella datorn har distribuerats är resurserna på värden tillgängliga som de definieras av VM-typen.
+>
+>
+
+När du planerar och ändrar storlek på SAP på Azure-lösningar måste kvoterna för varje virtuell dator storlek beaktas. De virtuella dator kvoterna beskrivs [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows].
+
+De kvoter som beskrivs representerar de teoretiska maximala värdena.  Gränsen för IOPS per disk kan uppnås med små I/o (8 KB) men kanske inte kan uppnås med stora I/o (1 MB).  IOPS-gränsen tillämpas på en enskild disk granularitet.
+
+Som ett grovt besluts träd för att avgöra om ett SAP-system passar in i Azures tjänster för virtuella datorer och dess funktioner eller om ett befintligt system måste konfigureras på ett annat sätt för att kunna distribuera systemet på Azure, kan besluts trädet nedan användas:
+
+![Besluts träd för att bestämma möjlighet att distribuera SAP på Azure][planning-guide-figure-700]
+
+1. Den viktigaste informationen att börja med är SAPS-kravet för ett angivet SAP-system. SAPS-kraven måste delas upp i DBMS-delen och SAP-programdelen, även om SAP-systemet redan har distribuerats lokalt i en konfiguration på två nivåer. För befintliga system kan SAPS som är relaterade till maskin varan som används ofta bestämmas eller beräknas utifrån befintliga SAP-benchmarks. Resultaten hittar du [här](https://sap.com/about/benchmark.html). För nyligen distribuerade SAP-system bör du ha genomgått en storleks bedömning, vilket bör fastställa systemets krav på SAPS. Se även den här bloggen och det bifogade dokumentet för [SAP-storlek på Azure](https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx)
+1. I befintliga system ska i/O-volym och I/O-åtgärder per sekund på DBMS-servern mätas. För nyligen planerade system bör storleks övningen för det nya systemet också ge grova idéer om I/O-kraven på DBMS-sidan. Om du är osäker måste du utföra ett koncept bevis.
+1. Jämför SAPS-kravet för DBMS-servern med SAPS de olika VM-typerna för Azure kan tillhandahålla. Informationen om SAPS av olika typer av virtuella Azure-datorer finns dokumenterad i SAP NOTE [1928533]. Fokus bör vara på den virtuella DBMS-datorn först eftersom databas skiktet är skiktet i ett SAP NetWeaver-system som inte skalas ut i de flesta distributioner. SAP-programlagret kan däremot skalas ut. Om inget av de SAP-typer som stöds av Azure VM-typer kan leverera nödvändiga SAPS, kan arbets belastningen för det planerade SAP-systemet inte köras på Azure. Du måste antingen distribuera systemet lokalt eller så måste du ändra arbets belastnings volymen för systemet.
+1. Som dokumenteras [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]tillämpar Azure en IOPS-kvot per disk oberoende om du använder standard lagring eller Premium Storage. Beroende på typ av virtuell dator, antalet data diskar som kan monteras varierar. Det innebär att du kan beräkna ett högsta IOPS-nummer som kan uppnås med var och en av de olika typerna av virtuella datorer. Beroende av databasens fillayout kan du göra stripe-diskar för att bli en volym i gäst operativ systemet. Men om den aktuella IOPS-volymen i ett distribuerat SAP-system överskrider de beräknade gränserna för den största VM-typen i Azure och om det inte finns någon risk att kompensera med mer minne, kan arbets belastningen för SAP-systemet påverkas allvarligt. I sådana fall kan du trycka på en punkt där du inte bör distribuera systemet på Azure.
+1. Särskilt i SAP-system, som distribueras lokalt i konfigurationer på två nivåer, är sannolikheten att systemet kan behöva konfigureras på Azure i en konfiguration på tre nivåer. I det här steget måste du kontrol lera om det finns en komponent i SAP-programlagret, som inte kan skalas ut och som inte passar in i processor-och minnes resurser som de olika Azure VM-typerna erbjuder. Om det verkligen finns en sådan komponent kan inte SAP-systemet och dess arbets belastning distribueras till Azure. Men om du kan skala ut SAP-programkomponenter till flera virtuella Azure-datorer kan systemet distribueras till Azure.
+
+Om DBMS-och SAP-programmets skikt komponenter kan köras på virtuella Azure-datorer måste konfigurationen definieras med avseende på:
+
+* Antal virtuella Azure-datorer
+* VM-typer för enskilda komponenter
+* Antal virtuella hård diskar i DBMS VM för att tillhandahålla tillräckligt med IOPS
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
@@ -874,7 +812,7 @@ En vanlig distributions metod är att flytta en befintlig virtuell dator, som k�
 
 Krav när du förbereder din egen Azure VM-disk:
 
-* Den virtuella hård disken som innehåller operativ systemet kan endast ha en maximal storlek på 127GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
+* Den virtuella hård disken som innehåller operativ systemet kan ha en maximal storlek på 127 GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
 * Den måste vara i det fasta VHD-formatet. Dynamiska virtuella hård diskar eller virtuella hård diskar i VHDx-format stöds ännu inte i Azure. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
 * Virtuella hård diskar, som monteras på den virtuella datorn och ska monteras igen i Azure till den virtuella datorn måste också ha ett fast VHD-format. Läs [den här artikeln (Linux)](../../linux/managed-disks-overview.md) och [den här artikeln (Windows)](../../windows/managed-disks-overview.md)) för storleks gränser för data diskar. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
 * Lägg till ett annat lokalt konto med administratörs behörighet, som kan användas av Microsoft support eller som kan tilldelas som kontext för tjänster och program som ska köras i tills den virtuella datorn har distribuerats och mer lämpliga användare kan användas.
@@ -901,7 +839,7 @@ VHD-filer som innehåller ett generaliserat operativ system lagras i behållare 
 
 Krav när du förbereder din egen Azure VM-avbildning:
 
-* Den virtuella hård disken som innehåller operativ systemet kan endast ha en maximal storlek på 127GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
+* Den virtuella hård disken som innehåller operativ systemet kan ha en maximal storlek på 127 GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
 * Den måste vara i det fasta VHD-formatet. Dynamiska virtuella hård diskar eller virtuella hård diskar i VHDx-format stöds ännu inte i Azure. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
 * Virtuella hård diskar, som monteras på den virtuella datorn och ska monteras igen i Azure till den virtuella datorn måste också ha ett fast VHD-format. Läs [den här artikeln (Linux)](../../windows/managed-disks-overview.md) och [den här artikeln (Windows)](../../linux/managed-disks-overview.md) för storleks gränser för data diskar. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
 * Lägg till andra lokala konton som de kan behöva för det angivna distributions scenariot.
@@ -928,7 +866,7 @@ Om den virtuella datorn är för beredd för att vara generisk och slutligen obe
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör*. Gå till%windir%\windows\system32\sysprep och kör Sysprep. exe.
+> Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör*. Gå till%windir%\windows\system32\sysprep och kör sysprep.exe.
 > Ett litet fönster visas. Det är viktigt att kontrol lera **generalize** -alternativet (Standardvärdet är avmarkerat) och ändra avstängnings alternativet från standardvärdet ' reboot ' till ' shutdown '. Den här proceduren förutsätter att Sysprep-processen körs lokalt i gäst operativ systemet på en virtuell dator.
 > Om du vill utföra proceduren med en virtuell dator som redan körs i Azure följer du stegen som beskrivs i [den här artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
@@ -1191,7 +1129,7 @@ az storage blob show --name <target blob name> --container <target container nam
 
 Vi rekommenderar att hanteringen av strukturen för en virtuell dator och de tillhör ande diskarna är enkla. I lokala installationer har kunder utvecklat många olika sätt att strukturera en server installation.
 
-* En bas disk som innehåller operativ systemet och alla binärfiler för DBMS och/eller SAP. Sedan mars 2015 kan disken vara upp till 1 TB i stället för tidigare begränsningar som är begränsad till 127GB.
+* En bas disk som innehåller operativ systemet och alla binärfiler för DBMS och/eller SAP. Sedan mars 2015 kan disken vara upp till 1 TB i stället för tidigare begränsningar som begränsar den till 127 GB.
 * En eller flera diskar som innehåller DBMS-loggfilen för SAP-databasen och logg filen för det DBMS-baserade lagrings utrymmet (om DBMS stöder detta). Om kraven för databas logg IOPS är höga måste du Stripa flera diskar för att uppnå den IOPS-volym som krävs.
 * Ett antal diskar som innehåller en eller två databasfiler för SAP-databasen och data DBMS Temp-datafilerna också (om DBMS stöder detta).
 
@@ -1240,14 +1178,13 @@ Erfarenhet av SAP-distributioner under de senaste två åren är några lektione
 >
 > * [Konfigurera programvaru-RAID på Linux][virtual-machines-linux-configure-raid]
 > * [Konfigurera LVM på en virtuell Linux-dator i Azure][virtual-machines-linux-configure-lvm]
-> * [Azure Storage hemligheter och I/O-optimeringar I Linux](https://docs.microsoft.com/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 >
 >
 
 ---
 * Premium Storage visar betydande bättre prestanda, särskilt för viktiga skrivningar i transaktions loggen. För SAP-scenarier som förväntas leverera produktion som prestanda rekommenderar vi starkt att du använder VM-serien som kan utnyttja Azure Premium Storage.
 
-Tänk på att disken som innehåller operativ systemet, och som vi rekommenderar, binärfilerna för SAP och databasen (bas-VM) också inte längre är begränsad till 127GB. Det kan nu ha upp till 1 TB storlek. Detta bör vara tillräckligt med utrymme för att behålla all nödvändig fil, inklusive t. ex. SAP batch job-loggar.
+Tänk på att disken som innehåller operativ systemet, och som vi rekommenderar, binärfilerna för SAP och databasen (bas-VM) också inte längre är begränsad till 127 GB. Det kan nu ha upp till 1 TB storlek. Detta bör vara tillräckligt med utrymme för att behålla all nödvändig fil, inklusive t. ex. SAP batch job-loggar.
 
 Mer information och mer information, specifikt för virtuella DBMS-datorer, finns i [distributions guiden för DBMS][dbms-guide]
 
@@ -1294,7 +1231,7 @@ Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuel
 > För virtuella datorer, som skapas från egna avbildningar eller diskar, är det nödvändigt att kontrol lera och eventuellt ange parametern för automontering. Genom att ange den här parametern kan den virtuella datorn efter en omstart eller omdistribution i Azure montera de anslutna/monterade enheterna igen automatiskt.
 > Parametern anges för de avbildningar som tillhandahålls av Microsoft på Azure Marketplace.
 >
-> Information om hur du ställer in den här monterings kontrollen finns i dokumentationen för den körbara kommando rads programmet DiskPart. exe här:
+> Information om hur du ställer in den här monterings kontrollen finns i dokumentationen för den körbara kommando raden diskpart.exe här:
 >
 > * [Kommando rads alternativ för DiskPart](https://technet.microsoft.com/library/bb490893.aspx)
 > * [Automount](https://technet.microsoft.com/library/cc753703.aspx)
@@ -1332,7 +1269,7 @@ Se skillnaden mellan den klassiska modellen och ARM-arkitekturen enligt beskrivn
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfiguration av SAP-systemet och SAP GUI-anslutning via Internet
 
-I den här artikeln beskrivs information i det här avsnittet:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Se den här artikeln som beskriver information om det här avsnittet:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Ändra brand Väggs inställningar i VM
 
@@ -1349,7 +1286,7 @@ Det kan vara nödvändigt att konfigurera brand väggen på dina virtuella dator
 > * I följande guide väljer du att skapa en ny **port** regel.
 > * I nästa steg i guiden lämnar du inställningen vid TCP och skriver in det port nummer som du vill öppna. Eftersom vårt SAP-instans-ID är 00 tog vi 3200. Om instansen har ett annat instans nummer, ska porten du definierade tidigare utifrån instans numret öppnas.
 > * I nästa del av guiden måste du lämna objektet **Tillåt anslutning** markerat.
-> * I nästa steg i guiden måste du definiera om regeln gäller för domän, privat och offentligt nätverk. Justera det om det behövs för dina behov. Men om du ansluter med SAP-GUI från utsidan via det offentliga nätverket måste du ha regeln tillämpad på det offentliga nätverket.
+> * I nästa steg i guiden måste du definiera om regeln gäller för domän, privat och offentligt nätverk. Justera den om det behövs för dina behov. Men om du ansluter med SAP-GUI från utsidan via det offentliga nätverket måste du ha regeln tillämpad på det offentliga nätverket.
 > * I det sista steget i guiden namnger du regeln och sparar genom att trycka på **Slutför**.
 >
 > Regeln börjar gälla omedelbart.
@@ -1903,7 +1840,7 @@ Ett annat viktigt infrastruktur element för hög tillgänglighet är lagring. T
 
 I stället för att lägga till alla virtuella datorer i ett enda Azure Storage konto kan du också använda dedikerade lagrings konton för varje virtuell dator och på så sätt öka den övergripande VM-och SAP-programmets tillgänglighet genom att använda flera oberoende Azure Storage-konton.
 
-Azure Managed Disks placeras automatiskt i fel domänen för den virtuella dator som de är kopplade till. Om du placerar två virtuella datorer i en tillgänglighets uppsättning och använder Managed Disks, tar plattformen hand om att distribuera Managed Disks till olika fel domäner. Om du planerar att använda Premium Storage rekommenderar vi starkt att du använder hantera diskar även.
+Azure Managed disks placeras automatiskt i fel domänen för den virtuella dator som de är kopplade till. Om du placerar två virtuella datorer i en tillgänglighets uppsättning och använder Managed Disks, tar plattformen hand om att distribuera Managed Disks till olika fel domäner. Om du planerar att använda Premium Storage rekommenderar vi starkt att du använder hantera diskar även.
 
 En exempel arkitektur för ett SAP NetWeaver-system som använder Azures infrastruktur HA och lagrings konton kan se ut så här:
 
@@ -1920,7 +1857,7 @@ För kritiska SAP-komponenter har vi uppnått följande hittills:
   SAP Application Server-instanser är redundanta komponenter. Varje SAP AS-instans distribueras på en egen virtuell dator, som körs i en annan Azure-fel-och uppgraderings domän (se kapitlen [fel domäner][planning-guide-3.2.1] och [uppgraderings domäner][planning-guide-3.2.2]). Detta säkerställs med hjälp av Azures tillgänglighets uppsättningar (se kapitel [tillgänglighets uppsättningar för Azure][planning-guide-3.2.3]). Potentiell planerad eller oplanerad otillgänglig tillgänglighet för en Azure-fel eller uppgraderings domän kommer att orsaka att ett begränsat antal virtuella datorer inte är tillgängliga med SAP som-instanser.
 
   Varje SAP AS-instans placeras i ett eget Azure Storage konto – möjligt att inte få till gång till ett Azure Storage konto innebär att det bara finns en virtuell dator med sin SAP som instans. Tänk dock på att det finns en gräns för Azure Storage konton i en Azure-prenumeration. För att säkerställa att den automatiska starten av (A) SCS-instansen efter den virtuella datorn har startats om, måste du ange Autostart-parametern i (A) SCS-instansens start profil som beskrivs i kapitlet [använda Autostart för SAP-instanser][planning-guide-11.5]
-  Läs även kapitel [hög tillgänglighet för SAP-program servrar][planning-guide-11.4.1] för mer information.
+  Läs även kapitel [hög tillgänglighet för SAP-programservrar][planning-guide-11.4.1] för mer information.
 
   Även om du använder Managed Disks lagras dessa diskar också i ett Azure Storage konto och kan vara otillgängliga i händelse av ett lagrings avbrott.
 
@@ -2017,7 +1954,7 @@ Hög tillgänglighets aspekter av SAP-konfigurationer på tre nivåer beskrivs r
 #### <a name="location-of-3-tier-sap-configurations"></a>Plats för SAP-konfigurationer på 3 nivåer
 Det finns inte stöd för att dela upp själva program nivån eller program-och DBMS-nivån mellan lokalt och Azure. Ett SAP-system är antingen fullständigt distribuerat lokalt eller i Azure. Det finns inte heller stöd för att vissa program servrar ska köras lokalt och andra i Azure. Det är diskussionens start punkt. Vi stöder inte heller att DBMS-komponenterna i ett SAP-system och SAP-program Server-lagret distribueras i två olika Azure-regioner. Till exempel DBMS i västra USA och SAP-program skikt i Central USA. Anledningen till att inte stödja sådana konfigurationer är fördröjnings känsligheten för SAP NetWeaver-arkitekturen.
 
-Men under de senaste åren har data Center partners utvecklat samplaceringar till Azure-regioner. Dessa samplatser är ofta i nära närhet till de fysiska Azure-datacenterna i en Azure-region. Det korta avståndet och anslutningen till till gångarna i samplaceringen via ExpressRoute till Azure kan resultera i en latens som är mindre än 2ms. I sådana fall är det möjligt att hitta DBMS-skiktet (inklusive SAN/NAS) i en sådan samplacering och SAP-Programskiktet i Azure. [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+Men under de senaste åren har data Center partners utvecklat samplaceringar till Azure-regioner. Dessa samplatser är ofta i nära närhet till de fysiska Azure-datacenterna i en Azure-region. Det korta avståndet och anslutningen till till gångarna i samplaceringen via ExpressRoute till Azure kan resultera i en svars tid på mindre än 2 millisekunder. I sådana fall är det möjligt att hitta DBMS-skiktet (inklusive SAN/NAS) i en sådan samplacering och SAP-Programskiktet i Azure. [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
 ### <a name="offline-backup-of-sap-systems"></a>Offline-säkerhetskopiering av SAP-system
 Beroende av den valda SAP-konfigurationen (2-eller 3-skikt) kan du behöva säkerhetskopiera. Innehållet i den virtuella datorn och för att ha en säkerhets kopia av databasen. De DBMS-relaterade säkerhets kopiorna förväntas göras med databas metoder. En detaljerad beskrivning av de olika databaserna finns i DBMS- [Guide][dbms-guide]. Å andra sidan kan SAP-data säkerhets kopie ras på ett offline-sätt (inklusive databas innehållet) enligt beskrivningen i det här avsnittet eller online enligt beskrivningen i nästa avsnitt.

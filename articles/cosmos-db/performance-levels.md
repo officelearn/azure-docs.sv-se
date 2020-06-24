@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d9e9ed1a65265a119f59edee7da1b8f244e2f7f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623331"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112743"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Dra tillbaka prestandanivåerna S1, S2 och S3
 
@@ -76,7 +76,7 @@ I vart och ett av dessa fall kommer du att kunna anpassa din data flödes nivå 
 
 Förutsatt att du har 10 S1-samlingar, 1 GB lagrings utrymme för var och en, i regionen USA, östra, och du migrerar de här 10 S1-samlingarna till 10 enskilda partitionsuppsättningar på 400 RU/SEK (minimi nivån). Din faktura kommer att se ut så här om du behåller de 10 enskilda partitionsuppsättningar i en fullständig månad:
 
-![Hur S1-priser för 10 samlingar jämförs med 10 samlingar med priser för en enda partition samling](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Hur S1-priser för 10 samlingar jämförs med 10 samlingar med priser för en enda partition samling" border="false":::
 
 <a name="more-storage-needed"></a>
 

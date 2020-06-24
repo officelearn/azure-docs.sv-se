@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2f62af434a49d11cdc1acfc4a09b5bffbd69140b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 566be788066db54f827bb4d6e46f0d832755ce26
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316707"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115679"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionering i Azure Cosmos DB API för Cassandra
 
@@ -53,7 +53,7 @@ CREATE TABLE uprofile.user (
 
 I den här designen har vi definierat `id` fältet som primär nyckel. Den primära nyckeln fungerar som identifierare för posten i tabellen och används också som partitionsnyckel i Azure Cosmos DB. Om primär nyckeln definieras i det tidigare beskrivna sättet kommer det bara finnas en enda post i varje partition. Detta resulterar i en perfekt vågrät och skalbar distribution när data skrivs till databasen och är idealisk för användnings fall med nyckel värdes ökningar. Programmet ska ange den primära nyckeln när data läses från tabellen för att maximera Läs prestanda. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="partitioner" border="false":::
 
 
 ## <a name="compound-primary-key"></a>Sammansatt primär nyckel
@@ -83,11 +83,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 När data returneras sorteras de efter kluster nyckeln, som förväntas i Apache Cassandra:
 
-![partitions](./media/cassandra-partitioning/select-from-pk.png)
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="partitioner":::
 
 Med data som modelleras på det här sättet kan flera poster tilldelas till varje partition, grupperade efter användare. Vi kan därmed utfärda en fråga som effektivt dirigeras av `partition key` (i det här fallet `user` ) för att hämta alla meddelanden för en specifik användare. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitioner" border="false":::
 
 
 ## <a name="composite-partition-key"></a>Sammansatt partitionsnyckel

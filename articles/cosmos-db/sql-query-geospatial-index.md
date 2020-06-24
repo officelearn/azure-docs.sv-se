@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839221"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116306"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexera geospatiala data med Azure Cosmos DB
 
@@ -34,13 +34,13 @@ Du kan växla mellan **geografi** -och **geometrins** spatiala typ i Azure Porta
 
 Så här ställer du in den **geospatiala konfigurationen** i **datautforskaren** i Azure Portal:
 
-![Ställer in Geospatial konfiguration](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Ställer in Geospatial konfiguration":::
 
 Du kan också ändra `geospatialConfig` i .NET SDK för att justera den **geospatiala konfigurationen**:
 
-Om inget värde anges `geospatialConfig` används geografi data typen som standard. När du ändrar `geospatialConfig`, kommer alla befintliga geospatiala data i behållaren att indexeras om.
+Om inget `geospatialConfig` värde anges används geografi data typen som standard. När du ändrar `geospatialConfig` , kommer alla befintliga geospatiala data i behållaren att indexeras om.
 
-Här är ett exempel på hur du ändrar den geospatiala `geometry` data typen till `geospatialConfig` genom att ange egenskapen och lägga till en **boundingBox**:
+Här är ett exempel på hur du ändrar den geospatiala data typen till `geometry` genom att ange `geospatialConfig` egenskapen och lägga till en **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -107,7 +107,7 @@ Du kan också [ändra indexerings principen](how-to-manage-indexing-policy.md) m
 
 ## <a name="geometry-data-indexing-examples"></a>Exempel på geometri data indexering
 
-Med data typen **Geometry** , som liknar data typen geografi, måste du ange relevanta sökvägar och typer att indexera. Dessutom måste du också ange en `boundingBox` i indexerings principen för att ange det önskade områden som ska indexeras för den angivna sökvägen. Varje Geospatial sökväg kräver en egen`boundingBox`.
+Med data typen **Geometry** , som liknar data typen geografi, måste du ange relevanta sökvägar och typer att indexera. Dessutom måste du också ange en `boundingBox` i indexerings principen för att ange det önskade områden som ska indexeras för den angivna sökvägen. Varje Geospatial sökväg kräver en egen `boundingBox` .
 
 Avgränsnings rutan består av följande egenskaper:
 
@@ -120,7 +120,7 @@ En avgränsnings ruta krävs eftersom geometriska data upptar ett plan som kan v
 
 Skapa en avgränsnings ruta som innehåller alla (eller de flesta) data. Endast åtgärder som beräknas för de objekt som är helt inne i avgränsnings rutan kommer att kunna använda rums indexet. Att göra den begränsade avgränsnings rutan större än nödvändigt påverkar frågans prestanda negativt.
 
-Här är ett exempel på en indexerings princip som indexerar **geometri** data med **geospatialConfig** inställt på `geometry`:
+Här är ett exempel på en indexerings princip som indexerar **geometri** data med **geospatialConfig** inställt på `geometry` :
 
 ```json
  {

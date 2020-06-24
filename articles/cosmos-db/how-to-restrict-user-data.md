@@ -3,15 +3,15 @@ title: Begränsa användar åtkomsten till data åtgärder endast med Azure Cosm
 description: Lär dig hur du begränsar åtkomsten till data åtgärder med Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980379"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261230"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Begränsa användaråtkomst till endast dataåtgärder
 
@@ -19,7 +19,9 @@ I Azure Cosmos DB finns det två sätt att autentisera dina interaktioner med da
 - Använd Azure Active Directory identitet när du interagerar med Azure Portal,
 - använda Azure Cosmos DB [nycklar](secure-access-to-data.md#master-keys) eller [resurs-token](secure-access-to-data.md#resource-tokens) vid utfärdande av anrop från API: er och SDK: er.
 
-Varje autentiseringsmetod ger åtkomst till olika uppsättningar med åtgärder, med viss överlappning: ![delning av åtgärder per autentiseringstyp](./media/how-to-restrict-user-data/operations.png)
+Varje autentiseringsmetod ger åtkomst till olika uppsättningar med åtgärder, med vissa överlappningar:
+
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Delning av åtgärder per autentiseringstyp" border="false":::
 
 I vissa fall kanske du vill begränsa vissa användare av organisationen för att utföra data åtgärder (som endast är CRUD-begäranden och frågor). Detta är vanligt vis fallet för utvecklare som inte behöver skapa eller ta bort resurser eller ändra det etablerade data flödet för de behållare som de arbetar med.
 
@@ -33,10 +35,10 @@ Nästa avsnitt i den här artikeln visar hur du utför de här stegen.
 > För att kunna köra kommandona i nästa avsnitt måste du installera Azure PowerShell Module 3.0.0 eller senare, samt [rollen Azure-ägare](../role-based-access-control/built-in-roles.md#owner) för den prenumeration som du försöker ändra.
 
 I PowerShell-skripten i nästa avsnitt ersätter du följande plats hållare med värden som är speciella för din miljö:
-- `$MySubscriptionId`– Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Till exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName`– Resurs gruppen som innehåller Azure Cosmos-kontot. Till exempel: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`– Namnet på ditt Azure Cosmos-konto. Till exempel: `mycosmosdbsaccount`.
-- `$MyUserName`-Inloggningen (username@domain) för den användare som du vill begränsa åtkomsten för. Till exempel: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId`– Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName`– Resurs gruppen som innehåller Azure Cosmos-kontot. Exempel: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName`– Namnet på ditt Azure Cosmos-konto. Exempel: `mycosmosdbsaccount`.
+- `$MyUserName`-Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Exempel: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
 
@@ -51,7 +53,7 @@ Select-AzSubscription $MySubscriptionId
 
 Följande skript skapar en Azure Active Directory roll tilldelning med "endast nyckel"-åtkomst för Azure Cosmos-konton. Rollen baseras på [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md) och [detaljerade åtgärder för Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Dessa roller och åtgärder är en del av `Microsoft.DocumentDB` Azure Active Directory-namnområdet.
 
-1. Skapa först ett JSON-dokument med `AzureCosmosKeyOnlyAccess.json` namnet med följande innehåll:
+1. Skapa först ett JSON-dokument `AzureCosmosKeyOnlyAccess.json` med namnet med följande innehåll:
 
     ```
     {

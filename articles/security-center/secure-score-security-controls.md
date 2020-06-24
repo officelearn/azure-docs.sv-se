@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 81c14da762e0ff92305456aa89f06949c7039868
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 46b78ca6f385f62d265210b41e634bbbd9a2041c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629279"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262726"
 ---
-# <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Förbättrade säkra poäng (för hands version) i Azure Security Center
+# <a name="enhanced-secure-score-in-azure-security-center"></a>Förbättrade säkra poäng i Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Introduktion till säkra Poäng
 
 Azure Security Center har två huvudsakliga mål: för att hjälpa dig att förstå den aktuella säkerhets situationen och för att hjälpa dig att effektivt och effektivt förbättra säkerheten. Den centrala aspekten av Security Center som gör att du kan uppnå dessa mål är säkra poäng.
 
-Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån. Använd poängen för att spåra säkerhets aktiviteter och projekt i din organisation. 
+Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån.
 
 På sidan säker Poäng för Security Center ingår:
 
@@ -38,19 +38,32 @@ På sidan säker Poäng för Security Center ingår:
 
     Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
 
-    Mer information finns i [så här beräknas de säkra poängen](secure-score-security-controls.md#how-the-secure-score-is-calculated) nedan. 
+    Mer information finns i [så här beräknas din säkra Poäng](secure-score-security-controls.md#how-your-secure-score-is-calculated) nedan. 
 
 
 >[!TIP]
 > Tidigare versioner av Security Center tilldelade punkter på rekommendations nivå: när du har reparerat en rekommendation för en enskild resurs, förbättras dina säkra poäng. Idag ökar poängen bara om du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Det innebär att poängen bara ökar när du har förbättrat säkerheten för en resurs.
-> Även om den här förbättrade versionen fortfarande är i för hands version är den tidigare säkra poängen tillgänglig som ett alternativ från Azure Portal. 
 
 
-## <a name="locating-your-secure-score"></a>Hitta dina säkra Poäng
+## <a name="accessing-your-secure-score"></a>Åtkomst till dina säkra Poäng
 
-Security Center visar ditt resultat på ett framträdande sätt: det är det första som visas på sidan Översikt. Om du klickar till sidan för dedikerade säkra poäng visas poängen uppdelad efter prenumeration. Klicka på en enskild prenumeration om du vill se en detaljerad lista över prioriterade rekommendationer och den potentiella påverkan som åtgärdas i prenumerationens resultat.
+Du hittar den övergripande säkra poängen, samt poängen per prenumeration, via Azure Portal eller program mässigt med Azure Security Center REST API.
 
-## <a name="how-the-secure-score-is-calculated"></a>Så här beräknas den säkra poängen 
+### <a name="getting-your-secure-score-from-the-portal"></a>Få dina säkra Poäng från portalen
+
+Security Center visar ditt resultat på en framträdande plats i portalen: det är det första som visas på sidan Översikt. Om du klickar till sidan för dedikerade säkra poäng visas poängen uppdelad efter prenumeration. Klicka på en enskild prenumeration om du vill se en detaljerad lista över prioriterade rekommendationer och den potentiella påverkan som åtgärdas i prenumerationens resultat.
+
+![Övergripande säkra poäng som visas i portalen](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### <a name="getting-your-secure-score-from-the-rest-api"></a>Få dina säkra Poäng från REST API
+
+Du kan komma åt dina poäng via [Secure score-API: t](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda **Secure Scores** -API: et för att hämta poängen för en speciell prenumeration. Dessutom kan du använda API: et för **säker Poäng** för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
+
+![Hämta en enskild säker Poäng via API: et](media/secure-score-security-controls/single-secure-score-via-api.png)
+
+Exempel på verktyg som byggts ovanpå Secure score-API: et finns i avsnittet [Secure Scores i vår GitHub-community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+## <a name="how-your-secure-score-is-calculated"></a>Så här beräknas din säkra Poäng 
 
 Bidraget för varje säkerhets kontroll till den övergripande säkra poängen visas tydligt på sidan rekommendationer.
 
@@ -71,7 +84,7 @@ Den maximala poängen för den här kontrollen, tillämpa system uppdateringar, 
 
 ### <a name="calculations---understanding-your-score"></a>Beräkningar – förstå dina Poäng
 
-|Metric|Formel och exempel|
+|Mått|Formel och exempel|
 |-|-|
 |**Säkerhets kontrollens aktuella Poäng**|<br>![Formel för att beräkna en säkerhets kontrolls aktuella Poäng](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![Knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar det med antalet felfria resurser (4) resulterar det i den aktuella poängen:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Säkerhetspoäng**<br>Enstaka prenumeration|<br>![Ekvation för att beräkna nuvarande säkra Poäng](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Säker Poäng för enskild prenumeration med alla kontroller aktiverade](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>I det här exemplet finns det en enda prenumeration med alla säkerhets kontroller som är tillgängliga (en potentiell högsta poäng på 60 punkter). Poängen visar 28 punkter av en möjlig 60 och de återstående 32 punkterna visas i siffrorna "potentiella Poäng ökning" i säkerhets kontrollerna.<br>![Lista över kontroller och potentiella Poäng ökningar](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -84,6 +97,7 @@ Du kan förbättra dina säkra poäng genom att åtgärda säkerhets rekommendat
 
 >[!IMPORTANT]
 > Det är bara inbyggda rekommendationer som påverkar de säkra poängen.
+
 
 ## <a name="security-controls-and-their-recommendations"></a>Säkerhets kontroller och deras rekommendationer
 
@@ -110,7 +124,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Tillämpa system uppdateringar (Max poäng 6)</p></strong>System uppdateringar ger organisationer möjlighet att underhålla drifts effektivitet, minska säkerhets risker och tillhandahålla en mer stabil miljö för slutanvändare. Att inte tillämpa uppdateringar lämnar uppdateringar som inte har uppdaterats och resulterar i miljöer som är mottagliga för attacker. Dessa sårbarheter kan utnyttjas och leda till data förlust, data exfiltrering, utpressnings tro och resurs missbruk. Om du vill distribuera system uppdateringar kan du använda <a href="https://docs.microsoft.com/azure/automation/automation-update-management">uppdateringshantering-lösningen för att hantera korrigeringar och uppdateringar</a> för dina virtuella datorer. Uppdaterings hantering är en process för att kontrol lera distribution och underhåll av program varu versioner.</td>
-    <td class="tg-lboi"; width=55%>-Övervaknings agentens hälso problem bör lösas på dina datorer<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agenten ska installeras på dina datorer<br>-OS-versionen bör uppdateras för dina moln tjänst roller<br>-System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras<br>-System uppdateringar bör installeras på dina datorer<br>-Datorerna måste startas om för att tillämpa system uppdateringar<br>-Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes-version<br>-Övervaknings agenten ska installeras på dina virtuella datorer</td>
+    <td class="tg-lboi"; width=55%>-Övervaknings agentens hälso problem bör lösas på dina datorer<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agenten ska installeras på dina datorer<br>-OS-versionen bör uppdateras för dina moln tjänst roller<br>-System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras<br>-System uppdateringar bör installeras på dina datorer<br>-Datorerna måste startas om för att tillämpa system uppdateringar<br>-Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes-version<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>-Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Åtgärda sårbarheter (högst 6 Poäng)</p></strong>Ett säkerhets problem är en svaghet som en hot aktör kan utnyttja för att avslöja konfidentialitet, tillgänglighet eller integritet för en resurs. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">Hantering av sårbarheter</a> minskar organisationens exponering, härdnings områdets yta, ökar organisationens återhämtning och minskar risken för angrepp på dina resurser. Hot-och sårbarhets hantering ger insyn i program varu-och säkerhets inställningar och ger rekommendationer för begränsningar.</td>
@@ -130,7 +144,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Åtgärda säkerhetskonfigurationer (max. 4)</p></strong>Felkonfigurerade IT-tillgångar har en högre risk för angrepp. Grundläggande härdnings åtgärder glöms ofta när till gångar distribueras och tids gränser måste vara uppfyllda. Säkerhets konfigurations inställningar kan vara på valfri nivå i infrastrukturen: från operativ system och nätverks enheter till moln resurser.<br>Azure Security Center jämför kontinuerligt konfigurationen av dina resurser med krav i bransch standarder, regler och benchmarks. När du har konfigurerat relevanta "efterlevnadsprinciper" (standarder och bas linjer) som är viktiga för din organisation kommer eventuella luckor att leda till säkerhets rekommendationer som innehåller CCEID och en förklaring till den potentiella säkerhets påverkan.<br>Vanliga paket är <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security benchmark</a> och <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure grunderna 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>-Pod säkerhets principer bör definieras på Kubernetes-tjänster<br>-Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas<br>-Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas<br>-Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Övervaknings agenten ska installeras på dina datorer<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agentens hälso problem bör lösas på dina datorer</td>
+    <td class="tg-lboi"; width=55%>-Pod säkerhets principer bör definieras på Kubernetes-tjänster<br>-Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas<br>-Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas<br>-Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Övervaknings agenten ska installeras på dina datorer<br>-Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>-Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agentens hälso problem bör lösas på dina datorer</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Begränsa obehörig nätverks åtkomst (max. 4)</p></strong>Slut punkter inom en organisation ger en direkt anslutning från ditt virtuella nätverk till Azure-tjänster som stöds. Virtuella datorer i ett undernät kan kommunicera med alla resurser. Om du vill begränsa kommunikationen till och från resurser inom ett undernät skapar du en nätverks säkerhets grupp och kopplar den till under nätet. Organisationer kan begränsa och skydda mot obehörig trafik genom att skapa regler för inkommande och utgående trafik.</td>
@@ -138,7 +152,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Använd adaptiv program kontroll (Max poäng 3)</p></strong>Adaptiva program kontroller (AAC) är en intelligent, automatiserad lösning från slut punkt till slut punkt som gör det möjligt att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer. Det hjälper också till att förstärka dina datorer mot skadlig kod.<br>Security Center använder Machine Learning för att skapa en vitlista med kända säkra program för en grupp datorer.<br>Den här innovativa metoden för application vit listning ger säkerhets fördelarna utan hanterings komplexitet.<br>AAC är särskilt relevant för syftes skapade servrar som behöver köra en särskild uppsättning program.</td>
-    <td class="tg-lboi"; width=55%>-Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Övervaknings agenten ska installeras på dina datorer<br>-Övervaknings agentens hälso problem bör lösas på dina datorer</td>
+    <td class="tg-lboi"; width=55%>-Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Övervaknings agenten ska installeras på dina datorer<br>-Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>-Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)<br>-Övervaknings agentens hälso problem bör lösas på dina datorer</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Använd data klassificering (max antal poäng 2)</p></strong>Genom att klassificera din organisations data efter känslighet och inverkan på företaget kan du fastställa och tilldela värden till data och tillhandahålla strategin och grunden för styrning.<br><a href="https://docs.microsoft.com/azure/information-protection/what-is-information-protection">Azure information Protection</a> kan hjälpa med data klassificering. Den använder krypterings-, identitets-och Auktoriseringsprinciper för att skydda data och begränsa data åtkomsten. Vissa klassificeringar som Microsoft använder är icke-affärsmässiga, offentliga, allmänna, konfidentiella och mycket konfidentiella.</td>
@@ -150,7 +164,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera Endpoint Protection (Max poäng 2)</p></strong>För att se till att dina slut punkter skyddas från skadlig kod kan beteende sensorer samla in och bearbeta data från dina slut punkter till operativ system och skicka dessa data till det privata molnet för analys. Security Analytics utnyttjar stora data, maskin inlärning och andra källor för att rekommendera svar på hot. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection">Microsoft Defender ATP</a> använder till exempel Hot information för att identifiera angrepps metoder och generera säkerhets aviseringar.<br>Security Center stöder följande lösningar för slut punkts skydd: Windows Defender, System Center Endpoint Protection, Trend Micro, Symantec v 12.1.1.1100, McAfee v10 för Windows, McAfee v10 för Linux och Sophos v9 för Linux. Om Security Center identifierar någon av dessa lösningar visas inte längre rekommendationen att installera Endpoint Protection.</td>
-    <td class="tg-lboi"; width=55%>-Hälso fel i Endpoint Protection bör åtgärdas på virtuella datorers skalnings uppsättningar<br>-Problem med slut punkts skydd bör lösas på dina datorer<br>-Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar<br>-Installera Endpoint Protection-lösning på virtuella datorer<br>-Övervaknings agentens hälso problem bör lösas på dina datorer<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agenten ska installeras på dina datorer<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Installera Endpoint Protection-lösning på dina datorer</td>
+    <td class="tg-lboi"; width=55%>-Hälso fel i Endpoint Protection bör åtgärdas på virtuella datorers skalnings uppsättningar<br>-Problem med slut punkts skydd bör lösas på dina datorer<br>-Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar<br>-Installera Endpoint Protection-lösning på virtuella datorer<br>-Övervaknings agentens hälso problem bör lösas på dina datorer<br>-Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>-Övervaknings agenten ska installeras på dina datorer<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>-Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)<br>-Installera Endpoint Protection-lösning på dina datorer</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera granskning och loggning (max resultat 1)</p></strong>Loggnings data ger insikter om tidigare problem, förhindrar att de kan förbättra programmets prestanda och ger möjlighet att automatisera åtgärder som annars skulle vara manuella.<br>- <strong>Kontroll-och hanterings loggar</strong> innehåller information om <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/overview">Azure Resource Manager</a> åtgärder.<br>- <strong>Data Plans loggar</strong> innehåller information om händelser som Aktiver ATS som en del av Azure-resursanvändningen.<br>- <strong>Bearbetade händelser</strong> innehåller information om analyserade händelser/aviseringar som har bearbetats.</td>
@@ -158,7 +172,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementera rekommenderade säkerhets metoder (max antal poäng 0)</p></strong>Modern säkerhets praxis "anta överträdelse" av nätverks omkretsen. Därför är många av de bästa metoderna i den här kontrollen fokuserade på att hantera identiteter.<br>Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a> skyddar nycklar och hemligheter genom att kryptera nycklar, PFX-filer och lösen ord.<br>Virtuella privata nätverk (VPN) är ett säkert sätt att komma åt dina virtuella datorer. Om VPN inte är tillgängligt använder du komplexa lösen fraser och tvåfaktorautentisering, till exempel <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>. Med tvåfaktorautentisering undviker du de svagheter som endast förlitar sig på användar namn och lösen ord.<br>Att använda kraftfulla plattformar för autentisering och auktorisering är en annan metod. Med federerade identiteter kan organisationer delegera hantering av auktoriserade identiteter. Detta är också viktigt när anställda avslutas och deras åtkomst måste återkallas.</td>
-    <td class="tg-lboi"; width=55%>-Högst 3 ägare bör anges för din prenumeration<br>-Externa konton med Läs behörighet bör tas bort från din prenumeration<br>-MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>-Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>-Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>-En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>-Auktoriseringsregler för Event Hub-instansen måste definieras<br>-Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>-Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>-Avancerade säkerhets inställningar för data för SQL Database bör innehålla en e-postadress för att ta emot säkerhets aviseringar<br>-Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>-Alla avancerade skydds typer bör vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans<br>-E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server<br>-Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server<br>-Undernät ska associeras med en nätverks säkerhets grupp<br>-Alla avancerade skydds typer bör vara aktiverade i SQL Database avancerade data säkerhets inställningar för servern<br>-Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>-Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras</td>
+    <td class="tg-lboi"; width=55%>-Högst 3 ägare bör anges för din prenumeration<br>-Externa konton med Läs behörighet bör tas bort från din prenumeration<br>-MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>-Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>-Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>-En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>-Auktoriseringsregler för Event Hub-instansen måste definieras<br>-Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>-Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>-Avancerade säkerhets inställningar för data för SQL Database bör innehålla en e-postadress för att ta emot säkerhets aviseringar<br>-Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>-Alla avancerade skydds typer bör vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans<br>-E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server<br>-Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server<br>-Undernät ska associeras med en nätverks säkerhets grupp<br>-Alla avancerade skydds typer bör vara aktiverade i SQL Database avancerade data säkerhets inställningar för servern<br>-Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>-Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras<br>-Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper</td>
   </tr>
 </tbody>
 </table>
@@ -172,13 +186,13 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
 ## <a name="secure-score-faq"></a>Vanliga frågor och svar om säker Poäng
 
 ### <a name="why-has-my-secure-score-gone-down"></a>Varför är mina säkra Poäng borta?
-Security Center har bytt till en förbättrad säker Poäng (för närvarande i för hands version) som innehåller ändringar i hur poängen beräknas. Nu måste du lösa alla rekommendationer för en resurs för att ta emot punkter. Poängen har också ändrats till en skala på 0-10.
+Security Center har bytt till en förbättrad säker Poäng som innehåller ändringar i hur poängen beräknas. Nu måste du lösa alla rekommendationer för en resurs för att ta emot punkter. Poängen har också ändrats till en skala på 0-10.
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Om jag bara har tre av fyra rekommendationer i en säkerhets kontroll, kommer mina säkra poäng att ändras?
 Nej. Den ändras inte förrän du reparerar alla rekommendationer för en enskild resurs. För att få den högsta poängen för en kontroll måste du åtgärda alla rekommendationer för alla resurser.
 
 ### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>Är tidigare erfarenhet av de säkra poängen fortfarande tillgängliga? 
-Ja. För en stund kommer de att köras sida vid sida för att under lätta över gången. Förväntar att föregående modell ska gå ut i tid. 
+Nej. En gång de körde sida vid sida för att under lätta över gången. Föregående modell har nu blivit föråldrad. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Om en rekommendation inte gäller mig och jag inaktiverar den i principen, kommer min säkerhets kontroll att uppfyllas och mina säkra resultat uppdateras?
 Ja. Vi rekommenderar att du inaktiverar rekommendationer när de inte är tillämpliga i din miljö. Instruktioner för hur du inaktiverar en speciell rekommendation finns i [inaktivera säkerhets principer](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

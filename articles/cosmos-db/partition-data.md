@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 19e4c61ba930bb9b127e2401174bcea3fd240dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234236"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112786"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och horisontell skalning i Azure Cosmos DB
 
@@ -19,11 +19,11 @@ Den här artikeln förklarar förhållandet mellan logiska och fysiska partition
 
 ## <a name="logical-partitions"></a>Logiska partitioner
 
-En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare som innehåller data om livsmedels foder innehåller alla objekt till exempel en `foodGroup` egenskap. Du kan använda `foodGroup` som partitionsnyckel för behållaren. Grupper av objekt som har specifika värden för `foodGroup`, till exempel `Beef Products`,`Baked Products`, och `Sausages and Luncheon Meats`som utgör distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en logisk partition när underliggande data tas bort.
+En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare som innehåller data om livsmedels foder innehåller alla objekt till exempel en `foodGroup` egenskap. Du kan använda `foodGroup` som partitionsnyckel för behållaren. Grupper av objekt som har specifika värden för `foodGroup` , till exempel `Beef Products` ,, `Baked Products` och som `Sausages and Luncheon Meats` utgör distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en logisk partition när underliggande data tas bort.
 
 En logisk partition definierar även omfattningen av databas transaktioner. Du kan uppdatera objekt i en logisk partition med hjälp av en [transaktion med ögonblicks bild isolering](database-transactions-optimistic-concurrency.md). När nya objekt läggs till i en behållare, skapas nya logiska partitioner transparent av systemet.
 
-Det finns ingen gräns för antalet logiska partitioner i din behållare. Varje logisk partition kan lagra upp till 20 GB data. Lämpliga alternativ för partitionsalternativ har ett brett utbud av möjliga värden. I en behållare där alla objekt innehåller en `foodGroup`egenskap kan till exempel data i den `Beef Products` logiska partitionen växa upp till 20 GB. [Genom att välja en partitionsnyckel](partitioning-overview.md#choose-partitionkey) med en mängd olika möjliga värden ser du till att behållaren kan skalas.
+Det finns ingen gräns för antalet logiska partitioner i din behållare. Varje logisk partition kan lagra upp till 20 GB data. Lämpliga alternativ för partitionsalternativ har ett brett utbud av möjliga värden. I en behållare där alla objekt innehåller en `foodGroup` egenskap kan till exempel data i den `Beef Products` logiska partitionen växa upp till 20 GB. [Genom att välja en partitionsnyckel](partitioning-overview.md#choose-partitionkey) med en mängd olika möjliga värden ser du till att behållaren kan skalas.
 
 ## <a name="physical-partitions"></a>Fysiska partitioner
 
@@ -40,11 +40,11 @@ Det data flöde som har allokerats för en behållare är jämnt fördelat mella
 
 Du kan se behållarens fysiska partitioner i **lagrings** avsnittet på **bladet mått** i Azure Portal:
 
-[![Visa antal fysiska partitioner](./media/partition-data/view-partitions-zoomed-out.png)](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="Visa antal fysiska partitioner" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
-I den här exempel behållaren där vi har `/foodGroup` valt vår partitionsnyckel representerar var och en av de tre rektanglarna en fysisk partition. I avbildningen är **partitionerings nyckel intervallet** detsamma som en fysisk partition. Den valda fysiska partitionen innehåller tre logiska partitioner: `Beef Products`, `Vegetable and Vegetable Products`och `Soups, Sauces, and Gravies`.
+I den här exempel behållaren där vi har valt `/foodGroup` vår partitionsnyckel representerar var och en av de tre rektanglarna en fysisk partition. I avbildningen är **partitionerings nyckel intervallet** detsamma som en fysisk partition. Den valda fysiska partitionen innehåller tre logiska partitioner: `Beef Products` , `Vegetable and Vegetable Products` och `Soups, Sauces, and Gravies` .
 
-Om vi etablerar ett data flöde av 18 000-enheter för programbegäran per sekund (RU/s), kan var och en av de tre fysiska partitionerna använda 1/3 av det totala etablerade data flödet. I den valda fysiska partitionen, kan de logiska `Beef Products`partitionernas `Vegetable and Vegetable Products`nycklar, `Soups, Sauces, and Gravies` och kan gemensamt, använda den fysiska partitionens 6 000 etablerade ru/s. Eftersom det etablerade data flödet är jämnt delat över din behållares fysiska partitioner, är det viktigt att välja en partitionsnyckel som jämnt distribuerar data flödes förbrukningen genom [att välja rätt logisk partitionsnyckel](partitioning-overview.md#choose-partitionkey). Om du väljer en partitionsnyckel som jämnt distribuerar data flödes förbrukningen mellan logiska partitioner, ser du till att data flödes förbrukningen över fysiska partitioner är balanserade.
+Om vi etablerar ett data flöde av 18 000-enheter för programbegäran per sekund (RU/s), kan var och en av de tre fysiska partitionerna använda 1/3 av det totala etablerade data flödet. I den valda fysiska partitionen, kan de logiska partitionernas nycklar `Beef Products` , `Vegetable and Vegetable Products` och `Soups, Sauces, and Gravies` kan gemensamt, använda den fysiska partitionens 6 000 etablerade ru/s. Eftersom det etablerade data flödet är jämnt delat över din behållares fysiska partitioner, är det viktigt att välja en partitionsnyckel som jämnt distribuerar data flödes förbrukningen genom [att välja rätt logisk partitionsnyckel](partitioning-overview.md#choose-partitionkey). Om du väljer en partitionsnyckel som jämnt distribuerar data flödes förbrukningen mellan logiska partitioner, ser du till att data flödes förbrukningen över fysiska partitioner är balanserade.
 
 ## <a name="replica-sets"></a>Replik uppsättningar
 
@@ -54,7 +54,7 @@ De flesta små Cosmos-behållare kräver bara en enda fysisk partition men komme
 
 Följande bild visar hur logiska partitioner mappas till fysiska partitioner som distribueras globalt:
 
-![En bild som visar Azure Cosmos DB partitionering](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="En bild som visar Azure Cosmos DB partitionering" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure-instrumentpaneler programmässigt
+title: Skapa Azure-instrumentpaneler program mässigt
 description: Använd en instrument panel i Azure Portal som en mall för att program mässigt skapa Azure-instrumentpaneler. Inkluderar JSON-referens.
 services: azure-portal
 documentationcenter: ''
@@ -7,19 +7,19 @@ author: adamabmsft
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ec9a4daad139a4930174ba9e3445e1cda1f8c54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461318"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764051"
 ---
-# <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler programmässigt
+# <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
 
 Den här artikeln vägleder dig genom processen för att skapa och publicera Azure-instrumentpaneler program mässigt. Den instrument panel som visas nedan refereras till i hela dokumentet.
 
@@ -387,7 +387,7 @@ Det här exemplet visar vad du kan förväntar dig att se om du har följt den h
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Representation av vår instrument panel för exempel
 
-Mall versionen av instrument panelen har definierat tre parametrar som kallas `virtualMachineName`, `virtualMachineResourceGroup`, och `dashboardName`.  Med parametrarna kan du peka den här instrument panelen på en annan virtuell Azure-dator varje gång du distribuerar. Den här instrument panelen kan konfigureras program mässigt och distribueras så att den pekar på en virtuell Azure-dator. För att testa den här funktionen kopierar du följande mall och klistrar in den på [sidan distribution av Azure Portal mall](https://portal.azure.com/#create/Microsoft.Template).
+Mall versionen av instrument panelen har definierat tre parametrar som kallas `virtualMachineName` , `virtualMachineResourceGroup` , och `dashboardName` .  Med parametrarna kan du peka den här instrument panelen på en annan virtuell Azure-dator varje gång du distribuerar. Den här instrument panelen kan konfigureras program mässigt och distribueras så att den pekar på en virtuell Azure-dator. För att testa den här funktionen kopierar du följande mall och klistrar in den på [sidan distribution av Azure Portal mall](https://portal.azure.com/#create/Microsoft.Template).
 
 I det här exemplet distribueras en instrument panel av sig själv, men med hjälp av språket i mallen kan du distribuera flera resurser och paketera en eller flera instrument paneler på sidan.
 

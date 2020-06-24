@@ -1,5 +1,5 @@
 ---
-title: Analysera och validera modeller
+title: Parsa och verifiera modeller
 titleSuffix: Azure Digital Twins
 description: Lär dig hur du använder parsar-biblioteket för att parsa DTDL-modeller.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6346c1d2adca697649ebe879b97766672a23ae29
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cc6451d9be6c125d1b01bc5bb33fd553ce789f31
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613070"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263202"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL-bibliotek på klient Sidan
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Modeller](concepts-models.md) i digitala Azure-dubblaer definieras med hjälp av JSON-baserade digitala ensamt definitions språk (DTDL). I de fall där det är användbart att parsa dina modeller, finns ett DTDL-parsningsfel på NuGet.org som ett bibliotek på klient sidan: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
@@ -39,7 +42,7 @@ Funktionerna i parsern är:
 
 ## <a name="use-the-dtdl-validator-sample"></a>Använda DTDL-verifierings exemplet
 
-Det finns exempel kod som kan validera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket och är språk-oberoende. Hitta detta: [DTDL Verification-exempel](https://github.com/Azure-Samples/DTDL-Validator).
+Det finns exempel kod som kan validera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket och är språk-oberoende. Hitta detta: [DTDL Verification-exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Verifierings exemplet kan användas som kommando rads verktyg för att validera ett katalog träd med DTDL-filer. Det ger också ett interaktivt läge. Käll koden visar exempel för hur du använder parsar-biblioteket.
 

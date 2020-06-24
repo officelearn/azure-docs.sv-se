@@ -3,16 +3,16 @@ title: Återställa Azure Cosmos DB data från en säkerhets kopia
 description: Den här artikeln beskriver hur du återställer Azure Cosmos DB data från en säkerhets kopia, hur du kontaktar Azure-supporten för att återställa data, steg som ska vidtas när data har återställts.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1a0075f9b4fc3ff919d4db4bd440a5435d711c83
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70240771"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261740"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhets kopia i Azure Cosmos DB 
 
@@ -43,11 +43,11 @@ När datafel uppstår och dokumenten i en behållare ändras eller tas bort, **t
 
 Följande skärm bild visar hur du skapar en support förfrågan för en behållare (samling/graf/tabell) för att återställa data med hjälp av Azure Portal. Ange ytterligare information, till exempel typ av data, syftet med återställningen, tid när data togs bort för att prioritera begäran.
 
-![Skapa en support förfrågan för säkerhets kopiering med Azure Portal](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+:::image type="content" source="./media/how-to-backup-and-restore/backup-support-request-portal.png" alt-text="Skapa en support förfrågan för säkerhets kopiering med Azure Portal":::
 
 ## <a name="post-restore-actions"></a>Åtgärder efter återställning
 
-När du har återställt data får du ett meddelande om namnet på det nya kontot (vanligt vis i formatet `<original-name>-restored1`) och tiden då kontot återställdes till. Det återställda kontot kommer att ha samma allokerade data flöde, indexerings principer och finns i samma region som det ursprungliga kontot. En användare som är prenumerations administratör eller en administratör kan se det återställda kontot.
+När du har återställt data får du ett meddelande om namnet på det nya kontot (vanligt vis i formatet `<original-name>-restored1` ) och tiden då kontot återställdes till. Det återställda kontot kommer att ha samma allokerade data flöde, indexerings principer och finns i samma region som det ursprungliga kontot. En användare som är prenumerations administratör eller en administratör kan se det återställda kontot.
 
 När data har återställts bör du kontrol lera och verifiera data i det återställda kontot och se till att det innehåller den version som du förväntar dig. Om allting ser bra ut bör du migrera tillbaka data till det ursprungliga kontot med hjälp av [Azure Cosmos DB ändra feed](change-feed.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 

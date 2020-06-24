@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261572"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692180"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Information om övervakning Azure AD Connect (Sync) med Azure AD Connect Health finns i [använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns dessutom i [använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).

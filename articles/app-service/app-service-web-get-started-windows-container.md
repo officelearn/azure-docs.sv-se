@@ -4,12 +4,12 @@ description: Distribuera din första anpassade Windows-behållare till Azure App
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0689e46556c4ddfddde073d79886d5cb556fde49
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80047105"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205670"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -26,8 +26,8 @@ För att slutföra den här kursen behöver du:
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
 
-    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp** > **sökning efter uppdateringar**.
-    - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg** > **Hämta verktyg och funktioner**.
+    - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
@@ -37,7 +37,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 1. I **skapa ett nytt projekt**, leta upp och välj **ASP.net webb program (.NET Framework)** för C# och välj sedan **Nästa**.
 
-1. I **Konfigurera ditt nya projekt**namnger du programmet _myFirstAzureWebApp_och väljer sedan **skapa**.
+1. I **Konfigurera ditt nya projekt**namnger du programmet _myfirstazurewebapp_och väljer sedan **skapa**.
 
    ![Konfigurera ditt webbapp](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -51,17 +51,17 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 1. Du behöver en [överordnad avbildning som stöds](#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
 
-   ```Dockerfile
+   ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
    ```
 
-1. Från Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra webbappen lokalt.
+1. Från Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra webbappen lokalt.
 
    ![Kör appen lokalt](./media/app-service-web-get-started-windows-container/local-web-app.png)
 
 ## <a name="publish-to-docker-hub"></a>Publicera till Docker Hub
 
-1. I **Solution Explorer**högerklickar du på projektet **MyFirstAzureWebApp** och väljer **publicera**.
+1. I **Solution Explorer**högerklickar du på projektet **Myfirstazurewebapp** och väljer **publicera**.
 
 1. Välj **App Service** och välj sedan **publicera**.
 
@@ -121,7 +121,7 @@ Vänta några minuter och försök igen, tills du kommer till standardvälkomsts
 
 ## <a name="see-container-start-up-logs"></a>Se containerns startloggar
 
-Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande URL genom att ersätta * \<APP_NAME>* med namnet på din app.
+Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande URL genom att ersätta *\<app_name>* med namnet på din app.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
@@ -138,22 +138,22 @@ De strömmade loggarna ser ut så här:
 
 ## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
 
-1. Öppna **vyer** > **Home**Start > **index. cshtml**i **Solution Explorer**i Visual Studio.
+1. Öppna **Solution Explorer** **vyer**  >  **Start**  >  **index. cshtml**i Solution Explorer i Visual Studio.
 
 1. Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
-1. Om du vill distribuera om till Azure högerklickar du på projektet **myFirstAzureWebApp** i **Solution Explorer** och väljer **publicera**.
+1. Om du vill distribuera om till Azure högerklickar du på projektet **myfirstazurewebapp** i **Solution Explorer** och väljer **publicera**.
 
 1. På publiceringssidan väljer du **Publicera** och väntar tills publiceringen ska slutföras.
 
-1. Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. Tillbaka på sidan app i portalen klickar du på **starta om** > **Ja**.
+1. Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub startar du om appen. Tillbaka på sidan app i portalen klickar du på **starta om**  >  **Ja**.
 
    ![Starta om webbapp i Azure](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
 

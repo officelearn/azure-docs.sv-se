@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 95b9a9804fe1a9473d226912f178284f701a1547
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78f02c07932c6a058ba4fa27289640b7efd56169
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72753231"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113678"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Regional närvaro med Azure Cosmos DB
 
 Azure Cosmos DB är en grundläggande tjänst i Azure och är som standard alltid tillgänglig i alla regioner där Azure är tillgängligt. Azure är för närvarande tillgängligt i [54-regioner](https://azure.microsoft.com/global-infrastructure/regions/) över hela världen. 
 
-[![Regioner där Azure Cosmos DB är tillgängligt](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
+:::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regioner där Azure Cosmos DB är tillgängligt" lightbox="./media/regional-presence/regional-presence.png" border="false":::
 
 Cosmos DB är tillgängligt i alla fem olika Azure Cloud-miljöer som är tillgängliga för kunder:
 

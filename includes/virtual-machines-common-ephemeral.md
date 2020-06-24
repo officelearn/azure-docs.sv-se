@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78155454"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85112065"
 ---
 Tillfälliga OS-diskar skapas på den lokala virtuella datorns lagrings plats (VM) och sparas inte på den fjärranslutna Azure Storage. Tillfälliga OS-diskar fungerar bra för tillstånds lösa arbets belastningar, där program är toleranta av enskilda VM-fel, men de påverkas mer av den virtuella datorns distributions tid eller avbildning av de enskilda VM-instanserna. Med en tillfällig OS-disk får du mindre Läs-/skriv fördröjning till operativ system disken och en snabbare avbildning av den virtuella datorn. 
  
@@ -38,25 +38,28 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 | Stöd för regioner              | Alla regioner                                                                                  | Alla regioner                              |
 | Data persistens            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
 | Stopp-frigjord tillstånd      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
-| Stöd för specialiserade OS-diskar | Ja                                                                                          | Nej                                                                                 |
+| Stöd för specialiserade OS-diskar | Ja                                                                                          | Inga                                                                                 |
 | Storleks ändring av OS-disk              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
 | Ändra storlek till en ny VM-storlek   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
 
 ## <a name="size-requirements"></a>Storleks krav
 
-Du kan distribuera VM-och instans avbildningar upp till storleken på VM-cachen. Till exempel är standard Windows Server-avbildningar från Marketplace cirka 127 GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 127 GiB. I det här fallet har [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) cache-storlek på 86 GIB, vilket inte är tillräckligt stort. Standard_DS3_v2 har cache-storleken 172 GiB, vilket är tillräckligt stort. I det här fallet är Standard_DS3_v2 den minsta storleken i DSv2-serien som du kan använda med den här avbildningen. Grundläggande Linux-avbildningar i Marketplace-och Windows Server-avbildningar som anges `[smallsize]` av tenderar att vara cirka 30 GiB och kan använda de flesta tillgängliga VM-storlekar.
+Du kan distribuera VM-och instans avbildningar upp till storleken på VM-cachen. Till exempel är standard Windows Server-avbildningar från Marketplace cirka 127 GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 127 GiB. I det här fallet har [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) cache-storlek på 86 GIB, vilket inte är tillräckligt stort. Standard_DS3_v2 har cache-storleken 172 GiB, vilket är tillräckligt stort. I det här fallet är Standard_DS3_v2 den minsta storleken i DSv2-serien som du kan använda med den här avbildningen. Grundläggande Linux-avbildningar i Marketplace-och Windows Server-avbildningar som `[smallsize]` anges av tenderar att vara cirka 30 GiB och kan använda de flesta tillgängliga VM-storlekar.
 
-Tillfälliga diskar kräver också att den virtuella dator storleken har stöd för Premium Storage. Storlekarna brukar vara (men inte alltid) har `s` ett i namnet, t. ex. DSv2 och EsV3. Mer information finns i [storlekar för virtuella Azure-datorer](../articles/virtual-machines/linux/sizes.md) för information om vilka storlekar som stöder Premium Storage.
+Tillfälliga diskar kräver också att den virtuella dator storleken har stöd för Premium Storage. Storlekarna brukar vara (men inte alltid) har ett `s` i namnet, t. ex. DSv2 och EsV3. Mer information finns i [storlekar för virtuella Azure-datorer](../articles/virtual-machines/linux/sizes.md) för information om vilka storlekar som stöder Premium Storage.
+
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Förhands granskning-diskar med tillfälliga operativ system kan nu lagras på temporära diskar
+De tillfälliga OS-diskarna kan nu lagras på temporär/resurs disk för VM förutom VM-cachen. Nu kan du nu använda tillfälliga OS-diskar med en virtuell dator som inte har någon cache eller har inte tillräckligt med cache, men som har en temporär/resurs disk för att lagra den tillfälliga OS-disken, till exempel Dav3, Dav4, Eav4 och Eav3. Om en virtuell dator har tillräckligt med cache och temporärt utrymme kommer du nu också att kunna ange var du vill lagra den tillfälliga OS-disken med hjälp av en ny egenskap som kallas [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Den här funktionen finns för närvarande som en förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Kom igång genom att [begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 
-Om du vill använda en tillfällig disk för en PowerShell VM-distribution använder du [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) i din VM-konfiguration. Ange `-DiffDiskSetting` till `Local` och `-Caching` till. `ReadOnly`     
+Om du vill använda en tillfällig disk för en PowerShell VM-distribution använder du [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) i din VM-konfiguration. Ange `-DiffDiskSetting` till `Local` och `-Caching` till `ReadOnly` .     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-För distributioner av skalnings uppsättningar använder du cmdleten [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) i konfigurationen. Ange `-DiffDiskSetting` till `Local` och `-Caching` till. `ReadOnly`
+För distributioner av skalnings uppsättningar använder du cmdleten [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) i konfigurationen. Ange `-DiffDiskSetting` till `Local` och `-Caching` till `ReadOnly` .
 
 
 ```powershell
@@ -65,7 +68,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Om du vill använda en tillfällig disk för en distribution av CLI-VM `--ephemeral-os-disk` anger du parametern i [AZ VM Create](/cli/azure/vm#az-vm-create) `true` to `--os-disk-caching` och parametern `ReadOnly`till.
+Om du vill använda en tillfällig disk för en distribution av CLI-VM anger du `--ephemeral-os-disk` parametern i [AZ VM Create](/cli/azure/vm#az-vm-create) to `true` och `--os-disk-caching` parametern till `ReadOnly` .
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +81,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-För skalnings `--ephemeral-os-disk true` uppsättningar använder du samma parameter för [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) och anger `--os-disk-caching` parametern till. `ReadOnly`
+För skalnings uppsättningar använder du samma `--ephemeral-os-disk true` parameter för [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) och anger `--os-disk-caching` parametern till `ReadOnly` .
 
 ## <a name="portal"></a>Portalen   
 
@@ -93,7 +96,7 @@ Du kan också skapa skalnings uppsättningar med tillfälliga OS-diskar med hjä
 ![Skärm bild som visar alternativ knappen för att välja att använda en tillfällig OS-disk för din skalnings uppsättning](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>Distribution av mall för skalnings uppsättning  
-Processen för att skapa en skalnings uppsättning som använder en tillfällig OS-disk är att lägga `diffDiskSettings` till egenskapen till `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resurs typen i mallen. Dessutom måste caching-principen anges till `ReadOnly` för den tillfälliga OS-disken. 
+Processen för att skapa en skalnings uppsättning som använder en tillfällig OS-disk är att lägga till `diffDiskSettings` egenskapen till `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resurs typen i mallen. Dessutom måste caching-principen anges till `ReadOnly` för den tillfälliga OS-disken. 
 
 
 ```json
@@ -137,7 +140,7 @@ Processen för att skapa en skalnings uppsättning som använder en tillfällig 
 ```
 
 ## <a name="vm-template-deployment"></a>Distribution av VM-mall 
-Du kan distribuera en virtuell dator med en tillfällig OS-disk med hjälp av en mall. Processen för att skapa en virtuell dator som använder tillfälliga OS-diskar är att lägga `diffDiskSettings` till egenskapen till resurs typen Microsoft. Compute/virtualMachines i mallen. Dessutom måste caching-principen anges till `ReadOnly` för den tillfälliga OS-disken. 
+Du kan distribuera en virtuell dator med en tillfällig OS-disk med hjälp av en mall. Processen för att skapa en virtuell dator som använder tillfälliga OS-diskar är att lägga till `diffDiskSettings` egenskapen till resurs typen Microsoft. Compute/virtualMachines i mallen. Dessutom måste caching-principen anges till `ReadOnly` för den tillfälliga OS-disken. 
 
 ```json
 { 
@@ -198,7 +201,24 @@ A: Ja, du kan koppla en hanterad datadisk till en virtuell dator som använder e
 
 **F: kommer alla VM-storlekar att stödjas för tillfälliga OS-diskar?**
 
-S: Nej, alla Premium Storage VM-storlekar stöds (DS, ES, FS, GS och M) förutom storlekarna B-serien, N-serien och H-serien.  
+S: Nej, de flesta Premium Storage VM-storlekar stöds (DS, ES, FS, GS, M osv.). Om du vill veta om en viss VM-storlek stöder tillfälliga OS-diskar kan du:
+
+Anropa `Get-AzComputeResourceSku` PowerShell-cmdleten
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **F: kan den tillfälliga OS-disken tillämpas på befintliga virtuella datorer och skalnings uppsättningar?**
 

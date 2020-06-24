@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du kan använda ändrings flöden a
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513517"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263015"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB ändra feed för att visualisera data analyser i real tid
 
@@ -28,7 +28,7 @@ Vi vill titta på en video om lösningen innan du börjar, se följande videokli
 ## <a name="solution-components"></a>Lösningskomponenter
 Följande diagram representerar det data flöde och de komponenter som ingår i lösningen:
 
-![Visuellt projekt](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Visuellt projekt" border="false":::
  
 1. **Generering av data:** Data Simulator används för att generera detalj handels data som representerar händelser, till exempel en användare som visar ett objekt, lägger till ett objekt i sin varukorg och köper ett objekt. Du kan generera stora uppsättningar exempel data med hjälp av data generatorn. De genererade exempel data innehåller dokument i följande format:
    
@@ -78,9 +78,9 @@ Skapa Azure-resurserna – Azure Cosmos DB, lagrings konto, Händelsehubben, Str
    Set-ExecutionPolicy Unrestricted 
    ```
 
-2. Från GitHub-lagringsplatsen som du laddade ned i föregående steg navigerar du till mappen **Azure Resource Manager** och öppnar filen **Parameters. JSON** .  
+2. Från GitHub-lagringsplatsen som du laddade ned i föregående steg navigerar du till mappen **Azure Resource Manager** och öppnar filen **parameters.jsi** filen.  
 
-3. Ange värden för cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name, parametrar som anges i **Parameters. JSON** -filen. Du måste använda de namn du ger till var och en av dina resurser senare.  
+3. Ange värden för cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name, parametrar som anges i **parameters.jsi** filen. Du måste använda de namn du ger till var och en av dina resurser senare.  
 
 4. Från **Windows PowerShell**navigerar du till mappen **Azure Resource Manager** och kör följande kommando:
 
@@ -149,7 +149,7 @@ När ett nytt dokument skapas, eller om ett aktuellt dokument ändras i en Cosmo
 
 2. Högerklicka på filen med namnet **ChangeFeedLabSolution. SLN** och välj **Öppna med Visual Studio**.  
 
-3. Navigera till **Local. Settings. JSON** i Visual Studio. Använd sedan de värden du registrerade tidigare för att fylla i de tomma.  
+3. Navigera till **local.settings.js** i Visual Studio. Använd sedan de värden du registrerade tidigare för att fylla i de tomma.  
 
 4. Navigera till **ChangeFeedProcessor.cs**. I parametrarna för **Run** -funktionen utför du följande åtgärder:  
 
@@ -165,11 +165,11 @@ Om du vill se hur ändrings flödet bearbetar nya åtgärder på en e-handelspla
 
 1. Gå tillbaka till lagrings platsen i Utforskaren och högerklicka på **ChangeFeedFunction. SLN** för att öppna den igen i ett nytt Visual Studio-fönster.  
 
-2. Navigera till filen **app. config** . I `<appSettings>` blocket lägger du till slut punkten och unik **primär nyckel** för ditt Azure Cosmos DB-konto som du hämtade tidigare.  
+2. Navigera till **App.config** -filen. I `<appSettings>` blocket lägger du till slut punkten och unik **primär nyckel** för ditt Azure Cosmos DB-konto som du hämtade tidigare.  
 
 3. Lägg till i **samlings** -och **databas** namnen. (Dessa namn ska vara **changefeedlabcollection** och **changefeedlabdatabase** om du inte väljer att namnge ditt eget namn.)
 
-   ![Uppdatera anslutnings strängar](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Uppdatera anslutnings strängar":::
  
 4. Spara ändringarna på alla filer som har redigerats.  
 
@@ -179,7 +179,7 @@ Om du vill se hur ändrings flödet bearbetar nya åtgärder på en e-handelspla
 
 7. Om du går till [Azure Portal](https://portal.azure.com/) och sedan till Cosmos DBS kontot i resurs gruppen, kommer du till **datautforskaren**att se de slumpmässiga data som importer ATS i din **changefeedlabcollection** .
  
-   ![Data som genereras i portalen](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Data som genereras i portalen":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Konfigurera ett Stream Analytics-jobb
 
@@ -189,7 +189,7 @@ Azure Stream Analytics är en helt hanterad moln tjänst för bearbetning av str
 
 2. Välj **indata** som visas nedan.  
 
-   ![Skapa inmatade](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Skapa inmatade":::
 
 3. Välj **+ Lägg till strömmande data**. Välj sedan **Event Hub** i den nedrullningsbara menyn.  
 
@@ -221,7 +221,7 @@ Azure Stream Analytics är en helt hanterad moln tjänst för bearbetning av str
 
 8. Gå sedan tillbaka till **streamjob1** och välj **Redigera fråga**.
 
-   ![Redigera fråga](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Redigera fråga":::
  
 9. Klistra in följande fråga i frågefönstret. Den **genomsnittliga pris** frågan beräknar genomsnitts priset för alla objekt som visas av användarna, genomsnitts priset för alla objekt som läggs till i användarnas vagnar och det genomsnittliga priset för alla objekt som har köpts av användare. Det här måttet kan hjälpa e-handelsföretag att avgöra vilka priser som säljer artiklar till och vilka lager som ska investera i. Om till exempel genomsnitts priset för visade objekt är mycket högre än genomsnitts priset för de köpta objekten kan ett företag välja att lägga till mindre dyra artiklar i lagret.
 
@@ -314,7 +314,7 @@ Power BI är en uppsättning verktyg för företagsanalys för att analysera och
 
    Så här ser ett exempel på en instrument panel ut med följande diagram:
 
-   ![visualiseringar](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualiseringar":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Valfritt: visualisera med en E-handelswebbplats
 
@@ -322,19 +322,19 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
 
 1. Gå tillbaka till [Azure Portal](https://portal.azure.com/)och sedan till ditt **Cosmos DB-konto**och **datautforskaren**.  
 
-   Lägg till två samlingar under **changefeedlabdatabase** - -**produkter** och- **Kategorier** med fast lagrings kapacitet.
+   Lägg till två samlingar under **changefeedlabdatabase**-  -  **produkter** och- **Kategorier** med fast lagrings kapacitet.
 
    Lägg till en annan samling under **changefeedlabdatabase** med namnet **topItems** och **/item** som partitionsnyckel.
 
 2. Välj samlingen **topItems** och under **skala och inställningar** anges **Time to Live** till **30 sekunder** så att topItems uppdateras var 30: e sekund.
 
-   ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Time to live":::
 
 3. För att fylla i **topItems** -samlingen med de mest köpta objekten går du tillbaka till **streamjob1** och lägger till en ny **utmatning**. Välj **Cosmos DB**.
 
 4. Fyll i de obligatoriska fälten enligt bilden nedan.
 
-   ![Cosmos-utdata](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos-utdata":::
  
 5. Om du har lagt till den valfria översta 5 frågan i föregående del av labbet fortsätter du till del 5a. Fortsätt annars till del 5b.
 
@@ -374,13 +374,13 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
    FROM arrayselect
    ```
 
-6. Öppna **EcommerceWebApp. SLN** och navigera till filen **Web. config** i **Solution Explorer**.  
+6. Öppna **EcommerceWebApp. SLN** och navigera till **Web.config** -filen i **Solution Explorer**.  
 
-7. `<appSettings>` I blocket lägger du till **den URI** och **primär nyckel** som du sparade tidigare där det står **din URI här** och **din primär nyckel här**. Lägg sedan till i ditt **databas namn** och **samlings namn** enligt vad som anges. (Dessa namn ska vara **changefeedlabdatabase** och **changefeedlabcollection** om du inte har valt att namnge ditt eget namn.)
+7. I `<appSettings>` blocket lägger du till den **URI** och **primär nyckel** som du sparade tidigare där det står **din URI här** och **din primär nyckel här**. Lägg sedan till i ditt **databas namn** och **samlings namn** enligt vad som anges. (Dessa namn ska vara **changefeedlabdatabase** och **changefeedlabcollection** om du inte har valt att namnge ditt eget namn.)
 
    Fyll i samlings **namn**, **Kategorier samlings namn**och **samlings namn för främsta objekt** enligt vad som anges. (Dessa namn bör vara **produkter, kategorier och topItems** om du inte har valt att namnge ditt eget namn.)  
 
-8. Navigera till och öppna **mappen utcheckning** i **EcommerceWebApp. SLN.** Öppna sedan filen **Web. config** i den mappen.  
+8. Navigera till och öppna **mappen utcheckning** i **EcommerceWebApp. SLN.** Öppna sedan **Web.config** -filen i den mappen.  
 
 9. I `<appSettings>` blocket lägger du till den **URI** och **primär nyckel** som du sparade tidigare, där det anges. Lägg sedan till i ditt **databas namn** och **samlings namn** enligt vad som anges. (Dessa namn ska vara **changefeedlabdatabase** och **changefeedlabcollection** om du inte har valt att namnge ditt eget namn.)  
 

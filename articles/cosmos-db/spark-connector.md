@@ -3,15 +3,15 @@ title: Anslut Apache Spark till Azure Cosmos DB
 description: Lär dig mer om Azure Cosmos DB Spark-anslutningsprogrammet som gör att du kan ansluta Apache Spark till Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 7d5befdfde693becdd7e5f3f638e8d524081ad1b
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457014"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262233"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda stor data analys genom att använda Apache Spark för att Azure Cosmos DB koppling
 

@@ -3,15 +3,15 @@ title: Migrera från biblioteket Change feed processor till Azure Cosmos DB .NET
 description: Lär dig hur du migrerar ditt program från att använda biblioteket Change feed processor till Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588891"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261417"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrera från biblioteket Change feed processor till Azure Cosmos DB .NET v3 SDK
 
@@ -22,9 +22,9 @@ I den här artikeln beskrivs de steg som krävs för att migrera ett befintligt 
 .NET v3 SDK har flera viktiga ändringar, följande är de viktigaste stegen för att migrera ditt program:
 
 1. Konvertera `DocumentCollectionInfo` instanserna till `Container` referenser för behållare för övervakade och lån.
-1. Anpassningar som används `WithProcessorOptions` bör uppdateras för användning `WithLeaseConfiguration` och `WithPollInterval` intervall, `WithStartTime` [för start tid](how-to-configure-change-feed-start-time.md)och `WithMaxItems` för att definiera maximalt antal objekt.
-1. Ställ in `processorName` på `GetChangeFeedProcessorBuilder` på för att matcha värdet som `ChangeFeedProcessorOptions.LeasePrefix`kon figurer ATS `string.Empty` på eller Använd annars.
-1. Ändringarna levereras inte längre som en `IReadOnlyList<Document>`, i stället är det `IReadOnlyCollection<T>` där `T` är en typ som du måste definiera, det finns ingen bas objekts klass längre.
+1. Anpassningar som används `WithProcessorOptions` bör uppdateras för användning `WithLeaseConfiguration` och `WithPollInterval` intervall, `WithStartTime` [för start tid](how-to-configure-change-feed-start-time.md)och för `WithMaxItems` att definiera maximalt antal objekt.
+1. Ställ in `processorName` på på `GetChangeFeedProcessorBuilder` för att matcha värdet som kon figurer ATS på `ChangeFeedProcessorOptions.LeasePrefix` eller Använd `string.Empty` annars.
+1. Ändringarna levereras inte längre som en `IReadOnlyList<Document>` , i stället är det `IReadOnlyCollection<T>` där `T` är en typ som du måste definiera, det finns ingen bas objekts klass längre.
 1. Om du vill hantera ändringarna behöver du inte längre någon implementering, i stället måste du [definiera ett ombud](change-feed-processor.md#implementing-the-change-feed-processor). Ombudet kan vara en statisk funktion eller, om du behöver underhålla tillstånd över körningar, kan du skapa en egen klass och skicka en instans metod som ombud.
 
 Till exempel, om den ursprungliga koden för att bygga Change feed-processorn ser ut så här:

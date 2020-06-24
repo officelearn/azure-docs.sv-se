@@ -5,17 +5,17 @@ services: azure-portal
 keywords: ''
 author: santhoshsomayajula
 ms.date: 01/29/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.author: mblythe
-ms.openlocfilehash: accdfbd939fad73ca7d008450c358d366e7f8b70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248c643c5f1865451abbe201e7033efedb8a7e39
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76900746"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763949"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportera eller ta bort användarinställningar
 
@@ -33,7 +33,7 @@ Det är en bra idé att exportera och granska dina inställningar innan du tar b
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj ![Inställningar ikon](media/azure-portal-export-delete-settings/settings-icon.png) **Inställningar**i portalens rubrik.
+1. Välj ![ Inställningar ikon ](media/azure-portal-export-delete-settings/settings-icon.png) **Inställningar**i portalens rubrik.
 
 1. Välj **Exportera alla inställningar** eller **ta bort alla inställningar och privata instrument paneler**.
 
@@ -41,7 +41,7 @@ Det är en bra idé att exportera och granska dina inställningar innan du tar b
 
       I följande tabell beskrivs dessa åtgärder.
 
-      | Action | Beskrivning |
+      | Åtgärd | Beskrivning |
       | --- | --- |
       | **Exportera alla inställningar** | Skapar en *. JSON* -fil som innehåller dina användar inställningar, t. ex. ditt färg tema, favoriter och privata instrument paneler.|
       | **Ta bort alla inställningar och privata instrument paneler** | Tar bort alla länkar till privata instrument paneler och andra anpassade inställningar som du har gjort i portalen. |

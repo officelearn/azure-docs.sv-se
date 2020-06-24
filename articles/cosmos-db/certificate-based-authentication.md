@@ -3,16 +3,16 @@ title: Certifikatbaserad autentisering med Azure Cosmos DB och Active Directory
 description: Lär dig hur du konfigurerar en Azure AD-identitet för certifikatbaserad autentisering för åtkomst till nycklar från Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 085280a8064e4d12ac63939ada7cdb296d47dc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80365770"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262505"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Certifikatbaserad autentisering för en Azure AD-identitet för åtkomst till nycklar från ett Azure Cosmos DB konto
 
@@ -32,21 +32,21 @@ I det här steget ska du registrera ett exempel webb program i ditt Azure AD-kon
 
 1. Öppna fönstret Azure **Active Directory** , gå till **Appregistreringar** fönstret och välj **ny registrering**. 
 
-   ![Ny program registrering i Active Directory](./media/certificate-based-authentication/new-app-registration.png)
+   :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Ny program registrering i Active Directory":::
 
 1. Fyll i formuläret **Registrera ett program** med följande information:  
 
    * **Namn** – ange ett namn för ditt program, det kan vara vilket namn som helst, till exempel "fråga".
    * **Konto typer som stöds** – Välj **konton endast i den här organisations katalogen (standard katalog)** om du vill tillåta att resurser i din aktuella katalog får åtkomst till det här programmet. 
-   * **Omdirigerings-URL** – Välj program av typen **webb** och ange en URL där ditt program finns, det kan vara vilken URL som helst. I det här exemplet kan du ange en test-URL, `https://sampleApp.com` till exempel att den är OK även om appen inte finns.
+   * **Omdirigerings-URL** – Välj program av typen **webb** och ange en URL där ditt program finns, det kan vara vilken URL som helst. I det här exemplet kan du ange en test-URL, till exempel att `https://sampleApp.com` den är OK även om appen inte finns.
 
-   ![Registrera ett exempel webb program](./media/certificate-based-authentication/register-sample-web-app.png)
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrera ett exempel webb program":::
 
 1. Välj **Registrera** när du har fyllt i formuläret.
 
 1. När appen har registrerats ska du anteckna **program-ID: t** och **objekt-ID**: t. du kommer att använda informationen i nästa steg. 
 
-   ![Hämta program-och objekt-ID: n](./media/certificate-based-authentication/get-app-object-ids.png)
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Hämta program-och objekt-ID: n":::
 
 ## <a name="install-the-azuread-module"></a>Installera AzureAD-modulen
 
@@ -99,7 +99,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 Kommandot ovan resulterar i utdata som liknar skärm bilden nedan:
 
-![Utdata för att skapa certifikatbaserad autentiseringsuppgift](./media/certificate-based-authentication/certificate-based-credential-output.png)
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Utdata för att skapa certifikatbaserad autentiseringsuppgift":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Konfigurera ditt Azure Cosmos-konto för att använda den nya identiteten
 
@@ -109,7 +109,7 @@ Kommandot ovan resulterar i utdata som liknar skärm bilden nedan:
 
 1. Välj **Lägg till** och **Lägg till roll tilldelning**. Lägg till fråga som du skapade i föregående steg med **deltagar** rollen som visas på följande skärm bild:
 
-   ![Konfigurera Azure Cosmos-konto för att använda den nya identiteten](./media/certificate-based-authentication/configure-cosmos-account-with-identify.png)
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Konfigurera Azure Cosmos-konto för att använda den nya identiteten":::
 
 1. Välj **Spara** när du har fyllt i formuläret
 
@@ -150,7 +150,7 @@ I det här steget ska du logga in på Azure med hjälp av programmet och det cer
 
 Föregående kommando visar de primära och sekundära huvud nycklarna för ditt Azure Cosmos-konto. Du kan visa aktivitets loggen för ditt Azure Cosmos-konto för att verifiera att get Keys-begäran lyckades och att händelsen initieras av "fråga"-programmet.
 
-![Verifiera anropet get Keys i Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Verifiera anropet get Keys i Azure AD":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Åtkomst till nycklar från ett C#-program 
 
@@ -238,7 +238,7 @@ namespace TodoListDaemonWithCert
 
 Det här skriptet matar ut de primära och sekundära huvud nycklarna som visas på följande skärm bild:
 
-![csharp programutdata](./media/certificate-based-authentication/csharp-application-output.png)
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="csharp programutdata":::
 
 Precis som i föregående avsnitt kan du Visa aktivitets loggen för ditt Azure Cosmos-konto för att kontrol lera att händelsen hämta nycklar för begäran initieras av programmet "fråga". 
 

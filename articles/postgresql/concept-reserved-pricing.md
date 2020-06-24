@@ -5,22 +5,22 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/02/2020
-ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 06/16/2020
+ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734730"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208713"
 ---
-# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for PostgreSQL beräknings resurser med reserverad kapacitet
+# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure Database for PostgreSQL-beräknings resurser för en server med reserverad kapacitet
 
 Azure Database for PostgreSQL nu kan du spara pengar genom att betala för beräknings resurser jämfört med priser enligt principen betala per användning. Med Azure Database for PostgreSQL reserverad kapacitet gör du ett åtagande på PostgreSQL Server under en eller tre års period för att få en betydande rabatt på beräknings kostnaderna. Om du vill köpa Azure Database for PostgreSQL reserverad kapacitet måste du ange Azure-region, distributions typ, prestanda nivå och period. </br>
 
-Du behöver inte tilldela reservationen till vissa Azure Database for PostgreSQL-servrar. Om du redan kör Azure Database for PostgreSQL eller som nyligen har distribuerats får du automatiskt fördelarna med reserverad prissättning. Genom att köpa en reservation betalar du för beräknings kostnaderna för en period på en eller tre år. Så snart du köper en reservation debiteras inte längre Azure Database for PostgreSQL-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är kopplade till PostgreSQL-databas servrarna. I slutet av reservations perioden upphör fakturerings förmånen och Azure Database for PostgreSQL debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [Azure Database for PostgreSQL reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/postgresql/). </br>
+Du behöver inte tilldela reservationen till vissa Azure Database for PostgreSQL-servrar. Om du redan kör Azure Database for PostgreSQL (eller som nyligen har distribuerats) får du automatiskt fördelarna med reserverad prissättning. Genom att köpa en reservation är du förbetald för beräknings kostnaderna under en period på en eller tre år. Så snart du köper en reservation debiteras inte längre Azure Database for PostgreSQL-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är kopplade till PostgreSQL-databas servrarna. I slutet av reservations perioden upphör fakturerings förmånen och Azure Database for PostgreSQL debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [Azure Database for PostgreSQL reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Priset för reserverad kapacitet är bara tillgängligt för den Azure Database for PostgreSQL distribution av [enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) och inte för distribution med [storskalig citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
+> Priset för reserverad kapacitet är tillgängligt för Azure Database for PostgreSQL både i [en enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) och [citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) distributions alternativ. Information om priser för RI om storskalighet (citus) finns på [den här sidan](concepts-hyperscale-reserved-pricing.md).
 
 Du kan köpa Azure Database for PostgreSQL reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/monthly-payments-reservations.md). Så här köper du den reserverade kapaciteten:
 
@@ -35,7 +35,7 @@ Information om hur företags kunder och kunder som betalar per användning debit
 
 Reservations storleken bör baseras på den totala mängd data som används av befintliga eller närmast distribuerade servrar inom en angiven region och som använder samma prestanda nivå och maskin varu generering.</br>
 
-Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore PostgreSQL Database och två minnesoptimerade, Gen5 – 16 vCore PostgreSQL-databaser. Vi vill också att du planerar att distribuera under nästa månad till ett ytterligare allmänt syfte, Gen5 – 32 vCore Database Server och en minnesoptimerade Gen5 – 16 vCore-databas server. Anta att du vet att du kommer att behöva dessa resurser i minst 1 år. I det här fallet bör du köpa en 64 (2x32) virtuella kärnor, 1 års reservation för enkel databas generell användning – Gen5 och en 48 (2x16 + 16) vCore 1 års reservation för enkel databas minne optimerad-Gen5
+Anta till exempel att du kör ett allmänt syfte Gen5 – 32 vCore PostgreSQL Database och två minnesoptimerade Gen5 – 16 vCore PostgreSQL-databaser. Vi vill också att du planerar att distribuera inom en och samma månad ytterligare ett allmänt Gen5 – 32 vCore-databasserver och en minnesoptimerade Gen5 – 16 vCore Database Server. Anta att du vet att du kommer att behöva dessa resurser i minst ett år. I det här fallet bör du köpa en 64 (2x32) virtuella kärnor, ett års reservation för en enkel databas generell användning-Gen5 och en 48 (2x16 + 16) vCore ett års reservation för enkel databas minne optimerad-Gen5
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Köp Azure Database for PostgreSQL reserverad kapacitet
@@ -58,7 +58,7 @@ I följande tabell beskrivs obligatoriska fält.
 | Region | Den Azure-region som omfattas av reservationen Azure Database for PostgreSQL reserverad kapacitet.
 | Distributions typ | Den Azure Database for PostgreSQL resurs typ som du vill köpa reservationen för.
 | Prestanda nivå | Tjänst nivån för Azure Database for PostgreSQL-servrarna.
-| Period | Ett år
+| Term | Ett år
 | Kvantitet | Mängden data bearbetnings resurser som köps i Azure Database for PostgreSQL reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure Database for PostgreSQL-server med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla servrar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
@@ -75,8 +75,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Reservations rabatten för vCore tillämpas automatiskt på antalet Azure Database for PostgreSQL servrar som Azure Database for PostgreSQL matchar omfånget och attributen för reserverade kapacitets reservationer. Du kan uppdatera omfånget för Azure Database för PostgreSQL-reserverad kapacitets reservation via Azure Portal, PowerShell, CLI eller via API: et. </br></br>
-Information om hur du hanterar Azure Database for PostgreSQL reserverad kapacitet finns i Hantera Azure Database for PostgreSQL reserverad kapacitet.
+Reservations rabatten för vCore tillämpas automatiskt på antalet Azure Database for PostgreSQL servrar som Azure Database for PostgreSQL matchar omfånget och attributen för reserverade kapacitets reservationer. Du kan uppdatera omfånget för Azure Database för PostgreSQL-reserverad kapacitets reservation via Azure Portal, PowerShell, CLI eller via API: et.
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 

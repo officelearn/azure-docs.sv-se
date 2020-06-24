@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c23e659463364c5e1a497ead138abb4c696627a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190237"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207506"
 ---
 # <a name="create-a-data-source"></a>Skapa en datakälla
 
@@ -22,11 +22,52 @@ Azure Maps Web SDK lagrar data i data källor. Att använda data källor optimer
 
 **Data källa för interjson**
 
-En interjson-baserad data källa för inläsning och lagring av `DataSource` data lokalt med hjälp av klassen. Du kan skapa eller skapa indata från interjson manuellt med hjälp av klasser i [Atlas. data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) område. `DataSource` Klassen innehåller funktioner för att importera lokala eller fjärranslutna JSON-filer. Fjärranslutna interjson-filer måste finnas på en CORs-aktiverad slut punkt. `DataSource` Klassen innehåller funktioner för kluster punkt data. Du kan enkelt lägga till, ta bort och uppdatera data med- `DataSource` klassen.
+En interjson-baserad data källa för inläsning och lagring av data lokalt med hjälp av `DataSource` klassen. Du kan skapa eller skapa indata från interjson manuellt med hjälp av klasser i [Atlas. data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) område. `DataSource`Klassen innehåller funktioner för att importera lokala eller fjärranslutna JSON-filer. Fjärranslutna interjson-filer måste finnas på en CORs-aktiverad slut punkt. `DataSource`Klassen innehåller funktioner för kluster punkt data. Du kan enkelt lägga till, ta bort och uppdatera data med- `DataSource` klassen. Följande kod visar hur du kan skapa data i en interjson-data i Azure Maps.
 
+```Javascript
+//Create raw GeoJSON object.
+var rawGeoJson = {
+     "type": "Feature",
+     "geometry": {
+         "type": "Point",
+         "coordinates": [-100, 45]
+     },
+     "properties": {
+         "custom-property": "value"
+     }
+};
+
+//Create GeoJSON using helper classes (less error prone).
+var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
+    "custom-property": "value"
+}); 
+```
+
+När du har skapat data källor kan du lägga till dem i kartan via `map.sources` egenskapen, som är en [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Följande kod visar hur du skapar en `DataSource` och lägger till den på kartan.
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+```
+
+Följande kod visar de olika sätt som data kan läggas till i en `DataSource` .
+
+```Javascript
+//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
+
+//Add geoJSON object to data source. 
+dataSource.add(geoJsonData);
+
+//Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
+dataSource.importDataFromUrl(geoJsonUrl);
+
+//Overwrite all data in data source.
+dataSource.setShapes(geoJsonData);
+```
 
 > [!TIP]
-> Du kan säga att du vill skriva över alla data i `DataSource`en. Om du gör anrop till `clear` `add` Functions-funktionerna kan kartan återges på nytt två gånger, vilket kan leda till en stund. Använd i stället `setShapes` funktionen, som tar bort och ersätter alla data i data källan och utlöser bara en åter givning av kartan.
+> Du kan säga att du vill skriva över alla data i en `DataSource` . Om du gör anrop till `clear` `add` Functions-funktionerna kan kartan återges på nytt två gånger, vilket kan leda till en stund. Använd i stället `setShapes` funktionen, som tar bort och ersätter alla data i data källan och utlöser bara en åter givning av kartan.
 
 **Vektor panels källa**
 
@@ -37,15 +78,7 @@ En vektor panels källa beskriver hur du får åtkomst till ett vektor panels la
  - Att ändra formatet för data i vektor Maps kräver inte att data hämtas igen, eftersom det nya formatet kan tillämpas på klienten. Att ändra formatet på ett raster panels lager kräver däremot vanligt vis inläsning av paneler från servern och sedan att använda det nya formatet.
  - Eftersom data levereras i vektor form krävs mindre bearbetning på Server sidan för att förbereda data. Därför kan nya data göras tillgängliga snabbare.
 
-Alla lager som använder en Vector-källa måste ange `sourceLayer` ett värde.
-
-När du har skapat data källor kan du lägga till dem i kartan `map.sources` via egenskapen, som är en [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Följande kod visar hur du skapar en `DataSource` och lägger till den på kartan.
-
-```javascript
-//Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
-```
+Alla lager som använder en Vector-källa måste ange ett `sourceLayer` värde.
 
 Azure Maps följer [specifikationen Mapbox Vector panel](https://github.com/mapbox/vector-tile-spec), en öppen standard.
 

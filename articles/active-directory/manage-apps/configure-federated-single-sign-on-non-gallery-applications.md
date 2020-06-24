@@ -3,8 +3,8 @@ title: Så här konfigurerar du federerad enkel inloggning för en app som inte 
 description: Så här konfigurerar du federerad enkel inloggning för ett anpassat icke-galleriprogram som du vill integrera med Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274600"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763558"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program som inte är ett galleri program
 
@@ -79,7 +79,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program som 
 
     2. Klicka på **Spara.** Det nya attributet visas i tabellen.
 
-14. Klicka **på &lt;Konfigurera program&gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också Azure AD-URL: er och certifikat som krävs för programmet.
+14. Klicka på **Konfigurera &lt; program &gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också Azure AD-URL: er och certifikat som krävs för programmet.
 
 15. [Tilldela användare till programmet.](#assign-users-to-the-application)
 
@@ -140,7 +140,7 @@ Följ stegen nedan om du vill ladda ned metadata för programmet eller certifika
 
 8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumn värde. Beroende på vad programmet kräver för att konfigurera enkel inloggning, ser du antingen alternativet att ladda ned XML-metadata eller certifikatet.
 
-Azure AD tillhandahåller också en URL för att hämta metadata. Följ det här mönstret för att hämta metadata-URL: en som `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`är specifik för programmet:.
+Azure AD tillhandahåller också en URL för att hämta metadata. Följ det här mönstret för att hämta metadata-URL: en som är specifik för programmet: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` .
 
 ## <a name="assign-users-to-the-application"></a>Tilldela användare till programmet
 

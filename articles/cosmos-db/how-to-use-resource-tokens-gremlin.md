@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897839"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263569"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
 
@@ -24,13 +24,13 @@ Apache TinkerPop Gremlin SDK har inget API som används för att skapa resurs-to
 
 Objekt modellens hierarki över resurs-tokens visas i följande disposition:
 
-- **Azure Cosmos DB konto** – den översta entiteten som har en DNS som är kopplad till den (till exempel `contoso.gremlin.cosmos.azure.com`).
+- **Azure Cosmos DB konto** – den översta entiteten som har en DNS som är kopplad till den (till exempel `contoso.gremlin.cosmos.azure.com` ).
   - **Azure Cosmos DB databas**
     - **Användare**
       - **Behörighet**
         - **Token** – en behörighets objekt egenskap som anger vilka åtgärder som tillåts eller nekas.
 
-En resurs-token använder följande format `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`:. Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan modifiering eller tolkning.
+En resurs-token använder följande format: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"` . Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan modifiering eller tolkning.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.

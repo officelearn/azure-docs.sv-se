@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5f2d1d517db9ab0e4ccfbfff1cef3a5a0de738c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267783"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207557"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Självstudie: Läs in New York Taxidata-datauppsättningen
 
@@ -56,7 +56,7 @@ Följ de här stegen för att skapa en tom databas.
 
 3. Fyll i formuläret med följande information:
 
-   | Inställning            | Föreslaget värde       | Beskrivning                                                  |
+   | Inställningen            | Föreslaget värde       | Beskrivning                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *Namn**            | mySampleDataWarehouse | För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
    | **Prenumeration**   | Din prenumeration     | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
@@ -67,9 +67,9 @@ Följ de här stegen för att skapa en tom databas.
 
 4. Välj **Server** om du vill skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information:
 
-    | Inställning                | Föreslaget värde          | Beskrivning                                                  |
+    | Inställningen                | Föreslaget värde          | Beskrivning                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **Server namn**        | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+    | **Servernamn**        | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
     | **Inloggning för Server administratör** | Valfritt giltigt namn           | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Lösenord**           | Valfritt giltigt lösenord       | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Position**           | Valfri giltig plats       | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
@@ -143,10 +143,10 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-    | Inställning        | Föreslaget värde                            | Beskrivning                                                  |
+    | Inställningen        | Föreslaget värde                            | Beskrivning                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Servertyp    | Databasmotor                            | Det här värdet är obligatoriskt                                       |
-    | servernamn    | Fullständigt kvalificerat servernamn            | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
+    | Servernamn    | Fullständigt kvalificerat servernamn            | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
     | Autentisering | SQL Server-autentisering                  | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning          | Serveradministratörskontot                   | Detta är det konto som du angav när du skapade servern. |
     | lösenordsinställning       | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |

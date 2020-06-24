@@ -4,16 +4,16 @@ description: Hur du automatiskt skalar värdar för virtuella Windows-fjärrskri
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f3a82665f197301fe81c448dd18181f0602bdbef
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745718"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209801"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -33,14 +33,14 @@ Problem rapporter för skalnings verktyget hanteras för närvarande på GitHub 
 Skalnings verktyget ger till gång till ett kostnads fritt automatiserings alternativ för kunder som vill optimera sina VM-kostnader för en värd.
 
 Du kan använda skalnings verktyget för att:
- 
+
 - Schemalägg VM: ar för start och stopp baserat på kontors tid och låg belastning.
 - Skala ut virtuella datorer baserat på antalet sessioner per CPU-kärna.
 - Skala i virtuella datorer under låg belastnings tider och lämna det lägsta antalet virtuella dator värdar som körs.
 
 Skalnings verktyget använder en kombination av Azure Automation PowerShell-Runbooks, Webhooks och Azure Logic Apps för att fungera. När verktyget körs anropar Azure Logic Apps en webhook för att starta Azure Automation Runbook. Runbooken skapar sedan ett jobb.
 
-Under den högsta användnings tiden kontrollerar jobbet det aktuella antalet sessioner och VM-kapaciteten för den aktuella värddatorn som kör sessionen för varje adresspool. Den här informationen används för att beräkna om de virtuella datorerna som körs i sessionen kan stödja befintliga sessioner baserat på den *SessionThresholdPerCPU* -parameter som definierats för filen **createazurelogicapp. ps1** . Om de virtuella datorerna i sessionen inte har stöd för befintliga sessioner startar jobbet ytterligare virtuella dator värdar i den aktuella adresspoolen.
+Under den högsta användnings tiden kontrollerar jobbet det aktuella antalet sessioner och VM-kapaciteten för den aktuella värddatorn som kör sessionen för varje adresspool. Den här informationen används för att beräkna om de virtuella datorerna i sessionen kan stödja befintliga sessioner baserat på den *SessionThresholdPerCPU* -parameter som definierats för **createazurelogicapp.ps1** -filen. Om de virtuella datorerna i sessionen inte har stöd för befintliga sessioner startar jobbet ytterligare virtuella dator värdar i den aktuella adresspoolen.
 
 >[!NOTE]
 >*SessionThresholdPerCPU* begränsar inte antalet sessioner på den virtuella datorn. Den här parametern bestämmer bara när nya virtuella datorer måste startas för att belastningsutjämna anslutningarna. Om du vill begränsa antalet sessioner måste du följa anvisningarna [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) för att konfigurera *MaxSessionLimit* -parametern enligt detta.
@@ -67,7 +67,7 @@ Innan du börjar konfigurera skalnings verktyget ser du till att du har följand
 - VM-poolen för sessioner som kon figurer ATS och registrerats med Windows Virtual Desktop-tjänsten
 - En användare med [deltagar åtkomst](../../role-based-access-control/role-assignments-portal.md) i Azure-prenumerationen
 
-Datorn som du använder för att distribuera verktyget måste ha: 
+Datorn som du använder för att distribuera verktyget måste ha:
 
 - Windows PowerShell 5,1 eller senare
 - Microsoft AZ PowerShell-modulen
@@ -162,7 +162,7 @@ Slutligen måste du skapa Azure Logic-appen och konfigurera ett körnings schema
      Login-AzAccount
      ```
 
-3. Kör följande cmdlet för att ladda ned skript filen createazurelogicapp. ps1 på den lokala datorn.
+3. Kör följande cmdlet för att ladda ned createazurelogicapp.ps1 skript filen på den lokala datorn.
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -180,21 +180,21 @@ Slutligen måste du skapa Azure Logic-appen och konfigurera ett körnings schema
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +204,12 @@ Slutligen måste du skapa Azure Logic-appen och konfigurera ett körnings schema
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 

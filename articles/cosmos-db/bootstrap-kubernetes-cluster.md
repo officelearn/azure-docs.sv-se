@@ -3,15 +3,15 @@ title: Så här använder du Azure Kubernetes med Azure Cosmos DB
 description: Lär dig hur du startar ett Kubernetes-kluster på Azure som använder Azure Cosmos DB (för hands version)
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70093732"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262641"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Använda Azure-Kubernetes med Azure Cosmos DB (för hands version)
 
@@ -33,7 +33,7 @@ Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-intr
 
    Azure Kubernetes Engine (**AKS-Engine**) genererar Azure Resource Manager mallar för Kubernetes-kluster på Azure. Indata till AKS-Engine är en kluster definitions fil som beskriver det önskade klustret, inklusive Orchestrator, funktioner och agenter. Indatafilernas struktur liknar det offentliga API: t för Azure Kubernetes-tjänsten.
 
-1. Etcd-API: et i Azure Cosmos DB är för närvarande en för hands version. Registrera dig för att använda för hands versionen på https://aka.ms/cosmosetcdapi-signup:. När du har skickat formuläret kommer prenumerationen att vit listas att använda Azure Cosmos etcd-API: et. 
+1. Etcd-API: et i Azure Cosmos DB är för närvarande en för hands version. Registrera dig för att använda för hands versionen på: https://aka.ms/cosmosetcdapi-signup . När du har skickat formuläret kommer prenumerationen att vit listas att använda Azure Cosmos etcd-API: et. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Distribuera klustret med Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-intr
    cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
-1. Öppna en valfri text redigerare och definiera en Resource Manager-mall som distribuerar Azure Kubernetes-klustret med Azure Cosmos DB etcd API. Kopiera följande JSON-definition till text redigeraren och spara filen som `apiModel.json`:
+1. Öppna en valfri text redigerare och definiera en Resource Manager-mall som distribuerar Azure Kubernetes-klustret med Azure Cosmos DB etcd API. Kopiera följande JSON-definition till text redigeraren och spara filen som `apiModel.json` :
 
    ```json
 
@@ -140,7 +140,7 @@ Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-intr
    Azure Kubernetes-motorn använder en kluster definition som beskriver önskad form, storlek och konfiguration för Azure-Kubernetes. Det finns flera funktioner som kan aktive ras via kluster definitionen. I det här exemplet ska du använda följande parametrar:
 
    * **prenumerations-ID:** Azure-prenumerations-ID som har Azure Cosmos DB etcd-API aktiverat.
-   * **klient-ID:** Tjänstens huvud namn (appId). `appId` Returnerades som utdata i steg 4.
+   * **klient-ID:** Tjänstens huvud namn (appId). `appId`Returnerades som utdata i steg 4.
    * **Klient hemlighet:** Tjänstens huvud namn eller ett slumpmässigt genererat lösen ord. Värdet returnerades som utdata i parametern "Password" i steg 4. 
    * **dnsPrefix:** En region – unikt DNS-namn. Det här värdet kommer att ingå i värd namnet (exempel värden är-myprod1, mellanlagring).
    * **plats:**  Plats där klustret ska distribueras till, för närvarande stöds endast "centrala".

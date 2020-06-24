@@ -3,15 +3,15 @@ title: Använd Azure Cosmos DB Explorer för att hantera dina data
 description: Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera de data som lagras i Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096812"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261893"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
 
@@ -29,7 +29,7 @@ Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att
 
 2. Från **alla resurser**, leta upp och navigera till ditt Azure Cosmos DB konto, Välj nycklar och kopiera den **primära anslutnings strängen**.  
 
-3. Gå till https://cosmos.azure.com/, klistra in anslutnings strängen och välj **Anslut**. Genom att använda anslutnings strängen kan du komma åt Azure Cosmos DB Explorer utan några tids gränser.  
+3. Gå till https://cosmos.azure.com/ , klistra in anslutnings strängen och välj **Anslut**. Genom att använda anslutnings strängen kan du komma åt Azure Cosmos DB Explorer utan några tids gränser.  
 
    Om du vill ge andra användare tillfällig åtkomst till ditt Azure Cosmos DB-konto kan du göra det med URL: erna Läs-och Läs behörighet. 
 
@@ -41,7 +41,7 @@ Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att
 
    Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna**. När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.   
 
-   ![Öppna Azure Cosmos DB Explorer](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Öppna Azure Cosmos DB Explorer":::
 
 ## <a name="known-issues"></a>Kända problem
 

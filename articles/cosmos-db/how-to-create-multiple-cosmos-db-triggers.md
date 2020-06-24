@@ -3,21 +3,21 @@ title: Skapa flera oberoende Azure Functions-utlösare för Cosmos DB
 description: Lär dig hur du konfigurerar flera oberoende Azure Functions-utlösare för Cosmos DB för att skapa händelse drivna arkitekturer.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77604954"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261604"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Skapa flera Azure Functions utlösare för Cosmos DB
 
 I den här artikeln beskrivs hur du kan konfigurera flera Azure Functions-utlösare för Cosmos DB att arbeta parallellt och reagera på ändringar oberoende av varandra.
 
-![Server lösa händelsebaserade funktioner som fungerar med Azure Functions-utlösaren för Cosmos DB och delning av en behållare för lån](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Server lösa händelsebaserade funktioner som fungerar med Azure Functions-utlösaren för Cosmos DB och delning av en behållare för lån" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>Händelsebaserade arkitektur krav
 
@@ -38,13 +38,13 @@ Syftet med den här artikeln är att hjälpa dig att utföra det andra alternati
 
 ## <a name="configuring-a-shared-leases-container"></a>Konfigurera en behållare för delade lån
 
-Om du vill konfigurera behållaren för delade lån, är den enda extra konfigurationen du behöver göra på utlösarna att lägga `LeaseCollectionPrefix` till [attributet](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) om du använder C# eller `leaseCollectionPrefix` [attribut](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
+Om du vill konfigurera behållaren för delade lån, är den enda extra konfigurationen du behöver göra på utlösarna att lägga till `LeaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) om du använder C# eller `leaseCollectionPrefix` [attribut](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
 
-Om du till exempel har tre utlösare: en som skickar e-post, en som utför en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, för senare analys `LeaseCollectionPrefix` , kan du tilldela "e-post" till den första, "materialiserade" till den andra och "analys" till den tredje.
+Om du till exempel har tre utlösare: en som skickar e-post, en som utför en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, för senare analys, kan du tilldela `LeaseCollectionPrefix` "e-post" till den första, "materialiserade" till den andra och "analys" till den tredje.
 
 Den viktiga delen är att alla tre utlösare **kan använda samma konfiguration för leasing avtals behållare** (konto, databas och behållar namn).
 
-Ett enkelt kod exempel som använder `LeaseCollectionPrefix` attributet i C# ser ut så här:
+Ett enkelt kod exempel `LeaseCollectionPrefix` som använder attributet i C# ser ut så här:
 
 ```cs
 using Microsoft.Azure.Documents;

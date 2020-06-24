@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310112"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209580"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
 Azure Dedicated HSM-tjänsten har två distinkta facets. För det första är registreringen och distributionen i Azure av HSM-enheterna med underliggande nätverks komponenter. För det andra är konfigurationen av HSM-enheterna som förberedelse för användning/integrering med en specifik arbets belastning eller ett program. Även om Thales Luna-nätverks HSM-enheter är desamma i Azure eftersom du skulle köpa direkt från Thales, så är det faktum att de är en resurs i Azure som skapar unika överväganden. Dessa överväganden och eventuella fel söknings insikter eller bästa praxis finns dokumenterade här för att säkerställa hög insyn och åtkomst till viktig information. När tjänsten används är den slutgiltiga informationen tillgänglig via support förfrågningar till antingen Microsoft eller Thales direkt. 
 
 > [!NOTE]
-> Det bör noteras att innan en konfiguration utförs på en nyligen distribuerad HSM-enhet, bör den uppdateras med eventuella relevanta korrigeringar. En nödvändig korrigering är [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) i Thales support portal som åtgärdar problemet med en omstart.
+> Det bör noteras att innan en konfiguration utförs på en nyligen distribuerad HSM-enhet, bör den uppdateras med eventuella relevanta korrigeringar. En nödvändig korrigering är [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) i Thales support portal som åtgärdar ett problem där systemet slutar svara under omstarten.
 
 ## <a name="hsm-registration"></a>HSM-registrering
 
@@ -120,7 +120,7 @@ Var försiktig när du konfigurerar nätverk i HSM.  HSM har en anslutning via E
 
 ### <a name="hsm-device-reboot"></a>Omstart av HSM-enhet
 
-Vissa konfigurations ändringar kräver att HSM är i ström spar läge eller startas om. Microsoft-testning av HSM i Azure fastställde att det vid vissa tillfällen då omstart kan sluta svara. Indirekt är att en supportbegäran måste skapas i Azure Portal begär hård omstart och det kan ta upp till 48 timmar innan det är en manuell process i ett Azure-datacenter.  Undvik den här situationen genom att se till att du har distribuerat start korrigerings filen som är tillgänglig från Thales direkt. Se [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) i Thales Luna Network HSM 7,2 downloads för en rekommenderad korrigerings fil för omstart av datorn (Obs! Du måste ha registrerat dig i Thales support Portal för att ladda ned).
+Vissa konfigurations ändringar kräver att HSM är i ström spar läge eller startas om. Microsoft-testning av HSM i Azure fastställde att det vid vissa tillfällen då omstart kan sluta svara. Indirekt är att en supportbegäran måste skapas i Azure Portal begär hård omstart och det kan ta upp till 48 timmar innan det är en manuell process i ett Azure-datacenter.  Undvik den här situationen genom att se till att du har distribuerat start korrigerings filen som är tillgänglig från Thales direkt. Se [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) i Thales Luna Network HSM 7,2 downloads för en rekommenderad korrigerings fil för ett problem där systemet slutar svara under omstarten (Obs! Du måste ha registrerat dig i Thales support Portal för att kunna ladda ned).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS certifikat är inte synkroniserade
 En klient kan förlora anslutningen till en HSM när ett certifikat upphör att gälla eller har skrivits över genom konfigurations uppdateringar. Klient konfigurationen för certifikat utbyte bör tillämpas igen med varje HSM.

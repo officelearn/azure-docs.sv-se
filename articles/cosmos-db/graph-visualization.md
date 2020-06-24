@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 1cabe57a0e7f2869a30973c8bbc8b4b38f664d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75500018"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261791"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualisera diagram data som lagrats i Azure Cosmos DB Gremlin API med data visualiserings lösningar
 
@@ -20,17 +20,17 @@ Du kan visualisera data som lagras i Azure Cosmos DB Gremlin API genom att anvä
 
 ## <a name="linkurious-enterprise"></a>Linkurious Enterprise
 
-![Linkurious-logotyp](./media/graph-visualization/linkurious-logo.jpg)
+:::image type="content" source="./media/graph-visualization/linkurious-logo.jpg" alt-text="Linkurious-logotyp" border="false":::
 
 [Linkurious Enterprise](https://linkurio.us/product/) använder diagram teknik och data visualisering för att omvandla komplexa data uppsättningar till interaktiva visuella nätverk. Plattformen ansluter till dina data källor och gör det möjligt för utredare att smidigt navigera mellan miljarder entiteter och relationer. Resultatet är en ny möjlighet att identifiera misstänkta relationer utan Juggling med frågor eller tabeller.
 
 Det interaktiva gränssnittet i Linkurious Enterprise erbjuder ett enkelt sätt att undersöka komplexa data. Du kan söka efter vissa entiteter, expandera anslutningar för att ta bort dolda relationer och tillämpa layouter som du väljer för att Untangle komplexa nätverk. Linkurious Enterprise är nu kompatibelt med Azure Cosmos DB Gremlin API. Det är lämpligt för visualiserings scenarier från slut punkt till slut punkt och stöder Läs-och skriv funktioner från användar gränssnittet. Du kan begära en [demonstration av Linkurious med Azure Cosmos DB](https://linkurio.us/contact/)
 
-![Linkurious-demo](./media/graph-visualization/linkurious-demo.gif)
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Linkurious-demo" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Cambridge intelligens
 
-![Cambridge Intelligence-logotyp](./media/graph-visualization/ci-logo.png)
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Cambridge Intelligence-logotyp" border="false":::
 
 Diagram visualiserings verktyg för [Cambridge Intelligence har](https://cambridge-intelligence.com/products/) nu stöd för Azure Cosmos dB. Följande två visualiserings verktyg stöds av Azure Cosmos DB:
 
@@ -38,11 +38,11 @@ Diagram visualiserings verktyg för [Cambridge Intelligence har](https://cambrid
 
 - [Ändra diagram för reagera på utvecklare](https://cambridge-intelligence.com/regraph/)
 
-![Cambridge Intelligence-demo](./media/graph-visualization/ci-demo-2.gif)
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Cambridge Intelligence-demo" border="false":::
 
 Med dessa verktyg kan du utforma diagram visualisering och analys program med höga prestanda för ditt användnings fall. De utnyttjar kraftfulla WebGL-rendering (Web Graphics Library) och omsorgsfullt utformad kod för att ge användarna en snabb och inblickad visualiserings upplevelse. Dessa verktyg är kompatibla med valfri webbläsare, enhet, server eller databas och innehåller stegvisa självstudier, fullständigt dokumenterade API: er och interaktiva demonstrationer.
 
-![Cambridge Intelligence-demo](./media/graph-visualization/ci-demo-1.gif)
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Cambridge Intelligence-demo" border="false":::
 
 
 ## <a name="next-steps"></a>Nästa steg

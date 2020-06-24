@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61127829"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982569"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen 
 
 > [!div class="op_single_selector"]
-> * [Portalen](media-services-portal-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. Information om hur du överför filer med portalen finns i [använda portalen för att ladda upp, koda och strömma innehåll](../latest/manage-assets-quickstart.md).<br/>Kolla också: [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Azure Media Services laddar du upp digitala filer till en tillgång. Tillgången kan innehålla video, ljud, bilder, samlingar med miniatyrbilder, textspår och filer med dold textning (samt metadata för dessa filer). När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
@@ -40,7 +40,7 @@ Du behöver ett Azure-konto för att genomföra kursen. Mer information finns i 
 
 ## <a name="upload-files"></a>Överföra filer
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. Välj **Inställningar** > **till gångar**. Välj sedan knappen **Ladda upp**.
+2. Välj **Inställningar**  >  **till gångar**. Välj sedan knappen **Ladda upp**.
    
     ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
    

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609105"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704870"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -140,7 +140,7 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
 
 4. [Anslut](#connect-to-an-azure-account) till ditt Azure-konto eller länka ett kluster om du inte redan har gjort det.
 
-5. Välj ett kluster som standard kluster för den aktuella skript filen. Verktygen uppdaterar automatiskt **. VSCode\settings.json** konfigurations fil:
+5. Välj ett kluster som standard kluster för den aktuella skript filen. Verktyget uppdaterar automatiskt **.VSCode\settings.jsi** konfigurations filen:
 
    ![Ange standard kluster konfiguration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -249,6 +249,10 @@ Verktyget stöder även **Spark SQL** -fr åga:
    ![Kör ipynb-resultat](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
+> [!NOTE]
+>
+>MS-python >= 2020.5.78807-versionen stöds inte för den här omfattningen är ett [känt problem](#known-issues).
+
 ## <a name="submit-pyspark-batch-job"></a>Skicka PySpark batch job
 
 1. Öppna mappen **HDexample** som du [tidigare](#open-a-work-folder)beskrivit, om den är stängd.  
@@ -290,16 +294,16 @@ När du har skickat ett python-jobb visas sändnings loggar i fönstret **utdata
 
 ## <a name="apache-livy-configuration"></a>Apache livy-konfiguration
 
-[Apache livy](https://livy.incubator.apache.org/) -konfiguration stöds. Du kan konfigurera den i **. VSCode\settings.json** -fil i mappen arbetsytan. För närvarande stöder livy-konfiguration endast Python-skript. Mer information finns i [LIVY viktigt](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache livy](https://livy.incubator.apache.org/) -konfiguration stöds. Du kan konfigurera den i **.VSCode\settings.js** filen i mappen arbets yta. För närvarande stöder livy-konfiguration endast Python-skript. Mer information finns i [LIVY viktigt](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Så här utlöser du livy-konfigurationen**
 
 Metod 1  
 1. I meny raden navigerar du till inställningar för **fil**  >  **Inställningar**  >  **Settings**.
 2. I rutan **Sök inställningar** anger du **insändningen av HDInsight-jobb: livy conf**.  
-3. Välj **Redigera i Settings. JSON** för det relevanta Sök resultatet.
+3. Välj **Redigera i settings.jspå** för det relevanta Sök resultatet.
 
-Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt läggs till i arbetsmappen. Du kan se livy-konfigurationen genom att välja **. vscode\settings.JSON**.
+Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt läggs till i arbetsmappen. Du kan se livy-konfigurationen genom att välja **.vscode\settings.jspå**.
 
 + Projekt inställningarna:
 
@@ -448,9 +452,9 @@ Skicka ett jobb till ett HDInsight-kluster med hjälp av Data Lake Storage Gen2.
 I meny raden går du till **Visa**  >  **kommando-palett**och anger sedan **Azure: Logga ut**.
 
 ## <a name="known-issues"></a>Kända problem
-### <a name="python-on-2020580290-version-is-not-supported-on-this-extention"></a>Python on 2020.5.80290-versionen stöds inte för den här omfattningen 
+### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>MS-python >= 2020.5.78807-versionen stöds inte för den här omfattningen 
 
-"Det gick inte att ansluta till Jupyter Notebook." är ett känt problem för python-version 2020.5.80290. Vi rekommenderar att användarna använder **2020.4.76186** -versionen av MS-python för att undvika det här problemet.
+"Det gick inte att ansluta till Jupyter Notebook." är ett känt problem för python-version >= 2020.5.78807. Vi rekommenderar att användarna använder **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** -versionen av MS-python för att undvika det här problemet.
 
 ![kända problem](./media/hdinsight-for-vscode/known-issue.png)
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79503659"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805106"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Snabb start: övervaka en virtuell Azure-dator med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från virtuella Azure-datorer så snart de har skapats. I den här snabb starten tar du en kort genom gång av de data som samlas in automatiskt för en virtuell Azure-dator och hur du visar den i Azure Portal. Sedan aktiverar du [Azure Monitor for VMS](../insights/vminsights-overview.md) för din virtuella dator som gör det möjligt för agenter på den virtuella datorn att samla in och analysera data från gäst operativ systemet, inklusive processer och deras beroenden.
@@ -65,7 +65,7 @@ När du skapar en ny Log Analytics arbets yta måste den konfigureras för att s
 
 2. Välj **Data** och sedan **Windows-händelseloggar**.
 
-3. Lägg till en händelse logg genom att skriva in namnet på loggen.  Skriv **system** och välj sedan plus tecknet **+**.
+3. Lägg till en händelse logg genom att skriva in namnet på loggen.  Skriv **system** och välj sedan plus tecknet **+** .
 
 4. Kontrollera allvarlighetsgraderna **Fel** och **Varning** i tabellen.
 
@@ -75,7 +75,7 @@ När du skapar en ny Log Analytics arbets yta måste den konfigureras för att s
 
 1. Välj **Syslog**.  
 
-2. Lägg till en händelse logg genom att skriva in namnet på loggen.  Skriv **syslog** och välj sedan plus tecknet **+**.  
+2. Lägg till en händelse logg genom att skriva in namnet på loggen.  Skriv **syslog** och välj sedan plus tecknet **+** .  
 
 3. I tabellen avmarkerar du allvarlighets GRADS **information**, **meddelande** och **fel sökning**. 
 
@@ -83,7 +83,7 @@ När du skapar en ny Log Analytics arbets yta måste den konfigureras för att s
 
 ## <a name="view-data-collected"></a>Visa data som samlas in
 
-7. Klicka på den virtuella datorn och välj sedan fliken **prestanda** . Visar en Välj grupp med prestanda räknare som har samlats in från gäst operativ systemet på den virtuella datorn. Rulla nedåt för att visa fler räknare och flytta musen över ett diagram för att Visa medelvärde och percentiler vid olika tidpunkter.
+7. Klicka på den virtuella datorn och välj sedan fliken **prestanda** under **övervaknings** menyn **insikter** . Visar en Välj grupp med prestanda räknare som har samlats in från gäst operativ systemet på den virtuella datorn. Rulla nedåt för att visa fler räknare och flytta musen över ett diagram för att Visa medelvärde och percentiler vid olika tidpunkter.
 
     ![Prestanda](media/quick-monitor-azure-vm/performance.png)
 

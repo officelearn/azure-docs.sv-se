@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257386"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704445"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -38,12 +38,12 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 
 1. Användaren måste ha en programutvecklare-roll för att kunna skapa ett program.
     - För att verifiera loggar du in på Azure Portal.</br>
-    - Gå till **Azure Active Directory** > **roller och administratörer**.</br>
+    - Gå till **Azure Active Directory**  >  **roller och administratörer**.</br>
     - Verifiera att rollen programutvecklare är tilldelad till användaren. Om inte, använder du en användare med den här behörigheten eller kontaktar en [administratör för att aktivera behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
 2. Om rollen programutvecklare inte kan tilldelas kontrollerar du att flaggan **användare kan registrera program** är inställd på **Sant** för att användaren ska kunna skapa en identitet. Så här aktiverar du följande behörigheter:
     - Logga in på Azure-portalen.
-    - Gå till **Azure Active Directory** > **användar inställningar**.
+    - Gå till **Azure Active Directory**  >  **användar inställningar**.
     - Under **Appregistreringar** **kan användare registrera program**, välja **Ja**.
 
       ![Azure-AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
@@ -53,7 +53,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 
 ## <a name="download-the-template"></a>Ladda ned mallen
 
-1. I valvet går du till **förbereda infrastruktur** > **källa**.
+1. I valvet går du till **förbereda infrastruktur**  >  **källa**.
 2. I **Förbered källa** väljer du **+Konfigurationsserver**.
 3. I **Lägg till server** kontrollerar du att **Konfigurationsserver för VMware** visas i **Servertyp**.
 4. Hämta embryo-mallen för konfigurations servern.
@@ -78,7 +78,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 7. Acceptera standardinställningarna på resten av sidorna i guiden.
 8. I **Klart att slutföras**:
 
-    * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **ström när distributionen** > är**klar**.
+    * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **ström när distributionen**är  >  **klar**.
     * Om du vill lägga till ytterligare ett nätverks gränssnitt avmarkerar du **Energis par efter distributionen**och väljer sedan **Slutför**. Konfigurationsservermallen distribueras som standard med ett enda nätverkskort. Du kan lägga till ytterligare nätverkskort efter distributionen.
 
 > [!IMPORTANT]
@@ -94,7 +94,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
 2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
-4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa** > **Slutför** > **OK**.
+4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa**  >  **Slutför**  >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrera konfigurations servern med Azure Site Recovery Services
 
@@ -129,10 +129,10 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 
 5. Innan du fortsätter måste du kontrol lera **konfigurationen av enheten**.
 6. På **konfigurera vCenter Server/vSphere ESXi-Server**anger du FQDN eller IP-adressen för vCenter-servern eller vSphere-värden, där de virtuella datorer som du vill replikera finns. Ange porten som servern lyssnar på. Ange ett eget namn som ska användas för VMware-servern i valvet.
-7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** > **Fortsätt**. De autentiseringsuppgifter som anges här sparas lokalt.
+7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till**  >  **Fortsätt**. De autentiseringsuppgifter som anges här sparas lokalt.
 8. På **Konfigurera autentiseringsuppgifter för virtuell dator**anger du användar namn och lösen ord för virtuella datorer för att automatiskt installera mobilitets tjänsten under replikeringen. För **Windows** -datorer måste kontot ha lokal administratörs behörighet på de datorer som du vill replikera. För **Linux**anger du information om rot kontot.
 9. Välj **Slutför konfigurationen** för att slutföra registreringen.
-10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern visas på **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
+10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern visas på **Recovery Services valv**  >  **Hantera**  >  **Site Recovery infrastruktur**  >  **konfigurations servrar**.
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
 
@@ -175,7 +175,7 @@ Se vår [fel söknings artikel](vmware-azure-troubleshoot-configuration-server.m
     Nej. Ändra inte lösen frasen för konfigurations servern. En ändring i lösen frasen avbryter replikeringen av skyddade datorer och leder till ett kritiskt hälso tillstånd.
 * Var kan jag hämta valv registrerings nycklar?
 
-    I **Recovery Services valv**väljer du **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**. I **servrar**väljer du **Ladda ned registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
+    I **Recovery Services valv**väljer du **Hantera**  >  **Site Recovery infrastruktur**  >  **konfigurations servrar**. I **servrar**väljer du **Ladda ned registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
 * Kan jag klona en befintlig konfigurations Server och använda den för att dirigera om replikeringen?
 
     Nej. Användning av en Server komponent för klonad konfiguration stöds inte. Att klona en skalbar processerver är också ett scenario som inte stöds. Kloning av Site Recovery-komponenter påverkar pågående replikeringar.

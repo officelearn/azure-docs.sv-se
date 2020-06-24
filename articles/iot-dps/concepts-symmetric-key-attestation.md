@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271517"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705380"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 
@@ -48,7 +48,7 @@ Här är komponenterna i varje token:
 
 | Värde | Beskrivning |
 | --- | --- |
-| signatur |En HMAC-SHA256-signatur sträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registrerings grupper används en nyckel som härletts från registrerings grupp nyckeln för att utföra hashen. Hashen utförs på ett meddelande med formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktigt**: nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Dessutom måste resultatet av signaturen vara URL-kodat. |
+| signatur |En HMAC-SHA256-signatur sträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registrerings grupper används en nyckel som härletts från registrerings grupp nyckeln för att utföra hashen. Hashen utförs på ett meddelande med formatet: `URL-encoded-resourceURI + "\n" + expiry` . **Viktigt**: nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Dessutom måste resultatet av signaturen vara URL-kodat. |
 | ResourceURI |URI för den registrerings slut punkt som kan nås med denna token, med start med scope-ID för enhets etablerings tjänst instansen. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
 | {URL-kodad – resourceURI} |Gemen URL – kodning för den nedre fall resurs-URI: n |

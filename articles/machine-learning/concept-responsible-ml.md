@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: acf329092d082b9e9cece451e90e96fc0e24fa5c
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447840"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982602"
 ---
 # <a name="responsible-machine-learning-ml"></a>Ansvarig Machine Learning (ML)
 
@@ -60,6 +60,9 @@ När data används för analys är det viktigt att data förblir privata och kon
 I traditionella scenarier lagras rå data i filer och databaser. När användarna analyserar data använder de vanligt vis rå data. Detta är ett problem eftersom det kan orsaka intrång i en individs integritet. Differentiell sekretess försöker åtgärda problemet genom att lägga till "brus" eller slumpmässig het för data så att användarna inte kan identifiera enskilda data punkter.
 
 Att implementera Differentiellt privat system är svårt. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) är ett projekt med öppen källkod som innehåller olika komponenter för att skapa globala, Differentiellt privata system. Mer information om differentiell sekretess och WhiteNoise-projektet finns i avsnittet [bevara data sekretess med hjälp av differentiella sekretess-och WhiteNoise](./concept-differential-privacy.md) -artiklar.
+
+> [!NOTE]
+> Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Dokumentera livs cykeln för Machine Learning med datablad
 

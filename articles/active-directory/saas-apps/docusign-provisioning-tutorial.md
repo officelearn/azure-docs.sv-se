@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c0a6302383240f65d900369128337a41a13ecfa
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058186"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805073"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
 
@@ -77,6 +77,9 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
     a. I text rutan **Administratörs användar namn** anger du ett DocuSign-kontonamn som har **system administratörs** profilen i DocuSign.com tilldelad.
    
     b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
+
+> [!NOTE]
+> Om både SSO och användar etablering har kon figurer ATS måste de autentiseringsuppgifter som används för etablering konfigureras för att fungera med både SSO och username/Password.
 
 1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din DocuSign-app.
 

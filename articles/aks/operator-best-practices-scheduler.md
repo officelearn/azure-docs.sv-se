@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126563"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704751"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för grundläggande funktioner i Schemaläggaren i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ I den här artikeln fokuserar vi på grundläggande funktioner för Kubernetes-s
 > [!div class="checklist"]
 > * Använd resurs kvoter för att tillhandahålla en fast mängd resurser till team eller arbets belastningar
 > * Begränsa effekten av planerat underhåll med hjälp av Pod-avbrott i budgetar
-> * Kontrol lera om det `kube-advisor` saknas Pod resurs begär Anden och begränsningar med verktyget
+> * Kontrol lera om det saknas Pod resurs begär Anden och begränsningar med `kube-advisor` verktyget
 
 ## <a name="enforce-resource-quotas"></a>Framtvinga resurs kvoter
 
@@ -77,7 +77,7 @@ De infrivilliga avbrotten kan minskas genom att använda flera repliker av din p
 
 Om ett kluster ska uppgraderas eller om en distributionsmall uppdateras, ser Kubernetes Scheduler till att ytterligare poddar är schemalagda för andra noder innan de frivilliga avbrotts händelserna kan fortsätta. Scheduler väntar innan en nod startas om tills det definierade antalet poddar har schemalagts på andra noder i klustret.
 
-Nu ska vi titta på ett exempel på en replik uppsättning med fem poddar som kör NGINX. Poddar i replik uppsättningen tilldelas etiketten `app: nginx-frontend`. Under en frivillig störnings händelse, till exempel en kluster uppgradering, vill du se till att minst tre poddar fortsätter att köras. Följande YAML-manifest för ett *PodDisruptionBudget* -objekt definierar dessa krav:
+Nu ska vi titta på ett exempel på en replik uppsättning med fem poddar som kör NGINX. Poddar i replik uppsättningen tilldelas etiketten `app: nginx-frontend` . Under en frivillig störnings händelse, till exempel en kluster uppgradering, vill du se till att minst tre poddar fortsätter att köras. Följande YAML-manifest för ett *PodDisruptionBudget* -objekt definierar dessa krav:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -119,13 +119,13 @@ Mer information om hur du använder Pod avbrotts budgetar finns i [Ange en avbro
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Sök regelbundet efter kluster problem med Kube-Advisor
 
-**Vägledning för bästa praxis** – kör regelbundet den senaste versionen `kube-advisor` av verktyget för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, `kube-advisor` kör först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
+**Vägledning för bästa praxis** – kör regelbundet den senaste versionen av `kube-advisor` verktyget för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
 
 Verktyget [Kube-Advisor][kube-advisor] är ett associerat AKS-projekt med öppen källkod som söker igenom ett Kubernetes-kluster och rapporterar om problem som hittas. En bra kontroll är att identifiera poddar som inte har resurs begär Anden och begränsningar på plats.
 
 Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i PodSpecs för Windows-program och Linux-program, men Kube-Advisor-verktyget måste vara schemalagt för en Linux-pod. Du kan schemalägga en POD så att den körs på en adresspool med ett särskilt operativ system med hjälp av en [Node-selektor][k8s-node-selector] i pod-konfigurationen.
 
-I ett AKS-kluster som är värd för flera utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar att du regelbundet kör `kube-advisor` AKS-kluster, särskilt om du inte tilldelar resurs kvoter till namn områden.
+I ett AKS-kluster som är värd för flera utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar `kube-advisor` att du regelbundet kör AKS-kluster, särskilt om du inte tilldelar resurs kvoter till namn områden.
 
 ## <a name="next-steps"></a>Nästa steg
 

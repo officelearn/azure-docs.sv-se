@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254500"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704598"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – konfigureras som en iSCSI-server via Azure Portal
 
@@ -81,7 +81,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
-   2. Klicka på **iSCSI server** ikonen iSCSI- ![Server ikon](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) för iSCSI-server för den **typ** av enhet som du skapar. Med en iSCSI-server kan du etablera block lagring.
+   2. Klicka på ikonen iSCSI-server ikon för **iSCSI-server** ![ ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) för den **typ** av enhet som du skapar. Med en iSCSI-server kan du etablera block lagring.
    3. Ange om du vill att den här enheten ska vara domänansluten. Om enheten är en iSCSI-server är det valfritt att ansluta till domänen. Om du inte vill ansluta din iSCSI-server till en domän klickar du på **tillämpa**, väntar på att inställningarna ska tillämpas och går sedan vidare till nästa steg.
       
        Om du vill ansluta enheten till en domän. Ange ett **domän namn**och klicka sedan på **Använd**.
@@ -100,7 +100,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    
     På **webbproxy-** sidan:
    
-   1. Ange **webbproxy-URL** i följande format: *http:\//host-IP-adress* eller *fullständigt domän namn: port nummer*. Observera att HTTPS-URL: er inte stöds.
+   1. Ange **webbproxy-URL** i följande format: *http: \/ /host-IP-adress* eller *fullständigt domän namn: port nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
    4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.

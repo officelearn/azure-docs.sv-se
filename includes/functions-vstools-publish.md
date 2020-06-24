@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -19,7 +19,7 @@ ms.locfileid: "84231602"
 
 1. I **Välj ett publicerings mål**använder du de publicerings alternativ som anges i följande tabell: 
 
-    | Alternativ      | Description                                |
+    | Alternativ      | Beskrivning                                |
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions förbruknings plan** | Skapa en Function-app i en Azure-molnbaserad miljö som körs i en [förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan). När du använder en förbruknings plan betalar du bara för körningar av Functions-appen. Andra värd planer ådrar sig högre kostnader. Om du kör i en annan plan än en förbruknings plan måste du hantera [skalningen av din Function-app](../articles/azure-functions/functions-scale.md).| 
     | **Skapa ny** | En ny function-app med relaterade resurser skapas i Azure. <br/>Om du väljer **Välj befintlig**skrivs alla filer i den befintliga Function-appen i Azure över av filer från det lokala projektet. Använd bara det här alternativet när du publicerar om uppdateringar till en befintlig Function-app. |
@@ -32,7 +32,7 @@ ms.locfileid: "84231602"
 
 1. I **App Service: skapa ny**, Använd de värden som anges i följande tabell:
 
-    | Inställning      | Värde  | Beskrivning                                |
+    | Inställningen      | Värde  | Beskrivning                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. Acceptera det här namnet eller ange ett nytt namn. Giltiga tecken är: `a-z` , `0-9` , och `-` . |
     | **Prenumeration** | Din prenumeration | Den Azure-prenumeration som ska användas. Godkänn denna prenumeration eller Välj en ny i list rutan. |

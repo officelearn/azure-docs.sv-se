@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: aff2eca677bbacf16cf6de638547dd52b6985e02
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5ecf8ca6e6790b218216aed9a6ff82c8a7ac9dd2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170239"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250153"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
@@ -44,7 +44,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både G-serien o
 > * Etablera grupper och grupp medlemskap i G Suite
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial) till G Suite (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -125,7 +125,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Konfigurera automatisk användar etablering för G Suite i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**. Användarna måste logga in på portal.azure.com och kommer inte att kunna använda aad.portal.azure.com
 
     ![Bladet Företagsprogram](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
 

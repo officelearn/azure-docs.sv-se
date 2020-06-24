@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350623"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705057"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostisera ett problem med Routning av virtuell dator
 
@@ -38,7 +38,7 @@ Stegen nedan förutsätter att du har en befintlig virtuell dator för att Visa 
 2. Överst i Azure Portal anger du namnet på en virtuell dator som körs i rutan Sök. När namnet på den virtuella datorn visas i Sök resultatet väljer du det.
 3. Under **Inställningar** till vänster väljer du **nätverk**och navigerar till nätverks gränssnitts resursen genom att välja dess namn.
      ![Visa nätverks gränssnitt](./media/diagnose-network-routing-problem/view-nics.png)
-4. Välj **effektiva vägar**till vänster. De effektiva vägarna för ett nätverks gränssnitt med namnet **myVMNic1** visas i följande bild: ![Visa effektiva vägar](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. Välj **effektiva vägar**till vänster. De effektiva vägarna för ett nätverks gränssnitt med namnet **myVMNic1** visas i följande bild: ![ Visa effektiva vägar](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Om det finns flera nätverks gränssnitt som är anslutna till den virtuella datorn kan du Visa effektiva vägar för alla nätverks gränssnitt genom att välja det. Eftersom varje nätverks gränssnitt kan finnas i ett annat undernät kan varje nätverks gränssnitt ha olika effektiva vägar.
 
@@ -52,7 +52,7 @@ Trots att effektiva vägar har visats via den virtuella datorn i föregående st
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att logga in på Azure med ett konto som har de behörigheter som [krävs](virtual-network-network-interface.md#permissions).
+Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
 Hämta effektiva vägar för ett nätverks gränssnitt med [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). I följande exempel hämtas effektiva vägar för ett nätverks gränssnitt med namnet *myVMNic1*, som finns i en resurs grupp med namnet *myResourceGroup*:
 
@@ -85,7 +85,7 @@ I föregående utdata är nätverks gränssnittets namn *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostisera med Azure CLI
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de behörigheter som [krävs](virtual-network-network-interface.md#permissions).
+Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
 Hämta effektiva vägar för ett nätverks gränssnitt med [AZ Network NIC show-effektiv-Route-Table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). I följande exempel hämtas effektiva vägar för ett nätverks gränssnitt med namnet *myVMNic1* som finns i en resurs grupp med namnet *myResourceGroup*:
 

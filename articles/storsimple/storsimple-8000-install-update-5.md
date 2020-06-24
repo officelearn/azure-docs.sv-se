@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267890"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704381"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installera uppdatering 5 på din StorSimple-enhet
 
@@ -78,7 +78,7 @@ Du måste ladda ned och installera följande snabb korrigeringar i den angivna o
 
 | Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Program uppdatering<br> Hämta både _HcsSoftwareUpdate. exe_ och _CisMSDAgent. exe_ |Normal <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
+| 1. |KB4037264 |Program uppdatering<br> Hämta både _HcsSoftwareUpdate.exe_ och _CisMSDAgent.exe_ |Normal <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
 
 Om du uppdaterar från en enhet som kör uppdatering 4 behöver du bara installera de kumulativa uppdateringarna för operativ systemet som andra order uppdateringar.
 
@@ -95,7 +95,7 @@ Om du installerar från en enhet som kör uppdatering 3 eller tidigare installer
 | -. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Paket för operativ Systems uppdatering <br> Hämta Windows Server 2012 R2 version |Normal <br></br>Icke-störande |- |SecondOrderUpdate|
 
 
-Du kan också behöva installera uppdateringar av inbyggd disk på alla uppdateringar som visas i föregående tabeller. Du kan kontrol lera om du behöver diskens inbyggda program varu uppdateringar `Get-HcsFirmwareVersion` genom att köra cmdleten. Om du kör dessa versioner av inbyggd program `XMGJ`vara `XGEG`: `KZ50`, `F6C2` `VR08` `N003`,,, `0107`,, behöver du inte installera dessa uppdateringar.
+Du kan också behöva installera uppdateringar av inbyggd disk på alla uppdateringar som visas i föregående tabeller. Du kan kontrol lera om du behöver diskens inbyggda program varu uppdateringar genom att köra `Get-HcsFirmwareVersion` cmdleten. Om du kör dessa versioner av inbyggd program vara:,,,,, `XMGJ` `XGEG` `KZ50` `F6C2` `VR08` `N003` `0107` , behöver du inte installera dessa uppdateringar.
 
 | Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid | Installera i mapp|
 | --- | --- | --- | --- | --- | --- |

@@ -5,20 +5,20 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681524"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805012"
 ---
 # <a name="get-information-about-a-converted-model"></a>Få information om en konverterad modell
 
-Den arrAsset-fil som skapas av konverterings tjänsten är enbart avsedd att användas av åter givnings tjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en rendering-session. Därför placerar konverterings tjänsten en JSON-fil bredvid filen arrAsset i behållaren utdata. Om en fil `buggy.gltf` exempelvis konverteras innehåller behållaren utdata en fil med namnet `buggy.info.json` bredvid den konverterade till gången. `buggy.arrAsset` Den innehåller information om käll modellen, den konverterade modellen och om konverteringen.
+Den arrAsset-fil som skapas av konverterings tjänsten är enbart avsedd att användas av åter givnings tjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en rendering-session. Därför placerar konverterings tjänsten en JSON-fil bredvid filen arrAsset i behållaren utdata. Om en fil exempelvis `buggy.gltf` konverteras innehåller behållaren utdata en fil med namnet `buggy.info.json` bredvid den konverterade till gången `buggy.arrAsset` . Den innehåller information om käll modellen, den konverterade modellen och om konverteringen.
 
 ## <a name="example-info-file"></a>Exempel på *informations* fil
 
-Här är ett exempel på en *informations* fil som skapas genom att `buggy.gltf`konvertera en fil med namnet:
+Här är ett exempel på en *informations* fil som skapas genom att konvertera en fil med namnet `buggy.gltf` :
 
 ```JSON
 {
@@ -100,7 +100,7 @@ I det här avsnittet registreras information om käll fils formatet.
 Det här avsnittet innehåller information om käll scenen. Det kommer ofta att finnas skillnader mellan värdena i det här avsnittet och motsvarande värden i verktyget som skapade käll modellen. Sådana skillnader förväntas, eftersom modellen ändras under export-och konverterings stegen.
 
 * `numMeshes`: Antalet nät delar, där varje del kan referera till ett enskilt material.
-* `numFaces`: Det totala antalet _trianglar_ i hela modellen. Observera att nätet är triangulated under konverteringen.
+* `numFaces`: Det totala antalet _trianglar_ i hela modellen. Observera att nätet är triangulated under konverteringen. Det här talet bidrar till polygonens gräns i [standard storleken för rendering av virtuell dator](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Det totala antalet hörn i hela modellen.
 * `numMaterial`: Det totala antalet material i hela modellen.
 * `numFacesSmallestMesh`: Antalet trianglar i det minsta nätet i modellen.
@@ -120,7 +120,7 @@ I det här avsnittet registreras allmän information om genererade utdata.
 
 I det här avsnittet registreras information som beräknas från den konverterade till gången.
 
-* `numMeshPartsCreated`: Antalet maskor i arrAsset. Den kan skilja sig `numMeshes` från i `inputStatistics` avsnittet, eftersom indelningen påverkas av konverterings processen.
+* `numMeshPartsCreated`: Antalet maskor i arrAsset. Den kan skilja sig från `numMeshes` i `inputStatistics` avsnittet, eftersom indelningen påverkas av konverterings processen.
 * `numMeshPartsInstanced`: Antalet maskor som återanvänds i arrAsset.
 * `recenteringOffset`: När `recenterToOrigin` alternativet i [ConversionSettings](configure-model-conversion.md) har Aktiver ATS är det här värdet översättningen som flyttar den konverterade modellen tillbaka till dess ursprungliga plats.
 * `boundingBox`: Modellens gränser.

@@ -4,46 +4,41 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 22fd5bc87494eb2fc162828363e7ca70afe1bbf0
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322173"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770551"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
-Den här artikeln beskriver hur du förbereder för utvärdering av lokala virtuella Hyper-V-datorer med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)och migrering av virtuella Hyper-v-datorer med [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Den här artikeln hjälper dig att förbereda för utvärdering och migrering av lokala virtuella Hyper-V-datorer till Azure med hjälp av [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)och [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
-> * Förbereda lokala Hyper-V-värdar och virtuella datorer för Server utvärdering. Du kan förbereda med ett konfigurations skript eller manuellt.
-> * Förbered för distribution av Azure Migrates apparaten. Enheten används för att identifiera och utvärdera lokala virtuella datorer.
-> * Förbered lokala Hyper-V-värdar och virtuella datorer för Server migrering.
-
+> * Förbered Azure för att arbeta med Azure Migrate.
+> * Förbered för att utvärdera virtuella Hyper-V-datorer.
+> * Förbered för migrering av virtuella Hyper-V-datorer 
 
 > [!NOTE]
-> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för Hyper-V-utvärdering och migrering.
-
+> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar.
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
-### <a name="azure-permissions"></a>Azure-behörigheter
+Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Anvisningarna följer tabellen.
 
-Du måste ange behörigheter för Azure Migrate distribution.
-
-**Uppgift** | **Information** 
---- | --- 
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt. | 
-**Registrera resurs leverantörer** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-V-datorer med Azure Migrate Server utvärdering.<br/><br/> Under produkt registrering registreras resurs leverantörer med den prenumeration som valts i installationen. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
-**Skapa Azure AD-app** | När du registrerar installationen skapar Azure Migrate en Azure Active Directory (Azure AD)-app som används för kommunikation mellan de agenter som körs på enheten med deras respektive tjänster som körs på Azure. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Du måste ha behörighet för att skapa Azure AD-appar (tillgängliga i rollen program utvecklare).
-
+**Uppgift** | **Information** | **Behörigheter**
+--- | --- | ---
+**Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
+**Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-V-datorer. [Läs mer](migrate-appliance-architecture.md#appliance-registration). | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
+**Skapa Azure AD-app** | När du registrerar installationen skapar Azure Migrate en Azure Active Directory (Azure AD)-app som används för kommunikation mellan de agenter som körs på enheten och Azure Migrate. | Ditt Azure-konto måste ha behörighet att skapa Azure AD-appar.
+**Skapa en virtuell dator** | Du måste ha behörighet att skapa en virtuell dator i resurs gruppen och det virtuella nätverket och skriva till en Azure-hanterad disk. | Du måste ha rollen virtuell dator deltagare i Azure-kontot.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
@@ -57,7 +52,7 @@ Kontrol lera att du har behörighet att skapa ett Azure Migrate-projekt.
     - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera produkten
+### <a name="assign-permissions-to-create-azure-ad-apps"></a>Tilldela behörigheter för att skapa Azure AD-appar
 
 Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen under registreringen av produkten med någon av följande metoder:
 
@@ -87,34 +82,34 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
 
 Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
+### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
 
-## <a name="prepare-hyper-v-for-assessment"></a>Förbered Hyper-V för utvärdering
+Tilldela rollen virtuell dator deltagare till kontot så att du har behörighet att:
 
-Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfigurations skript. Förberedelse stegen är följande:
-- [Verifiera](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Inställningarna för Hyper-V-värden och se till att de [portar som krävs](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-v-värdar.
-- Konfigurera PowerShell-fjärrkommunikation på varje värd, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.
-- Delegera autentiseringsuppgifter om de virtuella dator diskarna finns på fjärr-SMB-resurser.
-- Konfigurera ett konto som ska användas av enheten för att identifiera virtuella datorer på Hyper-V-värdar.
-- Konfigurera Hyper-V integrerings tjänster på varje virtuell dator som du vill identifiera och utvärdera. Standardinställningarna när du aktiverar integrerings tjänsterna är tillräckliga för Azure Migrate.
-
-    ![Aktivera integrerings tjänster](./media/tutorial-prepare-hyper-v/integrated-services.png)
+- Skapa en virtuell dator i den valda resursgruppen.
+- Skapa en virtuell dator i det valda virtuella nätverket.
+- Skriv till en Azure-hanterad disk. 
 
 
-## <a name="prepare-with-a-script"></a>Förbereda med ett skript
+### <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
-Skriptet gör följande:
+[Konfigurera ett Azure-nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Lokala datorer replikeras till Azure Managed disks. När du växlar över till Azure för migrering skapas virtuella Azure-datorer från dessa hanterade diskar och ansluts till det Azure-nätverk som du har konfigurerat.
 
-- Kontrollerar att du kör skriptet på en PowerShell-version som stöds.
-- Verifierar att du (användaren som kör skriptet) har administratörs behörighet för Hyper-V-värden.
-- Gör att du kan skapa ett lokalt användar konto (inte administratör) som Azure Migrate tjänsten använder för att kommunicera med Hyper-V-värden. Det här användar kontot har lagts till i dessa grupper på värden:
-    - Fjärrhanteringsanvändare
-    - Hyper-V-administratörer
-    - Användare av prestanda övervakning
-- Kontrollerar att värden kör en version av Hyper-V som stöds och Hyper-V-rollen.
-- Aktiverar WinRM-tjänsten och öppnar portarna 5985 (HTTP) och 5986 (HTTPS) på värden (krävs för metadata-insamling).
-- Aktiverar PowerShell-fjärrkommunikation på värden.
-- Kontrollerar att integrerings tjänsterna för Hyper-V är aktiverade på alla virtuella datorer som hanteras av värden.
-- Aktiverar CredSSP på värden vid behov.
+
+## <a name="prepare-for-assessment"></a>Förbered för utvärdering
+
+Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfigurations skript. Dessa är förberedelse stegen. Om du förbereder med ett skript konfigureras dessa automatiskt.
+
+**Aktivitets** | **Över** | **Manuell**
+--- | --- | ---
+**Kontrol lera krav för Hyper-V-värden** | Skript kontrollerar att värden kör en version av Hyper-V som stöds och Hyper-V-rollen.<br/><br/> Aktiverar WinRM-tjänsten och öppnar portarna 5985 (HTTP) och 5986 (HTTPS) på värden (krävs för metadata-insamling). | Kontrol lera [kraven för Hyper-V-värden](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) för Server bedömning.<br/><br/> Se till att de [nödvändiga portarna](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-V-värdar.
+**Verifiera PowerShell-version** | Kontrollerar att du kör skriptet på en PowerShell-version som stöds. | Kontrol lera att du kör PowerShell version 4,0 eller senare på Hyper-V-värden.
+**Skapa ett konto** | Verifierar att du (användaren som kör skriptet) har administratörs behörighet för Hyper-V-värden.<br/><br/>  Gör att du kan skapa ett lokalt användar konto (inte administratör) som Azure Migrate tjänsten använder för att kommunicera med Hyper-V-värden. Det här användar kontot har lagts till i dessa grupper på värden:<br/><br/> – Fjärrhantering av användare<br/><br/> – Hyper-V-administratörer<br/><br/>– Användare av prestanda övervakning | Konfigurera en domän eller ett lokalt användar konto med administratörs behörighet på Hyper-V-värdarna/-klustret.<br/><br/> -Du behöver ett enda konto för alla värdar och kluster som du vill inkludera i identifieringen.<br/><br/> -Kontot kan vara ett lokalt konto eller ett domän konto. Vi rekommenderar att den har administratörs behörighet för Hyper-V-värdar eller-kluster.<br/><br/> Alternativt, om du inte vill tilldela administratörs behörighet krävs följande behörigheter: fjärrhanterings användare; Hyper-V-administratörer; Användare av prestanda övervakning.
+**Aktivera PowerShell-fjärrkommunikation** | Aktiverar PowerShell-fjärrkommunikation på värden, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.| Om du vill konfigurera, öppnar du en PowerShell-konsol som administratör på varje värd och kör det här kommandot:<br/><br/>``` Enable-PSRemoting -force ```
+**Konfigurera Hyper-V integrerings tjänster** | Kontrollerar att integrerings tjänsterna för Hyper-V är aktiverade på alla virtuella datorer som hanteras av värden. |  [Aktivera Hyper-V integrations tjänster](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator.<br/><br/> Om du kör Windows Server 2003 följer du [dessa anvisningar](prepare-windows-server-2003-migration.md).
+**Delegera autentiseringsuppgifter om VM-diskar finns på fjärr-SMB-resurser** | Skriptet delegerar autentiseringsuppgifter. | [Aktivera CredSSP](#enable-credssp-to-delegate-credentials) för att delegera autentiseringsuppgifter.
+
+### <a name="run-the-script"></a>Kör skriptet
 
 Kör skriptet på följande sätt:
 
@@ -134,7 +129,7 @@ Kör skriptet på följande sätt:
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
-### <a name="hashtag-values"></a>Värden för hashtagg
+#### <a name="hashtag-values"></a>Värden för hashtagg
 
 Hash-värden är:
 
@@ -144,52 +139,8 @@ Hash-värden är:
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## <a name="prepare-manually"></a>Förbered manuellt
 
-Följ procedurerna i det här avsnittet för att förbereda Hyper-V manuellt, i stället för att använda skriptet.
-
-### <a name="verify-powershell-version"></a>Verifiera PowerShell-version
-
-Kontrol lera att du har PowerShell version 4,0 eller senare installerad på Hyper-V-värden.
-
-
-
-### <a name="set-up-an-account-for-vm-discovery"></a>Konfigurera ett konto för VM-identifiering
-
-Azure Migrate behöver behörighet för att identifiera lokala virtuella datorer.
-
-- Konfigurera en domän eller ett lokalt användar konto med administratörs behörighet på Hyper-V-värdarna/-klustret.
-
-    - Du behöver ett enda konto för alla värdar och kluster som du vill inkludera i identifieringen.
-    - Kontot kan vara ett lokalt konto eller ett domän konto. Vi rekommenderar att den har administratörs behörighet för Hyper-V-värdar eller-kluster.
-    - Alternativt, om du inte vill tilldela administratörs behörighet, krävs följande behörigheter:
-        - Fjärrhanteringsanvändare
-        - Hyper-V-administratörer
-        - Användare av prestanda övervakning
-
-### <a name="verify-hyper-v-host-settings"></a>Verifiera inställningarna för Hyper-V-värden
-
-1. Kontrol lera [kraven för Hyper-V-värden](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) för Server bedömning.
-2. Se till att de [nödvändiga portarna](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-V-värdar.
-
-### <a name="enable-powershell-remoting-on-hosts"></a>Aktivera PowerShell-fjärrkommunikation på värdar
-
-Konfigurera PowerShell-fjärrkommunikation på varje värd enligt följande:
-
-1. Öppna en PowerShell-konsol som administratör på varje värd.
-2. Kör följande kommando:
-
-    ```
-    Enable-PSRemoting -force
-    ```
-### <a name="enable-integration-services-on-vms"></a>Aktivera integrerings tjänster på virtuella datorer
-
-Integrerings tjänsterna måste vara aktiverade på varje virtuell dator så att Azure Migrate kan avbilda information om operativ systemet på den virtuella datorn.
-
-På virtuella datorer som du vill identifiera och utvärdera aktiverar du [integrerings tjänster för Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator.
-
-
-### <a name="enable-credssp-on-hosts"></a>Aktivera CredSSP på värdar
+### <a name="enable-credssp-to-delegate-credentials"></a>Aktivera CredSSP för att delegera autentiseringsuppgifter
 
 Om värden har virtuella datorer med diskar som finns på SMB-resurser, slutför du det här steget på värden.
 
@@ -218,12 +169,14 @@ Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen
 4. [Granska](migrate-appliance.md#collected-data---hyper-v) port åtkomst kraven för enheten.
 
 
-
-
 ## <a name="prepare-for-hyper-v-migration"></a>Förbered för Hyper-V-migrering
 
-1. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Krav för Hyper-V-värden för migrering och de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
+1. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Krav för Hyper-V-värden för migrering och de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
 2. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) kraven för virtuella Hyper-V-datorer som du vill migrera till Azure.
+3. Vissa ändringar krävs på virtuella datorer innan du migrerar dem till Azure.
+    - Det är viktigt att du gör dessa ändringar innan du påbörjar migrering. Om du migrerar den virtuella datorn innan du gör ändringen kanske den virtuella datorn inte startar i Azure.
+    - Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](prepare-for-migration.md#linux-machines) -ändringar du behöver göra.
+
 
 
 ## <a name="next-steps"></a>Nästa steg

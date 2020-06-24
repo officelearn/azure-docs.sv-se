@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: ad57fe01313957c4f3d23ef44d0e02ad11ab3fa8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780580"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262182"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Självstudie: Lägg till sid indelning i Sök resultat med hjälp av .NET SDK
 
 Lär dig hur du implementerar två olika växlings system, det första baserat på sid nummer och det andra vid oändlig rullning. Båda växlings systemen används ofta och valet av rätt är beroende av den användar upplevelse som du vill ha med resultatet. I den här självstudien skapas växlings systemen i projektet som skapats i [C#-själv studie kursen: skapa din första app – Azure kognitiv sökning-](tutorial-csharp-create-first-app.md) självstudie.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Utöka din app med numrerad sid indelning
 > * Utöka din app med oändlig rullning
@@ -100,7 +100,7 @@ Ha den grundläggande Sök sid lösningen öppen.
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Lägg till en tabell med sid växlings alternativ i vyn
 
-1. Öppna filen index. cshtml och Lägg till följande kod direkt före den avslutande &lt;/Body&gt; -taggen. Den här nya koden visar en tabell med sid alternativ: First, Previous, 1, 2, 3, 4, 5, nästa, sist.
+1. Öppna filen index. cshtml och Lägg till följande kod direkt före den avslutande/Body- &lt; &gt; taggen. Den här nya koden visar en tabell med sid alternativ: First, Previous, 1, 2, 3, 4, 5, nästa, sist.
 
     ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -424,7 +424,7 @@ Om du vill implementera oändlig rullning börjar vi med projektet innan något 
 
 1. Leta upp avsnittet i filen index. cshtml som visar resultatet (det börjar med ** @if (modell! = null)**).
 
-2. Ersätt avsnittet med koden nedan. Det nya ** &lt;div&gt; ** -avsnittet är runt området som ska kunna rullas och lägger till både ett **overflow-y-** attribut och ett anrop till en **onscroll** -funktion som kallas "rullnings Bart ()", som så.
+2. Ersätt avsnittet med koden nedan. Det nya ** &lt; div &gt; ** -avsnittet är runt området som ska kunna rullas och lägger till både ett **overflow-y-** attribut och ett anrop till en **onscroll** -funktion som kallas "rullnings Bart ()", som så.
 
     ```cs
         @if (Model != null)
@@ -447,7 +447,7 @@ Om du vill implementera oändlig rullning börjar vi med projektet innan något 
         }
     ```
 
-3. Direkt under slingan, efter taggen &lt;/div&gt; , lägger du till den **rullnings bara** funktionen.
+3. Direkt under slingan, efter &lt; taggen/div &gt; , lägger du till den **rullnings bara** funktionen.
 
     ```javascript
         <script>
@@ -563,7 +563,7 @@ Det finns bara tre åtgärder som måste skickas till kontrollanten: den första
         }
     ```
 
-4. Om du får ett syntaxfel i **list&lt;strängen&gt;** lägger du till följande **med hjälp av** direktiv i enhets filens huvud.
+4. Om du får ett syntaxfel i **list &lt; strängen &gt; **lägger du till följande **med hjälp av** direktiv i enhets filens huvud.
 
     ```cs
     using System.Collections.Generic;
@@ -578,7 +578,7 @@ Välj nu **starta utan fel sökning** (eller tryck på tangenten F5).
     ![Oändlig rullning genom "pool"-resultat](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > För att se till att en rullnings List visas på den första sidan måste den första sidan med resultat skilja sig från höjden på det utrymme som de visas i. I vårt exempel **. box1** har höjden 30 bild punkter, **. box2** har en höjd på 100 bild punkter _och_ en botten marginal på 24 bild punkter. Varje post använder alltså 154 bild punkter. Tre poster tar upp 3 x 154 = 462 bild punkter. För att säkerställa att en lodrät rullnings List visas måste en höjd till visnings utrymmet vara inställd på mindre än 462 bild punkter, även 461 fungerar. Det här problemet inträffar bara på den första sidan, efter att en rullnings List är säker på att den ska visas. Raden som ska uppdateras är: ** &lt;div ID = "myDiv" Style = "width: 800px; height: 450px; spill-y: Scroll;" onscroll = "rullad ()"&gt;**.
+    > För att se till att en rullnings List visas på den första sidan måste den första sidan med resultat skilja sig från höjden på det utrymme som de visas i. I vårt exempel **. box1** har höjden 30 bild punkter, **. box2** har en höjd på 100 bild punkter _och_ en botten marginal på 24 bild punkter. Varje post använder alltså 154 bild punkter. Tre poster tar upp 3 x 154 = 462 bild punkter. För att säkerställa att en lodrät rullnings List visas måste en höjd till visnings utrymmet vara inställd på mindre än 462 bild punkter, även 461 fungerar. Det här problemet inträffar bara på den första sidan, efter att en rullnings List är säker på att den ska visas. Raden som ska uppdateras är: ** &lt; div ID = "myDiv" Style = "width: 800px; height: 450px; spill-y: Scroll;" onscroll = "rullad ()" &gt; **.
 
 2. Bläddra nedåt längst ned i resultaten. Observera hur all information finns nu på sidan med en vy. Du kan bläddra hela vägen överst utan att utlösa några Server anrop.
 

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780631"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261468"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
 Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Konfigurera en utvecklings miljö
 > * Modell data strukturer
@@ -81,7 +81,7 @@ Gå igenom följande steg för att skapa projektet från grunden och därmed hj�
 
 För det här exemplet använder vi offentligt tillgängliga hotell data. Dessa data är en godtycklig samling med 50 fiktiva hotell namn och beskrivningar, som skapas enbart för att tillhandahålla demo data. Du måste ange ett namn och en nyckel för att kunna komma åt dessa data.
 
-1. Öppna filen appSettings. json i det nya projektet och ersätt standard raderna med följande namn och nyckel. API-nyckeln som visas här är inte ett exempel på en nyckel, det är _exakt_ den nyckel du behöver för att komma åt hotell data. Filen appSettings. JSON bör nu se ut så här.
+1. Öppna den appsettings.jsfilen i det nya projektet och ersätt standard raderna med följande namn och nyckel. API-nyckeln som visas här är inte ett exempel på en nyckel, det är _exakt_ den nyckel du behöver för att komma åt hotell data. Din appsettings.jspå filen bör nu se ut så här.
 
     ```cs
     {
@@ -242,7 +242,7 @@ Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), 
     }
     ```
 
-    Den här klassen innehåller användarens indata (**searchText**) och sökningens utdata (**resultList**). Typen av utdata är kritisk, **DocumentSearchResult&lt;hotellet&gt;**, eftersom den här typen exakt matchar resultatet från sökningen och vi måste skicka den här referensen till vyn.
+    Den här klassen innehåller användarens indata (**searchText**) och sökningens utdata (**resultList**). Typen av utdata är kritisk, **DocumentSearchResult &lt; hotellet &gt; **, eftersom den här typen exakt matchar resultatet från sökningen och vi måste skicka den här referensen till vyn.
 
 
 
@@ -252,7 +252,7 @@ Det projekt som du skapade kommer som standard att skapa ett antal klient visnin
 
 Ta bort innehållet i index. cshtml i sin helhet och återskapa filen i följande steg.
 
-1. Vi använder två små bilder i vyn. Du kan använda din egen eller kopiera över bilderna från GitHub-projektet: Azure-logo. png och search. png. De här två avbildningarna ska placeras i mappen **wwwroot/images** .
+1. Vi använder två små bilder i vyn. Du kan använda din egen eller kopiera över bilderna från GitHub-projektet: azure-logo.png och search.png. De här två avbildningarna ska placeras i mappen **wwwroot/images** .
 
 2. Den första raden i index. cshtml ska referera till modellen som vi ska använda för att kommunicera data mellan klienten (vyn) och servern (kontrollanten), som är den **SearchData** -modell som vi skapade. Lägg till den här raden i filen index. cshtml.
 
@@ -502,7 +502,7 @@ Azure Kognitiv sökning-anropet är inkapslat i vår **RunQueryAsync** -metod.
 
     I den här metoden ser vi först till att vår Azure-konfiguration initieras och anger sedan vissa Sök parametrar. Namnen på fälten i **Select** -parametern matchar exakt egenskaps namnen i **hotellet** -klassen. Det går att lämna ut den **valda** parametern, i vilket fall alla egenskaper returneras. Att ange inga **val** parametrar är dock inte effektivt om vi bara är intresserade av en delmängd av data. Genom att ange de egenskaper som vi är intresse rad av returneras endast dessa egenskaper.
 
-    Det asynkrona anropet till search (**modell. resultList = await _indexClient. Documents. SearchAsync&lt;hotell&gt;(Model. searchText, Parameters);**) är vad den här själv studie kursen och appen är mer om. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
+    Det asynkrona anropet till search (**modell. resultList = await _indexClient.Documents. SearchAsync &lt; hotell &gt; (modell. searchText, parametrar);**) är vad den här själv studie kursen och appen är i gång till. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
 
 För tillfället för sanningen.
 

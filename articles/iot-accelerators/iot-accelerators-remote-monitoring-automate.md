@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239520"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712521"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
@@ -33,7 +33,7 @@ I den här kursen får du:
 > * Redigera en befintlig regel
 > * Aktivera och inaktivera regler
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -51,12 +51,12 @@ Om du bara vill visa regler som gäller för kylaggregat kan du använda ett fil
 
 Om du vill skapa en regel som genererar en varning när trycket i ett kylaggregat överstiger 150 psi klickar du på **Ny regel**. Skapa regeln med följande värden:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kylaggregatsvarning                       |
 | Beskrivning      | Trycket i kylaggregatet har överstigit 150 psi |
 | Enhetsgrupp     | **Kylaggregatets** enhetsgrupp             |
-| Beräkning      | Omedelbar                               |
+| Beräkning      | Direkt                               |
 | Villkor 1 fält| tryck                              |
 | Villkor 1 operator | Större än                      |
 | Villkor 1 värde    | 150                               |
@@ -74,7 +74,7 @@ Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanele
 
 Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel **. Skapa regeln med följande värden:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kritisk luftfuktighet och temperatur för kylaggregat    |
 | Beskrivning      | Luftfuktighet och temperatur har kritiska värden |
@@ -84,13 +84,13 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 | Villkor 1 fält| luftfuktighet                              |
 | Villkor 1 operator | Större än                      |
 | Villkor 1 värde    | 80                                |
-| Allvarlighetsgrad  | Kritisk                              |
+| Allvarlighetsgrad  | Kritiskt                              |
 
 [![Skapa flera villkors regel delar en](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
 Lägg till det andra villkoret genom att klicka på ”+ Lägg till villkor”. Använd följande värden för det nya villkoret:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Villkor 2 fält| temperatur                           |
 | Villkor 2 operator | Större än                      |

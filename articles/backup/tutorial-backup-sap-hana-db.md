@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417301"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770738"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -29,7 +29,9 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
+* Identifiera eller skapa ett [Recovery Services valv](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) i samma region och prenumeration som den virtuella dator som kör SAP HANA.
 * Tillåt anslutning från den virtuella datorn till Internet, så att den kan komma åt Azure, enligt beskrivningen i avsnittet [Konfigurera nätverks anslutning](#set-up-network-connectivity) nedan.
+* Se till att den sammanlagda längden på den SAP HANA serverns virtuella dator namn och resurs gruppens namn inte överskrider 84 tecken för Azure resoure Manager (ARM_ virtuella datorer (och 77 tecken för klassiska virtuella datorer). Den här begränsningen beror på att vissa tecken reserveras av tjänsten.
 * En nyckel ska finnas i **hdbuserstore** som uppfyller följande kriterier:
   * Den måste finnas i standard **hdbuserstore**. Standardvärdet är det `<sid>adm` konto som SAP HANA är installerat under.
   * För MDC ska nyckeln peka mot SQL-porten för **namnserver**. Om det är SDC ska det peka på SQL-porten för **INDEXSERVER**

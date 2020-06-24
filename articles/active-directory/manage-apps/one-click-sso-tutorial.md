@@ -3,25 +3,25 @@ title: Konfiguration med enkel inloggning (SSO) för ditt Azure Marketplace-prog
 description: Steg för konfiguration med enkel klickning för ditt program från Azure Marketplace.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67872432"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763133"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguration med ett klick för enkel inloggning
 
@@ -59,7 +59,7 @@ Funktionen SSO med enkel klickning är utformad för att konfigurera enkel inlog
 
    ![Installera Mina appar säker inloggnings webb läsar tillägg](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. När du har lagt till tillägget i webbläsaren väljer du **installations \<programmets namn\>**. När du har omdirigerats till program administrations portalen loggar du in som administratör.
+6. När du har lagt till tillägget i webbläsaren väljer du **installation \<Application Name\> **. När du har omdirigerats till program administrations portalen loggar du in som administratör.
 
    ![Installations programmets namn](./media/one-click-sso-tutorial/setup-sso.png)
 

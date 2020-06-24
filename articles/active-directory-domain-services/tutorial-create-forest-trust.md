@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654415"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733678"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
 
-I miljöer där du inte kan synkronisera lösen ord, eller om du har användare som enbart loggar in med smartkort så att de inte känner till sitt lösen ord, kan du använda en resurs skog i Azure Active Directory Domain Services (AD DS). En resurs skog använder ett enkelriktat utgående förtroende från Azure AD DS till en eller flera lokala AD DS-miljöer. Den här förtroende relationen låter användare, program och datorer autentisera mot en lokal domän från den hanterade domänen i Azure AD DS. Azure AD DS resurs skogar är för närvarande en för hands version.
+I miljöer där du inte kan synkronisera lösen ord, eller om du har användare som enbart loggar in med smartkort så att de inte känner till sitt lösen ord, kan du använda en resurs skog i Azure Active Directory Domain Services (Azure AD DS). En resurs skog använder ett enkelriktat utgående förtroende från Azure AD DS till en eller flera lokala AD DS-miljöer. Den här förtroende relationen låter användare, program och datorer autentisera mot en lokal domän från den hanterade domänen i Azure AD DS. Azure AD DS resurs skogar är för närvarande en för hands version.
 
 ![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
@@ -42,10 +42,10 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän som skapats med hjälp av en resurs skog och som kon figurer ATS i din Azure AD-klient.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance-advanced].
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Se till att du skapar en Azure AD DS-hanterad domän med hjälp av en *resurs* skog. Standard alternativet skapar en *användar* skog. Endast resurs skogar kan skapa förtroenden till lokal AD DS-miljöer. Du måste också använda minst *företags* -SKU: er för din hanterade domän. Om det behövs [ändrar du SKU: n för en hanterad Azure AD DS-domän][howto-change-sku].
+    > Se till att du skapar en hanterad domän med hjälp av en *resurs* skog. Standard alternativet skapar en *användar* skog. Endast resurs skogar kan skapa förtroenden till lokal AD DS-miljöer. Du måste också använda minst *företags* -SKU: er för din hanterade domän. Om det behövs [ändrar du SKU: n för en hanterad domän][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -69,16 +69,16 @@ Innan du konfigurerar ett skogs förtroende i Azure AD DS ser du till att nätve
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Konfigurera DNS i den lokala domänen
 
-För att korrekt kunna matcha den Azure AD DS-hanterade domänen från den lokala miljön kan du behöva lägga till vidarebefordrare till de befintliga DNS-servrarna. Om du inte har konfigurerat den lokala miljön för att kommunicera med den hanterade Azure AD DS-domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
+För att korrekt lösa den hanterade domänen från den lokala miljön kan du behöva lägga till vidarebefordrare till de befintliga DNS-servrarna. Om du inte har konfigurerat den lokala miljön för att kommunicera med den hanterade domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
 1. Välj **Start | Administrations verktyg | DNS**
 1. Högerklicka på DNS-server, till exempel *myAD01*, Välj **Egenskaper**
 1. Välj **vidarebefordrare**och sedan **Redigera** för att lägga till ytterligare vidarebefordrare.
-1. Lägg till IP-adresserna för den hanterade Azure AD DS-domänen, till exempel *10.0.2.4* och *10.0.2.5*.
+1. Lägg till IP-adresserna för den hanterade domänen, till exempel *10.0.2.4* och *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Skapa inkommande skogs förtroende i den lokala domänen
 
-Den lokala AD DS-domänen måste ha ett inkommande skogs förtroende för den hanterade domänen i Azure AD DS. Detta förtroende måste skapas manuellt i den lokala AD DS-domänen, det kan inte skapas från Azure Portal.
+Den lokala AD DS-domänen måste ha ett inkommande skogs förtroende för den hanterade domänen. Detta förtroende måste skapas manuellt i den lokala AD DS-domänen, det kan inte skapas från Azure Portal.
 
 Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utför du följande steg från en hanterings arbets station för den lokala AD DS-domänen:
 
@@ -87,22 +87,22 @@ Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utf
 1. Välj fliken **förtroenden** och sedan **Nytt förtroende**
 1. Ange namn på Azure AD DS-domännamn, till exempel *aaddscontoso.com*, och välj sedan **Nästa**
 1. Välj alternativet för att skapa ett **skogs förtroende**och skapa ett enkelriktat **sätt: inkommande** förtroende.
-1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade Azure AD DS-domänen.
+1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade domänen.
 1. Välj att använda **autentisering för hela skogen**och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
 1. Gå igenom de kommande Fönstren med standard alternativ och välj alternativet för **Nej, bekräfta inte det utgående förtroendet**.
 1. Välj **Slutför**
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Skapa utgående skogs förtroende i Azure AD DS
 
-När den lokala AD DS-domänen har kon figurer ATS för att matcha den hanterade domänen i Azure AD DS och ett inkommande skogs förtroende har skapats, skapade nu det utgående skogs förtroendet. Detta utgående skogs förtroende Slutför förtroende relationen mellan den lokala AD DS-domänen och den hanterade domänen i Azure AD DS.
+När den lokala AD DS-domänen har kon figurer ATS för att matcha den hanterade domänen och ett inkommande skogs förtroende har skapats, skapade nu det utgående skogs förtroendet. Detta utgående skogs förtroende Slutför förtroende relationen mellan den lokala AD DS-domänen och den hanterade domänen.
 
-Utför följande steg för att skapa utgående förtroende för den hanterade Azure AD DS-domänen i Azure Portal:
+Utför följande steg för att skapa utgående förtroende för den hanterade domänen i Azure Portal:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**och väljer sedan din hanterade domän, till exempel *aaddscontoso.com*
-1. På menyn till vänster i den hanterade domänen i Azure AD DS väljer du **förtroenden**och väljer sedan till **+ Lägg till** ett förtroende.
+1. I menyn till vänster i den hanterade domänen väljer du **förtroenden**och väljer sedan till **+ Lägg till** ett förtroende.
 
    > [!NOTE]
-   > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad Azure AD DS-domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
+   > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
 
 1. Ange ett visnings namn som identifierar ditt förtroende, sedan DNS-namnet för den lokala betrodda skogen, till exempel *OnPrem.contoso.com*
 1. Ange samma lösen ord för förtroende som användes när du konfigurerade det inkommande skogs förtroendet för den lokala AD DS-domänen i föregående avsnitt.
@@ -139,7 +139,7 @@ Du bör ha en virtuell Windows Server-dator som är ansluten till resurs domäne
     Runas /u:userUpn@trusteddomain.com cmd.exe
     ```
 
-1. Om autentiseringen lyckas öppnas en ny kommando tolk. Rubriken på den nya kommando tolken innehåller `running as userUpn@trusteddomain.com`.
+1. Om autentiseringen lyckas öppnas en ny kommando tolk. Rubriken på den nya kommando tolken innehåller `running as userUpn@trusteddomain.com` .
 1. Använd `whoami /fqdn` i den nya kommando tolken för att visa det unika namnet för den autentiserade användaren från den lokala Active Directory.
 
 ### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Få åtkomst till resurser i Azure AD DS-resurs skogen med lokal användare
@@ -187,7 +187,7 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
 
 1. Logga in på en Windows-dator som är ansluten till din lokala Active Directory med ett användar konto från din lokala Active Directory.
-1. Med **Utforskaren i Windows**ansluter du till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, `\\fs1.aaddscontoso.com\CrossforestShare`till exempel.
+1. Med **Utforskaren i Windows**ansluter du till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aaddscontoso.com\CrossforestShare` .
 1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt**och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
 
     Om Skriv behörigheterna har angetts korrekt skapas ett nytt text dokument. Följande steg kommer sedan att öppna, redigera och ta bort filen efter behov.

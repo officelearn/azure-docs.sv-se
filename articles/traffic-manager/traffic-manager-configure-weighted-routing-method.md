@@ -4,7 +4,6 @@ description: I den här självstudien lär du dig att belastningsutjämna trafik
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
-ms.openlocfilehash: 8bdc710b36cae70d29d32333f431b8a9dda154cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b06df3814661b64f7fa46cd5e3b8f4dea9d51710
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76938713"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711674"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Självstudie: Konfigurera den viktade routningsmetoden för trafik i Traffic Manager
 
@@ -35,7 +34,7 @@ Ett gemensamt metod mönster för trafik cirkulation är att tillhandahålla en 
     1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning **viktas**. Om så inte är fallet klickar du på **viktad** från List rutan.
     2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
         1. Välj lämpligt **protokoll**och ange **port** numret. 
-        2. För **sökväg** anger du ett snedstreck */*. Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
         3. Klicka på **Spara**längst upp på sidan.
 5. Testa ändringarna i konfigurationen på följande sätt:
     1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238988"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711263"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Självstudie: kopiera data till Azure Data Box Heavy via NFS
 
@@ -33,7 +33,7 @@ Innan du börjar ska du kontrollera att:
 1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy och order statusen i portalen har **levererats**.
 3. Du har en värddator som har de data som du vill kopiera över till Data Box Heavy. Värddatorn måste
-    - Kör ett [operativ system som stöds](data-box-heavy-system-requirements.md).
+    - Köra ett [operativsystem som stöds](data-box-heavy-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod). 
 
 ## <a name="connect-to-data-box-heavy"></a>Ansluta till Data Box Heavy
@@ -77,7 +77,7 @@ Om du använder en Linux-värddator utför du följande steg för att konfigurer
 
     `sudo mount <Data Box Heavy device IP>:/<NFS share on Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    I följande exempel visas hur du ansluter via NFS till en Data Box Heavy-resurs. Den Data Box Heavy IP- `10.161.23.130`adressen är, `Mystoracct_Blob` resursen är monterad på ubuntuVM, monterings punkt `/home/databoxheavyubuntuhost/databoxheavy`.
+    I följande exempel visas hur du ansluter via NFS till en Data Box Heavy-resurs. Den Data Box Heavy IP-adressen är `10.161.23.130` , resursen `Mystoracct_Blob` är monterad på ubuntuVM, monterings punkt `/home/databoxheavyubuntuhost/databoxheavy` .
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxheavyubuntuhost/databoxheavy`
     
@@ -100,7 +100,7 @@ När du är ansluten till Data Box Heavy resurserna är nästa steg att kopiera 
     - Ärendet bevaras i namnet.
     - Filerna är inte Skift läges känsliga.
     
-    Om du t. ex `SampleFile.txt` . `Samplefile.Txt`kopierar och så bevaras ärendet i namnet när det kopieras till enheten, men den andra filen kommer att skriva över den första som dessa betraktas som en fil.
+    Om du t. ex. kopierar `SampleFile.txt` och så `Samplefile.Txt` bevaras ärendet i namnet när det kopieras till enheten, men den andra filen kommer att skriva över den första som dessa betraktas som en fil.
 
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  

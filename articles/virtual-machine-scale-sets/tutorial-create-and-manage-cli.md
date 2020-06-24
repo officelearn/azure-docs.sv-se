@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198231"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736449"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här guiden får du lära du dig hur man:
@@ -166,6 +166,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 Om du vill distribuera en virtuell dator med en viss avbildning, använder du värdet i *Urn*-kolumnen. När du anger avbildningen så kan avbildningens versionsnummer ersättas med *latest*, vilket väljer den senaste versionen av distributionen. Följande exempel använder argumentet `--image` för att ange den senaste versionen av en CentOS 7.3-avbildning.
+
+> [!IMPORTANT]
+> Vi rekommenderar att du använder den *senaste* avbildnings versionen. Ange "senaste" om du vill använda den senaste versionen av en avbildning som är tillgänglig vid distributions tillfället. Obs! även om du använder "senaste" uppdateras inte VM-avbildningen automatiskt efter distributions tiden även om en ny version blir tillgänglig.
 
 Eftersom det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser så behöver du inte distribuera följande skalningsuppsättning:
 

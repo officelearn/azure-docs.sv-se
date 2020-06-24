@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 697fe423d6f112dcd3a03ec739f7e11db3043c53
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669910"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207829"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
 
-Den här artikeln visar hur du skapar och distribuerar ett [Hugo](https://gohugo.io/) -webbprogram till [azures statiska Web Apps](overview.md). Det slutliga resultatet är en ny Azure-statisk Web Apps med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
+Den här artikeln visar hur du skapar och distribuerar ett [Hugo](https://gohugo.io/) -webbprogram till [Azure static Web Apps](overview.md). Det slutliga resultatet är en ny Azure-statisk webbapp med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
 
 I de här självstudierna får du lära dig att
 

@@ -1,5 +1,5 @@
 ---
-title: Utforska grunderna med en exempel klient program
+title: Utforska grunderna med en exempelklientapp
 titleSuffix: Azure Digital Twins
 description: Självstudie för att utforska de digitala Azure-distributionerna med ett exempel på kommando rads program
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 070a65207bc1aa2cf754f3a0dca59f1a2950a339
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613550"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262365"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Utforska digitala Azure-enheter med ett exempel på en klient
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 I den här självstudien introduceras ett exempel program som implementerar ett kommando rads klient program för att interagera med en digital Azure-instans. Klient programmet liknar den som skrevs i [Självstudier: koda en klient app](tutorial-code.md).
 
@@ -44,7 +47,7 @@ Modeller liknar klasser i objektorienterade programmeringsspråk. de ger använd
 
 I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet använder du fönstret *Solution Explorer* för att navigera till mappen *AdtSampleApp\SampleClientApp\Models* . Den här mappen innehåller exempel modeller.
 
-Välj *Room. JSON* för att öppna den i redigerings fönstret och ändra det på följande sätt:
+Välj *Room.jspå* för att öppna den i redigerings fönstret och ändra den på följande sätt:
 
 * **Uppdatera versions numret**för att indikera att du tillhandahåller en mer uppdaterad version av den här modellen. Gör detta genom att ändra *1* i slutet av `@id` värdet till *2*. Alla tal som är större än det aktuella versions numret fungerar också.
 * **Redigera en egenskap**. Ändra namnet på `Humidity` egenskapen till *HumidityLevel* (eller något annat om du vill. Om du använder något annat än *HumidityLevel*, kom ihåg vad du använde och fortsätta att använda det i stället för *HumidityLevel* i hela kursen.
@@ -70,7 +73,7 @@ Välj *Room. JSON* för att öppna den i redigerings fönstret och ändra det p�
 
 När du är färdig bör den uppdaterade modellen se ut så här:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Redigerat Room. JSON med uppdaterat versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation" border="false":::
 
 Se till att spara filen innan du fortsätter.
 
@@ -78,7 +81,7 @@ Se till att spara filen innan du fortsätter.
 > Om du vill prova att skapa en egen modell kan du klistra in *rums* modell koden i en ny fil som du sparar med tillägget *. JSON* i mappen *AdtSampleApp\SampleClientApp\Models* . Sedan kan du experimentera med att lägga till egenskaper och relationer som representerar vad du vill. Du kan också titta på de andra exempel modellerna i den här mappen för idéer.
 
 > [!TIP] 
-> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://github.com/Azure-Samples/DTDL-Validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [instruktion: parsa och validera modeller](how-to-use-parser.md).
+> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [instruktion: parsa och validera modeller](how-to-use-parser.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Kom igång med kommando rads appen
 

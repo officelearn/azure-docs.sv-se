@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/25/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e99b860f4f75e142a8df09bb538ebee3f2eac6d3
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384117"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297485"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -125,11 +125,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare, som kallas B. Simon, i Azure Portal.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. Som **namn**anger `B.Simon`du.  
-   1. För **användar namn**anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Som **namn**anger du `B.Simon` .  
+   1. För **användar namn**anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -137,7 +137,7 @@ I det här avsnittet ska du skapa en test användare, som kallas B. Simon, i Azu
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ServiceNow.
 
-1. I Azure Portal väljer du **företags program** > **alla program**.
+1. I Azure Portal väljer du **företags program**  >  **alla program**.
 1. I programlistan väljer du **ServiceNow**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
@@ -272,7 +272,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
               * Kopiera **enhets-ID/Issuer-** värdet och klistra in det i **identifierare** i avsnittet **ServiceNow Basic SAML-konfiguration** i Azure Portal.
 
-              * Bekräfta att **NameID-principen** är inställd `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` på Value. 
+              * Bekräfta att **NameID-principen** är inställd på `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` Value. 
 
          1. Rulla ned till avsnittet **X. 509-certifikat** och välj **Redigera**.
 
@@ -336,12 +336,12 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
         * Kopiera **enhets-ID/Issuer-** värdet. Klistra in den i **identifierare** i avsnittet **ServiceNow Basic SAML Configuration** i Azure Portal.
 
-        * Bekräfta att **NameID-principen** är inställd `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` på Value.
+        * Bekräfta att **NameID-principen** är inställd på `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` Value.
 
         * Välj **Avancerat**. I **fältet användare**anger du **e-post**.
 
             > [!NOTE]
-            > Du kan konfigurera Azure AD att generera antingen Azure AD-användarnamnet (User Principal Name) eller e-postadressen som unik identifierare i SAML-token. Det gör du genom att gå till avsnittet **ServiceNow** > **attribut** > för**enkel inloggning** i Azure Portal och mappa det önskade fältet till attributet **NameIdentifier** . Värdet som lagras för det valda attributet i Azure AD (till exempel User Principal Name) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
+            > Du kan konfigurera Azure AD att generera antingen Azure AD-användarnamnet (User Principal Name) eller e-postadressen som unik identifierare i SAML-token. Det gör du genom att gå till avsnittet **ServiceNow**  >  **Attributes**  >  **-attribut för enkel inloggning** i Azure Portal och mappa det önskade fältet till attributet **NameIdentifier** . Värdet som lagras för det valda attributet i Azure AD (till exempel User Principal Name) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
 
         * Välj **test anslutning** i det övre högra hörnet på sidan.
 
@@ -425,7 +425,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
     b. För **NameID-princip**anger du **urn: Oasis: Names: TC: SAML: 1.1: NameID-format: ospecificerad**.
 
-    c. För **metoden AuthnContextClassRef**anger `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`du.
+    c. För **metoden AuthnContextClassRef**anger du `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` .
 
     d. För att **skapa en AuthnContextClass**växlar du till av (omarkerat).
 
@@ -447,7 +447,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
     e. I **fältet användare**anger du **e-post**.
 
     > [!NOTE]
-    > Du kan konfigurera Azure AD att generera antingen Azure AD-användarnamnet (User Principal Name) eller e-postadressen som unik identifierare i SAML-token. Det gör du genom att gå till avsnittet **ServiceNow** > **attribut** > för**enkel inloggning** i Azure Portal och mappa det önskade fältet till attributet **NameIdentifier** . Värdet som lagras för det valda attributet i Azure AD (till exempel User Principal Name) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
+    > Du kan konfigurera Azure AD att generera antingen Azure AD-användarnamnet (User Principal Name) eller e-postadressen som unik identifierare i SAML-token. Det gör du genom att gå till avsnittet **ServiceNow**  >  **Attributes**  >  **-attribut för enkel inloggning** i Azure Portal och mappa det önskade fältet till attributet **NameIdentifier** . Värdet som lagras för det valda attributet i Azure AD (till exempel User Principal Name) måste matcha det värde som lagras i ServiceNow för det angivna fältet (till exempel user_name).
 
     f. Välj **Spara**.
 
@@ -471,7 +471,7 @@ När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in autom
 
     ![Skärm bild av inloggnings sidan med Använd extern inloggning markerad](./media/servicenow-tutorial/test01.png)
 
-    *  Ange **användar namn**, B.simon@contoso.comt. ex..
+    *  Ange **användar namn**, t B.simon@contoso.com . ex..
 
     *  Välj **Använd extern inloggning**. Du omdirigeras till Azure AD-sidan för inloggning.
 
@@ -485,7 +485,7 @@ När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in autom
 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurera användarförsörjning](servicenow-provisioning-tutorial.md)
 

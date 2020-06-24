@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780529"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262216"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Självstudie: index från flera data källor med hjälp av .NET SDK
 
@@ -21,7 +21,7 @@ Azure Kognitiv sökning kan importera, analysera och indexera data från flera d
 
 I den här självstudien beskrivs hur du kan indexera hotell data från en Azure Cosmos DB data källa och slå samman med information om hotell rums information från Azure Blob Storage dokument. Resultatet blir ett kombinerat hotell Sök index som innehåller komplexa data typer.
 
-I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk). I den här självstudien utför du följande uppgifter:
+I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). I den här självstudien utför du följande uppgifter:
 
 > [!div class="checklist"]
 > * Ladda upp exempel data och skapa data källor
@@ -30,7 +30,7 @@ I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk). 
 > * Indexera hotell data från Azure Cosmos DB
 > * Slå samman hotell rums data från Blob Storage
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -70,7 +70,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
    ![Lägga till containern](media/tutorial-multiple-data-sources/cosmos-add-container.png "Lägga till containern")
 
-1. Välj **objekt** under **hotell**och klicka sedan på **överför objekt** i kommando fältet. Gå till och välj filen **cosmosdb/HotelsDataSubset_CosmosDb. JSON** i projektmappen.
+1. Välj **objekt** under **hotell**och klicka sedan på **överför objekt** i kommando fältet. Gå till och välj filen **cosmosdb/HotelsDataSubset_CosmosDb.jspå** i projektmappen.
 
    ![Överför till Azure Cosmos DB samling](media/tutorial-multiple-data-sources/cosmos-upload.png "Överför till Cosmos DB samling")
 
@@ -100,7 +100,7 @@ Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjäns
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -116,11 +116,11 @@ En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som
 
     ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-1. Sök efter **Microsoft. Extensions. Configuration. JSON** NuGet-paketet och installera det också.
+1. Sök efter **Microsoft.Extensions.Configuration.Js** NuGet-paketet och installera det också.
 
 1. Öppna lösnings filen **AzureSearchMultipleDataSources. SLN**.
 
-1. Redigera filen **appSettings. JSON** i Solution Explorer för att lägga till anslutnings information.  
+1. I Solution Explorer redigerar du **appsettings.jspå** filen för att lägga till anslutnings information.  
 
     ```json
     {
@@ -133,7 +133,7 @@ En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som
     }
     ```
 
-De första två posterna använder URL-adressen och administratörs nycklarna för Azure Kognitiv sökning-tjänsten. En slut punkt `https://mydemo.search.windows.net`, till exempel tjänst namnet som ska tillhandahållas `mydemo`.
+De första två posterna använder URL-adressen och administratörs nycklarna för Azure Kognitiv sökning-tjänsten. En slut punkt `https://mydemo.search.windows.net` , till exempel tjänst namnet som ska tillhandahållas `mydemo` .
 
 I nästa poster anges konto namn och information om anslutnings strängen för Azure-Blob Storage och Azure Cosmos DB data källor.
 
@@ -141,13 +141,13 @@ I nästa poster anges konto namn och information om anslutnings strängen för A
 
 Sammanfogning av innehåll kräver att båda data strömmarna är riktade mot samma dokument i Sök indexet. 
 
-I Azure Kognitiv sökning kan nyckel fältet unikt identifiera varje dokument. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String`. Nyckel fältet måste finnas för varje dokument i en data källa som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
+I Azure Kognitiv sökning kan nyckel fältet unikt identifiera varje dokument. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String` . Nyckel fältet måste finnas för varje dokument i en data källa som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
 
 När du indexerar data från flera data källor ser du till att varje inkommande rad eller ett dokument innehåller en gemensam dokument nyckel för att koppla data från två fysiskt distinkta käll dokument till ett nytt sökdokument i det kombinerade indexet. 
 
 Det krävs ofta viss planering för att identifiera en meningsfull dokument nyckel för ditt index och se till att den finns i båda data källorna. I den här demon finns `HotelId` nyckeln för varje hotell i Cosmos DB också i rummen JSON-blobbar i Blob Storage.
 
-Azure Kognitiv sökning-indexerare kan använda fält mappningar för att byta namn på och till och med omformatera data fält under indexerings processen, så att källdata kan dirigeras till rätt index fält. I Cosmos DB anropas **`HotelId`** exempelvis hotell-ID: t. Men i JSON-BLOB-filerna för hotell rummen heter **`Id`** hotell-ID: t. Programmet hanterar detta genom att mappa **`Id`** fältet från blobarna till **`HotelId`** nyckel fältet i indexet.
+Azure Kognitiv sökning-indexerare kan använda fält mappningar för att byta namn på och till och med omformatera data fält under indexerings processen, så att källdata kan dirigeras till rätt index fält. I Cosmos DB anropas exempelvis hotell-ID: t **`HotelId`** . Men i JSON-BLOB-filerna för hotell rummen heter hotell-ID: t **`Id`** . Programmet hanterar detta genom att mappa **`Id`** fältet från blobarna till **`HotelId`** nyckel fältet i indexet.
 
 > [!NOTE]
 > I de flesta fall kan automatiskt genererade dokument nycklar, till exempel de som skapats som standard av vissa indexerare, inte göra dokument nycklar för kombinerade index. I allmänhet ska du använda ett meningsfullt, unikt nyckel värde som redan finns i eller som enkelt kan läggas till i data källorna.
@@ -315,7 +315,7 @@ När data källan har skapats konfigurerar programmet en BLOB-indexerare med nam
     await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
 ```
 
-JSON-blobbar innehåller ett nyckel fält med namnet **`Id`** i stället **`HotelId`** för. Koden använder `FieldMapping` klassen för att instruera indexeraren att dirigera **`Id`** fältvärdet till **`HotelId`** dokument nyckeln i indexet.
+JSON-blobbar innehåller ett nyckel fält med namnet **`Id`** i stället för **`HotelId`** . Koden använder `FieldMapping` klassen för att instruera indexeraren att dirigera **`Id`** fältvärdet till **`HotelId`** dokument nyckeln i indexet.
 
 Blob Storage-indexerare kan använda parametrar som identifierar vilket tolknings läge som ska användas. Tolknings läget skiljer sig för blobbar som representerar ett enda dokument eller flera dokument inom samma blob. I det här exemplet representerar varje BLOB ett enda index dokument, så koden använder- `IndexingParameters.ParseJson()` parametern.
 

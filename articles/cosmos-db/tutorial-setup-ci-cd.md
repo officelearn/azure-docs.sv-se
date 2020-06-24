@@ -3,16 +3,16 @@ title: Konfigurera CI/CD-pipeline med Azure Cosmos DB emulator skapa uppgift
 description: Självstudiekurs om hur du skapar bygg och släpp-arbetsflöden i Azure DevOps med hjälp Azure Cosmos DB-emulatorns build-uppgift
 author: deborahc
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 521d5d8d587b39cf573dedc37ea9f6fd53646e66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80410959"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262131"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -50,7 +50,7 @@ Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hi
 3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. Nu har du en pipeline för bygge som du kan konfigurera för att använda Azure Cosmos DB emulatorns build-aktivitet. 
 
 > [!NOTE]
-> Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar `Hosted VS2017`med.
+> Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar med `Hosted VS2017` .
 
 Azure Cosmos DB emulator har för närvarande inte stöd för den värdbaserade VS2019. Emulatorn kommer dock redan med VS2019 installerat och du använder den genom att starta emulatorn med följande PowerShell-cmdletar. Om du stöter på problem när du använder VS2019 kan du kontakta [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) -teamet för att få hjälp:
 
@@ -178,4 +178,4 @@ Om du konfigurerar CI/CD-pipeline med hjälp av en YAML-uppgift kan du definiera
 
 Mer information om hur du använder emulatorn för lokal utveckling och testning finns i [Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 
-Om du vill exportera TLS/SSL-certifikat för emulatorn, se [exportera Azure Cosmos DB emulator-certifikat för användning med Java, python och Node. js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
+Om du vill exportera TLS/SSL-certifikat för emulatorn, se [exportera Azure Cosmos DB emulator-certifikat för användning med Java, python och Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)

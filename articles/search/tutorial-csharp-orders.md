@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 552f974b99b9430d82596a5a25265bb916cb4e25
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780614"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262199"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
@@ -21,7 +21,7 @@ Fram till den här punkten i våra självstudier, returneras och visas resultate
 
 För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullande projektet som skapats i [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Ordna resultat baserat på en egenskap
 > * Ordna resultat baserat på flera egenskaper
@@ -128,7 +128,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (**&lt;!--Visa hotell data.--&gt;**) med följande kod.
+5. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (** &lt; !--Visa hotell data.-- &gt; **) med följande kod.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -461,7 +461,7 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
 
 4. Nu måste du knyta dessa begrepp till varandra. De här kodfragmenten är i mån av den här själv studie kursen, och du får hjälp att skapa en mappad app som en övning för läsaren. Om du vill göra det här exemplet ytterligare, kan du antingen ange ett Orts namn med en radie eller hitta en punkt på en karta och välja en radie. Information om hur du undersöker dessa alternativ finns i följande resurser:
 
-* [Azure Maps-dokumentation](https://docs.microsoft.com/azure/azure-maps/)
+* [Dokumentation för Azure Maps](https://docs.microsoft.com/azure/azure-maps/)
 * [Hitta en adress med hjälp av Azure Maps Search-tjänsten](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Beställ resultat baserat på en bedömnings profil
@@ -544,7 +544,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 ### <a name="add-code-to-the-view-to-compare-profiles"></a>Lägg till kod i vyn för att jämföra profiler
 
-1. Öppna filen index. cshtml och Ersätt &lt;Body&gt; -avsnittet med följande kod.
+1. Öppna filen index. cshtml och Ersätt &lt; Body- &gt; avsnittet med följande kod.
 
     ```cs
     <body>

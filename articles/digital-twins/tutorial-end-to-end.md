@@ -1,5 +1,5 @@
 ---
-title: Anslut en lösning från slut punkt till slut punkt
+title: Ansluta en lösning från slutpunkt till slutpunkt
 titleSuffix: Azure Digital Twins
 description: Självstudie för att bygga ut en Azure digital-lösning från slut punkt till slut punkt som drivs av enhets data.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e824641f261fc920dd234ba8d4787fbd8ddffe48
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613388"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296992"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Om du vill konfigurera en fullständig lösning från slut punkt till slut punkt som drivs av real tids data från din miljö kan du ansluta din Azure Digital-instans till andra Azure-tjänster för hantering av enheter och data.
 
@@ -133,6 +136,8 @@ I fönstret *publicera* som öppnas i huvud fönstret i Visual Studio kontroller
 > [!NOTE]
 > Du kan se ett popup-meddelande som detta: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="publicera Azure Function i Visual Studio: publicera autentiseringsuppgifter" border="false":::
 > I så fall väljer **du försök att hämta autentiseringsuppgifter från Azure** och **Spara**.
+>
+> Om du ser en varning om att *din version av Functions runtime inte matchar versionen som körs i Azure*, följer du anvisningarna för att uppgradera till den senaste Azure Functions runtime-versionen. Det här problemet kan uppstå om du använder en äldre version av Visual Studio än den som rekommenderas i avsnittet *krav* i början av den här självstudien.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Tilldela behörigheter till Function-appen
 

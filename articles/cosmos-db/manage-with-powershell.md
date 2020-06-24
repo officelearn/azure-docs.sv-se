@@ -1,18 +1,18 @@
 ---
 title: Skapa och hantera Azure Cosmos DB med PowerShell
-description: Använd Azure PowerShell för att hantera Azure Cosmos-konton, databaser, behållare och data flöde.
+description: Använd Azure PowerShell hantera dina Azure Cosmos-konton, databaser, behållare och data flöde.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 494c5f0c3d7d0a4c8a388ce06143795fe5f12f20
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656299"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262284"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -44,6 +44,7 @@ Följande avsnitt visar hur du hanterar Azure Cosmos-kontot, inklusive:
 * [Visa en lista med anslutnings strängar för ett Azure Cosmos-konto](#list-connection-strings)
 * [Ändra prioritet för redundans för ett Azure Cosmos-konto](#modify-failover-priority)
 * [Utlös en manuell redundansväxling för ett Azure Cosmos-konto](#trigger-manual-failover)
+* [Visa en lista över resurs lås för ett Azure Cosmos DB konto](#list-account-locks)
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Skapa ett Azure Cosmos-konto
 
@@ -327,6 +328,21 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a>Visa en lista över resurs lås för ett Azure Cosmos DB konto
+
+Resurs lås kan placeras på Azure Cosmos DB resurser, inklusive databaser och samlingar. Exemplet nedan visar hur du visar en lista över alla Azure-resurs lås på ett Azure Cosmos DB-konto.
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceTypeAccount = "Microsoft.DocumentDB/databaseAccounts"
+$accountName = "mycosmosaccount"
+
+Get-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceTypeAccount `
+    -ResourceName $accountName
+```
+
 ## <a name="azure-cosmos-db-database"></a>Azure Cosmos DB databas
 
 Följande avsnitt visar hur du hanterar Azure Cosmos DB-databasen, inklusive:
@@ -337,6 +353,8 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB-databasen, inklusive:
 * [Visa en lista över alla Azure Cosmos DB databaser i ett konto](#list-db)
 * [Hämta en enda Azure Cosmos DB databas](#get-db)
 * [Ta bort en Azure Cosmos DB databas](#delete-db)
+* [Skapa ett resurs lås på en Azure Cosmos DB-databas för att förhindra borttagning](#create-db-lock)
+* [Ta bort ett resurs lås på en Azure Cosmos DB-databas](#remove-db-lock)
 
 ### <a name="create-an-azure-cosmos-db-database"></a><a id="create-db"></a>Skapa en Azure Cosmos DB databas
 
@@ -416,6 +434,42 @@ Remove-AzCosmosDBSqlDatabase `
     -Name $databaseName
 ```
 
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-database-to-prevent-delete"></a><a id="create-db-lock"></a>Skapa ett resurs lås på en Azure Cosmos DB-databas för att förhindra borttagning
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-database"></a><a id="remove-db-lock"></a>Ta bort ett resurs lås på en Azure Cosmos DB-databas
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$resourceName = "$accountName/$databaseName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
+```
+
 ## <a name="azure-cosmos-db-container"></a>Azure Cosmos DB behållare
 
 Följande avsnitt visar hur du hanterar Azure Cosmos DB container, inklusive:
@@ -430,6 +484,8 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB container, inklusive:
 * [Visa en lista över alla Azure Cosmos DB behållare i en databas](#list-containers)
 * [Hämta en enda Azure Cosmos DB behållare i en databas](#get-container)
 * [Ta bort en Azure Cosmos DB-behållare](#delete-container)
+* [Skapa ett resurs lås på en Azure Cosmos DB behållare för att förhindra borttagning](#create-container-lock)
+* [Ta bort ett resurs lås på en Azure Cosmos DB-behållare](#remove-container-lock)
 
 ### <a name="create-an-azure-cosmos-db-container"></a><a id="create-container"></a>Skapa en Azure Cosmos DB behållare
 
@@ -667,6 +723,43 @@ Remove-AzCosmosDBSqlContainer `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+### <a name="create-a-resource-lock-on-an-azure-cosmos-db-container-to-prevent-delete"></a><a id="create-container-lock"></a>Skapa ett resurs lås på en Azure Cosmos DB behållare för att förhindra borttagning
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+$lockLevel = "CanNotDelete"
+
+New-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName `
+    -LockLevel $lockLevel
+```
+
+### <a name="remove-a-resource-lock-on-an-azure-cosmos-db-container"></a><a id="remove-container-lock"></a>Ta bort ett resurs lås på en Azure Cosmos DB-behållare
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$resourceType = "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+$resourceName = "$accountName/$databaseName/$containerName"
+$lockName = "myResourceLock"
+
+Remove-AzResourceLock `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType $resourceType `
+    -ResourceName $resourceName `
+    -LockName $lockName
 ```
 
 ## <a name="next-steps"></a>Nästa steg

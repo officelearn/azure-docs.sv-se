@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Ally | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ally.
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Ally.io | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ally.io.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 06/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 972f4119fa17b4449fae4038283a183f097ccc4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9cac3043a5141676cae146f9d5f089c515b6791
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82081446"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762674"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ally"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Ally
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allyio"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Ally.io
 
-I den här självstudien får du lära dig hur du integrerar Ally med Azure Active Directory (Azure AD). När du integrerar Ally med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar Ally.io med Azure Active Directory (Azure AD). När du integrerar Ally.io med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Ally.
-* Gör det möjligt för användarna att logga in automatiskt till Ally med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Ally.io.
+* Gör det möjligt för användarna att logga in automatiskt till Ally.io med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -37,45 +37,45 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* En Ally-aktiverad (SSO)-prenumeration med enkel inloggning. Om du inte har någon prenumeration kan du [starta din kostnads fria utvärderings version](https://www.ally.io/?utm_source=azure&utm_medium=mktgplace&utm_term=tutorial).
+* Ally.io för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Ally stöder **SP-och IDP** -INITIERAd SSO
-* Ally stöder **just-in-Time** User-etablering
-* När du har konfigurerat Ally kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Ally.io stöder **SP-och IDP** -INITIERAd SSO
+* Ally.io stöder **just-in-Time** User-etablering
+* När du har konfigurerat Ally.io kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-ally-from-the-gallery"></a>Lägga till Ally från galleriet
+## <a name="adding-allyio-from-the-gallery"></a>Lägga till Ally.io från galleriet
 
-Om du vill konfigurera integreringen av Ally i Azure AD måste du lägga till Ally från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Ally.io i Azure AD måste du lägga till Ally.io från galleriet i listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Ally** i sökrutan.
-1. Välj **Ally** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Ally.io** i sökrutan.
+1. Välj **Ally.io** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ally"></a>Konfigurera och testa enkel inloggning med Azure AD för Ally
+## <a name="configure-and-test-azure-ad-single-sign-on-for-allyio"></a>Konfigurera och testa enkel inloggning med Azure AD för Ally.io
 
-Konfigurera och testa Azure AD SSO med Ally med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Ally.
+Konfigurera och testa Azure AD SSO med Ally.io med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Ally.io.
 
-Om du vill konfigurera och testa Azure AD SSO med Ally, slutför du följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med Ally.io, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera Ally SSO](#configure-ally-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Ally test User](#create-ally-test-user)** -om du vill ha en motsvarighet till B. Simon i Ally som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera Ally.io SSO](#configure-allyio-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Ally.io test User](#create-allyio-test-user)** -om du vill ha en motsvarighet till B. Simon i Ally.io som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Ally** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Ally.io** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -83,22 +83,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
 
-    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL i text rutan **inloggnings-URL** :`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
+    Skriv en URL i text rutan **inloggnings-URL** :`https://app.ally.io/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Ally client support team](mailto:contact@ally.io) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Ally.io client support team](mailto:contact@ally.io) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Ally-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+1. Ally.io-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
-1. Utöver ovan förväntar sig Ally-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. Utöver ovan förväntar sig Ally.io-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
     | Name |  Källattribut|
     | --------------- | --------- |
@@ -110,9 +110,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera Ally** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **konfigurera Ally.io** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
@@ -121,16 +122,16 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Ally.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Ally.io.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Ally**.
+1. I listan program väljer du **Ally.io**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -143,19 +144,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-ally-sso"></a>Konfigurera Ally SSO
+## <a name="configure-allyio-sso"></a>Konfigurera Ally.io SSO
 
-Om du vill konfigurera enkel inloggning på **Ally** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Ally](mailto:support@ally.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Ally.io** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Ally.io](mailto:contact@ally.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-ally-test-user"></a>Skapa Ally test användare
+### <a name="create-allyio-test-user"></a>Skapa Ally.io test användare
 
-I det här avsnittet skapas en användare som heter B. Simon i Ally. Ally stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Ally skapas en ny när du försöker få åtkomst till Ally.
+I det här avsnittet skapas en användare som heter B. Simon i Ally.io. Ally.io stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Ally.io skapas en ny när du försöker få åtkomst till Ally.io.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Ally på åtkomst panelen, bör du loggas in automatiskt på den Ally som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Ally.io på åtkomst panelen, bör du loggas in automatiskt på den Ally.io som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -163,11 +164,11 @@ När du klickar på panelen Ally på åtkomst panelen, bör du loggas in automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Ally med Azure AD](https://aad.portal.azure.com/)
+- [Prova Ally.io med Azure AD](https://aad.portal.azure.com/)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du Ally med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du Ally.io med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

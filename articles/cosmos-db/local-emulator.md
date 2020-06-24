@@ -2,16 +2,16 @@
 title: Utveckla lokalt med Azure Cosmos-emulatorn
 description: Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt utan kostnad, utan att skapa en Azure-prenumeration.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: cd7f1ba856cb2c58d14f7a2560a7716beff92076
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849016"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262437"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -76,7 +76,7 @@ Azure Cosmos-emulatorn installeras som `C:\Program Files\Azure Cosmos DB Emulato
 
 När Azure Cosmos-emulatorn startar öppnas automatiskt Azure Cosmos-Datautforskaren i webbläsaren. Adressen visas som `https://localhost:8081/_explorer/index.html`. Om du stänger Utforskaren och vill öppna den igen senare kan du antingen öppna webb adressen i webbläsaren eller starta den från Azure Cosmos-emulatorn i Windows-ikonen som visas nedan.
 
-![Starta Azure Cosmos Local mula data Explorer](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Starta Azure Cosmos Local mula data Explorer":::
 
 ## <a name="checking-for-updates"></a>Leta efter uppdateringar
 
@@ -226,7 +226,7 @@ För att hämta ett certifikat som ska användas med språk och körningar som i
 
 Följ instruktionerna i avsnittet [om att lägga till ett certifikat i Java CA-certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. När certifikatet har importer ATS till certifikat arkivet kommer klienter för SQL och Azure Cosmos DBs API för MongoDB att kunna ansluta till Azure Cosmos-emulatorn.
 
-När du ansluter till emulatorn från python och Node. js SDK: er är TLS-verifiering inaktiverat.
+När du ansluter till emulatorn från python och Node.js SDK: er är TLS-verifiering inaktiverat.
 
 ## <a name="command-line-tool-reference"></a><a id="command-line"></a>Kommandoradsverktygsreferens
 Från installations platsen kan du använda kommando raden för att starta och stoppa emulatorn, konfigurera alternativ och utföra andra åtgärder.
@@ -239,42 +239,42 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 
 |**Alternativet** | **Beskrivning** | **Kommandoprompt**| **Argument**|
 |---|---|---|---|
-|[Inga argument] | Startar Azure Cosmos-emulatorn med standardinställningar. |Microsoft. Azure. Cosmos. emulator. exe| |
-|[Hjälp] |Visar en lista över kommandoradsargument som stöds.|Microsoft. Azure. Cosmos. emulator. exe/? | |
-| GetStatus |Hämtar status för Azure Cosmos-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras. | Microsoft. Azure. Cosmos. emulator. exe/GetStatus| |
-| Avstängning| Stänger av Azure Cosmos-emulatorn.| Microsoft. Azure. Cosmos. emulator. exe/shutdown | |
-|DataPath | Anger den sökväg där du kan lagra filer. Standardvärdet är%LocalAppdata%\CosmosDBEmulator. | Microsoft. Azure. Cosmos. emulator. exe/DataPath = \< Datapath\> | \<datapath\>: En åtkomlig sökväg |
-|Port | Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081. |Microsoft. Azure. Cosmos. emulator. exe/port = \< port\> | \<port\>: Enskilt portnummer |
-| ComputePort | Angett det port nummer som ska användas för tjänsten Compute interop Gateway. Gatewayens HTTP-slutpunkt avsöknings port beräknas som ComputePort + 79. Därför måste ComputePort och ComputePort + 79 vara öppna och tillgängliga. Standardvärdet är 8900. | Microsoft. Azure. Cosmos. emulator. exe/ComputePort = \< ComputePort\> | \<computeport \> : enstaka port nummer |
-| EnableMongoDbEndpoint = 3,2 | Aktiverar MongoDB API 3,2 | Microsoft. Azure. Cosmos. emulator. exe/EnableMongoDbEndpoint = 3,2 | |
-| EnableMongoDbEndpoint = 3.6 | Aktiverar MongoDB API 3,6 | Microsoft. Azure. Cosmos. emulator. exe/EnableMongoDbEndpoint = 3.6 | |
-| MongoPort | Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255. |Microsoft. Azure. Cosmos. emulator. exe/MongoPort = \< MongoPort\>|\<mongoport\>: Enskilt portnumber|
-| EnableCassandraEndpoint | Aktiverar API för Cassandra | Microsoft. Azure. Cosmos. emulator. exe/EnableCassandraEndpoint | |
-| CassandraPort | Anger det port nummer som ska användas för Cassandra-slutpunkten. Standardvärdet är 10350. | Microsoft. Azure. Cosmos. emulator. exe/CassandraPort = \< CassandraPort\> | \<cassandraport \> : enstaka port nummer |
-| EnableGremlinEndpoint | Aktiverar Gremlin-API | Microsoft. Azure. Cosmos. emulator. exe/EnableGremlinEndpoint | |
-| GremlinPort | Port nummer som ska användas för Gremlin-slutpunkten. Standardvärdet är 8901. | Microsoft. Azure. Cosmos. emulator. exe/GremlinPort = \< port\> | \<port\>: Enskilt portnummer |
-|EnableTableEndpoint | Aktiverar Azure Tabell-API | Microsoft. Azure. Cosmos. emulator. exe/EnableTableEndpoint | |
-|TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | Microsoft. Azure. Cosmos. emulator. exe/TablePort = \< port\> | \<port\>: Enskilt portnummer|
-| KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | Microsoft. Azure. Cosmos. emulator. exe/KeyFile = \< file_name\> | \<file_name \> : sökvägen till filen |
-| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | Microsoft. Azure. Cosmos. emulator. exe/ResetDataPath = \< sökväg> | \<sökväg \> : fil Sök väg  |
-| StartTraces  |  Börja samla in fel söknings spårnings loggar med LOGMAN. | Microsoft. Azure. Cosmos. emulator. exe/StartTraces | |
-| StopTraces     | Stoppa insamling av fel söknings spårnings loggar med LOGMAN. | Microsoft. Azure. Cosmos. emulator. exe/StopTraces  | |
-| StartWprTraces  |  Börja samla in fel söknings spårnings loggar med Windows Performance inspelnings verktyg. | Microsoft. Azure. Cosmos. emulator. exe/StartWprTraces | |
-| StopWprTraces     | Avbryt insamlingen av fel söknings spårnings loggar med Windows Performance inspelnings verktyg. | Microsoft. Azure. Cosmos. emulator. exe/StopWprTraces  | |
-|FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft. Azure. Cosmos. emulator. exe/FailOnSslCertificateNameMismatch  | |
-| GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft. Azure. Cosmos. emulator. exe/GenCert = \< DNS-Names\> |\<DNS-namn \> : valfri kommaavgränsad lista över ytterligare DNS-namn  |
-| DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft. Azure. Cosmos. emulator. exe/DirectPorts: \< DirectPorts\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft. Azure. Cosmos. emulator. exe/Key: \< nyckel\> | \<key\>: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor|
-| EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft. Azure. Cosmos. emulator. exe/EnableRateLimiting | |
-| DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft. Azure. Cosmos. emulator. exe/DisableRateLimiting | |
-| NoUI | Visa inte emulatorns användargränssnitt. | Microsoft. Azure. Cosmos. emulator. exe/NoUI | |
-| NoExplorer | Visa inte datautforskaren vid start. |Microsoft. Azure. Cosmos. emulator. exe/NoExplorer | | 
-| PartitionCount | Anger det högsta antalet partitionerade behållare. Mer information finns i [ändra antalet behållare](#set-partitioncount) . | Microsoft. Azure. Cosmos. emulator. exe/PartitionCount = \< PartitionCount\> | \<partitioncount \> : maximalt antal tillåtna behållare för enskilda partitioner. Standardvärdet är 25. Maxvärdet är 250 GB.|
-| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | Microsoft. Azure. Cosmos. emulator. exe/DefaultPartitionCount = \< DefaultPartitionCount\> | \<\>standardvärdet för defaultpartitioncount är 25.|
-| AllowNetworkAccess | Ger åtkomst till emulatorn över ett nätverk. Du måste även skicka /Key=\<key_string\> eller /KeyFile=\<file_name\> för att aktivera nätverksåtkomst. | Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/Key = \< key_string \> eller Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/KeyFile = \< file_name\>| |
-| NoFirewall | Ändra inte brand Väggs regler när alternativet/AllowNetworkAccess används. |Microsoft. Azure. Cosmos. emulator. exe/NoFirewall | |
-| GenKeyFile | Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile. | Microsoft. Azure. Cosmos. emulator. exe/GenKeyFile = \< sökväg till nyckel fil\> | |
-| Konsekvens | Ställ in konsekvensnivå för kontot. | Microsoft. Azure. Cosmos. emulator. exe/Consistency = \< konsekvens\> | \<consistency\>: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): session, stark, eventuell eller BoundedStaleness. Standardvärdet är Session. |
+|[Inga argument] | Startar Azure Cosmos-emulatorn med standardinställningar. |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[Hjälp] |Visar en lista över kommandoradsargument som stöds.|Microsoft.Azure.Cosmos.Emulator.exe/? | |
+| GetStatus |Hämtar status för Azure Cosmos-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras. | Microsoft.Azure.Cosmos.Emulator.exe/GetStatus| |
+| Avstängning| Stänger av Azure Cosmos-emulatorn.| Microsoft.Azure.Cosmos.Emulator.exe/shutdown | |
+|DataPath | Anger den sökväg där du kan lagra filer. Standardvärdet är%LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe/DataPath =\<datapath\> | \<datapath\>: En tillgänglig sökväg |
+|Port | Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081. |Microsoft.Azure.Cosmos.Emulator.exe/port =\<port\> | \<port\>: Enstaka port nummer |
+| ComputePort | Angett det port nummer som ska användas för tjänsten Compute interop Gateway. Gatewayens HTTP-slutpunkt avsöknings port beräknas som ComputePort + 79. Därför måste ComputePort och ComputePort + 79 vara öppna och tillgängliga. Standardvärdet är 8900. | Microsoft.Azure.Cosmos.Emulator.exe/ComputePort =\<computeport\> | \<computeport\>: Enstaka port nummer |
+| EnableMongoDbEndpoint = 3,2 | Aktiverar MongoDB API 3,2 | Microsoft.Azure.Cosmos.Emulator.exe/EnableMongoDbEndpoint = 3.2 | |
+| EnableMongoDbEndpoint = 3.6 | Aktiverar MongoDB API 3,6 | Microsoft.Azure.Cosmos.Emulator.exe/EnableMongoDbEndpoint = 3.6 | |
+| MongoPort | Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255. |Microsoft.Azure.Cosmos.Emulator.exe/MongoPort =\<mongoport\>|\<mongoport\>: Enstaka port nummer|
+| EnableCassandraEndpoint | Aktiverar API för Cassandra | Microsoft.Azure.Cosmos.Emulator.exe/EnableCassandraEndpoint | |
+| CassandraPort | Anger det port nummer som ska användas för Cassandra-slutpunkten. Standardvärdet är 10350. | Microsoft.Azure.Cosmos.Emulator.exe/CassandraPort =\<cassandraport\> | \<cassandraport\>: Enstaka port nummer |
+| EnableGremlinEndpoint | Aktiverar Gremlin-API | Microsoft.Azure.Cosmos.Emulator.exe/EnableGremlinEndpoint | |
+| GremlinPort | Port nummer som ska användas för Gremlin-slutpunkten. Standardvärdet är 8901. | Microsoft.Azure.Cosmos.Emulator.exe/GremlinPort =\<port\> | \<port\>: Enstaka port nummer |
+|EnableTableEndpoint | Aktiverar Azure Tabell-API | Microsoft.Azure.Cosmos.Emulator.exe/EnableTableEndpoint | |
+|TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | Microsoft.Azure.Cosmos.Emulator.exe/TablePort =\<port\> | \<port\>: Enstaka port nummer|
+| KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | Microsoft.Azure.Cosmos.Emulator.exe/KeyFile =\<file_name\> | \<file_name\>: Sökväg till filen |
+| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | Microsoft.Azure.Cosmos.Emulator.exe/ResetDataPath =\<path> | \<path\>: Fil Sök väg  |
+| StartTraces  |  Börja samla in fel söknings spårnings loggar med LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe/StartTraces | |
+| StopTraces     | Stoppa insamling av fel söknings spårnings loggar med LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe/StopTraces  | |
+| StartWprTraces  |  Börja samla in fel söknings spårnings loggar med Windows Performance inspelnings verktyg. | Microsoft.Azure.Cosmos.Emulator.exe/StartWprTraces | |
+| StopWprTraces     | Avbryt insamlingen av fel söknings spårnings loggar med Windows Performance inspelnings verktyg. | Microsoft.Azure.Cosmos.Emulator.exe/StopWprTraces  | |
+|FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
+| GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
+| DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
+| DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
+| NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
+| NoExplorer | Visa inte datautforskaren vid start. |Microsoft.Azure.Cosmos.Emulator.exe/NoExplorer | | 
+| PartitionCount | Anger det högsta antalet partitionerade behållare. Mer information finns i [ändra antalet behållare](#set-partitioncount) . | Microsoft.Azure.Cosmos.Emulator.exe/PartitionCount =\<partitioncount\> | \<partitioncount\>: Maximalt antal tillåtna behållare för enskilda partitioner. Standardvärdet är 25. Maxvärdet är 250 GB.|
+| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | Microsoft.Azure.Cosmos.Emulator.exe/DefaultPartitionCount =\<defaultpartitioncount\> | \<defaultpartitioncount\>Standardvärdet är 25.|
+| AllowNetworkAccess | Ger åtkomst till emulatorn över ett nätverk. Du måste också skicka/Key = \<key_string\> eller/KeyFile = \<file_name\> för att aktivera nätverks åtkomst. | Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/Key = \<key_string\> eller Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
+| NoFirewall | Ändra inte brand Väggs regler när alternativet/AllowNetworkAccess används. |Microsoft.Azure.Cosmos.Emulator.exe/NoFirewall | |
+| GenKeyFile | Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe/GenKeyFile =\<path to key file\> | |
+| Konsekvens | Ställ in konsekvensnivå för kontot. | Microsoft.Azure.Cosmos.Emulator.exe/Consistency =\<consistency\> | \<consistency\>: Värdet måste vara någon av följande [konsekvens nivåer](consistency-levels.md): session, Strong, eventuell eller BoundedStaleness. Standardvärdet är Session. |
 | ? | Visa hjälpmeddelandet.| | |
 
 ## <a name="change-the-number-of-containers"></a><a id="set-partitioncount"></a>Ändra antalet behållare
@@ -482,7 +482,7 @@ Använd följande steg om du arbetar med Mac:
 
 1. Öppna snabb menyn för det specifika objektet, Välj *Hämta objekt* och under *förtroende*  >  *när du använder det här certifikat* alternativet väljer du *alltid förtroende*. 
 
-   ![Öppna snabb menyn för det specifika objektet, välj Hämta objekt och under förtroende – när du använder det här certifikat alternativet väljer du alltid förtroende](./media/local-emulator/mac-trust-certificate.png)
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Öppna snabb menyn för det specifika objektet, välj Hämta objekt och under förtroende – när du använder det här certifikat alternativet väljer du alltid förtroende":::
 
 Efter följande åtgärder kommer din miljö att lita på certifikatet som används av emulatorn vid anslutning till IP-adressen som exponeras av `/AllowNetworkAccess` .
 

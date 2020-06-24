@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475834"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733950"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -22,13 +22,13 @@ För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS
 
 Den här självstudien visar hur du konfigurerar LDAPs för en Azure AD DS-hanterad domän.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett digitalt certifikat för användning med Azure AD DS
 > * Aktivera säker LDAP för Azure AD DS
 > * Konfigurera säker LDAP för användning över det offentliga Internet
-> * Bind och testa säker LDAP för en Azure AD DS-hanterad domän
+> * Bind och testa säker LDAP för en hanterad domän
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -41,21 +41,21 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
-* Verktyget *Ldp. exe* installerat på datorn.
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
+* Verktyget *LDP.exe* installerat på datorn.
     * Om det behövs [installerar du verktyg för fjärrserveradministration (RSAT)][rsat] för *Active Directory Domain Services och LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-I den här självstudien konfigurerar du säker LDAP för den hanterade Azure AD DS-domänen med hjälp av Azure Portal. Börja med att logga in på [Azure Portal](https://portal.azure.com)för att komma igång.
+I den här självstudien konfigurerar du säker LDAP för den hanterade domänen med hjälp av Azure Portal. Börja med att logga in på [Azure Portal](https://portal.azure.com)för att komma igång.
 
 ## <a name="create-a-certificate-for-secure-ldap"></a>Skapa ett certifikat för säker LDAP
 
-Om du vill använda säker LDAP används ett digitalt certifikat för att kryptera kommunikationen. Det här digitala certifikatet används för din Azure AD DS-hanterade domän och gör att verktyg som *Ldp. exe* använder säker krypterad kommunikation vid frågor mot data. Det finns två sätt att skapa ett certifikat för säker LDAP-åtkomst till den hanterade domänen:
+Om du vill använda säker LDAP används ett digitalt certifikat för att kryptera kommunikationen. Det här digitala certifikatet tillämpas på din hanterade domän, och du kan använda verktyg som *LDP.exe* använda säker krypterad kommunikation vid frågor mot data. Det finns två sätt att skapa ett certifikat för säker LDAP-åtkomst till den hanterade domänen:
 
 * Ett certifikat från en offentlig certifikat utfärdare (CA) eller en företags certifikat utfärdare.
     * Om din organisation hämtar certifikat från en offentlig certifikat utfärdare hämtar du det säkra LDAP-certifikatet från den offentliga certifikat utfärdaren. Om du använder en företags certifikat utfärdare i din organisation hämtar du det säkra LDAP-certifikatet från företags certifikat utfärdaren.
-    * En offentlig certifikat utfärdare fungerar bara när du använder ett anpassat DNS-namn med din Azure AD DS-hanterade domän. Om DNS-domännamnet för den hanterade domänen slutar på *. onmicrosoft.com*kan du inte skapa ett digitalt certifikat för att skydda anslutningen till den här standard domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat. I det här scenariot skapar du ett självsignerat certifikat och använder det för att konfigurera säker LDAP.
+    * En offentlig certifikat utfärdare fungerar bara när du använder ett anpassat DNS-namn med din hanterade domän. Om DNS-domännamnet för den hanterade domänen slutar på *. onmicrosoft.com*kan du inte skapa ett digitalt certifikat för att skydda anslutningen till den här standard domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat. I det här scenariot skapar du ett självsignerat certifikat och använder det för att konfigurera säker LDAP.
 * Ett självsignerat certifikat som du själv skapar.
     * Den här metoden är bra för test ändamål och är vad den här självstudien visar.
 
@@ -71,7 +71,7 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 Det finns flera tillgängliga verktyg för att skapa ett självsignerat certifikat, till exempel OpenSSL, knapp verktyg, MakeCert, [New-SelfSignedCertificate-][New-SelfSignedCertificate] cmdlet osv. I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aaddscontoso.com*:
 
 ```powershell
-# Define your own DNS name used by your Azure AD DS managed domain
+# Define your own DNS name used by your managed domain
 $dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
@@ -101,20 +101,20 @@ Thumbprint                                Subject
 
 Om du vill använda säker LDAP krypteras nätverks trafiken med PKI (Public Key Infrastructure).
 
-* En **privat** nyckel tillämpas på den hanterade domänen för Azure AD DS.
-    * Den privata nyckeln används för att *dekryptera* den säkra LDAP-trafiken. Den privata nyckeln bör endast tillämpas på den hanterade domänen i Azure AD DS och inte distribueras till klient datorer i stor utsträckning.
+* En **privat** nyckel tillämpas på den hanterade domänen.
+    * Den privata nyckeln används för att *dekryptera* den säkra LDAP-trafiken. Den privata nyckeln bör endast tillämpas på den hanterade domänen och inte distribueras till klient datorer.
     * Ett certifikat som innehåller den privata nyckeln använder *. PFX* -filformat.
 * En **offentlig** nyckel tillämpas på klient datorerna.
     * Den här offentliga nyckeln används för att *kryptera* den säkra LDAP-trafiken. Den offentliga nyckeln kan distribueras till klient datorer.
     * Certifikat utan privat nyckel använder *. CER* -filformat.
 
-Dessa två nycklar, *privata* och *offentliga* nycklar, ser till att endast lämpliga datorer kan kommunicera med varandra. Om du använder en offentlig certifikat utfärdare eller en företags certifikat utfärdare, utfärdas ett certifikat som innehåller den privata nyckeln och kan tillämpas på en hanterad Azure AD DS-domän. Den offentliga nyckeln bör redan vara känd och betrodd av klient datorerna. I den här självstudien har du skapat ett självsignerat certifikat med den privata nyckeln, så du måste exportera lämpliga privata och offentliga komponenter.
+Dessa två nycklar, *privata* och *offentliga* nycklar, ser till att endast lämpliga datorer kan kommunicera med varandra. Om du använder en offentlig certifikat utfärdare eller en företags certifikat utfärdare, utfärdas ett certifikat som innehåller den privata nyckeln och kan tillämpas på en hanterad domän. Den offentliga nyckeln bör redan vara känd och betrodd av klient datorerna. I den här självstudien har du skapat ett självsignerat certifikat med den privata nyckeln, så du måste exportera lämpliga privata och offentliga komponenter.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exportera ett certifikat för Azure AD DS
 
-Innan du kan använda det digitala certifikatet som skapades i föregående steg med din Azure AD DS-hanterade domän, exporterar du certifikatet till en *. PFX* -certifikatfil som innehåller den privata nyckeln.
+Innan du kan använda det digitala certifikatet som skapades i föregående steg med din hanterade domän, exportera certifikatet till en *. PFX* -certifikatfil som innehåller den privata nyckeln.
 
-1. Öppna dialog rutan *Kör* genom att välja **Windows** + **R** -nycklar.
+1. Öppna dialog rutan *Kör* genom att välja **Windows**  +  **R** -nycklar.
 1. Öppna Microsoft Management Console (MMC) genom att ange **MMC** i dialog rutan *Kör* och välj sedan **OK**.
 1. I rutan **User Account Control** väljer du **Ja** för att starta MMC som administratör.
 1. I menyn **Arkiv** väljer du **Lägg till/ta bort snapin-modul...**
@@ -133,7 +133,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 1. Den privata nyckeln för certifikatet måste exporteras. Om den privata nyckeln inte ingår i det exporterade certifikatet, så Miss lyckas åtgärden att aktivera säker LDAP för din hanterade domän.
 
     På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**och väljer sedan **Nästa**.
-1. Azure AD DS Managed Domains stöder bara *. *Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
+1. Hanterade domäner stöder bara *. *Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
 
     På sidan **fil format för export** väljer du **personal information Exchange – PKCS #12 (. PFX)** som fil format för det exporterade certifikatet. Markera kryss rutan för att *Inkludera alla certifikat i certifierings Sök vägen om möjligt*:
 
@@ -141,7 +141,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
 1. Eftersom det här certifikatet används för att dekryptera data bör du kontrol lera åtkomsten noggrant. Ett lösen ord kan användas för att skydda användningen av certifikatet. Utan rätt lösen ord kan certifikatet inte tillämpas på en tjänst.
 
-    På sidan **säkerhet** väljer du alternativet för **lösen ord** för att skydda *. PFX* -certifikatfil. Ange och bekräfta ett lösen ord och välj sedan **Nästa**. Det här lösen ordet används i nästa avsnitt för att aktivera säker LDAP för din Azure AD DS-hanterade domän.
+    På sidan **säkerhet** väljer du alternativet för **lösen ord** för att skydda *. PFX* -certifikatfil. Ange och bekräfta ett lösen ord och välj sedan **Nästa**. Det här lösen ordet används i nästa avsnitt för att aktivera säker LDAP för din hanterade domän.
 1. På sidan **fil som ska exporteras** anger du det fil namn och den plats där du vill exportera certifikatet, till exempel *C:\Users\accountname\azure-AD-DS.pfx*. Anteckna lösen ordet och platsen för *. PFX* -fil som denna information krävs i nästa steg.
 1. På sidan Granska väljer du **Slutför** för att exportera certifikatet till en *. PFX* -certifikatfil. En bekräftelse dialog ruta visas när certifikatet har exporter ATS.
 1. Lämna MMC öppet för användning i följande avsnitt.
@@ -160,7 +160,7 @@ Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certi
 1. På sidan **fil som ska exporteras** anger du det fil namn och den plats där du vill exportera certifikatet, till exempel *C:\Users\accountname\azure-AD-DS-client.cer*.
 1. På sidan Granska väljer du **Slutför** för att exportera certifikatet till en *. CER* -certifikatfil. En bekräftelse dialog ruta visas när certifikatet har exporter ATS.
 
-*. CER* -certifikatfil kan nu distribueras till klient datorer som behöver lita på säker LDAP-anslutning till den hanterade Azure AD DS-domänen. Nu ska vi installera certifikatet på den lokala datorn.
+*. CER* -certifikatfil kan nu distribueras till klient datorer som behöver lita på säker LDAP-anslutning till den hanterade domänen. Nu ska vi installera certifikatet på den lokala datorn.
 
 1. Öppna Utforskaren och bläddra till den plats där du sparade filen *. CER* -certifikatfil, till exempel *C:\Users\accountname\azure-AD-DS-client.cer*.
 1. Högerklicka på *. CER* -certifikatfil och välj sedan **Installera certifikat**.
@@ -174,7 +174,7 @@ Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certi
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Aktivera säker LDAP för Azure AD DS
 
-Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den privata nyckeln, och klient datorn är inställd på att lita på anslutningen, aktiverar du nu säker LDAP på den hanterade domänen i Azure AD DS. Utför följande konfigurations steg för att aktivera säker LDAP på en Azure AD DS-hanterad domän:
+Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den privata nyckeln, och klient datorn är inställd på att lita på anslutningen, aktiverar du nu säker LDAP på din hanterade domän. Utför följande konfigurations steg för att aktivera säker LDAP på en hanterad domän:
 
 1. I [Azure Portal](https://portal.azure.com)anger du *domän tjänster* i rutan **Sök resurser** . Välj **Azure AD Domain Services** från Sök resultatet.
 1. Välj din hanterade domän, till exempel *aaddscontoso.com*.
@@ -191,7 +191,7 @@ Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den
 1. Ange **lösen ordet för att dekryptera. PFX-fil** anges i föregående steg när certifikatet exporterades till en *. PFX* -fil.
 1. Välj **Spara** för att aktivera säker LDAP.
 
-    ![Aktivera säker LDAP för en Azure AD DS-hanterad domän i Azure Portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Aktivera säker LDAP för en hanterad domän i Azure Portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 Ett meddelande visas om att säker LDAP konfigureras för den hanterade domänen. Du kan inte ändra andra inställningar för den hanterade domänen förrän åtgärden har slutförts.
 
@@ -199,16 +199,16 @@ Det tar några minuter att aktivera säker LDAP för din hanterade domän. Om de
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Lås säker LDAP-åtkomst via Internet
 
-När du aktiverar säker LDAP-åtkomst över Internet till din Azure AD DS-hanterade domän, skapas ett säkerhetshot. Den hanterade domänen kan kommas åt från Internet på TCP-port 636. Vi rekommenderar att du begränsar åtkomsten till den hanterade domänen till vissa kända IP-adresser för din miljö. En regel för nätverks säkerhets grupper i Azure kan användas för att begränsa åtkomsten till säker LDAP.
+När du aktiverar säker LDAP-åtkomst över Internet till din hanterade domän, skapas ett säkerhetshot. Den hanterade domänen kan kommas åt från Internet på TCP-port 636. Vi rekommenderar att du begränsar åtkomsten till den hanterade domänen till vissa kända IP-adresser för din miljö. En regel för nätverks säkerhets grupper i Azure kan användas för att begränsa åtkomsten till säker LDAP.
 
-Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via TCP-port 636 från en angiven uppsättning IP-adresser. En standard regel för *denyall* med lägre prioritet gäller för all annan inkommande trafik från Internet, så bara de angivna adresserna kan nå din Azure AD DS-hanterade domän med hjälp av säker LDAP.
+Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via TCP-port 636 från en angiven uppsättning IP-adresser. En standard regel för *denyall* med lägre prioritet gäller för all annan inkommande trafik från Internet, så bara de angivna adresserna kan nå din hanterade domän med hjälp av säker LDAP.
 
 1. I Azure Portal väljer du *resurs grupper* i navigeringen till vänster.
 1. Välj resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
-    | Inställning                           | Värde        |
+    | Inställningen                           | Värde        |
     |-----------------------------------|--------------|
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
@@ -216,7 +216,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     | Mål                       | Alla          |
     | Målportintervall           | 636          |
     | Protokoll                          | TCP          |
-    | Action                            | Tillåt        |
+    | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
     | Name                              | AllowLDAPS   |
 
@@ -226,9 +226,9 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 
 ## <a name="configure-dns-zone-for-external-access"></a>Konfigurera DNS-zon för extern åtkomst
 
-Med säker LDAP-åtkomst aktive rad via Internet uppdaterar du DNS-zonen så att klient datorerna kan hitta den här hanterade domänen. Den *säkert LDAP externa IP-adressen* visas på fliken **Egenskaper** för din Azure AD DS-hanterade domän:
+Med säker LDAP-åtkomst aktive rad via Internet uppdaterar du DNS-zonen så att klient datorerna kan hitta den här hanterade domänen. Den *säkert LDAP externa IP-adressen* visas på fliken **Egenskaper** för din hanterade domän:
 
-![Visa den externa skyddade LDAP-IP-adressen för din Azure AD DS-hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![Visa den skyddade LDAP-externa IP-adressen för din hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
 Konfigurera den externa DNS-providern för att skapa en värd post, till exempel *LDAPS*, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
 
@@ -240,27 +240,27 @@ I följande exempel DNS-post, antingen med den externa DNS-providern eller i den
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testa frågor till den hanterade domänen
 
-Om du vill ansluta och binda till din Azure AD DS-hanterade domän och söka via LDAP använder du verktyget *Ldp. exe* . Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
+Om du vill ansluta och binda till din hanterade domän och söka via LDAP använder du *LDP.exe* -verktyget. Det här verktyget ingår i verktyg för fjärrserveradministration-paketet (RSAT). Mer information finns i [installera verktyg för fjärrserveradministration][rsat].
 
-1. Öppna *Ldp. exe* och Anslut till den hanterade domänen. Välj **anslutning**, välj sedan **Anslut...**.
+1. Öppna *LDP.exe* och Anslut till den hanterade domänen. Välj **anslutning**, välj sedan **Anslut...**.
 1. Ange det säkra LDAP DNS-domännamnet för din hanterade domän som skapats i föregående steg, till exempel *LDAPS.aaddscontoso.com*. Om du vill använda säker LDAP ställer du in **port** på *636*och markerar sedan kryss rutan för **SSL**.
 1. Välj **OK** för att ansluta till den hanterade domänen.
 
-Bind sedan till din Azure AD DS-hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM Password hash-synkronisering på Azure AD DS-instansen. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din Azure AD DS-hanterade domän][secure-domain].
+Bind sedan till din hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM-lösenord för hash-synkronisering på din hanterade domän. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din hanterade domän][secure-domain].
 
 1. Välj meny alternativet **anslutning** och välj sedan **BIND...**.
 1. Ange autentiseringsuppgifterna för ett användar konto som hör till *Administratörs* gruppen för AAD-domänkontrollant, till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *aaddscontoso.com*.
 1. För **bindnings typ**väljer du alternativet för *BIND med autentiseringsuppgifter*.
-1. Välj **OK** för att binda till din Azure AD DS-hanterade domän.
+1. Välj **OK** för att binda till din hanterade domän.
 
-För att se de objekt som lagras i din Azure AD DS-hanterade domän:
+För att se de objekt som lagras i din hanterade domän:
 
 1. Välj meny alternativet **Visa** och välj sedan **träd**.
 1. Lämna fältet *baserat* tomt och välj sedan **OK**.
 1. Välj en behållare, till exempel *AADDC-användare*, högerklicka på behållaren och välj **Sök**.
 1. Lämna de förifyllda fälten inställda och välj sedan **Kör**. Resultatet av frågan visas i den högra rutan, som du ser i följande exempel på utdata:
 
-    ![Sök efter objekt i din Azure AD DS-hanterade domän med hjälp av LDP. exe](./media/tutorial-configure-ldaps/ldp-query.png)
+    ![Sök efter objekt i din hanterade domän med hjälp av LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 Om du vill fråga efter en speciell behållare direkt från **trädvyn > träd** -menyn kan du ange en **baserad** , till exempel *OU = AADDC-användare, DC = AADDSCONTOSO, DC = com* eller *OU = AADDC Computers, DC = AADDSCONTOSO, DC = com*. Mer information om hur du formaterar och skapar frågor finns i [grunderna för LDAP-frågor][ldap-query-basics].
 
@@ -280,7 +280,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa ett digitalt certifikat för användning med Azure AD DS
 > * Aktivera säker LDAP för Azure AD DS
 > * Konfigurera säker LDAP för användning över det offentliga Internet
-> * Bind och testa säker LDAP för en Azure AD DS-hanterad domän
+> * Bind och testa säker LDAP för en hanterad domän
 
 > [!div class="nextstepaction"]
 > [Konfigurera hash-synkronisering av lösen ord för en hybrid Azure AD-miljö](tutorial-configure-password-hash-sync.md)

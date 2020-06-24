@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: ce3b3839319de38020b968ff8db1ee6713b29c47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269980"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261451"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
 
@@ -27,7 +27,7 @@ I den här självstudien används Postman och [Sök REST-API: er](https://docs.m
 > * Konfigurera och kör en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure Blob Storage
 > * Söka i indexet som du precis skapade
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="download-files"></a>Hämta filer
 
-[Clinical-Trials-JSON. zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Ladda ned och zippa upp den här filen till en egen mapp. Data härstammar från [ClinicalTrials.gov](https://clinicaltrials.gov/ct2/results), konverteras till JSON för den här självstudien.
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Ladda ned och zippa upp den här filen till en egen mapp. Data härstammar från [ClinicalTrials.gov](https://clinicaltrials.gov/ct2/results), konverteras till JSON för den här självstudien.
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
@@ -96,7 +96,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -108,17 +108,17 @@ Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det hä
 
 Metoderna för begäran för varje anrop i den här självstudien är **post** och **Get**. Du gör tre API-anrop till din Sök tjänst för att skapa en data källa, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
-I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` Admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
+I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
   ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
-URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2019-05-06`.
+URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2019-05-06` .
 
 ## <a name="3---create-a-data-source"></a>3-skapa en data Källa
 
 Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
 
-1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten. 
+1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/datasources?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten. 
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -161,7 +161,7 @@ Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/
     
 Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
-1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/indexes?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -236,7 +236,7 @@ Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/sear
 
 En indexerare ansluter till data källan, importerar data till mål Sök indexet och tillhandahåller eventuellt ett schema för att automatisera data uppdateringen. REST API är [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Ange URI för det här anropet `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange URI för det här anropet `https://[service name].search.windows.net/indexers?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -281,7 +281,7 @@ Du kan börja söka så snart det första dokumentet har lästs in.
 
 1. Ändra verbet som ska **hämtas**.
 
-1. Ange URI för det här anropet `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange URI för det här anropet `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Skicka begäran. Det här är en ospecificerad text Sök fråga som returnerar alla fält som är markerade som hämtnings bara i indexet, tillsammans med ett dokument antal. Svaret ska se ut så här:
 
@@ -313,11 +313,11 @@ Du kan börja söka så snart det första dokumentet har lästs in.
             . . . 
     ```
 
-1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
+1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true` .  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
 
    ![Parametriserad fråga](media/search-semi-structured-data/lastquery.png "Paramterized-fråga")
 
-1. Ett exempel på en mer komplex fråga skulle `$filter=MinimumAge ge 30 and MaximumAge lt 75`innehålla, som endast returnerar resultat där parametrarna minimum är större än eller lika med 30 och Max värdet är mindre än 75. Ersätt `$select` uttrycket med `$filter` uttrycket.
+1. Ett exempel på en mer komplex fråga skulle innehålla `$filter=MinimumAge ge 30 and MaximumAge lt 75` , som endast returnerar resultat där parametrarna minimum är större än eller lika med 30 och Max värdet är mindre än 75. Ersätt `$select` uttrycket med `$filter` uttrycket.
 
    ![Halvstrukturerad sökning](media/search-semi-structured-data/metadatashort.png)
 

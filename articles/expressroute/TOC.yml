@@ -54,8 +54,12 @@
       href: expressroute-global-reach.md
     - name: Om ExpressRoute-kryptering
       href: expressroute-about-encryption.md
-    - name: Säkerhetskontroller
-      href: expressroute-security-controls.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
+        - name: Säkerhetsattribut
+          href: expressroute-security-controls.md
     - name: Om virtuella nätverksgatewayer
       href: expressroute-about-virtual-network-gateways.md
     - name: Ansluta Azure till ett offentligt moln
@@ -210,7 +214,7 @@
 - name: Referens
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#expressroute'
+      href: /powershell/module/az.network#expressroute
     - name: Azure CLI
       href: /cli/azure/network/express-route
     - name: REST

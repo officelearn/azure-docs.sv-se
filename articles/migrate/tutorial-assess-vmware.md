@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella VMware-datorer för migr
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331890"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771316"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Utvärdera virtuella VMware-datorer med Server Assessment
 
@@ -29,12 +29,12 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
     - [Förbered Azure](tutorial-prepare-vmware.md#prepare-azure) för att arbeta med Azure Migrate.
-    - [Förbered VMware för utvärdering](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) av utvärdering. Detta innefattar att kontrol lera VMware-inställningar, konfigurera ett konto som Azure Migrate kan använda för att få åtkomst till vCenter Server.
+    - [Förbered VMware för utvärdering](tutorial-prepare-vmware.md#prepare-for-assessment) av utvärdering. Detta innefattar att kontrol lera VMware-inställningar, konfigurera ett konto som Azure Migrate kan använda för att få åtkomst till vCenter Server.
     - [Kontrol lera](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) vad du behöver för att kunna distribuera Azure Migrate-installationen för VMware-utvärdering.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
@@ -99,7 +99,7 @@ Kontrol lera att ägg filen är säker innan du distribuerar den:
         --- | --- | ---
         VMware (10,9 GB) | [Senaste version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - För Azure-goverment:
+    - För Azure Government:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
@@ -170,7 +170,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server-instansen. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
 2. I **användar namn** och **lösen ord**anger du vCenter Server kontoautentiseringsuppgifter som installeras av installations programmet för att identifiera virtuella datorer på vCenter Server-instansen. 
 
-    - Du bör ha skapat ett konto med de behörigheter som krävs i [föregående självstudie](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Du bör ha skapat ett konto med de behörigheter som krävs i [föregående självstudie](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Om du vill begränsa identifieringen till specifika VMware-objekt (vCenter Server Data Center, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer) läser du anvisningarna i [den här artikeln](set-discovery-scope.md) för att begränsa det konto som används av Azure Migrate.
 
 3. Välj **Verifiera anslutning** för att kontrol lera att enheten kan ansluta till vCenter Server.
@@ -178,7 +178,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 
     - Du kan också lägga till autentiseringsuppgifter här om du har skapat ett konto som ska användas för [program identifierings funktionen](how-to-discover-applications.md)eller [funktionen för beroende analys av agent](how-to-create-group-machine-dependencies-agentless.md).
     - Om du inte använder dessa funktioner kan du hoppa över den här inställningen.
-    - Granska de autentiseringsuppgifter som krävs för [identifiering av appar](migrate-support-matrix-vmware.md#application-discovery), eller för att kunna utföra analyser utan [agent](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Granska de autentiseringsuppgifter som krävs för [identifiering av appar](migrate-support-matrix-vmware.md#application-discovery-requirements), eller för att kunna utföra analyser utan [agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Spara och starta identifiering**för att starta identifiering av virtuella datorer.
 

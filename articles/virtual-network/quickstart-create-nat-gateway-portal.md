@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en NAT-gateway – Azure Portal'
+title: 'Självstudie: skapa en NAT-gateway – Azure Portal'
 titlesuffix: Azure Virtual Network NAT
 description: Den här snabb starten visar hur du skapar en NAT-gateway med hjälp av Azure Portal
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341243"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711416"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Snabb start: skapa en NAT-gateway med hjälp av Azure Portal
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal
 
-Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
+Den här självstudien visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
 
 Om du vill kan du utföra dessa steg med hjälp av [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md)eller distribuera en [arm-mall](quickstart-create-nat-gateway-powershell.md) i stället för portalen.
 
@@ -93,7 +93,7 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 
 2. I **skapa offentlig IP-adress**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
     | SKU | Välj **standard**.

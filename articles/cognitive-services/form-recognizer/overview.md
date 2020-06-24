@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 241d91a8c8670c32461684ed964b6fc0fd7c1672
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529900"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206418"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -47,7 +47,7 @@ Formulär tolken använder [layout-API](#layout-api) för att lära dig de förv
 
 ## <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
 
-Formulär tolken innehåller också en modell för läsning av engelska försäljnings kvitton från&mdash;USA typen som används av restauranger, gas stationer, åter försäljare och så vidare ([exempel kvitto](./media/contoso-receipt-small.png)). Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto.
+Formulär tolken innehåller också en modell för läsning av engelska försäljnings kvitton från USA &mdash; typen som används av restauranger, gas stationer, åter försäljare och så vidare ([exempel kvitto](./media/contoso-receipt-small.png)). Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto.
 
 ## <a name="layout-api"></a>Layout-API
 
@@ -81,7 +81,7 @@ Du använder följande API: er för att träna modeller och extrahera strukturer
 | **Analysera inleverans** |Analysera ett enda kvitto dokument för att extrahera viktig information och annan kvitto text.|
 | **Analysera layout** |Analysera layouten för ett formulär för att extrahera text-och tabell strukturen.|
 
-Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.
+Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.
 
 ## <a name="input-requirements"></a>Krav för indatamängd
 ### <a name="custom-model"></a>Anpassad modell
@@ -100,8 +100,8 @@ Ingångs kraven för kvitto modellen skiljer sig något åt.
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 
-Den här tjänsten erbjuds som en för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) av en Azure-tjänst under [tjänst villkoren online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Precis som med alla kognitiva tjänster bör utvecklare som använder formulär tolknings tjänsten vara medvetna om Microsofts principer för kund information. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
+Precis som med alla kognitiva tjänster bör utvecklare som använder formulär tolknings tjänsten vara medvetna om Microsofts principer för kund information. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .

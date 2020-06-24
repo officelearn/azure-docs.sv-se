@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska s
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901413"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771282"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -17,7 +17,7 @@ Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysis
 
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
-Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -28,7 +28,7 @@ Den här självstudien är den första i en serie som visar hur du bedömer fysi
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för att utvärdera fysiska servrar.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure-for-server-assessment"></a>Förbered Azure för Server-utvärdering
@@ -69,7 +69,7 @@ Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen u
 
 Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande:
 
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användares** > **användar inställningar**.
+1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory**  >  **användares**  >  **användar inställningar**.
 2. Administratören bör ange **Appregistreringar** till **Ja**.
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
@@ -138,7 +138,7 @@ Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen
 
 Azure Migrate behöver behörighet att identifiera lokala servrar.
 
-- **Windows:** Konfigurera ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Användar kontot måste läggas till i följande grupper:-fjärrhantering användare-prestanda övervakare användare-prestanda loggar användare
+- **Windows:** Du måste vara domän administratör eller lokal administratör på alla Windows-servrar som du vill identifiera. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar.
 - **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera.
 
 ## <a name="prepare-for-physical-server-migration"></a>Förbered för migrering av fysiska servrar
@@ -148,12 +148,14 @@ Granska kraven för migrering av fysiska servrar.
 > [!NOTE]
 > När du migrerar fysiska datorer Azure Migrate: Server migrering använder samma replikeringsprincip som agentbaserade haveri beredskap i Azure Site Recovery-tjänsten, och vissa komponenter delar samma kodbas. En del innehåll kan länkas till Site Recovery-dokumentationen.
 
-- [Granska](migrate-support-matrix-physical-migration.md#physical-server-requirements) krav för fysisk server för migrering.
-- Azure Migrate: Server migrering använder en replikeringsfil för fysisk server-migrering:
+1. [Granska](migrate-support-matrix-physical-migration.md#physical-server-requirements) krav för fysisk server för migrering.
+2. Azure Migrate: Server migrering använder en replikeringsfil för fysisk server-migrering:
     - [Granska](migrate-replication-appliance.md#appliance-requirements) distributions kraven för replikeringstjänsten och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
     - Granska de [Azure-URL: er](migrate-appliance.md#url-access) som krävs för att replikeringssystemet ska kunna komma åt offentliga och offentliga moln.
     - Granska [port] (Migrate-Replication-installation. MD # port-Access) åtkomst krav för replikerings enheten.
-
+3. Vissa ändringar krävs på virtuella datorer innan du migrerar dem till Azure.
+    - Det är viktigt att du gör dessa ändringar innan du påbörjar migrering. Om du migrerar den virtuella datorn innan du gör ändringen kanske den virtuella datorn inte startar i Azure.
+    - Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](prepare-for-migration.md#linux-machines) -ändringar du behöver göra.
 
 
 

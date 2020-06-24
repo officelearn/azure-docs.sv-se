@@ -1,17 +1,17 @@
 ---
-title: 'Självstudie: Linux Node. js-app med MongoDB'
-description: Lär dig hur du skaffar en Linux Node. js-app som fungerar i Azure App Service, med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN. js används i självstudien.
+title: 'Självstudie: Linux Node.js app med MongoDB'
+description: Lär dig hur du skaffar en Linux Node.js-app som arbetar i Azure App Service, med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN.js används i självstudien.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3729e0e0831319b42615c11db1ea9ba20f0a0e74
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085352"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207268"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-app i Azure App Service på Linux
 
@@ -23,7 +23,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * skapa en databas med Azure Cosmos DB:s API för MongoDB
@@ -74,7 +74,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 Den här exempellagringsplatsen innehåller en kopia av [MEAN.js-lagringsplatsen](https://github.com/meanjs/mean). Den ändras för att köras på App Service (mer information finns [filen Viktigt](https://github.com/Azure-Samples/meanjs/blob/master/README.md) för MEAN.js-lagringsplatsen).
 
-### <a name="run-the-application"></a>Köra appen
+### <a name="run-the-application"></a>Kör programmet
 
 Kör följande kommandon för att installera de nödvändiga paketen och starta programmet.
 
@@ -120,9 +120,9 @@ I det här steget skapar du ett databaskonto med hjälp av Azure Cosmos DB:s API
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto
 
-Skapa ett Cosmos DB-konto med [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) kommandot i Cloud Shell.
+Skapa ett Cosmos DB-konto med kommandot i Cloud Shell [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) .
 
-I följande kommando ersätter du * \<* ett unikt Cosmos db namn för plats hållaren cosmosdb-Name>. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
+I följande kommando ersätter du ett unikt Cosmos DB namn för *\<cosmosdb-name>* plats hållaren. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -179,7 +179,7 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 
 I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. _.gitignore_ konfigureras för att hålla filen utanför lagringsplatsen.
 
-Kopiera följande kod till den. Se till att ersätta de två * \<cosmosdb-namn>* plats hållarna med ditt Cosmos DB-databasnamn och ersätt plats hållaren * \<primär huvud nyckel>* med den nyckel som du kopierade i föregående steg.
+Kopiera följande kod till den. Se till att ersätta de två *\<cosmosdb-name>* plats hållarna med namnet på Cosmos DB databasen och Ersätt *\<primary-master-key>* plats hållaren med den nyckel som du kopierade i föregående steg.
 
 ```javascript
 module.exports = {
@@ -250,13 +250,13 @@ Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför
 
 Om du vill ange appinställningar använder du [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell.
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt plats hållarna * \<App-Name>*, * \<cosmosdb-Name>* och * \<Primary-Master-Key>* .
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt *\<app-name>* *\<cosmosdb-name>* *\<primary-master-key>* plats hållarna,, och.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-I Node. js-koden kommer du [åt den här appens inställning](configure-language-nodejs.md#access-environment-variables) med `process.env.MONGODB_URI`, precis som du skulle få åtkomst till en miljö variabel.
+I Node.js-kod kommer du [åt den här appens inställning](configure-language-nodejs.md#access-environment-variables) med `process.env.MONGODB_URI` , precis som du skulle få åtkomst till en miljö variabel.
 
 På din lokala MEAN.js-lagringsplats öppnar du _config/env/production.js_ (inte _config/env/local-production.js_), som har en specifik konfiguration för produktion-miljö. MEAN.js-standardappen är redan konfigurerade för att använda `MONGODB_URI`-miljövariabeln du har skapat.
 
@@ -367,7 +367,7 @@ exports.update = function (req, res) {
 
 Strax ovanför den avslutande `</section>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
-```HTML
+```html
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
@@ -375,7 +375,7 @@ Strax ovanför den avslutande `</section>`-taggen lägger du till följande rad 
 
 Strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
-```HTML
+```html
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
@@ -383,7 +383,7 @@ Strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för a
 
 I elementet `<div class="list-group">` och strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
-```HTML
+```html
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
@@ -391,7 +391,7 @@ I elementet `<div class="list-group">` och strax ovanför den avslutande `</a>`-
 
 Leta reda på elementet `<div class="form-group">` som innehåller skickaknappen som ser ut så här:
 
-```HTML
+```html
 <div class="form-group">
   <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
 </div>
@@ -399,7 +399,7 @@ Leta reda på elementet `<div class="form-group">` som innehåller skickaknappen
 
 Precis ovanför taggen lägger du till ytterligare ett `<div class="form-group">`-element som gör att människor kan redigera fältet `comment`. Det nya elementet bör se ut ungefär så här:
 
-```HTML
+```html
 <div class="form-group">
   <label class="control-label" for="comment">Comment</label>
   <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
@@ -444,7 +444,7 @@ Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga d
 
 ## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
@@ -482,4 +482,4 @@ Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassa
 Eller kolla ut andra resurser:
 
 > [!div class="nextstepaction"]
-> [Konfigurera Node. js-app](configure-language-nodejs.md)
+> [Konfigurera Node.js app](configure-language-nodejs.md)

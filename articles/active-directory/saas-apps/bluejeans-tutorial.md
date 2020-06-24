@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 06/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc38f63c5b6361122c236543320b91d22faa70a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01c239c30b24ad110d71c43b31448a0f5b29574b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72595051"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762591"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med BlueJeans för Azure AD
 
@@ -88,10 +87,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<companyname>.bluejeans.com`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<companyname>.bluejeans.com`
+
+    a. I text rutan **identifierare (enhets-ID)** anger du en URL:`http://samlsp.bluejeans.com`
+
+    a. Skriv en URL i textrutan **Svars-URL**: `https://bluejeans.com/sso/saml2/`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BlueJeans för Azure AD client support-teamet](https://support.bluejeans.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BlueJeans för Azure AD client support-teamet](https://support.bluejeans.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+1. BlueJeans-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+
+    ![image](common/default-attributes.png)
+
+1. Utöver ovan förväntar sig BlueJeans-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+
+    | Name |  Källattribut|
+    | ---------| --------- |
+    | Telefon | user.telephonenumber |
+    | rubrik | user.jobtitle |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -109,7 +123,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -137,7 +151,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **ADMIN \>GRUPPINSTÄLLNINGAR \> SÄKERHET**.
 
-    ![Administratör](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![Administratör](./media/bluejeans-tutorial/ic785868.png "Administratör")
 
 3. I avsnittet **SÄKERHET** utför du följande steg:
 
@@ -163,7 +177,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Spara ändringar](./media/bluejeans-tutorial/ic785874.png "Spara ändringar")
 
-    a. Skriv `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`i text rutan **användar-ID** .
+    a. Skriv i text rutan **användar-ID** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` .
 
     b. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -179,7 +193,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 2. Gå till **ADMIN \> HANTERA ANVÄNDARE \> LÄGG TILL ANVÄNDARE**.
 
-    ![Administratör](./media/bluejeans-tutorial/ic785877.png "Admin")
+    ![Administratör](./media/bluejeans-tutorial/ic785877.png "Administratör")
 
     > [!IMPORTANT]
     > Fliken **LÄGG TILL ANVÄNDARE** är endast tillgänglig om **Aktivera automatisk etablering** är avmarkerat på fliken **SÄKERHET**.
@@ -225,7 +239,6 @@ När du klickar på panelen BlueJeans för Azure AD på åtkomst panelen, bör d
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa BlueJeans för Azure AD med Azure AD](https://aad.portal.azure.com/)
-

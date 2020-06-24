@@ -12,14 +12,14 @@ ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 717a9e9d3cc1dec350d0b4ace54687590f741768
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341022"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737299"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med Azure CLI och testa NAT-tjänsten
 
@@ -43,6 +43,7 @@ I följande exempel skapas en resurs grupp med namnet **myResourceGroupNAT** på
   az group create \
     --name myResourceGroupNAT \
     --location eastus2
+    
 ```
 
 ## <a name="create-the-nat-gateway"></a>Skapa NAT-gatewayen
@@ -56,6 +57,7 @@ För att få åtkomst till det offentliga Internet behöver du en eller flera of
   --resource-group myResourceGroupNAT \
   --name myPublicIPsource \
   --sku standard
+  
 ```
 
 ### <a name="create-a-public-ip-prefix"></a>Skapa ett offentligt IP-prefix
@@ -67,6 +69,7 @@ Du kan använda en eller flera offentliga IP-adressresurser, offentliga IP-prefi
   --resource-group myResourceGroupNAT \
   --name myPublicIPprefixsource \
   --length 31
+  
 ```
 
 ### <a name="create-a-nat-gateway-resource"></a>Skapa en NAT-gateway-resurs
@@ -84,6 +87,7 @@ Skapa en global Azure NAT-gateway med [AZ Network NAT gateway Create](https://do
     --public-ip-addresses myPublicIPsource \
     --public-ip-prefixes myPublicIPprefixsource \
     --idle-timeout 10       
+    
   ```
 
 NAT-gatewayen är nu funktionell och allt som saknas är att konfigurera vilka undernät i ett virtuellt nätverk som ska använda det.
@@ -101,11 +105,11 @@ Skapa ett virtuellt nätverk med namnet **myVnetsource** med ett undernät med n
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus2 \
     --name myVnetsource \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetsource \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### <a name="configure-nat-service-for-source-subnet"></a>Konfigurera NAT-tjänst för käll under nät
@@ -118,6 +122,7 @@ Konfigurera käll under nätet **mySubnetsource** i det virtuella nätverket **m
     --vnet-name myVnetsource \
     --name mySubnetsource \
     --nat-gateway myNATgateway
+    
 ```
 
 All utgående trafik till Internet-destinationer använder nu NAT-tjänsten.  Det är inte nödvändigt att konfigurera en UDR.
@@ -135,6 +140,7 @@ Vi skapar en offentlig IP-adress som ska användas för åtkomst till den virtue
     --resource-group myResourceGroupNAT \
     --name myPublicIPsourceVM \
     --sku standard
+    
 ```
 
 ### <a name="create-an-nsg-for-source-vm"></a>Skapa en NSG för den virtuella käll datorn
@@ -145,6 +151,7 @@ Eftersom standard-offentliga IP-adresser är "säkra som standard", måste vi sk
   az network nsg create \
     --resource-group myResourceGroupNAT \
     --name myNSGsource 
+    
 ```
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Exponera SSH-slutpunkt på den virtuella käll datorn
@@ -162,6 +169,7 @@ Vi skapar en regel i NSG för SSH-åtkomst till den virtuella käll datorn. Anv�
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### <a name="create-nic-for-source-vm"></a>Skapa ett nätverkskort för den virtuella käll datorn
@@ -176,6 +184,7 @@ Skapa ett nätverks gränssnitt med [AZ Network NIC Create](/cli/azure/network/n
     --subnet mySubnetsource \
     --public-ip-address myPublicIPSourceVM \
     --network-security-group myNSGsource
+    
 ```
 
 ### <a name="create-a-source-vm"></a>Skapa en virtuell käll dator
@@ -190,6 +199,7 @@ Skapa den virtuella datorn med [AZ VM Create](/cli/azure/vm#az-vm-create).  Vi g
     --image UbuntuLTS \
     --generate-ssh-keys \
     --no-wait
+    
 ```
 
 Kommandot kommer att returneras omedelbart, men det kan ta några minuter innan den virtuella datorn har distribuerats.
@@ -207,11 +217,11 @@ Skapa ett virtuellt nätverk med namnet **myVnetdestination** med ett undernät 
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location westus \
     --name myVnetdestination \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetdestination \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### <a name="create-public-ip-for-destination-vm"></a>Skapa en offentlig IP-adress för den virtuella mål datorn
@@ -222,8 +232,8 @@ Vi skapar en offentlig IP-adress som ska användas för åtkomst till den virtue
   az network public-ip create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPdestinationVM \
-  --sku standard \
-  --location westus
+  --sku standard
+  
 ```
 
 ### <a name="create-an-nsg-for-destination-vm"></a>Skapa en NSG för den virtuella mål datorn
@@ -233,8 +243,8 @@ Standard offentliga IP-adresser är säkra som standard. du måste skapa en NSG 
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
-    --name myNSGdestination \
-    --location westus
+    --name myNSGdestination
+    
 ```
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>Exponera SSH-slutpunkt på den virtuella mål datorn
@@ -252,6 +262,7 @@ Vi skapar en regel i NSG för SSH-åtkomst till den virtuella mål datorn. Anvä
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>Exponera HTTP-slutpunkt på den virtuella mål datorn
@@ -269,6 +280,7 @@ Vi skapar en regel i NSG för HTTP-åtkomst till den virtuella mål datorn. Anv�
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 80
+    
 ```
 
 ### <a name="create-nic-for-destination-vm"></a>Skapa ett nätverkskort för den virtuella mål datorn
@@ -282,8 +294,8 @@ Skapa ett nätverks gränssnitt med [AZ Network NIC Create](/cli/azure/network/n
     --vnet-name myVnetdestination \
     --subnet mySubnetdestination \
     --public-ip-address myPublicIPdestinationVM \
-    --network-security-group myNSGdestination \
-    --location westus
+    --network-security-group myNSGdestination
+    
 ```
 
 ### <a name="create-a-destination-vm"></a>Skapa en virtuell måldator
@@ -297,8 +309,8 @@ Skapa den virtuella datorn med [AZ VM Create](/cli/azure/vm#az-vm-create).  Vi g
     --nics myNicdestination \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait \
-    --location westus
+    --no-wait
+    
 ```
 Kommandot kommer att returneras omedelbart, men det kan ta några minuter innan den virtuella datorn har distribuerats.
 
@@ -312,6 +324,7 @@ Först måste vi identifiera IP-adressen för den virtuella mål datorn.  Använ
     --name myPublicIPdestinationVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -328,16 +341,14 @@ ssh <ip-address-destination>
 Kopiera och klistra in följande kommandon när du har loggat in.  
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get -y install nginx && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt -y install nginx && \
 sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
+
 ```
 
 De här kommandona kommer att uppdatera den virtuella datorn, installera nginx och skapa en 100-KByte-fil. Den här filen kommer att hämtas från den virtuella käll datorn med hjälp av NAT-tjänsten.
@@ -354,6 +365,7 @@ Först måste vi identifiera IP-adressen för den virtuella käll datorn.  Om du
     --name myPublicIPsourceVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -370,12 +382,9 @@ ssh <ip-address-source>
 Kopiera och klistra in följande kommandon för att förbereda för att testa NAT-tjänsten.
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get install -y nload golang && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
 . ~/.bashrc &&
@@ -411,6 +420,7 @@ När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/az
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupNAT
+  
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: fa1ce8516223b725c1efcb7e27d4726bbadfe62e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a5d36ad92299ea079a6d7ba8c7ff924b8c4c42f5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655048"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252482"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Kryptera Azure Data Factory med Kundhanterade nycklar
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory krypterar data i vila, inklusive enhets definitioner, alla data som cachelagras medan körning pågår och cachelagrade data för data förhands granskning. Som standard krypteras data med en slumpmässigt genererad Microsoft-hanterade-nyckel som är unikt kopplad till din data fabrik. För ytterligare säkerhets garantier kan du nu aktivera Bring Your Own Key (BYOK) med kund hanterade nycklar i Azure Data Factory. När du anger en kundhanterad nyckel använder Data Factory __både__ fabriks system nyckeln och CMK för att kryptera kunddata. Antingen skulle det leda till nekad åtkomst till data och fabrik.
+Azure Data Factory krypterar data i vila, inklusive enhets definitioner, alla data som cachelagras medan körning pågår och cachelagrade data för data förhands granskning. Som standard krypteras data med en slumpmässigt genererad Microsoft-hanterad nyckel som är unikt kopplad till din data fabrik. För ytterligare säkerhets garantier kan du nu aktivera Bring Your Own Key (BYOK) med kund hanterade nycklar i Azure Data Factory. När du anger en kundhanterad nyckel använder Data Factory __både__ fabriks system nyckeln och CMK för att kryptera kunddata. Antingen skulle det leda till nekad åtkomst till data och fabrik.
 
 Azure Key Vault krävs för att lagra Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Key Vault och Data Factory måste finnas i samma Azure Active Directory-klient (Azure AD) och i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 

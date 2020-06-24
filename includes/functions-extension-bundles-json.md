@@ -21,7 +21,7 @@ ms.locfileid: "80878261"
 }
 ```
 
-Följande egenskaper är tillgängliga i `extensionBundle`:
+Följande egenskaper är tillgängliga i `extensionBundle` :
 
 | Egenskap | Beskrivning |
 | -------- | ----------- |
@@ -30,4 +30,4 @@ Följande egenskaper är tillgängliga i `extensionBundle`:
 
 Paket versioner ökar som paket i paket ändringen. Huvud versions ändringar sker när paket i paketet ökar med en högre version. Huvud versions ändringar i paketet sammanfaller vanligt vis med en ändring i huvud versionen av Functions-körningen.  
 
-Den aktuella uppsättningen tillägg som installeras av standard paketet räknas upp i [filen Extensions. JSON](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+Den aktuella uppsättningen tillägg som installeras av standard paketet räknas upp i den här [extensions.jsi filen](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

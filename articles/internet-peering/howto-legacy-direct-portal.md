@@ -5,15 +5,15 @@ description: Konvertera en äldre direkt peering till en Azure-resurs med hjälp
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 159e15a6be59991fba574e72dcaf2ed740fb10c2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 496774f034c861131624b552b1acefca9f399ea8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846195"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700271"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Konvertera en äldre direkt peering till en Azure-resurs med hjälp av Azure Portal
 

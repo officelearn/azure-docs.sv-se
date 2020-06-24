@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582988"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732658"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -28,9 +28,9 @@ I den här artikeln beskrivs två sätt att ta över ett DNS-domännamn i en oha
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
 Under processen för adminövertagande kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
 
-* När du utför ett [”internt” administratörsövertagande](#internal-admin-takeover) av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till en annan katalog som du administrerar.
+* När du utför en ["intern" administratörs övertag](#internal-admin-takeover) ande av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till någon annan katalog som du administrerar.
 
-* När du utför ett [”externt” administratörsövertagande](#external-admin-takeover) av en ohanterad Azure-katalog lägger du till DNS-domännamnet på den ohanterade katalogen till din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
+* När du utför en ["extern" administratörs övertag](#external-admin-takeover) ande av en ohanterad Azure-katalog lägger du till DNS-domännamnet för den ohanterade katalogen i din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
 
 ## <a name="internal-admin-takeover"></a>Intern administratörs övertag Ande
 
@@ -38,7 +38,7 @@ Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365
 
 1. Skapa en användar kontext i den ohanterade organisationen genom att registrera dig för Power BI. För enkelhetens skull antar de här stegen den sökvägen.
 
-2. Öppna [Power BI-webbplatsen](https://powerbi.com) och välj **Starta kostnads fritt**. Ange ett användar konto som använder organisationens domän namn. till exempel `admin@fourthcoffee.xyz`. När du har angett i verifierings koden kontrollerar du din e-postadress för bekräftelse koden.
+2. Öppna [Power BI-webbplatsen](https://powerbi.com) och välj **Starta kostnads fritt**. Ange ett användar konto som använder organisationens domän namn. till exempel `admin@fourthcoffee.xyz` . När du har angett i verifierings koden kontrollerar du din e-postadress för bekräftelse koden.
 
 3. I bekräftelse meddelandet från Power BI väljer du **Ja, det är jag**.
 
@@ -57,13 +57,13 @@ När du har slutfört föregående steg är du nu den globala administratören f
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Lägga till domän namnet i en hanterad organisation i Azure AD
 
 1. Öppna [Microsoft 365 administrations Center](https://admin.microsoft.com).
-2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar\@-fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
+2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar- \@ fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
 3. Se till att det nya användar kontot har globala administratörs behörigheter för Azure AD-organisationen.
 4. Öppna fliken **domäner** i Microsoft 365 administrations Center väljer du domän namnet och väljer **ta bort**. 
   
    ![ta bort domän namnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *user\@fourthcoffeexyz.onmicrosoft.com*.
+5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *user \@ fourthcoffeexyz.onmicrosoft.com*.
   
 6. Logga in på [administrations centret för Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är global administratör för Azure AD-organisationen.
   
@@ -72,7 +72,7 @@ När du har slutfört föregående steg är du nu den globala administratören f
    ![domän verifierad som tillagd i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-organisationen måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *\@användarens fourthcoffeexyz.onmicrosoft.com* i stället för *\@User fourthcoffee. xyz*.
+> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-organisationen måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *användarens \@ fourthcoffeexyz.onmicrosoft.com* i stället för *User \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Extern administratörs övertag Ande
 

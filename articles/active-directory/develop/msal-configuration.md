@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a4f98b3c569147699432aa4bdcdd44b0b16b3af
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050381"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297451"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Konfigurations fil för Android Microsoft Authentication Library
 
@@ -30,14 +30,14 @@ I den här artikeln får du hjälp att förstå de olika inställningarna i konf
 
 ### <a name="general-settings"></a>Allmänna inställningar
 
-| Egenskap | Datatyp | Krävs | Anteckningar |
+| Egenskap | Datatyp | Obligatorisk | Kommentarer |
 |-----------|------------|-------------|-------|
-| `client_id` | Sträng | Ja | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Sträng | Ja | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | List\<auktoritets> | Inga | Listan över myndigheter som appen behöver |
-| `authorization_user_agent` | AuthorizationAgent (Enum) | Inga | Möjliga värden: `DEFAULT`, `BROWSER`,`WEBVIEW` |
-| `http` | HttpConfiguration | Inga | Konfigurera `HttpUrlConnection` `connect_timeout` och`read_timeout` |
-| `logging` | LoggingConfiguration | Inga | Anger nivån för loggnings information. Valfria konfigurationer är: `pii_enabled`, som tar ett booleskt `log_level`värde och, som tar `ERROR`, `WARNING`, `INFO`eller. `VERBOSE` |
+| `client_id` | Sträng | Yes | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Sträng | Yes | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Lista\<Authority> | No | Listan över myndigheter som appen behöver |
+| `authorization_user_agent` | AuthorizationAgent (Enum) | No | Möjliga värden: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
+| `http` | HttpConfiguration | No | Konfigurera `HttpUrlConnection` `connect_timeout` och`read_timeout` |
+| `logging` | LoggingConfiguration | No | Anger nivån för loggnings information. Valfria konfigurationer är: `pii_enabled` , som tar ett booleskt värde och `log_level` , som tar `ERROR` , `WARNING` , `INFO` eller `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -49,7 +49,7 @@ Den omdirigerings-URI som du registrerade när du registrerade ditt program. Om 
 
 ### <a name="authorities"></a>skattemyndigheter
 
-Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver de myndigheter som anges här frågar MSAL även Microsoft för att hämta en lista över moln och myndigheter som är kända för Microsoft. I den här listan över utfärdare anger du typ av myndighet och eventuella ytterligare valfria parametrar som `"audience"`, som ska anpassas efter appens mål grupp baserat på appens registrering. Följande är ett exempel på en lista över utfärdare:
+Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver de myndigheter som anges här frågar MSAL även Microsoft för att hämta en lista över moln och myndigheter som är kända för Microsoft. I den här listan över utfärdare anger du typ av myndighet och eventuella ytterligare valfria parametrar `"audience"` som, som ska anpassas efter appens mål grupp baserat på appens registrering. Följande är ett exempel på en lista över utfärdare:
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -86,7 +86,7 @@ Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver 
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mappa AAD-auktoritet & mål grupp till Microsoft Identity Platform-slutpunkter
 
-| Typ | Målgrupp | Klient-ID:t | Authority_Url | Resulterande slut punkt | Anteckningar |
+| Typ | Målgrupp | Klientorganisations-ID | Authority_Url | Resulterande slut punkt | Kommentarer |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`är ett klient Ali Aset för var kontot finns. Till exempel en speciell Azure Active Directory klient organisation eller Microsoft-konto systemet. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Endast konton som finns i contoso.com kan hämta en token. En verifierad domän eller klient-GUID kan användas som klient-ID. |
@@ -97,23 +97,23 @@ Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver 
 > [!NOTE]
 > Det går inte att aktivera verifiering av auktoritet och inaktive rad i MSAL.
 > Myndigheterna är antingen kända för dig som utvecklare som de anges via konfiguration eller känd till Microsoft via metadata.
-> Om MSAL tar emot en begäran om en token till en okänd auktoritet `MsalClientException` , ett `UnknownAuthority` av typ resultaten.
+> Om MSAL tar emot en begäran om en token till en okänd auktoritet, ett `MsalClientException` av typ `UnknownAuthority` resultaten.
 
 #### <a name="authority-properties"></a>Egenskaper för utfärdare
 
-| Egenskap | Datatyp  | Krävs | Anteckningar |
+| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
 |-----------|-------------|-----------|--------|
-| `type` | Sträng | Ja | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD`,`B2C` |
-| `audience` | Objekt | Inga | Gäller endast när Type =`AAD`. Anger den identitet som appen är mål för. Använd värdet från din app-registrering |
-| `authority_url` | Sträng | Ja | Krävs endast när Type =`B2C`. Anger auktoritets-URL eller princip som din app ska använda  |
-| `default` | boolean | Ja | En enskild `"default":true` krävs när en eller flera utfärdare har angetts. |
+| `type` | Sträng | Yes | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD` ,`B2C` |
+| `audience` | Objekt | No | Gäller endast när Type = `AAD` . Anger den identitet som appen är mål för. Använd värdet från din app-registrering |
+| `authority_url` | Sträng | Yes | Krävs endast när Type = `B2C` . Anger auktoritets-URL eller princip som din app ska använda  |
+| `default` | boolean | Yes | En enskild `"default":true` krävs när en eller flera utfärdare har angetts. |
 
 #### <a name="audience-properties"></a>Egenskaper för publik
 
-| Egenskap | Datatyp  | Krävs | Anteckningar |
+| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
 |-----------|-------------|------------|-------|
-| `type` | Sträng | Ja | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
-| `tenant_id` | Sträng | Ja | Krävs endast när `"type":"AzureADMyOrg"`. Valfritt för andra `type` värden. Detta kan vara en klient domän `contoso.com`, till exempel eller ett klient-ID som `72f988bf-86f1-41af-91ab-2d7cd011db46`till exempel) |
+| `type` | Sträng | Yes | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | Sträng | Yes | Krävs endast när `"type":"AzureADMyOrg"` . Valfritt för andra `type` värden. Detta kan vara en klient domän, till exempel `contoso.com` eller ett klient-ID som till exempel `72f988bf-86f1-41af-91ab-2d7cd011db46` ) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -126,32 +126,32 @@ Möjliga värden:
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-Ange `true`för klienter som har stöd för flera nationella moln. Microsoft Identity Platform omdirigeras sedan automatiskt till rätt nationellt moln under auktorisering och token-inlösen. Du kan fastställa det nationella molnet för det inloggade kontot genom att undersöka utfärdaren som är `AuthenticationResult`associerad med. Observera att `AuthenticationResult` inte tillhandahåller den nationella molnbaserade slut punkts adressen för den resurs som du begär en token för.
+Ange för klienter som har stöd för flera nationella moln `true` . Microsoft Identity Platform omdirigeras sedan automatiskt till rätt nationellt moln under auktorisering och token-inlösen. Du kan fastställa det nationella molnet för det inloggade kontot genom att undersöka utfärdaren som är associerad med `AuthenticationResult` . Observera att `AuthenticationResult` inte tillhandahåller den nationella molnbaserade slut punkts adressen för den resurs som du begär en token för.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
 Ett booleskt värde som anger om du använder en Microsoft Identity Broker-kompatibel omdirigerings-URI. Ange som `false` om du inte vill använda Service Broker i din app.
 
-Om du använder AAD-utfärdaren som är inställd på `"MicrosoftPersonalAccount"`, används inte Broker.
+Om du använder AAD-utfärdaren som är inställd på `"MicrosoftPersonalAccount"` , används inte Broker.
 
 ### <a name="http"></a>http
 
 Konfigurera globala inställningar för HTTP-timeout, till exempel:
 
-| Egenskap | Datatyp | Krävs | Anteckningar |
+| Egenskap | Datatyp | Obligatorisk | Kommentarer |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | Inga | Tid i millisekunder |
-| `read_timeout` | int | Inga | Tid i millisekunder |
+| `connect_timeout` | int | No | Tid i millisekunder |
+| `read_timeout` | int | No | Tid i millisekunder |
 
 ### <a name="logging"></a>loggning
 
 Följande globala inställningar gäller för loggning:
 
-| Egenskap | Datatyp  | Krävs | Anteckningar |
+| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | Inga | Om du vill generera personliga data |
-| `log_level`   | boolean | Inga | Vilka logg meddelanden som ska matas ut |
-| `logcat_enabled` | boolean | Inga | Om du vill skriva utdata till log katt förutom loggnings gränssnittet |
+| `pii_enabled`  | boolean | No | Om du vill generera personliga data |
+| `log_level`   | sträng | No | Vilka logg meddelanden som ska matas ut. De logg nivåer som stöds är `ERROR` , `WARNING` , `INFO` och `VERBOSE` . |
+| `logcat_enabled` | boolean | No | Om du vill skriva utdata till log katt förutom loggnings gränssnittet |
 
 ### <a name="account_mode"></a>account_mode
 
@@ -160,7 +160,7 @@ Anger hur många konton som kan användas i din app i taget. Möjliga värden ä
 - `MULTIPLE`Objekt
 - `SINGLE`
 
-Om du skapar `PublicClientApplication` ett med ett konto läge som inte matchar den här inställningen uppstår ett undantag.
+Om du skapar ett `PublicClientApplication` med ett konto läge som inte matchar den här inställningen uppstår ett undantag.
 
 Mer information om skillnaderna mellan enkla och flera konton finns i appar för [enkel och flera](single-multi-account.md)konton.
 
@@ -340,8 +340,8 @@ I följande exempel visas en grundläggande konfiguration som anger klient-ID, o
 
 ## <a name="how-to-use-a-configuration-file"></a>Så här använder du en konfigurations fil
 
-1. Skapa en konfigurations fil. Vi rekommenderar att du skapar en anpassad konfigurations fil `res/raw/auth_config.json`i. Men du kan göra det var du vill.
-2. Berätta för MSAL var du ska leta efter din konfiguration när du `PublicClientApplication`skapar. Ett exempel:
+1. Skapa en konfigurations fil. Vi rekommenderar att du skapar en anpassad konfigurations fil i `res/raw/auth_config.json` . Men du kan göra det var du vill.
+2. Berätta för MSAL var du ska leta efter din konfiguration när du skapar `PublicClientApplication` . Ett exempel:
 
    ```java
    //On Worker Thread

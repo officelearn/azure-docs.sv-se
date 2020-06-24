@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655264"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297077"
 ---
-# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autentisering och auktorisering för för hands versionen av Azure statisk Web Apps
+# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autentisering och auktorisering för förhandsversionen av Azure Static Web Apps
 
 Azures statiska Web Apps effektiviserar autentiseringen genom att hantera autentisering med följande providers:
 
@@ -24,7 +24,7 @@ Azures statiska Web Apps effektiviserar autentiseringen genom att hantera autent
 - Google<sup>1</sup>
 - Twitter
 
-Providerspecifika [inbjudningar](#invitations) associerar användare med roller och behöriga användare beviljas åtkomst till [vägar](routes.md) enligt regler som definierats i _routes. JSON_ -filen.
+Providerspecifika [inbjudningar](#invitations) associera användare med roller och behöriga användare beviljas åtkomst till [vägar](routes.md) enligt regler som definierats i _routes.jsi_ filen.
 
 Alla autentiseringsproviders är aktiverade som standard. Begränsa en autentiseringsprovider genom att [blockera åtkomst](#block-an-authorization-provider) med en anpassad väg regel.
 
@@ -37,13 +37,13 @@ Varje användare som har åtkomst till en statisk webbapp tillhör en eller fler
 - **anonymt**: alla användare tillhöra den _anonyma_ rollen automatiskt.
 - **autentiserad**: alla användare som är inloggade tillhör den _autentiserade_ rollen.
 
-Utöver de inbyggda rollerna kan du skapa nya roller, tilldela dem till användare via inbjudningar och referera till dem i _routes. JSON_ -filen.
+Utöver de inbyggda rollerna kan du skapa nya roller, tilldela dem till användare via inbjudningar och referera till dem i _routes.jsi_ filen.
 
 ## <a name="role-management"></a>Roll hantering
 
 ### <a name="add-a-user-to-a-role"></a>Lägga till en användare till en roll
 
-Om du vill lägga till användare till webbplatsen genererar du inbjudningar som gör att du kan koppla användare till vissa roller. Roller definieras och underhålls i filen _routes. JSON_ .
+Om du vill lägga till användare till webbplatsen genererar du inbjudningar som gör att du kan koppla användare till vissa roller. Roller definieras och underhålls i _routes.js_ i filen.
 
 <a name="invitations" id="invitations"></a>
 
@@ -192,6 +192,10 @@ Om du vill blockera en provider kan du skapa [väg regler](routes.md) för att r
   "statusCode": "404"
 }
 ```
+
+## <a name="restrictions"></a>Begränsningar
+
+Se [artikeln om kvoter](quotas.md) för allmänna begränsningar och begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

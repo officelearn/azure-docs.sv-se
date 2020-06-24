@@ -3,12 +3,12 @@ title: Konfigurera en QnA Maker tjänst – QnA Maker
 description: Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235521"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214136"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -60,9 +60,9 @@ Den här proceduren skapar de Azure-resurser som krävs för att hantera innehå
     Resursen med _Cognitive Services_ typen har dina _prenumerations_ nycklar.
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Hitta prenumerations nycklar i Azure Portal
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Hitta redigerings nycklar i Azure Portal
 
-Du kan visa och återställa dina prenumerations nycklar från Azure Portal, där du skapade QnA Maker resursen.
+Du kan visa och återställa dina redigerings nycklar från Azure Portal, där du skapade QnA Maker resursen. Dessa nycklar kan kallas för prenumerations nycklar. 
 
 1. Gå till QnA Maker resursen i Azure Portal och välj den resurs som har _Cognitive Servicess_ typ:
 
@@ -72,7 +72,7 @@ Du kan visa och återställa dina prenumerations nycklar från Azure Portal, dä
 
     ![Prenumerationsnyckel](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Hitta slut punkts nycklar i QnA Maker Portal
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Hitta fråge slut punkts nycklar i QnA Maker Portal
 
 Slut punkten finns i samma region som resursen eftersom slut punkts nycklarna används för att anropa kunskaps basen.
 

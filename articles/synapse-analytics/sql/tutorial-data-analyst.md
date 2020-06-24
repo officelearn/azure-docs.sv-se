@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299544"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213150"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Använd SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio (för hands version)
 
@@ -23,7 +23,7 @@ I den här självstudien får du lära dig hur du utför analys av exempel data 
 I synnerhet analyseras den [nya taxi-datauppsättningen Göteborg (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) som innehåller:
 
 - Upphämtnings-och utgångs datum och tidpunkter.
-- Upphämtnings-och list platser. 
+- Hämta och släppa platser. 
 - Rese avstånd.
 - Specificerade priser.
 - Pris typer.
@@ -32,7 +32,7 @@ I synnerhet analyseras den [nya taxi-datauppsättningen Göteborg (NYC)](https:/
 
 ## <a name="automatic-schema-inference"></a>Automatisk schema härledning
 
-Eftersom data lagras i fil formatet Parquet, är automatisk schema härledning tillgängligt. Du kan enkelt fråga data utan att behöva ange data typerna för alla kolumner i filerna. Du kan också använda den virtuella kolumnens mekanism och funktionen Sök väg för att filtrera bort en del av filerna.
+Eftersom data lagras i fil formatet Parquet, är automatisk schema härledning tillgängligt. Du kan enkelt fråga data utan att lista data typerna för alla kolumner i filerna. Du kan också använda den virtuella kolumnens mekanism och funktionen Sök väg för att filtrera bort en del av filerna.
 
 Låt oss först bekanta dig med NYC taxi-data genom att köra följande fråga:
 

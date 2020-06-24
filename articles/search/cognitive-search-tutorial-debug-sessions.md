@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666140"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886797"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
 
@@ -173,12 +173,12 @@ När debug-sessionen har körts klart klickar du på fliken fel/varningar så vi
 ## <a name="fix-missing-skill-output-values"></a>Åtgärda saknade värden för kunskaps utdata
 
 > [!div class="mx-imgBorder"]
-> ![Fel och varningar](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Fel och varningar](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Det saknas värden för utdata från en färdighet. Om du vill identifiera kunskapen med felet går du till den fördefinierade data strukturen och letar reda på värde namnet och tittar på den ursprungliga källan. När det gäller de saknade organisationer och plats värden, är de utdata från färdighets #1. Om du öppnar uttrycks utvärderaren </> för varje sökväg visas uttrycken som anges som "/Document/Content/organizations" respektive "/Document/Content/locations".
 
 > [!div class="mx-imgBorder"]
-> ![Organisations enhet för uttrycks utvärderare](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Organisations enhet för uttrycks utvärderare](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 Utdata för dessa entiteter är tom och får inte vara tom. Vad är indata som producerar det här resultatet?
 
@@ -187,7 +187,7 @@ Utdata för dessa entiteter är tom och får inte vara tom. Vad är indata som p
 1. Öppna uttrycks utvärderaren **</>** för INmatad text.
 
 > [!div class="mx-imgBorder"]
-> ![Inmatade för text kunskaper](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Inmatade för text kunskaper](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 Det visade resultatet för den här indatamängden ser inte ut som ett text flöde. Det ser ut som en bild som är omgiven av nya rader. Bristen på text innebär att inga entiteter kan identifieras. När du tittar på hierarkin för färdigheter visas innehållet först när du bearbetas av #6 (OCR)-kompetensen och sedan skickas till #5 (slå samman) kunskap. 
 
@@ -195,7 +195,7 @@ Det visade resultatet för den här indatamängden ser inte ut som ett text flö
 1. Välj fliken **körningar** i den högra kunskaps informations rutan och öppna uttrycks utvärderaren **</>** för utmatningarna "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Utdata för kopplings kunskaper](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Utdata för kopplings kunskaper](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Här är texten länkad till bilden. Det går inte att titta på uttrycket "/Document/merged_content" i sökvägen "organisationer" och "platser" för #1-kunskapen. I stället för att använda '/Document/Content ' bör det använda/Document/merged_content för text inmatningar.
 
@@ -216,7 +216,7 @@ När indexeraren har körts är felen fortfarande där. Gå tillbaka till färdi
 1. Öppna uttrycks utvärderaren **</>** för entiteten organisationer.
 
 > [!div class="mx-imgBorder"]
-> ![Utdata för organisationer-entitet](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Utdata för organisationer-entitet](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 Utvärdering av resultatet av uttrycket ger rätt resultat. Kunskapen fungerar för att identifiera rätt värde för entiteten, "organisationer". Men utdata-mappningen i entitetens sökväg ger fortfarande ett fel. I jämförelsen av sökvägen för utdata i kunskapen till utdatafilen i fel meddelandet är det den kunskap som översätter utmatningarna, organisationer och platser under/Document/Content-noden. Även om mappningen av utdatakolumner förväntar sig att resultaten ska överordnas under noden/Document/merged_content. I föregående steg ändrades indatatypen från '/Document/Content ' till '/Document/merged_content '. Du måste ändra sammanhanget i kunskaps inställningarna för att se till att utdata genereras med rätt kontext.
 
@@ -228,7 +228,7 @@ Utvärdering av resultatet av uttrycket ger rätt resultat. Kunskapen fungerar f
 1. Klicka på **Kör** på menyn sessions-fönster. Detta startar en annan körning av färdigheter med hjälp av dokumentet.
 
 > [!div class="mx-imgBorder"]
-> ![Kontext korrigering i kompetens inställning](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Kontext korrigering i kompetens inställning](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Alla fel har åtgärd ATS.
 

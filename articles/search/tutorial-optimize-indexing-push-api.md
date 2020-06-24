@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 85ac56eb20eabf308d6686a047d8c5ede914fed9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966444"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079227"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
@@ -21,7 +21,7 @@ Azure Kognitiv sökning stöder [två grundläggande metoder](search-what-is-dat
 
 I den här självstudien beskrivs hur du effektivt indexerar data med [push-modellen](search-what-is-data-import.md#pushing-data-to-an-index) genom batching-begäranden och en exponentiell backoff-strategi för återförsök. Du kan [Hämta och köra programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). I den här artikeln beskrivs viktiga aspekter av programmet och faktorer som du bör tänka på när du indexerar data.
 
-I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa ett index
@@ -30,7 +30,7 @@ I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk) f
 > * Använd flera trådar för att öka indexerings hastigheten
 > * Använd en exponentiell backoff-strategi för återförsök för att försöka utföra misslyckade objekt
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -70,15 +70,15 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 ## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
 
 1. Starta Visual Studio och öppna **OptimizeDataIndexing. SLN**.
-1. I Solution Explorer öppnar du **appSettings. JSON** för att tillhandahålla anslutnings information.
-1. För `searchServiceName`, om den fullständiga URL: enhttps://my-demo-service.search.windows.netär "", är tjänst namnet som ska tillhandahållas "min-demo-service".
+1. I Solution Explorer öppnar du **appsettings.jspå** för att ange anslutnings information.
+1. För `searchServiceName` , om den fullständiga URL: en är " https://my-demo-service.search.windows.net ", är tjänst namnet som ska tillhandahållas "min-demo-service".
 
 ```json
 {
@@ -90,7 +90,7 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 ## <a name="3---explore-the-code"></a>3 – utforska koden
 
-När du har uppdaterat *appSettings. JSON*bör exempel programmet i **OptimizeDataIndexing. SLN** vara redo att bygga och köra.
+När du har uppdaterat *appsettings.jspå*, bör exempel programmet i **OptimizeDataIndexing. SLN** vara redo att bygga och köra.
 
 Den här koden är härledd från snabb starten av [C#](search-get-started-dotnet.md). Du hittar mer detaljerad information om grunderna i hur du arbetar med .NET SDK i artikeln.
 
@@ -269,7 +269,7 @@ Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backo
 
 Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyckade förfrågningar, men du måste implementera din egen logik för att försöka igen 207s. Verktyg med öppen källkod, till exempel [Polly](https://github.com/App-vNext/Polly) , kan också användas för att implementera en strategi för återförsök. 
 
-I det här exemplet implementerar vi vår egen strategi för exponentiell backoff-återförsök. För att implementera den här strategin börjar vi med att definiera några variabler `maxRetryAttempts` , inklusive och `delay` initial för en misslyckad begäran:
+I det här exemplet implementerar vi vår egen strategi för exponentiell backoff-återförsök. För att implementera den här strategin börjar vi med att definiera några variabler, inklusive `maxRetryAttempts` och initial `delay` för en misslyckad begäran:
 
 ```csharp
 // Create batch of documents for indexing
@@ -281,7 +281,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Det är viktigt att fånga [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) som dessa undantag anger att indexerings åtgärden endast delvis lyckades (207s). Misslyckade objekt bör göras om med hjälp `FindFailedActionsToRetry` av metoden som gör det enkelt att skapa en ny batch som bara innehåller de misslyckade objekten.
+Det är viktigt att fånga [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) som dessa undantag anger att indexerings åtgärden endast delvis lyckades (207s). Misslyckade objekt bör göras om med hjälp av `FindFailedActionsToRetry` metoden som gör det enkelt att skapa en ny batch som bara innehåller de misslyckade objekten.
 
 Andra undantag än `IndexBatchException` bör också fångas och tyder på att begäran inte kunde slutföras fullständigt. Dessa undantag är mindre vanliga, särskilt med .NET SDK när det försöker 503s automatiskt.
 

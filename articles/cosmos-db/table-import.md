@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66242575"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119485"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
@@ -66,13 +66,13 @@ Använd följande alternativ för källan när du definierar Azure Table Storage
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton** > **konto** > **åtkomst nycklar**och använder sedan kopierings knappen för att kopiera **anslutnings strängen**.
+Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton**  >  **konto**  >  **åtkomst nycklar**och använder sedan kopierings knappen för att kopiera **anslutnings strängen**.
 
-![Skärmbild över alternativ för HBase-källor](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Skärmbild över alternativ för HBase-källor":::
 
-Om du vill hämta käll anslutnings strängen när du importerar från ett Azure Cosmos DB tabell-API (förhands granskning), öppnar du Azure Portal, klickar på **Azure Cosmos DB** > **kontots** > **anslutnings sträng** och använder kopierings knappen för att kopiera **anslutnings strängen**.
+Om du vill hämta käll anslutnings strängen när du importerar från ett Azure Cosmos DB tabell-API (förhands granskning), öppnar du Azure Portal, klickar på **Azure Cosmos DB**  >  **kontots**  >  **anslutnings sträng** och använder kopierings knappen för att kopiera **anslutnings strängen**.
 
-![Skärmbild över alternativ för HBase-källor](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Skärmbild över alternativ för HBase-källor":::
 
 [Azure Table Storage-exempelkommando](#azure-table-storage)
 

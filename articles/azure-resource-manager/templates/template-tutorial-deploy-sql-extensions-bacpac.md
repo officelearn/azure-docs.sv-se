@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018403"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250340"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Självstudie: importera SQL BACPAC-filer med ARM-mallar
 
@@ -30,7 +30,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -45,7 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
-En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen läser du [Exportera en Azure SQL-databas till en BACPAC-fil](../../azure-sql/database/database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
+En BACPAC-fil delas i [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Om du vill skapa en egen, se [Exportera en databas från Azure SQL Database till en BACPAC-fil](../../azure-sql/database/database-export.md). Om du väljer att publicera filen till din egen plats måste du uppdatera mallen senare under självstudien.
 
 BACPAC-filen måste lagras i ett Azure Storage-konto innan den kan importeras med hjälp av en ARM-mall. Följande PowerShell-skript förbereder BACPAC-filen med följande steg:
 
@@ -116,7 +116,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
    * `Microsoft.SQL.servers/databases`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
         Det är bra om du har grundläggande förståelse av mallen innan du anpassar den.
-1. Välj **Arkiv**  >  **Spara som** för att spara en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
+1. Välj **Arkiv**  >  **Spara som** om du vill spara en kopia av filen på den lokala datorn med namnet *azuredeploy.jspå*.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
@@ -196,7 +196,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
         Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
 
-        * **dependsOn**: tilläggsresursen måste skapas efter att SQL-databasen har skapats.
+        * **dependsOn**: tilläggs resursen måste skapas efter att databasen har skapats.
         * **storageKeyType**: ange vilken typ av lagrings nyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Använd `StorageAccessKey` i den här självstudien.
         * **storageKey**: Ange nyckeln för lagrings kontot där BACPAC-filen lagras. Om lagrings nyckel typen är `SharedAccessKey` måste den föregås av "?".
         * **storageUri**: Ange URL: en för den BACPAC-fil som lagras i ett lagrings konto.
@@ -241,7 +241,7 @@ Använd ett genererat lösenord. Se [krav](#prerequisites).
 
 För att få åtkomst till servern från klient datorn måste du lägga till ytterligare en brand Väggs regel. Mer information finns i [skapa och hantera IP-brandväggens regler](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
-I Azure Portal väljer du SQL-databasen från den nyligen distribuerade resurs gruppen. Välj **Frågeredigerare (förhandsversion)** och ange administratörsautentiseringsuppgifterna. Du ser två tabeller som importer ATS till-databasen.
+I Azure Portal väljer du databasen från den nyligen distribuerade resurs gruppen. Välj **Frågeredigerare (förhandsversion)** och ange administratörsautentiseringsuppgifterna. Du ser två tabeller som importer ATS till-databasen.
 
 ![Frågeredigeraren (för hands version)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 

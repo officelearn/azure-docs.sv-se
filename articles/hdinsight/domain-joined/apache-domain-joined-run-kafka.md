@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677552"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105948"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -48,7 +48,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**.
 
-2. Välj ** \< kluster namn>_kafka** under **Kafka**. En förkonfigurerad princip kan visas.
+2. Välj ** \<ClusterName> _Kafka** under **Kafka**. En förkonfigurerad princip kan visas.
 
 3. Välj **Lägg till ny princip** och ange följande värden:
 
@@ -117,8 +117,8 @@ Så här skapar du de två avsnitten `salesevents` och `marketingspend`:
 1. Kör följande kommandon:
 
    ```bash
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
 ## <a name="test-the-ranger-policies"></a>Testa Ranger-principerna
@@ -131,13 +131,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. Kör följande kommando:
-
-   ```bash
-   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
-   ```
-
-3. Använd koordinatornamnen från föregående avsnitt till att ange följande miljövariabler:
+2. Använd koordinatornamnen från föregående avsnitt till att ange följande miljövariabler:
 
    ```bash
    export KAFKABROKERS=<brokerlist>:9092
@@ -145,48 +139,80 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
    Exempel: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och klient-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att se till att de `kafka-producer-consumer.jar` också är tillgängliga för **sales_user**.
+3. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och klient-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att se till att de `kafka-producer-consumer.jar` också är tillgängliga för **sales_user**.
 
-> [!NOTE]  
-> I den här självstudien använder du Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).
+   > [!NOTE]  
+   > I den här självstudien använder du Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).
 
-5. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
+4. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-6. Kör följande kommando för att konsumera från ämnet `salesevents`:
+5. Kör följande kommando för att konsumera från ämnet `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Kontrollera att du kan läsa meddelandena.
 
-7. Kontrollera att **sales_user1** inte kan producera till ämnet `marketingspend` genom att köra följande i samma ssh-fönster:
+6. Kontrollera att **sales_user1** inte kan producera till ämnet `marketingspend` genom att köra följande i samma ssh-fönster:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
    Ett auktoriseringsfel inträffar och kan ignoreras.
 
-8. Observera att **marketing_user1** inte kan konsumera från ämnet `salesevents`.
+7. Observera att **marketing_user1** inte kan konsumera från ämnet `salesevents`.
 
-   Upprepa steg 1–4 ovan, men nu som **marketing_user1**.
+   Upprepa steg 1–3 ovan, men nu som **marketing_user1**.
 
    Kör följande kommando för att konsumera från ämnet `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Det går inte att visas tidigare meddelanden.
 
-9. Granska åtkomsthändelserna i Ranger-användargränssnittet.
+8. Granska åtkomsthändelserna i Ranger-användargränssnittet.
 
    ![Ranger UI policy granska åtkomst händelser ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   
+## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Skapa och använda ämnen i ESP-Kafka med hjälp av-konsolen
+
+> [!NOTE]
+> Du kan inte använda konsol kommandon för att skapa ämnen. I stället måste du använda Java-koden som visas i föregående avsnitt. Mer information finns i [skapa ämnen i ett Kafka-kluster med ESP](#create-topics-in-a-kafka-cluster-with-esp).
+
+För att skapa och använda ämnen i ESP-Kafka med hjälp av-konsolen:
+
+1. Använd `kinit` med användarens användar namn. Ange lösen ordet när du uppmanas till det.
+
+   ```bash
+   kinit sales_user1
+   ```
+
+2. Ange miljövariabler:
+
+   ```bash
+   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
+   export KAFKABROKERS=<brokerlist>:9092
+   ```
+
+3. Skapa meddelanden till ämnet `salesevents` :
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
+
+4. Använda meddelanden från ämnet `salesevents` :
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -196,7 +222,7 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 
-1. Klicka på **ta bort**. Klicka på **Ja**.
+1. Klicka på **Ta bort**. Klicka på **Ja**.
 
 ## <a name="troubleshooting"></a>Felsökning
 Om Kafka-Producer-Consumer. jar inte fungerar i ett domänanslutet kluster bör du kontrol lera att du använder Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som finns i ett projekt med producent-konsument, som är för icke-domänanslutna scenarier).

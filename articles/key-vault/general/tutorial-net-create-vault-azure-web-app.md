@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997011"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051892"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -51,7 +51,7 @@ Om du vill skapa ett nyckel valv använder du kommandot AZ-kommandot för att sk
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Anteckna den returnerade `vaultUri`, som kommer att ha formatet "https://<ditt-nyckel valv>. Vault.Azure.net/". Den kommer att användas i steget [Uppdatera kod](#update-the-code) steget.
+Anteckna den returnerade `vaultUri` , som kommer att ha formatet "https://<ditt-nyckel valv>. Vault.Azure.net/". Den kommer att användas i steget [Uppdatera kod](#update-the-code) steget.
 
 Du kan nu placera en hemlighet i ditt nyckel valv med kommandot [AZ Key Vault Secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Ange namnet på din hemlighet till "hemlig hemlighet" och värdet till "lyckades!".
 
@@ -109,13 +109,13 @@ Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deplo
 az webapp deployment user set --user-name "<username>" --password "<password>"
 ```
 
-JSON-utdata visar lösen ordet som `null`. Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
+JSON-utdata visar lösen ordet som `null` . Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
 
 Registrera ditt användar namn och lösen ord som ska användas för att distribuera dina webb program.
 
 ### <a name="create-an-app-service-plan"></a>Skapa en app service-plan
 
-Skapa en App Service plan med kommandot Azure CLI [AZ AppService plan Create](/cli/azure/appservice/plan?view=azure-cli-latest) . I följande exempel skapas en App Service plan med `myAppServicePlan` namnet på den **kostnads fria** pris nivån:
+Skapa en App Service plan med kommandot Azure CLI [AZ AppService plan Create](/cli/azure/appservice/plan?view=azure-cli-latest) . I följande exempel skapas en App Service plan med namnet `myAppServicePlan` på den **kostnads fria** pris nivån:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -147,7 +147,7 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 Skapa en [Azure-webbapp](../../app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
 
 > [!Important]
-> I likhet med Key Vault måste en Azure-webbapp ha ett unikt namn. Ersätt \<ditt-webapp-namn\> med namnet på din webbapp i följande exempel.
+> I likhet med Key Vault måste en Azure-webbapp ha ett unikt namn. Ersätt \<your-webapp-name\> med namnet på din webbapp med följande exempel.
 
 
 ```azurecli-interactive
@@ -176,7 +176,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 
 URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Spara den här URL: en när du behöver den senare.
 
-Bläddra till appen som precis skapades. Ersätt _ &lt;ditt-webapp-namn>_ med ditt app-namn.
+Bläddra till appen som precis skapades. Ersätt _ &lt; ditt-webapp-namn>_ med ditt app-namn.
 
 ```bash
 https://<your-webapp-name>.azurewebsites.net
@@ -186,7 +186,7 @@ Standard webb sidan visas för en nyligen skapad Azure-webbapp.
 
 ### <a name="deploy-your-local-app"></a>Distribuera din lokala app
 
-I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala git-lagringsplats och ersätta * \<deploymentLocalGitUrl-från-Create-Step>* med URL: en för git-fjärrdatorn som du sparade från [skapa ett](#create-a-remote-web-app) steg i en fjärrwebbapp.
+I det lokala terminalfönstret lägger du till en Azure-fjärrdatabas till din lokala git-lagringsplats, ersätter *\<deploymentLocalGitUrl-from-create-step>* med URL: en för den git-fjärrdatabas som du sparade från [skapa ett steg i en webbapp](#create-a-remote-web-app) .
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -232,7 +232,7 @@ Bläddra till (eller uppdatera) det distribuerade programmet med hjälp av webbl
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Du kommer att se "Hello World!" meddelande som du tidigare såg när `http://localhost:5000`du besökte.
+Du kommer att se "Hello World!" meddelande som du tidigare såg när du besökte `http://localhost:5000` .
 
 ## <a name="create-and-assign-a-managed-identity"></a>Skapa och tilldela en hanterad identitet
 
@@ -279,9 +279,10 @@ Lägg till de här två raderna i rubriken:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
-Lägg till de här raderna `app.UseEndpoints` före anropet, och uppdatera URI: `vaultUri` n för att avspegla nyckel valvet. I koden nedan används ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) för autentisering till Key Vault, som använder token från Programhanterad identitet för att autentisera. Den använder också exponentiell backoff för återförsök om nyckel valvet begränsas.
+Lägg till de här raderna före `app.UseEndpoints` anropet, och uppdatera URI: n för att avspegla `vaultUri` nyckel valvet. I koden nedan används ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) för autentisering till Key Vault, som använder token från Programhanterad identitet för att autentisera. Den använder också exponentiell backoff för återförsök om nyckel valvet begränsas.
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()

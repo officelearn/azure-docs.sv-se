@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456886"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253765"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
 
@@ -58,7 +58,6 @@ För att konfigurera integreringen av GitHub till Azure AD behöver du lägga ti
 1. I avsnittet **Lägg till från galleriet** , skriver du **GitHub** i sökrutan.
 1. Välj **GitHub** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Konfigurera och testa enkel inloggning med Azure AD för GitHub
 
 Konfigurera och testa Azure AD SSO med GitHub med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i GitHub.
@@ -84,14 +83,17 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-   a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://github.com/orgs/<entity-id>/sso`
+   a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://github.com/orgs/<entity-id>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://github.com/orgs/<Organization ID>`
+
+    c. I **svars-URL** -textox skriver du en URL med följande mönster:`https://github.com/orgs/<Organization ID>/saml/consume`
+
 
     > [!NOTE]
-    > Observera att detta inte är de verkliga värdena. Du behöver uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Gå till GitHub-administrationsavsnittet för att hämta dessa värden.
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med URL: en för faktisk inloggning, identifierare och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Gå till GitHub-administrationsavsnittet för att hämta dessa värden.
 
-5. GitHub-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. GitHub-programmet förväntar sig att **nameidentifier** mappas med **user.mail**, så du behöver redigera attributmappningen genom att klicka på ikonen **Redigera** och ändra attributmappningen.
+5. GitHub-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärm bild visar en lista över standardattribut, där som **unik användar identifierare (namn-ID)** mappas med **User. UserPrincipalName**. GitHub-programmet förväntar sig att **unika användar-ID: n (namn-ID)** ska mappas med **User. mail**, så du måste redigera mappningen av attributet genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
@@ -141,15 +143,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-github-sso"></a>Konfigurera GitHub SSO
 
-1. I ett annat webbläsarfönster loggar du in på din GitHub-organisationsplats som administratör.
+1. Logga in på din GitHub-organisations webbplats som administratör i ett annat webbläsarfönster.
 
 2. Gå till **Inställningar** och klicka på **Säkerhet**
 
     ![Inställningar](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Markera rutan **Aktivera SAML-autentisering**. Då visas konfigurationsfälten för enkel inloggning. Använd sedan URL-värdet för enkel inloggning för att uppdatera URL:en för enkel inloggning i Azure AD-konfiguration.
+3. Markera rutan **Aktivera SAML-autentisering**. Då visas konfigurationsfälten för enkel inloggning. utför följande steg:
 
     ![Inställningar](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Kopiera **URL-värde för enkel inloggning** och klistra in värdet i text rutan för **inloggnings-URL** i den **grundläggande SAML-konfigurationen** i Azure Portal.
+    
+    b. Kopiera **intygets URL-** värde och klistra in det här värdet i text rutan **SVARs-URL** i den **grundläggande SAML-konfigurationen** i Azure Portal.
 
 4. Konfigurera följande fält:
 

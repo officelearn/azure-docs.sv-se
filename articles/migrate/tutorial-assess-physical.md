@@ -3,12 +3,12 @@ title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Se
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331805"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080773"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -80,7 +80,7 @@ Azure Migrate: Server utvärderingen kör en förenklad installation.
     - Extrahera innehållet från den zippade filen. Starta PowerShell-konsolen med administratörs behörighet.
     - Kör PowerShell-skriptet för att starta webb programmet för installationen.
     - Konfigurera enheten för första gången och registrera den med Azure Migrate-projektet.
-- Du kan konfigurera flera apparater för ett enda Azure Migrate-projekt. Du kan identifiera valfritt antal fysiska servrar i alla apparater. Högst 250 servrar kan identifieras per apparat.
+- Du kan konfigurera flera apparater för ett enda Azure Migrate-projekt. Du kan identifiera valfritt antal fysiska servrar i alla apparater. Högst 1000 servrar kan identifieras per apparat.
 
 ### <a name="download-the-installer-script"></a>Ladda ned installations skriptet
 
@@ -101,7 +101,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den zippade filen:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Exempel på användning av myndighets moln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Exempel på användning av myndighets moln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Kontrol lera de senaste versions-och hash-värdena för produkten:
     - För det offentliga molnet:
 
@@ -132,7 +132,7 @@ Kör skriptet på följande sätt:
 1. Extrahera den zippade filen till en mapp på den server som ska vara värd för-enheten.  Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på servern med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp där innehållet har extraherats från den hämtade zippade filen.
-4. Kör skriptet med namnet **AzureMigrateInstaller. ps1** genom att köra följande kommando:
+4. Kör skriptet med namnet **AzureMigrateInstaller.ps1** genom att köra följande kommando:
 
     - För det offentliga molnet:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
     - För Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
@@ -180,7 +180,7 @@ Anslut nu från installationen till de fysiska servrarna som ska identifieras oc
 
 1. Klicka på **Lägg till autentiseringsuppgifter** för att ange de kontoautentiseringsuppgifter som installationen ska använda för att identifiera servrar.  
 2. Ange **operativ systemet**, ett eget namn för autentiseringsuppgifterna och användar namn och lösen ord. Klicka sedan på **Lägg till**.
-Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och Linux-servrar.
+Du kan lägga till flera autentiseringsuppgifter för Windows-och Linux-servrar.
 4. Klicka på **Lägg till Server**och ange Server information – FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
 3. Klicka på **Validate** (Validera). Efter verifieringen visas en lista över de servrar som kan identifieras.
     - Om verifieringen Miss lyckas för en server kan du granska felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.

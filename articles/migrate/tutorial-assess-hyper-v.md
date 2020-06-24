@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för mig
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331771"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106483"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -31,12 +31,12 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-hyper-v.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
     - [Förbered Azure](tutorial-prepare-hyper-v.md#prepare-azure) för att arbeta med Azure Migrate.
-    - [Förbered Hyper-V-](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) värdar och utvärdering av virtuella datorer.
+    - [Förbered Hyper-V-](tutorial-prepare-hyper-v.md#prepare-for-assessment) värdar och utvärdering av virtuella datorer.
     - [Kontrol lera](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) vad du behöver för att kunna distribuera Azure Migrate-enheten för Hyper-V-utvärdering.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
@@ -96,13 +96,13 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Kontrol lera de senaste installations versionerna och har värden:
+3.  Kontrol lera de senaste versions-och hash-värdena för produkten:
 
     - För det offentliga Azure-molnet:
 
         **Scenario** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,93 MB) | [Senaste version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (8,93 GB) | [Senaste version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - För Azure Government:
 
@@ -125,9 +125,9 @@ Importera den hämtade filen och skapa den virtuella datorn.
     ![Distribuera virtuell hård disk](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. I guiden Importera virtuell dator > **innan du börjar klickar du**på **Nästa**.
-3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka på **Nästa**.
+3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka sedan på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
-2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka på **Nästa**.
+2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka sedan på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
 4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure. [Lär dig mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) om att skapa en virtuell växel.
@@ -174,10 +174,7 @@ Konfigurera enheten för första gången.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegera autentiseringsuppgifter för SMB-VHD: er
 
-Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av autentiseringsuppgifter från installationen till Hyper-V-värdarna. Detta kräver följande:
-
-- Du aktiverar varje värd så att den fungerar som ett ombud för enheten. Om du har följt självstudierna i ordning gjorde du detta i föregående självstudie när du för beredde Hyper-V för utvärdering och migrering. Du bör antingen konfigurera CredSSP för värdarna [manuellt](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)eller genom att [köra ett skript](tutorial-prepare-hyper-v.md#prepare-with-a-script) som gör detta.
-- Aktivera CredSSP-delegering så att Azure Migrate-installationen kan fungera som klienten och delegera autentiseringsuppgifter till en värd.
+Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av autentiseringsuppgifter från installationen till Hyper-V-värdarna. Om du vill göra det aktiverar du varje värd för att agera som ombud för-enheten. Om du har följt självstudierna i ordning gjorde du detta i föregående självstudie när du för beredde Hyper-V för utvärdering och migrering. Du bör antingen konfigurera CredSSP för värdarna [manuellt](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials)eller genom att [köra ett skript](tutorial-prepare-hyper-v.md#run-the-script) som gör detta.
 
 Aktivera på enheten enligt följande:
 
@@ -186,7 +183,7 @@ Aktivera på enheten enligt följande:
 Kör det här kommandot på den virtuella datorn. HyperVHost1/HyperVHost2 är exempel värd namn.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Exempel: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

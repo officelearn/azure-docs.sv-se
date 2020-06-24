@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e56040f5e17ee33da6b21ab42d2deddf5dd7064
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447806"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099123"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
@@ -23,7 +23,7 @@ Med Azure Active Directory (Azure AD) självbetjäning för återställning av l
 
 Tillbakaskrivning av lösen ord kan användas för att synkronisera lösen ords ändringar i Azure AD tillbaka till din lokala AD DS-miljö. Azure AD Connect ger en säker mekanism för att skicka lösen ords ändringarna tillbaka till en befintlig lokal katalog från Azure AD.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera de behörigheter som krävs för tillbakaskrivning av lösen ord
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
-* En fungerande Azure AD-klient med minst en licens för Azure AD Premium P2-utvärdering aktive rad.
+* En fungerande Azure AD-klient med minst en licens för Azure AD Premium P1 eller P2 Trial har Aktiver ATS.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Mer information finns i [licens krav för Azure AD SSPR](concept-sspr-licensing.md).
 * Ett konto med *Global administratörs* behörighet.

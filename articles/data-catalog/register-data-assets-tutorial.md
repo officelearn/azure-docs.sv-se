@@ -6,18 +6,18 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021610"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255202"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Självstudie: registrera data till gångar i Azure Data Catalog
 
-I den här självstudien använder du registrerings verktyget för att registrera data till gångar från Azure SQL Database-exemplet med katalogen. Registreringen är den process där du extraherar viktiga strukturella metadata, t.ex. namn, typer och platser, från datakällan och dess tillgångar och kopierar dem till katalogen. Datakällan och datatillgångarna blir kvar där de är, men katalogen använder deras metadata för att göra det lättare att identifiera dem och förstå hur de kan användas.
+I den här självstudien använder du registrerings verktyget för att registrera data till gångar från databas exemplet med katalogen. Registreringen är den process där du extraherar viktiga strukturella metadata, t.ex. namn, typer och platser, från datakällan och dess tillgångar och kopierar dem till katalogen. Datakällan och datatillgångarna blir kvar där de är, men katalogen använder deras metadata för att göra det lättare att identifiera dem och förstå hur de kan användas.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Registrera datatillgångar 
 > * Sök efter data till gångar
@@ -26,11 +26,11 @@ I den här guiden får du lära dig att:
 > * Hantera datatillgångar
 > * Ta bort data till gångar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång måste du slutföra [snabb](register-data-assets-tutorial.md)starten.
 
-* En [Microsoft Azure](https://azure.microsoft.com/) prenumeration.
+* En [Microsoft Azure](https://azure.microsoft.com/)-prenumeration.
 * Du måste ha en egen [Azure Active Directory-klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till en Azure-prenumeration.
@@ -39,11 +39,11 @@ Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till e
 
 ### <a name="register-a-data-source"></a>Registrera en datakälla
 
-Du registrerar data till gångar (tabeller) från ett [Azure SQL Database-exempel](../azure-sql/database/single-database-create-quickstart.md), men du kan använda en data källa som stöds om du föredrar att arbeta med data som är välkända och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
+Du registrerar data till gångar (tabeller) från ett [databas exempel](../azure-sql/database/single-database-create-quickstart.md) för Azure SQL Database, men du kan använda en data källa som stöds om du föredrar att arbeta med data som är välkända och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
 
-Det Azure SQL Database-namn som vi använder i den här självstudien är *RLSTest*.
+Det databas namn som vi använder i den här självstudien är *RLSTest*.
 
-Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hjälp av Azure Data Catalog.
+Du kan nu registrera data till gångar från databas exemplet genom att använda Azure Data Catalog.
 
 1. Gå till [Azure Data Catalog start sida](http://azuredatacatalog.com) och välj **publicera data**.
 
@@ -61,13 +61,13 @@ Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hj�
 
     ![Azure Data Catalog – datakällor](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Ange SQL Server anslutnings egenskaper för ditt Azure SQL Database-exempel och välj **Anslut**.
+5. Ange SQL Server anslutnings egenskaper för ditt databas exempel i Azure SQL Database och välj **Anslut**.
 
    ![Azure Data Catalog – SQL Server-anslutningsinställningar](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Registrera metadata för din datatillgång. I det här exemplet registrerar du **produkt** objekt från namn området för Azure SQL Database-exempel:
+6. Registrera metadata för din datatillgång. I det här exemplet registrerar du **produkt** objekt från exempel namn området:
 
-    1. Expandera ditt Azure SQL Database-exempel i trädet **Server-hierarki** och välj **SalesLT**.
+    1. I trädet för **mapphierarkin** expanderar du ditt databas exempel och väljer **SalesLT**.
 
     2. Välj **produkt**, **ProductCategory**, **ProductDescription**och **ProductModel** genom att trycka på CTRL + Select.
 
@@ -85,7 +85,7 @@ Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hj�
 
           ![Självstudiekurs om Azure Data Catalog – objekt som ska registreras](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Välj **register**. De objekt som du har valt registreras i Azure Data Catalog. I den här övningen registreras de valda objekten från ditt Azure SQL Database-exempel. Registreringsverktyget extraherar metadata från datatillgången och kopierar dessa data till Azure Data Catalog-tjänsten. Informationen är kvar där den är kvar. Data förblir övervakare av administratörer och principer för ursprungs systemet.
+    8. Välj **register**. De objekt som du har valt registreras i Azure Data Catalog. I den här övningen registreras de valda objekten från databas exemplet. Registreringsverktyget extraherar metadata från datatillgången och kopierar dessa data till Azure Data Catalog-tjänsten. Informationen är kvar där den är kvar. Data förblir övervakare av administratörer och principer för ursprungs systemet.
 
           ![Azure Data Catalog – registrerade objekt](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hj�
 
         ![Objekt på Azure Data Catalog-portalen](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-I den här övningen registrerade du objekt från Azure SQL Database-exemplet så att de enkelt kan identifieras av användare i organisationen.
+I den här övningen registrerade du objekt från databas exemplet för Azure SQL Database så att de enkelt kan identifieras av användare i organisationen.
 
 I nästa övning kommer du att lära dig att identifiera registrerade datatillgångar.
 
@@ -178,7 +178,7 @@ Med jämförelseoperatorer kan du använda andra jämförelser än ”lika med�
 
 3. Tryck på **RETUR**.
 
-4. Bekräfta att du ser tabellerna **Product**, **ProductCategory**och **ProductDescription** och den Azure SQL-databas som du registrerade i Sök resultaten.
+4. Bekräfta att du ser tabellerna **Product**, **ProductCategory**och **ProductDescription** och den SQL-databas som du registrerade i Sök resultaten.
 
     ![Azure Data Catalog – resultat från en jämförelsesökning](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ I den här övningen öppnar du datatillgångar i ett integrerat klientverktyg (
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-I den här övningen anslöt du till datatillgångar som identifierades med hjälp av Azure Data Catalog. På Azure Data Catalog-portalen kan du ansluta direkt med hjälp av klientprogrammen som är integrerade i **Öppna i**-menyn. Du kan också ansluta med valfria program som du väljer med hjälp av informationen om anslutningsplatsen som finns i datatillgångarnas metadata. Du kan till exempel använda SQL Server Management Studio för att ansluta till Azure SQL-databasen för att komma åt data i data till gångar som registrerats i den här självstudien.
+I den här övningen anslöt du till datatillgångar som identifierades med hjälp av Azure Data Catalog. På Azure Data Catalog-portalen kan du ansluta direkt med hjälp av klientprogrammen som är integrerade i **Öppna i**-menyn. Du kan också ansluta med valfria program som du väljer med hjälp av informationen om anslutningsplatsen som finns i datatillgångarnas metadata. Du kan till exempel använda SQL Server Management Studio för att ansluta till Azure SQL Database för att komma åt data i data till gångar som registrerats i den här självstudien.
 
 1. Öppna **SQL Server Management Studio**.
 

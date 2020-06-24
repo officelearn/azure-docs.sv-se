@@ -4,19 +4,19 @@ description: Hur användarna kan konfigurera Azure AD Join under en box-upplevel
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da37316724bf6ef166f08faa7208ad196000bb00
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67482101"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253111"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Självstudie: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen
 
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig hur du ansluter en enhet till Azure A
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill ansluta en Windows 10-enhet måste enhetsregistreringstjänsten konfigureras så att du kan registrera enheter. Förutom att du måste ha behörighet att ansluta enheter i din Azure AD-klient måste du ha färre enheter registrerade än det angivna högsta antalet. Mer information finns i [Konfigurera enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
+Om du vill ansluta en Windows 10-enhet måste enhetsregistreringstjänsten konfigureras så att du kan registrera enheter. Förutom att du måste ha behörighet att ansluta enheter i din Azure AD-klient måste du ha färre enheter registrerade än det angivna högsta antalet. Mer information finns i [Konfigurera enhets inställningar](device-management-azure-portal.md#configure-device-settings).
 
 Om din klient är federerad måste dessutom din identitetsprovider stödja slutpunkter för WS-Fed- och WS-Trust-användarnamn/-lösenord. Detta kan vara version 1.3 eller 2005. Det här protokoll stödet krävs för att både ansluta enheten till Azure AD och logga in på enheten med ett lösen ord.
 

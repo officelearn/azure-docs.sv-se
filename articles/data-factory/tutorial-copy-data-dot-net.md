@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118169"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253944"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
@@ -38,10 +38,10 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * *Azure Storage konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-account-create.md).
-* *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL Database, se [skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. Genom gången i den här artikeln används Visual Studio 2019.
 * *[Azure SDK för .net](/dotnet/azure/dotnet-tools)*.
 * *Azure Active Directory program*. Om du inte har ett Azure Active Directory program kan du läsa avsnittet [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) i [How to: använda portalen för att skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md). Kopiera följande värden för användning i senare steg: **program (klient) ID**, **autentiseringsnyckel**och **katalog (klient) ID**. Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel.
@@ -54,14 +54,14 @@ Förbered nu Azure-blobben och Azure SQL Database för självstudien genom att s
 
 Skapa först en käll-BLOB genom att skapa en behållare och ladda upp en textfil till den:
 
-1. Öppna Anteckningar. Kopiera följande text och spara den lokalt i en fil med namnet *inputEmp. txt*.
+1. Öppna Anteckningar. Kopiera följande text och spara den lokalt i en fil med namnet *inputEmp.txt*.
 
     ```inputEmp.txt
     John|Doe
     Jane|Doe
     ```
 
-2. Använd ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att skapa behållaren *adfv2tutorial* och för att ladda upp filen *inputEmp. txt* till behållaren.
+2. Använd ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att skapa behållaren *adfv2tutorial* och för att ladda upp *inputEmp.txt* -filen till behållaren.
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
@@ -98,7 +98,7 @@ Skapa ett C# .NET-konsol program med Visual Studio.
 1. Öppna Visual Studio.
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 3. I fönstret **skapa ett nytt projekt** väljer du C#-versionen av **konsol programmet (.NET Framework)** från listan över projekt typer. Välj **Nästa**.
-4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *ADFv2Tutorial*. För **plats**bläddrar du till och/eller skapar katalogen för att spara projektet i. Välj sedan **skapa**. Det nya projektet visas i Visual Studio IDE.
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *ADFv2Tutorial*. För **plats**bläddrar du till och/eller skapar katalogen för att spara projektet i. Välj sedan **Skapa**. Det nya projektet visas i Visual Studio IDE.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 

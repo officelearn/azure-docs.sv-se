@@ -1,24 +1,24 @@
 ---
 title: Inbyggda princip definitioner för Azure Virtual Machines
 description: Visar Azure Policy inbyggda princip definitioner för Azure Virtual Machines. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-samples
-ms.openlocfilehash: b7ea4dc36c5619d6012e4288b7bcdd165369d4b4
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: bf27e31e79e55e0a13b98d86ad0f655a2db691cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234298"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84884053"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-machines"></a>Azure Policy inbyggda princip definitioner för Azure Virtual Machines
+# <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Azure Policy inbyggda definitioner för Azure Virtual Machines
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure Virtual Machines. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 
-Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i kolumnen **version** om du vill visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783103"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210736"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -332,7 +332,6 @@ I följande tabell visas vilka språk som stöds för de olika Talarigenkänning
 |ES – MX  |Spanska (Mexiko)   |saknas|   ja|    ja|
 |ja-JP| Japanska    |saknas    |ja    |ja|
 |pt-BR| Portugisiska (Brasilien)|    saknas|    ja|    ja|
-|ko-KR| Koreanska  |saknas    |ja|   ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

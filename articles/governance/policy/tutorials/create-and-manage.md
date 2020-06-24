@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skapa principer för att genomdriva efterlevnad'
 description: I den här självstudien använder du principer för att genomdriva standarder, kontrol lera kostnader, upprätthålla säkerhet och införa företagets breda design principer.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190834"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781135"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
 
@@ -24,7 +24,7 @@ Om du vill tilldela en princip för att identifiera dina befintliga resursers ef
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="assign-a-policy"></a>Tilldela en princip
 
@@ -78,7 +78,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 ## <a name="implement-a-new-custom-policy"></a>Implementera en ny anpassad princip
 
-Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure Policy. Sedan skapar du en ny anpassad princip för att spara kostnader genom att kontrollera att de virtuella datorer som skapats i din miljö inte kan vara i G-serien. På så sätt nekas varje gång en begäran från en användare i organisationen som försöker skapa en virtuell dator i G-serien.
+Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure Policy. Skapa sedan en ny anpassad princip för att spara kostnader genom att verifiera att virtuella datorer som skapats i din miljö inte kan finnas i G-serien. På så sätt nekas begäran varje gång en användare i din organisation försöker skapa en virtuell dator i G-serien.
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
@@ -93,8 +93,8 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
      > [!NOTE]
      > Om du tänker tillämpa denna principdefinition på flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller de prenumerationer som du tilldelar principen. Detsamma gäller för en initiativdefinition.
 
-   - Namnet på princip definitionen-_ *_KRÄV VM SKU: er som är mindre än G-serien_
-   - Beskrivning av vad principdefinitionen är avsedd att göra – _Den här principdefinitionen tvingar alla virtuella datorer som är skapade i omfånget att ha SKU:er som är mindre än G-serien för att minska kostnaderna._
+   - Namnet på princip definitionen – _KRÄV VM SKU: er som inte ingår i G-serien_
+   - Beskrivningen av vad princip definitionen är avsedd för – _den här princip definitionen framtvingar att alla virtuella datorer som skapats i det här omfånget har andra SKU: er än G-serien för att minska kostnaderna._
    - Välj mellan befintliga alternativ (som _Compute_), eller skapa en ny kategori för den här principdefinitionen.
    - Kopiera följande JSON-kod och uppdatera den sedan efter dina behov med:
       - Principparametrarna.
@@ -278,7 +278,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 
 ## <a name="create-a-policy-definition-with-azure-cli"></a>Skapa en principdefinition med Azure CLI
 
-Du kan skapa en princip definition med hjälp av Azure CLI `az policy definition` med kommandot. Om du vill skapa en principdefinition med en infogad regel använder du följande exempel:
+Du kan skapa en princip definition med hjälp av Azure CLI med `az policy definition` kommandot. Om du vill skapa en principdefinition med en infogad regel använder du följande exempel:
 
 ```azurecli-interactive
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
@@ -373,7 +373,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Ändra initiativ definitions parametrar från tillåtna värden" border="false":::
 
    > [!NOTE]
-   > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du markerar den öppnas sidan parameter omfattning&lt;(parameter&gt;namn). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
+   > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du markerar den öppnas sidan parameter omfattning ( &lt; parameter namn &gt; ). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
 
    Ange parametern "tillåtna platser" till "USA, östra 2" och lämna den andra som standard "AuditifNotExists".
 
@@ -381,7 +381,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 #### <a name="create-a-policy-initiative-definition-with-azure-cli"></a>Skapa en regel initiativs definition med Azure CLI
 
-Du kan skapa en princip initiativ definition med hjälp av Azure CLI `az policy set-definition` med kommandot. Använd följande exempel för att skapa en princip initiativ definition med en befintlig princip definition:
+Du kan skapa en princip initiativ definition med hjälp av Azure CLI med `az policy set-definition` kommandot. Använd följande exempel för att skapa en princip initiativ definition med en befintlig princip definition:
 
 ```azurecli-interactive
 az policy set-definition create -n readOnlyStorage --definitions '[
@@ -395,7 +395,7 @@ az policy set-definition create -n readOnlyStorage --definitions '[
 
 #### <a name="create-a-policy-initiative-definition-with-azure-powershell"></a>Skapa en regel initiativ definition med Azure PowerShell
 
-Du kan skapa en princip initiativ definition med hjälp av Azure PowerShell `New-AzPolicySetDefinition` med cmdleten. Om du vill skapa en princip initiativ definition med en befintlig princip definition använder du följande definitions fil för `VMPolicySet.json`princip initiativ som:
+Du kan skapa en princip initiativ definition med hjälp av Azure PowerShell med `New-AzPolicySetDefinition` cmdleten. Om du vill skapa en princip initiativ definition med en befintlig princip definition använder du följande definitions fil för princip initiativ som `VMPolicySet.json` :
 
 ```json
 [

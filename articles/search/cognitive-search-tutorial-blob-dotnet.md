@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 57cb68726adf8818f9ef0c8804be9c388ea39ff5
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 25df5f37f8aef55bc025b579ec48a2fab7dd6b72
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872289"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080172"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. I den här C#-självstudien använder du OCR (optisk tecken läsning) på bilder och utför bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-I den här självstudien används C# och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med programfiler och avbildningar i Azure Blob Storage.
@@ -113,7 +113,7 @@ Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjäns
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -127,9 +127,9 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-[Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att du behöver hantera informationen om http och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
+[Azure kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att du behöver hantera informationen om http och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
 
-För det här projektet installerar du `Microsoft.Azure.Search` version 9 eller senare av NuGet-paketet.
+För det här projektet installerar du version 9 eller senare av `Microsoft.Azure.Search` NuGet-paketet.
 
 1. I en webbläsare går du till [sidan Microsoft. Azure. search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
@@ -137,13 +137,13 @@ För det här projektet installerar du `Microsoft.Azure.Search` version 9 eller 
 
 1. Kopiera Package Manager-kommandot.
 
-1. Öppna Package Manager-konsolen. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen. 
+1. Öppna Package Manager-konsolen. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen. 
 
 1. Klistra in och kör kommandot som du kopierade i föregående steg.
 
 Installera sedan det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning.**.. 
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Hantera NuGet-paket för lösning.**.. 
 
 1. Klicka på **Bläddra** och Sök efter `Microsoft.Extensions.Configuration.Json` NuGet-paketet. 
 
@@ -151,9 +151,9 @@ Installera sedan det senaste `Microsoft.Extensions.Configuration.Json` NuGet-pak
 
 ### <a name="add-service-connection-information"></a>Lägg till information om tjänst anslutning
 
-1. Högerklicka på ditt projekt i Solution Explorer och välj **Lägg till** > **nytt objekt.** ... 
+1. Högerklicka på ditt projekt i Solution Explorer och välj **Lägg till**  >  **nytt objekt.** ... 
 
-1. Ge filen `appsettings.json` ett namn och välj **Lägg till**. 
+1. Ge filen ett namn `appsettings.json` och välj **Lägg till**. 
 
 1. Ta med den här filen i din utmatnings katalog.
     1. Högerklicka på `appsettings.json` och välj **Egenskaper**. 
@@ -176,7 +176,7 @@ För **SearchServiceName**anger du det korta tjänst namnet och inte den fullst�
 
 ### <a name="add-namespaces"></a>Lägg till namn områden
 
-I `Program.cs`lägger du till följande namn rymder.
+I `Program.cs` lägger du till följande namn rymder.
 
 ```csharp
 using System;
@@ -190,7 +190,7 @@ namespace EnrichwithAI
 
 ### <a name="create-a-client"></a>Skapa en klient
 
-Skapa en instans av `SearchServiceClient` klassen under. `Main`
+Skapa en instans av `SearchServiceClient` klassen under `Main` .
 
 ```csharp
 public static void Main(string[] args)
@@ -201,7 +201,7 @@ public static void Main(string[] args)
     SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ```
 
-`CreateSearchServiceClient`skapar en ny `SearchServiceClient` med värden som lagras i programmets konfigurations fil (appSettings. JSON).
+`CreateSearchServiceClient`skapar en ny `SearchServiceClient` med värden som lagras i programmets konfigurations fil (appsettings.jspå).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -222,7 +222,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 Den här självstudien är avsedd att hjälpa dig att förstå varje steg i indexerings pipelinen. Om det finns ett allvarligt problem som hindrar programmet från att skapa data källan, färdigheter, index eller indexerare, kommer programmet att generera fel meddelandet och avsluta så att problemet kan tolkas och åtgärdas.
 
-Lägg `ExitProgram` till `Main` i för att hantera scenarier som kräver att programmet avslutas.
+Lägg till i `ExitProgram` `Main` för att hantera scenarier som kräver att programmet avslutas.
 
 ```csharp
 private static void ExitProgram(string message)
@@ -242,7 +242,7 @@ I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmat
 
 `SearchServiceClient` har en `DataSources`-egenskap. Den här egenskapen innehåller alla metoder som du behöver för att skapa, Visa, uppdatera eller ta bort Azure Kognitiv sökning data källor.
 
-Skapa en ny `DataSource` instans genom att `serviceClient.DataSources.CreateOrUpdate(dataSource)`anropa. `DataSource.AzureBlobStorage`kräver att du anger namnet på data källan, anslutnings strängen och namnet på BLOB-behållaren.
+Skapa en ny `DataSource` instans genom att anropa `serviceClient.DataSources.CreateOrUpdate(dataSource)` . `DataSource.AzureBlobStorage`kräver att du anger namnet på data källan, anslutnings strängen och namnet på BLOB-behållaren.
 
 ```csharp
 private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceClient, IConfigurationRoot configuration)
@@ -271,7 +271,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 För att begäran ska lyckas returnerar metoden den data källa som skapades. Om det uppstår ett problem med begäran, till exempel en ogiltig parameter, kommer metoden att utlösa ett undantag.
 
-Nu kan du lägga till `Main` en rad i `CreateOrUpdateDataSource` för att anropa den funktion som du just har lagt till.
+Nu kan du lägga till en rad i `Main` för att anropa den `CreateOrUpdateDataSource` funktion som du just har lagt till.
 
 ```csharp
 public static void Main(string[] args)
@@ -306,7 +306,7 @@ I det här avsnittet definierar du en uppsättning med anriknings steg som du vi
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna.
 
-Vid den första bearbetningen knäckar Azure Kognitiv sökning varje dokument för att läsa innehåll från olika fil format. Text som hittas från källfilen placeras i ett genererat ```content```-fält, ett för varje dokument. Därför måste du ange inmatade ```"/document/content"``` värden som Använd den här texten. 
+Vid den första bearbetningen knäckar Azure Kognitiv sökning varje dokument för att läsa innehåll från olika fil format. Text som hittas från källfilen placeras i ett genererat ```content```-fält, ett för varje dokument. Därför måste du ange inmatade värden som ```"/document/content"``` Använd den här texten. 
 
 Utdata kan mappas till ett index som används som indata till en underordnad kunskap, eller både, vilket är fallet med språkkod. I indexet kan en språkkod användas för filtrering. Som indata används språkkoden av textanalyskunskaper för att informera om de språkliga reglerna kring ordnedbrytning.
 
@@ -314,7 +314,7 @@ Mer information om grunderna i kunskapsuppsättningar finns i [Definiera en kuns
 
 ### <a name="ocr-skill"></a>OCR-kunskaper
 
-**OCR** -kompetensen extraherar text från bilder. Den här kunskapen förutsätter att det finns ett normalized_images fält. Om du vill generera det här fältet senare i självstudien ställer ```"imageAction"``` vi in konfigurationen i indexerings definitionen ```"generateNormalizedImages"```till.
+**OCR** -kompetensen extraherar text från bilder. Den här kunskapen förutsätter att det finns ett normalized_images fält. Om du vill generera det här fältet senare i självstudien ställer vi in ```"imageAction"``` konfigurationen i indexerings definitionen till ```"generateNormalizedImages"``` .
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -405,7 +405,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### <a name="text-split-skill"></a>Text delnings kunskaper
 
-Den **delade** kunskapen nedan delar upp text efter sidor och begränsar sid längden till 4 000 tecken som mäts av `String.Length`. Algoritmen försöker dela upp texten i segment som har störst `maximumPageLength` storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något mindre än `maximumPageLength`.
+Den **delade** kunskapen nedan delar upp text efter sidor och begränsar sid längden till 4 000 tecken som mäts av `String.Length` . Algoritmen försöker dela upp texten i segment som har störst `maximumPageLength` storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något mindre än `maximumPageLength` .
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -438,9 +438,9 @@ private static SplitSkill CreateSplitSkill()
 
 ### <a name="entity-recognition-skill"></a>Kompetens för enhets igenkänning
 
-Den `EntityRecognitionSkill` här instansen är inställd på `organization`att identifiera kategori typ. **Entitetens igenkännings** förmåga kan också identifiera kategori `person` typer `location`och.
+Den här `EntityRecognitionSkill` instansen är inställd på att identifiera kategori typ `organization` . **Entitetens igenkännings** förmåga kan också identifiera kategori typer `person` och `location` .
 
-Observera att fältet "context" är inställt ```"/document/pages/*"``` på med en asterisk, vilket innebär att ett anriknings steg anropas för varje ```"/document/pages"```sida under.
+Observera att fältet "context" är inställt på ```"/document/pages/*"``` med en asterisk, vilket innebär att ett anriknings steg anropas för varje sida under ```"/document/pages"``` .
 
 ```csharp
 private static EntityRecognitionSkill CreateEntityRecognitionSkill()
@@ -472,7 +472,7 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 
 ### <a name="key-phrase-extraction-skill"></a>Extraherings färdighet för nyckel fraser
 
-Precis som `EntityRecognitionSkill` den instans som precis skapades, anropas **extrahering av diskussionsämne** -kompetens för varje sida i dokumentet.
+Precis som den `EntityRecognitionSkill` instans som precis skapades, anropas **extrahering av diskussionsämne** -kompetens för varje sida i dokumentet.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -529,7 +529,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Lägg till följande rader i `Main`.
+Lägg till följande rader i `Main` .
 
 ```csharp
     // Create the skills
@@ -569,9 +569,9 @@ Den här övningen använder följande fält och fälttyp:
 
 Fält för det här indexet definieras med en modell klass. Varje egenskap i modellklassen har attribut som avgör motsvarande indexfälts sökrelaterade beteende. 
 
-Vi ska lägga till modell klassen i en ny C#-fil. Högerklicka på projektet och välj **Lägg till** > **nytt objekt...**, välj "klass" och ge filen `DemoIndex.cs`ett namn och välj sedan **Lägg till**.
+Vi ska lägga till modell klassen i en ny C#-fil. Högerklicka på projektet och välj **Lägg till**  >  **nytt objekt...**, välj "klass" och ge filen ett namn och `DemoIndex.cs` Välj sedan **Lägg till**.
 
-Se till att ange att du vill använda typer från namn områdena `Microsoft.Azure.Search` och `Microsoft.Azure.Search.Models` .
+Se till att ange att du vill använda typer från `Microsoft.Azure.Search` `Microsoft.Azure.Search.Models` namn områdena och.
 
 Lägg till modell klass definitionen nedan `DemoIndex.cs` och inkludera den i samma namn område där du skapar indexet.
 
@@ -606,7 +606,7 @@ namespace EnrichwithAI
 }
 ```
 
-Nu när du har definierat en modell klass kan du skapa `Program.cs` en index definition på ett ganska enkelt sätt i igen. Namnet på det här indexet kommer `demoindex`att vara. Om det redan finns ett index med det namnet tas det bort.
+Nu när du har definierat en modell klass `Program.cs` kan du skapa en index definition på ett ganska enkelt sätt i igen. Namnet på det här indexet kommer att vara `demoindex` . Om det redan finns ett index med det namnet tas det bort.
 
 ```csharp
 private static Index CreateDemoIndex(SearchServiceClient serviceClient)
@@ -640,7 +640,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 Under testningen kanske du upptäcker att du försöker skapa indexet mer än en gång. Därför bör du kontrol lera om det index som du håller på att skapa redan finns innan du försöker skapa det.
 
-Lägg till följande rader i `Main`.
+Lägg till följande rader i `Main` .
 
 ```csharp
     // Create the index
@@ -731,7 +731,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Lägg till följande rader i `Main`.
+Lägg till följande rader i `Main` .
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -748,15 +748,15 @@ Det kan ta en stund att skapa indexeraren. Trots att datauppsättningen är lite
 
 Kod uppsättningen ```"maxFailedItems"``` till-1, som instruerar indexerings motorn att ignorera fel vid data import. Detta är användbart eftersom det finns det så få dokument i demo-datakällan. För en större datakälla skulle du ställa in värdet på större än 0.
 
-Observera också att ```"dataToExtract"``` är inställt på ```"contentAndMetadata"```. Den här instruktionen anger att indexeraren automatiskt ska extrahera innehållet från olika filformat samt metadata som är relaterade till varje fil.
+Observera också ```"dataToExtract"``` att är inställt på ```"contentAndMetadata"``` . Den här instruktionen anger att indexeraren automatiskt ska extrahera innehållet från olika filformat samt metadata som är relaterade till varje fil.
 
-När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen ```"imageAction"``` är inställd ```"generateNormalizedImages"``` på konfiguration, kombinerat med OCR-kunskaper och text kopplings kunskap, och anger att indexeraren ska extrahera text från bilderna (till exempel ordet "Stop" från ett trafik stopp) och bädda in det som en del av innehålls fältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
+När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. ```"imageAction"``` ```"generateNormalizedImages"``` Konfigurationen är inställd på konfiguration, kombinerat med OCR-kunskaper och text kopplings kunskap, och anger att indexeraren ska extrahera text från bilderna (till exempel ordet "Stop" från ett trafik stopp) och bädda in det som en del av innehålls fältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
 
 <a name="check-indexer-status"></a>
 
 ## <a name="4---monitor-indexing"></a>4 – övervaka indexering
 
-När du har definierat indexeraren körs den automatiskt när du skickar din begäran. Beroende på vilka kognitiva kunskaper du har definierat kan indexeringen ta längre tid än väntat. Använd `GetStatus` metoden för att ta reda på om indexeraren fortfarande körs.
+När du har definierat indexeraren körs den automatiskt när du skickar din begäran. Beroende på vilka kognitiva kunskaper du har definierat kan indexeringen ta längre tid än väntat. Använd metoden för att ta reda på om indexeraren fortfarande körs `GetStatus` .
 
 ```csharp
 private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient, Indexer indexer)
@@ -792,7 +792,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. I den här självstudien är varningarna ofarliga (till exempel inga textindata från JPEG-filerna).
 
-Lägg till följande rader i `Main`.
+Lägg till följande rader i `Main` .
 
 ```csharp
     // Check indexer overall status
@@ -806,7 +806,7 @@ När indexeringen är färdig kan du köra frågor som returnerar innehållet i 
 
 Som ett verifieringssteg ska du fråga indexet för alla fält.
 
-Lägg till följande rader i `Main`.
+Lägg till följande rader i `Main` .
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -829,7 +829,7 @@ catch (Exception e)
 }
 ```
 
-`CreateSearchIndexClient`skapar en ny `SearchIndexClient` med värden som lagras i programmets konfigurations fil (appSettings. JSON). Observera att API-nyckeln för search service-frågan används och inte administratörs nyckeln.
+`CreateSearchIndexClient`skapar en ny `SearchIndexClient` med värden som lagras i programmets konfigurations fil (appsettings.jspå). Observera att API-nyckeln för search service-frågan används och inte administratörs nyckeln.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -842,7 +842,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Lägg till följande kod i `Main`. Den första try-catch returnerar index definitionen med namn, typ och attribut för varje fält. Den andra är en parametriserad fråga där `Select` anger vilka fält som ska inkluderas i resultatet, till exempel. `organizations` En Sök sträng med `"*"` returnerar alla innehåll i ett enda fält.
+Lägg till följande kod i `Main` . Den första try-catch returnerar index definitionen med namn, typ och attribut för varje fält. Den andra är en parametriserad fråga där `Select` anger vilka fält som ska inkluderas i resultatet, till exempel `organizations` . En Sök sträng med `"*"` returnerar alla innehåll i ett enda fält.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -891,7 +891,7 @@ Du kan också använda portalen för att ta bort index, indexerare, data källor
 
 Den här självstudien demonstrerade de grundläggande stegen för att skapa en omfattande indexerings pipeline genom att skapa komponent delar: en data källa, färdigheter, index och indexerare.
 
-[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitionen och Mechanics för länkning av färdigheter tillsammans genom indata och utdata. Du har också lärt `outputFieldMappings` dig att i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
+[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitionen och Mechanics för länkning av färdigheter tillsammans genom indata och utdata. Du har också lärt dig att `outputFieldMappings` i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
 
 Slutligen lärde du dig att testa resultat och återställa systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. Du har också lärt dig att kontrollera indexerarstatus, och vilka objekt du ska ta bort innan du kör en pipeline igen.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560492"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253672"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Branchning och länkning av aktiviteter i en Azure Data Factory pipelinen med hjälp av Azure Portal
 
@@ -40,11 +40,11 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett.
-* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har en databas i Azure SQL Database går du till artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en.
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
 
@@ -206,6 +206,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 13. Välj fliken **Pipeline**, eller klicka på pipelinen i trädvyn. Bekräfta att **SourceBlobDataset** har valts för **Source Dataset** (Källdatauppsättning).
 
     ![Källdatauppsättning](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. I fönstret Egenskaper väljer du fliken **Mottagare** och klickar på **+ Ny** för **Sink Dataset** (Datauppsättning för mottagare). I det här steget skapar du en datauppsättning för mottagare för kopieringsaktiviteten på liknande sätt som när du skapade källdatauppsättningen.
 
     ![Knapp för ny datauppsättning för mottagare](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

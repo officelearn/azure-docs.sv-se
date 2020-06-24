@@ -14,21 +14,21 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5227fc89d99257f3390820d4930c3d57b63f03d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2a90003c9de2cf0e942b518c6d4e9c3569039caf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053401"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251428"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudie: Distribuera en kluster modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I del tre av den här själv studie serien i tre delar ska du distribuera en kluster modell som utvecklats i R till en SQL-databas med hjälp av Azure SQL Database Machine Learning Services (för hands version).
+I del tre av den här själv studie serien i tre delar ska du distribuera en kluster modell som utvecklats i R till en databas i Azure SQL Database att använda Azure SQL Database Machine Learning Services (för hands version).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Du skapar en lagrad procedur med ett inbäddat R-skript som utför klustring. Eftersom din modell körs i Azure SQL Database kan den enkelt tränas mot data som lagras i databasen.
+Du skapar en lagrad procedur med ett inbäddat R-skript som utför klustring. Eftersom modellen körs i Azure SQL Database kan den enkelt tränas mot data som lagras i databasen.
 
 I den här artikeln får du lära dig att:
 
@@ -38,11 +38,11 @@ I den här artikeln får du lära dig att:
 > * Utför klustring i SQL Database
 > * Använd kluster information
 
-I [del ett](clustering-model-prepare-data-tutorial.md)har du lärt dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
+I [del ett](clustering-model-prepare-data-tutorial.md)har du lärt dig hur du förbereder data från en databas för att utföra klustring.
 
 I [del två](clustering-model-build-tutorial.md)har du lärt dig hur du skapar och tränar en K-metod kluster modell i R.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Del tre i den här själv studie serien förutsätter att du har slutfört [**del ett**](clustering-model-prepare-data-tutorial.md) och [**delar två**](clustering-model-build-tutorial.md).
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184783"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118975"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
 
@@ -40,7 +40,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
     Notera att rad 7 i routes.js anropar funktionen `getHeroes` på rad 5 i **hero.service.js**.  Vi måste skapa samma koppling för post-, put- och delete-funktionerna. 
 
-    ![routes.js och hero.service.js i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js och hero.service.js i Visual Studio Code":::
     
     Vi börjar med att lägga till kod till hero-tjänsten. 
 
@@ -88,11 +88,11 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till `http://localhost:3000` för att se alla anrop som gjorts i nätverket.
 
-    ![Fliken Nätverk i Chrome som visar nätverksaktivitet](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Fliken Nätverk i Chrome som visar nätverksaktivitet":::
 
 7. Lägg till en ny hero genom att välja knappen **Add New Hero** (Lägg till ny hero). Ange ID = "999", name = "Fred" och saying = "Hello" och välj sedan **Spara**. På fliken Nätverk kan du se att du har skickat en POST-begäran om en ny hero. 
 
-    ![Fliken Nätverk i Chrome som visar nätverksaktivitet för Get- och Post-funktioner](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Fliken Nätverk i Chrome som visar nätverksaktivitet för Get- och Post-funktioner":::
 
     Nu ska vi gå tillbaka och lägga till Put- och Delete-funktionerna till appen.
 
@@ -177,11 +177,11 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
     Nu kan du visa nyttolasten genom att välja ID:t på fliken Nätverk. Som du ser i nyttolasten har saying nu värdet "Bye".
 
-    ![Hero-app och fliken Nätverk som visar nyttolasten](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Hero-app och fliken Nätverk som visar nyttolasten"::: 
 
     Du kan också ta bort en av dessa hero-komponenter i användargränssnittet och se hur lång tid det tar att slutföra borttagningsåtgärden. Testa detta genom att välja knappen Delete för hero-komponenten med namnet Fred.
 
-    ![Hero-app och fliken Nätverk som visar hur lång tid det tar att slutföra funktionerna](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Hero-app och fliken Nätverk som visar hur lång tid det tar att slutföra funktionerna"::: 
 
     Om du uppdaterar sidan visar fliken Nätverk hur lång tid det tar att hämta hero-komponenterna. Även om tiderna är korta beror mycket på var i världen dina data finns och på din möjlighet att geo-replikera dem i ett område nära användarna. Mer information om geo-replikering finns i nästa självstudiekurs, som kommer snart.
 

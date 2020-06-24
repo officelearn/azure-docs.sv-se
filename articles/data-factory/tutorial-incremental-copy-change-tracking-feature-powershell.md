@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 2eb52ae24fe17a3e1a161ab132eee862efae9af1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 41841fd51433a18389aa9f5beee063fb30696755
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559668"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251224"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage använda ändrings spårnings information med hjälp av PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i källans Azure SQL-databas till en Azure bloblagring.  
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data baserat på **ändrings spårnings** information i käll databasen i Azure SQL Database till en Azure Blob Storage.  
 
 I den här självstudiekursen får du göra följande:
 
@@ -47,13 +47,13 @@ Här följer de typiska arbetsflödesstegen från slutpunkt till slutpunkt för 
 > Både Azure SQL Database och SQL Server stöder ändringsspårningsteknik. I den här självstudien används Azure SQL Database som källdatalager. Du kan också använda en SQL Server instans.
 
 1. **Inledande inläsning av historiska data** (kör en gång):
-    1. Aktivera ändringsspårningsteknik i Azure SQL-källdatabasen.
-    2. Hämta det initiala värdet för SYS_CHANGE_VERSION i Azure SQL-databasen som baslinje för att samla in ändrade data.
-    3. Läs in fullständiga data från Azure SQL-databasen till en Azure Blob Storage.
+    1. Aktivera Ändringsspårning teknik i käll databasen i Azure SQL Database.
+    2. Hämta det ursprungliga värdet för SYS_CHANGE_VERSION i databasen som bas linje för att samla in ändrade data.
+    3. Läs in fullständiga data från käll databasen i Azure Blob Storage.
 2. **Inkrementell inläsning av deltadata enligt ett schema** (kör regelbundet efter den första datainläsningen):
     1. Hämta de gamla och nya SYS_CHANGE_VERSION-värdena.
-    3. Läs in deltadata genom att ansluta till primärnycklarna för de ändrade raderna (mellan två SYS_CHANGE_VERSION-värden) från **sys.change_tracking_tables** med data i **källtabellen** och flytta sedan deltadata till målet.
-    4. Uppdatera SYS_CHANGE_VERSION för deltainläsning nästa gång.
+    2. Läs in deltadata genom att ansluta till primärnycklarna för de ändrade raderna (mellan två SYS_CHANGE_VERSION-värden) från **sys.change_tracking_tables** med data i **källtabellen** och flytta sedan deltadata till målet.
+    3. Uppdatera SYS_CHANGE_VERSION för deltainläsning nästa gång.
 
 ## <a name="high-level-solution"></a>Lösning på hög nivå
 I den här självstudien skapar du två pipelines som utför följande två åtgärder:  
@@ -71,16 +71,17 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har en databas i Azure SQL Database går du till artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett. Skapa en container med namnet **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
+### <a name="create-a-data-source-table-in-your-database"></a>Skapa en data käll tabell i databasen
+
 1. Starta **SQL Server Management Studio**och anslut till SQL Database.
 2. I **Server Explorer** högerklickar du på **databasen** och väljer **Ny fråga**.
-3. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagring.  
+3. Kör följande SQL-kommando mot databasen för att skapa en tabell med namnet `data_source_table` som data käll arkiv.  
 
     ```sql
     create table data_source_table
@@ -104,7 +105,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 4. Aktivera mekanismen för **ändringsspårning** på din databas och källtabellen (data_source_table) genom att köra följande SQL-fråga:
 
     > [!NOTE]
-    > - Ersätt &lt;ditt databasnamn&gt; med namnet på din Azure SQL-databas som innehåller data_source_table.
+    > - Ersätt &lt; ditt databas namn &gt; med namnet på databasen som har data_source_table.
     > - Ändrade data sparas i två dagar i det aktuella exemplet. Om du läser in ändrade data ungefär var tredje dag eller oftare inkluderas inte en del ändrade data.  Du måste antingen ändra värdet för CHANGE_RETENTION till ett större antal. Du kan också se till att din period för att läsa in ändrade data är inom två dagar. Mer information finns i [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database) (Aktivera ändringsspårning för en databas)
 
     ```sql
@@ -134,7 +135,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
     > [!NOTE]
     > Om data inte ändras när du har aktiverat spårning för SQL-databasen är värdet för ändringsspårningsversionen 0.
-6. Kör följande fråga för att skapa en lagrad procedur i din Azure SQL-databas. Pipelinen anropar den här lagrade proceduren för att uppdatera ändringsspårningsversionen i tabellen som du skapade i föregående steg.
+6. Kör följande fråga för att skapa en lagrad procedur i databasen. Pipelinen anropar den här lagrade proceduren för att uppdatera ändringsspårningsversionen i tabellen som du skapade i föregående steg.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -153,7 +154,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 Installera de senaste Azure PowerShell-modulerna genom att följa anvisningarna i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Exempel: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -197,7 +198,7 @@ Observera följande punkter:
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina Azure Storage-konton och din Azure SQL-databas.
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till ditt Azure Storage-konto och din databas i Azure SQL Database.
 
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst.
 I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
@@ -232,9 +233,9 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
-I det här steget länkar du Azure SQL-databasen till datafabriken.
+I det här steget länkar du databasen till data fabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: Ersätt ** &lt; serverns &gt; &lt; databas namn &gt; , &lt; användar-ID &gt; och &lt; lösen ord &gt; ** med namnet på servern, namnet på din databas, ditt användar-ID och lösen ord innan du sparar filen.
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.jspå** i **C:\ADFTutorials\IncCopyChangeTrackingTutorial** -mappen med följande innehåll: Ersätt ** &lt; serverns &gt; &lt; databas namn &gt; , &lt; användar-ID &gt; och &lt; lösen ord &gt; ** med namnet på servern, namnet på din databas, ditt användar-ID och lösen ord innan du sparar filen.
 
     ```json
     {
@@ -464,7 +465,7 @@ Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i con
 
 ![Utdatafil från fullständig kopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-Filen ska innehålla data från Azure SQL-databasen:
+Filen ska ha data från databasen:
 
 ```
 1,aaaa,21
@@ -476,7 +477,7 @@ Filen ska innehålla data från Azure SQL-databasen:
 
 ## <a name="add-more-data-to-the-source-table"></a>Lägga till mer data i källtabellen
 
-Kör följande fråga mot Azure SQL-databasen för att lägga till en rad och uppdatera en rad.
+Kör följande fråga mot databasen för att lägga till en rad och uppdatera en rad.
 
 ```sql
 INSERT INTO data_source_table
@@ -642,7 +643,7 @@ Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`.
 
 ![Utdatafil från inkrementell säkerhetskopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-Filen ska endast innehålla deltadata från Azure SQL-databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden.
+Filen bör bara ha delta data från databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden.
 
 ```
 1,update,10,2,U

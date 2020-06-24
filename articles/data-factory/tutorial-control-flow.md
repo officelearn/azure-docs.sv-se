@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022120"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253468"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -44,11 +44,11 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. Du använder databasen som mottagare för datalagringen. Om du inte har en Azure SQL Database, se [skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database. Du använder databasen som mottagare för datalagringen. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. I den här artikeln används Visual Studio 2019.
 * Azure .NET SDK. Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
@@ -58,7 +58,7 @@ Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-progr
 
 ### <a name="create-a-blob-table"></a>Skapa en BLOB-tabell
 
-1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *indata. txt*.
+1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *input.txt*.
 
    ```
    Ethel|Berg
@@ -66,7 +66,7 @@ Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-progr
    ```
 
 1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **BLOB-behållare** och välj **skapa BLOB-behållare**.
-1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till filen *indata. txt* i behållaren.
+1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till *input.txt* -filen i behållaren.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt<a name="create-visual-studio-project"></a>
 

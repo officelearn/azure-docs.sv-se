@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277483"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792072"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Skala ett program i Azure våren Cloud
 
@@ -25,7 +25,7 @@ När du är klar vet du hur du ska göra snabba manuella ändringar i varje prog
 
 För att slutföra den här kursen behöver du:
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 * En distribuerad Azure våren Cloud Service-instans.  Följ vår [snabb start för att distribuera en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
 * Minst ett program som redan har skapats i din tjänst instans.
 
@@ -58,6 +58,9 @@ Se till att välja **Spara** för att tillämpa skalnings inställningarna.
 ![Skalnings tjänsten i Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Efter några sekunder visas ändringarna du gjort på sidan **Översikt** med mer information på fliken **program instanser** . skalning kräver inte kod ändringar eller omdistribution.
+
+## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
+Om du är på Basic-nivån och är begränsad av en eller flera av dessa [gränser](spring-cloud-quotas.md), kan du uppgradera till standard nivån. Om du vill göra detta går du till menyn pris nivå genom att först välja kolumnen standard nivå och klicka på knappen **Uppgradera** .
 
 ## <a name="next-steps"></a>Nästa steg
 

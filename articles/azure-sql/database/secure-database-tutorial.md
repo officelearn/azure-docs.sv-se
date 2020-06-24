@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323934"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252924"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database]
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar databasen i Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -301,7 +301,7 @@ Så här aktiverar du granskning:
     ![Granskningsposter](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Se [Granskning av SQL Database](../../azure-sql/database/auditing-overview.md) om hur du ytterligare anpassar granskningshändelser med PowerShell eller REST API.
+> Se [SQL Database granskning](../../azure-sql/database/auditing-overview.md) för att ytterligare anpassa gransknings händelser med PowerShell eller REST API.
 
 ### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
 

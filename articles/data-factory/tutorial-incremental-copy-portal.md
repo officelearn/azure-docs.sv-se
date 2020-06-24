@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249101"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249184"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage.
+I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data från en tabell i Azure SQL Database till Azure Blob Storage.
 
 I den här självstudiekursen får du göra följande:
 
@@ -65,7 +65,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har en databas i Azure SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
@@ -103,6 +103,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i SQL-databasen för att lagra värdet för högvattenmärket
+
 1. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för högvattenmärket:  
 
     ```sql
@@ -169,7 +170,7 @@ END
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 6. Välj **V2** för **versionen**.
-7. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+7. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Data lag ren (Azure Storage, Azure SQL Database, Azure SQL-hanterad instans osv.) och beräkningarna (HDInsight osv.) som används av Data Factory kan finnas i andra regioner.
 8. Klicka på **Skapa**.      
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
 
@@ -199,7 +200,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     2. Välj servern som **Server namn**.
     3. Välj ditt **databas namn** i list rutan.
     4. Ange lösen ordet för **användar namnet**  &  **Password**.
-    5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
+    5. Om du vill testa anslutningen till din SQL-databas klickar du på **Testa anslutning**.
     6. Klicka på **Slutför**.
     7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
 
@@ -277,7 +278,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga fönstret med **verifieringsrapporten för pipeline** klickar du på >>.   
 
 28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar.
@@ -290,9 +291,9 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Om du vill uppdatera listan klickar du på **Uppdatera**.
+1. Växla till fliken **Övervaka** till vänster. Du ser status för pipeline-körningen utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa körnings information och köra pipelinen igen.
 
-2. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna klickar du på den första länken (**View activity runs** (Visa aktivitetskörningar)) i kolumnen **Action** (Åtgärd). Du kan gå tillbaka till föregående vy genom att klicka på **Pipeliner** högst upp. Om du vill uppdatera listan klickar du på **Uppdatera**.
+2. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . Välj **alla pipelines** längst upp för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
 
 
 ## <a name="review-the-results"></a>Granska resultaten
@@ -322,7 +323,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
 ## <a name="add-more-data-to-source"></a>Lägg till mer data i källan
 
-Infoga nya data i SQL-databasen (datakällagring).
+Infoga nya data i databasen (data käll arkivet).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-Uppdaterade data i SQL-databasen är:
+De uppdaterade data i databasen är:
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Utlös ytterligare en pipelinekörning
+
 1. Växla till fliken **redigera** . Klicka på pipelinen i trädvyn om den inte är öppen i designern.
 
 2. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**.
@@ -355,9 +356,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Övervaka den andra pipelinekörningen
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se status för den pipelinekörning som utlöstes av den manuella utlösaren. Om du vill uppdatera listan klickar du på **Uppdatera**.
+1. Växla till fliken **Övervaka** till vänster. Du ser status för pipeline-körningen utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
-2. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna klickar du på den första länken (**View activity runs** (Visa aktivitetskörningar)) i kolumnen **Action** (Åtgärd). Du kan gå tillbaka till föregående vy genom att klicka på **Pipeliner** högst upp. Om du vill uppdatera listan klickar du på **Uppdatera**.
+2. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . Välj **alla pipelines** längst upp för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
 
 
 ## <a name="verify-the-second-output"></a>Verifiera den andra utdata
@@ -398,7 +399,7 @@ I den här självstudiekursen fick du:
 > * Övervaka den andra pipelinekörningen
 > * Granska resultatet från den andra körningen
 
-I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
+I den här självstudien kopierade pipelinen data från en enskild tabell i SQL Database till Blob Storage. Gå vidare till följande självstudie för att lära dig hur du kopierar data från flera tabeller i en SQL Server databas till SQL Database.
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvist från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

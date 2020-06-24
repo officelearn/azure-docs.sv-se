@@ -9,18 +9,18 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235081"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887445"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
 I den här självstudien med tre delar skapar du en maskin inlärnings modell för att förutsäga halten av järn malm som en procent andel kiseldioxid och distribuerar sedan modellen i Azure SQL Edge. I del ett installerar du den nödvändiga program varan och distribuerar Azure-resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 2. Installera [python-3.6.8](https://www.python.org/downloads/release/python-368/).
@@ -30,6 +30,7 @@ I den här självstudien med tre delar skapar du en maskin inlärnings modell f�
 4. Installera [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Öppna Azure Data Studio och konfigurera python för antecknings böcker.Mer information finns i [Konfigurera python för notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Det här steget kan ta flera minuter.
 6. Installera den senaste versionen av [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Följande skript kräver att AZ PowerShell är den senaste versionen (3.5.0, feb 2020).
+7. Ladda ned [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) och [AMD/arm Docker-bildfilerna](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) som används i självstudien.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Distribuera Azure-resurser med PowerShell-skript
 

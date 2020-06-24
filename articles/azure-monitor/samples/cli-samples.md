@@ -6,17 +6,17 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837492"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945298"
 ---
 # <a name="azure-monitor-cli-samples"></a>Azure Monitor CLI-exempel
 Den här artikeln visar exempel kommandon för kommando rads gränssnitt (CLI) som hjälper dig att komma åt Azure Monitor-funktioner. Med Azure Monitor kan du Autoskala Cloud Services, Virtual Machines och Web Apps och skicka aviseringar eller anropa webb-URL: er baserat på värden för konfigurerade telemetridata.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har installerat Azure CLI följer du anvisningarna för att [Installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) för att köra CLI som en interaktiv upplevelse i webbläsaren. Se en fullständig referens för alla tillgängliga kommandon i [Azure Monitor CLI-referensen](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
@@ -29,51 +29,51 @@ az login
 
 När du har kört det här kommandot måste du logga in via instruktionerna på skärmen. Alla kommandon fungerar i kontexten för din standard prenumeration.
 
-Om du vill visa information om den aktuella prenumerationen använder du följande kommando.
+Ange information om din aktuella prenumeration.
 
 ```azurecli
 az account show
 ```
 
-Använd följande kommando om du vill ändra arbets kontexten till en annan prenumeration.
+Ändra arbets kontext till en annan prenumeration.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Om du vill visa en lista över alla Azure Monitor kommandon som stöds utför du följande kommando.
+Visa en lista över alla Azure Monitor-kommandon som stöds.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Visa aktivitets loggen för en prenumeration
+## <a name="view-activity-log"></a>Visa aktivitets logg
 
-Om du vill visa en lista över aktivitets logg händelser utför du följande kommando.
+Visa en lista över aktivitets logg händelser.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Prova följande om du vill visa alla tillgängliga alternativ.
+Visa alla tillgängliga alternativ.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Här är ett exempel på en lista över loggar av en resourceGroup
+Lista loggar efter en resourceGroup.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exempel för att visa en lista över loggar per anropare
+Lista loggar efter anropare.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exempel för att visa en lista över loggar efter anropare på en resurs typ inom ett datum intervall
+Lista loggar efter anropare på en resurs typ inom ett datum intervall.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 79d8cb4b09ef547bf1c0b01f48872ddcb4f964ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81616536"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783375"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -31,7 +31,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 
 >[!NOTE]
 > Det finns en inaktuell version av vår Key Vault PowerShell-fil för utdatafiler som **kan** läsas in i din miljö i stället för till rätt version. Vi förväntar sig en uppdaterad version av PowerShell som innehåller den korrigering som behövs för formatering av utdata och kommer att uppdatera det här avsnittet vid den tidpunkten. Den aktuella lösningen, om du stöter på det här formaterings problemet, är:
-> - Använd följande fråga om du ser att du inte ser den aktiverade egenskapen mjuk borttagning som beskrivs i det här avsnittet: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> - Använd följande fråga om du ser att du inte ser den aktiverade egenskapen mjuk borttagning som beskrivs i det här avsnittet: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete` .
 
 
 Key Vault detaljerad referensinformation för PowerShell finns i [Azure Key Vault PowerShell-referens](/powershell/module/az.keyvault).
@@ -42,8 +42,8 @@ Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkom
 
 | Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|Visa lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
-|Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
+|Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
+|Återställa|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft. nyckel-valv/platser/deletedVaults/rensning/åtgärd|
 
 Mer information om behörigheter och åtkomst kontroll finns i [skydda nyckel valvet](secure-your-key-vault.md).
@@ -245,7 +245,7 @@ Samma sak gäller för nyckel valvet. Om du vill ta bort ett mjukt borttaget nyc
 
 ### <a name="purging-a-key-vault"></a>Rensar ett nyckel valv
 
-När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder `Remove-AzKeyVault` du kommandot med alternativet `-InRemovedState` och genom att ange platsen för det borttagna nyckel valvet `-Location location` med argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av `Get-AzKeyVault -InRemovedState`kommandot.
+När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder du `Remove-AzKeyVault` kommandot med alternativet `-InRemovedState` och genom att ange platsen för det borttagna nyckel valvet med `-Location location` argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av kommandot `Get-AzKeyVault -InRemovedState` .
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
@@ -265,7 +265,7 @@ Om du visar borttagna Key Vault-objekt visas även när de är schemalagda att r
 
 ## <a name="enabling-purge-protection"></a>Aktiverar rensnings skydd
 
-När rensnings skyddet har Aktiver ATS kan ett valv eller ett objekt i Borttaget tillstånd inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Detta valv eller objekt kan fortfarande återställas. Den här funktionen ger ytterligare garantier för att ett valv eller ett objekt aldrig kan tas bort permanent förrän kvarhållningsperioden har passerat.
+När rensnings skyddet är aktiverat kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden har passerat. Detta valv eller objekt kan fortfarande återställas. Den här funktionen ger ytterligare garantier för att ett valv eller ett objekt aldrig kan tas bort permanent förrän kvarhållningsperioden har passerat. Standard kvarhållningsperiod är 90 dagar, men när nyckel valvet skapas är det möjligt att ange ett värde mellan 7 och 90 dagar i kvarhållningsintervall. Bevarande principen rensa skydd använder samma intervall. När du har angett går det inte att ändra lagrings princip intervallet.
 
 Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. 
 

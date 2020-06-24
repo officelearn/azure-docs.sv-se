@@ -5,14 +5,14 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239597"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783154"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -36,7 +36,7 @@ För att slutföra den här kursen behöver du:
 - [Aktivera Application Insights-profileraren](../../azure-monitor/app/profiler.md#installation) för ditt program.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="identify-slow-server-operations"></a>Identifiera långsamma serveråtgärder
 Application Insights samlar in prestandainformation för de olika åtgärderna i ditt program. Genom att identifiera vilka åtgärder som tar längst tid kan du diagnostisera potentiella problem och fatta välgrundade beslut kring din pågående utveckling för att förbättra programmets prestanda.
@@ -61,7 +61,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
     ![Information om åtgärd från slut punkt till slut punkt](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  **Profiler** hjälper dig vidare med diagnostik på kodnivå. Den faktiska koden som kördes för åtgärden och den tid som behövdes för varje steg visas. Vissa åtgärder kanske inte har någon spårning eftersom Profiler körs med jämna mellanrum.  Med tiden bör fler åtgärder ha spårningar.  Du startar Profiler för åtgärden genom att klicka på **Profiler traces** (Profiler-spårningar).
+6.  [**Profileraren**](../../azure-monitor/app/profiler-overview.md) hjälper dig att komma igång med kod nivå diagnostik genom att visa den faktiska kod som kördes för åtgärden och den tid som krävs för varje steg. Vissa åtgärder kanske inte har någon spårning eftersom Profiler körs med jämna mellanrum.  Med tiden bör fler åtgärder ha spårningar.  Du startar Profiler för åtgärden genom att klicka på **Profiler traces** (Profiler-spårningar).
 5.  I spårningen ser du enskilda händelser för varje åtgärd så att du kan diagnostisera vad som gör att åtgärden tar så lång tid att utföra.  Klicka på något av de översta exemplen som har den längsta varaktigheten.
 6.  Klicka på **aktiv sökväg** för att markera den angivna sökvägen till händelser som mest bidrar till den totala varaktigheten för åtgärden.  I det här exemplet ser du att det långsammaste anropet kommer från metoden *FabrikamFiberAzureStorage.GetStorageTableData*. Den del som tar mest tid är metoden *CloudTable.CreateIfNotExist*. Om den här raden med kod körs varje gång som funktionen anropas förbrukas onödigt många nätverksanrop och processorresurser. Det bästa sättet att åtgärda koden är att placera den här raden i någon startmetod som bara utförs en gång.
 
@@ -76,7 +76,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 ## <a name="use-logs-data-for-server"></a>Använd loggdata för servern
  Loggar innehåller ett rikt frågespråk som gör att du kan analysera alla data som samlas in av Application Insights. Du kan använda det till att utföra djupanalys på data om förfrågningar och prestanda.
 
-1. Gå tillbaka till panelen åtgärds information och ![Klicka på loggarna ikon](media/tutorial-performance/app-viewinlogs-icon.png)**i loggar (analys)**
+1. Gå tillbaka till panelen åtgärds information och klicka på ![ loggarna ikon](media/tutorial-performance/app-viewinlogs-icon.png)**i loggar (analys)**
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem efter dina behov.  Den första frågan visar åtgärdens varaktighet över tid.
 
@@ -97,7 +97,7 @@ Förutom att identifiera serverprocesser att optimera så kan Application Insigh
 ## <a name="use-logs-data-for-client"></a>Använd loggar data för klienten
 Precis som de data som samlas in för Server prestanda gör Application Insights alla klient data tillgängliga för djup analys med hjälp av loggar.
 
-1. Gå tillbaka till webb läsar sammanfattningen och klicka på ![loggarna](media/tutorial-performance/app-viewinlogs-icon.png) **Visa i loggar (analys)**
+1. Gå tillbaka till webb läsar sammanfattningen och klicka på ![ loggarna ](media/tutorial-performance/app-viewinlogs-icon.png) **Visa i loggar (analys)**
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 

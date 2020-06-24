@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 22aad0e601c600e582cbea0cea82dd67a20a2c06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81392684"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888001"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Självstudie: Uppgradera Kubernetes i Azure Kubernetes Service (AKS)
 
@@ -34,15 +34,30 @@ I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. 
 Innan du uppgraderar ett kluster använder du kommandot [az aks get-upgrades][] för att kontrollera vilka Kubernetes-versioner som är tillgängliga för uppgradering:
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-I följande exempel är den aktuella versionen *1.14.8*och de tillgängliga versionerna visas under kolumnen *uppgraderingar* .
+I följande exempel är den aktuella versionen *1.15.11*och de tillgängliga versionerna visas under *uppgraderingar*.
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## <a name="upgrade-a-cluster"></a>Uppgradera ett kluster
@@ -55,16 +70,19 @@ I syfte att minimera störningar av program som körs avspärras och töms noder
 1. När den nya noden är redo och ansluten till klustret börjar Kubernetes-schemaläggaren att köra poddar på den.
 1. Den gamla noden tas bort och nästa nod i klustret börjar avspärrnings- och tömningsprocessen.
 
-Använd kommandot [az aks upgrade][] för att uppgradera AKS-klustret. I följande exempel uppgraderas klustret till Kubernetes version *1.14.6*.
+Använd kommandot [az aks upgrade][] för att uppgradera AKS-klustret.
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
+```
 
 > [!NOTE]
 > Du kan endast uppgradera en lägre version i taget. Du kan till exempel uppgradera från *1.14. x* till *1.15. x*, men inte uppgradera från *1.14. x* till *1.16. x* direkt. Uppgradera från *1.14. x* till *1.16. x*genom att först uppgradera från *1.14.* x till *1.15. x*och sedan utföra en annan uppgradering från *1.15. x* till *1.16. x*.
 
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
-```
-
-I följande komprimerade exempel utdata visas *kubernetesVersion* Now Reports *1.15.5*:
+I följande komprimerade exempel utdata visas resultatet av uppgraderingen till *1.16.8*. Observera att *kubernetesVersion* nu rapporterar *1.16.8*:
 
 ```json
 {
@@ -82,7 +100,7 @@ I följande komprimerade exempel utdata visas *kubernetesVersion* Now Reports *1
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.15.5",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -97,12 +115,12 @@ Bekräfta att uppgraderingen lyckades genom att köra kommandot [az aks show][] 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Följande exempel på utdata visar AKS-klustret kör *KubernetesVersion 1.15.5*:
+Följande exempel på utdata visar AKS-klustret kör *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret

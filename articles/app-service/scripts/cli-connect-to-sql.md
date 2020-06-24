@@ -1,6 +1,6 @@
 ---
-title: 'CLI: ansluta en app till en SQL-databas'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till en SQL-databas.
+title: 'CLI: ansluta en app till SQL Database'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till SQL Database.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015513"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250748"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Ansluta en App Service-app till en SQL-databas med hjälp av CLI
+# <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Ansluta en App Service-app till SQL Database använda CLI
 
-Det här exempelskriptet skapar en Azure SQL-databas och en App Service-app. Därefter länkar det SQL-databasen till appen med hjälp av appinställningar.
+Det här exempel skriptet skapar en databas i Azure SQL Database och en App Service-app. Den länkar sedan databasen till appen med hjälp av app-inställningar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, App Service-appen, SQL-databasen och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

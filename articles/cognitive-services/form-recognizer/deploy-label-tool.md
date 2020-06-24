@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212453"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -82,14 +82,14 @@ Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal:
    > [!div class="mx-imgBorder"]
    > ![Konfigurera Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Klart! Välj sedan **Granska + skapa**och sedan **skapa** för att distribuera din webbapp. När du är klar kan du komma åt din webbapp på den URL som anges i **översikten** för din resurs.
+7. Och sedan är du klar. Välj sedan **Granska + skapa**och sedan **skapa** för att distribuera din webbapp. När du är klar kan du komma åt din webbapp på den URL som anges i **översikten** för din resurs.
 
 > [!NOTE]
 > När du skapar din webbapp kan du också konfigurera auktorisering/autentisering. Detta är inte nödvändigt för att komma igång. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Som ett alternativ till att använda Azure Portal kan du skapa en resurs med hjälp av Azure CLI. Innan du fortsätter måste du installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan hoppa över det här steget om du redan arbetar med Azure CLI. 
+Som ett alternativ till att använda Azure Portal kan du skapa en resurs med hjälp av Azure CLI. Innan du fortsätter måste du installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Du kan hoppa över det här steget om du redan arbetar med Azure CLI. 
 
 Det finns några saker du behöver veta om det här kommandot:
 

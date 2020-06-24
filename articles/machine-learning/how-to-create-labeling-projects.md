@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629640"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212020"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -176,7 +176,10 @@ När en maskin inlärnings modell har tränats på dina manuellt märkta data, u
 
 ## <a name="initialize-the-labeling-project"></a>Initiera ett etikettande projekt
 
-När du har initierat projektet är vissa delar av projektet oföränderliga. Du kan inte ändra aktivitets typen eller data uppsättningen. Du *kan* ändra etiketter och URL: en för uppgifts beskrivningen. Granska inställningarna noggrant innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **data etiketter** som visar projektet som **initieras**. Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
+När du har initierat projektet är vissa delar av projektet oföränderliga. Du kan inte ändra aktivitets typen eller data uppsättningen. Du *kan* ändra etiketter och URL: en för uppgifts beskrivningen. Granska inställningarna noggrant innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **data etiketter** som visar projektet som **initieras**.
+
+> [!NOTE]
+> Den här sidan kanske inte uppdateras automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
 
 ## <a name="run-and-monitor-the-project"></a>Köra och övervaka projektet
 

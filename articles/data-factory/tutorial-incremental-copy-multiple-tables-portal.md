@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med Azure Portal
-description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server-databas till en Azure SQL-databas.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 680f8518e5d005aebeffd54fe6d05ae1124c595a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559706"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251166"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas med hjälp av Azure Portal
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Läs in data stegvis från flera tabeller i SQL Server till en databas i Azure SQL Database med hjälp av Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server-databas till en Azure SQL-databas.    
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -67,9 +67,9 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
-* **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../azure-sql/database/single-database-create-quickstart.md). 
+* **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en databas i SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
@@ -111,12 +111,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa måltabeller i Azure SQL-databasen
-1. Öppna SQL Server Management Studio och anslut till din Azure SQL-databas.
+### <a name="create-destination-tables-in-your-database"></a>Skapa mål tabeller i din databas
+
+1. Öppna SQL Server Management Studio och Anslut till databasen i Azure SQL Database.
 
 1. I **Server Explorer**högerklickar du på databasen och väljer **ny fråga**.
 
-1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa tabeller med namnen `customer_table` och `project_table` :  
+1. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
     
     ```sql
     create table customer_table
@@ -134,8 +135,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL-databasen för att lagra värdet för högvattenmärket
-1. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för vattenstämpeln: 
+### <a name="create-another-table-in-your-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i databasen för att lagra värdet för hög vatten märket
+
+1. Kör följande SQL-kommando mot databasen för att skapa en tabell med namnet `watermarktable` för att lagra värdet för vattenstämpeln: 
     
     ```sql
     create table watermarktable
@@ -156,9 +158,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Skapa en lagrad procedur i Azure SQL-databasen 
+### <a name="create-a-stored-procedure-in-your-database"></a>Skapa en lagrad procedur i databasen
 
-Kör följande kommando för att skapa en lagrad procedur i din Azure SQL-databas. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
+Kör följande kommando för att skapa en lagrad procedur i databasen. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -174,8 +176,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Skapa datatyper och ytterligare lagrade procedurer i Azure SQL-databasen
-Kör följande fråga för att skapa två lagrade procedurer och två data typer i din Azure SQL-databas. De används för att slå samman data från källtabellerna till måltabellerna.
+### <a name="create-data-types-and-additional-stored-procedures-in-your-database"></a>Skapa data typer och ytterligare lagrade procedurer i databasen
+
+Kör följande fråga för att skapa två lagrade procedurer och två data typer i databasen. De används för att slå samman data från källtabellerna till måltabellerna.
 
 För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig med att det inte förväntar sig ett "stort" antal delta rader (mer än 100) som ska lagras i tabell variabeln.  
 
@@ -260,9 +263,13 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>Skapa Integration Runtime med lokal installation
 När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett Azure-datalager ska du installera en lokal Integration Runtime (IR) i din lokala miljö. Lokalt installerad IR flyttar data mellan ditt privata nätverk och Azure. 
 
-1. Klicka på **Anslutningar** längst ned i det vänstra fönstret och växla till **Integration Runtimes** i fönstret **Anslutningar**. 
+1. På sidan för att **komma igång** i Azure Data Factory UI väljer du [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i rutan längst till vänster.
 
-1. På fliken **Integration Runtimes** klickar du på **+ Ny**. 
+   ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
+
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
+
+   ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. I fönstret **integration runtime installation** väljer **du utför data flytt och skicka aktiviteter till externa beräkningar**och klickar på **Fortsätt**. 
 
@@ -281,13 +288,14 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 1. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server databas och Azure SQL Database. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din SQL Server-databas och din databas i Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
 I det här steget länkar du SQL Server-databasen till data fabriken.
 
 1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 
+   ![Ny länkad tjänst](./media/doc-common-process/new-linked-service.png)
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **SQL Server** och klickar på **Fortsätt**. 
 
 1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
@@ -303,7 +311,7 @@ I det här steget länkar du SQL Server-databasen till data fabriken.
     1. Klicka på **Slutför**om du vill spara den länkade tjänsten.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Skapa länkad tjänst för Azure SQL Database
-I det sista steget skapar du en länkad tjänst för att länka SQL Server-databasen till datafabriken. I det här steget länkar du din (destination/mottagare) Azure SQL-databas till datafabriken. 
+I det sista steget skapar du en länkad tjänst för att länka SQL Server-databasen till datafabriken. I det här steget länkar du mål-/Sink-databasen till data fabriken. 
 
 1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
@@ -311,8 +319,8 @@ I det sista steget skapar du en länkad tjänst för att länka SQL Server-datab
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
     1. För **Server namn**väljer du namnet på din server i list rutan. 
-    1. För **Databasnamn** väljer du den Azure SQL-databas där du skapade customer_table och project_table som en del av förberedelserna. 
-    1. För **Användarnamn** anger du namnet på en användare som har åtkomst till Azure SQL-databasen. 
+    1. För **databas namn**väljer du den databas i vilken du skapade customer_table och project_table som en del av förutsättningarna. 
+    1. För **användar namn**anger du namnet på den användare som har åtkomst till databasen. 
     1. För **lösen ord**anger du användarens **lösen ord** . 
     1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
     1. Klicka på **Slutför**om du vill spara den länkade tjänsten.
@@ -349,7 +357,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     1. Klicka på **+ Ny** i avsnittet för att **skapa/uppdatera parametrar**. 
     1. Ange **SinkTableName** som **namn**, och **String** som **typ**. Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
    
-    ![Mottagardatauppsättning – egenskaper](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        ![Mottagardatauppsättning – egenskaper](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. Växla till fliken **anslutning** i fönstret Egenskaper och välj **AzureSqlDatabaseLinkedService** för **länkad tjänst**. För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll).   
     
 1. I fönstret **Lägg till dynamiskt innehåll** väljer du **SinkTableName** i avsnittet **parametrar** . 
@@ -371,7 +379,7 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
     1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
     1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
-    ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktiviteten upprepas över listan med tabellnamn och utför följande åtgärder: 
@@ -455,7 +463,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     1. För egenskapen **tabell typ** anger du `@{item().TableType}` .
     1. För **tabell typ parameter namn**anger du `@{item().TABLE_NAME}` .
 
-    ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
 
 1. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper**. 
@@ -507,10 +515,12 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i kolumnen **Action** (Åtgärd) kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
+1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
-    ![Pipelinekörningar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-1. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
+1. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . 
+
+1. Välj **alla pipelines** längst upp för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
+
 
 ## <a name="review-the-results"></a>Granska resultaten
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
@@ -520,7 +530,7 @@ Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för
 select * from customer_table
 ```
 
-**Utdata**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -538,7 +548,7 @@ PersonID    Name    LastModifytime
 select * from project_table
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ===================================
@@ -555,7 +565,7 @@ project3    2017-03-04 05:16:00.000
 select * from watermarktable
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ======================================
@@ -605,9 +615,11 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>Övervaka pipelinen igen
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i kolumnen **Action** (Åtgärd) kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
+1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
-1. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
+1. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . 
+
+1. Välj **alla pipelines** längst upp för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
 
 ## <a name="review-the-final-results"></a>Granska de slutliga resultaten
 I SQL Server Management Studio kör du följande frågor mot mål-SQL-databasen för att kontrol lera att uppdaterade/nya data har kopierats från käll tabellerna till mål tabellerna. 
@@ -617,7 +629,7 @@ I SQL Server Management Studio kör du följande frågor mot mål-SQL-databasen 
 select * from customer_table
 ```
 
-**Utdata**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -637,7 +649,7 @@ Lägg märke till de nya värdena för **Name** och **LastModifytime** för **Pe
 select * from project_table
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ===================================
@@ -657,7 +669,7 @@ Observera att posten **NewProject** har lagts till i project_table.
 select * from watermarktable
 ```
 
-**Utdata**
+**Resultat**
 
 ```
 ======================================

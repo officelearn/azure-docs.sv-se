@@ -1,0 +1,93 @@
+---
+title: Skapa och sammanfoga CSR i Azure Key Vault
+description: Skapa och sammanfoga CSR i Azure Key Vault
+services: key-vault
+author: msmbaldwin
+manager: rkarlin
+tags: azure-resource-manager
+ms.service: key-vault
+ms.subservice: certificates
+ms.topic: tutorial
+ms.date: 06/17/2020
+ms.author: sebansal
+ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081562"
+---
+# <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
+
+Azure Key Vault stöder för att skapa begäran om certifikat signering med ett privat offentligt nyckel par och få det signerat av valfri certifikat utfärdare. Det kan vara interna företags certifikat utfärdare eller extern offentlig CA. En begäran om certifikat signering (även CSR eller certifierings förfrågan) är ett meddelande som skickas av användaren till en certifikat utfärdare (CA) för att begära utfärdande av ett digitalt certifikat.
+
+Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azure/key-vault/certificates/about-certificates).
+
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Lägga till certifikat i Key Vault som utfärdats av en icke-betrodd certifikat utfärdare
+
+Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare som inte är partner med Key Vault (till exempel är GoDaddy inte en betrodd Key Vault-certifikatutfärdare) 
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+
+
+1.  Skapa först **certifikat principen**. Key Vault kan inte registrera eller förnya certifikatet från utfärdaren åt användaren eftersom CA: n som valts i det här scenariot inte stöds, och därför har IssuerName angetts till okänd.
+
+    ```azurepowershell
+    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+    ```
+
+
+2. Skapa en **begäran om certifikat signering**
+
+   ```azurepowershell
+   $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
+   $csr.CertificateSigningRequest
+   ```
+
+3. Att hämta CSR- **förfrågan signerad av ca** `$certificateOperation.CertificateSigningRequest` : n är den base4-kodade certifikat signerings förfrågan för certifikatet. Du kan ta denna blob och dumpa till utfärdarens webbplats för certifikat förfrågningar. Det här steget varierar från CA till CA, det bästa sättet är att leta upp din CAs rikt linjer om hur du utför det här steget. Du kan också använda verktyg som CertReq eller openssl för att få en certifikatbegäran signerad och slutföra processen med att skapa ett certifikat.
+
+
+4. **Sammanslagning av den signerade begäran** i Key Vault efter att certifikatbegäran har signerats av utfärdaren, du kan återställa det signerade certifikatet och slå samman det med det första privata offentliga nyckel paret som skapats i Azure Key Vault
+
+    ```azurepowershell-interactive
+    Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
+    ```
+
+    Certifikatbegäran har nu slagits samman.
+
+### <a name="azure-portal"></a>Azure Portal
+
+1.  Om du vill skapa en kund service representant för den certifikat utfärdare som du väljer navigerar du till det nyckel valv som du vill lägga till certifikatet i.
+2.  Välj **certifikat**på sidan Key Vault egenskaper.
+3.  Välj fliken **generera/importera** .
+4.  På skärmen **skapa ett certifikat** väljer du följande värden:
+    - **Metod för att skapa certifikat:** Skapas.
+    - **Certifikat namn:** ContosoManualCSRCertificate.
+    - **Typ av certifikat utfärdare (ca):** Certifikat utfärdat av en icke-integrerad certifikat utfärdare
+    - **Ämne:**`"CN=www.contosoHRApp.com"`
+    - Välj de andra värdena som du vill. Klicka på **Skapa**.
+
+    ![Certifikategenskaper](../media/certificates/create-csr-merge-csr/create-certificate.png)
+6.  Du kommer att se att certifikatet nu har lagts till i listan certifikat. Välj det här nya certifikatet som du nyss skapade. Certifikatets aktuella tillstånd är inaktive rad eftersom det inte har utfärdats av certifikat utfärdaren än.
+7. Klicka på fliken **certifikat åtgärd** och välj **Hämta CSR**.
+ ![Certifikategenskaper](../media/certificates/create-csr-merge-csr/download-csr.png)
+
+8.  Ta. CSR-filen till CA: n för begäran om att bli signerad.
+9.  När begäran har signerats av certifikat utfärdaren ska du ta tillbaka certifikat filen för att **slå samman den signerade begäran** på skärmen för samma certifikat åtgärd.
+
+Certifikatbegäran har nu slagits samman.
+
+## <a name="troubleshoot"></a>Felsöka
+
+Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vidare och visa **certifikat åtgärden** för att granska fel meddelandet för det certifikatet.
+
+Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Autentisering, begär Anden och svar](../general/authentication-requests-and-responses.md)
+- [Utvecklarguide för Key Vault](../general/developers-guide.md)

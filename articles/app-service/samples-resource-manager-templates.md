@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637914"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254437"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Azure Resource Manager-mallar för App Service
 
@@ -29,7 +29,6 @@ Mer information om JSON-syntaxen och egenskaper för App Services-resurser finns
 | [App med anpassade distributionsfack](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Distribuerar en App Service-app med anpassade distributionsfack/miljöer. |
 |**Konfigurera en app**||
 | [Appcertifikat från Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Distribuerar ett App Service app-certifikat från en Azure Key Vault hemlighet och använder det för TLS/SSL-bindning. |
-| [App med en anpassad domän](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Distribuerar en App Service-app med ett anpassat värdnamn. |
 | [App med en anpassad domän och SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Distribuerar en App Service-app med ett anpassat värdnamn och hämtar ett app-certifikat från Key Vault för TLS/SSL-bindning. |
 | [App med ett GoLang-tillägg](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Distribuerar en App Service-app med Golang-platstillägget. Du kan sedan köra webbprogram som har utvecklats för Golang på Azure. |
 | [App med Java 8 och Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Distribuerar en App Service-app med Java 8 och Tomcat 8 aktiverat. Du kan sedan köra Java-program i Azure. |
@@ -42,7 +41,7 @@ Mer information om JSON-syntaxen och egenskaper för App Services-resurser finns
 |**App med anslutna resurser**||
 | [App med MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Distribuerar en App Service-app i Windows med Azure Database for MySQL. |
 | [App med PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Distribuerar en App Service-app i Windows med Azure Database for PostgreSQL. |
-| [App med en SQL-databas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Distribuerar en App Service-app och en SQL-databas på tjänstnivån Basic. |
+| [App med en databas i Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Distribuerar en App Service app och en databas i Azure SQL Database på den grundläggande service nivån. |
 | [App med Blob-lagringsanslutning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Distribuerar en App Service-app med en Azure Blob Storage-anslutningssträng. Du kan sedan använda Blob-lagring från appen. |
 | [App med en Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Distribuerar en App Service-app med en Azure Cache for Redis. |
 |**App Service Environment**||

@@ -4,17 +4,17 @@ description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure A
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b16ee1e55d0b3fa22f348c10d0dd7bfb06ec500c
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879453"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987728"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
 Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta till ett virtuellt nätverk med hjälp av punkt-till-plats-VPN och Azure Active Directory autentisering. Innan du kan ansluta och autentisera med Azure AD måste du först konfigurera Azure AD-klienten. Mer information finns i [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md).
 
@@ -56,11 +56,11 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 1. Markera den VPN-klientkonfiguration som du vill exportera, Välj **...** och välj sedan **Exportera**.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![exportera](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Välj den plats där du vill spara profilen, lämna fil namnet som det är och välj sedan **Spara** för att spara XML-filen.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![exportera](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Så här importerar du en klient profil
 
@@ -96,7 +96,7 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Skapa en anslutning
 
-1. På sidan väljer **+** du och sedan **+ Lägg till**.
+1. På sidan väljer du **+** och sedan **+ Lägg till**.
 
     ![anslutning](./media/openvpn-azure-ad-client/create/create1.jpg)
 
@@ -158,7 +158,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och lägga till ** \< \<dnssuffixes>\<dnssufix> \</dnssufix>/dnssuffixes>** Taggar
+Du kan ändra den nedladdade profil-XML- ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -176,7 +176,7 @@ Du kan ändra den hämtade profil-XML-filen och lägga till ** \< \<dnssuffixes>
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade DNS-servrar i VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och lägga till ** \< \<dnsservers>\<DNS Server> \</dnsserver>/dnsservers>** Taggar
+Du kan ändra den nedladdade profil-XML- ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -192,12 +192,12 @@ Du kan ändra den hämtade profil-XML-filen och lägga till ** \< \<dnsservers>\
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all`. Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
+> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och ** \<lägga till \<includeroutes>\<Route>\<destination>\<mask> \</destination>\</mask>\</Route>/includeroutes>** Taggar
+Du kan ändra den nedladdade profil-XML- ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -215,7 +215,7 @@ Du kan ändra den hämtade profil-XML-filen och ** \<lägga till \<includeroutes
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Vill du Hur gör jag för att blockera vägar (undanta) från VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och ** \<lägga till \<excluderoutes>\<Route>\<destination>\<mask> \</destination>\</mask>\</Route>/excluderoutes>** Taggar
+Du kan ändra den nedladdade profil-XML- ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -233,7 +233,7 @@ Du kan ändra den hämtade profil-XML-filen och ** \<lägga till \<excluderoutes
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Kan jag importera profilen från kommando tolken?
 
-Du kan importera profilen från en kommando rads kommando tolk genom att placera den nedladdade filen **azurevpnconfig. XML** i mappen **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
+Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

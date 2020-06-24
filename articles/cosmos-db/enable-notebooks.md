@@ -3,15 +3,15 @@ title: Aktivera antecknings böcker i Azure Cosmos DB konto (förhands gransknin
 description: Med Azure Cosmos DB inbyggda antecknings böcker kan du analysera och visualisera dina data i portalen. I den här artikeln beskrivs hur du aktiverar den här funktionen för Cosmos-konton.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: dcec310db43baa513b2d574d03f3f35dee3f773b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768024"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261910"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Aktivera antecknings böcker för Azure Cosmos DB-konton (förhands granskning)
 
@@ -21,30 +21,35 @@ ms.locfileid: "76768024"
 Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visualisera dina data från Azure Portal. Den här artikeln beskriver hur du aktiverar den här funktionen för ditt Azure Cosmos DB-konto.
 
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Aktivera antecknings böcker i ett nytt Cosmos-konto
+
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Välj **skapa en resurs** > **databas** > **Azure Cosmos DB**.
+1. Välj **skapa en resurs**  >  **databas**  >  **Azure Cosmos DB**.
 1. På sidan **skapa Azure Cosmos DB konto** väljer du **antecknings böcker**. 
  
-    ![Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet](media/enable-notebooks/create-new-account-with-notebooks.png)
+    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet":::
+
 1. Välj **Granska + skapa**. Du kan hoppa över alternativet **nätverk** och **taggar** . 
 1. Granska kontoinställningarna och välj sedan **Skapa**. Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar**. 
 
-    ![Meddelandefönstret i Azure-portalen](media/enable-notebooks/create-new-account-with-notebooks-complete.png)
-1. Välj **Gå till resurs** för att gå till sidan för Azure Cosmos DB-kontot. 
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Meddelandefönstret i Azure-portalen":::
 
-    ![Sidan för Azure Cosmos DB-kontot](../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png)
+1. Välj **Gå till resurs** för att gå till sidan för Azure Cosmos DB-kontot.
+
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Sidan för Azure Cosmos DB-kontot":::
 
 1. Navigera till rutan **datautforskaren** . Nu bör du se din arbets yta för antecknings böcker.
 
-    ![Arbets ytan ny Azure Cosmos DB Notebooks](media/enable-notebooks/new-notebooks-workspace.png)
+    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Arbets ytan ny Azure Cosmos DB Notebooks":::
 
 ## <a name="enable-notebooks-in-an-existing-cosmos-account"></a>Aktivera antecknings böcker i ett befintligt Cosmos-konto
+
 Du kan också aktivera antecknings böcker på befintliga konton. Det här steget måste bara utföras en gång per konto.
 
 1. Navigera till fönstret **datautforskaren** i ditt Cosmos-konto.
 1. Välj **Aktivera antecknings böcker**.
 
-    ![Skapa en ny arbets yta för antecknings böcker i Datautforskaren](media/enable-notebooks/enable-notebooks-workspace.png)
+    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Skapa en ny arbets yta för antecknings böcker i Datautforskaren":::
+
 1. Då uppmanas du att skapa en ny arbets yta för antecknings böcker. Välj **Slutför installationen.**
 1. Ditt konto har nu Aktiver ATS för att använda antecknings böcker!
 
@@ -54,18 +59,18 @@ Du kan kontrol lera att du kan använda antecknings böcker genom att välja en 
 
 I det här exemplet använder vi **GettingStarted. ipynb**. 
 
-![Visa GettingStarted. ipynb Notebook](media/enable-notebooks/select-getting-started-notebook.png)
+:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Visa GettingStarted. ipynb Notebook":::
 
 Så här kör du antecknings boken:
 1. Välj den första kod cellen som innehåller python-kod. 
 1. Välj **Kör** för att köra cellen. Du kan också använda **Shift + Retur** för att köra cellen.
 1. Uppdatera resurs fönstret om du vill se databasen och behållaren som har skapats.
 
-    ![Kör kom igång-anteckningsbok](media/enable-notebooks/run-first-notebook-cell.png)
+    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Kör kom igång-anteckningsbok":::
 
 Du kan också välja **ny Notebook** för att skapa en ny antecknings bok eller ladda upp en befintlig Notebook-fil (. ipynb) genom att välja **Ladda upp fil** på menyn **Mina antecknings böcker** . 
 
-![Skapa eller ladda upp en ny antecknings bok](media/enable-notebooks/create-or-upload-new-notebook.png)
+:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Skapa eller ladda upp en ny antecknings bok":::
 
 ## <a name="next-steps"></a>Nästa steg
 

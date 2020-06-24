@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2580aa4ee22996c1bf0fe5c86064a6543450071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1deffe36df081908294d3c7fe58a17c8a454687
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260181"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887040"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
@@ -35,7 +35,7 @@ Följande tre alternativ rekommenderas för att använda SAS med Azure CDN. Alla
 ### <a name="prerequisites"></a>Krav
 Starta genom att skapa ett lagrings konto och sedan skapa en SAS för din till gång. Du kan generera två typer av lagrade Access-signaturer: en tjänst-SAS eller en konto säkerhets Association. Mer information finns i [typer av signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
-När du har skapat en SAS-token kan du komma åt Blob Storage-filen genom `?sv=<SAS token>` att lägga till i URL: en. URL: en har följande format: 
+När du har skapat en SAS-token kan du komma åt Blob Storage-filen genom att lägga till `?sv=<SAS token>` i URL: en. URL: en har följande format: 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
@@ -65,7 +65,7 @@ Det här alternativet är det enklaste och använder en enkel SAS-token, som ski
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
-3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att `Cache-Control` lägga till sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
+3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att lägga till `Cache-Control` sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Alternativ 2: dold CDN SAS-token med en Rewrite-regel
  
@@ -86,8 +86,8 @@ Det här alternativet är endast tillgängligt för **Azure CDN Premium från Ve
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL för att skriva om regel](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![-Left CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL för att skriva om regel-Left ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+    ![ CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. När den nya regeln blir aktiv, kan vem som helst komma åt filer i den angivna behållaren på CDN-slutpunkten oavsett om de använder en SAS-token i URL: en. Här är formatet:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -95,7 +95,7 @@ Det här alternativet är endast tillgängligt för **Azure CDN Premium från Ve
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att `Cache-Control` lägga till sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
+3. Finjustera cachens varaktighet genom att använda regler för cachelagring eller genom att lägga till `Cache-Control` sidhuvud på ursprungs servern. Eftersom Azure CDN behandlar SAS-token som en enkel frågesträng rekommenderar vi att du ställer in en varaktighet för cachelagring som upphör att gälla vid eller före förfallo tiden för SAS. Annars, om en fil cachelagras under en längre tid än vad SAS är aktiv, kan filen vara tillgänglig från Azure CDN ursprungs servern efter att förfallo tiden för SAS har förflutit. Om den här situationen inträffar och du vill göra den cachelagrade filen otillgänglig, måste du utföra en rensnings åtgärd på filen för att ta bort den från cachen. Information om hur du ställer in cachens varaktighet på Azure CDN finns i [kontroll Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Alternativ 3: använda autentisering med CDN-säkerhetstoken med en omskrivnings regel
 
@@ -124,8 +124,8 @@ Om du vill använda autentisering med Azure CDN säkerhetstoken måste du ha ett
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL för att skriva om regel](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![-Left CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL för att skriva om regel-Left ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+    ![ CDN URL, Skriv om regel-höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Om du förnyar SAS, se till att du uppdaterar regeln för att skapa en ny URL med den nya SAS-token. 
 

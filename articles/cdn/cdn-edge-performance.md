@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67593902"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887709"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysera gränsnodsprestanda i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -84,7 +84,7 @@ Syftet med dessa mått är att se om cache-effektiviteten kan förbättras. De f
   * Lägre drifts kostnader.
 * Förbättrad acceleration av data leveranser eftersom fler förfrågningar kommer att betjänas direkt från CDN.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Cache-effektivitet |Anger procent andelen data som har överförts från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) |
 | Träff hastighet |Anger procent andelen begär Anden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare). |
@@ -102,7 +102,7 @@ Syftet med dessa mått är att ge insikter om följande kostnader för styckning
 > 
 > 
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Byte ut för byte ut |Anger det genomsnittliga antalet byte som överförs för varje begäran som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare). |
 | Ingen byte hastighet för cache-konfiguration |Anger procent andelen trafik som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare) som inte kommer att cachelagras på grund av funktionen för att kringgå cache. |
@@ -114,7 +114,7 @@ Syftet med dessa mått är att ge insikter om följande kostnader för styckning
 #### <a name="performance-metrics"></a>Prestandamått
 Syftet med dessa mått är att spåra den totala CDN-prestandan för din trafik.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Överföringshastighet |Anger genomsnitts takten som innehållet överfördes från CDN till en beställare. |
 | Varaktighet |Visar genomsnitts tiden, i millisekunder, som tog att leverera en till gång till en beställare (t. ex. webbläsare). |
@@ -126,7 +126,7 @@ Syftet med dessa mått är att spåra den totala CDN-prestandan för din trafik.
 #### <a name="secure-traffic-metrics"></a>Skydda trafik mått
 Syftet med dessa mått är att spåra CDN-prestanda för HTTPS-trafik.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Säker cache-effektivitet |Anger procent andelen data som överförts för HTTPS-begäranden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) över HTTPS. |
 | Säker överföringshastighet |Anger den genomsnittliga frekvens med vilken innehåll överfördes från CDN (Edge-servrar) till beställare (t. ex. webb servrar) över HTTPS. |
@@ -171,7 +171,7 @@ Varje rapport i den här modulen innehåller ett diagram och statistik över ban
 | Användar agent |Innehåller ett stapeldiagram som visar de 10 främsta användar agenterna för att begära innehåll via vårt CDN. Vanligt vis är en användar agent en webbläsare, Media Player eller en mobil telefon webbläsare. Statistik för de översta 100 användar agenterna visas direkt under det här diagrammet. |
 | Referenter |Innehåller ett stapeldiagram som visar de 10 främsta referenterna till innehåll som nås via vårt CDN. Vanligt vis är en referent webb adressen till den webb sida eller resurs som länkar till ditt innehåll. Detaljerad information finns under grafen för de översta 100-referenterna. |
 | Komprimerings typer |Innehåller ett ring diagram som delar upp de begärda till gångarna genom att de har komprimerats av våra Edge-servrar. Procent andelen komprimerade till gångar delas upp av den typ av komprimering som används. Detaljerad information anges under grafen för varje komprimerings typ och status. |
-| Filtyper |Innehåller ett stapeldiagram som visar de 10 viktigaste filtyper som har begärts via vårt CDN för ditt konto. För den här rapporten definieras en filtyp av till gångens fil namns tillägg och Internet medie typ (t \[. ex. html-text/HTML\],. htm \[-text/HTML\],. aspx \[-text/HTML\], osv.). Detaljerad information finns under grafen för de översta 100-filtyperna. |
+| Filtyper |Innehåller ett stapeldiagram som visar de 10 viktigaste filtyper som har begärts via vårt CDN för ditt konto. För den här rapporten definieras en filtyp av till gångens fil namns tillägg och Internet medie typ (t. ex. html- \[ text/HTML \] ,. htm- \[ text/HTML \] ,. aspx- \[ text/html, \] osv.). Detaljerad information finns under grafen för de översta 100-filtyperna. |
 | Unika filer |Innehåller ett diagram som visar det totala antalet unika till gångar som har begärts på en viss dag under en angiven tids period. |
 | Sammanfattning av token auth |Innehåller ett cirkel diagram som ger en snabb översikt över om de begärda till gångarna skyddas av tokenbaserad autentisering. Skyddade till gångar visas i diagrammet enligt resultatet av deras autentiseringsförsök. |
 | Neka information om token auth |Innehåller ett stapeldiagram som gör att du kan visa de 10 viktigaste förfrågningarna som nekades på grund av tokenbaserad autentisering. |

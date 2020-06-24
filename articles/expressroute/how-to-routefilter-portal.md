@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du konfigurerar väg filter för Mi
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f2be9b4e7152c61885b1a41e94ebd328059d437b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54674be0010bd062cfe6263db4167a24805a9e5a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618552"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727134"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera väg filter för Microsoft-peering: Azure Portal
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Skapa en lista över [värden för BGP-grupper](expressroute-routing.md#bgp) som
 Ett flödes filter kan bara ha en regel och regeln måste vara av typen Allow. Den här regeln kan ha en lista över värden för BGP-communityn.
 
 ### <a name="1-create-a-route-filter"></a>1. skapa ett flödes filter
-Du kan skapa ett flödes filter genom att välja alternativet för att skapa en ny resurs. Klicka på **skapa en resurs** > **nätverks** > **RouteFilter**, som du ser i följande bild:
+Du kan skapa ett flödes filter genom att välja alternativet för att skapa en ny resurs. Klicka på **skapa en resurs**  >  **nätverks**  >  **RouteFilter**, som du ser i följande bild:
 
 ![Skapa ett flödes filter](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
@@ -148,7 +148,7 @@ Du kan ta bort ett flödes filter genom att klicka på knappen Ta bort.
 
 ![Skapa ett flödes filter](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 

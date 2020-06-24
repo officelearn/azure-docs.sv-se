@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271777"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709070"
 ---
 # <a name="generate-maps"></a>Generera kartor
 
@@ -51,7 +51,7 @@ I det här avsnittet beskrivs procedurerna för att skapa sensor placerings kart
 > [!NOTE]
 > Du kan initiera en sensor placerings karta från sidan **kartor** eller från List rutan **generera precisions kartor** på sidan **Server grupps information** .
 
-Följ de här stegen.
+Gör så här:
 
 1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 2. Välj **skapa kartor**och välj **sensor placering** på den nedrullningsbara menyn.
@@ -75,7 +75,7 @@ Följ de här stegen.
 
 ### <a name="view-and-download-a-sensor-placement-map"></a>Visa och ladda ned en sensor placerings karta
 
-Följ de här stegen.
+Gör så här:
 
 1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 
@@ -110,7 +110,7 @@ FarmBeats ger dig möjlighet att generera NDVI, förbättrat vegetations index (
 
 ## <a name="create-a-satellite-indices-map"></a>Skapa en satellit index karta
 
-Följ de här stegen.
+Gör så här:
 
 1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 2. Välj **skapa kartor**och välj **satellit index** på den nedrullningsbara menyn.
@@ -136,7 +136,7 @@ Följ de här stegen.
 
 ### <a name="view-and-download-a-map"></a>Visa och ladda ned en karta
 
-Följ de här stegen.
+Gör så här:
 
 1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 
@@ -175,7 +175,7 @@ Uppfylla följande krav innan du försöker skapa en jord-fukt termisk karta:
 
 ## <a name="create-a-soil-moisture-heatmap"></a>Skapa en jord-fukt termisk karta
 
-Följ de här stegen.
+Gör så här:
 
 1. På Start sidan går du till **kartor** från den vänstra navigerings menyn för att visa sidan **kartor** .
 2. Välj **skapa kartor**och välj **jord fukt** på den nedrullningsbara menyn.
@@ -203,7 +203,7 @@ Om du vill hitta sensor måttet går du till **sensorer**och väljer en jord fuk
 
 ### <a name="view-and-download-a-map"></a>Visa och ladda ned en karta
 
-Följ de här stegen.
+Gör så här:
 
 1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798255"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260856"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Aktivera kombinerad säkerhets informations registrering i Azure Active Directory
 
@@ -48,6 +48,9 @@ Om du har konfigurerat plats till zon tilldelnings lista i Internet Explorer må
 ## <a name="conditional-access-policies-for-combined-registration"></a>Principer för villkorlig åtkomst för kombinerad registrering
 
 Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här funktionen är tillgänglig för organisationer som har aktiverat [funktionen för kombinerad registrering](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en inledande registrering.
+
+> [!NOTE]
+> Den här principen gäller bara när en användare får åtkomst till en kombinerad registrerings sida. Den här principen tillämpar inte MFA-registrering när en användare kommer åt andra program. Du kan skapa en princip för MFA-registrering med hjälp av [Azure Identity Protection – Konfigurera MFA-principen](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
 
 Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
 

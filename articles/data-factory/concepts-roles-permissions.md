@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833565"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263262"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -82,9 +82,9 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
   1. Tilldela den inbyggda rollen **deltagare** på Data Factory-nivån.
   2. Skapa en anpassad roll med behörigheten **Microsoft. Resources/distributions/**. Tilldela den här anpassade rollen till användaren på resurs grupps nivå.
 
-- Låt en användare bara kunna testa anslutningen i en länkad tjänst
+- Låt en användare kunna testa anslutningen i en länkad tjänst eller för hands versions data i en data uppsättning
 
-    Skapa en anpassad roll med behörigheter för följande åtgärder: **Microsoft. DataFactory/factors/getFeatureValue/Read** och **Microsoft. DataFactory/factors/getDataPlaneAccess/Read**. Tilldela den här anpassade rollen till användarens data Factory-resurs.
+    Skapa en anpassad roll med behörigheter för följande åtgärder: **Microsoft. DataFactory/factors/getFeatureValue/Read** och **Microsoft. DataFactory/factors/getDataPlaneAccess/Action**. Tilldela den här anpassade rollen till användarens data Factory-resurs.
 
 - Låt en användare uppdatera en data fabrik från PowerShell eller SDK, men inte i Azure Portal.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193422"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888073"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
 
@@ -44,7 +44,7 @@ När du har konfigurerat objekt replikering kontrollerar Azure Storage ändrings
 
 När du konfigurerar objekt replikering skapas en replikeringsprincip på både käll kontot och mål kontot via Azure Storage resurs leverantören. Replikeringsprincipen identifieras av ett princip-ID. Principen på käll-och mål kontona måste ha samma princip-ID för att replikeringen ska kunna ske.
 
-Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Käll-och mål kontona kan vara i olika regioner. Du kan konfigurera separata replikeringsprinciper för att replikera data till varje mål konto.
+Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Och ett mål konto får inte ha fler än två käll konton. Käll- och målkontona kan finnas i olika regioner. Du kan konfigurera separata replikeringsprinciper för att replikera data till varje mål konto.
 
 ### <a name="replication-rules"></a>Regler för replikering
 
@@ -54,7 +54,7 @@ När du skapar en replikeringsprincip, kopieras som standard bara nya block blob
 
 Du kan också ange ett eller flera filter som en del av en replikeringsprincip för att filtrera block blobbar efter prefix. När du anger ett prefix kopieras bara blobbar som matchar det prefixet i käll behållaren till mål behållaren.
 
-Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir mål behållaren skrivskyddad. Försök att skriva till mål containern Miss lyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till Arkiv nivån. Mer information om Arkiv nivån finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md#archive-access-tier)lag rings nivåer.
+Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir målcontainern skrivskyddad. Försök att skriva till målcontainern misslyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till Arkiv nivån. Mer information om Arkiv nivån finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md#archive-access-tier)lag rings nivåer.
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 
@@ -71,10 +71,10 @@ Under för hands versionen finns det inga ytterligare kostnader för replikering
 > [!IMPORTANT]
 > För hands versionen av objekt replikering är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
 
-### <a name="prerequisites-for-object-replication"></a>Krav för objekt replikering
+### <a name="prerequisites-for-object-replication"></a>Förhandskrav för objektreplikering
 
 Objekt replikering kräver att följande Azure Storage funktioner är aktiverade: 
-- [Ändra feed](storage-blob-change-feed.md)
+- [Ändringsfeed](storage-blob-change-feed.md)
 - [Versionshantering](versioning-overview.md)
 
 Innan du konfigurerar objekt replikering måste du aktivera dess krav. Ändra feed måste vara aktiverat på käll kontot och blob-versioner måste vara aktiverade på både käll-och mål kontot. Mer information om hur du aktiverar de här funktionerna finns i följande artiklar:

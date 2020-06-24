@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: d6217d9616293cb4d541c9b05511d8cbd318ef20
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597932"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205736"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -38,7 +38,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
     ![Sök efter App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. I det vänstra fönstret väljer du **distributions platser** > **Lägg till plats**.
+2. I det vänstra fönstret väljer du **distributions platser**  >  **Lägg till plats**.
    
     ![Lägg till en ny distributionsplats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -58,7 +58,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
    
     ![Rubrik för distributions plats](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. För att påminna dig om att du visar distributions facket visas appens namn som ** \<App-Name>/\<plats namn>** och app-typen är **App Service (plats)**. Du kan också se facket som en separat app i resurs gruppen med samma utformningar.
+    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. För att påminna dig om att du visar distributions platsen visas appens namn som **\<app-name>/\<slot-name>** och appens typ är **App Service (plats)**. Du kan också se facket som en separat app i resurs gruppen med samma utformningar.
 
 6. Välj appens URL på platsens resurs sida. Distributions platsen har sitt eget värdnamn och är även en Live-app. Information om hur du begränsar offentlig åtkomst till distributions platsen finns i [Azure App Service IP-begränsningar](app-service-ip-restrictions.md).
 
@@ -85,7 +85,7 @@ När du växlar två platser (vanligt vis från en mellanlagringsplats till prod
 
 1. Om [Automatisk växling](#Auto-Swap) har Aktiver ATS med [anpassad uppvärmning](#Warm-up), Utlös [program initiering](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen.
 
-    Om `applicationInitialization` inte anges utlöses en http-begäran till käll platsens program rot på varje instans. 
+    Om `applicationInitialization` inte anges utlöses en HTTP-begäran till käll platsens program rot på varje instans. 
     
     Om en instans returnerar ett HTTP-svar anses det vara värmat.
 
@@ -151,7 +151,7 @@ För att växla med för hands version:
 
 2. När du är redo att starta växlingen väljer du **Starta växling**.
 
-    När fas 1 är klar får du ett meddelande i dialog rutan. Förhandsgranska växlingen på käll platsen genom att gå till `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+    När fas 1 är klar får du ett meddelande i dialog rutan. Förhandsgranska växlingen på käll platsen genom att gå till `https://<app_name>-<source-slot-name>.azurewebsites.net` . 
 
 3. När du är redo att slutföra den väntande växlingen väljer du **fullständig växling** i **växlings åtgärd** och väljer **Slutför växling**.
 
@@ -183,7 +183,7 @@ Automatisk växling effektiviserar Azure DevOps-scenarier där du vill distribue
 
 Så här konfigurerar du automatisk växling:
 
-1. Gå till appens resurs sida. Välj **distributions platser** > *\<önskad käll plats>*  >  **konfiguration** > **allmänna inställningar**.
+1. Gå till appens resurs sida. Välj **distributions platser**  >  *\<desired source slot>*  >  **konfiguration**  >  **allmänna inställningar**.
    
 2. För **Automatisk växling aktive rad**väljer du **på**. Välj sedan önskad mål plats för **Automatisk växling distributions plats**och välj **Spara** i kommando fältet. 
    
@@ -197,7 +197,7 @@ Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 ## <a name="specify-custom-warm-up"></a>Ange anpassad uppvärmning
 
-Vissa appar kan kräva anpassade värme åtgärder innan växlingen. I `applicationInitialization` konfigurations elementet i Web. config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på Web. config-fragment.
+Vissa appar kan kräva anpassade värme åtgärder innan växlingen. Med `applicationInitialization` konfigurations elementet i web.config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -206,7 +206,7 @@ Vissa appar kan kräva anpassade värme åtgärder innan växlingen. I `applicat
         </applicationInitialization>
     </system.webServer>
 
-Mer information om hur du `applicationInitialization` anpassar-elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar `applicationInitialization` -elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
@@ -214,7 +214,7 @@ Du kan också anpassa det varmaste sättet med en eller båda av följande [appi
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Giltiga HTTP-svars koder för den varmande åtgärden. Lägg till den här appens inställningen med en kommaavgränsad lista över HTTP-koder. Ett exempel är `200,202` . Om den returnerade status koden inte finns i listan stoppas uppvärmnings och växlings åtgärder. Som standard är alla svars koder giltiga.
 
 > [!NOTE]
-> `<applicationInitialization>` Konfigurations elementet är en del av varje app-Start, medan de två app-inställningarna för att värma upp gäller endast för fack växlingar.
+> `<applicationInitialization>`Konfigurations elementet är en del av varje app-Start, medan de två app-inställningarna för att värma upp gäller endast för fack växlingar.
 
 Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
@@ -224,11 +224,11 @@ Om [växlings åtgärden](#AboutConfiguration) tar lång tid att slutföra kan d
 
 På appens resurs sida i portalen väljer du **aktivitets logg**i det vänstra fönstret.
 
-En växlings åtgärd visas i logg frågan som `Swap Web App Slots`. Du kan expandera den och välja en av under åtgärder eller fel för att se information.
+En växlings åtgärd visas i logg frågan som `Swap Web App Slots` . Du kan expandera den och välja en av under åtgärder eller fel för att se information.
 
 ## <a name="route-traffic"></a>Dirigera trafik
 
-Som standard dirigeras alla klient begär anden till appens produktions-`http://<app_name>.azurewebsites.net`URL () till produktions platsen. Du kan dirigera en del av trafiken till en annan plats. Den här funktionen är användbar om du behöver feedback från användaren för en ny uppdatering, men du inte är redo att släppa den på produktionen.
+Som standard dirigeras alla klient begär anden till appens produktions-URL ( `http://<app_name>.azurewebsites.net` ) till produktions platsen. Du kan dirigera en del av trafiken till en annan plats. Den här funktionen är användbar om du behöver feedback från användaren för en ny uppdatering, men du inte är redo att släppa den på produktionen.
 
 ### <a name="route-production-traffic-automatically"></a>Dirigera produktions trafik automatiskt
 
@@ -242,7 +242,7 @@ Så här dirigerar du produktions trafiken automatiskt:
 
 När inställningen har sparats dirigeras den angivna procent andelen av klienter slumpmässigt till den icke-produktions platsen. 
 
-När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookien i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagrings platsen" har cookien `x-ms-routing-name=staging`. En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self`.
+När en klient dirigeras automatiskt till en speciell plats, är den "fäst" på den platsen under den aktuella klient sessionen. I klientens webbläsare kan du se vilka platser som din session fästs på genom att titta på `x-ms-routing-name` cookien i dina HTTP-huvuden. En begäran som dirigeras till "mellanlagrings platsen" har cookien `x-ms-routing-name=staging` . En begäran som dirigeras till produktions platsen har cookien `x-ms-routing-name=self` .
 
    > [!NOTE]
    > Bredvid Azure Portal kan du också använda [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) kommandot i Azure CLI för att ställa in procent andelar från CI/CD-verktyg som DevOps pipelines eller andra Automation-system.
@@ -254,7 +254,7 @@ Förutom automatisk trafik dirigering kan App Service dirigera begär anden till
 
 Du kan till exempel använda den här länken på din webb sida om du vill låta användarna välja att använda beta appen:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -266,13 +266,13 @@ Om du vill låta användarna välja beta-appen ställer du in samma frågeparame
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Som standard tilldelas nya platser en regel för `0%`routning, som visas i grått. När du uttryckligen anger det här värdet `0%` (visas i svart text) kan användarna komma åt mellanlagringsplatsen manuellt med hjälp av `x-ms-routing-name` Frågeparametern. Men de dirigeras inte till facket automatiskt eftersom routningsdomänens procents ATS är inställd på 0. Det här är ett avancerat scenario där du kan "dölja" mellanlagringsplatsen från allmänheten samtidigt som du tillåter interna team att testa ändringar på platsen.
+Som standard tilldelas nya platser en regel för routning, som `0%` visas i grått. När du uttryckligen anger det här värdet `0%` (visas i svart text) kan användarna komma åt mellanlagringsplatsen manuellt med hjälp av `x-ms-routing-name` Frågeparametern. Men de dirigeras inte till facket automatiskt eftersom routningsdomänens procents ATS är inställd på 0. Det här är ett avancerat scenario där du kan "dölja" mellanlagringsplatsen från allmänheten samtidigt som du tillåter interna team att testa ändringar på platsen.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>Ta bort en plats
 
-Sök efter och välj din app. Välj plats för **distributions fack** > *\<för att ta bort>*  >  **Översikt**. Appens typ visas som **App Service (plats)** för att påminna dig om att du visar en distributions plats. Välj **ta bort** i kommando fältet.  
+Sök efter och välj din app. Välj **distributions platser**  >  *\<slot to delete>*  >  **– Översikt**. Appens typ visas som **App Service (plats)** för att påminna dig om att du visar en distributions plats. Välj **ta bort** i kommando fältet.  
 
 ![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -336,7 +336,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med hjälp av Resource Manager-mallar anger du två egenskaper på resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
 
 - `buildVersion`: det här är en sträng egenskap som representerar den aktuella versionen av appen som distribuerats på platsen. Exempel: "v1", "1.0.0.1" eller "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: det här är en sträng egenskap som anger `buildVersion` vad platsen ska ha. Om targetBuildVersion inte är samma som den aktuella `buildVersion`utlöser detta växlings åtgärden genom att söka efter den plats som har angivet `buildVersion`.
+- `targetBuildVersion`: det här är en sträng egenskap som anger vad `buildVersion` platsen ska ha. Om targetBuildVersion inte är samma som den aktuella `buildVersion` utlöser detta växlings åtgärden genom att söka efter den plats som har angivet `buildVersion` .
 
 ### <a name="example-resource-manager-template"></a>Exempel på en Resource Manager-mall
 
@@ -384,7 +384,7 @@ Följande Resource Manager-mall kommer att uppdatera `buildVersion` för mellanl
 }
 ```
 
-Den här Resource Manager-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen `targetBuildVersion` kommer att matcha den `buildVersion`aktuella, så en växling kommer inte att utlösas.
+Den här Resource Manager-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen `targetBuildVersion` kommer att matcha den aktuella `buildVersion` , så en växling kommer inte att utlösas.
 
 <!-- ======== Azure CLI =========== -->
 
@@ -396,7 +396,7 @@ Den här Resource Manager-mallen är idempotenta, vilket innebär att den kan k�
 
 ## <a name="troubleshoot-swaps"></a>Felsöka växlingar
 
-Om ett fel inträffar under en [plats växling](#AboutConfiguration)är det inloggat i *D:\home\LogFiles\eventlog.XML*. Den är också inloggad i den programspecifika fel loggen.
+Om ett fel inträffar under en [plats växling](#AboutConfiguration)är det inloggat i *D:\home\LogFiles\eventlog.xml*. Den är också inloggad i den programspecifika fel loggen.
 
 Här följer några vanliga växlings fel:
 
@@ -404,7 +404,7 @@ Här följer några vanliga växlings fel:
 
 - Initieringen av den lokala cachen kan Miss förfalla när innehållet i appen överskrider den lokala disk kvoten som angetts för den lokala cachen Mer information finns i [Översikt över Local cache](overview-local-cache.md).
 
-- Vid [anpassad uppvärmning](#Warm-up)görs HTTP-begäranden internt (utan att gå via den externa URL: en). De kan inte utföras med vissa regler för URL-omskrivning i *Web. config*. Till exempel kan regler för omdirigering av domän namn eller tvingande HTTPS förhindra att värme begär Anden når appens kod. Undvik det här problemet genom att ändra dina omskrivnings regler genom att lägga till följande två villkor:
+- Vid [anpassad uppvärmning](#Warm-up)görs HTTP-begäranden internt (utan att gå via den externa URL: en). De kan inte utföras med vissa regler för URL-omskrivning i *Web.config*. Till exempel kan regler för omdirigering av domän namn eller tvingande HTTPS förhindra att värme begär Anden når appens kod. Undvik det här problemet genom att ändra dina omskrivnings regler genom att lägga till följande två villkor:
 
     ```xml
     <conditions>
@@ -421,9 +421,9 @@ Här följer några vanliga växlings fel:
       ...
     </conditions>
     ```
-- Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlings åtgärden skickar HTTP-förfrågningar till din app. IPv4-adress intervall som börjar `10.` med `100.` och är interna för din distribution. Du bör tillåta dem att ansluta till din app.
+- Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlings åtgärden skickar HTTP-förfrågningar till din app. IPv4-adress intervall som börjar med `10.` och `100.` är interna för din distribution. Du bör tillåta dem att ansluta till din app.
 
-- När plats växlingen har växlats kan appen uppleva oväntade omstarter. Detta beror på att när du har växlat över bindningen för värdnamn, är bindnings bindningen inte synkroniserad, vilket inte leder till omstarter. Vissa underliggande lagrings händelser (till exempel lagrings volym växling vid fel) kan dock identifiera dessa avvikelser och tvinga alla arbets processer att starta om. Om du vill minimera de här typerna av omstarter [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` ](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) ställer du in app-inställningen på *alla platser*. Den här appens inställning fungerar dock *inte* med Windows Communication Foundation (WCF)-appar.
+- När plats växlingen har växlats kan appen uppleva oväntade omstarter. Detta beror på att när du har växlat över bindningen för värdnamn, är bindnings bindningen inte synkroniserad, vilket inte leder till omstarter. Vissa underliggande lagrings händelser (till exempel lagrings volym växling vid fel) kan dock identifiera dessa avvikelser och tvinga alla arbets processer att starta om. Om du vill minimera de här typerna av omstarter ställer du in [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app-inställningen](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) på *alla platser*. Den här appens inställning fungerar dock *inte* med Windows Communication Foundation (WCF)-appar.
 
 ## <a name="next-steps"></a>Nästa steg
 [Blockera åtkomst till platser som inte är för produktion](app-service-ip-restrictions.md)

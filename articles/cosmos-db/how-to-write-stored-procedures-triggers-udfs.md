@@ -3,15 +3,15 @@ title: 'Skriv lagrade procedurer, utlösare och UDF: er i Azure Cosmos DB'
 description: Lär dig hur du definierar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
-ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e9ebd8de956437273246d08821fc87838089a256
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982300"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262879"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -52,21 +52,42 @@ När du skapar ett objekt med hjälp av den lagrade proceduren, infogas objektet
 
 Den lagrade proceduren innehåller också en parameter som ställer in beskrivningen. Det är ett booleskt värde. Om parametern har värdet true och beskrivningen saknas, genererar den lagrade proceduren ett undantag. I annat fall fortsätter resten av den lagrade proceduren att köras.
 
-I följande exempel lagrad procedur används ett nytt Azure Cosmos-objekt som ininformation, infogar det i Azure Cosmos-behållaren och returnerar ID: t för det nya objektet. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md)
+I följande exempel lagrad procedur tar en matris med nya Azure Cosmos-objekt som inmatade objekt, infogar dem i Azure Cosmos-behållaren och returnerar antalet objekt som har infogats. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md)
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 
@@ -262,7 +283,7 @@ function async_sample() {
 
 Azure Cosmos DB stöder för- och efterutlösare. Förutlösare körs innan ett databasobjekt ändras och efterutlösare körs när ett databasobjekt har ändrats.
 
-### <a name="pre-triggers"></a><a id="pre-triggers"></a>Förutlösare
+### <a name="pre-triggers"></a><a id="pre-triggers"></a>För utlösare
 
 I följande exempel visas hur en för utlösare används för att validera egenskaperna för ett Azure Cosmos-objekt som skapas. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md) för att lägga till en tidsstämpelegenskap till ett nyligen tillagt objekt om det inte redan innehåller en.
 
@@ -291,7 +312,7 @@ När utlösare har registrerats kan du ange vilka åtgärder som de kan köras m
 
 Exempel på hur du registrerar och anropar en förutlösare finns i artiklarna om [förutlösare](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) och [efterutlösare](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-### <a name="post-triggers"></a><a id="post-triggers"></a>Efterutlösare
+### <a name="post-triggers"></a><a id="post-triggers"></a>Efter utlösare
 
 Följande exempel visar en efterutlösare. Den här utlösaren frågar efter metadataobjektet och uppdaterar det med information om det nyligen skapade objektet.
 
@@ -366,7 +387,7 @@ Exempel på hur du registrerar och använder användardefinierade funktioner fin
 
 ## <a name="logging"></a>Loggning 
 
-När du använder lagrade procedurer, utlösare eller användardefinierade funktioner kan du logga stegen med hjälp av `console.log()` kommandot. Med det här kommandot får du en sträng för fel sökning `EnableScriptLogging` när har angetts till sant, vilket visas i följande exempel:
+När du använder lagrade procedurer, utlösare eller användardefinierade funktioner kan du logga stegen med hjälp av `console.log()` kommandot. Med det här kommandot får du en sträng för fel sökning när `EnableScriptLogging` har angetts till sant, vilket visas i följande exempel:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

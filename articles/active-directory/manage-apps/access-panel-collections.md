@@ -3,27 +3,27 @@ title: Skapa samlingar för Mina appar-portaler i Azure Active Directory | Micro
 description: Använd samlingarna Mina appar för att anpassa mina apps-sidor för att få en enklare upplevelse av mina appar för dina slutanvändare. Organisera program i grupper med separata flikar.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61cc4c5d718b9588da97d60b070259d6bc6e3058
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77120097"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761280"
 ---
-# <a name="create-collections-on-the-my-apps-portal"></a>Skapa samlingar på mina apps-portalen
+# <a name="create-collections-on-the-my-apps-portal"></a>Skapa samlingar i portalen Mina appar
 
 Användarna kan använda portalen Mina appar för att visa och starta de molnbaserade program som de har åtkomst till. Som standard visas alla program som en användare har åtkomst till tillsammans på en enda sida. För att bättre organisera den här sidan för dina användare, om du har en Azure AD Premium P1-eller P2-licens kan du konfigurera samlingar. Med en samling kan du gruppera program som är relaterade (till exempel efter jobb roll, uppgift eller projekt) och visa dem på en separat flik. En samling tillämpar i princip ett filter på de program som en användare redan har åtkomst till, så att användaren bara ser de programmen i samlingen som har tilldelats dem.
 
@@ -34,7 +34,7 @@ Användarna kan använda portalen Mina appar för att visa och starta de molnbas
 
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som användar administratör eller global administratör.
 
-2. Gå till **Azure Active Directory** > **användar inställningar**.
+2. Gå till **Azure Active Directory**  >  **användar inställningar**.
 
 3. Under förhands **granskningar av användar funktioner**väljer du **Hantera för hands versions inställningar för användar funktionen**.
 
@@ -43,7 +43,7 @@ Användarna kan använda portalen Mina appar för att visa och starta de molnbas
    * **Alla** – aktiverar funktionerna för alla användare.
 
 > [!NOTE]
-> För att öppna portalen Mina appar kan användare använda länken `https://myapps.microsoft.com` eller den anpassade länken för din organisation, till exempel. `https://myapps.microsoft.com/contoso.com` När du har aktiverat den nya appen för Mina appar visas **en uppdaterad** banderoll längst upp på sidan Mina appar och användarna kan välja **testa** den för att visa den nya upplevelsen. För att sluta använda den nya upplevelsen kan användarna välja **Ja** i den **nya upplevelsens** banderoll längst upp på sidan.
+> För att öppna portalen Mina appar kan användare använda länken `https://myapps.microsoft.com` eller den anpassade länken för din organisation, till exempel `https://myapps.microsoft.com/contoso.com` . När du har aktiverat den nya appen för Mina appar visas **en uppdaterad** banderoll längst upp på sidan Mina appar och användarna kan välja **testa** den för att visa den nya upplevelsen. För att sluta använda den nya upplevelsen kan användarna välja **Ja** i den **nya upplevelsens** banderoll längst upp på sidan.
 
 ## <a name="create-a-collection"></a>Skapa en samling
 
@@ -51,7 +51,7 @@ Om du vill skapa en samling måste du ha en Azure AD Premium P1-eller P2-licens.
 
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som administratör med en Azure AD Premium P1-eller P2-licens.
 
-2. Gå till **Azure Active Directory** > **företags program**.
+2. Gå till **Azure Active Directory**  >  **företags program**.
 
 3. Under **Hantera**väljer du **samlingar**.
 
@@ -85,17 +85,17 @@ I gransknings loggarna registreras mina program samlingar, inklusive åtgärder 
 * Lägg till självbetjänings program (slutanvändare)
 * Borttagning av självbetjänings program (slutanvändare)
 
-Du kan komma åt gransknings loggar i [Azure Portal](https://portal.azure.com) genom att välja **Azure Active Directory** > **gransknings loggar** för**företags program** > i avsnittet aktivitet. För **tjänst**väljer du **Mina appar**.
+Du kan komma åt gransknings loggar i [Azure Portal](https://portal.azure.com) genom att välja **Azure Active Directory**  >  **Enterprise Applications**  >  **gransknings loggar** för företags program i avsnittet aktivitet. För **tjänst**väljer du **Mina appar**.
 
 ## <a name="get-support-for-my-account-pages"></a>Få support för mina konto sidor
 
-På sidan Mina appar kan en användare välja **mitt** > konto**Visa mitt konto** för att öppna sina konto inställningar. På sidan Azure AD **mitt konto** kan användare hantera säkerhets information, enheter, lösen ord och mycket annat. De kan också komma åt sina konto inställningar för Office.
+På sidan Mina appar kan en användare välja mitt konto **My account**  >  **Visa mitt konto** för att öppna sina konto inställningar. På sidan Azure AD **mitt konto** kan användare hantera säkerhets information, enheter, lösen ord och mycket annat. De kan också komma åt sina konto inställningar för Office.
 
 Om du behöver skicka en support förfrågan om ett problem med sidan Azure AD-konto eller sidan Office-konto följer du dessa steg så att din begäran dirigeras korrekt: 
 
-* För problem med sidan **"mitt konto" i Azure AD** öppnar du en supportbegäran i Azure Portal. Gå till **Azure Portal** > **Azure Active Directory** > **nya support förfrågan**.
+* För problem med sidan **"mitt konto" i Azure AD** öppnar du en supportbegäran i Azure Portal. Gå till **Azure Portal**  >  **Azure Active Directory**  >  **nya support förfrågan**.
 
-* Om du har problem med sidan **"mitt konto" på kontoret** öppnar du en supportbegäran i Microsoft 365 administrations centret. Gå till **Microsoft 365 Admin Center** > -**stöd**. 
+* Om du har problem med sidan **"mitt konto" på kontoret** öppnar du en supportbegäran i Microsoft 365 administrations centret. Gå till **Microsoft 365 Admin Center**-  >  **stöd**. 
 
 ## <a name="next-steps"></a>Nästa steg
 [Slut användar upplevelse för program i Azure Active Directory](end-user-experiences.md)

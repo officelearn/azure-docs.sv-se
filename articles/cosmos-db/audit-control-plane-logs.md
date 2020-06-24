@@ -3,15 +3,15 @@ title: Granska Azure Cosmos DB kontroll Plans åtgärder
 description: Lär dig hur du granskar kontroll Plans åtgärder som att lägga till en region, uppdatera data flöde, region växling vid fel, lägga till ett VNet osv. i Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: cb6a27c0f03b7c0c41d8f323609df612363cfd9e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735359"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262658"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
 
@@ -27,9 +27,9 @@ Här följer några exempel på scenarier där gransknings kontroll Plans åtgä
 
 ## <a name="disable-key-based-metadata-write-access"></a>Inaktivera nyckelbaserade metadata skriv åtkomst
 
-Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa `disableKeyBasedMetadataWriteAccess` in egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) : er. 
+Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa in `disableKeyBasedMetadataWriteAccess` egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) : er. 
 
-När `disableKeyBasedMetadataWriteAccess` är aktive rad, om SDK-baserade klienter kör Create eller Update-åtgärder, så *tillåts inte "åtgärds post" på resursen "ContainerNameorDatabaseName" via Azure Cosmos DB slut punkten* returneras. Du måste aktivera åtkomst till sådana åtgärder för ditt konto eller utföra åtgärderna skapa/uppdatera via Azure Resource Manager, Azure CLI eller Azure PowerShell. Om du vill växla tillbaka anger du disableKeyBasedMetadataWriteAccess till **falskt** med hjälp av Azure CLI enligt beskrivningen i artikeln [förhindra ändringar från Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Se till att ändra värdet `disableKeyBasedMetadataWriteAccess` till falskt i stället för sant.
+När `disableKeyBasedMetadataWriteAccess` är aktive rad, om SDK-baserade klienter kör Create eller Update-åtgärder, så *tillåts inte "ÅTGÄRDs post" på resursen "ContainerNameorDatabaseName" via Azure Cosmos DB slut punkten* returneras. Du måste aktivera åtkomst till sådana åtgärder för ditt konto eller utföra åtgärderna skapa/uppdatera via Azure Resource Manager, Azure CLI eller Azure PowerShell. Om du vill växla tillbaka anger du disableKeyBasedMetadataWriteAccess till **falskt** med hjälp av Azure CLI enligt beskrivningen i artikeln [förhindra ändringar från Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Se till att ändra värdet `disableKeyBasedMetadataWriteAccess` till falskt i stället för sant.
 
 Tänk på följande när du inaktiverar skriv åtkomst till metadata:
 
@@ -51,7 +51,7 @@ Använd följande steg för att aktivera loggning av kontroll Plans åtgärder:
 
 Du kan också lagra loggarna i ett lagrings konto eller en data ström till en händelsehubben. Den här artikeln visar hur du skickar loggar till Log Analytics och frågar dem sedan. När du har aktiverat det tar det några minuter innan diagnostikloggar börjar gälla. Alla kontroll Plans åtgärder som utförs efter den punkten kan spåras. Följande skärm bild visar hur du aktiverar kontroll Plans loggar:
 
-![Aktivera loggning av begär Anden för kontroll plan](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Aktivera loggning av begär Anden för kontroll plan":::
 
 ## <a name="view-the-control-plane-operations"></a>Visa kontroll Plans åtgärder
 
@@ -69,17 +69,17 @@ När du har aktiverat loggning följer du stegen nedan för att spåra åtgärde
 
 Följande skärm bilder fångar loggar när en konsekvens nivå ändras för ett Azure Cosmos-konto:
 
-![Kontroll Plans loggar när ett VNet läggs till](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Kontroll Plans loggar när ett VNet läggs till":::
 
 Följande skärm bilder fångar in loggar när data flödet i en Cassandra-tabell uppdateras:
 
-![Kontrol lera plan loggar när data flödet uppdateras](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Kontrol lera plan loggar när data flödet uppdateras":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifiera den identitet som är kopplad till en speciell åtgärd
 
 Om du vill felsöka ytterligare kan du identifiera en åtgärd i **aktivitets loggen** med hjälp av aktivitets-ID eller tidsstämpel för åtgärden. Timestamp används för vissa Resource Manager-klienter där aktivitets-ID: t inte uttryckligen skickas. Aktivitets loggen innehåller information om den identitet som åtgärden initierades med. Följande skärm bild visar hur du använder aktivitets-ID: t och hittar de åtgärder som är kopplade till den i aktivitets loggen:
 
-![Använd aktivitets-ID och hitta åtgärderna](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Använd aktivitets-ID och hitta åtgärderna":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Kontroll Plans åtgärder för Azure Cosmos-konto
 

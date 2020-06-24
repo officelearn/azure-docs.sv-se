@@ -3,25 +3,25 @@ title: Problem med att logga in på åtkomst panelens webbplats | Microsoft Docs
 description: Vägledning för att felsöka problem som du kan stöta på när du försöker logga in för att använda åtkomst panelen
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 4f2ad4db231c616b3022ecafc62b12d6d81b67fc
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784313"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760821"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problem med att logga in på åtkomst panelens webbplats
 
@@ -283,7 +283,7 @@ Följ dessa steg om du vill tilldela en licens till en användare:
 
 -   UPN (användarens e-postadress)
 
--   Klient-ID:t
+-   Klientorganisations-ID
 
 -   Typ av webbläsare
 

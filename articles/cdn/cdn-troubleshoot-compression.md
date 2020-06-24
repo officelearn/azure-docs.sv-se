@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c56564ee6f07c5d208ea5d3089a2c96fd8bbc33
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476431"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888700"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN-filkomprimering](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 Komprimeringen för slut punkten är aktive rad, men filerna returneras okomprimerade.
 
 > [!TIP]
-> Om du vill kontrol lera om filerna returneras som komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrol lera vilka HTTP-svarshuvuden som returneras med ditt cachelagrade CDN-innehåll.  Om det finns ett huvud som `Content-Encoding` heter **gzip**, **bzip2**eller **DEFLATE**, komprimeras innehållet.
+> Om du vill kontrol lera om filerna returneras som komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrol lera vilka HTTP-svarshuvuden som returneras med ditt cachelagrade CDN-innehåll.  Om det finns ett huvud som heter `Content-Encoding` **gzip**, **bzip2**eller **DEFLATE**, komprimeras innehållet.
 > 
 > ![Innehålls kodnings rubrik](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -53,7 +53,7 @@ Det finns flera möjliga orsaker, inklusive:
 ### <a name="verify-the-request"></a>Verifiera begäran
 Först bör vi göra en snabb Sanity kontroll av begäran.  Du kan använda webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) för att visa de begär Anden som görs.
 
-* Kontrol lera att begäran skickas till din slut punkts- `<endpointname>.azureedge.net`URL, och inte ditt ursprung.
+* Kontrol lera att begäran skickas till din slut punkts-URL, `<endpointname>.azureedge.net` och inte ditt ursprung.
 * Kontrol lera att begäran innehåller ett **Accept-Encoding-** huvud och att värdet för den rubriken innehåller **gzip**, **DEFLATE**eller **bzip2**.
 
 > [!NOTE]

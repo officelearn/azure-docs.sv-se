@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277913"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762130"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -48,14 +48,21 @@ Kontroll köer innehåller olika typer av typer av Dirigerings-livs cykel meddel
 
 Det varaktiga aktivitets tillägget implementerar en slumpmässig, exponentiell algoritm för att minska inaktive rad avsökningar på lagrings transaktions kostnader. När ett meddelande hittas söker körningen omedelbart efter ett annat meddelande. När inget meddelande hittas väntar den en stund innan den försöker igen. Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är 30 sekunder.
 
-Den maximala avsöknings fördröjningen kan konfigureras `maxQueuePollingInterval` via egenskapen i [Host. JSON-filen](../functions-host-json.md#durabletask). Om den här egenskapen ställs in på ett högre värde kan det resultera i högre meddelande fördröjning. Högre fördröjningar förväntas bara efter perioder av inaktivitet. Om du ställer in den här egenskapen till ett lägre värde kan högre lagrings kostnader uppstå på grund av ökade lagrings transaktioner.
+Den maximala avsöknings fördröjningen kan konfigureras via `maxQueuePollingInterval` egenskapen i [host.jsi filen](../functions-host-json.md#durabletask). Om den här egenskapen ställs in på ett högre värde kan det resultera i högre meddelande fördröjning. Högre fördröjningar förväntas bara efter perioder av inaktivitet. Om du ställer in den här egenskapen till ett lägre värde kan högre lagrings kostnader uppstå på grund av ökade lagrings transaktioner.
 
 > [!NOTE]
 > När du kör i Azure Functions förbruknings-och Premium-planerna, avsöker [Azure Functions skalnings styrenheten](../functions-scale.md#how-the-consumption-and-premium-plans-work) varje kontroll och arbets objekts kön var tionde sekund. Denna ytterligare avsökning är nödvändig för att avgöra när du ska aktivera Function App-instanser och fatta skalnings beslut. Vid tidpunkten för skrivning är det här 10 sekunder konstant och kan inte konfigureras.
 
+### <a name="orchestration-start-delays"></a>Start fördröjningar för dirigering
+Dirigerings instanser startas genom att placera ett `ExecutionStarted` meddelande i en av aktivitets hubbens kontroll köer. Under vissa omständigheter kan du se flera sekunders fördröjningar mellan när ett dirigering är schemalagt att köras och när det faktiskt börjar köras. Under det här tidsintervallet behålls Orchestration-instansen i `Pending` status. Det finns två möjliga orsaker till den här fördröjningen:
+
+1. **Eftersläpande kontroll köer**: om kontroll kön för den här instansen innehåller ett stort antal meddelanden kan det ta tid innan `ExecutionStarted` meddelandet tas emot och bearbetas av körnings miljön. Meddelanden med loggfiler kan inträffa när dirigeringen behandlar mycket händelser samtidigt. Händelser som ingår i kontroll kön omfattar Dirigerings start händelser, aktivitetens slutdatum, varaktiga timers, avslutning och externa händelser. Om den här fördröjningen inträffar under normala omständigheter bör du överväga att skapa en ny aktivitetsvy med ett större antal partitioner. Om du konfigurerar fler partitioner kommer körningen att skapa fler kontroll köer för belastnings distribution.
+
+2. **Inaktivera avsöknings fördröjningar**: en annan vanlig orsak till Dirigerings fördröjningar är den [tidigare beskrivna avsöknings beteendet för kontroll köer](#queue-polling). Denna fördröjning förväntas dock bara när en app skalas ut till två eller fler instanser. Om det bara finns en app-instans eller om den app-instans som startar dirigeringen också är samma instans som avsöker mål kontroll kön, kommer det inte att finnas någon fördröjning i kön. Du kan minska avsöknings fördröjningen genom att uppdatera **host.jspå** inställningar, enligt beskrivningen ovan.
+
 ## <a name="storage-account-selection"></a>Val av lagrings konto
 
-Köer, tabeller och blobbar som används av Durable Functions skapas i ett konfigurerat Azure Storage konto. Kontot som ska användas kan anges med `durableTask/storageProvider/connectionStringName` inställningen (eller `durableTask/azureStorageConnectionStringName` inställningen i Durable Functions 1. x) i **Host. JSON** -filen.
+Köer, tabeller och blobbar som används av Durable Functions skapas i ett konfigurerat Azure Storage konto. Kontot som ska användas kan anges med `durableTask/storageProvider/connectionStringName` inställningen (eller `durableTask/azureStorageConnectionStringName` inställningen i Durable Functions 1. x) i **host.js** filen.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
@@ -87,7 +94,7 @@ Om inget värde anges används standard `AzureWebJobsStorage` lagrings kontot. F
 
 ## <a name="orchestrator-scale-out"></a>Skalbarhet för Orchestrator
 
-Aktivitets funktionerna är tillstånds lösa och skalas ut automatiskt genom att lägga till virtuella datorer. Orchestrator-funktioner och entiteter, å andra sidan, *partitioneras* i en eller flera kontroll köer. Antalet kontroll köer definieras i **Host. JSON** -filen. Följande exempel på Host. JSON-kodfragment anger `durableTask/storageProvider/partitionCount` egenskapen (eller `durableTask/partitionCount` i Durable Functions 1. x) till `3`.
+Aktivitets funktionerna är tillstånds lösa och skalas ut automatiskt genom att lägga till virtuella datorer. Orchestrator-funktioner och entiteter, å andra sidan, *partitioneras* i en eller flera kontroll köer. Antalet kontroll köer definieras i **host.js** i filen. I följande exempel host.jsi kodfragmentet anges `durableTask/storageProvider/partitionCount` egenskapen (eller `durableTask/partitionCount` i Durable Functions 1. x) till `3` .
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
@@ -150,7 +157,7 @@ Enhets funktioner körs också på en enda tråd och åtgärder bearbetas en i t
 
 Azure Functions stöder körning av flera funktioner samtidigt inom en enda App-instans. Den här samtidiga körningen bidrar till att öka parallellitet och minimerar antalet "kall starter" som en typisk app kommer att uppleva över tid. Hög samtidighet kan dock användas för att avsluta system resurser per virtuell dator, t. ex. nätverks anslutningar eller tillgängligt minne. Beroende på behoven i Function-appen kan det vara nödvändigt att reglera per-instans-samtidigheten för att undvika möjligheten att få slut på minne i stora inläsnings situationer.
 
-Samtidighets gränser för aktiviteter, Orchestrator och entiteter kan konfigureras i **Host. JSON** -filen. De relevanta inställningarna är `durableTask/maxConcurrentActivityFunctions` för aktivitets funktioner och `durableTask/maxConcurrentOrchestratorFunctions` för både funktioner för Orchestrator och entitet.
+Samtidighets gränser för aktiviteter, Orchestrator och entiteter kan konfigureras i **host.js** i filen. De relevanta inställningarna är `durableTask/maxConcurrentActivityFunctions` för aktivitets funktioner och `durableTask/maxConcurrentOrchestratorFunctions` för både funktioner för Orchestrator och entitet.
 
 ### <a name="functions-20"></a>Functions 2,0
 
@@ -185,7 +192,7 @@ I föregående exempel kan maximalt 10 funktioner för Orchestrator eller entite
 
 Utökade sessioner är en inställning som skyddar dirigeringar och entiteter i minnet även när de har slutfört bearbetningen av meddelanden. Den normala påverkan av att aktivera utökade sessioner minskar I/O mot Azure Storage kontot och det övergripande data flödet.
 
-Du kan aktivera utökade sessioner genom att `durableTask/extendedSessionsEnabled` `true` ställa in i **Host. JSON** -filen. `durableTask/extendedSessionIdleTimeoutInSeconds` Inställningen kan användas för att styra hur länge en inaktiv session ska lagras i minnet:
+Du kan aktivera utökade sessioner genom att ställa in på `durableTask/extendedSessionsEnabled` `true` i **host.jspå** filen. `durableTask/extendedSessionIdleTimeoutInSeconds`Inställningen kan användas för att styra hur länge en inaktiv session ska lagras i minnet:
 
 **Functions 2,0**
 ```json

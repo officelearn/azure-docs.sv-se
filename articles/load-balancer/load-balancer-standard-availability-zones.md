@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2c16c40ba7ed97f933516811432c3d4768bd0c62
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977672"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888495"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -50,7 +50,9 @@ En IP-adress för en klient del kommer att överleva zon haveriet. Klient delens
 
 Klient delens IP-adress hanteras samtidigt av flera oberoende infrastruktur distributioner i flera tillgänglighets zoner. Eventuella återförsök eller återupprättade kommer att lyckas i andra zoner som inte påverkas av zon felen. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Zonen är redundant" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
 
 *Bild: zon redundant belastningsutjämnare*
 
@@ -60,7 +62,12 @@ Du kan välja att en klient del garanteras för en enda zon, som kallas en *zoni
 
 Dessutom stöds användningen av zonindelade-frontend direkt för belastningsutjämnade slut punkter i varje zon. Du kan använda den här konfigurationen för att exponera belastnings Utjämnings slut punkter per zon för att övervaka varje zon individuellt. För offentliga slut punkter kan du integrera dem med en DNS-belastnings Utjämnings produkt som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda ett enda DNS-namn.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Zonen är redundant" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
+
+*Bild: zonindelade redundant Load Balancer*
 
 Om du vill blanda dessa begrepp (zoner-redundanta och zonindelade för samma server del) granskar du [flera klient delar för Azure Load Balancer](load-balancer-multivip-overview.md).
 

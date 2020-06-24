@@ -1,7 +1,7 @@
 ---
 title: DevOps för en pipeline för data inmatning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder DevOps-metoder för en pipeline för data inmatning som används för att förbereda data för en modell träning.
+description: Lär dig hur du använder DevOps-metoder för att skapa en pipeline för data inmatning som används för att förbereda data för användning med Azure Machine Learning. Inmatnings pipelinen använder Azure Data Factory och Azure Databricks. En Azure-pipeline används för att skapa en kontinuerlig integrering och leverans process för inmatnings pipelinen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,46 +10,67 @@ ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/30/2020
+ms.date: 06/23/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 864c7f2fd16a935d1df740b7d64d068bf7214d18
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261502"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps för en pipeline för data inmatning
 
-I de flesta fall är en lösning för data inmatning en sammansättning av skript, tjänst anrop och en pipeline som dirigerar alla aktiviteter. I den här artikeln får du lära dig hur du tillämpar DevOps-metoder i utvecklings livs cykeln för en gemensam data inmatnings pipeline. Pipelinen förbereder data för Machine Learning modell träning.
+I de flesta fall är en lösning för data inmatning en sammansättning av skript, tjänst anrop och en pipeline som dirigerar alla aktiviteter. I den här artikeln får du lära dig hur du tillämpar DevOps-metoder i utvecklings livs cykeln för en gemensam pipeline för data inmatning som förbereder data för maskin inlärnings modell träning. Pipelinen skapas med följande Azure-tjänster:
 
-## <a name="the-solution"></a>Lösningen
+* __Azure Data Factory__: läser rå data och dirigerar förberedelse av data.
+* __Azure Databricks__: kör en python-anteckningsbok som transformerar data.
+* __Azure-pipeliner__: automatiserar en kontinuerlig integrerings-och utvecklings process.
 
-Överväg följande arbets flöde för data inmatning:
+## <a name="data-ingestion-pipeline-workflow"></a>Pipeline-arbetsflöde för data inmatning
 
-![data inmatning – pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
+Pipelinen för data inmatning implementerar följande arbets flöde:
 
-I den här metoden lagras tränings data i Azure Blob Storage. En Azure Data Factory pipeline hämtar data från en BLOB-behållare för indata, transformerar den och sparar data till BLOB-behållaren utgående. Den här behållaren fungerar som en [data lagrings plats](concept-data.md) för Azure Machine Learning tjänsten. För att data ska kunna förberedas, anropar Data Factory pipelinen en utbildning Machine Learning pipeline för att träna en modell. I det här exemplet utförs Datatransformeringen av en python-anteckningsbok, som körs på ett Azure Databricks kluster. 
+1. Rå data läses in i en Azure Data Factory (ADF) pipeline.
+1. ADF-pipeline skickar data till ett Azure Databricks kluster som kör en python-anteckningsbok för att transformera data.
+1. Data lagras i en BLOB-behållare där de kan användas av Azure Machine Learning för att träna en modell.
 
-## <a name="what-we-are-building"></a>Vad vi bygger
+![pipeline-arbetsflöde för data inmatning](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-Precis som med alla program varu lösningar finns det ett team (till exempel data tekniker) som arbetar med den. 
+## <a name="continuous-integration-and-delivery-overview"></a>Översikt över kontinuerlig integrering och leverans
 
-![cicd – data inmatning](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+Precis som med många program varu lösningar finns det ett team (till exempel data tekniker) som arbetar med den. De samarbetar och delar samma Azure-resurser, till exempel Azure Data Factory, Azure Databricks och Azure Storage konton. Samlingen av dessa resurser är en utvecklings miljö. Data teknikerna bidrar till samma käll kods bas.
 
-De samarbetar och delar samma Azure-resurser som Azure Data Factory, Azure Databricks, Azure Storage konto och sådana. Samlingen av dessa resurser är en utvecklings miljö. Data teknikerna bidrar till samma käll kods bas. Den kontinuerliga integrerings processen sammanställer koden, kontrollerar den med kod kvalitets test, enhets test och genererar artefakter som testad kod och Azure Resource Manager mallar. Den kontinuerliga leverans processen distribuerar artefakterna till de efterföljande miljöerna. Den här artikeln visar hur du automatiserar CI-och CD-processer med [Azure-pipeliner](https://azure.microsoft.com/services/devops/pipelines/).
+En kontinuerlig integrering och ett leverans system automatiserar processen med att skapa, testa och leverera (distribuera) lösningen. Processen för kontinuerlig integrering (CI) utför följande aktiviteter:
+
+* Assemblerar koden
+* Kontrollerar den med kod kvalitets test
+* Kör enhets test
+* Genererar artefakter som testad kod och Azure Resource Manager mallar
+
+Processen för kontinuerlig leverans (CD) distribuerar artefakterna till de efterföljande miljöerna.
+
+![cicd data inmatnings diagram](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+
+Den här artikeln visar hur du automatiserar CI-och CD-processer med [Azure-pipeliner](https://azure.microsoft.com/services/devops/pipelines/).
 
 ## <a name="source-control-management"></a>Käll kontroll hantering
 
-Grupp medlemmarna arbetar på något annorlunda sätt för att samar beta med python-anteckningsbokens källkod och Azure Data Factory käll koden. I båda fallen lagras koden i ett lager för käll kontroll (till exempel Azure DevOps, GitHub, GitLab) och samarbetet är vanligt vis baserat på en förgrenings modell (till exempel [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)).
+Käll kontroll hantering krävs för att spåra ändringar och aktivera samarbete mellan team medlemmar.
+Koden skulle till exempel lagras i en Azure-DevOps, GitHub-eller GitLab-lagringsplats. Samarbets flödet baseras på en förgrenings modell. Till exempel [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
 ### <a name="python-notebook-source-code"></a>Käll kod för python Notebook
 
-Data tekniker fungerar med käll koden för python Notebook antingen lokalt i en IDE (till exempel [Visual Studio Code](https://code.visualstudio.com)) eller direkt i arbets ytan Databricks. Den senare ger möjlighet att felsöka koden i utvecklings miljön. I alla fall kommer koden att slås samman till lagrings platsen efter en förgrenings princip. Vi rekommenderar starkt att du lagrar koden i `.py` filer i stället för i `.ipynb` formatet Jupyter Notebook. Det förbättrar kodens läsbarhet och aktiverar automatisk kod kvalitets kontroller i CI-processen.
+Data tekniker fungerar med käll koden för python Notebook antingen lokalt i en IDE (till exempel [Visual Studio Code](https://code.visualstudio.com)) eller direkt i arbets ytan Databricks. När kod ändringarna har slutförts slås de samman till lagrings platsen efter en förgrenings princip.
+
+> [!TIP] 
+> Vi rekommenderar att du lagrar koden i `.py` filer i stället för i `.ipynb` formatet Jupyter Notebook. Det förbättrar kodens läsbarhet och aktiverar automatisk kod kvalitets kontroller i CI-processen.
 
 ### <a name="azure-data-factory-source-code"></a>Azure Data Factory käll kod
 
-Käll koden för Azure Data Factory pipelines är en samling JSON-filer som genererats av en arbets yta. Vanligt vis arbetar data teknikerna med en visuell designer i Azure Data Factory-arbetsytan i stället för med källfilerna direkt. Konfigurera arbets ytan med en lagrings plats för käll kontroll enligt beskrivningen i [Azure Data Factory-dokumentationen](https://docs.microsoft.com/azure/data-factory/source-control#author-with-azure-repos-git-integration). Med den här konfigurationen på plats kan data teknikerna samar beta på käll koden efter ett prioriterat gren arbets flöde.    
+Käll koden för Azure Data Factory pipelines är en samling JSON-filer som genereras av en Azure Data Factory arbets yta. Vanligt vis arbetar data teknikerna med en visuell designer i Azure Data Factory-arbetsytan i stället för med källfilerna direkt. 
+
+Information om hur du konfigurerar arbets ytan för att använda en lagrings plats för käll kontroll finns i [Redigera med Azure databaser git-integrering](../data-factory/source-control.md#author-with-azure-repos-git-integration).   
 
 ## <a name="continuous-integration-ci"></a>Kontinuerlig integrering (CI)
 
@@ -85,21 +106,25 @@ steps:
 
 - publish: $(Build.SourcesDirectory)
     artifact: di-notebooks
-
 ```
 
-Pipelinen använder ***flake8*** för att göra python-koden luddfri. Den kör enhets test som definierats i käll koden och publicerar de luddfri och test resultaten så att de är tillgängliga på skärmen för Azure pipeline-körning:
+Pipelinen använder [flake8](https://pypi.org/project/flake8/) för att göra python-koden luddfri. Den kör enhets test som definierats i käll koden och publicerar de luddfri och test resultaten så att de är tillgängliga på skärmen för Azure pipeline-körning:
 
-![luddfri enhet-tester](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
+![luddfri enhets test](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
 
 Om installationen av en luddfri enhet och enhet lyckas, kommer pipelinen att kopiera käll koden till artefakt lagrings platsen som ska användas av de efterföljande distributions stegen.
 
 ### <a name="azure-data-factory-ci"></a>Azure Data Factory CI
 
-CI-processen för en Azure Data Factory pipeline är en Flask hals i hela CI/CD-artikeln för en pipeline för data inmatning. Det finns ingen ***kontinuerlig*** integrering. En distributions bara artefakt för Azure Data Factory är en samling Azure Resource Manager mallar. Det enda sättet att skapa dessa mallar är att klicka på knappen ***publicera*** i arbets ytan Azure Data Factory. Det finns ingen automatisering här.
-Data teknikerna kopplar käll koden från deras funktions grenar till samarbets grenen, till exempel ***Master*** eller ***utveckla***. Sedan klickar någon med de beviljade behörigheterna på knappen ***publicera*** för att skapa Azure Resource Manager mallar från käll koden i samarbets grenen. När användaren klickar på knappen, verifierar arbets ytan pipeliner (Tänk på den vid rad-och enhets testning), genererar Azure Resource Manager mallar (Tänk på den när de skapar) och sparar de genererade mallarna till en teknisk gren ***adf_publish*** i samma kod lagrings plats (Tänk på den när det gäller publicering av artefakter). Den här grenen skapas automatiskt av Azure Data Factory-arbetsytan. Den här processen beskrivs i informationen i [Azure Data Factory-dokumentationen](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+CI-processen för en Azure Data Factory pipeline är en Flask hals för en pipeline för data inmatning. Det finns ingen kontinuerlig integrering. En distributions bara artefakt för Azure Data Factory är en samling Azure Resource Manager mallar. Det enda sättet att skapa dessa mallar är att klicka på knappen ***publicera*** i arbets ytan Azure Data Factory.
 
-Det är viktigt att se till att de genererade Azure Resource Manager-mallarna är miljö oberoende. Det innebär att alla värden som kan skilja sig från mellan miljöer är parametrized. Azure Data Factory är tillräckligt smart för att exponera de flesta av dessa värden som parametrar. I följande mall visas till exempel anslutnings egenskaperna till en Azure Machine Learning arbets yta som parametrar:
+1. Data teknikerna kopplar käll koden från deras funktions grenar till samarbets grenen, till exempel ***Master*** eller ***utveckla***. 
+1. Någon med de beviljade behörigheterna klickar på knappen ***publicera*** för att skapa Azure Resource Manager mallar från käll koden i samarbets grenen. 
+1. Arbets ytan validerar pipelines (Tänk på den vid rad-och enhets testning), genererar Azure Resource Manager mallar (Tänk på den när de skapar) och sparar de genererade mallarna till en teknisk gren ***adf_publish*** i samma kod lagrings plats (Tänk på den när det gäller publicering av artefakter). Den här grenen skapas automatiskt av Azure Data Factory-arbetsytan. 
+
+Mer information om den här processen finns i [kontinuerlig integrering och leverans i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+
+Det är viktigt att se till att de genererade Azure Resource Manager-mallarna är miljö oberoende. Det innebär att alla värden som kan skilja sig mellan olika miljöer är parametrized. Azure Data Factory är tillräckligt smart för att exponera de flesta av dessa värden som parametrar. I följande mall visas till exempel anslutnings egenskaperna till en Azure Machine Learning arbets yta som parametrar:
 
 ```json
 {
@@ -149,7 +174,7 @@ Pipeline-aktiviteterna kan referera till pipelines-variablerna när de faktiskt 
 
 ![ADF – Notebook-Parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-Azure Data Factory arbets ytan exponerar ***inte*** pipeline-variabler som standardvärden för Azure Resource Manager-mallar. Arbets ytan använder [standard mal len Parameterisering](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) som avgör vilka pipeline-egenskaper som ska visas som Azure Resource Manager mallparametrar. För att lägga till pipeline-variabler i listan, uppdaterar du avsnittet "Microsoft. DataFactory/factors/pipelines" i [standardparameterisering-mallen](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) med följande kodfragment och placerar resultatet JSON-filen i roten för källmappen:
+Azure Data Factory arbets ytan exponerar ***inte*** pipeline-variabler som standardvärden för Azure Resource Manager-mallar. Arbets ytan använder [standard mal len Parameterisering](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) som avgör vilka pipeline-egenskaper som ska visas som Azure Resource Manager mallparametrar. Om du vill lägga till pipeline-variabler i listan uppdaterar du `"Microsoft.DataFactory/factories/pipelines"` avsnittet i [standard Parameterisering-mallen](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) med följande kodfragment och placerar resultatet JSON-filen i roten i källmappen:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -185,7 +210,10 @@ Värdena i JSON-filen är standardvärden som kon figurer ATS i pipeline-definit
 
 ## <a name="continuous-delivery-cd"></a>Kontinuerlig leverans (CD)
 
-Den kontinuerliga leverans processen tar artefakterna och distribuerar dem till den första mål miljön. Det säkerställer att lösningen fungerar genom att köra tester. Om det lyckas fortsätter den till nästa miljö. CD-pipeline för Azure består av flera steg som representerar miljöerna. Varje steg innehåller [distributioner](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) och [jobb](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) som utför följande steg:
+Den kontinuerliga leverans processen tar artefakterna och distribuerar dem till den första mål miljön. Det säkerställer att lösningen fungerar genom att köra tester. Om det lyckas fortsätter den till nästa miljö. 
+
+CD-pipeline för Azure består av flera steg som representerar miljöerna. Varje steg innehåller [distributioner](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) och [jobb](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) som utför följande steg:
+
 * Distribuera en python-anteckningsbok till Azure Databricks arbets yta
 * Distribuera en Azure Data Factory pipeline 
 * Köra en pipeline
@@ -231,12 +259,13 @@ Följande kodfragment definierar en Azure pipeline- [distribution](https://docs.
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Artefakterna som skapas av CI kopieras automatiskt till distributions agenten och är tillgängliga i mappen ***$ (pipeline. Workspace)*** . I det här fallet refererar distributions aktiviteten till den ***di-Notebook-*** artefakt som innehåller python-anteckningsboken. I den här [distributionen](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) används [Databricks Azure DevOps-tillägget](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) för att kopiera Notebook-filerna till Databricks-arbetsytan.
-***Deploy_to_QA*** fasen innehåller en referens till variabel gruppen ***DevOps-DS-frågor och svar – VG*** som definierats i Azure DevOps-projektet. Stegen i det här steget avser variablerna från den här variabel gruppen (till exempel $ (DATABRICKS_URL), $ (DATABRICKS_TOKEN)). Idén är att nästa steg (till exempel ***Deploy_to_UAT***) fungerar med samma variabel namn som definierats i en egen variabel grupp för UAT-omfång.
+Artefakterna som skapas av CI kopieras automatiskt till distributions agenten och är tillgängliga i `$(Pipeline.Workspace)` mappen. I det här fallet refererar distributions aktiviteten till `di-notebooks` artefakten som innehåller python-anteckningsboken. I den här [distributionen](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) används [Databricks Azure DevOps-tillägget](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) för att kopiera Notebook-filerna till Databricks-arbetsytan.
+
+`Deploy_to_QA`Fasen innehåller en referens till `devops-ds-qa-vg` variabel gruppen som definierats i Azure DevOps-projektet. Stegen i det här steget avser variablerna från den här variabel gruppen (till exempel `$(DATABRICKS_URL)` och `$(DATABRICKS_TOKEN)` ). Idén är att nästa steg (t. ex. `Deploy_to_UAT` ) fungerar med samma variabel namn som definierats i en egen UAT variabel grupp.
 
 ### <a name="deploy-an-azure-data-factory-pipeline"></a>Distribuera en Azure Data Factory pipeline
 
-En distributions bara artefakt för Azure Data Factory är en Azure Resource Manager mall. Därför kommer den att distribueras med distributions uppgiften för ***Azure-resurs gruppen*** , eftersom den visas i följande kodfragment:
+En distributions bara artefakt för Azure Data Factory är en Azure Resource Manager mall. Den kommer att distribueras med ***distributions uppgiften för Azure-resurs gruppen*** , eftersom den visas i följande kodfragment:
 
 ```yaml
   - deployment: "Deploy_to_ADF"
@@ -257,11 +286,11 @@ En distributions bara artefakt för Azure Data Factory är en Azure Resource Man
                 csmParametersFile: '$(Pipeline.Workspace)/adf-pipelines/ARMTemplateParametersForFactory.json'
                 overrideParameters: -data-ingestion-pipeline_properties_variables_data_file_name_defaultValue "$(DATA_FILE_NAME)"
 ```
-Värdet för parametern data filename kommer från variabeln $ (DATA_FILE_NAME) som definieras i variabel gruppen för frågor och svar. På samma sätt kan alla parametrar som definierats i ***ARMTemplateForFactory. JSON*** åsidosättas. Om de inte är det används standardvärdena.
+Värdet för parametern data filename kommer från `$(DATA_FILE_NAME)` variabeln som definierats i variabel gruppen för frågor och svar. På samma sätt kan alla parametrar som definierats i ***ARMTemplateForFactory.js*** åsidosättas. Om de inte är det används standardvärdena.
 
 ### <a name="run-the-pipeline-and-check-the-data-ingestion-result"></a>Kör pipelinen och kontrol lera resultatet av data inmatningen
 
-Nästa steg är att se till att den distribuerade lösningen fungerar. Följande jobb definition kör en Azure Data Factory pipeline med ett PowerShell- [skript](https://github.com/microsoft/DataOps/tree/master/adf/utils) och kör en python-anteckningsbok i ett Azure Databricks-kluster. Antecknings boken kontrollerar om data har matats in korrekt och validerar resultat data filen med namnet $ (bin_FILE_NAME).
+Nästa steg är att se till att den distribuerade lösningen fungerar. Följande jobb definition kör en Azure Data Factory pipeline med ett PowerShell- [skript](https://github.com/microsoft/DataOps/tree/master/adf/utils) och kör en python-anteckningsbok i ett Azure Databricks-kluster. Antecknings boken kontrollerar om data har matats in korrekt och validerar resultat data filen med `$(bin_FILE_NAME)` namnet.
 
 ```yaml
   - job: "Integration_test_job"
@@ -306,7 +335,7 @@ Den sista aktiviteten i jobbet kontrollerar resultatet av Notebook-körningen. O
 
 ## <a name="putting-pieces-together"></a>Placera ihop delar
 
-Resultatet av den här artikeln är en CI/CD Azure-pipeline som består av följande steg:
+Den fullständiga CI/CD-pipeline för Azure består av följande steg:
 * CI
 * Distribuera till frågor och svar
     * Distribuera till Databricks + distribuera till ADF

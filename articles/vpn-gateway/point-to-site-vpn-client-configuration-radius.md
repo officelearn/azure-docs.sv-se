@@ -4,15 +4,15 @@ description: Skapa konfigurationsfiler för Windows, Mac OS X och Linux VPN-klie
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 69517d69a26364cf1cc950d7aaa849522decacf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732740"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986551"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera konfigurationsfiler för VPN-klienten för P2S RADIUS-autentisering
 
@@ -43,7 +43,7 @@ Om du vill använda avsnitten i den här artikeln bestämmer du först vilken ty
 
 Du kan konfigurera autentisering av användar namn/lösen ord för att antingen använda Active Directory eller inte använda Active Directory. I båda fallen ser du till att alla anslutna användare har användar namn/lösen ord som kan autentiseras via RADIUS.
 
-När du konfigurerar autentisering av användar namn/lösen ord kan du bara skapa en konfiguration för autentiseringsprotokollet EAP-MSCHAPv2 username/Password. I- `-AuthenticationMethod` kommandona är `EapMSChapv2`.
+När du konfigurerar autentisering av användar namn/lösen ord kan du bara skapa en konfiguration för autentiseringsprotokollet EAP-MSCHAPv2 username/Password. I-kommandona `-AuthenticationMethod` är `EapMSChapv2` .
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. generera konfigurationsfiler för VPN-klienten
 
@@ -66,13 +66,13 @@ Generera VPN-klientens konfigurationsfiler för användning med autentisering me
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-Om du kör kommandot returneras en länk. Kopiera och klistra in länken i en webbläsare för att ladda ned **VpnClientConfiguration. zip**. Zippa upp filen om du vill visa följande mappar: 
+Om du kör kommandot returneras en länk. Kopiera och klistra in länken i en webbläsare för att ladda ned **VpnClientConfiguration.zip**. Zippa upp filen om du vill visa följande mappar: 
  
 * **WindowsAmd64** och **WindowsX86**: de här mapparna innehåller Windows 64-bitars-och 32-bitars installations paket. 
 * **Allmän**: den här mappen innehåller allmän information som du använder för att skapa din egen VPN-klientkonfiguration. Du behöver inte den här mappen för konfiguration av användar namn/lösenordsautentisering.
 * **Mac**: om du har konfigurerat IKEv2 när du skapade den virtuella Nätverksgatewayen visas en mapp med namnet **Mac** som innehåller en **mobileconfig** -fil. Du använder den här filen för att konfigurera Mac-klienter.
 
-Om du redan har skapat konfigurationsfiler för klienter kan du hämta dem med hjälp av `Get-AzVpnClientConfiguration` cmdleten. Men om du gör ändringar i P2S VPN-konfigurationen, till exempel VPN-Protokollversionen eller autentiseringstypen, uppdateras inte konfigurationen automatiskt. Du måste köra `New-AzVpnClientConfiguration` cmdleten för att skapa en ny konfigurations nedladdning.
+Om du redan har skapat konfigurationsfiler för klienter kan du hämta dem med hjälp av `Get-AzVpnClientConfiguration` cmdleten. Men om du gör ändringar i P2S VPN-konfigurationen, till exempel VPN-Protokollversionen eller autentiseringstypen, uppdateras inte konfigurationen automatiskt. Du måste köra  `New-AzVpnClientConfiguration` cmdleten för att skapa en ny konfigurations nedladdning.
 
 Om du vill hämta tidigare genererade konfigurationsfiler för klienter använder du följande kommando:
 
@@ -95,7 +95,7 @@ Du kan använda samma konfigurations paket för VPN-klienten på varje Windows-k
 Använd följande steg för att konfigurera den interna Windows VPN-klienten för certifikatautentisering:
 
 1. Välj de VPN-klientkonfigurationsfiler som motsvarar Windows-datorns arkitektur. För en 64-bitars processor arkitektur väljer du installations paketet **VpnClientSetupAmd64** . För en 32-bitars processor arkitektur väljer du installations paketet **VpnClientSetupX86** . 
-2. Dubbelklicka på det för att installera paketet. Om du ser en SmartScreen-pop-up väljer du **Mer information** > **kör ändå**.
+2. Dubbelklicka på det för att installera paketet. Om du ser en SmartScreen-pop-up väljer du **Mer information**  >  **kör ändå**.
 3. På klient datorn bläddrar du till **nätverks inställningar** och väljer **VPN**. VPN-anslutningen visar namnet på det virtuella nätverk som den ansluter till. 
 
 #### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Installations program för Mac (OS X) VPN-klient
@@ -151,7 +151,7 @@ Använd följande steg för att konfigurera den interna Windows VPN-klienten fö
 
 Följande instruktioner har skapats via strongSwan 5.5.1 på Ubuntu 17.0.4. De faktiska skärmarna kan vara olika beroende på din version av Linux och strongSwan.
 
-1. Öppna **terminalen** för att installera **StrongSwan** och dess nätverks hanterare genom att köra kommandot i exemplet. Om du får ett fel som är relaterat till `libcharon-extra-plugins`ersätter du det med `strongswan-plugin-eap-mschapv2`.
+1. Öppna **terminalen** för att installera **StrongSwan** och dess nätverks hanterare genom att köra kommandot i exemplet. Om du får ett fel som är relaterat till `libcharon-extra-plugins` ersätter du det med `strongswan-plugin-eap-mschapv2` .
 
    ```Terminal
    sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -165,9 +165,9 @@ Följande instruktioner har skapats via strongSwan 5.5.1 på Ubuntu 17.0.4. De f
 4. Välj **IPSec/IKEv2 (strongswan)** på den nedrullningsbara menyn och välj sedan **skapa**. Du kan byta namn på anslutningen i det här steget.
 
    ![Välja Anslutnings typ](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
-5. Öppna filen **VpnSettings. XML** från den **allmänna** mappen för de hämtade klient konfigurations filerna. Hitta taggen som heter `VpnServer` och kopiera namnet, från och med `azuregateway` och slutar med `.cloudapp.net`.
+5. Öppna **VpnSettings.xml** -filen från den **allmänna** mappen i de hämtade klientens konfigurationsfiler. Hitta taggen som heter `VpnServer` och kopiera namnet, från och med `azuregateway` och slutar med `.cloudapp.net` .
 
-   ![Innehåll i filen VpnSettings. XML](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
+   ![Innehåll i VpnSettings.xml-filen](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
 6. Klistra in det här namnet i fältet **adress** i den nya VPN-anslutningen i **Gateway** -avsnittet. Sedan väljer du mappikonen i slutet av fältet **certifikat** , bläddrar till den **allmänna** mappen och väljer filen **VpnServerRoot** .
 7. I avsnittet **klient** i anslutningen väljer du **EAP** för **autentisering**och anger ditt användar namn och lösen ord. Du kan behöva välja Lås ikonen till höger för att spara den här informationen. Välj sedan **Spara**.
 
@@ -184,7 +184,7 @@ Du kan skapa VPN-klienters konfigurationsfiler för RADIUS-certifikatautentiseri
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-I- `-AuthenticationMethod` kommandona är `EapTls`. Vid certifikatautentisering verifierar-klienten RADIUS-servern genom att verifiera dess certifikat. `-RadiusRootCert`är CER-filen som innehåller rot certifikatet som används för att verifiera RADIUS-servern.
+I-kommandona `-AuthenticationMethod` är `EapTls` . Vid certifikatautentisering verifierar-klienten RADIUS-servern genom att verifiera dess certifikat. `-RadiusRootCert`är CER-filen som innehåller rot certifikatet som används för att verifiera RADIUS-servern.
 
 Varje VPN-klienten het kräver ett installerat klient certifikat. Ibland har en Windows-enhet flera klient certifikat. Under autentiseringen kan det leda till att en popup-dialog ruta visas med en lista över alla certifikat. Användaren måste sedan välja det certifikat som ska användas. Rätt certifikat kan filtreras ut genom att ange det rot certifikat som klient certifikatet ska kedja till. 
 
@@ -198,12 +198,12 @@ Generera VPN-klientens konfigurationsfiler för användning med certifikatautent
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
-Om du kör kommandot returneras en länk. Kopiera och klistra in länken i en webbläsare för att ladda ned VpnClientConfiguration. zip. Zippa upp filen om du vill visa följande mappar:
+Om du kör kommandot returneras en länk. Kopiera och klistra in länken i en webbläsare för att ladda ned VpnClientConfiguration.zip. Zippa upp filen om du vill visa följande mappar:
 
 * **WindowsAmd64** och **WindowsX86**: de här mapparna innehåller Windows 64-bitars-och 32-bitars installations paket. 
 * **GenericDevice**: den här mappen innehåller allmän information som används för att skapa din egen konfiguration av VPN-klienten.
 
-Om du redan har skapat konfigurationsfiler för klienter kan du hämta dem med hjälp av `Get-AzVpnClientConfiguration` cmdleten. Men om du gör ändringar i P2S VPN-konfigurationen, till exempel VPN-Protokollversionen eller autentiseringstypen, uppdateras inte konfigurationen automatiskt. Du måste köra `New-AzVpnClientConfiguration` cmdleten för att skapa en ny konfigurations nedladdning.
+Om du redan har skapat konfigurationsfiler för klienter kan du hämta dem med hjälp av `Get-AzVpnClientConfiguration` cmdleten. Men om du gör ändringar i P2S VPN-konfigurationen, till exempel VPN-Protokollversionen eller autentiseringstypen, uppdateras inte konfigurationen automatiskt. Du måste köra  `New-AzVpnClientConfiguration` cmdleten för att skapa en ny konfigurations nedladdning.
 
 Om du vill hämta tidigare genererade konfigurationsfiler för klienter använder du följande kommando:
 
@@ -221,7 +221,7 @@ Du kan konfigurera följande VPN-klienter:
 
 #### <a name="windows-vpn-client-setup"></a><a name="certwincli"></a>Installation av Windows VPN-klient
 
-1. Välj ett konfigurations paket och installera det på klient enheten. För en 64-bitars processor arkitektur väljer du installations paketet **VpnClientSetupAmd64** . För en 32-bitars processor arkitektur väljer du installations paketet **VpnClientSetupX86** . Om du ser en SmartScreen-pop-up väljer du **Mer information** > **kör ändå**. Du kan också spara paketet om du vill installera det på andra klientdatorer.
+1. Välj ett konfigurations paket och installera det på klient enheten. För en 64-bitars processor arkitektur väljer du installations paketet **VpnClientSetupAmd64** . För en 32-bitars processor arkitektur väljer du installations paketet **VpnClientSetupX86** . Om du ser en SmartScreen-pop-up väljer du **Mer information**  >  **kör ändå**. Du kan också spara paketet om du vill installera det på andra klientdatorer.
 2. Varje klient kräver ett klient certifikat för autentisering. Installera klient certifikatet. Information om klient certifikat finns i [klient certifikat för punkt-till-plats](vpn-gateway-certificates-point-to-site.md). Information om hur du installerar ett certifikat som har genererats finns i [Installera ett certifikat på Windows-klienter](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. På klient datorn bläddrar du till **nätverks inställningar** och väljer **VPN**. VPN-anslutningen visar namnet på det virtuella nätverk som den ansluter till.
 
@@ -229,7 +229,7 @@ Du kan konfigurera följande VPN-klienter:
 
 Du måste skapa en separat profil för varje Mac-enhet som ansluter till det virtuella Azure-nätverket. Detta beror på att de här enheterna kräver att användar certifikatet för autentisering anges i profilen. Den **allmänna** mappen innehåller all information som krävs för att skapa en profil:
 
-* **VpnSettings. XML** innehåller viktiga inställningar som server adress och tunnel typ.
+* **VpnSettings.xml** innehåller viktiga inställningar som server adress och tunnel typ.
 * **VpnServerRoot. cer** innehåller det rot certifikat som krävs för att verifiera VPN-gatewayen under installationen av P2s-anslutningen.
 * **RadiusServerRoot. cer** innehåller rot certifikatet som krävs för att verifiera RADIUS-servern under autentisering.
 
@@ -246,7 +246,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på en Mac
    **Gränssnittets** värde är **VPN**och värdet för **VPN-typen** är **IKEv2**. Ange ett namn för profilen i rutan **tjänst namn** och välj sedan **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
    ![Information om gränssnitt och tjänst namn](./media/point-to-site-vpn-client-configuration-radius/network.png)
-4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i rutorna **Server adress** och **fjärr-ID** i profilen. Lämna rutan **lokalt ID** tomt.
+4. I den **allmänna** mappen, från **VpnSettings.xml** -filen, kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i rutorna **Server adress** och **fjärr-ID** i profilen. Lämna rutan **lokalt ID** tomt.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 5. Välj **autentiseringsinställningar**och välj **certifikat**. 
@@ -269,7 +269,7 @@ Om du vill använda en annan autentiseringstyp (till exempel eng ång slö sen o
 
 1. Använd `Get-AzVpnClientConfiguration` cmdleten för att generera VPN-klientkonfiguration för EapMSChapv2.
 
-2. Zippa upp filen VpnClientConfiguration. zip och leta efter mappen **GenericDevice** . Ignorera mapparna som innehåller Windows installations program för 64-bitars-och 32-bitars arkitekturer.
+2. Zippa upp VpnClientConfiguration.zip-filen och leta efter mappen **GenericDevice** . Ignorera mapparna som innehåller Windows installations program för 64-bitars-och 32-bitars arkitekturer.
  
 3. Mappen **GenericDevice** innehåller en XML-fil med namnet **VpnSettings**. Den här filen innehåller all information som krävs:
 

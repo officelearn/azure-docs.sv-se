@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/03/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 1ccf87bfd387182af269670abf1d86833854834d
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331635"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261196"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -30,26 +30,25 @@ Följande tabell visar de mappningar som stöds:
 |**USA**||
 |Östra USA<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestCentralUS|WestCentralUS|
 |**Kanada**||
 |Indiensödra|Indiensödra|
 |**Asien och stillahavsområdet**||
 |AustraliaSoutheast|AustraliaSoutheast|
 |Sydostasien|Sydostasien|
 |Kanada|Kanada|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |Japanöstra|Japanöstra|
 |**Europa**||
 |UKSouth|UKSouth|
 |Västeuropa|Västeuropa|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> -mappning av öster för Log Analytics arbets ytor till Automation-konton är inte en exakt mappning mellan regioner och regioner, men är rätt mappning.
 
-<sup>2</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics arbets ytor. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
-
-<sup>3</sup> i Azure Kina stöds endast uppdateringshantering och andra funktioner som ändringsspårning och inventering är inte tillgängliga för tillfället. 
+<sup>2</sup> i den här regionen stöds endast uppdateringshantering och andra funktioner som ändringsspårning och inventering är inte tillgängliga för tillfället.
 
 ## <a name="unlink-a-workspace"></a>Ta bort länk till en arbets yta
 

@@ -2,25 +2,25 @@
 title: Planera en Azure Active Directory åtkomst panels distribution
 description: Vägledning om hur du distribuerar Azure Active Directory åtkomst panelen
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeffcfc919a6aeeae61ed79286d613d72c6b183c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897072"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761178"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
 
@@ -63,7 +63,7 @@ Azure AD Access-panelen fördelar företag på följande sätt:
 
 * [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Självbetjäning av lösenordsåterställning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Lösen ords återställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Identitetsskydd för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
@@ -83,8 +83,8 @@ I följande tabell beskrivs de viktigaste användnings fallen för en åtkomst p
 
 | Område| Beskrivning |
 | - | - |
-| Åtkomst| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
-|Åtkomst | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
+| Access| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
+|Access | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
 | Granskning| Användnings data hämtas till företags system minst var 29: e dag. |
 | Styrning| Livs cykeln för användar tilldelningarna till Azure AD-anslutna program och grupper definieras och övervakas. |
 | Säkerhet| Åtkomst till resurser styrs via användar-och grupp tilldelningar. Endast auktoriserade användare kan hantera resurs åtkomst. |
@@ -105,10 +105,10 @@ Funktionerna i åtkomst panelen kan aktive ras gradvis. Vi rekommenderar följan
    * Microsoft Office 365-integrering
 
 1. Identifiering av självbetjänings program
-   * Självbetjäning av lösenordsåterställning
+   * Återställning av lösenord för självbetjäning
    * Multi-Factor Authentication inställningar
    * Enhetshantering
-   * Användningsvillkor
+   * Villkor för användning
    * Hantera organisationer
 
 1. Mina grupper
@@ -127,11 +127,11 @@ I följande tabell visas flera viktiga konfigurationer för åtkomst panelen och
 | Fastställa pilot grupper| Identifiera Azure AD-säkerhetsgruppen som ska användas och se till att alla pilot medlemmar ingår i gruppen. |
 | Bestäm vilka grupper eller grupper som ska aktive ras för produktion.| Identifiera Azure AD-säkerhetsgrupper, eller de Active Directory grupper som synkroniserats till Azure AD, som ska användas. Se till att alla pilot medlemmar är en del av gruppen. |
 | Tillåt användare att använda SSO för vissa typer av program| Federerad SSO, OAuth, lösen ords inloggning, App-proxy |
-| Tillåt användare att använda självbetjäning för återställning av lösen ord | Ja |
-| Tillåt användare att använda Multi-Factor Authentication| Ja |
+| Tillåt användare att använda självbetjäning för återställning av lösen ord | Yes |
+| Tillåt användare att använda Multi-Factor Authentication| Yes |
 | Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Office 365-grupper |
-| Tillåt användare att använda självbetjänings program hantering| Ja |
-| Tillåt användare att använda åtkomst granskningar| Ja |
+| Tillåt användare att använda självbetjänings program hantering| Yes |
+| Tillåt användare att använda åtkomst granskningar| Yes |
 
 ### <a name="plan-consent-strategy"></a>Planera godkännande strategin
 
@@ -215,7 +215,7 @@ En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Man
 
 ## <a name="plan-your-my-apps-deployment"></a>Planera distributionen av mina appar
 
-Grunden för åtkomst panelen är programmet som används för att starta Mina appar, som användare kommer [https://myapps.microsoft.com](https://myapps.microsoft.com/)åt på. Sidorna Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
+Grunden för åtkomst panelen är programmet som används för att starta Mina appar, som användare kommer åt på [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Sidorna Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
 
 ![En skärm bild av panelen appar](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -338,11 +338,11 @@ Du bör använda den minst privilegierade rollen för att utföra en obligatoris
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Ingen |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 
 Du kan använda [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

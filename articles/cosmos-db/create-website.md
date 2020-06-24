@@ -1,131 +1,120 @@
 ---
 title: Distribuera en webbapp med en mall – Azure Cosmos DB
-description: Lär dig hur du distribuerar ett Azure Cosmos DB-konto, Azure App Service Web Apps och ett exempel webb program med hjälp av en Azure Resource Manager-mall.
-author: SnehaGunda
+description: Lär dig hur du distribuerar ett Azure Cosmos-konto, Azure App Service Web Apps och ett exempel webb program med en Azure Resource Manager-mall.
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 03/11/2019
-ms.author: sngun
-ms.openlocfilehash: 7d1080abb35e556e97c34e77fdce4d553c169ee9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.topic: how-to
+ms.date: 06/19/2020
+ms.author: mjbrown
+ms.openlocfilehash: 30a80a2e2eb5522768c08a24535b0fb3f8d86a44
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266873"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261995"
 ---
-# <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager mall
-Den här självstudien visar hur du använder en Azure Resource Manager mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempel webb program.
+# <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service med en webbapp från GitHub med en Azure Resource Manager mall
 
-Med hjälp av Azure Resource Manager mallar kan du enkelt automatisera distributionen och konfigurationen av dina Azure-resurser.  Den här självstudien visar hur du distribuerar ett webb program och automatiskt konfigurerar Azure Cosmos DB information om konto anslutning.
+Den här självstudien visar hur du gör en "ingen touch"-distribution av ett webb program som ansluter till Azure Cosmos DB vid första körningen utan att behöva klippa ut och klistra in anslutnings information från Azure Cosmos DB till `appsettings.json` eller till program inställningarna för Azure App Services i Azure Portal. Alla dessa åtgärder utförs med en Azure Resource Manager-mall i en enda åtgärd. I det här exemplet ska vi Distribuera Azure Cosmos DB att göra [exempel](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) från en [själv studie kurs om webb program](sql-api-dotnet-application.md).
 
-När du har slutfört den här självstudien kommer du att kunna besvara följande frågor:  
+Resource Manager-mallar är relativt flexibla och gör det möjligt att skapa komplexa distributioner över alla tjänster i Azure. Detta omfattar avancerade uppgifter som att distribuera program från GitHub och mata in anslutnings information i Azure App Service programmets program inställningar i Azure Portal. I den här självstudien får du lära dig hur du gör följande saker med en enda Resource Manager-mall.
 
-* Hur kan jag använda en Azure Resource Manager mall för att distribuera och integrera ett Azure Cosmos DB konto och en webbapp i Azure App Service?
-* Hur kan jag använda en Azure Resource Manager-mall för att distribuera och integrera ett Azure Cosmos DB-konto, en webbapp i App Service Web Apps och ett WebDeploy-program?
+* Distribuera ett Azure Cosmos-konto.
+* Distribuera en Azure App Service värd plan.
+* Distribuera en Azure App Service.
+* Mata in slut punkten och nycklarna från Azure Cosmos-kontot i program inställningarna för App Service i Azure Portal.
+* Distribuera ett webb program från en GitHub-lagringsplats till App Service.
 
-<a id="Prerequisites"></a>
+Den resulterande distributionen har ett fullständigt fungerande webb program som kan ansluta till Azure Cosmos DB utan att behöva klippa ut och klistra in Azure Cosmos DBs slut punkts-URL eller autentiseringsinställningar från Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
+
 > [!TIP]
 > Även om den här självstudien inte antar tidigare erfarenhet med Azure Resource Manager mallar eller JSON, bör du ändra de refererade mallarna eller distributions alternativen och sedan krävs kunskap om var och en av dessa områden.
-> 
-> 
 
-Se till att du har en Azure-prenumeration innan du följer anvisningarna i den här självstudien. Azure är en prenumerations-baserad plattform.  Mer information om hur du skaffar en prenumeration finns i [köp alternativ](https://azure.microsoft.com/pricing/purchase-options/), [medlems erbjudanden](https://azure.microsoft.com/pricing/member-offers/)eller [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="step-1-deploy-the-template"></a>Steg 1: Distribuera mallen
 
-## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Steg 1: Ladda ned mallfilerna
-Vi börjar med att hämta mallfilerna som krävs av den här självstudien.
+Först väljer du knappen **distribuera till Azure** nedan för att öppna Azure Portal för att skapa en anpassad distribution. Du kan också Visa Azures resurs hanterings mall från [galleriet för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
 
-1. Hämta en mall för att **skapa ett Azure Cosmos DB-konto, Web Apps och distribuera ett exempel** på en demo-app ( `https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json` ) till en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ett webb program.  Den konfigurerar också automatiskt webb programmet så att det ansluter till Azure Cosmos DB kontot.
-2. Hämta en mall för att **skapa ett Azure Cosmos DB-konto och Web Apps exempel** ( `https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json` ) i en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ändrar platsens program inställningar för att enkelt placera Azure Cosmos DB anslutnings information, men innehåller inte något webb program.  
+[![Distribuera till Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
 
-<a id="Build"></a>
+När du är i Azure Portal väljer du den prenumeration som du vill distribuera till och väljer eller skapar en ny resurs grupp. Fyll sedan i följande värden.
 
-## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>Steg 2: Distribuera Azure Cosmos DB-kontot, App Service webbapp och exempel på demo program
-Nu ska vi distribuera din första mall.
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Skärm bild av användar gränssnittet för mall distribution":::
 
-> [!TIP]
-> Mallen verifierar inte att namnet på webbappen och Azure Cosmos DB konto namnet som angavs i följande mall är a) giltigt och b) tillgängligt.  Vi rekommenderar starkt att du kontrollerar tillgängligheten för de namn du planerar att tillhandahålla innan du skickar distributionen.
-> 
-> 
+* **Region** – detta krävs av Resource Manager. Ange samma region som används av plats parametern där dina resurser finns.
+* **Program namn** – det här namnet används av alla resurser för den här distributionen. Se till att välja ett unikt namn för att undvika konflikter med befintliga Azure Cosmos DB-och App Service-konton.
+* **Plats** – den region där dina resurser distribueras.
+* **App Service plans nivå** – App Service-planens pris nivå.
+* **App Service plans instanser** – antalet arbetare för App Service-planen.
+* **Lagrings-URL** – lagrings platsen för webb programmet på GitHub.
+* **Gren** – grenen för GitHub-lagringsplatsen.
+* **Databas namn** – namnet på Azure Cosmos-databasen.
+* **Container namn** – namnet på Azure Cosmos-containern.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com), klicka på ny och Sök efter "malldistribution".
-    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment1.png)
-2. Välj Malldistribution objekt och klicka på **skapa** ![ skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
-3. Klicka på **Redigera mall**, klistra in innehållet i DocDBWebsiteTodo. JSON-mallfilen och klicka på **Spara**.
-   ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment3.png)
-4. Klicka på **Redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och klicka på **OK**.  Parametrarna är följande:
-   
-   1. WEBBPLATS namn: anger App Service webbappens namn och används för att skapa den URL som du använder för att få åtkomst till webbappen (till exempel om du anger "mydemodocdbwebapp" och sedan den URL som du använder för att komma åt webbappen `mydemodocdbwebapp.azurewebsites.net` ).
-   2. HOSTINGPLANNAME: anger namnet på App Service värd plan som ska skapas.
-   3. PLATS: anger den Azure-plats där du vill skapa Azure Cosmos DB-och webb programs resurser.
-   4. DATABASEACCOUNTNAME: anger namnet på det Azure Cosmos DB konto som ska skapas.   
-      
-      ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment4.png)
-5. Välj en befintlig resurs grupp eller ange ett namn för att skapa en ny resurs grupp och välj en plats för resurs gruppen.
-
-    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment5.png)
-6. Klicka på **Granska juridiska villkor**, **köp**och klicka sedan på **skapa** för att starta distributionen.  Välj **Fäst på instrument panelen** så att distributionen enkelt kan visas på din Azure Portal start sida.
-   ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment6.png)
-7. När distributionen är klar öppnas fönstret resurs grupp.
-   ![Skärm bild av resurs grupps fönstret](./media/create-website/TemplateDeployment7.png)  
-8. Om du vill använda programmet navigerar du till webbappens webb adress (i exemplet ovan är URL: en `http://mydemodocdbwebapp.azurewebsites.net` ).  Följande webb program kommer att visas:
-   
-   ![Exempel på att göra programmet](./media/create-website/image2.png)
-9. Gå vidare och skapa ett par uppgifter i webbappen och gå sedan tillbaka till rutan resurs grupp i Azure Portal. Klicka på resursen för Azure Cosmos DB konto i listan resurser och klicka sedan på **datautforskaren**.
-10. Kör standard frågan "SELECT * FROM c" och granska resultaten.  Observera att frågan har hämtat JSON-representationen av att göra-objekt som du skapade i steg 7 ovan.  Experimentera gärna med frågor. Prova till exempel att köra SELECT * från c där c. isComplete = True för att returnera alla objekt som har marker ATS som slutförda.
-11. Lär dig mer om att utforska Azure Cosmos DB Portal upplevelsen eller ändra exempel programmet.  När du är klar ska vi distribuera en annan mall.
-
-<a id="Build"></a> 
-
-## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Steg 3: Distribuera ett exempel på ett dokument konto och ett webbapp
-Nu ska vi distribuera din andra mall.  Den här mallen är användbar för att visa hur du kan mata in Azure Cosmos DB anslutnings information, till exempel konto slut punkt och huvud nyckel i en webbapp som program inställningar eller som en anpassad anslutnings sträng. Du kanske t. ex. har ett eget webb program som du vill distribuera med ett Azure Cosmos DB-konto och att anslutnings informationen fylls i automatiskt under distributionen.
+När du har fyllt i värdena väljer du knappen **skapa** för att starta distributionen. Det här steget bör ta mellan 5 och 10 minuter att slutföra.
 
 > [!TIP]
-> Mallen verifierar inte att namnet på den webbapp och det Azure Cosmos DB konto namn som anges nedan är a) giltiga och b) tillgängliga.  Vi rekommenderar starkt att du kontrollerar tillgängligheten för de namn du planerar att tillhandahålla innan du skickar distributionen.
-> 
-> 
+> Mallen verifierar inte att det Azure App Service namn och Azure Cosmos-kontonamn som anges i mallen är giltiga och tillgängliga. Vi rekommenderar starkt att du kontrollerar tillgängligheten för de namn du planerar att tillhandahålla innan du skickar distributionen.
 
-1. I [Azure-portalen](https://portal.azure.com)klickar du på ny och söker efter "malldistribution".
-    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment1.png)
-2. Välj Malldistribution objekt och klicka på **skapa** ![ skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment2.png)
-3. Klicka på **Redigera mall**, klistra in innehållet i DocDBWebSite. JSON-mallfilen och klicka på **Spara**.
-   ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment3.png)
-4. Klicka på **Redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och klicka på **OK**.  Parametrarna är följande:
-   
-   1. WEBBPLATS namn: anger App Service webbappens namn och används för att skapa den URL som du ska använda för att få åtkomst till webbappen (till exempel om du anger "mydemodocdbwebapp" och sedan den URL som du använder för att komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
-   2. HOSTINGPLANNAME: anger namnet på App Service värd plan som ska skapas.
-   3. PLATS: anger den Azure-plats där du vill skapa Azure Cosmos DB-och webb programs resurser.
-   4. DATABASEACCOUNTNAME: anger namnet på det Azure Cosmos DB konto som ska skapas.   
-      
-      ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment4.png)
-5. Välj en befintlig resurs grupp eller ange ett namn för att skapa en ny resurs grupp och välj en plats för resurs gruppen.
 
-    ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment5.png)
-6. Klicka på **Granska juridiska villkor**, **köp**och klicka sedan på **skapa** för att starta distributionen.  Välj **Fäst på instrument panelen** så att distributionen enkelt kan visas på din Azure Portal start sida.
-   ![Skärm bild av användar gränssnittet för mall distribution](./media/create-website/TemplateDeployment6.png)
-7. När distributionen är klar öppnas fönstret resurs grupp.
-   ![Skärm bild av resurs grupps fönstret](./media/create-website/TemplateDeployment7.png)  
-8. Klicka på resursen för webb program i listan resurser och klicka sedan **Application settings** på ![ bild skärm bild för program inställningar i resurs gruppen](./media/create-website/TemplateDeployment9.png)  
-9. Observera att det finns program inställningar för Azure Cosmos DB slut punkten och var och en av de Azure Cosmos DB huvud nycklarna.
+## <a name="step-2-explore-the-resources"></a>Steg 2: utforska resurserna
 
-    ![Skärm bild av program inställningar](./media/create-website/TemplateDeployment10.png)  
-10. Du kan fortsätta att utforska Azure Portal eller följa ett av våra Azure Cosmos DB [exempel](https://go.microsoft.com/fwlink/?LinkID=402386) för att skapa ett eget Azure Cosmos DB-program.
+### <a name="view-the-deployed-resources"></a>Visa de distribuerade resurserna
 
-<a name="NextSteps"></a>
+När mallen har distribuerat resurserna kan du nu se var och en av dem i din resurs grupp.
+
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Resurs grupp":::
+
+### <a name="view-cosmos-db-endpoint-and-keys"></a>Visa Cosmos DB slut punkt och nycklar
+
+Öppna sedan Azure Cosmos-kontot i portalen. Följande skärm bild visar slut punkten och nycklarna för ett Azure Cosmos-konto.
+
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Cosmos-nycklar":::
+
+### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Visa Azure Cosmos DB nycklar i program inställningar
+
+Gå sedan till Azure App Service i resurs gruppen. Klicka på fliken konfiguration om du vill visa program inställningarna för App Service. Program inställningarna innehåller det Cosmos DB konto och primär nyckel värden som krävs för att ansluta till Cosmos DB samt de databas-och behållar namn som skickades in från mallen distribution.
+
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Program inställningar":::
+
+### <a name="view-web-app-in-deployment-center"></a>Visa webbapp i distributions Center
+
+Gå sedan till distributions centret för App Service. Här visas databas platser för GitHub-lagringsplatsen som skickades till mallen. Statusen nedan indikerar att det är klart (aktiv), vilket innebär att programmet har distribuerats och startats.
+
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Distributionscenter":::
+
+### <a name="run-the-web-application"></a>Köra webbprogrammet
+
+Klicka på **Bläddra** längst upp i distributions Center för att öppna webb programmet. Webb programmet öppnas på Start skärmen. Klicka på **Skapa ny** och ange data i fälten och klicka på Spara. Skärmen som visas visar de data som sparas i Cosmos DB.
+
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Start skärmen":::
+
+## <a name="step-3-how-does-it-work"></a>Steg 3: Hur fungerar det?
+
+Det krävs tre element för att det ska fungera.
+
+### <a name="reading-app-settings-at-runtime"></a>Läser appinställningar vid körning
+
+Först måste programmet begära Cosmos DB slut punkt och nyckel i `Startup` -klassen i ASP.NET MVC-webbappen. [Cosmos DB att göra-exemplet](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) kan köras lokalt där du kan ange anslutnings informationen till appsettings.jspå. När den distribueras distribueras dock den här filen med appen. Om dessa rader i rött inte kan komma åt inställningarna från appsettings.jspå, kommer den att försöka från program inställningarna i Azure App Service.
+
+:::image type="content" source="./media/create-website/startup.png" alt-text="Start":::
+
+### <a name="using-special-azure-resource-management-functions"></a>Använda särskilda funktioner för Azure-resurs hantering
+
+För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Exempelvis `CosmosDb:Account`.
+
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Mallens nycklar":::
+
+### <a name="deploying-web-apps-from-github"></a>Distribuera webb program från GitHub
+
+Slutligen måste vi distribuera webb programmet från GitHub till App Service. Detta görs med hjälp av JSON nedan. Två saker att vara försiktiga med är typ och namn för den här resursen. Både- `"type": "sourcecontrols"` och- `"name": "web"` egenskapsvärdena är hårdkodade och ska inte ändras.
+
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Distribuera från GitHub":::
 
 ## <a name="next-steps"></a>Nästa steg
-Grattis! Du har distribuerat Azure Cosmos DB, App Service webbapp och ett exempel webb program med hjälp av Azure Resource Manager mallar.
 
-* Klicka [här](https://azure.microsoft.com/services/cosmos-db/)om du vill veta mer om Azure Cosmos dB.
-* Klicka [här](https://go.microsoft.com/fwlink/?LinkId=325362)om du vill veta mer om Azure App Service Web Apps.
-* Klicka [här](https://msdn.microsoft.com/library/azure/dn790549.aspx)om du vill veta mer om Azure Resource Manager mallar.
+Grattis! Du har distribuerat Azure Cosmos DB, Azure App Service och ett exempel webb program som automatiskt har den anslutnings information som krävs för att ansluta till Cosmos DB, allt i en enda åtgärd och utan att behöva klippa ut och klistra in känslig information. Med den här mallen som start punkt kan du ändra den för att distribuera dina egna webb program på samma sätt.
 
-## <a name="whats-changed"></a>Nyheter
-* En guide för ändringen från webbplatser till App Service finns i: [Azure App service och dess påverkan på befintliga Azure-tjänster](https://go.microsoft.com/fwlink/?LinkId=529714)
-
-> [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
-
+* För Azure Resource Manager mal len för det här exemplet går du till [galleriet för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+* För käll koden för exempel appen går du till [Cosmos DB att göra-appen på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app).

@@ -3,16 +3,16 @@ title: Hantera Azure Cosmos DB resurser med Azure Storage Explorer
 description: Lär dig hur du ansluter till Azure Cosmos DB och hanterar dess resurser med Azure Storage Explorer.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a43e49ab29780e718139b677b780443e5e31e2ab
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982776"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262250"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
@@ -31,23 +31,23 @@ Installera den senaste versionen av Azure Storage Explorer här: [Azure Storage 
 
 1. När du har installerat **Azure Storage Explorer**klickar du på **plugin-** ikonen till vänster som visas i följande bild:
 
-   ![Plugin-ikon](./media/storage-explorer/plug-in-icon.png)
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Plugin-ikon":::
 
 2. Välj **Lägg till ett Azure-konto** och klicka sedan på **Logga in**.
 
-   ![Ansluta till Azure-prenumerationen](./media/storage-explorer/connect-to-azure-subscription.png)
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Ansluta till Azure-prenumerationen":::
 
 2. Välj **Logga in** i dialogrutan **Azure-inloggning** och ange dina autentiseringsuppgifter för Azure.
 
-    ![Logga in](./media/storage-explorer/sign-in.png)
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Logga in":::
 
 3. Välj din prenumeration i listan och klicka sedan på **Använd**.
 
-    ![Använd](./media/storage-explorer/apply-subscription.png)
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Använt":::
 
     Explorer-fönstret uppdateras och visar konton i den valda prenumerationen.
 
-    ![Kontolista](./media/storage-explorer/account-list.png)
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Kontolista":::
 
     Du har anslutit ditt **Cosmos DB-konto** till din Azure-prenumeration.
 
@@ -57,11 +57,11 @@ Ett alternativt sätt att ansluta till en Azure Cosmos DB är att använda en an
 
 1. Hitta **Lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB-konton** och välj **Anslut till Cosmos DB...**
 
-    ![Ansluta till Cosmos DB med hjälp av en anslutningssträng](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Ansluta till Cosmos DB med hjälp av en anslutningssträng":::
 
 2. Stöder endast SQL- och Table-API för tillfället. Välj API, klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
 
-    ![Anslutningssträng](./media/storage-explorer/connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Anslutnings sträng":::
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Anslut till Azure Cosmos DB med en lokal emulator
 
@@ -71,11 +71,11 @@ Använd följande steg för att ansluta till en Azure Cosmos DB med en Emulator,
 
 2. Hitta **Lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB-konton** och välj **Anslut till Cosmos DB-emulator...**
 
-    ![Anslut till Cosmos DB med emulator](./media/storage-explorer/emulator-entry.png)
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Anslut till Cosmos DB med emulator":::
 
 3. Stöder endast SQL-API för tillfället. Klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
 
-    ![Dialogrutan Anslut till Cosmos DB med Emulator](./media/storage-explorer/emulator-dialog.png)
+    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Dialogrutan Anslut till Cosmos DB med Emulator":::
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Resurshantering för Azure Cosmos DB
@@ -95,52 +95,52 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 * Högerklicka på ett Azure Cosmos DB-konto eller en databas så kan du välja alternativet för att **öppna i portalen** och hantera resursen i Azure-portalen i webbläsaren.
 
-     ![Öppna i portalen](./media/storage-explorer/open-in-portal.png)
+     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Öppna i portalen":::
 
 * Du kan också lägga till Azure Cosmos DB-konto, databas och samling i **Snabbåtkomst**.
 * **Sök härifrån** aktiverar nyckelordssökning under den valda sökvägen.
 
-    ![sök härifrån](./media/storage-explorer/search-from-here.png)
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="sök härifrån":::
 
 ### <a name="database-and-collection-management"></a>Databas- och samlingshantering
 #### <a name="create-a-database"></a>Skapa en databas
 -   Högerklicka Azure Cosmos DB-kontot, välj **Skapa databas** ange databasnamnet och slutför genom att trycka på **Retur**.
 
-    ![Skapa databas](./media/storage-explorer/create-database.png)
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skapa databas":::
 
 #### <a name="delete-a-database"></a>Ta bort en databas
 - Högerklicka på databasen, klicka på **Ta bort databas** och klicka på **Ja** i popup-fönstret. Databasnoden tas bort och Azure Cosmos DB-konto uppdateras automatiskt.
 
-    ![Ta bort databas1](./media/storage-explorer/delete-database1.png)
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Ta bort databas1":::
 
-    ![Ta bort databas2](./media/storage-explorer/delete-database2.png)
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Ta bort databas2":::
 
 #### <a name="create-a-collection"></a>Skapa en samling
 1. Högerklicka på din databas, Välj **skapa samling**och ange sedan följande information, t. ex. **samlings-ID**, **lagrings kapacitet**osv. Klicka på **OK** för att slutföra.
 
-    ![Skapa samling1](./media/storage-explorer/create-collection.png)
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skapa samling1":::
 
-    ![Skapa samling2](./media/storage-explorer/create-collection2.png)
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skapa samling2":::
 
 2. Välj **obegränsad** för att kunna ange partitionsnyckel och klicka sedan på **OK** för att slutföra.
 
     Om en partitionsnyckel används när du skapar en samling kan partitionsnyckelvärdet inte ändras i samlingen när den väl har skapats.
 
-    ![Partitionsnyckeln](./media/storage-explorer/partitionkey.png)
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Partitionsnyckeln":::
 
 #### <a name="delete-a-collection"></a>Ta bort en samling
 - Högerklicka på samlingen, klicka på **Ta bort samling** och klicka sedan på **Ja** i popup-fönstret.
 
     Samlingsnoden tas bort och databasen uppdateras automatiskt.
 
-    ![Ta bort samling](./media/storage-explorer/delete-collection.png)
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Ta bort samling":::
 
 ### <a name="document-management"></a>Dokumenthantering
 
 #### <a name="create-and-modify-documents"></a>Skapa och ändra dokument
 - Du kan skapa ett nytt dokument genom att öppna **Documents** (Dokument) i det vänstra fönstret, klicka på **New Document** (Nytt dokument), redigera innehållet i den högra rutan och sedan klicka på **Save** (Spara). Du kan också uppdatera ett befintligt dokument och sedan klicka på **Save**. Ändringar kan ignoreras genom att klicka på **Discard** (Ignorera).
 
-    ![Dokument](./media/storage-explorer/document.png)
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Handling":::
 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 - Klicka på knappen **Delete** (Ta bort) om du vill ta bort det valda dokumentet.
@@ -148,7 +148,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 #### <a name="query-for-documents"></a>Fråga för dokument
 - Redigera dokumentfilter genom att ange en [SQL-fråga](how-to-sql-query.md) och sedan klicka på **Apply** (Tillämpa).
 
-    ![Dokumentfilter](./media/storage-explorer/document-filter.png)
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Dokumentfilter":::
 
 
 
@@ -158,7 +158,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 1. Om du vill skapa en ny brytpunkt, öppnar du **Graph** från det vänstra fönstret, klickar på **Ny brytpunkt**, redigerar innehållet och klickar sedan på **OK**.
 2. Om du vill ändra en befintlig brytpunkt, klickar du på pennikonen i den högra rutan.
 
-    ![Graph](./media/storage-explorer/vertex.png)
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Graph":::
 
 #### <a name="delete-a-graph"></a>Ta bort en graf
 - Om du vill ta bort en brytpunkt, klickar du på papperskorgsikonen bredvid brytpunktens namn.
@@ -166,7 +166,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 #### <a name="filter-for-graph"></a>Filter för graf
 - Redigera graffiltret genom att ange en [gremlin-fråga](gremlin-support.md) och sedan klicka på **Tillämpa filter**.
 
-    ![Graffilter](./media/storage-explorer/graph-filter.png)
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Graffilter":::
 
 ### <a name="table-management"></a>Tabellhantering
 
@@ -174,29 +174,29 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 1. Om du vill skapa en ny tabell, öppnar du **entiteter** från det vänstra fönstret, klickar på **Lägg till**, redigera innehållet i dialogrutan **Lägg till entitet**, lägg till egenskapen genom att klicka på knappen **Lägg till egenskap** och klicka sedan på **Infoga**.
 2. Om du vill ändra en tabell, klickar du på **Redigera**, ändrar innehållet och klickar sedan på **Uppdatera**.
 
-    ![Tabell](./media/storage-explorer/table.png)
+    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Tabell":::
 
 #### <a name="import-and-export-table"></a>Importera och exportera tabell
 1. Om du vill importera, klickar du på **Importera**-knappen och väljer en befintlig tabell.
 2. Om du vill exportera, klickar du på **Exportera**-knappen och väljer ett mål.
 
-    ![Import och export av tabell](./media/storage-explorer/table-import-export.png)
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Import och export av tabell":::
 
 #### <a name="delete-entities"></a>Ta bort entiteter
 - Välj entiteterna och klicka på knappen **Ta bort**.
 
-    ![Ta bort tabell](./media/storage-explorer/table-delete.png)
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Ta bort tabell":::
 
 #### <a name="query-table"></a>Frågetabell
 - Klicka på **Fråga**-knappen, ange frågevillkoren och klicka sedan på knappen **Kör fråga**. Stäng frågefönstret genom att klicka på knappen **Stäng fråga**.
 
-    ![Tabellfråga](./media/storage-explorer/table-query.png)
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Tabellfråga":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Hantera lagrade procedurer, utlösare och UDF:er
 * Skapa en lagrad procedur genom att i vänster träd högerklicka på **Lagrad procedur**, välj **Skapa lagrad procedur**, ange ett namn i vänstra fönstret, ange skripten för den lagrade proceduren i det högra fönstret och klicka sedan på **Skapa**.
 * Du kan också redigera befintliga, lagrade procedurer genom att dubbelklicka, göra uppdateringen och sedan klicka på **Uppdatera** om du vill spara eller på **Ignorera** om du vill avbryta ändringen.
 
-    ![Lagrad procedur](./media/storage-explorer/stored-procedure.png)
+    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Lagrad procedur":::
 * Åtgärderna för **Utlösare** och **UDF** liknar dem för **Lagrade procedurer**.
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -228,7 +228,7 @@ När Storage Explorer påträffar ett sådant ”självsignerade certifikat” k
 3. Kör `s_client -showcerts -connect microsoft.com:443`
 4. Leta efter självsignerade certifikat. Om du är osäker på vilka som är självsignerade, leta då överallt efter om ämnet (”s:”) och utfärdaren (”i:”) är samma.
 5.  När du har hittat självsignerade certifikat, kopiera och klistra in allt från och med **---BEGIN CERTIFICATE---** till **---END CERTIFICATE---** till en ny .cer-fil för varje certifikat.
-6.  Öppna Storage Explorer och gå sedan till **Redigera** > **SSL-certifikat** > **Importera certifikat**. Med filväljaren, hitta, markera och öppna de CER-filerna som du skapade.
+6.  Öppna Storage Explorer och gå sedan till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**. Med filväljaren, hitta, markera och öppna de CER-filerna som du skapade.
 
 Om det inte går att hitta något självsignerat certifikat med hjälp av stegen ovan kan du skicka feedback för mer hjälp.
 
@@ -246,7 +246,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in:
   - .extaccounts
 - Titta på utvecklingsverktygskonsolen (f12) när du loggar in för eventuella felmeddelanden
 
-![konsol](./media/storage-explorer/console.png)
+:::image type="content" source="./media/storage-explorer/console.png" alt-text="konsolomdirigering":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visa autentiseringssidan
 
@@ -279,19 +279,19 @@ Du kan inte visa Microsoft Azure Cosmos DB-noder i det vänstra trädet när du 
 
 Du får inget svar när du klickar på noden ”utveckling” under ”lokala och kopplade” noder i vänster träd.  Det här beteendet är förväntat. Microsoft Azure Cosmos DB lokala emulatorn stöds i nästa version.
 
-![Utvecklingsnod](./media/storage-explorer/development.png)
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Utvecklingsnod":::
 
 ### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Nodfel vid koppling av Microsoft Azure Cosmos DB-konto i ”Lokala och kopplade”
 
 Om du ser nedanstående fel när du har kopplat Microsoft Azure DB som Cosmos-kontot i ”Lokala och kopplade” noder, kontrollerar du om du använder rätt anslutningssträng.
 
-![Fel vid fästning av Microsoft Azure Cosmos DB i Lokala och kopplade](./media/storage-explorer/attached-error.png)
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Fel vid fästning av Microsoft Azure Cosmos DB i Lokala och kopplade":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Nodfel vid expandera Microsoft Azure Cosmos DB
 
 Du kan se nedanstående fel vid försök att expandera noderna i vänster träd.
 
-![Expanderingsfel](./media/storage-explorer/expand-error.png)
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Expanderingsfel":::
 
 Prova följande rekommendationer:
 
@@ -300,7 +300,7 @@ Prova följande rekommendationer:
 
 ## <a name="contact-us"></a>Kontakta oss
 
-Om ingen av lösningarna fungerar för dig kan du skicka e-post till Azure Cosmos DB dev Teaming team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) med information om problemet för att åtgärda problemen.
+Om ingen av lösningarna fungerar för dig kan du skicka e-post till Azure Cosmos DB dev Teaming team ( [cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com) ) med information om problemet för att åtgärda problemen.
 
 ## <a name="next-steps"></a>Nästa steg
 

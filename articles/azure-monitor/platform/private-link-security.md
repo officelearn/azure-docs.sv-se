@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299721"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260890"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -33,7 +33,7 @@ Med privat länk kan du:
 
 Mer information finns i [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Azure Monitor privat länk omfång är en grupperings resurs för att ansluta en eller flera privata slut punkter (och därmed de virtuella nätverken de finns i) till en eller flera Azure Monitor resurser. Resurserna omfattar Log Analytics arbets ytor och Application Insights komponenter.
 
@@ -229,6 +229,10 @@ Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger d
 |Azure, offentlig     | scadvisor.blob.core.windows.net         | 443 | Utgående
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Utgående
 |Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Utgående
+
+### <a name="browser-dns-settings"></a>Webbläsarens DNS-inställningar
+
+Om du ansluter till Azure Monitor resurser via en privat länk måste trafiken till dessa resurser gå igenom den privata slut punkt som är konfigurerad i nätverket. Om du vill aktivera den privata slut punkten uppdaterar du dina DNS-inställningar enligt beskrivningen i [Anslut till en privat slut punkt](#connect-to-a-private-endpoint). Vissa webbläsare använder sina egna DNS-inställningar i stället för de som du anger. Webbläsaren kan försöka ansluta till Azure Monitor offentliga slut punkter och kringgå den privata länken helt och hållet. Kontrol lera att inställningarna för webbläsaren inte åsidosätter eller cachelagrar gamla DNS-inställningar. 
 
 ## <a name="next-steps"></a>Nästa steg
 

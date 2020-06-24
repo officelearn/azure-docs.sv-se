@@ -3,8 +3,8 @@ title: Distribuera Azure Access panel-tillägget för Internet Explorer med hjä
 description: Så här använder du grup princip för att distribuera Internet Explorer-tillägget för My Apps-portalen.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67807690"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763439"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Gör så här: Distribuera åtkomst panels tillägget för Internet Explorer med grup princip
 
@@ -44,12 +44,12 @@ Först måste du Placera installations paketet på en nätverks plats som kan n�
 
     ![Öppna filer och lagrings tjänster](./media/deploy-access-panel-browser-extension/files-services.png)
 
-1. Gå till fliken **resurser** . Klicka sedan på **uppgifter** > **Ny resurs...**
+1. Gå till fliken **resurser** . Klicka sedan på **uppgifter**  >  **Ny resurs...**
 
     ![Skärm bild som visar var du hittar en ny resurs på skärmen uppgifter](./media/deploy-access-panel-browser-extension/shares.png)
 
 1. Slutför **guiden Ny resurs** och ange behörigheter för att säkerställa att den kan nås från användarnas datorer. [Lär dig mer om resurser.](https://technet.microsoft.com/library/cc753175.aspx)
-1. Ladda ned följande Microsoft Windows Installer-paket (. msi-fil): [åtkomst panels tillägget. msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+1. Ladda ned följande Microsoft Windows Installer-paket (. msi-fil): [åtkomst panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. Kopiera installations paketet till önskad plats på resursen.
 
     ![Kopiera MSI-filen till resursen](./media/deploy-access-panel-browser-extension/copy-package.png)
@@ -59,14 +59,14 @@ Först måste du Placera installations paketet på en nätverks plats som kan n�
 ## <a name="step-2-create-the-group-policy-object"></a>Steg 2: skapa ett grup princip objekt
 
 1. Logga in på den server som är värd för din Active Directory Domain Services-installation (AD DS).
-1. I Serverhanteraren går du till **verktyg** > **Grupprincip hantering**.
+1. I Serverhanteraren går du till **verktyg**  >  **Grupprincip hantering**.
 
     ![Gå till verktyg > grupprincip hantering](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 
 1. I det vänstra fönstret i fönstret **Grupprincip hantering** visar du hierarkin för organisationsenheten (OU) och avgör i vilken omfattning du vill tillämpa grup principen. Du kan till exempel välja att välja en liten ORGANISATIONSENHET för att distribuera till några användare för testning, eller så kan du välja en ORGANISATIONSENHET på den översta nivån för att distribuera den till hela organisationen.
 
    > [!NOTE]
-   > Om du vill skapa eller redigera organisations enheterna (OU) växlar du tillbaka till Serverhanteraren och går till **verktyg** > **Active Directory användare och datorer**.
+   > Om du vill skapa eller redigera organisations enheterna (OU) växlar du tillbaka till Serverhanteraren och går till **verktyg**  >  **Active Directory användare och datorer**.
 
 1. När du har valt en ORGANISATIONSENHET högerklickar du på den och väljer **skapa ett grup princip objekt i den här domänen och länka det här..** .
 
@@ -83,7 +83,7 @@ Först måste du Placera installations paketet på en nätverks plats som kan n�
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
 
-1. Högerklicka på **program varu installation**och välj sedan **nytt** > **paket...**
+1. Högerklicka på **program varu installation**och välj sedan **nytt**  >  **paket...**
 1. Gå till den delade mappen som innehåller installations paketet från [steg 1: skapa distributions platsen](#step-1-create-the-distribution-point), Välj. msi-filen och klicka på **Öppna**.
 
    > [!IMPORTANT]

@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085747"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987481"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
 
@@ -38,17 +38,17 @@ Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| entitiesDefinitionUri    | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
-|inlineEntitiesDefinition | Definitioner av infogade JSON-enheter. Den här parametern ersätter parametern entitiesDefinitionUri om den finns. Högst 10 KB konfiguration kan anges infogas. Se [definitionen av anpassade entiteter](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
-|defaultLanguageCode |    Valfritt Språk koden för den inmatade text som används för att Tokenize och avgränsa inmatade text. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska`en`(). Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.  |
+| `entitiesDefinitionUri`    | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
+|`inlineEntitiesDefinition` | Definitioner av infogade JSON-enheter. Den här parametern ersätter parametern entitiesDefinitionUri om den finns. Högst 10 KB konfiguration kan anges infogas. Se [definitionen av anpassade entiteter](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
+|`defaultLanguageCode` |    Valfritt Språk koden för den inmatade text som används för att Tokenize och avgränsa inmatade text. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt` . Standardvärdet är engelska ( `en` ). Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.  |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Inmatat namn      | Beskrivning                   |
 |---------------|-------------------------------|
-| text          | Den text som ska analyseras.          |
-| languageCode    | Valfritt. Standardvärdet är `"en"`.  |
+| `text`          | Den text som ska analyseras.          |
+| `languageCode`    | Valfritt. Standardvärdet är `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
@@ -56,7 +56,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Namn på utdata      | Beskrivning                   |
 |---------------|-------------------------------|
-| poster | En matris med objekt som innehåller information om de matchningar som hittades, och relaterade metadata. Varje entitet som identifieras kan innehålla följande fält:  <ul> <li> *namn*: entiteten på den översta nivån har identifierats. Entiteten representerar "normaliserad" form. </li> <li> *ID*: en unik identifierare för entiteten som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *Beskrivning*: Beskrivning av entitet som definieras av användaren i definitions formatet för den anpassade entiteten. </li> <li> *Typ:* Entitetstyp som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *undertyp:* Undertyp för entitet som definieras av användaren i definitions formatet för den anpassade entiteten.</li>  <li> *matchar*: samling som beskriver var och en av matchningarna för den entiteten i käll texten. Varje matchning kommer att ha följande medlemmar: </li> <ul> <li> *text*: den obehandlade text matchningen från käll dokumentet. </li> <li> *offset*: den plats där matchningen påträffades i texten. </li> <li> *längd*: den matchade textens längd. </li> <li> *matchDistance*: antalet tecken som skiljer matchningen från det ursprungliga enhets namnet eller aliaset.  </li> </ul> </ul>
+| `entities` | En matris med objekt som innehåller information om de matchningar som hittades, och relaterade metadata. Varje entitet som identifieras kan innehålla följande fält:  <ul> <li> *namn*: entiteten på den översta nivån har identifierats. Entiteten representerar "normaliserad" form. </li> <li> *ID*: en unik identifierare för entiteten som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *Beskrivning*: Beskrivning av entitet som definieras av användaren i definitions formatet för den anpassade entiteten. </li> <li> *Typ:* Entitetstyp som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *undertyp:* Undertyp för entitet som definieras av användaren i definitions formatet för den anpassade entiteten.</li>  <li> *matchar*: samling som beskriver var och en av matchningarna för den entiteten i käll texten. Varje matchning kommer att ha följande medlemmar: </li> <ul> <li> *text*: den obehandlade text matchningen från käll dokumentet. </li> <li> *offset*: den plats där matchningen påträffades i texten. </li> <li> *längd*: den matchade textens längd. </li> <li> *matchDistance*: antalet tecken som skiljer matchningen från det ursprungliga enhets namnet eller aliaset.  </li> </ul> </ul>
   |
 
 ## <a name="custom-entity-definition-format"></a>Definitions format för anpassad entitet
@@ -145,22 +145,22 @@ Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange n�
 
 |  Fältnamn  |        Beskrivning  |
 |--------------|----------------------|
-| name | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
-| description  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| typ | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| undertyp | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| id | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| caseSensitive | Valfritt Standardvärdet är false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känslig för Skift läge. Exempel på SKIFT läges okänsliga matchningar av "Microsoft" kan vara: Microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | Valfritt Standardvärdet är 0. Högsta värdet 5. Anger det godkända antalet Divergent-tecken som fortfarande utgör en matchning med entitetsnamnet. Det minsta möjliga oskärpa för en bestämd matchning returneras.  Om till exempel redigerings avståndet är inställt på 3, kommer "Windows 10" fortfarande att matcha "Windows", "windows10" och "Windows 7". <br/> Om SKIFT läges känslighet är inställt på falskt räknas inte fall skillnaderna över mot oskärpa tolerans, men annars görs. |
-| defaultCaseSensitive | Valfritt Ändrar standard Skift läges känslighets värde för den här entiteten. Den används för att ändra standardvärdet för alla alias caseSensitive-värden. |
-| defaultFuzzyEditDistance | Valfritt Ändrar standardvärdet för fuzzy Edit för den här entiteten. Det kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance-värden. |
-| alias | Valfritt En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rot enhetens namn. |
+| `name` | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
+| `description`  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| `type` | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| `subtype` | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| `id` | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| `caseSensitive` | Valfritt Standardvärdet är false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känslig för Skift läge. Exempel på SKIFT läges okänsliga matchningar av "Microsoft" kan vara: Microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | Valfritt Standardvärdet är 0. Högsta värdet 5. Anger det godkända antalet Divergent-tecken som fortfarande utgör en matchning med entitetsnamnet. Det minsta möjliga oskärpa för en bestämd matchning returneras.  Om till exempel redigerings avståndet är inställt på 3, kommer "Windows 10" fortfarande att matcha "Windows", "windows10" och "Windows 7". <br/> Om SKIFT läges känslighet är inställt på falskt räknas inte fall skillnaderna över mot oskärpa tolerans, men annars görs. |
+| `defaultCaseSensitive` | Valfritt Ändrar standard Skift läges känslighets värde för den här entiteten. Den används för att ändra standardvärdet för alla alias caseSensitive-värden. |
+| `defaultFuzzyEditDistance` | Valfritt Ändrar standardvärdet för fuzzy Edit för den här entiteten. Det kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance-värden. |
+| `aliases` | Valfritt En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rot enhetens namn. |
 
 | Egenskaper för alias | Beskrivning |
 |------------------|-------------|
-| text  | Den alternativa stavningen eller representationen av ett visst mål enhets namn.  |
-| caseSensitive | Valfritt Fungerar på samma sätt som rot entiteten "caseSensitive" ovan, men gäller endast detta alias. |
-| fuzzyEditDistance | Valfritt Fungerar på samma sätt som rot entiteten "fuzzyEditDistance" ovan, men gäller endast detta alias. |
+| `text`  | Den alternativa stavningen eller representationen av ett visst mål enhets namn.  |
+| `caseSensitive` | Valfritt Fungerar på samma sätt som rot entiteten "caseSensitive" ovan, men gäller endast detta alias. |
+| `fuzzyEditDistance` | Valfritt Fungerar på samma sätt som rot entiteten "fuzzyEditDistance" ovan, men gäller endast detta alias. |
 
 
 ### <a name="inline-format"></a>Infogat format
@@ -188,7 +188,7 @@ En exempel kunskaps definition som använder ett infogat format visas nedan:
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -208,7 +208,7 @@ En exempel kunskaps definition som använder ett infogat format visas nedan:
     ]
   }
 ```
-Alternativt, om du bestämmer dig för att tillhandahålla en pekare till definitions filen för entiteter, visas en exempel kunskaps definition med entitiesDefinitionUri-formatet nedan:
+Alternativt, om du bestämmer dig för att tillhandahålla en pekare till definitions filen för entiteter, visas en exempel kunskaps definition med `entitiesDefinitionUri` formatet nedan:
 
 ```json
   {
@@ -240,7 +240,7 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }

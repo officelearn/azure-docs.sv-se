@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145357"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987928"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -24,7 +24,7 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Begär Anden för\:http//contoso.com/video/* dirigeras till VideoServerPool och http\://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begär Anden för http \: //contoso.com/video/* dirigeras till VideoServerPool och http \: //contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
 > För v1 SKU bearbetas regler i den ordning de visas i portalen. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren. För v2-SKU: n har exakta matchningar högre prioritet. Vi rekommenderar dock starkt att du konfigurerar lyssnare för flera platser först innan du konfigurerar en grundläggande lyssnare. Detta säkerställer att trafik dirigeras till rätt serverdel.
@@ -75,7 +75,7 @@ Sök vägs regler är Skift läges känsliga.
 |mönster för v1-sökväg  |Stöds?  |
 |---------|---------|
 |`/images/*`     |ja|
-|`/images*`     |nej|
+|`/images*`     |ja|
 |`/images/*.jpg`     |nej|
 |`/*.jpg`     |nej|
 |`/Repos/*/Comments/*`     |nej|

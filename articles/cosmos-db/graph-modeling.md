@@ -4,15 +4,15 @@ description: Lär dig att modellera en graf-databas med hjälp av Azure Cosmos D
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898313"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261825"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
@@ -45,7 +45,7 @@ Nästa steg är att avgöra om grafen ska användas för analys-eller transaktio
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Objekt | Egenskap | Typ | Obs! |
+| Objekt | Egenskap | Typ | Kommentarer |
 | --- | --- | --- |  --- |
 | Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
 | Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
@@ -73,11 +73,11 @@ En gemensam Pitfall är att mappa egenskaper för en enskild entitet som separat
 
 * **Hörnbaserade egenskaper**: i den här metoden använder entiteten tre separata hörn och två kanter för att beskriva dess egenskaper. Även om den här metoden kan minska redundansen ökar modell komplexiteten. En ökning av modell komplexiteten kan leda till ökad latens, fråga om komplexitet och beräknings kostnader. Den här modellen kan också presentera utmaningar vid partitionering.
 
-![Enhets modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
 
 * **Egenskap – inbäddade hörn**: den här metoden utnyttjar nyckel värde par listan för att representera alla egenskaper för entiteten i ett hörn. Den här metoden ger minskad modell komplexitet, vilket leder till enklare frågor och kostnads effektiva bläddringskontroll.
 
-![Enhets modell med hörn för egenskaper.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
 
 > [!NOTE]
 > I exemplen ovan visas en förenklad diagram modell som bara visar jämförelsen mellan de två sätten att dela egenskaper för entiteten.
@@ -90,11 +90,11 @@ Det finns dock scenarier där referenser till en egenskap kan ge fördelar. Exem
 
 När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen**. 
 
-Kant objekt har en standard riktning som följs av en genom gång när funktionen `out()` eller `outE()` används. Att använda den här naturliga riktningen resulterar i en effektiv åtgärd, eftersom alla formhörn lagras med sina utgående kanter. 
+Kant objekt har en standard riktning som följs av en genom gång när `out()` funktionen eller används `outE()` . Att använda den här naturliga riktningen resulterar i en effektiv åtgärd, eftersom alla formhörn lagras med sina utgående kanter. 
 
-Att gå i motsatt riktning i en kant, med hjälp av `in()` funktionen, kommer dock alltid att resultera i en fråga över partitioner. Lär dig mer om [diagram partitionering](graph-partitioning.md). Om det finns ett behov av att kontinuerligt förflytta dig med `in()` hjälp av funktionen rekommenderar vi att du lägger till kanter i båda riktningarna.
+Att gå i motsatt riktning i en kant, med hjälp av `in()` funktionen, kommer dock alltid att resultera i en fråga över partitioner. Lär dig mer om [diagram partitionering](graph-partitioning.md). Om det finns ett behov av att kontinuerligt förflytta dig med hjälp av `in()` funktionen rekommenderar vi att du lägger till kanter i båda riktningarna.
 
-Du kan bestämma kant riktningen genom att använda- `.to()` eller `.from()` -predikat i `.addE()` Gremlin-steget. Eller med hjälp av [bulk utförar-biblioteket för Gremlin-API](bulk-executor-graph-dotnet.md).
+Du kan bestämma kant riktningen genom att använda- `.to()` eller- `.from()` predikat i `.addE()` Gremlin-steget. Eller med hjälp av [bulk utförar-biblioteket för Gremlin-API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Kant objekt har en riktning som standard.
@@ -105,7 +105,7 @@ Om du använder beskrivande Relations etiketter kan du förbättra effektivitete
 * Använd icke-generiska villkor för att namnge en relation.
 * Koppla etiketten till käll Bryt punkten till etiketten för mål Bryt punkten med relations namnet.
 
-![Exempel på Relations etiketter.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exempel på Relations etiketter." border="false":::
 
 Den mer detaljerade etiketten som används för att filtrera kanterna, desto bättre. Det här beslutet kan också ha en betydande inverkan på frågans kostnad. Du kan när som helst utvärdera kostnad för frågan [med hjälp av executionProfile-steget](graph-execution-profile.md).
 

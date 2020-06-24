@@ -4,12 +4,12 @@ description: Lär dig hur du definierar en anpassad utgående väg i Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 10555b9c6e9d1d9670ae3bee488a60d782d267bf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416791"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205823"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -103,7 +103,7 @@ DEVSUBNET_NAME="${PREFIX}dev"
 
 Ange sedan prenumerations-ID: n.
 
-```azure-cli
+```azurecli
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -123,7 +123,7 @@ Etablera ett virtuellt nätverk med tre separata undernät, ett för klustret, e
 
 Skapa en resurs grupp för att lagra alla resurser.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -166,12 +166,12 @@ Regler för inkommande och utgående Azure-brandvägg måste konfigureras. Huvud
 
 Skapa en offentlig IP-resurs (standard-SKU) som ska användas som Azure Firewall-frontend-adress.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Registrera Preview CLI-tillägget för att skapa en Azure-brandvägg.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -187,7 +187,7 @@ Den IP-adress som skapades tidigare kan nu tilldelas brand Väggs klient delen.
 > 
 > Om fel tas emot flera gånger i kommandot nedan tar du bort den befintliga brand väggen och den offentliga IP-adressen och etablerar den offentliga IP-adressen och Azure-brandväggen via portalen på samma gång.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -214,7 +214,7 @@ Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk oc
 
 Skapa en tom routningstabell som ska associeras med ett angivet undernät. Routningstabellen definierar nästa hopp som den Azure-brandvägg som skapats ovan. Varje undernät kan ha noll eller en associerad routningstabell.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
 az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
@@ -267,7 +267,7 @@ Mer information om Azure Firewall-tjänsten finns i [dokumentationen för Azure-
 
 För att associera klustret med brand väggen måste det dedikerade under nätet för klustrets undernät referera till routningstabellen som skapats ovan. Kopplingen kan göras genom att ett kommando utfärdas till det virtuella nätverket som innehåller både klustret och brand väggen för att uppdatera routningstabellen för klustrets undernät.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -283,7 +283,7 @@ Nu kan ett AKS-kluster distribueras till det befintliga virtuella nätverket. F�
 
 Ett huvud namn för tjänsten används av AKS för att skapa kluster resurser. Tjänstens huvud namn som skickades vid skapande tillfället används för att skapa underliggande AKS-resurser, till exempel virtuella datorer, lagrings enheter och belastningsutjämnare som används av AKS. Om det har beviljats för få behörigheter, kan det inte etablera ett AKS-kluster.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -291,7 +291,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 Ersätt nu `APPID` och `PASSWORD` nedan med tjänstens huvud namn och lösen ord för tjänstens huvud namn som genererats av föregående kommandoutdata. Vi kommer att referera till resurs-ID: t för VNET för att bevilja behörighet till tjänstens huvud namn så att AKS kan distribuera resurser till den.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -319,7 +319,7 @@ AKS-funktionen för [tillåtna IP-intervall för API-servrar](api-server-authori
 > [!TIP]
 > Ytterligare funktioner kan läggas till i kluster distributionen, t. ex. (privat kluster) []. När du använder auktoriserade IP-intervall krävs en hoppning i kluster nätverket för att få åtkomst till API-servern.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
   --node-count 3 \
   --network-plugin azure --generate-ssh-keys \
@@ -351,7 +351,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
  Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` för att ansluta till det nyligen skapade Kubernetes-klustret. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
@@ -504,7 +504,7 @@ azure-vote-front   LoadBalancer   192.168.19.183   100.64.2.5    80:32106/TCP   
 kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        4d3h
 ```
 
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
@@ -515,7 +515,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Ta bort resurs gruppen AKS om du vill rensa Azure-resurser.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456689"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753255"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Lagra och hantera värden med hjälp av variabler i Azure Logic Apps
 
@@ -22,7 +22,7 @@ Du kan skapa variabler för data typer som till exempel Integer, Float, Boolean,
 * Hämta eller referera till variabelns värde.
 * Öka eller minska variabeln med ett konstant värde, även kallat *öka* och *minska*.
 * Tilldela variabeln ett annat värde.
-* Infoga eller *Lägg till* variabelns värde som sista gången i en sträng eller matris.
+* Infoga eller *Lägg till* variabelns värde som det sista objektet i en sträng eller matris.
 
 Variabler finns och är globala endast i den Logic App-instans som skapar dem. De bevaras även i alla upprepningar i en Logic App-instans. När du refererar till en variabel använder du variabelns namn som token, inte åtgärdens namn, vilket är det vanligaste sättet att referera till en åtgärds utdata.
 
@@ -57,7 +57,7 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
      ![Lägg till åtgärd](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus**+** tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `variables` som ditt filter. I listan åtgärder väljer du **initiera variabel**.
 
@@ -67,9 +67,9 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
    | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
-   | **Typ** | Ja | <*variabel typ*> | Data typen för variabeln |
-   | **Värde** | Inga | <*Start värde*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
+   | **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ökas |
+   | **Typ** | Yes | <*variabel typ*> | Data typen för variabeln |
+   | **Värde** | No | <*Start värde*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
    |||||
 
    Ett exempel:
@@ -179,7 +179,7 @@ Här följer några exempel på några andra variabel typer:
 
 Om du vill hämta eller referera till en variabels innehåll kan du också använda [funktionen variabler ()](../logic-apps/workflow-definition-language-functions-reference.md#variables) i Logic App Designer och kodvyn. När du refererar till en variabel använder du variabelns namn som token, inte åtgärdens namn, vilket är det vanligaste sättet att referera till en åtgärds utdata.
 
-Till exempel hämtar det här uttrycket de objekt från array-variabeln som [skapades tidigare i den här artikeln](#append-value) med hjälp av `variables()` funktionen. `string()` Funktionen returnerar variabelns innehåll i sträng format:`"1, 2, 3, red"`
+Till exempel hämtar det här uttrycket de objekt från array-variabeln som [skapades tidigare i den här artikeln](#append-value) med hjälp av `variables()` funktionen. `string()`Funktionen returnerar variabelns innehåll i sträng format:`"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -207,8 +207,8 @@ Om du vill öka eller *öka* en variabel med ett konstant värde lägger du till
 
    | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
-   | **Värde** | Inga | <*öka värde*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
+   | **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ökas |
+   | **Värde** | No | <*öka värde*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
    ||||
 
    Ett exempel:
@@ -247,7 +247,7 @@ Variabler används ofta för att räkna antalet gånger som en slinga körs. Det
 
    ![Sök efter och inkludera bifogade filer](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Lägg till [åtgärden **initiera variabel** ](#create-variable). Skapa en heltals variabel `Count` med namnet som har ett start värde som är noll.
+1. Lägg till [åtgärden **initiera variabel** ](#create-variable). Skapa en heltals variabel med namnet `Count` som har ett start värde som är noll.
 
    ![Lägg till åtgärd för "initiera variabel"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -328,8 +328,8 @@ Här följer egenskaperna för åtgärden **minska variabeln** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska minskas | 
-| **Värde** | Inga | <*öka värde*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska minskas | 
+| **Värde** | No | <*öka värde*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
 ||||| 
 
 Om du växlar från designern till kodvyn visas här hur åtgärden **minska variabeln** visas i din Logic app-definition, som är i JSON-format.
@@ -361,8 +361,8 @@ Här följer egenskaperna för åtgärden **ange variabel** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*nytt – värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ändras |
+| **Värde** | Yes | <*nytt – värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
 ||||| 
 
 > [!NOTE]
@@ -419,8 +419,8 @@ Här följer egenskaperna för åtgärderna **APPEND to...** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*tilläggs värde*> | Värdet som du vill lägga till, vilket kan ha vilken typ som helst |
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ändras |
+| **Värde** | Yes | <*tilläggs värde*> | Värdet som du vill lägga till, vilket kan ha vilken typ som helst |
 |||||
 
 Om du växlar från designern till kodvyn visas här hur åtgärden **Lägg till mat ris variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet skapar en mat ris variabel och lägger till ett annat värde som det sista objektet i matrisen. Resultatet är en uppdaterad variabel som innehåller den här matrisen:`[1,2,3,"red"]`

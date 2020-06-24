@@ -5,31 +5,55 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/18/2020
 ms.author: dsindona
-ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 70515ca04e870fa435f8e9f46122a8e0dcb9b588
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858088"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691364"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API: er för SaaS-uppfyllelse i Microsofts kommersiella marknads platser
 
-API: erna för SaaS-utförande gör det möjligt för oberoende program varu leverantörer (ISV) att integrera sina SaaS-program i Microsoft AppSource och Azure Marketplace. Dessa API: er gör det möjligt för ISV-program att delta i alla Commerce-aktiverade kanaler: direkt, partner lampa (åter försäljare) och fält indikator. De krävs för att visa en lista över transactable SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.
+API: erna för SaaS-utförande möjliggör utgivare, som även kallas oberoende program varu leverantörer (ISV) för att publicera och sälja sina SaaS-program i Microsoft AppSource, Azure Marketplace och Azure Portal. Dessa API: er gör det möjligt för ISV-program att delta i alla Commerce-aktiverade kanaler: direkt, partner lampa (åter försäljare) och fält indikator.  Att integrera med dessa API: er är ett krav för att skapa och publicera ett SaaS erbjudande i Partner Center.
 
-> [!WARNING]
-> Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden.  Version 1 av API: et är inaktuell och underhålls för att stödja befintliga erbjudanden.
+ISV: er måste implementera följande API-flöden genom att lägga till i sin SaaS-tjänst kod för att bibehålla samma prenumerations status för både ISV: er och Microsoft:
 
-## <a name="business-model-support"></a>Stöd för affärs modell
+* Landnings sid flöde: Microsoft meddelar utgivaren att utgivarens SaaS-erbjudande har köpts av en kund på Marketplace.
+* Aktiverings flöde: Publisher meddelar Microsoft att ett nyligen köpt SaaS-konto har kon figurer ATS på utgivarens sida.
+* Uppdaterings flöde: ändring av inköps plan och/eller antal köpta platser.
+* Pausa och återställa flöde: om du avbryter det köpta SaaS-erbjudandet om kundens betalnings metod inte längre är giltig. Det inaktiverade erbjudandet kan återställas när problemet med betalnings metoden är löst.
+* Webhook-flöden: Microsoft meddelar utgivare om SaaS prenumerations ändringar och uppsägning som utlösts av kunden från Microsoft.
 
-Detta API stöder följande funktioner för affärs modell. Du kan:
+För annullering av den köpta SaaS-prenumerationen är integreringen valfritt, eftersom den kan utföras av kunden från Microsoft.
 
-* Ange flera planer för ett erbjudande. Dessa planer har olika funktioner och kan prisas annorlunda.
-* Tillhandahålla ett erbjudande på en per plats eller per användares fakturerings modell.
-* Ange fakturerings alternativ per månad och år (betald uppstart).
-* Tillhandahålla privat prissättning till en kund baserat på ett förhandlat affärs avtal.
+Korrekt integrering med SaaS-API: er är avgörande för att säkerställa att
 
+* de slutanvändare som köpte utgivarens SaaS-erbjudande debiteras korrekt av Microsoft.
+* slutanvändarna får rätt att köpa, konfigurera, använda och hantera SaaS-prenumerationer som köpts i Marketplace.
+
+Dessa API: er gör att utgivarens erbjudanden kan delta i alla Commerce-aktiverade kanaler:
+
+* direct
+* partner lampa (åter försäljare, CSP)
+* indikator för fält
+
+I scenariot för åter försäljare (CSP) köper en KRYPTOGRAFIPROVIDER SaaS-erbjudandet för slut kunden. En kund förväntas använda SaaS-erbjudandet, men CSP: n är den entitet som gör följande:
+
+* fakturera kunden
+* ändra prenumerations planer/belopp för köpta platser
+* prenumerationen avbryts
+
+Utgivaren behöver inte implementera något av API-anropen på ett annat sätt för det här scenariot.
+
+För ytterligare information om CSP, se https://partner.microsoft.com/en-us/licensing .
+
+>[!Warning]
+>Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden. Version 1 av API: et är inaktuell och underhålls för att stödja befintliga erbjudanden.
+
+>[!Note]
+>API: erna för SaaS-utförande är endast avsedda att anropas från en backend-tjänst för utgivaren. Integrering med API: er direkt från utgivarens webb sida stöds inte. Endast tjänst-till-tjänst-autentiseringsschema ska användas.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,21 +6,21 @@ author: luisbosquez
 manager: kfile
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faacaf6700b14ba068d5cf0a48ea851f562e2302
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441855"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261808"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Använda stegen i körningsprofilen för att utvärdera Gremlin-frågor
 
 Den här artikeln innehåller en översikt över hur du använder steget körningsprofil för Azure Cosmos DB Gremlin-API-grafdatabaser. Det här steget ger relevant information för felsökning och frågekörning, och den är kompatibel med alla Gremlin-frågor som kan utföras mot ett Cosmos DB Gremlin API-konto.
 
-Om du vill använda det här steget lägger `executionProfile()` du bara till funktions anropet i slutet av din Gremlin-fråga. **Din Gremlin-fråga körs** och resultatet av åtgärden returnerar ett JSON-svars objekt med frågans körnings profil.
+Om du vill använda det här steget lägger du bara till `executionProfile()` funktions anropet i slutet av din Gremlin-fråga. **Din Gremlin-fråga körs** och resultatet av åtgärden returnerar ett JSON-svars objekt med frågans körnings profil.
 
 Ett exempel:
 
@@ -32,7 +32,7 @@ Ett exempel:
     g.V('mary').out().executionProfile()
 ```
 
-När du har `executionProfile()` anropat steget blir svaret ett JSON-objekt som innehåller det utförda Gremlin-steget, den totala tiden det tog och en matris av de Cosmos DB runtime-operatörer som instruktionen resulterade i.
+När du har anropat `executionProfile()` steget blir svaret ett JSON-objekt som innehåller det utförda Gremlin-steget, den totala tiden det tog och en matris av de Cosmos DB runtime-operatörer som instruktionen resulterade i.
 
 > [!NOTE]
 > Den här implementeringen av körnings profilen har inte definierats i Apache Tinkerpop-specifikationen. Den är unik för implementering av Azure Cosmos DB Gremlin-API.
@@ -134,7 +134,7 @@ Följande är ett kommenterat exempel på utdata som kommer att returneras:
 ```
 
 > [!NOTE]
-> ExecutionProfile-steget kommer att köra frågan Gremlin. Detta omfattar `addV` eller `addE`-stegen, vilket leder till att de skapas och kommer att verkställa de ändringar som anges i frågan. Därför kommer de enheter för programbegäran som genereras av Gremlin-frågan också att debiteras.
+> ExecutionProfile-steget kommer att köra frågan Gremlin. Detta omfattar `addV` eller `addE` -stegen, vilket leder till att de skapas och kommer att verkställa de ändringar som anges i frågan. Därför kommer de enheter för programbegäran som genereras av Gremlin-frågan också att debiteras.
 
 ## <a name="execution-profile-response-objects"></a>Svars objekt för körnings profil
 
@@ -219,11 +219,11 @@ Antag följande körnings profil svar från en **partitionerad graf**:
 ```
 
 Följande slut satser kan göras från den:
-- Frågan är en enskild ID-sökning, eftersom Gremlin-instruktionen följer mönstret `g.V('id')`.
+- Frågan är en enskild ID-sökning, eftersom Gremlin-instruktionen följer mönstret `g.V('id')` .
 - Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Om `storeOps` vi tittar på objektet kan vi se att `fanoutFactor` är `5`, vilket innebär att [5 partitioner](https://docs.microsoft.com/azure/cosmos-db/partition-data) har öppnats av den här åtgärden.
+- Om vi tittar på `storeOps` objektet kan vi se att `fanoutFactor` är `5` , vilket innebär att [5 partitioner](https://docs.microsoft.com/azure/cosmos-db/partition-data) har öppnats av den här åtgärden.
 
-I slutet av den här analysen kan vi fastställa att den första frågan har åtkomst till fler partitioner än vad som behövs. Detta kan åtgärdas genom att ange partitionerings nyckeln i frågan som ett predikat. Detta leder till mindre latens och mindre kostnad per fråga. Lär dig mer om [diagram partitionering](graph-partitioning.md). En mer optimal fråga är `g.V('tt0093640').has('partitionKey', 't1001')`.
+I slutet av den här analysen kan vi fastställa att den första frågan har åtkomst till fler partitioner än vad som behövs. Detta kan åtgärdas genom att ange partitionerings nyckeln i frågan som ett predikat. Detta leder till mindre latens och mindre kostnad per fråga. Lär dig mer om [diagram partitionering](graph-partitioning.md). En mer optimal fråga är `g.V('tt0093640').has('partitionKey', 't1001')` .
 
 ### <a name="unfiltered-query-patterns"></a>Ofiltrerad fråga mönster
 
@@ -306,7 +306,7 @@ Den här första frågan hämtar alla formhörn med etiketten `tweet` och hämta
 ]
 ```
 
-Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter `has('lang', 'en')`, innan du utforskar de intilliggande hörnen:
+Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter, `has('lang', 'en')` innan du utforskar de intilliggande hörnen:
 
 ```json
 [
@@ -384,8 +384,8 @@ Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter 
 ```
 
 De här två frågorna har uppnått samma resultat, men den första måste dock kräva fler enheter för programbegäran eftersom den behövde upprepa en större inledande data uppsättning innan den frågar efter intilliggande objekt. Vi kan se indikatorer för det här beteendet när du jämför följande parametrar från båda svaren:
-- `metrics[0].time` Värdet är högre i det första svaret, vilket indikerar att det här enskilda steget tog längre tid att lösa.
-- `metrics[0].counts.resultsCount` Värdet är högre och det första svaret, som anger att den första arbets data uppsättningen var större.
+- `metrics[0].time`Värdet är högre i det första svaret, vilket indikerar att det här enskilda steget tog längre tid att lösa.
+- `metrics[0].counts.resultsCount`Värdet är högre och det första svaret, som anger att den första arbets data uppsättningen var större.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om de [Gremlin-funktioner som stöds](gremlin-support.md) i Azure Cosmos dB. 

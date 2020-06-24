@@ -8,25 +8,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c5a483ff7a5a93a6908538fd237cb4cf2dacec6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582670"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727338"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
 
 Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure Portal](https://portal.azure.com), och för närvarande är PowerShell-och Microsoft Graph-supporten begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdletarna](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
 
 > [!NOTE]
-> Innan du börjar köra cmdlets måste du först ansluta till din organisation genom att köra `Connect-MsolService`  cmdleten.
+> Innan du börjar köra cmdlets måste du först ansluta till din organisation genom att köra `Connect-MsolService`   cmdleten.
 
 > [!WARNING]
 > Den här koden anges som ett exempel i demonstrations syfte. Om du tänker använda den i din miljö kan du testa den först på en liten skala eller i en separat test organisation. Du kan behöva justera koden för att uppfylla de speciella behoven i din miljö.
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Uppdatera värdena för variablerna `$skuId` och `$groupId`  som är avsedda för borttagning av direkta licenser enligt test miljön innan du kör skriptet ovan. 
+> Uppdatera värdena för variablerna `$skuId` och `$groupId`   som är avsedda för borttagning av direkta licenser enligt test miljön innan du kör skriptet ovan. 
 
 ## <a name="next-steps"></a>Nästa steg
 

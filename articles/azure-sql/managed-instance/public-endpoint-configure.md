@@ -2,7 +2,7 @@
 title: Konfigurera offentlig slut punkt – Azure SQL-hanterad instans
 description: Lär dig hur du konfigurerar en offentlig slut punkt för Azure SQL-hanterad instans
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: a6d4ea22d3b05b14ce0d3e63912ea8bb7a432e57
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310163"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708672"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurera offentlig slut punkt i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ På grund av känsligheten hos data som finns i en hanterad instans kräver konf
 1. Välj fliken **virtuellt nätverk** på **säkerhets** inställningarna.
 1. På sidan konfiguration av virtuellt nätverk väljer du **Aktivera** och sedan **Spara** -ikonen för att uppdatera konfigurationen.
 
-![mi-VNet-config. png](./media/public-endpoint-configure/mi-vnet-config.png)
+![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Aktivera offentlig slut punkt för en hanterad instans med hjälp av PowerShell
 
@@ -84,17 +84,17 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Om sidan konfiguration av den hanterade instansen fortfarande är öppen går du till fliken **Översikt** . gå tillbaka till din SQL- **hanterade instans** resurs. Välj länken **virtuellt nätverk/undernät** , som kommer att gå till sidan konfiguration av virtuellt nätverk.
 
-    ![mi-overview. png](./media/public-endpoint-configure/mi-overview.png)
+    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
 1. Välj fliken **undernät** i det vänstra konfigurations fönstret i det virtuella nätverket och anteckna **säkerhets gruppen** för din hanterade instans.
 
-    ![mi-VNet-Subnet. png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Gå tillbaka till din resurs grupp som innehåller din hanterade instans. Du bör se namnet på den **nätverks säkerhets grupp** som anges ovan. Välj namnet för att gå till konfigurations sidan för nätverks säkerhets gruppen.
 
 1. Välj fliken **inkommande säkerhets regler** och **Lägg till** en regel som har högre prioritet än **deny_all_inbound** regeln med följande inställningar: </br> </br>
 
-    |Inställning  |Föreslaget värde  |Description  |
+    |Inställningen  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
     |**Källa**     |Valfri IP-adress eller service tag         |<ul><li>För Azure-tjänster som Power BI väljer du Azure Cloud Service-taggen</li> <li>Använd NAT IP-adress för din dator eller virtuella Azure-dator</li></ul> |
     |**Källportintervall**     |* |Lämna det till * (valfritt) eftersom käll portarna vanligt vis är dynamiskt allokerade och som sådana, oförutsägbara |
@@ -102,9 +102,9 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Målportintervall**     |3342         |Scope-målport till 3342, som är den offentliga TDS-slutpunkten för hanterad instans |
     |**Protokoll**     |TCP         |SQL-hanterad instans använder TCP-protokollet för TDS |
     |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
-    |**Förtur**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
+    |**Priority**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
 
-    ![mi-NSG-rules. png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > Port 3342 används för offentliga slut punkts anslutningar till hanterade instanser och kan inte ändras i det här läget.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Gå till konfigurations sidan för hanterade instanser som har Aktiver ATS för den offentliga slut punkten. Välj fliken **anslutnings strängar** under **inställnings** konfigurationen.
 1. Observera att värd namnet för den offentliga slut punkten anges i formatet <mi_name>. **Public**. <dns_zone>. Database.Windows.net och att porten som används för anslutningen är 3342.
 
-    ![mi-Public-Endpoint-Conn-String. png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

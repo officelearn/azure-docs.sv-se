@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 08645fa08bdb19d9a5f29daec4035da0b21a356b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344500"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887437"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-tillgångar med token-autentisering
 
@@ -29,7 +29,7 @@ ms.locfileid: "84344500"
 
 Token-autentisering är en mekanism som gör att du kan förhindra att Azure-Content Delivery Network (CDN) kan betjäna till gångar till obehöriga klienter. Token-autentisering görs vanligt vis för att förhindra *hotlinking* av innehåll, där en annan webbplats, till exempel ett meddelande kort, använder dina till gångar utan behörighet. Hotlinking kan påverka dina kostnader för innehålls leverans. Genom att aktivera token-autentisering i CDN autentiseras begär anden av CDN Edge-servern innan CDN levererar innehållet. 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Token-autentiseringen verifierar att begär Anden genereras av en betrodd plats genom att kräva att begär Anden innehåller ett token-värde som innehåller kodad information om beställaren. Innehållet hanteras endast till en beställare om den kodade informationen uppfyller kraven. annars nekas förfrågningar. Du kan ställa in kraven genom att använda en eller flera av följande parametrar:
 
@@ -96,7 +96,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       > <table>
       > <tr>
       >   <th>Parameternamn</th> 
-      >   <th>Description</th>
+      >   <th>Beskrivning</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -114,7 +114,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Indatavärde `/pictures/` : endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Indatavärde `/pictures/` : endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Exempelvis `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
       >       <li>Indatavärde `/pictures/city/strasbourg.png` : endast begär Anden för denna angivna sökväg och till gång är tillåtna.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran n�
 
    7. Välj **kryptera** för att generera token.
 
-      När token har skapats visas den i rutan **genererad token** . Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      När token har skapats visas den i rutan **genererad token** . Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Exempelvis `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
    8. Du kan också testa din token med dekrypterings verktyget så att du kan visa din tokens parametrar. Klistra in token-värdet i rutan **token för att dekryptera** . Välj den krypterings nyckel som du vill använda från **nyckeln för att dekryptera** listan och välj sedan **dekryptera**.
 

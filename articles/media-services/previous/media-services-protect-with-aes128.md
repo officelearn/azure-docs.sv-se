@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269736"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708340"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Klienten måste extrahera URL: en (som också innehåller värde för innehålls
 
 Vid HLS är rot manifestet indelat i segmentera filer. 
 
-Rot manifestet är till exempel: http:\//test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/manifest (format = M3U8-AAPL). Den innehåller en lista över segment fil namn.
+Rot manifestet är till exempel: http: \/ /test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/manifest (format = M3U8-AAPL). Den innehåller en lista över segment fil namn.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Rot manifestet är till exempel: http:\//test001.ORIGIN.MediaServices.Windows.ne
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Om du öppnar en av segment filerna i en text redigerare (till exempel http:\//test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = M3U8-AAPL), innehåller den #EXT-X-Key, som anger att filen är krypterad.
+Om du öppnar en av segment filerna i en text redigerare (till exempel http: \/ /test001.ORIGIN.MediaServices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = M3U8-AAPL), innehåller den #EXT-X-Key, som anger att filen är krypterad.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -239,7 +239,7 @@ Följande kod visar hur du skickar en begäran till tjänsten Media Services Key
 
 1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md).
 
-2. Lägg till följande element i appSettings, enligt definitionen i filen app. config:
+2. Lägg till följande element i appSettings, som definieras i app.config-filen:
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124539"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262624"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Mass inläsning med Synapse SQL
 
@@ -28,7 +28,7 @@ Du kan nu enkelt Mass inläsning av data med hjälp av SQL-pooler med enkel hög
 
 ## <a name="prerequisites"></a>Krav
 
-- Du måste ha åtkomst till arbets ytan med minst rollen Storage BLOB data Contributor RBAC till ADLS Gen2 kontot.
+- Den här guiden genererar en COPY-instruktion som använder AAD-vidarekoppling för authentcation. Din [AAD-användare måste ha åtkomst](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) till arbets ytan med en RBAC-roll för Storage BLOB data Contributor till ADLS Gen2 kontot.
 
 - Du måste ha de [behörigheter som krävs för att använda kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) och skapa tabell behörigheter om du skapar en ny tabell som ska läsas in på.
 

@@ -8,34 +8,34 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b676c2647fbf7c93d271e1d7f68653452125e39b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da5eafbdffccc8175b5248ce7b9456d26adf97a2
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137203"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817561"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
 AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln innehåller exempel kommandon som fungerar med Blob Storage.
 
 > [!TIP]
-> I exemplen i den här artikeln omger du Sök vägs argumenten med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+> I exemplen i den här artikeln omger du Sök vägs argumenten med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ## <a name="get-started"></a>Kom igång
 
 Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ned AzCopy och Läs om hur du kan ange autentiseringsuppgifter för lagrings tjänsten.
 
 > [!NOTE]
-> I exemplen i den här artikeln förutsätter vi att du har autentiserat din `AzCopy login` identitet med hjälp av kommandot. AzCopy använder sedan ditt Azure AD-konto för att ge åtkomst till data i Blob Storage.
+> I exemplen i den här artikeln förutsätter vi att du har autentiserat din identitet med hjälp av `AzCopy login` kommandot. AzCopy använder sedan ditt Azure AD-konto för att ge åtkomst till data i Blob Storage.
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Till exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att skapa en behållare. I exemplen i det här avsnittet skapas en `mycontainer`behållare med namnet.
+Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att skapa en behållare. I exemplen i det här avsnittet skapas en behållare med namnet `mycontainer` .
 
 |    |     |
 |--------|-----------|
@@ -62,8 +62,8 @@ Det här avsnittet innehåller följande exempel:
 >
 > |Scenario|Flagga|
 > |---|---|
-> |Ladda upp filer som bifogade blobbar eller Page blobbar.|**--Blob-typ**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Överför till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier**=\[inget\|varmt\|coolt\|Arkiv\]|
+> |Ladda upp filer som bifogade blobbar eller Page blobbar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
+> |Överför till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
@@ -75,7 +75,7 @@ Det här avsnittet innehåller följande exempel:
 | **Exempel** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
-Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Till exempel: `'C:\myDirectory\*.txt'`, eller `C:\my*\*.txt`.
+Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Till exempel: `'C:\myDirectory\*.txt'` , eller `C:\my*\*.txt` .
 
 ### <a name="upload-a-directory"></a>Ladda upp en katalog
 
@@ -115,7 +115,7 @@ Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn genom att använda semikolon (`;`).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn genom att använda semikolon ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -129,7 +129,7 @@ Du kan också utesluta filer med hjälp av `--exclude-path` alternativet. Mer in
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin`;`(). 
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin ( `;` ). 
 
 |    |     |
 |--------|-----------|
@@ -139,7 +139,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-patt
 
 Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
-Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
+`--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
 ## <a name="download-files"></a>Hämta filer
 
@@ -159,13 +159,13 @@ Det här avsnittet innehåller följande exempel:
 > |Scenario|Flagga|
 > |---|---|
 > |Expandera filer automatiskt.|**--Decompress**|
-> |Ange hur detaljerad du vill att dina kopie-relaterade logg poster ska vara.|**--**=\[varnings\|\|information\|om inloggnings nivå ingen\]|
-> |Ange om och hur de konfliktskapande filerna och Blobbarna ska skrivas över vid målet.|**--Skriv över**=\[sant\|falskt\|ifSourceNewer\|-prompt\]|
+> |Ange hur detaljerad du vill att dina kopie-relaterade logg poster ska vara.|**--inloggnings nivå** = \[ VARNINGs \| fel \| information \| ingen\]|
+> |Ange om och hur de konfliktskapande filerna och Blobbarna ska skrivas över vid målet.|**--Skriv över** = \[ Sant \| falskt \| ifSourceNewer- \| prompt\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> Om `Content-md5` egenskap svärdet för en BLOB innehåller en hash beräknar AZCOPY en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i blobens `Content-md5` egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här `--check-md5=NoCheck` beteendet genom att lägga till eller `--check-md5=LogOnly` till kommandot Kopiera.
+> Om `Content-md5` egenskap svärdet för en BLOB innehåller en hash beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i blobens `Content-md5` egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Kopiera.
 
 ### <a name="download-a-file"></a>Hämta en fil
 
@@ -183,7 +183,7 @@ Det här avsnittet innehåller följande exempel:
 | **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
-Det här exemplet resulterar i en katalog `C:\myDirectory\myBlobDirectory` med namnet som innehåller alla hämtade filer.
+Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myBlobDirectory` som innehåller alla hämtade filer.
 
 ### <a name="download-the-contents-of-a-directory"></a>Hämta innehållet i en katalog
 
@@ -206,7 +206,7 @@ Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn med hjälp av en semicolin`;`().
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn med hjälp av en semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -220,7 +220,7 @@ Du kan också utesluta filer med hjälp av `--exclude-path` alternativet. Mer in
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin`;`().
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -230,7 +230,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-patt
 
 Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
-Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
+`--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Kopiera blobar mellan lagringskonton
 
@@ -241,8 +241,8 @@ AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/stora
 > [!NOTE]
 > Det här scenariot har följande begränsningar i den aktuella versionen.
 >
-> - Du måste lägga till en SAS-token till varje käll-URL. Om du anger autentiseringsuppgifter för auktorisering genom att använda Azure Active Directory (AD) kan du utelämna SAS-token från mål-URL: en.
->-  Premium Block-Blob Storage-konton stöder inte åtkomst nivåer. Utelämna åtkomst nivån för en BLOB från kopierings åtgärden genom `s2s-preserve-access-tier` att ange till `false` (till exempel: `--s2s-preserve-access-tier=false`).
+> - Du måste lägga till en SAS-token till varje käll-URL. Om du anger autentiseringsuppgifter för auktorisering genom att använda Azure Active Directory (AD) kan du utelämna SAS-token från mål-URL: en. Kontrol lera att du har konfigurerat rätt roller i ditt mål konto. Se [alternativ 1: använd Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
+>-  Premium Block-Blob Storage-konton stöder inte åtkomst nivåer. Utelämna åtkomst nivån för en BLOB från kopierings åtgärden genom `s2s-preserve-access-tier` att ange till `false` (till exempel: `--s2s-preserve-access-tier=false` ).
 
 Det här avsnittet innehåller följande exempel:
 
@@ -252,22 +252,22 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en behållare till ett annat lagrings konto
 > * Kopiera alla behållare, kataloger och filer till ett annat lagrings konto
 
-De här exemplen fungerar också med konton som har ett hierarkiskt namn område. [Med åtkomst till flera protokoll på data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) kan du använda samma URL-syntax (`blob.core.windows.net`) för dessa konton.
+De här exemplen fungerar också med konton som har ett hierarkiskt namn område. [Med åtkomst till flera protokoll på data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) kan du använda samma URL-syntax ( `blob.core.windows.net` ) för dessa konton.
 
 > [!TIP]
 > Du kan ändra kopierings åtgärden genom att använda valfria flaggor. Här är några exempel.
 >
 > |Scenario|Flagga|
 > |---|---|
-> |Kopiera filer som bifogade blobbar eller Page blobbar.|**--Blob-typ**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Kopiera till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier**=\[inget\|varmt\|coolt\|Arkiv\]|
-> |Expandera filer automatiskt.|**--dekomprimera**=\[gzip\|deflaterat\]|
+> |Kopiera filer som bifogade blobbar eller Page blobbar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
+> |Kopiera till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
+> |Expandera filer automatiskt.|**--Decompress** = \[ gzip- \| smal\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Kopiera en blob till ett annat lagrings konto
 
-Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hierarkiskt namn område.
+Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
 
 |    |     |
 |--------|-----------|
@@ -277,7 +277,7 @@ Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hiera
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Kopiera en katalog till ett annat lagrings konto
 
-Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hierarkiskt namn område.
+Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
 
 |    |     |
 |--------|-----------|
@@ -287,7 +287,7 @@ Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hiera
 
 ### <a name="copy-a-container-to-another-storage-account"></a>Kopiera en behållare till ett annat lagrings konto
 
-Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hierarkiskt namn område.
+Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
 
 |    |     |
 |--------|-----------|
@@ -297,7 +297,7 @@ Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hiera
 
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Kopiera alla behållare, kataloger och blobbar till ett annat lagrings konto
 
-Använd samma URL-syntax (`blob.core.windows.net`) för konton som har ett hierarkiskt namn område.
+Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hierarkiskt namn område.
 
 |    |     |
 |--------|-----------|
@@ -312,9 +312,9 @@ Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. 
 > [!NOTE]
 > Den aktuella versionen av AzCopy synkroniseras inte mellan andra källor och destinationer (till exempel: File Storage eller Amazon Web Services (AWS) S3-buckets).
 
-Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange värdet `--delete-destination` för `true` valfri flagga eller `prompt` ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
+Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange `--delete-destination` värdet för valfri flagga `true` eller `prompt` ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
 
-Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil, `--delete-destination` ställer du `prompt`in flaggan på.
+Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil, ställer du in `--delete-destination` flaggan på `prompt` .
 
 > [!NOTE]
 > För att förhindra oavsiktliga borttagningar, se till att aktivera funktionen för [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) innan du använder `--delete-destination=prompt|true` flaggan.
@@ -324,9 +324,9 @@ Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort file
 >
 > |Scenario|Flagga|
 > |---|---|
-> |Ange hur strikta MD5-hashar ska verifieras vid hämtning.|**--kontrol lera-MD5**=\[nocheck\|\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Ange hur strikta MD5-hashar ska verifieras vid hämtning.|**--kontrol lera-MD5** = \[ Nocheck \| \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 > |Undanta filer baserat på ett mönster.|**--Exkludera-sökväg**|
-> |Ange hur detaljerad du vill att dina Sync-relaterade logg poster ska vara.|**--**=\[varnings\|\|information\|om inloggnings nivå ingen\]|
+> |Ange hur detaljerad du vill att dina Sync-relaterade logg poster ska vara.|**--inloggnings nivå** = \[ VARNINGs \| fel \| information \| ingen\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-sync.md#options).
 

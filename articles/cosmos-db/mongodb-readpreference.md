@@ -6,21 +6,21 @@ ms.author: sivethe
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
-ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afdbd1c44170344be6edee8b8b2ee38c9853f81c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410007"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263083"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB
 
 Den här artikeln visar hur du distribuerar Läs åtgärder globalt med [MongoDB](https://docs.mongodb.com/manual/core/read-preference/) med hjälp av Azure Cosmos DB s API för MongoDB.
 
 ## <a name="prerequisites"></a>Krav 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 I den här [snabb starts](tutorial-global-distribution-mongodb.md) artikeln hittar du instruktioner om hur du använder Azure Portal för att skapa ett Cosmos-konto med global distribution och sedan ansluta till det.
@@ -42,7 +42,7 @@ Kör följande kommandon för att klona exempellagringsplatsen. Använd någon a
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Beroende på vilken plattform som används installerar du de nödvändiga paketen och startar programmet. Om du vill installera beroenden följer du README-filen som ingår i exempel programmets lagrings plats. I exempel programmet NodeJS använder du exempelvis följande kommandon för att installera de nödvändiga paketen och starta programmet.
 
@@ -51,7 +51,7 @@ cd mean
 npm install
 node index.js
 ```
-Programmet försöker ansluta till en MongoDB-källa och Miss lyckas eftersom anslutnings strängen är ogiltig. Följ stegen i README för att uppdatera anslutnings strängen `url`. Uppdatera även `readFromRegion` till en Läs region i Cosmos-kontot. Följande instruktioner är från NodeJS-exemplet:
+Programmet försöker ansluta till en MongoDB-källa och Miss lyckas eftersom anslutnings strängen är ogiltig. Följ stegen i README för att uppdatera anslutnings strängen `url` . Uppdatera även `readFromRegion` till en Läs region i Cosmos-kontot. Följande instruktioner är från NodeJS-exemplet:
 
 ```
 * Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
@@ -110,7 +110,7 @@ På samma sätt visar kodfragmentet nedan hur du konfigurerar SECONDARY_PREFERRE
   });
 ```
 
-Läs inställningen kan också anges genom att skicka `readPreference` som en parameter i URI-alternativen för anslutnings strängen:
+Läs inställningen kan också anges genom `readPreference` att skicka som en parameter i URI-alternativen för anslutnings strängen:
 
 ```javascript
 const MongoClient = require('mongodb').MongoClient;
@@ -136,7 +136,7 @@ Se motsvarande exempel program databaser för andra plattformar, till exempel [.
 
 ## <a name="read-using-tags"></a>Läsa med Taggar
 
-Förutom läsa inställnings läget tillåter MongoDB-protokollet att Taggar används för att dirigera Läs åtgärder. I Cosmos DB s API för MongoDB inkluderas `region` taggen som standard som en del av `isMaster` svaret:
+Förutom läsa inställnings läget tillåter MongoDB-protokollet att Taggar används för att dirigera Läs åtgärder. I Cosmos DB s API för MongoDB `region` inkluderas taggen som standard som en del av `isMaster` svaret:
 
 ```json
 "tags": {

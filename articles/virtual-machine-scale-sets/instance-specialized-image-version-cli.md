@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 5de9fe7c81059c56c99a55ca066e186cbf83c50f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796985"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887886"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Skapa en skalnings uppsättning med hjälp av en specialiserad avbildnings version med Azure CLI
 
-Skapa en skalnings uppsättning från en [specialiserad avbildnings version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) som lagras i ett delat avbildnings Galleri. Om du vill skapa en skalnings uppsättning med en generaliserad avbildnings version, se [skapa en virtuell dator från en generaliserad avbildnings version](instance-generalized-image-version-cli.md).
+Skapa en skalnings uppsättning från en [specialiserad avbildnings version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) som lagras i ett delat avbildnings Galleri. Om du vill skapa en skalnings uppsättning med en generaliserad avbildnings version kan du läsa [skapa en skalnings uppsättning från en generaliserad avbildning](instance-generalized-image-version-cli.md).
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.4.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -36,9 +36,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-Skapa en skalnings uppsättning [`az vmss create`](/cli/azure/vmss#az-vmss-create) med hjälp `--specialized` av parametern för att ange att avbildningen är en specialiserad bild.
+Skapa en skalnings uppsättning med [`az vmss create`](/cli/azure/vmss#az-vmss-create) hjälp av `--specialized` parametern för att ange att avbildningen är en specialiserad bild.
 
-Använd bild Definitions-ID `--image` : t för för att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions `--image`-ID för. Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
+Använd bild Definitions-ID: t för för `--image` att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions-ID för `--image` . Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
 
 I det här exemplet skapar vi instanser från den senaste versionen av *myImageDefinition* -avbildningen.
 

@@ -3,15 +3,15 @@ title: Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (för
 description: Lär dig hur du aktiverar Synapse-länken för Azure Cosmos-konton, skapar en behållare med analytiskt Arkiv aktiverat, ansluter Azure Cosmos-databasen till Synapse-arbetsytan och kör frågor.
 author: SriChintala
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: e1e43579782e204dae027b1771b9013a72843489
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456580"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262046"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -40,11 +40,11 @@ Använd följande steg för att köra analytiska frågor med Synapse-länken fö
 
 1. Välj **Synapse länk** från listan funktioner.
 
-   ![Hitta Synapse Link Preview-funktion](./media/configure-synapse-link/find-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Hitta Synapse Link Preview-funktion":::
 
 1. Härnäst kommer du att bli ombedd att aktivera Synapse-länken på ditt konto. Välj Aktivera.
 
-   ![Aktivera Synapse länk funktion](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Aktivera Synapse länk funktion":::
 
 1. Ditt konto har nu Aktiver ATS för att använda Synapse-länken. Härnäst lär du dig hur du skapar ett analytiskt Arkiv med aktiverade behållare för att automatiskt starta replikeringen av dina drift data från transaktions arkivet till analys lagret.
 
@@ -67,7 +67,7 @@ Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behå
 
 1. Välj **ny behållare** och ange ett namn för din databas, behållare, partitionsnyckel och data flödes information. Aktivera alternativet **analys Arkiv** . När du har aktiverat analys lagret skapas en behållare med `AnalyicalTTL` egenskapen inställd på standardvärdet-1 (oändlig kvarhållning). Detta analys lager behåller alla tidigare versioner av poster.
 
-   ![Aktivera analys lager för Azure Cosmos-behållare](./media/configure-synapse-link/create-container-analytical-store.png)
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Aktivera analys lager för Azure Cosmos-behållare":::
 
 1. Om du tidigare inte har aktiverat Synapse-länken för det här kontot kommer du att uppmanas att göra det eftersom det är ett krav för att skapa en aktive rad behållare för analys lager. Om du uppmanas väljer du **Aktivera Synapse länk**.
 
@@ -142,7 +142,7 @@ container = client.CreateContainer(db['_self'], container_definition, options)
 
 ### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a>Uppdatera tiden för analys av analys arkivet till Live
 
-När analys lagret har Aktiver ATS med ett visst TTL-värde kan du uppdatera det till ett annat giltigt värde senare. Du kan uppdatera värdet med hjälp av Azure Portal eller SDK: er. Information om de olika alternativen för konfiguration av analytiska TTL-alternativ finns i artikeln [stöd för analytiska TTL-värden](analytical-store-introduction.md#analytical-ttl) .
+När analysarkivet har aktiverats med ett visst TTL-värde kan du uppdatera det till ett annat giltigt värde senare. Du kan uppdatera värdet med hjälp av Azure Portal eller SDK:er. Information om de olika alternativen för konfiguration av analytiska TTL-alternativ finns i artikeln [stöd för analytiska TTL-värden](analytical-store-introduction.md#analytical-ttl) .
 
 #### <a name="azure-portal"></a>Azure Portal
 

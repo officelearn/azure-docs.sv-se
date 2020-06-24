@@ -6,18 +6,25 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 40de6f4084630839a0161891ff80f7e4cabc1db7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345127"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762912"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
 Kubernetes innehåller en webb instrument panel som kan användas för grundläggande hanterings åtgärder. På den här instrument panelen kan du visa grundläggande hälso status och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och vägleder dig genom några grundläggande instrument panels åtgärder.
 
-Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts instrument panelen för Kubernetes][kubernetes-dashboard]. AKS använder version 2,0 och senare av instrument panelen för öppen källkod.
+Mer information om instrument panelen för Kubernetes finns i [webb gränssnitts instrument panelen för Kubernetes][kubernetes-dashboard]. AKS använder version 2,0 och senare av instrument panelen med öppen källkod.
+
+> [!WARNING]
+> **AKS instrument panels tillägg är inställt på utfasning.** 
+> * Kubernetes-instrumentpanelen är aktive rad som standard för kluster som kör en Kubernetes-version som är mindre än 1,18.
+> * Instrument panels tillägget är inaktiverat som standard för alla nya kluster som skapats på Kubernetes 1,18 eller senare. 
+ > * Från och med Kubernetes 1,19 i för hands versionen stöder AKS inte längre installationen av det hanterade Kube-instrumentpanelen. 
+ > * Befintliga kluster med aktiverade tillägg påverkas inte. Användarna fortsätter att kunna installera instrument panelen med öppen källkod manuellt som användar installerad program vara.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -25,11 +32,15 @@ De steg som beskrivs i det här dokumentet förutsätter att du har skapat ett A
 
 Du måste också ha Azure CLI-versionen 2.6.0 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
+## <a name="disable-the-kubernetes-dashboard"></a>Inaktivera Kubernetes-instrumentpanelen
 
-> [!WARNING]
-> **Det inbyggda instrument panels tillägget är inställt på utfasning.** Kubernetes-instrumentpanelen är för närvarande aktive rad som standard för alla kluster som kör en Kubernetes-version som är mindre än 1,18.
-> Instrument panels tillägget är inaktiverat som standard för alla nya kluster som skapats på Kubernetes 1,18 eller senare. Från och med Kubernetes 1,19-tillgänglighet i för hands versionen kommer AKS inte längre att stödja installationen av det hanterade Kube. Befintliga kluster med tillägget som redan är installerade påverkas inte. Användarna fortsätter att kunna installera instrument panelen med öppen källkod manuellt som användar installerad program vara.
+Kube-instrumentpanelen är **aktiverat som standard i kluster som är äldre än K8s 1,18**. Tillägget kan inaktive ras genom att köra följande kommando.
+
+``` azure-cli
+az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
+```
+
+## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
 Om du vill starta Kubernetes-instrumentpanelen på ett kluster använder du kommandot [AZ AKS Browse][az-aks-browse] . Det här kommandot kräver installation av Kube på klustret, vilket ingår som standard i kluster som kör en version som är äldre än Kubernetes 1,18.
 
@@ -40,6 +51,11 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI, vanligt vis `http://127.0.0.1:8001` .
+
+> [!NOTE]
+> Om du inte ser instrument panelen på `http://127.0.0.1:8001` kan du manuellt dirigera till följande adresser. Kluster på 1,16 eller mer använder https och kräver en separat slut punkt.
+> * K8s 1,16 eller senare:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1,15 och nedåt:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -83,26 +99,42 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 -->
 
-## <a name="login-to-the-dashboard"></a>Logga in på instrument panelen
+## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Logga in på instrument panelen (Kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> Från och med [v-1.10.1 av Kubernetes-instrumentpanelen](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) kan tjänst kontot "Kubernetes-Dashboard" inte längre användas för att hämta resurser på grund av en [säkerhets korrigering i den versionen](https://github.com/kubernetes/dashboard/pull/3400). Det innebär att förfrågningar utan auth-information returnerar ett 401-otillåtet fel. En Bearer-token som hämtats från ett tjänst konto kan fortfarande användas som i det här [Kubernetes-Instrumentpanels exemplet](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), men detta påverkar inloggnings flödet för instrument panels tillägget jämfört med äldre versioner.
+> Från och med [v 1.10.1 av Kubernetes-instrumentpanelen](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) eller Kubernetes v-1.16 + tjänst kontot "Kubernetes-instrumentpanel" kan inte längre användas för att hämta resurser på grund av en [säkerhets korrigering i den versionen](https://github.com/kubernetes/dashboard/pull/3400). Det innebär att förfrågningar utan auth-information returnerar ett 401-otillåtet fel. En Bearer-token som hämtats från ett tjänst konto kan fortfarande användas som i det här [Kubernetes-Instrumentpanels exemplet](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), men detta påverkar inloggnings flödet för instrument panels tillägget jämfört med äldre versioner.
+>
+>Om du fortfarande kör en version före 1,16 kan du fortfarande ge behörighet till tjänst kontot "Kubernetes-Dashboard", men detta **rekommenderas inte**:
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
 
 Den första skärmen som visas kräver en kubeconfig eller token. Båda alternativen kräver resurs behörigheter för att visa dessa resurser på instrument panelen.
 
 ![inloggnings skärm](./media/kubernetes-dashboard/login.png)
 
 **Använd en kubeconfig**
+
+För både Azure AD-aktiverade och icke-Azure AD-aktiverade kluster, kan en kubeconfig skickas. Se till att åtkomsttoken är giltiga, om dina token har upphört att gälla kan du uppdatera tokens via kubectl.
+
 1. Ange admin-kubeconfig med`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Välj `Kubeconfig` och klicka `Choose kubeconfig file` för att öppna fil väljaren
 1. Välj din kubeconfig-fil (standard $HOME/.Kube/config)
 1. Klicka på `Sign In`
 
 **Använd en token**
-1. Kör `kubectl config view`
-1. Kopiera önskad token som är kopplad till kontot för klustret
-1. Klistra in i alternativet token vid inloggning
+
+1. För **AD-kluster som inte är Azure AD-aktiverat**kör `kubectl config view` och kopierar du den token som är associerad med användar kontot för klustret.
+1. Klistra in i alternativet token vid inloggning.    
 1. Klicka på `Sign In`
+
+För Azure AD-aktiverade kluster hämtar du din AAD-token med följande kommando. Verifiera att du har ersatt resurs gruppen och kluster namnet i kommandot.
+
+```
+## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
+
+kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
+```
 
 När åtgärden är klar visas en sida som liknar den nedan.
 
@@ -110,7 +142,7 @@ När åtgärden är klar visas en sida som liknar den nedan.
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Följande steg kräver behörighet för många resurser. Vi rekommenderar att du använder ett administratörs konto när du testar dessa funktioner.
+Följande steg kräver att användaren har behörighet till respektive resurser. 
 
 För att se hur Kubernetes-instrumentpanelen kan minska komplexiteten med hanterings uppgifter ska vi skapa ett program. Du kan skapa ett program från Kubernetes-instrumentpanelen genom att tillhandahålla text indata, en YAML-fil eller en grafisk guide.
 

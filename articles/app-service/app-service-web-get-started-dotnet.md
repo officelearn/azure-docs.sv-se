@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086053"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205803"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -26,8 +26,8 @@ När du är klar har du en Azure-resurs grupp som består av en App Service vär
 
   Om du redan har installerat Visual Studio 2019:
 
-  - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp** > **sökning efter uppdateringar**.
-  - Lägg till arbets belastningen genom att välja **verktyg** > **Hämta verktyg och funktioner**.
+  - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
+  - Lägg till arbets belastningen genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
@@ -42,11 +42,11 @@ Skapa en ASP.NET Core webbapp i Visual Studio genom att följa dessa steg:
 
    ![Konfigurera ditt webbapp](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering**och att inget annat alternativ har valts. Välj sedan **Create** (Skapa).
+1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering**och att inget annat alternativ har valts. Välj sedan **skapa**.
 
    ![Skapa en ny ASP.NET Core webbapp](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
    
-1. Från Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra din webbapp lokalt.
+1. Från Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra din webbapp lokalt.
 
    ![Webbapp som körs lokalt](./media/app-service-web-get-started-dotnet/web-app-running-locally.png)
 
@@ -67,7 +67,7 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
    ![Välj ett publiceringsmål](./media/app-service-web-get-started-dotnet/pick-publish-target-vs2019.png)
 
-1. I dialog rutan **App Service: skapa ny** anger du ett globalt unikt **namn** för din app genom att antingen acceptera standard namnet eller ange ett nytt namn. Giltiga tecken är: `a-z`, `A-Z`, `0-9`, och `-`. Det här **namnet** används som URL-prefix för din webbapp i formatet `http://<app_name>.azurewebsites.net`.
+1. I dialog rutan **App Service: skapa ny** anger du ett globalt unikt **namn** för din app genom att antingen acceptera standard namnet eller ange ett nytt namn. Giltiga tecken är: `a-z` , `A-Z` , `0-9` , och `-` . Det här **namnet** används som URL-prefix för din webbapp i formatet `http://<app_name>.azurewebsites.net` .
 
 1. Acceptera prenumerationen som visas i listan eller Välj en ny i list rutan för **prenumeration**.
 
@@ -105,11 +105,11 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 Följ dessa steg för att uppdatera och distribuera om din webbapp:
 
-1. Öppna **Pages** > **index. cshtml**under ditt projekt i **Solution Explorer**.
+1. Öppna **Solution Explorer** **Pages**  >  **index. cshtml**under ditt projekt i Solution Explorer.
 
 1. Ersätt hela `<div>` taggen med följande kod:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -150,3 +150,6 @@ Gå vidare till nästa artikel om du vill lära dig hur du skapar en .NET Core-a
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core med SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)

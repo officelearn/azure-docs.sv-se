@@ -3,8 +3,8 @@ title: Hantera Federations certifikat i Azure AD | Microsoft Docs
 description: Lär dig hur du anpassar förfallo datumet för dina Federations certifikat och hur du förnyar certifikat som snart upphör att gälla.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77159037"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763218"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 
@@ -30,7 +30,7 @@ Den här artikeln är endast relevant för appar som har kon figurer ATS för at
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatiskt genererat certifikat för Galleri program och icke-galleriprogram
 
-När du lägger till ett nytt program från galleriet och konfigurerar en SAML-baserad inloggning (genom att välja **enkel inloggning på** > **SAML** från program översikts sidan) genererar Azure AD ett certifikat för programmet som är giltigt i tre år. Om du vill ladda ned det aktiva certifikatet som ett säkerhets certifikat (**CER**-fil) går du tillbaka till sidan (**SAML-baserad inloggning**) och väljer en nedladdnings länk i **certifikat rubriken SAML-signering** . Du kan välja mellan RAW-certifikatet (Binary) eller Base64-certifikatet (Base 64-kodad text). För Galleri program kan det här avsnittet också innehålla en länk för att ladda ned certifikatet som federationsmetadata XML (en **XML** -fil), beroende på kraven för programmet.
+När du lägger till ett nytt program från galleriet och konfigurerar en SAML-baserad inloggning (genom att välja **enkel inloggning på**  >  **SAML** från program översikts sidan) genererar Azure AD ett certifikat för programmet som är giltigt i tre år. Om du vill ladda ned det aktiva certifikatet som ett säkerhets certifikat (**CER**-fil) går du tillbaka till sidan (**SAML-baserad inloggning**) och väljer en nedladdnings länk i **certifikat rubriken SAML-signering** . Du kan välja mellan RAW-certifikatet (Binary) eller Base64-certifikatet (Base 64-kodad text). För Galleri program kan det här avsnittet också innehålla en länk för att ladda ned certifikatet som federationsmetadata XML (en **XML** -fil), beroende på kraven för programmet.
 
 ![Alternativ för hämtning av SAML Active signerings certifikat](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -90,7 +90,7 @@ Azure AD skickar ett e-postmeddelande 60, 30 och 7 dagar innan SAML-certifikatet
 1. För varje e-postadress som du vill ta bort väljer du ikonen **ta bort** (ett skräp post kan) bredvid e-postadressen.
 1. Välj **Spara**.
 
-Du får e-postmeddelandet aadnotification@microsoft.comvia. Lägg till det här e-postmeddelandet till dina kontakter för att undvika att e-postmeddelandet till din skräp post
+Du får e-postmeddelandet via aadnotification@microsoft.com . Lägg till det här e-postmeddelandet till dina kontakter för att undvika att e-postmeddelandet till din skräp post
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Förnya ett certifikat som snart upphör att gälla
 
@@ -111,4 +111,4 @@ Om ett certifikat håller på att gå ut kan du förnya det med en procedur som 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Programhantering med Azure Active Directory](what-is-application-management.md)
 - [Enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md)
-- [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

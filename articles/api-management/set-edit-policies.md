@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70071709"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205755"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Så anger eller redigerar du Azure API Management-principer
 
@@ -38,10 +38,10 @@ Följ stegen nedan om du vill ange eller redigera en princip:
 4. Välj ett av de API:er som du tidigare har importerat.
 5. Välj fliken **Design**.
 6. Välj en åtgärd som du vill tillämpa principen på. Om du vill tillämpa principen på alla åtgärder väljer du **alla åtgärder**.
-7. Välj ikonen **</>** (kod redigerare) i avsnittet **inkommande bearbetning** eller **utgående bearbetning** .
+7. Välj **</>** ikonen (kod redigerare) i avsnittet **inkommande bearbetning** eller **utgående bearbetning** .
 8. Klistra in önskad princip kod i ett av de lämpliga blocken.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />
@@ -69,7 +69,7 @@ Princip omfattningarna utvärderas i följande ordning:
 3. API-omfång
 4. Åtgärds omfång
 
-Uttrycken i principer utvärderas enligt `base` elementets placering, om det finns. Den globala principen har ingen överordnad princip `<base>` och använder elementet i den har ingen påverkan.
+Uttrycken i principer utvärderas enligt `base` elementets placering, om det finns. Den globala principen har ingen överordnad princip och använder `<base>` elementet i den har ingen påverkan.
 
 Om du vill se principerna i det aktuella omfånget i princip redigeraren klickar du på **Beräkna om en effektiv princip för det valda omfånget**.
 

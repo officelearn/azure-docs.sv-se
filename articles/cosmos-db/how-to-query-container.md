@@ -3,15 +3,15 @@ title: Köra frågor mot containrar i Azure Cosmos DB
 description: Lär dig hur du söker efter behållare i Azure Cosmos DB att använda frågor i partitionen och över partitioner
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131402"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261264"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
 
@@ -21,13 +21,13 @@ Den här artikeln beskriver hur du kör frågor mot en container (samling, graf 
 
 När du frågar efter data från behållare, om frågan har ett filter för partitionsnyckel, optimerar Azure Cosmos DB automatiskt frågan. Den dirigerar frågan till de [fysiska partitionerna](partition-data.md#physical-partitions) som motsvarar de partitionsnyckel som anges i filtret.
 
-Överväg till exempel frågan nedan med ett likhets filter på `DeviceId`. Om vi kör den här frågan på en behållare som partitionerats på `DeviceId`, kommer den här frågan att filtrera till en enda fysisk partition.
+Överväg till exempel frågan nedan med ett likhets filter på `DeviceId` . Om vi kör den här frågan på en behållare som partitionerats på `DeviceId` , kommer den här frågan att filtrera till en enda fysisk partition.
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
-Som i det tidigare exemplet kommer den här frågan också att filtrera till en enda partition. Att lägga till ytterligare filter `Location` i ändrar inte detta:
+Som i det tidigare exemplet kommer den här frågan också att filtrera till en enda partition. Att lägga till ytterligare filter i `Location` ändrar inte detta:
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
@@ -41,7 +41,7 @@ Här är en fråga som har ett intervall filter i partitionsnyckel och som inte 
 
 ## <a name="cross-partition-query"></a>Frågekörning mellan partitioner
 
-Följande fråga saknar filter för partitionsnyckel (`DeviceId`). Därför måste den fläkta ut till alla fysiska partitioner där den körs mot varje partitions index:
+Följande fråga saknar filter för partitionsnyckel ( `DeviceId` ). Därför måste den fläkta ut till alla fysiska partitioner där den körs mot varje partitions index:
 
 ```sql
     SELECT * FROM c WHERE c.Location = 'Seattle`
@@ -57,7 +57,7 @@ Azure Cosmos DB SDK:erna 1.9.0 och senare stöder alternativ för parallell frå
 
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-- **MaxConcurrency**: anger det högsta antalet samtidiga nätverks anslutningar till behållarens partitioner. Om du ställer in den här `-1`egenskapen på, hanterar SDK graden av parallellitet. Om det `MaxConcurrency` är inställt på `0`, finns det en enda nätverks anslutning till behållarens partitioner.
+- **MaxConcurrency**: anger det högsta antalet samtidiga nätverks anslutningar till behållarens partitioner. Om du ställer in den här egenskapen på `-1` , hanterar SDK graden av parallellitet. Om det  `MaxConcurrency` är inställt på `0` , finns det en enda nätverks anslutning till behållarens partitioner.
 
 - **MaxBufferedItemCount**: Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
 

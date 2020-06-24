@@ -4,16 +4,16 @@ description: 'Den här artikeln visar en översikt över Azure Cosmos DB indexer
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: fd602f88acf26e821e57e0a844f543aac08dad0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732712"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260703"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -21,7 +21,7 @@ Azure Cosmos DBs API för MongoDB drar nytta av kärn funktionerna för hanterin
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>Indexering för MongoDB-Server version 3,6
 
-Azure Cosmos DBs API för MongoDB-Server version 3,6 indexerar automatiskt `_id` fältet, som inte går att släppa. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel.
+Azure Cosmos DBs API för MongoDB-Server version 3,6 indexerar automatiskt `_id` fältet, som inte går att släppa. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel. I Azure Cosmos DB s API för MongoDB är horisontell partitionering och indexering separata begrepp. Du behöver inte indexera din Shard-nyckel. Men precis som med andra egenskaper i ditt dokument, rekommenderar vi att du indexerar Shard-nyckeln om den här egenskapen är ett gemensamt filter i dina frågor.
 
 Om du vill indexera ytterligare fält tillämpar du MongoDB index-Management-kommandon. Precis som i MongoDB indexerar Azure Cosmos DBs-API för MongoDB automatiskt `_id` fältet. Den här standard indexerings principen skiljer sig från Azure Cosmos DB SQL API, som som standard indexerar alla fält.
 
@@ -31,7 +31,7 @@ Om du vill tillämpa en sortering på en fråga måste du skapa ett index för f
 
 ### <a name="single-field"></a>Enskilt fält
 
-Du kan skapa index för ett enskilt fält. Sorterings ordningen för det enskilda fält indexet spelar ingen roll. Följande kommando skapar ett index i fältet `name`:
+Du kan skapa index för ett enskilt fält. Sorterings ordningen för det enskilda fält indexet spelar ingen roll. Följande kommando skapar ett index i fältet `name` :
 
 `db.coll.createIndex({name:1})`
 
@@ -41,7 +41,7 @@ En fråga använder flera enstaka fält index där det är tillgängligt. Du kan
 
 Azure Cosmos DBs API för MongoDB stöder sammansatta index för konton som använder version 3,6 Wire-protokollet. Du kan inkludera upp till åtta fält i ett sammansatt index. Till skillnad från MongoDB bör du endast skapa ett sammansatt index om frågan behöver sortera effektivt på flera fält samtidigt. För frågor med flera filter som inte behöver sorteras, skapar du flera fält index i stället för ett enda sammansatt index.
 
-Följande kommando skapar ett sammansatt index för fälten `name` och: `age`
+Följande kommando skapar ett sammansatt index för fälten `name` och `age` :
 
 `db.coll.createIndex({name:1,age:1})`
 
@@ -63,15 +63,107 @@ Azure Cosmos DB skapar MultiKey-index för index innehåll som lagras i matriser
 
 ### <a name="geospatial-indexes"></a>Geospatiala index
 
-Många geospatiala operatörer kommer att dra fördel av geospatiala index. För närvarande stöder `2dsphere` Azure Cosmos DB s API för MongoDB index. API: t har ännu inte `2d` stöd för index.
+Många geospatiala operatörer kommer att dra fördel av geospatiala index. För närvarande stöder Azure Cosmos DB s API för MongoDB `2dsphere` index. API: t har ännu inte stöd för `2d` index.
 
-Här är ett exempel på hur du `location` skapar ett geospatialt index i fältet:
+Här är ett exempel på hur du skapar ett geospatialt index i `location` fältet:
 
 `db.coll.createIndex({ location : "2dsphere" })`
 
 ### <a name="text-indexes"></a>Text index
 
 Azure Cosmos DBs API för MongoDB stöder för närvarande inte text index. För texts öknings frågor på strängar bör du använda [Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration med Azure Cosmos dB.
+
+## <a name="wildcard-indexes"></a>Jokertecken index
+
+Du kan använda jokertecken för att stödja frågor mot okända fält. Anta att du har en samling som innehåller data om familjer.
+
+Här är en del av ett exempel dokument i samlingen:
+
+```json
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "grade": "5"
+     }
+  ]
+```
+
+Här är ett annat exempel, den här gången med en något annorlunda uppsättning egenskaper i `children` :
+
+```json
+  "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+      },
+      {
+        "familyName": "Merriam",
+        "givenName": "John",
+      }
+  ]
+```
+
+I den här samlingen kan dokument ha många olika möjliga egenskaper. Om du vill indexera alla data i `children` matrisen har du två alternativ: skapa separata index för varje enskild egenskap eller skapa ett Wildcard-index för hela `children` matrisen.
+
+### <a name="create-a-wildcard-index"></a>Skapa ett Wildcard-index
+
+Följande kommando skapar ett Wildcard-index för alla egenskaper i `children` :
+
+`db.coll.createIndex({"children.$**" : 1})`
+
+**Till skillnad från i MongoDB kan jokertecken indexeras ha stöd för flera fält i frågesyntaxen**. Det kommer inte att finnas någon skillnad i frågans prestanda om du använder ett enda index i ett jokertecken i stället för att skapa ett separat index för varje egenskap.
+
+Du kan skapa följande index typer med syntaxen jokertecken:
+
+- Enskilt fält
+- Geospatial
+
+### <a name="indexing-all-properties"></a>Indexera alla egenskaper
+
+Så här kan du skapa ett Wildcard-index i alla fält:
+
+`db.coll.createIndex( { "$**" : 1 } )`
+
+När du börjar utveckla kan det vara praktiskt att skapa ett Wildcard-index i alla fält. I takt med att fler egenskaper indexeras i ett dokument ökar enhets avgiften för begäran (RU) för skrivning och uppdatering av dokumentet. Om du har en Skriv intensiv arbets belastning bör du därför välja enskilda index Sök vägar i stället för att använda index med jokertecken.
+
+### <a name="limitations"></a>Begränsningar
+
+Jokertecken index stöder inte någon av följande index typer eller egenskaper:
+
+- Beräkning
+- TTL
+- Unik
+
+Till **skillnad från i MongoDB**, i Azure Cosmos DB s API för MongoDB, **kan du inte** använda jokertecken index för:
+
+- Skapa ett Wildcard-index som innehåller flera olika fält
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+           "children.givenName" : 1,
+           "children.grade" : 1
+        }
+    }
+)`
+
+- Skapa ett Wildcard-index som undantar flera angivna fält
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 0,
+           "children.grade" : 0
+        }
+    }
+)`
+
+Alternativt kan du skapa flera index för jokertecken.
 
 ## <a name="index-properties"></a>Index egenskaper
 
@@ -84,7 +176,7 @@ Följande åtgärder är vanliga för konton som hanterar Wire Protocol version 
 > [!IMPORTANT]
 > Det går bara att skapa unika index när samlingen är tom (innehåller inga dokument).
 
-Följande kommando skapar ett unikt index i fältet `student_id`:
+Följande kommando skapar ett unikt index i fältet `student_id` :
 
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
@@ -99,7 +191,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 
 För shardade-samlingar måste du ange Shard-nyckeln (partition) för att skapa ett unikt index. Med andra ord så utgör alla unika index i en fragmenterad samling alltså sammansatta index där ett av fälten är en partitionsnyckel.
 
-Följande kommandon skapar en shardade-samling ```coll``` (Shard-nyckeln är ```university```) med ett unikt index för fälten `student_id` och: `university`
+Följande kommandon skapar en shardade-samling ```coll``` (Shard-nyckeln är ```university``` ) med ett unikt index för fälten `student_id` och `university` :
 
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
@@ -118,7 +210,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 }
 ```
 
-I föregående exempel returnerar- ```"university":1``` satsen ett fel med följande meddelande:
+I föregående exempel ```"university":1``` returnerar-satsen ett fel med följande meddelande:
 
 ```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
 
@@ -230,7 +322,7 @@ När du lägger till ett nytt index använder frågorna direkt indexet. Det inne
 
 ## <a name="migrate-collections-with-indexes"></a>Migrera samlingar med index
 
-För närvarande kan du bara skapa unika index när samlingen inte innehåller några dokument. Populära Migreringsverktyg för MongoDB försöker skapa unika index när du har importerat data. För att kringgå det här problemet kan du skapa motsvarande samlingar och unika index manuellt i stället för att tillåta att migrations verktyget försöker. (Du kan få det här beteendet ```mongorestore``` genom att `--noIndexRestore` använda-flaggan på kommando raden.)
+För närvarande kan du bara skapa unika index när samlingen inte innehåller några dokument. Populära Migreringsverktyg för MongoDB försöker skapa unika index när du har importerat data. För att kringgå det här problemet kan du skapa motsvarande samlingar och unika index manuellt i stället för att tillåta att migrations verktyget försöker. (Du kan få det här beteendet ```mongorestore``` genom att använda- `--noIndexRestore` flaggan på kommando raden.)
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexering för MongoDB-version 3,2
 
@@ -240,7 +332,7 @@ Om du använder version 3,2 beskriver det här avsnittet viktiga skillnader med 
 
 ### <a name="dropping-default-indexes-version-32"></a>Släpper standard index (version 3,2)
 
-Till skillnad från 3,6-versionen av Azure Cosmos DB s API för MongoDB indexerar version 3,2 varje egenskap som standard. Du kan använda följande kommando för att ta bort dessa standard index för en samling (```coll```):
+Till skillnad från 3,6-versionen av Azure Cosmos DB s API för MongoDB indexerar version 3,2 varje egenskap som standard. Du kan använda följande kommando för att ta bort dessa standard index för en samling ( ```coll``` ):
 
 ```JavaScript
 > db.coll.dropIndexes()
@@ -253,7 +345,12 @@ När du har släppt standard indexen kan du lägga till fler index som du skulle
 
 Sammansatta index innehåller referenser till flera fält i ett dokument. Om du vill skapa ett sammansatt index uppgraderar du till version 3,6 genom att skicka en [support förfrågan](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+### <a name="wildcard-indexes-version-32"></a>Jokertecken index (version 3,2)
+
+Om du vill skapa ett Wildcard-index uppgraderar du till version 3,6 genom att skicka in en [supportbegäran](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Indexering i Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)
+* Information om relationen mellan partitionering och indexering finns i så här frågar du [en Azure Cosmos container](how-to-query-container.md) -artikel.

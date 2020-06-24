@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc869a8ab905275c8082c4fd375f8f6d6d48d97e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311667"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205466"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurations filen (C#-agenten)
 
@@ -30,9 +30,9 @@ Säkerhets agenten läser konfigurations filen en gång när agenten startar. Ko
 
 C#-säkerhets agenten använder flera konfigurationsfiler:
 
-- **Allmänna. config** -Agent-relaterade konfigurationer.
-- **Autentisering. config** – autentisering relaterad konfiguration (inklusive autentiseringsinformation).
-- **SecurityIotInterface. config** -IoT-relaterade konfigurationer.
+- **General.config** -Agent-relaterade konfigurationer.
+- Konfiguration för **Authentication.config** -autentisering (inklusive autentiseringsinformation).
+- **SecurityIotInterface.config** -IoT-relaterade konfigurationer.
 
 Konfigurationsfilerna innehåller standard konfigurationen. Konfiguration av autentisering fylls under Agent installationen och ändringar i konfigurations filen görs när agenten startas om.
 
@@ -40,13 +40,13 @@ Konfigurationsfilerna innehåller standard konfigurationen. Konfiguration av aut
 
 För Linux:
 
-- Konfigurationsfiler för operativ system finns i `/var/ASCIoTAgent`.
+- Konfigurationsfiler för operativ system finns i `/var/ASCIoTAgent` .
 
 För Windows:
 
 - Konfigurationsfiler för operativ system finns i säkerhets agentens katalog.
 
-### <a name="generalconfig-configurations"></a>Allmänna konfigurations inställningar
+### <a name="generalconfig-configurations"></a>General.config konfigurationer
 
 | Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
@@ -62,9 +62,9 @@ För Windows:
 | logFilePath | Sökväg till fil | Om fileLogLevel > av skrivs loggar till den här filen. |
 | defaultEventPriority | "Hög", "låg", "av" | Standard händelse prioritet. |
 
-### <a name="generalconfig-example"></a>Allmänt. config-exempel
+### <a name="generalconfig-example"></a>General.config exempel
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -81,7 +81,7 @@ För Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Autentisering. config
+### <a name="authenticationconfig"></a>Authentication.config
 
 | Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
@@ -96,9 +96,9 @@ För Windows:
 | registrationId | sträng  | Registrerings-ID för DPS-enhet. |
 |
 
-### <a name="authenticationconfig-example"></a>Authentication. config-exempel
+### <a name="authenticationconfig-example"></a>Authentication.config exempel
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -113,16 +113,16 @@ För Windows:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
 | Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | IoT Hub Transport typ. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface. config-exempel
+### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface.config exempel
 
-```XML
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>

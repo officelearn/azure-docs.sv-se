@@ -3,15 +3,15 @@ title: Konvertera format för sessionstoken i .NET SDK – Azure Cosmos DB
 description: Lär dig hur du konverterar format för sessionstoken för att säkerställa kompatibilitet mellan olika .NET SDK-versioner
 author: vinhms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
-ms.openlocfilehash: 377d8e3e923d6a8fa3b1722cee6451a696ce2490
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1f5609eae106e04928bc2c49bd84aa651b224611
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796907"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261587"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Konvertera format för sessionstoken i .NET SDK
 
@@ -26,8 +26,8 @@ Den här artikeln förklarar hur du konverterar mellan olika format för session
 ## <a name="session-token-formats"></a>Format för sessionstoken
 
 Det finns två format för sessionstoken: **enkla** och **vektorer**.  Dessa två format är inte utbytbara, vilket innebär att formatet ska konverteras vid överföring till klient programmet med olika versioner.
-- Formatet för **enkel** session-token används av .NET SDK v1 (Microsoft. Azure. DocumentDB-version 1. x)
-- Formatet för **Vector** session token används av .NET SDK v2 (Microsoft. Azure. DocumentDB-version 2. x)
+- Formatet för **enkel** session-token används av .NET SDK V1 (Microsoft.Azure.DocumentDB-version 1. x)
+- Formatet för **Vector** session token används av .NET SDK V2 (Microsoft.Azure.DocumentDB-version 2. x)
 
 ### <a name="simple-session-token"></a>Enkel sessionstoken
 

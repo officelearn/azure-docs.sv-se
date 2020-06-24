@@ -7,36 +7,66 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 6199b2a322bc22f85d6fb8b422ea49c5f35f080e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77616183"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752998"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Dokumentations resurser för AI-anrikning i Azure Kognitiv sökning
 
-AI-anrikning är en funktion i Azure Kognitiv sökning indexering som hittar latend information i icke-text källor och en icke-differentierad text, som omvandlar den till text sökbar innehåll i Azure Kognitiv sökning.
+AI-anrikning är ett tillägg till indexerare indexering som hittar latend information i icke-text källor och en icke-differentierad text, som omvandlar den till text sökbar innehåll i Azure Kognitiv sökning. 
 
-Följande artiklar är den fullständiga dokumentationen för AI-berikning.
+För inbyggd bearbetning kallas de förtränade AI-modellerna i Cognitive Services internt för att utföra analyserna. Du kan också integrera anpassade modeller med hjälp av Azure Machine Learning, Azure Functions eller andra metoder.
 
-## <a name="getting-started"></a>Komma igång
-+ [Introduktion till AI i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
+Följande är en lista över dokumentation för AI-berikning.
+
+## <a name="concepts"></a>Begrepp
+
++ [AI-anrikning](cognitive-search-concept-intro.md)
++ [Kompetensuppsättningar](cognitive-search-working-with-skillsets.md)
++ [Felsökningssessioner](cognitive-search-debug-session.md)
++ [Kunskapslager](knowledge-store-concept-intro.md)
++ [Projektioner](knowledge-store-projection-overview.md)
++ [Stegvis anrikning (åter användning av ett cachelagrat berikat dokument)](cognitive-search-incremental-indexing-conceptual.md)
+
+## <a name="hands-on-walkthroughs"></a>Hands om genom gångar
+
 + [Snabb start: skapa en kognitiv färdigheter i Azure Portal](cognitive-search-quickstart-blob.md)
 + [Självstudie: omfattande indexering med AI](cognitive-search-tutorial-blob.md)
-+ [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
++ [Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter med fel söknings sessioner](cognitive-search-tutorial-debug-sessions.md)
+
+## <a name="knowledge-stores"></a>Kunskapslager
+
++ [Snabb start: skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md)
++ [Skapa ett kunskaps lager med REST och Postman](knowledge-store-create-rest.md)
++ [Visa ett kunskaps lager med Storage Explorer](knowledge-store-view-storage-explorer.md)
++ [Anslut ett kunskaps lager med Power BI](knowledge-store-connect-power-bi.md)
++ [Projekt exempel (hur du kan forma och exportera-anrikninger)](knowledge-store-projections-examples.md)
+
+## <a name="custom-skills-advanced"></a>Anpassade kunskaper (avancerat)
+
++ [Definiera ett anpassat kunskaps gränssnitt](cognitive-search-custom-skill-interface.md)
++ [Exempel: skapa en anpassad kunskap med Azure Functions (och Entitetssökning i Bing API: er)](cognitive-search-create-custom-skill-example.md)
++ [Exempel: skapa en anpassad kunskap med hjälp av python](cognitive-search-custom-skill-python.md)
++ [Exempel: skapa en anpassad kompetens med hjälp av formulär igenkänning](cognitive-search-custom-skill-form.md) 
++ [Exempel: skapa en anpassad färdighet med Azure Machine Learning](cognitive-search-tutorial-aml-custom-skill.md) 
 
 ## <a name="how-to-guidance"></a>Instruktions vägledning
-+ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Referera till anteckningar i en kompetensuppsättning](cognitive-search-concept-annotations-syntax.md)
-+ [Så här mappar du fält till ett index](cognitive-search-output-field-mapping.md)
-+ [Så här bearbetar och extraherar du information från bilder](cognitive-search-concept-image-scenarios.md)
-+ [Återskapa ett Azure Kognitiv sökning-index](search-howto-reindex.md)
-+ [Definiera ett anpassat kunskaps gränssnitt](cognitive-search-custom-skill-interface.md)
-+ [Felsökningstips](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Referens
++ [Bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md)
++ [Definiera en kunskapsuppsättning](cognitive-search-defining-skillset.md)
++ [referens anteckningar i en färdigheter](cognitive-search-concept-annotations-syntax.md)
++ [Mappa fält till ett index](cognitive-search-output-field-mapping.md)
++ [Bearbeta och extrahera information från bilder](cognitive-search-concept-image-scenarios.md)
++ [Konfigurera cachelagring för stegvis anrikning](search-howto-incremental-index.md)
++ [Återskapa ett Azure Kognitiv sökning-index](search-howto-reindex.md)
++ [Designtips](cognitive-search-concept-troubleshooting.md)
++ [Vanliga fel och varningar](cognitive-search-common-errors-warnings.md)
+
+## <a name="skills-reference"></a>Referens för färdigheter
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
   + [Microsoft. färdigheter. text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
@@ -50,14 +80,17 @@ Följande artiklar är den fullständiga dokumentationen för AI-berikning.
   + [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md)
-  + [Microsoft. färdigheter. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Anpassade färdigheter
+  + [Microsoft. färdigheter. Custom. AmlSkill](cognitive-search-aml-skill.md)
   + [Microsoft. färdigheter. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
 + [Inaktuella färdigheter](cognitive-search-skill-deprecated.md)
   + [Microsoft. färdigheter. text. NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+
+## <a name="apis"></a>API:er
 
 + [REST-API](https://docs.microsoft.com/rest/api/searchservice/)
   + [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

@@ -3,15 +3,15 @@ title: Migrera ditt program från Amazon DynamoDB till Azure Cosmos DB
 description: Lär dig hur du migrerar ditt .NET-program från Amazons DynamoDB till Azure Cosmos DB
 author: manishmsfte
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: b30ebf7dae1d43b5f841677f98831fc4817a9b5a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664895"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261876"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migrera ditt program från Amazon DynamoDB till Azure Cosmos DB
 
@@ -23,14 +23,14 @@ Här följer de viktiga koncept skillnaderna mellan Azure Cosmos DB och DynamoDB
 
 |  DynamoDB | Azure Cosmos DB  |
 |---|---|
-|Inte tillämpligt|  Databas |
+|Ej tillämpligt|  Databas |
 |Tabell      |  Samling |
 |  Objekt |  Dokument |
 |Attribut|Fält|
 |Sekundärt index|Sekundärt index|
 |Primär nyckel – partitionsnyckel|Partitionsnyckel|
 |Primär nyckel – sorterings nyckel| Krävs inte |
-|Strömma|ChangeFeed|
+|Dataström|ChangeFeed|
 |Skriv beräknings enhet|Enhet för begäran (flexibel, kan användas för läsningar eller skrivningar)|
 |Läs beräknings enhet    |Enhet för begäran (flexibel, kan användas för läsningar eller skrivningar)|
 |Globala tabeller| Krävs inte. Du kan välja region direkt när du konfigurerar Azure Cosmos-kontot (du kan ändra region senare)|
@@ -517,7 +517,7 @@ await cosmosDatabase.DeleteAsync();
 
 Som du kan se, Azure Cosmos DB stöder naturliga frågor (SQL), är åtgärder asynkrona och mycket enklare. Du kan enkelt migrera din komplexa kod till Azure Cosmos DB, vilket blir enklare efter migreringen.
 
-### <a name="next-steps"></a>Nästa steg
+### <a name="next-steps"></a>Efterföljande moment
 
 - Lär dig mer om [prestanda optimering](performance-tips.md).
 - Lär dig mer om att [optimera läsningar och skrivningar](key-value-store-cost.md)

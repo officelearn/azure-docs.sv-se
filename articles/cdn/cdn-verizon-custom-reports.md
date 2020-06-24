@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
-ms.openlocfilehash: 737803f5b7fcddb07787afbb48354b4ca922e9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259756"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888715"
 ---
 # <a name="custom-reports-from-verizon"></a>Anpassade rapporter från Verizon
 
@@ -68,7 +68,7 @@ Du kan exportera data i Excel-format genom att klicka på Excel-symbolen till h�
 
 ## <a name="edge-cnames-custom-report-fields"></a>Edge CNAME-anpassade rapport fält
 
-| Field                     | Beskrivning   |
+| Fält                     | Beskrivning   |
 |---------------------------|---------------|
 | 2xx                       | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME som resulterar i en HTTP-statuskod för 2xx (till exempel 200 OK). |
 | 3xx                       | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME som resulterar i en HTTP-statuskod för 3xx (till exempel 302 eller 304 som inte har ändrats). |
@@ -81,7 +81,7 @@ Du kan exportera data i Excel-format genom att klicka på Excel-symbolen till h�
 | Träffar                      | Anger det totala antalet begär anden till Edge CNAME |
 | Missar                    | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME som resulterar i ett cache-missar (till exempel TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS eller TCP_MISS). Ett cacheminne saknas när det begärda innehållet inte cachelagrades på gräns servern som löste begäran. | 
 | Ingen cache                  | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME som resulterar i en CONFIG_NOCACHE cache-statuskod.  |
-| Annat                     | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME, vilket resulterar i en HTTP-statuskod som faller utanför 2xx-5xx-intervallet. |
+| Övrigt                     | Anger det totala antalet begär Anden eller överförda data (MB) för Edge CNAME, vilket resulterar i en HTTP-statuskod som faller utanför 2xx-5xx-intervallet. |
 | Plattform                  | Anger den plattform som hanterar Edge CNAME-trafiken. |
 | Ej tilldelad               | Anger det totala antalet begär Anden eller överförda data (MB) för den kant-CNAME för vilken cache status kod eller HTTP-statuskod inte loggades.  |
 | Det går inte att cachelagra               | Anger det totala antalet begär Anden eller överförda data (MB) för den Edge CNAME som resulterar i en cache-statuskod.  |

@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2d8117e00b5da47dd489983f5fe1494cf814e07
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71336811"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886148"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: när du har en klient organisation
 De flesta av avsnitten om hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det inte finns några användare eller andra objekt där. Men om du har börjat med en Azure AD-klient, fyllt i den med användare och andra objekt, och nu vill använda Connect, är det här avsnittet för dig.
@@ -34,7 +34,7 @@ Du kan hantera vissa användare lokalt och andra i molnet. Ett vanligt scenario 
 Om du började hantera användare i Azure AD som också finns i lokala AD och senare vill använda Connect, finns det några ytterligare problem som du behöver tänka på.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synkronisera med befintliga användare i Azure AD
-När du installerar Azure AD Connect och du börjar synkronisera, kontrollerar Azure AD Sync service (i Azure AD) en kontroll av varje nytt objekt och försöker hitta ett befintligt objekt som ska matchas. Det finns tre attribut som används för den här processen: **userPrincipalName**, **proxyAddresses**och **sourceAnchor**/**immutableID**. En matchning på **userPrincipalName** och **proxyAddresses** kallas för en **mjuk matchning**. En matchning på **sourceAnchor** kallas för **hård matchning**. För attributet **proxyAddresses** används endast värdet med **SMTP:**, det vill säga den primära e-postadressen, för utvärderingen.
+När du installerar Azure AD Connect och startar synkronisering görs en kontroll av Azure AD Sync-tjänsten (i Azure AD) för varje nytt objekt och försöker hitta ett befintligt objekt som ska matchas. Det finns tre attribut som används för den här processen: **userPrincipalName**, **proxyAddresses**och **sourceAnchor** / **immutableID**. En matchning på **userPrincipalName** och **proxyAddresses** kallas för en **mjuk matchning**. En matchning på **sourceAnchor** kallas för **hård matchning**. För attributet **proxyAddresses** används endast värdet med **SMTP:**, det vill säga den primära e-postadressen, för utvärderingen.
 
 Matchningen utvärderas endast för nya objekt som kommer från Connect. Om du ändrar ett befintligt objekt så att det matchar något av dessa attribut visas ett fel i stället.
 

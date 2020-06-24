@@ -4,15 +4,15 @@ description: Det här dokumentet innehåller optimerings tekniker efter migrerin
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: ce33651aae64d0a90264dde6da64b4044c6ce132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063626"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263100"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Optimerings steg efter migreringen när du använder Azure Cosmos DBs API för MongoDB
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig hur du:
 2. Från [Azure Portal](https://www.portal.azure.com/)öppnar du menyn **alla resurser** i den vänstra rutan och letar upp det Azure Cosmos DB konto som du har migrerat dina data till.
 3. Öppna bladet **anslutnings sträng** . Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
 4. Använd anslutnings informationen i programmets konfiguration (eller andra relevanta platser) för att återspegla Azure Cosmos DBens API för MongoDB-anslutning i din app.
-![Anslutnings sträng](./media/mongodb-post-migration/connection-string.png)
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Anslutnings sträng":::
 
 Mer information finns på sidan [Anslut ett MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) .
 

@@ -3,17 +3,17 @@ title: Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 description: Använd funktioner som loggning på klient sidan och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Cosmos DB problem när du använder .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c0f40b3c79c16046ef61e89cad72c714346d2674
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b24c0b045bc7d894496a59eda00f0e8835ea6a8d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672637"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887370"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -113,9 +113,11 @@ Om du fick följande 401-fel meddelande: "MAC-signaturen som hittades i HTTP-beg
 
 1. Nyckeln roterades och kunde inte följa de [bästa metoderna](secure-access-to-data.md#key-rotation). Detta är vanligt vis fallet. Cosmos DB konto nyckel rotationen kan ta var som helst från några sekunder till några dagar, beroende på Cosmos DB kontots storlek.
    1. 401 MAC-signaturen visas strax efter en nyckel rotation och upphör att gälla utan några ändringar. 
-2. Nyckeln är felkonfigurerad i programmet så nyckeln matchar inte kontot.
+1. Nyckeln är felkonfigurerad i programmet så nyckeln matchar inte kontot.
    1. 401 MAC-signaturen är konsekvent och inträffar för alla anrop
-3. Det finns ett tävlings villkor med att skapa behållare. En program instans försöker komma åt behållaren innan containern har skapats. Det vanligaste scenariot för detta om programmet körs och behållaren tas bort och återskapas med samma namn medan programmet körs. SDK: n kommer att försöka använda den nya behållaren, men behållar skapandet pågår fortfarande och har inte nycklarna.
+1. Programmet använder [skrivskyddade nycklar](secure-access-to-data.md#master-keys) för Skriv åtgärder.
+   1. 401 MAC-signaturkrav sker bara när programmet utför Skriv förfrågningar, men Läs begär Anden kommer att lyckas.
+1. Det finns ett tävlings villkor med att skapa behållare. En program instans försöker komma åt behållaren innan containern har skapats. Det vanligaste scenariot för detta om programmet körs och behållaren tas bort och återskapas med samma namn medan programmet körs. SDK: n kommer att försöka använda den nya behållaren, men behållar skapandet pågår fortfarande och har inte nycklarna.
    1. 401 MAC-signaturkrav visas strax efter att en container har skapats och endast inträffar förrän behållaren har skapats.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP-fel 400. Storleken på begärandehuvuden är för lång.

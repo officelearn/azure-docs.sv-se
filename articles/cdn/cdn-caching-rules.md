@@ -10,15 +10,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254248"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887860"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Kontrollera funktionssättet för Azure CDN-cachelagring med cachelagringsregler
 
@@ -75,7 +75,7 @@ För globala och anpassade regler för cachelagring kan du ange förfallo tid f�
 
 Två matchnings villkor är tillgängliga för anpassade cache-regler:
  
-- **Sökväg**: det här tillståndet matchar sökvägen till URL: en, exklusive domän namnet och stöder jokertecknet (\*). Till exempel _/myfile.html_, _/My/Folder/*_ och _/my/images/*. jpg_. Den maximala längden är 260 tecken.
+- **Sökväg**: det här tillståndet matchar sökvägen till URL: en, exklusive domän namnet och stöder jokertecknet ( \* ). Till exempel _/myfile.html_, _/My/Folder/*_ och _/my/images/*. jpg_. Den maximala längden är 260 tecken.
 
 - **Tillägg**: det här villkoret matchar fil namns tillägget för den begärda filen. Du kan ange en lista över kommaavgränsade fil namns tillägg som ska matchas. Till exempel _. jpg_, _. mp3_eller _. png_. Det maximala antalet tillägg är 50 och det maximala antalet tecken per tillägg är 16. 
 
@@ -103,7 +103,7 @@ Globala och anpassade regler för cachelagring bearbetas i följande ordning:
    - Beteende för cachelagring: **Ange om det saknas**
    - Förfallo tid för cache: 3 dagar
 
-När de här reglerna anges, ut#2 löser en begäran om azureedge.net/Home/index.html för _ &lt;slut punkts namn&gt;_., vilket är inställt på: **Ange om det saknas** och 3 dagar. Det innebär att om filen *index. html* har `Cache-Control` eller `Expires` innehåller HTTP-huvuden, kommer de att vara lösta. Annars, om dessa huvuden inte har angetts, cachelagras filen i tre dagar.
+När de här reglerna anges är en begäran om _ &lt; slut punkts namn &gt; _. azureedge.net/Home/index.html utlöser en anpassad regel för cachelagring #2, som är inställt på: **Ange om det saknas** och 3 dagar. Om *index.html* -filen har `Cache-Control` eller `Expires` http-huvuden, kommer de att bevaras. i annat fall cachelagras filen i tre dagar, om dessa huvuden inte har angetts.
 
 > [!NOTE] 
 > Filer som cachelagras före en regel ändring behåller sina inställningar för varaktighet för ursprungs cache. Om du vill återställa deras cache-varaktigheter måste du [Rensa filen](cdn-purge-endpoint.md). 

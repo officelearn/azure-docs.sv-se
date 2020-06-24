@@ -3,16 +3,16 @@ title: Identifiera rörelse-och genererar händelser – Azure
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse-och utsändnings händelser genom att programmatiskt anropa direkta metoder.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 4986ea13bec5382a8e0ef791e75442e4333e4356
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262028"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816713"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Snabb start: identifiera rörelse-och genererar händelser
 
-Den här snabb starten vägleder dig genom stegen för att komma igång med real tids video analys på IoT Edge. Den använder en virtuell Azure-dator som en IoT Edge enhet och en simulerad direktuppspelad video ström. När du har slutfört installations stegen kan du köra en simulerad real tids video ström genom ett medie diagram som identifierar och rapporterar en rörelse i den data strömmen. Diagrammet nedan visar en grafisk representation av det medie diagrammet.
+Den här snabb starten vägleder dig genom stegen för att komma igång med real tids video analys på IoT Edge. Den använder en virtuell Azure-dator som en IoT Edge-enhet och en simulerad livevideoström. När du har slutfört installations stegen kan du köra en simulerad real tids video ström genom ett medie diagram som identifierar och rapporterar en rörelse i den data strömmen. Följande diagram visar en grafisk representation av det medie diagrammet.
 
 ![Real video analys baserat på rörelse identifiering](./media/analyze-live-video/motion-detection.png) 
 
@@ -20,58 +20,57 @@ Den här artikeln baseras på [exempel kod](https://github.com/Azure-Samples/liv
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) på datorn med följande fil namns tillägg:
-    1. [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    2. [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) är installerat på datorn
+* Ett Azure-konto som har en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
+* [Visual Studio Code](https://code.visualstudio.com/) med följande fil namns tillägg:
+    * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
 
 > [!TIP]
-> Du kan uppmanas att installera Docker när du installerar tillägget Azure IoT tools. Du kan ignorera det.
+> Du kan uppmanas att installera Docker när du installerar tillägget Azure IoT-verktyg. Du kan ignorera prompten.
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
-Följande Azure-resurser krävs för den här självstudien.
+I den här självstudien krävs följande Azure-resurser:
 
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
 * Virtuella Linux-datorer i Azure, med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
 
-I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de Azure-resurser som nämns ovan i din Azure-prenumeration. Följ bara stegen nedan.
+I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
-1. Bläddra till https://shell.azure.com.
-1. Om det här är första gången du använder Cloud Shell uppmanas du att välja en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs. Välj "skapa lagring" för att skapa ett lagrings konto för att lagra Cloud Shell sessionsinformation. Det här lagrings kontot är skilt från det som skriptet skapar för användning med ditt Azure Media Services-konto.
-1. Välj "bash" som din miljö i list rutan till vänster i Shell-fönstret.
+1. Öppna [Azure Cloud Shell](https://shell.azure.com).
+1. Om du använder Cloud Shell för första gången uppmanas du att välja en prenumeration för att skapa ett lagrings konto och en Microsoft Azure fil resurs. Välj **skapa lagring** för att skapa ett lagrings konto för din Cloud Shell sessionsinformation. Det här lagrings kontot är skilt från det konto som skriptet kommer att skapa för att använda med ditt Azure Media Services-konto.
+1. I den nedrullningsbara menyn på vänster sida av Cloud Shells fönstret väljer du **bash** som din miljö.
 
     ![Miljö väljare](./media/quickstarts/env-selector.png)
 
-1. Kör följande kommando
+1. Kör följande kommando.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
-    Om skriptet har slutförts bör du se alla resurser som nämns ovan i din prenumeration.
+    Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration.
 
-1. När skriptet är klart klickar du på klammerparenteserna för att exponera mappstrukturen. Du kommer att se några filer som skapats under katalogen ~/clouddrive/lva-Sample. Intressanthet i den här snabb starten är:
+1. När skriptet har körts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer i katalogen *~/clouddrive/lva-Sample* . Intressanthet i den här snabb starten är:
 
-     * ~/clouddrive/lva-Sample/Edge-Deployment/.env-innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en gräns enhet
-     * ~/clouddrive/lva-Sample/AppSetting.JSON – används av Visual Studio Code för att köra exempel koden
+     * ***~/clouddrive/lva-Sample/Edge-Deployment/.env*** – den här filen innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
+     * ***~/clouddrive/lva-sample/appsetting.jspå*** -Visual Studio Code använder den här filen för att köra exempel koden.
      
-Du behöver dessa för att uppdatera filerna i Visual Studio Code senare i snabb starten. Du kanske vill kopiera dem till en lokal fil för tillfället.
-
+Du behöver dessa filer när du konfigurerar din utvecklings miljö i Visual Studio Code i nästa avsnitt. Du kanske vill kopiera dem till en lokal fil för tillfället.
 
  ![Appinställningar](./media/quickstarts/clouddrive.png)
 
 ## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
-1. Klona lagrings platsen härifrån https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
-1. Starta Visual Studio Code och öppna mappen där lagrings platsen har laddats ned till.
-1. I Visual Studio Code bläddrar du till mappen "src/Cloud-to-Device-console-app" och skapar en fil med namnet "appSettings. JSON". Den här filen innehåller de inställningar som krävs för att köra programmet.
-1. Kopiera innehållet från ~/clouddrive/lva-Sample/appSettings.JSON-filen som genererades i föregående avsnitt (se steg 5)
+1. Klona lagrings platsen från den här platsen: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
+1. Öppna mappen där lagrings platsen har hämtats i Visual Studio Code.
+1. I Visual Studio Code går du till mappen *src/Cloud-to-Device-console-app* . Där skapar du en fil och namnger den *appsettings.js*. Den här filen innehåller de inställningar som krävs för att köra programmet.
+1. Kopiera innehållet från *~/clouddrive/lva-Sample/-appsettings.jspå* filen som du skapade tidigare i den här snabb starten.
 
-    Texten bör se ut så här:
+    Texten bör se ut som följande utdata.
 
     ```
     {  
@@ -80,8 +79,8 @@ Du behöver dessa för att uppdatera filerna i Visual Studio Code senare i snabb
         "moduleId" : "lvaEdge"  
     }
     ```
-1. Bläddra sedan till mappen "src/Edge" och skapa en fil med namnet ". kuvert".
-1. Kopiera innehållet från/clouddrive/lva-Sample/Edge-Deployment/.env-filen. Texten bör se ut så här:
+1. Gå till mappen *src/Edge* och skapa en fil med namnet *. kuvert*.
+1. Kopiera innehållet i */clouddrive/lva-Sample/Edge-Deployment/.env* -filen. Texten bör se ut som i följande kod.
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -100,66 +99,74 @@ Du behöver dessa för att uppdatera filerna i Visual Studio Code senare i snabb
 
 ## <a name="examine-the-sample-files"></a>Granska exempelfilerna
 
-1. Bläddra till "src/Edge" i Visual Studio Code. Du kommer att se. kuvert filen som du skapade tillsammans med några filer för distributions mal len.
+1. I Visual Studio Code går du till *src/Edge*. Du ser *. kuvert* -filen och några mallar för distributions mal len.
 
-    Distributions mal len refererar till distributions manifestet för gräns enheten med några plats hållarnas värden. . Kuvert-filen innehåller värdena för dessa variabler.
-1. Bläddra sedan till mappen "src/Cloud-to-Device-console-app". Här visas den appSettings. JSON-fil som du skapade tillsammans med några andra filer:
+    Distributions mal len refererar till distributions manifestet för gräns enheten, där variabler används för vissa egenskaper. *. Kuvert* -filen innehåller värdena för variablerna.
+1. Gå till mappen *src/Cloud-to-Device-console-app* . Här ser du *appsettings.jspå* filen och några andra filer:
 
-    * C2D-console-app. CSPROJ – projekt filen för Visual Studio Code.
-    * Operations. JSON – den här filen listar de olika åtgärder som du vill att programmet ska köra.
-    * Program.cs – exempel koden, som gör följande:
+    * ***C2D-console-app. CSPROJ*** – projekt filen för Visual Studio Code.
+    * ***operations.js*** en lista över de åtgärder som du vill att programmet ska köra.
+    * ***Program.cs*** – exempel koden. Den här koden:
     
-        * Läser in appinställningar
-        * Anropar direkta metoder som exponeras av direktsänd video analys i IoT Edge modul. Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa dess [direkta metoder](direct-methods.md) 
-        * Pausar så att du kan granska utdata från programmet i TERMINALFÖNSTRET och de händelser som genererats av modulen i fönstret utdata
-        * Anropar direkta metoder för att rensa resurser   
+      * Läser in appinställningar.
+      * Anropar direkta metoder som exponeras av direktsänd video analys i IoT Edge modul. Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa dess [direkta metoder](direct-methods.md).
+      * Pausar så att du kan granska programmets utdata i **terminalfönstret** och granska de händelser som genererats av modulen i fönstret **utdata** .
+      * Anropar direkta metoder för att rensa resurser.   
 
-## <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Skapa och distribuera distributions manifestet för IoT Edge
+## <a name="generate-and-deploy-the-deployment-manifest"></a>Generera och distribuera distributions manifestet
 
-Distributions manifestet definierar vilka moduler som distribueras till en gräns enhet och konfigurations inställningar för dessa moduler. Följ de här stegen för att generera ett sådant manifest från mallfilen och distribuera det sedan till gräns enheten.
+Distributions manifestet definierar vilka moduler som distribueras till en Edge-enhet. Den definierar också konfigurations inställningar för dessa moduler. 
 
-1. Öppna Visual Studio Code
-1. Ange anslutnings strängen IoTHub genom att klicka på ikonen "fler åtgärder" bredvid fönstret AZURE IOT HUB i det nedre vänstra hörnet. Du kan kopiera strängen från filen src/Cloud-to-Device-console-app/appSettings. JSON. 
+Följ de här stegen för att generera manifestet från mallfilen och distribuera den sedan till gräns enheten.
+
+1. Öppna Visual Studio Code.
+1. Bredvid fönstret **Azure IoT Hub** väljer du ikonen **fler åtgärder** för att ange IoT Hub anslutnings sträng. Du kan kopiera strängen från filen *src/Cloud-to-Device-console-app/appsettings.jsi* filen. 
 
     ![Ange IOT-anslutningssträng](./media/quickstarts/set-iotconnection-string.png)
-1. Högerklicka sedan på filen "src/Edge/Deployment. template. JSON" och klicka på "generera IoT Edge distributions manifest".
-    ![Generera IoT Edge distributions manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    Detta bör skapa en manifest fil i src/Edge/config-mappen med namnet "Deployment. amd64. JSON".
-1. Högerklicka på "src/Edge/config/Deployment. amd64. JSON" och klicka på "skapa distribution för enskild enhet" och välj namnet på din Edge-enhet.
+1. Högerklicka på **src/Edge/deployment.template.jspå** och välj **generera IoT Edge distributions manifest**.
 
-    ![Skapa distribution för en enskild enhet](./media/quickstarts/create-deployment-single-device.png)
-1. Du uppmanas sedan att välja en IoT Hub enhet. Välj lva – exempel-Device i list rutan.
-1. Om 30 sekunder uppdaterar du Azure IOT Hub i det nedre vänstra avsnittet och ser till att gräns enheten har följande moduler distribuerade:
+    ![Generera distributions manifestet för IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    * Video analys i real tid för IoT Edge (Modulnamn "lvaEdge")
-    * RTSP Simulator (Modulnamn "rtspsim")
+    Den här åtgärden ska skapa en manifest fil med namnet *deployment.amd64.jspå* i mappen *src/Edge/config* .
+1. Högerklicka på **src/Edge/config/deployment.amd64.jspå**, Välj **skapa distribution för en enskild enhet**och välj sedan namnet på din Edge-enhet.
 
-RTSP Simulator-modulen simulerar en video ström med hjälp av en videofil som lagras som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). I det här skedet har du distribuerat modulerna men inga medie diagram är aktiva.
+    ![Skapa en distribution för en enskild enhet](./media/quickstarts/create-deployment-single-device.png)
 
-## <a name="prepare-for-monitoring-events"></a>Förbereda för övervaknings händelser
+1. När du uppmanas att välja en IoT Hub enhet väljer du **lva – exempel-Device** på den nedrullningsbara menyn.
+1. Efter cirka 30 sekunder, i det nedre vänstra hörnet i fönstret, uppdaterar du Azure IoT Hub. Gräns enheten visar nu följande distribuerade moduler:
 
-Du kommer att använda live video analys i IoT Edge-modulen för att identifiera rörelser i inkommande direktsända video strömmar och skicka händelser till IoT Hub. Följ dessa steg för att se de här händelserna:
+    * Video analys i real tid för IoT Edge (Modulnamn `lvaEdge` )
+    * RTSP-Simulator (Real Time Streaming Protocol) (Modulnamn `rtspsim` )
 
-1. Öppna Explorer-fönstret i Visual Studio Code och leta efter Azure-IoT Hub längst ned till vänster.
-1. Expandera noden enheter.
-1. Right-klinker på lva-Sample-Device och väljer alternativet "starta övervakning av inbyggd händelse övervakning".
+RTSP Simulator-modulen simulerar en real tids video ström med hjälp av en videofil som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
-    ![Starta övervakning av inbyggd händelse slut punkt](./media/quickstarts/start-monitoring-iothub-events.png)
+I det här skedet distribueras modulerna men inga medie diagram är aktiva.
+
+## <a name="prepare-to-monitor-events"></a>Förbereda övervakning av händelser
+
+Du använder live video analys i IoT Edge-modulen för att identifiera rörelser i inkommande video strömmar och skicka händelser till IoT Hub. Följ dessa steg om du vill se de här händelserna:
+
+1. Öppna Explorer-fönstret i Visual Studio Code och leta efter Azure-IoT Hub i det nedre vänstra hörnet.
+1. Expandera noden **enheter** .
+1. Högerklicka på **lva-Sample-Device** och välj **starta övervakning inbyggd händelse slut punkt**.
+
+    ![Starta övervakning av en inbyggd händelse slut punkt](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-sample-program"></a>Kör exempel programmet
 
-Följ stegen nedan för att köra exempel koden.
-1. I Visual Studio Code navigerar du till "src/Cloud-to-Device-console-app/Operations. JSON".
-1. Under noden GraphTopologySet kontrollerar du följande:
+Följ de här stegen för att köra exempel koden:
 
-    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Under noderna GraphInstanceSet och GraphTopologyDelete kontrollerar du att värdet för topologyName matchar värdet för egenskapen "namn" i ovanstående Graph-topologi:
+1. I Visual Studio Code går du till *src/Cloud-to-Device-console-app/operations.jspå*.
+1. Se till att du ser följande värde på **GraphTopologySet** -noden:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+1. På **GraphInstanceSet** -och **GraphTopologyDelete** -noderna kontrollerar du att värdet för `topologyName` motsvarar värdet för `name` egenskapen i graf-topologin:
 
     `"topologyName" : "MotionDetection"`
     
-1. Starta en felsökningssession (tryck på F5). Du kommer att börja se vissa meddelanden som skrivs ut i TERMINALFÖNSTRET.
-1. Operations. JSON börjar inte med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter, returnerar detta tomma listor och pausar sedan för att trycka på RETUR.
+1. Starta en felsökningssession genom att välja F5-nyckeln. I **terminalfönstret** visas vissa meddelanden.
+1. *operations.jspå* filen börjar med anrop till `GraphTopologyList` och `GraphInstanceList` . Om du har rensat resurser efter att du har avslutat tidigare snabb starter, returnerar den här processen tomma listor och pausar sedan. Fortsätt genom att välja retur nyckeln.
 
     ```
     --------------------------------------------------------------------------
@@ -176,56 +183,58 @@ Följ stegen nedan för att köra exempel koden.
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. När du trycker på "retur" i TERMINALFÖNSTRET görs nästa uppsättning direkta metod anrop
+
+    **Terminalfönstret** visar nästa uppsättning med direkta metod anrop:
      
-     * Ett anrop till GraphTopologySet med hjälp av topologyUrl ovan
-     * Ett anrop till GraphInstanceSet med hjälp av följande text
+     * Ett anrop till `GraphTopologySet` som använder föregående`topologyUrl`
+     * Ett anrop till `GraphInstanceSet` som använder följande text:
      
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph",
-       "properties": {
-         "topologyName": "MotionDetection",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph",
+           "properties": {
+             "topologyName": "MotionDetection",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
+               }
+             ]
            }
-         ]
-       }
-     }
-     ```
+         }
+         ```
      
-     * Ett anrop till GraphInstanceActivate för att starta graf-instansen och starta video flödet.
-     * Ett andra anrop till GraphInstanceList för att visa att graf-instansen faktiskt är i körnings läge.
-1. Utdata i TERMINALFÖNSTRET pausas nu vid frågan tryck på RETUR för att fortsätta. Tryck inte på RETUR för tillfället. Du kan rulla upp för att se nytto laster för JSON-svar för de direkta metoder som du har anropat
-1. Om du nu växlar till UTDATAFÖNSTRET i Visual Studio Code, visas meddelanden som skickas till IoT Hub, av live video analys i IoT Edge-modulen.
-     * Dessa meddelanden beskrivs i avsnittet nedan
-1. Medie grafen fortsätter att köras och utskrift av resultaten – RTSP-simulatorn kommer att fortsätta att Visa käll videon. För att stoppa medie diagrammet går du tillbaka till TERMINALFÖNSTRET och trycker på "Ange". Nästa serie anrop görs för att rensa resurser:
-     * Ett anrop till GraphInstanceDeactivate för att inaktivera graf-instansen
-     * Ett anrop till GraphInstanceDelete för att ta bort instansen
-     * Ett anrop till GraphTopologyDelete för att ta bort topologin
-     * Ett sista anrop till GraphTopologyList för att visa att listan nu är tom
+     * Ett anrop till `GraphInstanceActivate` som startar graf-instansen och video flödet
+     * Ett andra anrop till `GraphInstanceList` som visar att graf-instansen är i körnings tillstånd
+1. Utdata i **terminalfönstret** pausas vid `Press Enter to continue` . Välj inte retur än. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder du anropade.
+1. Växla till fönstret **utdata** i Visual Studio Code. Du ser meddelanden om att live video analys på IoT Edge modul skickas till IoT Hub. I följande avsnitt i den här snabb starten beskrivs dessa meddelanden.
+1. Medie diagrammet fortsätter att köra och skriva ut resultat. RTSP-simulatorn håller på att upprepa käll videon. Om du vill stoppa medie diagrammet går du tillbaka till **terminalfönstret** och väljer RETUR. 
+
+    Nästa serie anrop rensar resurser:
+     * Ett anrop för att `GraphInstanceDeactivate` inaktivera graf-instansen.
+     * Ett anrop för att `GraphInstanceDelete` ta bort instansen.
+     * Ett anrop för att `GraphTopologyDelete` ta bort topologin.
+     * Ett sista anrop till `GraphTopologyList` visar att listan är tom.
 
 ## <a name="interpret-results"></a>Tolka resultaten
 
-När du kör medie diagrammet skickas resultatet från noden för motion-detektorn via noden IoT Hub mottagare till IoT Hub. De meddelanden som visas i UTDATAFÖNSTRET i Visual Studio Code innehåller avsnittet "Body" och "applicationProperties". Läs [den här](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) artikeln för att förstå vad dessa avsnitt representerar.
+När du kör medie diagrammet passerar resultatet från noden för rörelse detektorn genom IoT Hub Sink-noden till IoT Hub. De meddelanden som visas i fönstret **utdata** i Visual Studio Code innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-I meddelandena nedan definieras program egenskaperna och innehållet i bröd texten av modulen live video analys.
+I följande meddelanden definierar modulen live video analys program egenskaperna och innehållet i bröd texten.
 
-## <a name="mediasession-established-event"></a>MediaSession-etablerad händelse
+### <a name="mediasessionestablished-event"></a>MediaSessionEstablished-händelse
 
-När ett medie diagram instansieras försöker RTSP-Källnoden att ansluta till RTSP-servern som körs på behållaren rtspsim-live555. Om det lyckas skrivs den här händelsen ut:
+När ett medie diagram instansieras försöker RTSP-Källnoden ansluta till RTSP-servern som körs i behållaren rtspsim-live555. Om anslutningen lyckas skrivs följande händelse ut.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  
@@ -243,16 +252,19 @@ När ett medie diagram instansieras försöker RTSP-Källnoden att ansluta till 
 }
 ```
 
-* Meddelandet är en diagnostisk händelse, MediaSessionEstablished, anger att noden RTSP-källa (ämnet) kunde upprätta en anslutning till RTSP-simulatorn och börja ta emot en (simulerad) live-feed.
-* "Subject" i applicationProperties refererar till noden i den graf-topologi som meddelandet genererades från. I det här fallet kommer meddelandet från noden RTSP-källa.
-* "eventType" i applicationProperties anger att det är en diagnostisk händelse.
-* "eventTime" anger den tidpunkt då händelsen inträffade.
-* "Body" innehåller data om den diagnostiska händelsen, som i det här fallet är [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) -information.
+I föregående utdata: 
+* Meddelandet är en Diagnostics-händelse `MediaSessionEstablished` . Det anger att RTSP-Källnoden (ämnet) är ansluten med RTSP-simulatorn och har börjat ta emot en (simulerad) live-feed.
+* I `applicationProperties` `subject` refererar refererar noden i den diagram sto pol Ogin från vilken meddelandet genererades. I det här fallet kommer meddelandet från noden RTSP-källa.
+* I `applicationProperties` `eventType` anger att den här händelsen är en diagnostisk händelse.
+* `eventTime`Värdet anger den tidpunkt då händelsen inträffade.
+* `body`Avsnittet innehåller information om Diagnostics-händelsen. I det här fallet innehåller informationen information om [session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) .
 
 
-## <a name="motion-detection-event"></a>Film identifierings händelse
+### <a name="motiondetection-event"></a>MotionDetection-händelse
 
-När motion identifieras skickar Live Video Analytics Edge-modulen en händelse för nedgradering. Typen har angetts till "Motion" för att visa att det är ett resultat från processen för identifiering av rörelser och att eventTime talar om vilken tid (UTC) som inträffar. Nedan visas ett exempel:
+När motion identifieras skickar live video analys i IoT Edge-modulen en händelse för nedgradering. `type`Anges till `motion` för att indikera att det är ett resultat från processen för identifiering av rörelser. `eventTime`Värdet visar när rörelsen (i UTC) ägde rum. 
+
+Här är ett exempel på det här meddelandet:
 
 ```
   {  
@@ -282,12 +294,14 @@ När motion identifieras skickar Live Video Analytics Edge-modulen en händelse 
 }  
 ```
 
-* "subject" i applicationProperties refererar noden i det medie diagram som meddelandet genererades från. I det här fallet kommer meddelandet från noden motion-identifiering.
-* "eventType" i applicationProperties anger att det är en analys händelse.
-* "eventTime" anger den tidpunkt då händelsen inträffade.
-"Body" innehåller data om Analytics-händelsen. I det här fallet är händelsen en utmatnings händelse och därför innehåller texten "timestamp" och "inferences"-data.
-* "inferences"-data anger att "typ" är "rörelse" och innehåller ytterligare information om händelsen "rörelse".
-* "box"-avsnittet innehåller koordinaterna för en avgränsnings ruta runt det flyttade objektet. Värdena normaliseras av videons bredd och höjd i bild punkter (t. ex. bredden på 1920 och höjden på 1080).
+I det här exemplet: 
+
+* I `applicationProperties` `subject` refererar den nod i medie diagrammet som meddelandet genererades från. I det här fallet kommer meddelandet från noden motion-identifiering.
+* I `applicationProperties` `eventType` anger att den här händelsen är en analys händelse.
+* `eventTime`Värdet är den tidpunkt då händelsen inträffade.
+* `body`Värdet är data om Analytics-händelsen. I det här fallet är händelsen en utfalls händelse, så texten innehåller `timestamp` och `inferences` data.
+* `inferences`Data indikerar att `type` är `motion` . Den innehåller ytterligare information om `motion` händelsen.
+* `box`Avsnittet innehåller koordinaterna för en avgränsnings ruta runt det flyttade objektet. Värdena normaliseras av videons bredd och höjd i bild punkter. Till exempel är bredden 1920 och höjden är 1080.
 
     ```
     l - distance from left of image
@@ -296,9 +310,9 @@ När motion identifieras skickar Live Video Analytics Edge-modulen en händelse 
     h - height of bounding box
     ```
     
-## <a name="cleanup-resources"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du avser att testa de andra snabb starterna ska du hålla på de resurser som skapats. Annars går du till Azure Portal, bläddrar till resurs grupper, väljer den resurs grupp under vilken du körde den här snabb starten och tar bort alla resurser.
+Om du tänker prova de andra snabb starterna bör du behålla de resurser du har skapat. Annars går du till dina resurs grupper i Azure Portal, väljer den resurs grupp där du körde den här snabb starten och tar sedan bort alla resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

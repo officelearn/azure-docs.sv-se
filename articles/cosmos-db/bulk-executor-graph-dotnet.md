@@ -4,16 +4,16 @@ description: Lär dig hur du använder bulk utförar-biblioteket för att import
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86d88787d024029b11d9718f8dbc834ae7217707
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982711"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260652"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -131,7 +131,7 @@ Den här lagringsplatsen innehåller GraphBulkExecutor-exemplet med följande fi
 Fil|Beskrivning
 ---|---
 `App.config`|Det här är där program- och databasspecifika parametrar anges. Den här filen ska först ändras för att ansluta till måldatabasen och -samlingarna.
-`Program.cs`| Den här filen innehåller logiken bakom skapandet `DocumentClient` av samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
+`Program.cs`| Den här filen innehåller logiken bakom skapandet av `DocumentClient` samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
 `Util.cs`| Den här filen innehåller en hjälpklass som innehåller logiken bakom att generera testdata och kontrollera om databasen och samlingarna finns.
 
 I `App.config`-filen är följande konfigurationsvärden som kan tillhandahållas:

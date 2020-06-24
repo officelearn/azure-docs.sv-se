@@ -4,16 +4,16 @@ description: Lär dig hur du övervakar prestanda och tillgänglighet för Azure
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0d675bd53eac728918c951b1db0dae0188f75df1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234936"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262794"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -27,11 +27,11 @@ Du kan övervaka dina data med mått på klient sidan och Server sidan. När du 
 
 * **Övervaka med diagnostikloggar i Azure Monitor:** Du kan övervaka loggarna för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Telemetri som händelser och spår som inträffar vid en andra kornig het lagras som loggar. Till exempel, om data flödet för en behållare är ändringar, ändras egenskaperna för ett Cosmos-konto och dessa händelser samlas in i loggarna. Du kan analysera dessa loggar genom att köra frågor på insamlade data. Mer information finns i avsnittet [analysera logg data](#analyze-log-data) i den här artikeln.
 
-* **Övervaka program mässigt med SDK: er:** Du kan övervaka ditt Azure Cosmos-konto program mässigt genom att använda SDK: er för .NET, Java, python, Node. js och rubrikerna i REST API. Mer information finns i avsnittet [övervakning Azure Cosmos DB program mässigt](#monitor-cosmosdb-programmatically) i den här artikeln.
+* **Övervaka program mässigt med SDK: er:** Du kan övervaka ditt Azure Cosmos-konto via programmering med hjälp av .NET, Java, python, Node.js SDK: er och rubrikerna i REST API. Mer information finns i avsnittet [övervakning Azure Cosmos DB program mässigt](#monitor-cosmosdb-programmatically) i den här artikeln.
 
 Följande bild visar olika alternativ som är tillgängliga för att övervaka Azure Cosmos DB konto via Azure Portal:
 
-![Tillgängliga övervaknings alternativ i Azure Portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Tillgängliga övervaknings alternativ i Azure Portal" border="false":::
 
 När du använder Azure Cosmos DB kan du på klient sidan samla in information om begär ande avgift, aktivitets-ID, undantag/stack spårnings information, HTTP-status/under status kod, diagnostisk sträng för att felsöka eventuella problem som kan uppstå. Den här informationen krävs också om du behöver kontakta Azure Cosmos DB support-teamet.  
 
@@ -62,7 +62,7 @@ Azure Cosmos DB samlar in samma typer av övervaknings data som andra Azure-resu
 
 På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en kort vy över databas användningen, inklusive begäran och fakturerings användningen per timme. Detta är användbar information, men bara en liten mängd tillgängliga övervaknings data. En del av dessa data samlas in automatiskt och är tillgängliga för analys så fort du skapar databasen, medan du kan aktivera ytterligare data insamling med en viss konfiguration.
 
-![Översikts sida](media/monitor-cosmos-db/overview-page.png)
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Översikts sida":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analysera mått data
 
@@ -82,27 +82,27 @@ Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänste
 
 1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
 
-   ![Mått fönstret i Azure Monitor](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Mått fönstret i Azure Monitor":::
 
 1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
 
-   ![Välj ett Cosmos DB konto om du vill visa mått](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Välj ett Cosmos DB konto om du vill visa mått":::
 
 1. Sedan kan du välja ett mått i listan över tillgängliga mått. Du kan välja mått som är speciella för att begära enheter, lagring, svars tid, tillgänglighet, Cassandra och andra. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](monitor-cosmos-db-reference.md) . I det här exemplet ska vi välja **enheter för programbegäran** och **AVG** som agg regerings värde.
 
    Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter. Du kan se det genomsnittliga antalet förbrukade enheter för programbegäran per minut för den valda perioden.  
 
-   ![Välj ett mått från Azure Portal](./media/monitor-cosmos-db/metric-types.png)
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Välj ett mått från Azure Portal":::
 
 ### <a name="add-filters-to-metrics"></a>Lägg till filter till mått
 
 Du kan också filtrera mått och diagrammet som visas av en speciell **samlings**-, **databasename**-, **OperationType**-, **region**-och **StatusCode**-värde. Om du vill filtrera måtten väljer du **Lägg till filter** och väljer önskad egenskap som **OperationType** och väljer ett värde, till exempel **fråga**. Diagrammet visar sedan de enheter för programbegäran som för bruk ATS för den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
 
-![Lägg till ett filter för att välja mått kornig het](./media/monitor-cosmos-db/add-metrics-filter.png)
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Lägg till ett filter för att välja mått kornig het":::
 
 Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan till exempel gruppera enheter för programbegäran per åtgärds typ och Visa grafen för alla åtgärder samtidigt som visas i följande bild:
 
-![Lägg till Använd delnings filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Lägg till Använd delnings filter":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analysera loggdata
 

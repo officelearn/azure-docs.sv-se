@@ -4,26 +4,24 @@ description: Du kan hantera DNS-zoner med Azure CLI. Den här artikeln visar hur
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
-ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30b0d6ab3ff9fa96e33154907e329c28b7ae7e63
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936929"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709087"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Hantera DNS-zoner i Azure DNS med Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Portalen](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
@@ -86,7 +84,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Få hjälp
 
-Alla Azure CLI-kommandon som är relaterade till `az network dns`Azure DNS börjar med. Hjälp är tillgängligt för varje kommando med `--help` alternativet (kort form `-h`).  Ett exempel:
+Alla Azure CLI-kommandon som är relaterade till Azure DNS börjar med `az network dns` . Hjälp är tillgängligt för varje kommando med `--help` alternativet (kort form `-h` ).  Ett exempel:
 
 ```azurecli
 az network dns --help
@@ -106,7 +104,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Så här skapar du en DNS-zon med Taggar
 
-I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager Taggar](dns-zones-records.md#tags), *Project = demo* och *Kuvert = test*med hjälp av `--tags` parametern (kort form `-t`):
+I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager Taggar](dns-zones-records.md#tags), *Project = demo* och *Kuvert = test*med hjälp av `--tags` parametern (kort form `-t` ):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -114,7 +112,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com -
 
 ## <a name="get-a-dns-zone"></a>Hämta en DNS-zon
 
-Använd `az network dns zone show`om du vill hämta en DNS-zon. Om du vill ha hjälp, så gå till `az network dns zone show --help`.
+Använd om du vill hämta en DNS-zon `az network dns zone show` . Om du vill ha hjälp, så gå till `az network dns zone show --help`.
 
 I följande exempel returneras DNS-zonen *contoso.com* och dess associerade data från resurs gruppen *MyResourceGroup*. 
 

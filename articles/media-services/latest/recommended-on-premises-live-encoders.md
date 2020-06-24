@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641810"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749935"
 ---
-# <a name="tested-on-premises-live-streaming-encoders"></a>Testade lokala direkt uppspelnings kodare
+# <a name="verified-on-premises-live-streaming-encoders"></a>Verifierade lokala direkt uppspelnings kodare
 
 I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av direktuppspelat innehåll. Live-händelsen tar emot direktsända indata strömmar på ett av två sätt.
 
@@ -29,7 +29,7 @@ I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/
  
 * En lokal Live-kodare skickar en data ström med en bit hastighet till den direktsända händelse som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Live-händelsen utför sedan direktsänd kodning av den inkommande data strömmen med en bit hastighet till en anpassningsbar video ström med flera bit hastigheter.
 
-I den här artikeln beskrivs testade lokala direkt uppspelnings kodare. Instruktioner för hur du verifierar din lokala Live-kodare finns i [Verifiera din lokala kodare](become-on-premises-encoder-partner.md)
+Den här artikeln beskriver verifierade lokala direkt uppspelnings kodare. Verifieringen görs via självverifierade leverantörer eller kundverifiering. Microsoft Azure Media Services är inte fullständig eller rigorös testning av varje kodare, och omverifierar inte kontinuerligt vid uppdateringar på nytt. Instruktioner för hur du verifierar din lokala Live-kodare finns i [Verifiera din lokala kodare](become-on-premises-encoder-partner.md)
 
 Detaljerad information om Live encoding med Media Services finns i [direkt uppspelning med Media Services v3](live-streaming-overview.md).
 
@@ -39,33 +39,38 @@ Kodare måste ha stöd för TLS 1,2 när du använder HTTPS-eller RTMP-protokoll
 
 ## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som utdata av RTMP
 
-Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds `rtmp://` är `rtmps://`eller.
+Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://` .
 
 Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.<br/><br/>
 Vid direktuppspelning via RTMPS ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 2935 och 2936 är öppna.
 
 > [!NOTE]
-> Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll.
+> Kodare måste ha stöd för TLS 1,2 när de använder RTMP-protokollen.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Blackmagic ATEM Mini-och ATEM-mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
 - Grundämne Live (version 2.14.15 och senare)
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hjälte 7 och hjälte 8
 - Haivision KB
 - Haivision Makito X HEVC
+- [Restream.io](https://restream.io/)
 - OBS Studio
-- Switcher Studio (iOS)
+- [Streamlabs ONLINEBANKSYSTEM](https://streamlabs.com/)
+- [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Wirecast för multistream (version 13.0.2 eller högre på grund av TLS 1,2-krav)
-- Multistream Wirecast S (endast RTMP stöds)
+- Multistream Wirecast S (endast RTMP stöds. Inga RTMP-stöd på grund av brist på TLS 1.2 +)
 - Teradek Slice 756
 - VMIX
 - xStream
-- [Ffmpeg](https://www.ffmpeg.org)
-- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hjälte 7 och hjälte 8
-- [Restream.io](https://restream.io/)
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som utdata fragmenterade MP4
+> [!WARNING]
+> Listan över kodare är bara en rekommendations lista. Kodare testas eller verifieras inte av Microsoft på kontinuerlig basis och uppdateringar eller avbrotts ändringar kan införas av Encoder-leverantörer eller projekt med öppen källkod som kan bryta kompatibiliteten. 
 
-Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds `http://` är `https://`eller.
+## <a name="live-encoders-that-output-fragmented-mp4-smooth-streaming-ingest"></a>Live-kodare som visar fragmenterad MP4 (Smooth Streaming inmatning)
+
+Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds är `http://` eller `https://` .
 
 > [!NOTE]
 > Kodare måste ha stöd för TLS 1,2 när de använder HTTPS-protokoll.
@@ -74,12 +79,15 @@ Media Services rekommenderar att du använder någon av följande Live-kodare me
 - Cisco Digital Media Encoder 2200
 - Grundämne Live (version 2.14.15 och högre på grund av kraven för TLS 1,2)
 - Envivio 4Caster C4 Gen III 
+- [Ffmpeg](https://www.ffmpeg.org)
 - Föreställ dig Selenio-MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
-- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Om du strömmar Live-händelser på flera språk (till exempel ett engelskt ljud spår och ett spanskt ljud spår) kan du göra detta med mediet för Live-kodare i media som kon figurer ATS för att skicka Live-flödet till en direkt sändnings händelse.
+
+> [!WARNING]
+> Listan över kodare är bara en rekommendations lista. Kodare testas eller verifieras inte av Microsoft på kontinuerlig basis och support eller buggar kan introduceras av kodarens leverantörer eller med projekt med öppen källkod som bryter kompatibiliteten när som helst. 
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera lokala inställningar för Live-kodare
 
@@ -95,8 +103,10 @@ Om du vill spela upp innehåll måste både ljud-och video strömmar finnas. Det
 - När du bestämmer bandbredds kraven kan du dubblera bit hastigheterna för strömmande data. Även om detta inte är obligatoriskt bidrar den här enkla regeln till att minimera påverkan av nätverks belastning.
 - När du använder programvarubaserade kodare, Stäng alla onödiga program.
 - Om du ändrar konfigurationen för konfigurationen efter det att sändningen har startat, har det negativa effekter på evenemanget. Konfigurations ändringar kan orsaka att händelsen blir instabil. 
+- Testa alltid och validera nya versioner av kod program vara för fortsatt kompatibilitet med Azure Media Services. Microsoft omvaliderar inte kodare i den här listan och de flesta verifieringar utförs av program varu leverantörerna direkt som en "själv certifiering".
 - Se till att du ger dig tid att konfigurera evenemanget. För storskaliga händelser rekommenderar vi att du startar installationen en timme före evenemanget.
-- Använd H. 264-videon och AAC-ljud-codec-resultatet.
+- Använd H. 264 video-och AAC-LC-ljud-codec-utdata.
+- Håll dig till lösningar som stöds och bild frekvenser för den typ av direkt sändnings händelse som du skickar till (till exempel 60FPS för närvarande nekas.)
 - Se till att det finns nyckel bilds-eller GOP temporal justering över video kvaliteter.
 - Se till att det finns ett unikt ström namn för varje video kvalitet.
 - Använd strikt CBR-kodning som rekommenderas för bästa prestanda för anpassad bit hastighet.

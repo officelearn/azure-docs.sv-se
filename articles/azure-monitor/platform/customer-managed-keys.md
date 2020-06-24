@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/20/2020
-ms.openlocfilehash: 9a80adbbeda2754f9f08a4d2f16b8caf9263b087
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/11/2020
+ms.openlocfilehash: 6e3a4b61c86d476a9e5c5a0392c51a72f06f048d
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340867"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761339"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -29,7 +29,7 @@ Azure Monitor krypterings användningen är identisk med hur [Azure Storage kry
 
 Med CMK kan du kontrol lera åtkomsten till dina data och återkalla den när du vill. Azure Monitor Storage respekterar alltid ändringar i nyckel behörigheter inom en timme. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
 
-CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd din Microsoft-kontakt för att hämta din prenumerations vit listas innan du börjar konfigurera CMK.
+CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten innan du börjar konfigurera CMK.
 
  [Pris modellen Log Analytics kluster](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)   använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
 
@@ -69,16 +69,16 @@ Följande regler gäller:
 
 ## <a name="cmk-provisioning-procedure"></a>Etablerings procedur för CMK
 
-1. Prenumerations-vit listning – CMK-funktionen levereras på dedikerade Log Analytics kluster. För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd din Microsoft-kontakt för att få din prenumeration vit listas
+1. Tillåter prenumeration – CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten.
 2. Skapa Azure Key Vault och lagra nyckel
 3. Skapa en *kluster* resurs
 4. Bevilja behörighet till din Key Vault
 5. Associera Log Analytics-arbetsytor
 
-Proceduren stöds för närvarande inte i användar gränssnittet och etablerings processen utförs via REST API.
+Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell eller REST-begäranden.
 
 > [!IMPORTANT]
-> Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
+> Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
 Ett exempel:
 
@@ -100,12 +100,12 @@ Du kan hämta token med någon av följande metoder:
 
 ### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och status kontroll
 
-Några av åtgärderna i den här konfigurations proceduren körs asynkront eftersom de inte kan slutföras snabbt. Svaret för asynkron åtgärd returnerar ursprungligen HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation-* egenskapen när den godkänns:
+Några av åtgärderna i den här konfigurations proceduren körs asynkront eftersom de inte kan slutföras snabbt. När du använder REST-begäranden i konfigurationen returnerar svaret från början en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation* -egenskapen när den godkänns:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
-Du kan kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
+Sedan kan du kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -172,9 +172,9 @@ Detta är inte relevant när du tar bort ett *kluster* utan någon kopplad arbet
 }
 ```
 
-### <a name="subscription-whitelisting"></a>Vit listning för prenumeration
+### <a name="allowing-subscription-for-cmk-deployment"></a>Tillåter prenumeration för CMK-distribution
 
-CMK-funktionen levereras på dedikerade Log Analytics-kluster.För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd dina kontakter i Microsoft för att tillhandahålla dina prenumerations-ID: n.
+CMK-funktionen levereras på dedikerade Log Analytics-kluster.För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd dina kontakter i Microsoft för att tillhandahålla dina prenumerations-ID: n.
 
 > [!IMPORTANT]
 > CMK-funktionen är regional. Din Azure Key Vault, *kluster* resurs och associerade Log Analytics arbets ytor måste finnas i samma region, men de kan finnas i olika prenumerationer.
@@ -191,7 +191,7 @@ De här inställningarna är tillgängliga via CLI och PowerShell:
 
 ### <a name="create-cluster-resource"></a>Skapa *kluster* resurs
 
-Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har vit listas skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns.
+Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har tillåtits, skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns.
 
 Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
@@ -200,11 +200,21 @@ Egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* re
 - *Arbets ytor* – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret, där *kluster* resursen faktureras viss användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen. 
 
 > [!NOTE]
-> När du har skapat en *kluster* resurs kan du uppdatera den med *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch rest-begäran.
+> * När du har skapat en *kluster* resurs kan du uppdatera den med *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch rest-begäran.
+> * Du kan uppdatera *billingType* med rest-begäran för närvarande, detta stöds inte i PowerShell
 
-**Skapa**
+Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
-Den här Resource Manager-begäran är asynkron åtgärd.
+> [!IMPORTANT]
+> Kopiera och spara svaret eftersom du kommer att behöva informationen i nästa steg.
+> 
+**PowerShell**
+
+```powershell
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} 
+```
+
+**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -242,9 +252,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-> [!IMPORTANT]
-> Kopiera och spara svaret eftersom du kommer att behöva informationen i nästa steg.
-
 **Svar**
 
 ```json
@@ -261,7 +268,6 @@ Authorization: Bearer <token>
     },
   "properties": {
     "provisioningState": "ProvisioningAccount",
-    "clusterType": "LogAnalytics",
     "billingType": "cluster",
     "clusterId": "cluster-id"
     },
@@ -276,10 +282,10 @@ GUID för "principalId" genereras av den hanterade identitets tjänsten för *kl
 
 ### <a name="grant-key-vault-permissions"></a>Bevilja Key Vault behörigheter
 
-Uppdatera din Key Vault med en ny åtkomst princip som ger behörighet till *kluster* resursen. Dessa behörigheter används av Underlay Azure Monitor Storage för data kryptering. Öppna din Key Vault i Azure Portal och klicka på "åtkomst principer" och sedan "+ Lägg till åtkomst princip" för att skapa en princip med följande inställningar:
+Uppdatera din Key Vault med en ny åtkomst princip som beviljar behörigheter till *kluster* resursen. Dessa behörigheter används av Underlay Azure Monitor Storage för data kryptering. Öppna din Key Vault i Azure Portal och klicka på "åtkomst principer" och sedan "+ Lägg till åtkomst princip" för att skapa en princip med följande inställningar:
 
 - Nyckel behörigheter: Välj get-, wrap-och unwrap Key-behörigheter.
-- Välj huvud namn: Ange det huvud-ID-värde som returnerades i svaret i föregående steg.
+- Välj huvud namn: Ange det *kluster* resurs namn eller huvud-ID-värde som returnerades i svaret i föregående steg.
 
 ![bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -295,12 +301,18 @@ Om du vill uppdatera *kluster* resursen med information om Key Vault *nyckel ide
 
 Uppdatera *kluster* resursens KeyVaultProperties med information om nyckel identifierare.
 
-**Uppdatera**
+Den här åtgärden är asynkron vid uppdatering av nyckel-ID-information och kan ta en stund att slutföra. Den är synkron vid uppdatering av kapacitet svärdet.
 
-Den här Resource Manager-begäran är asynkron åtgärd vid uppdatering av nyckel-ID-information, medan den är synkron vid uppdatering av kapacitet svärdet.
+**PowerShell**
+
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
+```
+
+**REST**
 
 > [!NOTE]
-> Du kan ange del brödtext i *kluster* resursen för att uppdatera en *SKU*, *keyVaultProperties* eller *billingType*.
+> Du kan uppdatera *kluster* resursen *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -357,7 +369,6 @@ Ett svar på GET-begäran på *kluster* resursen bör se ut så här när nyckel
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
     "billingType": "cluster",
     "clusterId": "cluster-id"
   },
@@ -378,9 +389,16 @@ Du måste ha behörigheten "Skriv" till både din arbets yta och *kluster* resur
 > [!IMPORTANT]
 > Det här steget bör endast utföras när Log Analytics kluster etableringen har slutförts. Om du associerar arbets ytor och matar in data före etableringen tas inmatade data bort och går inte att återskapa.
 
-**Koppla en arbets yta**
+Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
-Den här Resource Manager-begäran är asynkron åtgärd.
+**PowerShell**
+
+```powershell
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
+```
+
+**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -457,6 +475,14 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 ## <a name="cmk-manage"></a>Hantera CMK
 
 - **Hämta alla *kluster* resurser för en resurs grupp**
+  
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name}
+  ```
+
+  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -486,7 +512,6 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
               "keyVersion": "current-version"
               },
           "provisioningState": "Succeeded",
-          "clusterType": "LogAnalytics", 
           "billingType": "cluster",
           "clusterId": "cluster-id"
         },
@@ -500,6 +525,14 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
   ```
 
 - **Hämta alla *kluster* resurser för en prenumeration**
+  
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsCluster
+  ```
+
+  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -514,8 +547,19 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
   När data volymen till dina associerade arbets ytor ändras med tiden och du vill uppdatera kapacitets reservations nivån korrekt. Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange ditt nya kapacitets värde. Det kan vara mellan 1 000 och 2 000 GB per dag och i steg om 100. För högre nivå än 2 000 GB per dag når du din Microsoft-kontakt för att aktivera den. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla SKU: n:
 
-  **brödtext**
-  ```json
+  **PowerShell**
+
+  ```powershell
+  Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -SkuCapacity {daily-ingestion-gigabyte}
+  ```
+
+  **REST**
+   
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "sku": {
       "name": "capacityReservation",
@@ -532,8 +576,11 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
   
   Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange det nya billingType-värdet. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla *billingType*:
 
-  **brödtext**
-  ```json
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "properties": {
       "billingType": "cluster",
@@ -545,7 +592,15 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
   Du behöver Skriv behörighet för arbets ytan och *kluster* resursen för att utföra den här åtgärden. Du kan när som helst ta bort en arbets yta från *kluster* resursen. Nya inmatade data efter borttagningen av associationen lagras i Log Analytics lagring och krypteras med Microsoft-nyckel. Du kan fråga dig om data som har matats in till din arbets yta innan och efter associationen sömlöst så länge som *kluster* resursen är etablerad och konfigurerad med giltig Key Vault nyckel.
 
-  Den här Resource Manager-begäran är asynkron åtgärd.
+  Den här åtgärden är asynkron och kan vara en stund att slutföra.
+
+  **PowerShell**
+
+  ```powershell
+  Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -Name {workspace-name} -LinkedServiceName cluster
+  ```
+
+  **REST**
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
@@ -561,10 +616,28 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
   1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka en [arbets yta – get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) -begäran och Observera att svaret, den Avassocierade arbets ytan inte har *clusterResourceId* under *funktioner*.
 
+- **Kontrol lera Association status för arbets ytan** Utför åtgärden Hämta på arbets ytan och kontrol lera om *clusterId* finns i svaret. Den associerade arbets ytan kommer att ha *clusterId* -egenskapen.
+
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsWorkspace -ResourceGroupName {resource-group-name} -Name {workspace-name}
+  ```
+
 - **Ta bort *kluster* resursen**
 
-  Du behöver Skriv behörighet för *kluster* resursen för att utföra den här åtgärden. En mjuk borttagnings åtgärd utförs för att tillåta återställning av *kluster* resursen, inklusive dess data inom 14 dagar, om borttagningen var oavsiktlig eller avsiktlig. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Efter den mjuka borttagnings perioden släpps *kluster* resurs namnet, *kluster* resursen och data tas bort permanent och går inte att återställa. En associerad arbets yta kopplas bort från *kluster* resursen vid borttagnings åtgärden. Nya inmatade data lagras i Log Analytics lagring och krypteras med Microsoft-nyckel. Den Avassocierade arbets ytans åtgärd är asynkron och kan ta upp till 90 minuter att slutföra.
+  Du behöver Skriv behörighet för *kluster* resursen för att utföra den här åtgärden. En mjuk borttagnings åtgärd utförs för att tillåta återställning av *kluster* resursen, inklusive dess data inom 14 dagar, om borttagningen var oavsiktlig eller avsiktlig. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Efter den mjuka borttagnings perioden släpps *kluster* resurs namnet, *kluster* resursen och data tas bort permanent och går inte att återställa. En associerad arbets yta kopplas bort från *kluster* resursen vid borttagnings åtgärden. Nya inmatade data lagras i Log Analytics lagring och krypteras med Microsoft-nyckel. 
+  
+  Den Avassocierade arbets ytans åtgärd är asynkron och kan ta upp till 90 minuter att slutföra.
 
+  **PowerShell**
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}
+  ```
+
+  **REST**
+  
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -590,8 +663,10 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
 -CMK kryptering gäller nyligen inmatade data efter CMK-      konfigurationen.Data som matats in före CMK      -konfigurationen förblir krypterade med Microsoft-nyckeln.Du kan fråga efter data som matats in      före och efter CMK-konfigurationen sömlöst.
 
--Azure Key Vault måste konfigureras som återställnings Bart.De här egenskaperna är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:    -  [mjuk](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)borttagning 
-      måste aktive ras för    -  [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   att skydda mot Tvingad borttagning av hemligheten/valvet även efter mjuk borttagning.
+-Azure Key Vault måste konfigureras som återställnings Bart.Dessa egenskaper är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:
+
+  - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
+      Du måste aktivera    -  [rensnings skyddet](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   för att skydda mot Tvingad borttagning av hemligheten/valvet även efter en mjuk borttagning.
 
 - *Kluster*   Det finns      för närvarande inte stöd för att flytta resurser till en annan resurs grupp eller prenumeration.
 

@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79240928"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690956"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägg till en gästanvändare med PowerShell
 
@@ -69,13 +69,13 @@ Kör följande kommando för att ansluta till klientorganisationens domän:
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-Till exempel `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+Exempelvis `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 Ange dina autentiseringsuppgifter när du uppmanas att göra det.
 
 ## <a name="send-an-invitation"></a>Skicka en inbjudan
 
-1. Om du vill skicka en inbjudan till test-e-postkontot kör du följande PowerShell-kommando (Ersätt **"Sanda"** och **Sanda\@fabrikam.com** med ditt test-e-postkonto och e-postadress): 
+1. Om du vill skicka en inbjudan till test-e-postkontot kör du följande PowerShell-kommando (Ersätt **"Sanda"** och **Sanda \@ fabrikam.com** med ditt test-e-postkonto och e-postadress): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
@@ -91,7 +91,7 @@ Ange dina autentiseringsuppgifter när du uppmanas att göra det.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Kontrol lera utdata för att se till att den användare som du har bjudit in visas, med ett User Principal Name (UPN) i formatet *EmailAddress*#EXT #\@*Domain*. Till exempel *sanda_fabrikam. com # ext #\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
+3. Kontrol lera utdata för att se till att den användare som du har bjudit in visas, med ett User Principal Name (UPN) i formatet *emailaddress*#EXT # \@ *Domain*. Till exempel *sanda_fabrikam. com # ext # \@ contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
 
    ![PowerShell-utdata som visar att gästanvändaren har lagts till](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3454909707b1f9a8a515ff4432cfb4bf75a20f6e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 26c48c84521946ff748ca960b8060cc973640eb3
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509278"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888412"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering på Azure Files
 
@@ -24,7 +24,7 @@ En översikt över Azure AD-autentisering över SMB för Azure-filresurser finns
 > Azure Files stöder Kerberos-autentisering med Azure AD DS med RC4-HMAC-kryptering. AES Kerberos-kryptering stöds inte ännu.
 > Azure Files stöder autentisering för Azure AD DS med fullständig synkronisering med Azure AD. Om du har aktiverat begränsad synkronisering i Azure AD DS som bara synkroniserar en begränsad uppsättning identiteter från Azure AD, stöds inte autentisering och auktorisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol lera att du har slutfört följande krav:
 
@@ -55,6 +55,10 @@ Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol l
 1.  **Verifiera Azure Files anslutningen genom att montera Azure-filresurser med hjälp av lagrings konto nyckeln.**
 
     Om du vill kontrol lera att den virtuella datorn och fil resursen är korrekt konfigurerade kan du försöka att montera fil resursen med din lagrings konto nyckel. Mer information finns i [montera en Azure-filresurs och få åtkomst till resursen i Windows](storage-how-to-use-files-windows.md).
+
+## <a name="regional-availability"></a>Regional tillgänglighet
+
+Azure Files autentisering med Azure AD DS är tillgänglig i [alla offentliga Azure-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Översikt över arbets flödet
 

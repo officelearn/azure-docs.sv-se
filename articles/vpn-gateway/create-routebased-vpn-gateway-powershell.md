@@ -4,15 +4,15 @@ description: Skapa snabbt en Route-baserad VPN Gateway med PowerShell
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cd0971b04d1bad140cf3aac29a8c153977cfa62
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152966"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987651"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Skapa en Route-baserad VPN-gateway med PowerShell
 
@@ -20,7 +20,7 @@ Den här artikeln hjälper dig att snabbt skapa en Route-baserad Azure VPN-gatew
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 

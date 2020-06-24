@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247673"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255168"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -116,7 +116,7 @@ Följande tabell beskriver hur datakällans storlek bestäms.
 **Datakälla** | **Information**
 --- | ---
 Volym |Den mängd data som säkerhetskopieras från en virtuell dator med en enskild volym som säkerhetskopieras.
-SQL Server-databas |Storleken på en enskild SQL-databas som säkerhetskopieras.
+SQL Server-databas |Storlek på den enkla databas storleken som säkerhets kopie ras.
 SharePoint | Summan av innehållet och konfigurationsdatabaserna i en SharePoint-servergrupp som säkerhetskopieras.
 Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras.
 BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på den dator som säkerhetskopieras.

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648822"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117235"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -28,13 +28,7 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 
 ## <a name="matrix-of-networking-features"></a>Matris med nätverksfunktioner
 
-|                |[Förbruknings plan](functions-scale.md#consumption-plan)|[Premiumplan](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Inkommande IP-begränsningar och åtkomst till privata platser](#inbound-ip-restrictions)|✅Ja|✅Ja|✅Ja|✅Ja|
-|[Integrering av virtuella nätverk](#virtual-network-integration)|❌Inga|✅Ja (regional)|✅Ja (regional och gateway)|✅Ja|
-|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌Inga| ✅Ja |✅Ja|✅Ja|
-|[Hybrid anslutningar](#hybrid-connections) (endast Windows)|❌Inga|✅Ja|✅Ja|✅Ja|
-|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌Inga| ✅Ja|✅Ja|✅Ja|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
 
@@ -139,6 +133,12 @@ Mer information finns i [App Service dokumentationen för hybridanslutningar](..
 Utgående IP-begränsningar är tillgängliga i en Premium-plan, App Service plan eller App Service-miljön. Du kan konfigurera utgående begränsningar för det virtuella nätverk där App Service-miljön har distribuerats.
 
 När du integrerar en Function-app i en Premium-plan eller en App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet som standard. Genom att lägga till program inställningen `WEBSITE_VNET_ROUTE_ALL=1` tvingar du all utgående trafik att skickas till det virtuella nätverket, där regler för nätverks säkerhets grupper kan användas för att begränsa trafiken.
+
+## <a name="automation"></a>Automation
+Med följande API: er kan du hantera regionala virtuella nätverks integreringar program mässigt:
+
++ **Azure CLI**: Använd [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) kommandona för att lägga till, Visa eller ta bort en regional integrering av virtuella nätverk.  
++ **Arm-mallar**: regional integrering av virtuella nätverk kan aktive ras med hjälp av en Azure Resource Manager mall. Ett fullständigt exempel finns i [snabb starts mal len för funktioner](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Felsökning
 

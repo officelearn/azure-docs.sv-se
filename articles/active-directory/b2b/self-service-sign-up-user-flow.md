@@ -4,20 +4,19 @@ description: Federera med Facebook och aktivera externa användare (gäster) fö
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aadbe07c5bb22c23ac32e46fdf7f102cdd33989a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9eabee8e287d29f3a3a01b63b0d79da651be9082
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673111"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886479"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Lägga till ett användar flöde för självbetjänings registrering i en app (för hands version)
 |     |
@@ -109,5 +108,5 @@ Nu kan du koppla program till användar flödet.
 
 - [Lägg till Google i din lista över sociala identitets leverantörer](google-federation.md)
 - [Lägg till Facebook i listan över sociala identitets leverantörer](facebook-federation.md)
-<!-- - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md) -->
-<!-- - [Add custom approval to your user flow](self-service-sign-up-add-approvals.md) -->
+- [Använd API-kopplingar för att anpassa och utöka dina användar flöden via webb-API: er](api-connectors-overview.md)
+- [Lägg till anpassat godkännande arbets flöde i ditt användar flöde](self-service-sign-up-add-approvals.md)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744003"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080824"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extrahering av diskussionsämne kognitiva kunskaper
 
@@ -24,7 +24,7 @@ Den här funktionen är användbar om du snabbt behöver identifiera de viktigas
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -39,24 +39,35 @@ Parametrar är skiftlägeskänsliga.
 
 | Indata                | Beskrivning |
 |---------------------|-------------|
-| defaultLanguageCode | Valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk.  Om standard språk koden inte anges används engelska (en) som standard språk kod. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | Valfritt Det maximala antalet nyckel fraser som ska skapas. |
+| `defaultLanguageCode` | Valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk.  Om standard språk koden inte anges används engelska (en) som standard språk kod. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `maxKeyPhraseCount`   | Valfritt Det maximala antalet nyckel fraser som ska skapas. |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Indata  | Beskrivning |
 |--------------------|-------------|
-| text | Den text som ska analyseras.|
-| languageCode  |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `text` | Den text som ska analyseras.|
+| `languageCode`    |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
-| Utdata  | Beskrivning |
+| Utdata     | Beskrivning |
 |--------------------|-------------|
-| keyPhrases | En lista med nyckel fraser extraherade från inmatad text. Viktiga fraser returneras i prioritetsordning. |
+| `keyPhrases` | En lista med nyckel fraser extraherade från inmatad text. Viktiga fraser returneras i prioritetsordning. |
 
 
 ##  <a name="sample-definition"></a>Exempel definition
+
+Överväg en SQL-post med följande fält:
+
+```json
+{
+    "content": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
+    "language": "en"
+}
+```
+
+Sedan kan din kunskaps definition se ut så här:
 
 ```json
  {
@@ -68,7 +79,7 @@ Parametrar är skiftlägeskänsliga.
       },
       {
         "name": "languageCode",
-        "source": "/document/languagecode" 
+        "source": "/document/language" 
       }
     ],
     "outputs": [
@@ -80,33 +91,12 @@ Parametrar är skiftlägeskänsliga.
   }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
-             "language": "en"
-           }
-      }
-    ]
-```
-
-
 ##  <a name="sample-output"></a>Exempel på utdata
 
+I exemplet ovan skrivs resultatet av din färdighet till en ny nod i det fördjupade trädet "Document/myKeyPhrases" eftersom det är det `targetName` som vi har angett. Om du inte anger någon `targetName` , blir det "dokument/diskussions fraser".
+
+#### <a name="documentmykeyphrases"></a>Document/myKeyPhrases 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-            "keyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
@@ -115,12 +105,9 @@ Parametrar är skiftlägeskänsliga.
               "Mount Everest region",
               "Continued warming"
             ]
-           }
-      }
-    ]
-}
 ```
 
+Du kan använda "Document/myKeyPhrases" som indata till andra kunskaper eller som en källa till en [mappning](cognitive-search-output-field-mapping.md)av ett fält för utdata.
 
 ## <a name="errors-and-warnings"></a>Fel och varningar
 Om du anger en språk kod som inte stöds genereras ett fel och nyckel fraser extraheras inte.
@@ -131,3 +118,4 @@ Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen 
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Definiera mappningar för utdata-fält](cognitive-search-output-field-mapping.md)

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259973"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707743"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
@@ -71,7 +71,7 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 
     ![Ta bort Data Box Disk-order 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **ta bort**.
+3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **Ta bort**.
 
      ![Ta bort Data Box Disk-order 2](media/data-box-portal-ui-admin/delete-order2.png)
 
@@ -128,7 +128,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azure-datacentret laddas data automatiskt upp till Azure.         |
 |Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
-|Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
+|Slutförd       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska fel loggarna för uppladdning med hjälp av sökvägen som anges i **översikten**. Mer information finns i [Ladda ned fel loggar för uppladdning](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern.     |
 

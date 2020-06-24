@@ -1,18 +1,19 @@
 ---
 title: Schemalagda händelser för virtuella Linux-datorer i Azure
 description: Schemalägg händelser med hjälp av Azure Metadata Service för virtuella Linux-datorer.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: mimckitt
-ms.openlocfilehash: 1f34066b9f8fa16a2889c1872ebfd3f8cf33ee69
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418117"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262114"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 

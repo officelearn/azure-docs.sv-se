@@ -6,14 +6,15 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.reviewer: shvija
+ms.openlocfilehash: 0c572723c493847ed15f80948511d1cc993fa7e1
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992801"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298760"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Auktorisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst
 En signatur för delad åtkomst (SAS) ger dig ett sätt att bevilja begränsad åtkomst till resurser i din Event Hubs-namnrymd. SAS skyddar åtkomsten till Event Hubs resurser baserat på auktoriseringsregler. Dessa regler konfigureras antingen i ett namn område eller i en entitet (händelsehubben eller ett ämne). Den här artikeln innehåller en översikt över SAS-modellen och granskar bästa praxis för SAS.
@@ -33,7 +34,7 @@ SAS är en anspråksbaserad mekanism för auktorisering med hjälp av enkla toke
 
 ## <a name="shared-access-authorization-policies"></a>Auktoriseringsprinciper för delad åtkomst
 Varje Event Hubs-namnrymd och varje Event Hubs entitet (en Event Hub-instans eller ett Kafka-ämne) har en princip för delad åtkomst som består av regler. Principen på namn områdes nivån gäller för alla entiteter i namn området, oavsett deras enskilda princip konfiguration.
-För varje auktoriseringsregel bestämmer du om tre delar av information: namn, omfattning och rättigheter. Namnet är ett unikt namn i det omfånget. Omfånget är URI: n för den aktuella resursen. För ett Event Hubs-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till `https://<yournamespace>.servicebus.windows.net/`exempel.
+För varje auktoriseringsregel bestämmer du om tre delar av information: namn, omfattning och rättigheter. Namnet är ett unikt namn i det omfånget. Omfånget är URI: n för den aktuella resursen. För ett Event Hubs-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till exempel `https://<yournamespace>.servicebus.windows.net/` .
 
 Rättigheterna som anges i princip regeln kan vara en kombination av:
 - **Skicka** – ger behörighet att skicka meddelanden till entiteten

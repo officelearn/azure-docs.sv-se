@@ -4,15 +4,15 @@ description: Det här dokumentet innehåller en översikt över förutsättninga
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: a93486e00325e84de655b5b759162fcf63956454
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465685"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263066"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -42,7 +42,7 @@ Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
 
 [Azure Database migration service för Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) ger en mekanism som fören klar migreringen av data genom att tillhandahålla en helt hanterad värd plattform, alternativ för migrerings övervakning och automatisk begränsnings hantering. Den fullständiga listan med alternativ är följande:
 
-|**Typ av migrering**|**Lösa**|**Att tänka på**|
+|**Typ av migrering**|**Lösning**|**Överväganden**|
 |---------|---------|---------|
 |Offline|[Migreringsverktyg för data](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Passar inte för stora data mängder.|
 |Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar <br/>&bull;Brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull;Brist på en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull;Behöver anpassad kod för att öka Läs data flödet för vissa data källor|

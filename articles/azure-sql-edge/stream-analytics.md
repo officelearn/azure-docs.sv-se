@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233148"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254080"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Använda Azure Stream Analytics jobb med SQL Edge
 
@@ -32,7 +32,7 @@ Azure SQL Edge har en inbyggd implementering av Stream Analytics-körningen. Med
 }
 ```
 
-|Fält | Description |
+|Fält | Beskrivning |
 |------|-------------|
 | SqlPackage | Azure Blob Storage-URI för *. zip-filen som innehåller SQL Database DAC-paketet.
 | ASAJobInfo | Azure Blob Storage URI för jobbet ASA Edge.
@@ -49,11 +49,11 @@ Azure SQL Edge har en inbyggd implementering av Stream Analytics-körningen. Med
 
     **Utdata**. Välj SQL Database som utdata. Välj **ange SQL Database inställningar manuellt**. Ange konfigurations information för databasen och tabellen.
 
-    |Fält      | Description |
+    |Fält      | Beskrivning |
     |---------------|-------------|
     |Utdataalias | Namn på utdata-alias.|
-    |Databas | Namnet på SQL-databasen. Det måste vara ett giltigt namn för en databas som finns på SQL Edge-instansen.|
-    |servernamn | Namn (eller IP-adress) och port nummer information för SQL-instansen. För en SQL Edge-distribution kan du använda **TCP:., 1433** som server namn.|
+    |Databas | Namnet på databasen. Det måste vara ett giltigt namn för en databas som finns på SQL Edge-instansen.|
+    |Servernamn | Namn (eller IP-adress) och port nummer information för SQL-instansen. För en SQL Edge-distribution kan du använda **TCP:., 1433** som server namn.|
     |Användarnamn | SQL-inloggningsnamn som har data läsare och data skrivar åtkomst till den databas som du angav tidigare.|
     |lösenordsinställning | Lösen ord för det SQL-inloggningsnamn som du angav tidigare.|
     |Tabell | Namnet på den tabell som ska matas ut för strömnings jobbet.|

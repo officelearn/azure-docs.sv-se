@@ -9,17 +9,17 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29871f53e0f5accd0a6ec9487c43df902b67c980
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148099"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711076"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Tilldela flera IP-adresser till virtuella datorer med Azure CLI
 
@@ -35,7 +35,7 @@ Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera
 
 1. Installera [Azure CLI](/cli/azure/install-azure-cli) om du inte redan har det installerat.
 2. Skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer genom att slutföra stegen i [skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Logga in med kommandot `az login` i ett kommando gränssnitt och välj den prenumeration som du använder.
+3. Logga in med kommandot i ett kommando gränssnitt `az login` och välj den prenumeration som du använder.
 4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux-eller Mac-dator. Skriptet skapar en resurs grupp, ett virtuellt nätverk (VNet), ett nätverkskort med tre IP-konfigurationer och en virtuell dator med de två nätverkskort som är anslutna till det. NÄTVERKSKORTet, den offentliga IP-adressen, det virtuella nätverket och de virtuella dator resurserna måste finnas på samma plats och i samma prenumeration. Även om resurserna inte behöver finnas i samma resurs grupp, i följande skript.
 
 ```bash
@@ -157,7 +157,7 @@ az vm create \
 Förutom att skapa en virtuell dator med ett nätverkskort med tre IP-konfigurationer skapar skriptet:
 
 - En enskild Premium-hanterad disk som standard, men du har andra alternativ för disk typen som du kan skapa. Mer information finns i artikeln [skapa en virtuell Linux-dator med hjälp av Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -artikeln.
-- Ett virtuellt nätverk med ett undernät och två offentliga IP-adresser. Du kan också använda *befintliga* virtuella nätverk, UNDERNÄT, NIC eller offentliga IP-adressresurser. Om du vill lära dig hur du använder befintliga nätverks resurser i stället för att `az vm create -h`skapa ytterligare resurser anger du.
+- Ett virtuellt nätverk med ett undernät och två offentliga IP-adresser. Du kan också använda *befintliga* virtuella nätverk, UNDERNÄT, NIC eller offentliga IP-adressresurser. Om du vill lära dig hur du använder befintliga nätverks resurser i stället för att skapa ytterligare resurser anger du `az vm create -h` .
 
 Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 

@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582726"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727695"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem med grupper
 
@@ -35,7 +35,7 @@ Så här inaktiverar du grupp skapande för användare som inte är administrat�
    ```
 
   
-2. Om den returneras `UsersPermissionToCreateGroupsEnabled : True`kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
+2. Om den returneras `UsersPermissionToCreateGroupsEnabled : True` kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
   
 
    ``` 
@@ -68,7 +68,7 @@ För närvarande finns det inget sätt att automatiskt utlösa gruppen som ska b
 | --- | --- | --- |
 | Fel: attributet stöds inte. |(User. invalidProperty-EQ "value") |(User. Department-EQ "värde")<br/><br/>Kontrol lera att attributet finns i [listan över egenskaper som stöds](groups-dynamic-membership.md#supported-properties). |
 | Fel: operatorn stöds inte för attribut. |(User. accountEnabled-contains true) |(User. accountEnabled-EQ true)<br/><br/>Operatorn som används stöds inte för egenskaps typen (i det här exemplet kan-det går inte att använda-contains i boolesk typ). Använd rätt operatorer för egenskaps typen. |
-| Fel: fel vid frågekörning. | 1. (User. Department-EQ "Sales") (User. Department-EQ "Marketing")<br>2. (User. userPrincipalName-match "*@domain.ext") | 1. operator saknas. Use-och or-eller-eller-eller två Join-predikat<br>(User. Department-EQ "Sales")-eller (User. Department-EQ "Marketing")<br>2. fel i reguljärt uttryck som används med-match<br>(User. userPrincipalName-match ". *@domain.ext")<br>Alternativt kan du: (User. userPrincipalName-match@domain.ext"$") |
+| Fel: fel vid frågekörning. | 1. (User. Department-EQ "Sales") (User. Department-EQ "Marketing")<br>2. (User. userPrincipalName-match "* @domain.ext ") | 1. operator saknas. Use-och or-eller-eller-eller två Join-predikat<br>(User. Department-EQ "Sales")-eller (User. Department-EQ "Marketing")<br>2. fel i reguljärt uttryck som används med-match<br>(User. userPrincipalName-match ". * @domain.ext ")<br>Alternativt kan du: (User. userPrincipalName-match " @domain.ext $") |
 
 ## <a name="next-steps"></a>Nästa steg
 

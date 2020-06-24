@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -16,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 643ef90f4d1fca3dd97a248dae304f98ff1c3ec0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127001"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254386"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa iOS-enheter med Azure Notification Hubs
 
@@ -62,7 +60,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
 
 2. I assistent redigeraren skapar du Utskicks alternativ för alla växlar och anropar dem "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
-3. Skapa en åtgärd för knappen som heter `subscribe`; du `ViewController.h` bör ha följande kod:
+3. Skapa en åtgärd för knappen med namnet `subscribe` . din `ViewController.h` ska innehålla följande kod:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -75,7 +73,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
     - (IBAction)subscribe:(id)sender;
     ```
 
-4. Skapa en ny **kakao touch** -klass `Notifications`med namnet. Kopiera följande kod i avsnittet Interface i filen Notifications. h:
+4. Skapa en ny **kakao touch-klass** med namnet `Notifications` . Kopiera följande kod i avsnittet Interface i filen Notifications. h:
 
     ```objc
     @property NSData* deviceToken;
@@ -138,7 +136,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
 
     Den här klassen använder lokal lagring för att lagra och hämta de kategorier av nyheter som enheten tar emot. Det innehåller också en metod för att registrera för dessa kategorier med hjälp av en [mall](notification-hubs-templates-cross-platform-push-messages.md) registrering.
 
-7. I filen `AppDelegate.h` lägger du till en import-sats `Notifications.h` för och lägger till en egenskap för en instans `Notifications` av klassen:
+7. I `AppDelegate.h` filen lägger du till en import-sats för `Notifications.h` och lägger till en egenskap för en instans av `Notifications` klassen:
 
     ```objc
     #import "Notifications.h"
@@ -146,8 +144,8 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. I- `didFinishLaunchingWithOptions` metoden i `AppDelegate.m`lägger du till koden för att initiera meddelande instansen i början av metoden.  
-    `HUBNAME`och `HUBLISTENACCESS` (definieras i `hubinfo.h`) ska redan ha plats `<hub name>` hållarna och `<connection string with listen access>` har ersatts med namnet på Notification Hub och anslutnings strängen för *DefaultListenSharedAccessSignature* som du hämtade tidigare
+8. I `didFinishLaunchingWithOptions` -metoden i `AppDelegate.m` lägger du till koden för att initiera meddelande instansen i början av metoden.  
+    `HUBNAME`och `HUBLISTENACCESS` (definieras i `hubinfo.h` ) ska redan ha `<hub name>` `<connection string with listen access>` plats hållarna och har ersatts med namnet på Notification Hub och anslutnings strängen för *DefaultListenSharedAccessSignature* som du hämtade tidigare
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -156,7 +154,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
     > [!NOTE]
     > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra bör du bara distribuera nyckeln för lyssningsåtkomst med din klientapp. Lyssningsåtkomst gör det möjligt för din app att registrera sig för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckeln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
 
-9. I- `didRegisterForRemoteNotificationsWithDeviceToken` metoden i `AppDelegate.m`ersätter du koden i-metoden med följande kod för att skicka enhetens token till- `notifications` klassen. - `notifications` Klassen utför registreringen för meddelanden med kategorier. Om användaren ändrar kategori val, anropar du `subscribeWithCategories` metoden som svar på knappen **Prenumerera** för att uppdatera dem.
+9. I `didRegisterForRemoteNotificationsWithDeviceToken` -metoden i `AppDelegate.m` ersätter du koden i-metoden med följande kod för att skicka enhetens token till- `notifications` klassen. - `notifications` Klassen utför registreringen för meddelanden med kategorier. Om användaren ändrar kategori val, anropar du `subscribeWithCategories` metoden som svar på knappen **Prenumerera** för att uppdatera dem.
 
     > [!NOTE]
     > Eftersom den enhets-token som tilldelats av Apple Push Notification Service (APN) kan ändras när som helst, bör du registrera dig för meddelanden ofta för att undvika aviserings problem. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
@@ -177,7 +175,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
 
     I det här läget ska det inte finnas någon annan kod i `didRegisterForRemoteNotificationsWithDeviceToken` metoden.
 
-10. Följande metoder bör redan finnas i `AppDelegate.m` att slutföra självstudierna [kom igång med Notification Hubs][get-started] . Om inte, lägger du till dem.
+10. Följande metoder bör redan finnas i `AppDelegate.m` att slutföra självstudierna [Kom igång med Notification Hubs][get-started] . Om inte, lägger du till dem.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -197,7 +195,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
 
     Den här metoden hanterar meddelanden som tas emot när appen körs genom att visa en enkel **UIAlert**.
 
-11. I `ViewController.m`lägger du till `import` en instruktion `AppDelegate.h` för och kopierar följande kod till den Xcode-genererade `subscribe` metoden. Den här koden uppdaterar meddelande registreringen så att den använder de nya kategori koder som användaren har valt i användar gränssnittet.
+11. I `ViewController.m` lägger du till en `import` instruktion för `AppDelegate.h` och kopierar följande kod till den Xcode-genererade `subscribe` metoden. Den här koden uppdaterar meddelande registreringen så att den använder de nya kategori koder som användaren har valt i användar gränssnittet.
 
     ```objc
     #import "Notifications.h"
@@ -224,9 +222,9 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
     }];
     ```
 
-    Den här metoden skapar `NSMutableArray` en av kategorierna och använder `Notifications` klassen för att lagra listan i den lokala lagrings platsen och registrerar motsvarande Taggar i Notification Hub. När kategorier ändras återskapas registreringen med de nya kategorierna.
+    Den här metoden skapar en `NSMutableArray` av kategorierna och använder `Notifications` klassen för att lagra listan i den lokala lagrings platsen och registrerar motsvarande Taggar i Notification Hub. När kategorier ändras återskapas registreringen med de nya kategorierna.
 
-12. I `ViewController.m`lägger du till följande kod i- `viewDidLoad` metoden för att ange användar gränssnittet baserat på de tidigare sparade kategorierna.
+12. I `ViewController.m` lägger du till följande kod i- `viewDidLoad` metoden för att ange användar gränssnittet baserat på de tidigare sparade kategorierna.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -255,7 +253,7 @@ Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt
 
 Vanliga aviseringar skickas av en server dels tjänst men du kan skicka meddelanden om att skicka meddelanden direkt från appen. Det gör du genom att uppdatera den `SendNotificationRESTAPI` metod som du definierade i själv studie kursen [komma igång med Notification Hubs][get-started] .
 
-1. I `ViewController.m`uppdaterar du `SendNotificationRESTAPI` metoden enligt följande så att den accepterar en parameter för kategori tag gen och skickar rätt [mall](notification-hubs-templates-cross-platform-push-messages.md) -meddelande.
+1. I `ViewController.m` uppdaterar du `SendNotificationRESTAPI` metoden enligt följande så att den accepterar en parameter för kategori tag gen och skickar rätt [mall](notification-hubs-templates-cross-platform-push-messages.md) -meddelande.
 
     ```objc
     - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -316,7 +314,7 @@ Vanliga aviseringar skickas av en server dels tjänst men du kan skicka meddelan
     }
     ```
 
-2. I `ViewController.m`uppdaterar du `Send Notification` åtgärden som visas i den kod som följer. Så att den skickar meddelanden med varje tagg individuellt och skickar dem till flera plattformar.
+2. I `ViewController.m` uppdaterar du `Send Notification` åtgärden som visas i den kod som följer. Så att den skickar meddelanden med varje tagg individuellt och skickar dem till flera plattformar.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -370,5 +368,5 @@ I den här självstudien skickade du broadcast-meddelanden till vissa iOS-enhete
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[get-started]: ios-sdk-get-started.md
 [Azure Portal]: https://portal.azure.com

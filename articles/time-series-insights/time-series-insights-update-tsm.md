@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 359837ef5d202cd0e98a6c7cf429a34a38fb7d70
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580598"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052175"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
@@ -100,8 +100,8 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 
 | Egenskap | Beskrivning |
 | --- | ---|
-| timeSeriesId | UUID för tids serien som instansen är associerad med. |
-| ID | UUID för tids serie modell typen som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
+| timeSeriesId | Unikt ID för tids serien som instansen är associerad med. I de flesta fall identifieras instanser unikt av en egenskap som deviceId eller assetId. I vissa fall kan ett mer särskilt sammansatt ID som kombinerar upp till 3 egenskaper användas. |
+| ID | Det Skift läges känsliga unika sträng-ID: t för den tids serie modell typ som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
 | name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
 | description | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
@@ -183,15 +183,15 @@ Hierarkier representeras i JSON som:
 
 I föregående JSON-exempel:
 
-* `Location`definierar en hierarki med `states` överordnad `cities`och underordnad. Varje `location` kan ha flera `states`, som i sin tur kan ha `cities`flera.
-* `ManufactureDate`definierar en hierarki med `year` överordnad `month`och underordnad. Varje `ManufactureDate` kan ha flera `years`, som i sin tur kan ha `months`flera.
+* `Location`definierar en hierarki med överordnad `states` och underordnad `cities` . Varje `location` kan ha flera `states` , som i sin tur kan ha flera `cities` .
+* `ManufactureDate`definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
 
 > [!TIP]
 > Information om Time Series Insights instans-API och CRUD-stöd finns i artikeln [fråga om data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för hierarki-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
-Överväg ett exempel där hierarkin **H1** `building`har `floor`, och `room` som en del av dess **instanceFieldNames** -definition:
+Överväg ett exempel där hierarkin **H1** har `building` , `floor` och `room` som en del av dess **instanceFieldNames** -definition:
 
 ```JSON
 {
@@ -240,7 +240,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 
 | Egenskap | Beskrivning |
 | ---| ---|
-| id | UUID för typen. |
+| id | Det Skift läges känsliga unika sträng-ID: t för typen. |
 | name | En sträng som används för att ange ett namn för typen. |
 | description | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |

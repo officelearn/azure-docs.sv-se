@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792708"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106010"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Använda Packer för att skapa avbildningar av virtuella Linux-datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Linux-distributionen och OS-versionen. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga distributioner och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyg för](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
@@ -63,7 +63,7 @@ Du använder utdata från de här två kommandona i nästa steg.
 ## <a name="define-packer-template"></a>Definiera Packer-mall
 För att skapa avbildningar skapar du en mall som en JSON-fil. I mallen definierar du skapare och provisioner som utför den faktiska Bygg processen. Packer har en [etablerings ansvarig för Azure](https://www.packer.io/docs/builders/azure.html) som gör att du kan definiera Azure-resurser, till exempel de autentiseringsuppgifter för tjänstens huvud namn som skapades i föregående steg.
 
-Skapa en fil med namnet *Ubuntu. JSON* och klistra in följande innehåll. Ange dina egna värden för följande:
+Skapa en fil med namnet *ubuntu.jspå* och klistra in följande innehåll. Ange dina egna värden för följande:
 
 | Parameter                           | Var du kan hämta |
 |-------------------------------------|----------------------------------------------------|
@@ -119,12 +119,12 @@ Skapa en fil med namnet *Ubuntu. JSON* och klistra in följande innehåll. Ange 
 Den här mallen skapar en Ubuntu 16,04 LTS-avbildning, installerar NGINX och avetablerar den virtuella datorn.
 
 > [!NOTE]
-> Om du expanderar den här mallen för att etablera användarautentiseringsuppgifter kan du justera etablerings kommandot som avetablerar Azure-agenten `-deprovision` för att `deprovision+user`läsa i stället för.
-> `+user` Flaggan tar bort alla användar konton från den virtuella käll datorn.
+> Om du expanderar den här mallen för att etablera användarautentiseringsuppgifter kan du justera etablerings kommandot som avetablerar Azure-agenten för att läsa `-deprovision` i stället för `deprovision+user` .
+> `+user`Flaggan tar bort alla användar konton från den virtuella käll datorn.
 
 
 ## <a name="build-packer-image"></a>Avbildning av bygg paket
-Om du inte redan har installerat Packer på den lokala datorn [följer du installations anvisningarna för installations](https://www.packer.io/docs/install/index.html)guiden.
+Om du inte redan har installerat Packer på den lokala datorn [följer du installations anvisningarna för installations](https://www.packer.io/docs/install)guiden.
 
 Bygg avbildningen genom att ange din Packer-mallfil enligt följande:
 

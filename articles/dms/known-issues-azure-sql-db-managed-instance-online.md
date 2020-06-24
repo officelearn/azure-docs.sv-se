@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196311"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106392"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL-hanterad instans
 
@@ -62,6 +62,6 @@ Kända problem och begränsningar som är associerade med online-migrering från
 
 - **Distributioner**
 
-    SQL-hanterad instans är en PaaS-tjänst med automatisk uppdatering och versions uppdateringar. Vid migreringen av din SQL-hanterade instans kan icke-kritiska uppdateringar hjälpa upp till 36 timmar. Efteråt (och för kritiska uppdateringar) återställs processen till ett fullständigt återställnings tillstånd om migreringen avbryts.
+    SQL-hanterad instans är en PaaS-tjänst med automatisk uppdatering och versions uppdateringar. Vid migreringen av din SQL-hanterade instans hålls icke-kritiska uppdateringar i upp till 36 timmar. Efteråt (och för kritiska uppdateringar) återställs processen till ett fullständigt återställnings tillstånd om migreringen avbryts.
 
     Migrerings-start punkt kan bara anropas efter att den fullständiga säkerhets kopieringen har återställts och fångats upp med alla logg säkerhets kopior. Om migrering för produktion påverkas kan du kontakta [aliaset för Azure DMS-feedback](mailto:dmsfeedback@microsoft.com).

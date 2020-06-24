@@ -4,18 +4,18 @@ description: Lär dig mer om påverkan på Google Security-och Privacy-principer
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.topic: conceptual
+ms.date: 06/05/2020
+ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628716"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194983"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Principer för data säkerhet och sekretess för Google-anslutningar i Azure Logic Apps
 
-Från och med den **1 maj 2020**kan ändringar på grund av Googles [principer för data säkerhet och sekretess](https://www.blog.google/technology/safety-security/project-strobe/) påverka dina Logic app-arbetsflöden som använder [Gmail-anslutningen](https://docs.microsoft.com/connectors/gmail/). Om dina Logi Kap par använder Gmail-anslutningen med ett Gmail-användarkonto (e-postadress som @gmail.com slutar @googlemail.commed eller) kan dina Logi Kap par endast använda vissa [Google-godkända utlösare, åtgärder och anslutningar](#approved-connectors). 
+Från och med den **1 maj 2020**kan ändringar på grund av Googles [principer för data säkerhet och sekretess](https://www.blog.google/technology/safety-security/project-strobe/) påverka dina Logic app-arbetsflöden som använder [Gmail-anslutningen](https://docs.microsoft.com/connectors/gmail/). Om dina Logi Kap par använder Gmail-anslutningen med ett Gmail-användarkonto (e-postadress som slutar med @gmail.com eller @googlemail.com ) kan dina Logi Kap par endast använda vissa [Google-godkända utlösare, åtgärder och anslutningar](#approved-connectors).
 
 > [!NOTE]
 > Om dina Logi Kap par använder Gmail-anslutningen med ett företags konto i G-svit (e-postadress med en anpassad domän), påverkas inte dina Logi Kap par och har inga begränsningar för att använda Gmail-anslutningsprogrammet.
@@ -36,11 +36,31 @@ När du använder ett Gmail-konto i den här principen kan du använda Gmail-ans
 
 * Logic Apps inbyggda utlösare och åtgärder: batch, kontroll, data åtgärder, datum tid, flat fil, flytande, begäran, schema, variabler och XML
 
+  Inbyggda utlösare och åtgärder som inte är godkända av Google, till exempel HTTP, Azure Functions, Azure Logic Apps och andra, gör en Logic app icke-kompatibel med Gmail Connector eftersom appen kan skicka eller ta emot data från var som helst.
+
 * Google-tjänster: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets och Google tasks
 
 * Godkända Microsoft-tjänster: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive och SharePoint Online
 
 * Anslutningar för Kundhanterade data Källor: FTP, RSS, SFTP, SMTP och SQL Server
+
+## <a name="non-compliant-examples"></a>Icke-kompatibla exempel
+
+Här följer några exempel som använder Gmail Connector med inbyggda utlösare och åtgärder eller hanterade anslutningar som inte har godkänts av Google:
+
+* Den här Logic-appen använder Gmail-anslutningen med den inbyggda HTTP-utlösaren:
+
+  ![Icke-kompatibel Logic-app-exempel 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  Logic app använder också Google Calendar Connector, som är godkänd.
+
+* Den här Logic-appen använder Gmail-anslutningen med Azure Blob Storage-anslutningen:
+
+  ![Icke-kompatibel Logic-app-exempel 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* Den här Logic-appen använder Gmail-anslutningen med Twitter-kopplingen:
+
+  ![Icke-kompatibel Logic-app-exempel 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 Den senaste informationen finns i [Gmail Connectors tekniska referens dokumentation](https://docs.microsoft.com/connectors/gmail/).
 
@@ -70,7 +90,7 @@ Följ dessa steg om du vill använda klient-ID och klient hemlighet från din Go
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. Om du lägger till en ny Gmail-utlösare eller åtgärd och skapar en helt ny anslutning fortsätter du till nästa steg. Annars, i Gmail-utlösaren eller åtgärden, väljer du **ändra anslutning** > **Lägg till ny**, till exempel:
+1. Om du lägger till en ny Gmail-utlösare eller åtgärd och skapar en helt ny anslutning fortsätter du till nästa steg. Annars, i Gmail-utlösaren eller åtgärden, väljer du **ändra anslutning**  >  **Lägg till ny**, till exempel:
 
    ![Välj "ändra anslutning" > Lägg till ny "](./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png)
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 36279039bbc63173a4c3c06901a0800a0893cebb
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 678a605ce1585b58cfc5f9aaea3423efa8d53ad3
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430871"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296924"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -181,6 +181,20 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
 |När du ska granska bilder visas inte nyligen märkta bilder.     |   Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.      |
 |Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.     |   Ta bort etiketten genom att klicka på kryss rutan bredvid det.  |
 
+### <a name="data-drift-monitors"></a>Data riktnings övervakare
+
+* Om SDK `backfill()` -funktionen inte genererar förväntade utdata kan det bero på ett autentiseringsfel.  När du skapar beräkningen för att skicka in den här funktionen ska du inte använda `Run.get_context().experiment.workspace.compute_targets` .  Använd i stället [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) , till exempel följande för att skapa den beräkning som du skickar till den `backfill()` funktionen: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
+
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning designer
 
 Kända problem:
@@ -220,8 +234,14 @@ Kända problem:
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-* **TensorFlow**: Automatisk maskin inlärning stöder för närvarande inte TensorFlow version 1,13. Om den här versionen installeras kommer paket beroenden att sluta fungera. Vi arbetar för att åtgärda det här problemet i en framtida version.
-
+* **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera tensorflow och Använd det med dina automatiserade ML-experiment genom att installera tensorflow = = 1.12.0 via CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
 * **Experiment diagram**: binära klassificerings diagram (precision-återkallande, Roc, kurva osv.) som visas i automatiserade ml experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
 
 * **Databricks avbryter en automatiserad maskin inlärnings körning**: när du använder automatiserade funktioner för maskin inlärning på Azure Databricks, för att avbryta en körning och starta en ny experiment körning, startar du om Azure Databricks klustret.

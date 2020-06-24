@@ -3,15 +3,15 @@ title: Översikt över Durable Functions – Azure
 description: Introduktion till Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241348"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193438"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -23,6 +23,7 @@ Durable Functions stöder för närvarande följande språk:
 
 * **C#**: både [förkompilerade klassbibliotek](../functions-dotnet-class-library.md) och [C#-skript](../functions-reference-csharp.md).
 * **JavaScript**: stöds endast för version 2.x av Azure Functions-körningen. Kräver version 1.7.0 av Durable Functions-tillägget eller en senare version. 
+* **Python**: kräver version 1.8.5 av Durable Functions-tillägget eller en senare version. 
 * **F#**: både förkompilerade klassbibliotek och F#-skript. F#-skriptet stöds endast för version 1.x av Azure Functions-körningen.
 
 Durable Functions har som mål att stödja alla [Azure Functions-språk](../supported-languages.md). I [Durable Functions-problemlistan](https://github.com/Azure/azure-functions-durable-extension/issues) finns senaste status för arbetet med att stödja ytterligare språk.
@@ -48,9 +49,9 @@ I funktions kedje mönstret körs en sekvens med funktioner i en speciell ordnin
 
 Du kan använda Durable Functions för att implementera funktions länknings mönstret på ett koncist sätt som visas i följande exempel.
 
-I det här exemplet är värdena `F1`, `F2`, `F3`och `F4` namnen på andra funktioner i samma Function-app. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik `try` / `catch` / `finally` i block.
+I det här exemplet är värdena `F1` , `F2` , `F3` och `F4` namnen på andra funktioner i samma Function-app. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik i `try` / `catch` / `finally` block.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -71,7 +72,7 @@ public static async Task<object> Run(
 }
 ```
 
-Du kan använda- `context` parametern för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `await`, visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `await` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
+Du kan använda- `context` parametern för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `await` , visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `await` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -90,10 +91,33 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Du kan använda `context.df` objektet för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `yield`, visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `yield` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
+Du kan använda `context.df` objektet för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `yield` , visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `yield` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
 
 > [!NOTE]
-> `context` Objektet i Java Script representerar hela [funktions kontexten](../functions-reference-node.md#context-object). Kom åt Durable Functions kontexten med `df` hjälp av egenskapen i huvud kontexten.
+> `context`Objektet i Java Script representerar hela [funktions kontexten](../functions-reference-node.md#context-object). Kom åt Durable Functions kontexten med hjälp av `df` egenskapen i huvud kontexten.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Du kan använda `context` objektet för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `yield` , visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `yield` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
+
+> [!NOTE]
+> `context`Objektet i python representerar Orchestration-kontexten. Få åtkomst till huvud Azure Functions kontexten med hjälp av `function_context` egenskapen i Orchestration-kontexten.
 
 ---
 
@@ -107,7 +131,7 @@ Med normala funktioner kan du använda funktionen Skicka flera meddelanden till 
 
 Durable Functions-tillägget hanterar det här mönstret med relativt enkel kod:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -132,7 +156,7 @@ public static async Task Run(
 }
 ```
 
-Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. `Task.WhenAll`anropas för att vänta tills alla anropade funktioner har slutförts. Sedan aggregeras `F2` funktionen utdata från den dynamiska uppgifts listan och skickas till `F3` funktionen.
+Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. `Task.WhenAll`anropas för att vänta tills alla anropade funktioner har slutförts. Sedan `F2` aggregeras funktionen utdata från den dynamiska uppgifts listan och skickas till `F3` funktionen.
 
 Den automatiska kontroll punkten som sker vid `await` anropet `Task.WhenAll` innebär att en eventuell halvvägs krasch eller omstart inte kräver att en redan slutförd aktivitet startas om.
 
@@ -158,9 +182,39 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. `context.df.Task.all`API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan aggregeras `F2` funktionen utdata från den dynamiska uppgifts listan och skickas till `F3` funktionen.
+Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. `context.df.Task.all`API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan `F2` aggregeras funktionen utdata från den dynamiska uppgifts listan och skickas till `F3` funktionen.
 
 Den automatiska kontroll punkten som sker vid `yield` anropet `context.df.Task.all` innebär att en eventuell halvvägs krasch eller omstart inte kräver att en redan slutförd aktivitet startas om.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    parallel_tasks = []
+
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    for i in range(0, len(work_batch)):
+        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. `context.task_all`API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan `F2` aggregeras funktionen utdata från den dynamiska uppgifts listan och skickas till `F3` funktionen.
+
+Den automatiska kontroll punkten som sker vid `yield` anropet `context.task_all` innebär att en eventuell halvvägs krasch eller omstart inte kräver att en redan slutförd aktivitet startas om.
 
 ---
 
@@ -218,7 +272,7 @@ I några få kodrader kan du använda Durable Functions för att skapa flera Öv
 
 Följande kod implementerar en grundläggande Övervakare:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -276,9 +330,41 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
-När en begäran tas emot skapas en ny Dirigerings instans för jobb-ID: t. Instansen avsöker en status tills ett villkor uppfylls och loopen avslutas. En varaktig timer styr avsöknings intervallet. Sedan kan du utföra mer arbete, eller så kan dirigeringen avslutas. När `nextCheck` överskrider `expiryTime`övervakaren avslutas övervakaren.
+När en begäran tas emot skapas en ny Dirigerings instans för jobb-ID: t. Instansen avsöker en status tills ett villkor uppfylls och loopen avslutas. En varaktig timer styr avsöknings intervallet. Sedan kan du utföra mer arbete, eller så kan dirigeringen avslutas. När `nextCheck` överskrider `expiryTime` övervakaren avslutas övervakaren.
 
 ### <a name="pattern-5-human-interaction"></a><a name="human"></a>Mönster #5: mänsklig interaktion
 
@@ -292,7 +378,7 @@ Du kan implementera mönstret i det här exemplet med hjälp av en Orchestrator-
 
 Följande exempel skapar en godkännande process för att demonstrera de mänskliga interaktions mönstren:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -319,7 +405,7 @@ public static async Task Run(
 }
 ```
 
-Ring `context.CreateTimer`om du vill skapa en varaktig timer. Meddelandet tas emot av `context.WaitForExternalEvent`. `Task.WhenAny` Sedan uppmanas du att bestämma om du vill eskalera (tids gräns inträffar först) eller bearbeta godkännandet (godkännandet tas emot före tids gränsen).
+Ring om du vill skapa en varaktig timer `context.CreateTimer` . Meddelandet tas emot av `context.WaitForExternalEvent` . Sedan `Task.WhenAny` uppmanas du att bestämma om du vill eskalera (tids gräns inträffar först) eller bearbeta godkännandet (godkännandet tas emot före tids gränsen).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -343,7 +429,37 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Ring `context.df.createTimer`om du vill skapa en varaktig timer. Meddelandet tas emot av `context.df.waitForExternalEvent`. `context.df.Task.any` Sedan uppmanas du att bestämma om du vill eskalera (tids gräns inträffar först) eller bearbeta godkännandet (godkännandet tas emot före tids gränsen).
+Ring om du vill skapa en varaktig timer `context.df.createTimer` . Meddelandet tas emot av `context.df.waitForExternalEvent` . Sedan `context.df.Task.any` uppmanas du att bestämma om du vill eskalera (tids gräns inträffar först) eller bearbeta godkännandet (godkännandet tas emot före tids gränsen).
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Ring om du vill skapa en varaktig timer `context.create_timer` . Meddelandet tas emot av `context.wait_for_external_event` . Sedan `context.task_any` uppmanas du att bestämma om du vill eskalera (tids gräns inträffar först) eller bearbeta godkännandet (godkännandet tas emot före tids gränsen).
 
 ---
 
@@ -355,7 +471,7 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 En händelse kan också aktive ras med den beständiga Orchestration-klienten från en annan funktion i samma Function-app:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -380,6 +496,18 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
+    is_approved = True
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
+```
+
 ---
 
 ### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Mönster #6: aggregator (tillstånds känsliga entiteter)
@@ -392,7 +520,7 @@ Det är svårt att försöka implementera det här mönstret med normala, tillst
 
 Du kan använda [varaktiga entiteter](durable-functions-entities.md) för att enkelt implementera det här mönstret som en enda funktion.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Counter")]
@@ -457,11 +585,15 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Varaktiga entiteter stöds för närvarande inte i python.
+
 ---
 
 Klienter kan köa *åtgärder* för (kallas även "signalering") en entitets funktion som använder [enhets klient bindningen](durable-functions-bindings.md#entity-client).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -493,9 +625,13 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Varaktiga entiteter stöds för närvarande inte i python.
+
 ---
 
-Enhets funktioner är tillgängliga i [Durable Functions 2,0](durable-functions-versions.md) och senare.
+Enhets funktioner är tillgängliga i [Durable Functions 2,0](durable-functions-versions.md) och senare för C# och Java Script.
 
 ## <a name="the-technology"></a>Tekniken
 
@@ -515,6 +651,7 @@ Du kan komma igång med Durable Functions på mindre än 10 minuter genom att sl
 
 * [C# med Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript med hjälp av Visual Studio Code](quickstart-js-vscode.md)
+* [Python med Visual Studio Code](quickstart-python-vscode.md)
 
 I båda snabbstarterna skapar du och testar en beständig ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
 

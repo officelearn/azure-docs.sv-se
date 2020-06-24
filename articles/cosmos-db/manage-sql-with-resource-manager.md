@@ -3,15 +3,15 @@ title: Skapa och hantera Azure Cosmos DB med Resource Manager-mallar
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB för Core-API (SQL)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: b24998cbfdc037a6ded58fd17801c340c5891073
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3684feff10ee3a09cc07276895496524fd64deee
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684789"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262318"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Hantera API-resurser för Azure Cosmos DB Core (SQL) med Azure Resource Manager-mallar
 
@@ -73,7 +73,7 @@ Den här mallen skapar ett Azure Cosmos-konto, en databas och en container med e
 
 Den här mallen skapar ett Azure Cosmos-konto på kostnads nivå och en databas med delat data flöde som kan delas med upp till 25 behållare. Den här mallen är också tillgänglig för ett-Klicka på distribuera från galleriet för Azure snabb starts mallar.
 
-[![Distribuera till Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-free%2Fazuredeploy.json)
+[![Distribuera till Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-free%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-free/azuredeploy.json":::
 

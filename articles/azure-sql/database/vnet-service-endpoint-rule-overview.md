@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: fb3246564c7902d1a99c28425ee7ee1789b00354
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 51d7ae8671d4b57e1822aa1c4ee5bf30a5f24cbd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171148"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253995"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om servern för dina databaser och elastiska pooler i [Azure SQL Database](sql-database-paas-overview.md) eller för dina databaser i [Azure-Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure SQL-databas och SQL Data Warehouse.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om servern för dina databaser och elastiska pooler i [Azure SQL Database](sql-database-paas-overview.md) eller för dina databaser i [Azure-Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till databasen i Azure SQL Database och SQL Data Warehouse.
 
 > [!NOTE]
 > Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics.
@@ -74,7 +74,7 @@ Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-8
 
 För Azure SQL Database har funktionen regler för virtuellt nätverk följande begränsningar:
 
-- I brand väggen för din databas i Azure SQL Database refererar varje virtuell nätverks regel till ett undernät. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för Azure SQL-databasen.
+- I brand väggen för din databas i Azure SQL Database refererar varje virtuell nätverks regel till ett undernät. Alla dessa refererade undernät måste ligga inom samma geografiska region som är värd för databasen.
 
 - Varje server kan ha upp till 128 ACL-poster för alla enskilda virtuella nätverk.
 
@@ -112,7 +112,7 @@ Azure Storage har implementerat samma funktion som gör det möjligt att begrän
 
 PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure Synapse Analytics som ansluter till Azure Storage som skyddas av VNet:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -229,7 +229,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 - [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 

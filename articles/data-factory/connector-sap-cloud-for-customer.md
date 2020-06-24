@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 1d3772a17d0429d9b3a5bf95d2060f2dfbbbafe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 9544d0298a7aa62d5fd935e8670d02e470ac15e5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418056"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987566"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kunden (C4C) med hjälp av Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,12 +48,12 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för SAP Cloud för kund länkad tjänst:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomer**. | Ja |
-| url | URL: en för SAP C4C OData-tjänsten. | Ja |
-| användarnamn | Ange användar namnet för att ansluta till SAP-C4C. | Ja |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomer**. | Yes |
+| url | URL: en för SAP C4C OData-tjänsten. | Yes |
+| användarnamn | Ange användar namnet för att ansluta till SAP-C4C. | Yes |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
 >[!IMPORTANT]
@@ -88,10 +88,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP-molnet för kunden anger du egenskapen type för data uppsättningen till **SapCloudForCustomerResource**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SapCloudForCustomerResource** |Ja |
-| path | Ange sökvägen till SAP C4C OData-entiteten. |Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SapCloudForCustomerResource** |Yes |
+| path | Ange sökvägen till SAP C4C OData-entiteten. |Yes |
 
 **Exempel:**
 
@@ -120,10 +120,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP-molnet för kunden anger du käll typen i kopierings aktiviteten till **SapCloudForCustomerSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSource**  | Ja |
-| DocumentDB | Ange anpassad OData-fråga för att läsa data. | Nej |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSource**  | Yes |
+| DocumentDB | Ange anpassad OData-fråga för att läsa data. | No |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | No |
 
 Exempel fråga för att hämta data för en angiven dag:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -163,9 +164,9 @@ Exempel fråga för att hämta data för en angiven dag:`"query": "$filter=Creat
 
 Om du vill kopiera data till SAP-molnet för kunden ställer du in mottagar typen i kopierings aktiviteten till **SapCloudForCustomerSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Ja |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Yes |
 | writeBehavior | Åtgärdens Skriv funktion. Kan vara "Infoga", "uppdatera". | Nej. Standard "Infoga". |
 | writeBatchSize | Batch-storlek för Skriv åtgärd. Batchstorleken för att få bästa prestanda kan vara olika för olika tabeller och servrar. | Nej. Standard 10. |
 
@@ -220,7 +221,7 @@ När du kopierar data från SAP-molnet för kunden används följande mappningar
 | EDM. DateTime | DateTime |
 | EDM. decimal | Decimal |
 | Edm.Double | Double |
-| EDM. Single | Enkel |
+| EDM. Single | Enskilt |
 | EDM. GUID | GUID |
 | EDM. Int16 | Int16 |
 | Edm.Int32 | Int32 |

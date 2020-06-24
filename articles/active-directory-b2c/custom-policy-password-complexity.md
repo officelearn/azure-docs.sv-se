@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07212f2968ff1db99ef5fee2e6e8eca818ec0e24
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138442"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202644"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösen ords komplexitet med anpassade principer i Azure Active Directory B2C
 
@@ -31,13 +31,13 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 ## <a name="add-the-elements"></a>Lägg till elementen
 
-Om du vill konfigurera lösen ords komplexiteten `newPassword` åsidosätter du-och `reenterPassword` - [anspråks typerna](claimsschema.md) med en referens till [predikat-valideringar](predicates.md#predicatevalidations). PredicateValidations-elementet grupperar en uppsättning predikat som utgör en verifiering av användarindata som kan tillämpas på en anspråks typ. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+Om du vill konfigurera lösen ords komplexiteten åsidosätter du- `newPassword` och- `reenterPassword` [anspråks typerna](claimsschema.md) med en referens till [predikat-valideringar](predicates.md#predicatevalidations). PredicateValidations-elementet grupperar en uppsättning predikat som utgör en verifiering av användarindata som kan tillämpas på en anspråks typ. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
-1. Lägg till `newPassword` - `reenterPassword` och-anspråk i **ClaimsSchema** -elementet.
+1. Lägg till- `newPassword` och- `reenterPassword` anspråk i **ClaimsSchema** -elementet.
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Om du vill konfigurera lösen ords komplexiteten `newPassword` åsidosätter du-
 
 1. [Predikat](predicates.md) definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks typ och returnerar true eller false. Verifieringen görs med hjälp av ett angivet metod element och en uppsättning parametrar som är relevanta för metoden. Lägg till följande predikat i **BuildingBlocks** -elementet, direkt efter stängningen av `</ClaimsSchema>` elementet:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -86,7 +86,7 @@ Om du vill konfigurera lösen ords komplexiteten `newPassword` åsidosätter du-
 
 1. Lägg till följande predikat verifieringar i **BuildingBlocks** -elementet, direkt efter stängningen av `</Predicates>` elementet:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Om du vill konfigurera lösen ords komplexiteten `newPassword` åsidosätter du-
 
 1. Följande tekniska profiler är [Active Directory tekniska profiler](active-directory-technical-profile.md)som läser och skriver data till Azure Active Directory. Åsidosätt dessa tekniska profiler i tilläggs filen. Använd `PersistedClaims` för att inaktivera principen för starkt lösen ord. Hitta **ClaimsProviders** -elementet.  Lägg till följande anspråks leverantörer enligt följande:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -140,13 +140,13 @@ Om du vill konfigurera lösen ords komplexiteten `newPassword` åsidosätter du-
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
-6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustFrameworkExtensions. XML-* filen.
+6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj den *TrustFrameworkExtensions.xml* filen.
 7. Klicka på **Överför**.
 
 ### <a name="run-the-policy"></a>Kör principen
 
 1. Öppna registrerings-eller inloggnings principen. Till exempel *B2C_1A_signup_signin*.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en visas `https://jwt.ms`.
+2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en visas `https://jwt.ms` .
 3. Klicka på **Kör nu**.
 4. Välj **Registrera dig nu**, ange en e-postadress och ange ett nytt lösen ord. Vägledning ges om lösen ords begränsningar. Ange användar informationen och klicka sedan på **skapa**. Du bör se innehållet i den token som returnerades.
 

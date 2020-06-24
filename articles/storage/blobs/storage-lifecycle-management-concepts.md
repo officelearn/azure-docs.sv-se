@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692135"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194713"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -130,7 +130,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Du kan använda följande PowerShell-skript för att lägga till en princip i ditt lagrings konto. `$rgname` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn.
+Du kan använda följande PowerShell-skript för att lägga till en princip i ditt lagrings konto. `$rgname`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn.
 
 ```powershell
 #Install the latest module
@@ -202,7 +202,7 @@ Du kan definiera livs cykel hantering genom att använda Azure Resource Manager 
 
 ---
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
@@ -226,17 +226,17 @@ En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parameter typ | Obs! |
+| Parameternamn | Parameter typ | Kommentarer |
 |----------------|----------------|-------|
 | `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Obs! | Krävs |
+| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
-| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | False | 
-| `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
+| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
+| `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle` . | Sant |
 | `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
 
 ## <a name="rules"></a>Regler
@@ -245,7 +245,7 @@ Varje regel definition innehåller en filter uppsättning och en åtgärds upps�
 
 ### <a name="sample-rule"></a>Exempel regel
 
-Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med. `foo`  
+Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med `foo` .  
 
 >[!NOTE]
 >Livs cykel hantering har endast stöd för Block Blob-typ.  
@@ -289,11 +289,11 @@ Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings
 
 Filtren är:
 
-| Filternamn | Filtertyp | Obs! | Krävs |
+| Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är `container1/foo`prefixMatch. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Inga |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är `{"name": "Project","op": "==","value": "Contoso"}`blobIndexMatch. | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` . | Yes |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | No |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | No |
 
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Frankrike, centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
@@ -304,14 +304,14 @@ Filtren är:
 
 Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagning av BLOB-ögonblicksbilder. Definiera minst en åtgärd för varje regel på blobbar eller BLOB-ögonblicksbilder.
 
-| Action        | Bas-BLOB                                   | Ögonblicksbild      |
+| Åtgärd        | Bas-BLOB                                   | Ögonblicksbild      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Stöd för blobbar på frekvent nivå         | Stöds inte |
 | tierToArchive | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
 | delete        | Stöds                                   | Stöds     |
 
 >[!NOTE]
->Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
+>Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd `tierToArchive` . Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool` .
 
 Körnings villkoren baseras på ålder. Bas-blobbar använder senaste ändrings tid för att spåra ålder och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
@@ -326,7 +326,7 @@ Följande exempel visar hur du kan adressera vanliga scenarier med policy regler
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Flytta ålders data till en kylare-nivå
 
-I det här exemplet visas hur du översätter block- `container1/foo` blobar som föregås av eller `container2/bar`. Principen över blobar som inte har ändrats på över 30 dagar till låg frekvent lagring, och blobar som inte har ändrats på 90 dagar till Arkiv nivån:
+I det här exemplet visas hur du översätter block-blobar som föregås av `container1/foo` eller `container2/bar` . Principen över blobar som inte har ändrats på över 30 dagar till låg frekvent lagring, och blobar som inte har ändrats på 90 dagar till Arkiv nivån:
 
 ```json
 {
@@ -354,10 +354,10 @@ I det här exemplet visas hur du översätter block- `container1/foo` blobar som
 
 ### <a name="archive-data-after-ingest"></a>Arkivera data efter inmatning
 
-Vissa data är inaktiva i molnet och är sällan, om de någonsin, används när de har lagrats. Följande livs cykel princip är konfigurerad för att arkivera data strax efter att den har matats in. Det här exemplet översätter block-blobar i lagrings `archivecontainer` kontot i behållaren till en Arkiv nivå. Över gången görs genom att agera på blobbar 0 dagar efter senaste ändrings tid:
+Vissa data är inaktiva i molnet och är sällan, om de någonsin, används när de har lagrats. Följande livs cykel princip är konfigurerad för att arkivera data strax efter att den har matats in. Det här exemplet översätter block-blobar i lagrings kontot i behållaren `archivecontainer` till en Arkiv nivå. Över gången görs genom att agera på blobbar 0 dagar efter senaste ändrings tid:
 
 > [!NOTE] 
-> Vi rekommenderar att du överför dina blobar direkt till Arkiv nivån för att vara mer effektiv. Du kan använda rubriken x-MS-Ace-nivå för [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) eller [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) med rest version 2018-11-09 och nyare eller våra senaste Blob Storage-klient bibliotek. 
+> Vi rekommenderar att du överför dina blobar direkt till Arkiv nivån för att vara mer effektiv. Du kan använda huvudet x-MS-Access-Tier för [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) eller [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) med rest version 2018-11-09 och nyare eller våra senaste Blob Storage-klient bibliotek. 
 
 ```json
 {
@@ -410,7 +410,7 @@ Vissa data förväntas gå ut dagar eller månader efter att de har skapats. Du 
 ```
 
 ### <a name="delete-data-with-blob-index-tags"></a>Ta bort data med BLOB-Taggar
-Vissa data bör bara upphöra att gälla om de uttryckligen har marker ATS för borttagning. Du kan konfigurera en princip för livs cykel hantering så att den upphör att gälla data som är taggade med attribut för BLOB index nyckel/värde. I följande exempel visas en princip som tar bort alla block blobbar taggade med `Project = Contoso`. Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+Vissa data bör bara upphöra att gälla om de uttryckligen har marker ATS för borttagning. Du kan konfigurera en princip för livs cykel hantering så att den upphör att gälla data som är taggade med attribut för BLOB index nyckel/värde. I följande exempel visas en princip som tar bort alla block blobbar taggade med `Project = Contoso` . Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ```json
 {

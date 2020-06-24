@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3294acecaf98de1f55e1aff8ec97defc1dd13fc7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803168"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202712"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Håll mig inloggad (KMSI avgör) i Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Användarna bör inte aktivera det här alternativet på offentliga datorer.
 
 ## <a name="configure-the-page-identifier"></a>Konfigurera sid identifieraren
 
-Om du vill aktivera KMSI avgör anger du innehålls `DataUri` definitions elementet till [sid-ID](contentdefinitions.md#datauri) `unifiedssp` och [sid version](page-layout.md) *1.1.0* eller senare.
+Om du vill aktivera KMSI avgör anger du innehålls definitions `DataUri` elementet till [sid-ID](contentdefinitions.md#datauri) `unifiedssp` och [sid version](page-layout.md) *1.1.0* eller senare.
 
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>. Den här tilläggs filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](custom-policy-get-started.md).
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> . Den här tilläggs filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](custom-policy-get-started.md).
 1. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Lägg till elementet **ContentDefinitions** i **BuildingBlocks** -elementet för principen.
 
@@ -54,12 +54,12 @@ Om du vill aktivera KMSI avgör anger du innehålls `DataUri` definitions elemen
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Lägg till metadata till den självkontrollerade tekniska profilen
 
-För att lägga till KMSI avgör-rutan på sidan för registrering och inloggning ställer du `setting.enableRememberMe` in metadata på True. Åsidosätt de tekniska profilerna för SelfAsserted-LocalAccountSignin-email i tilläggs filen.
+För att lägga till KMSI avgör-rutan på sidan för registrering och inloggning ställer du in `setting.enableRememberMe` metadata på True. Åsidosätt de tekniska profilerna för SelfAsserted-LocalAccountSignin-email i tilläggs filen.
 
 1. Hitta ClaimsProviders-elementet. Om elementet inte finns lägger du till det.
 1. Lägg till följande anspråks leverantör i ClaimsProviders-elementet:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -78,11 +78,11 @@ För att lägga till KMSI avgör-rutan på sidan för registrering och inloggnin
 
 Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
-1. Öppna din anpassade princip fil. Till exempel *SignUpOrSignin. XML*.
-1. Lägg till en `<UserJourneyBehaviors>` underordnad nod till `<RelyingParty>` noden om den inte redan finns. Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="User journey Id" />`, till exempel:. `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`
+1. Öppna din anpassade princip fil. Till exempel *SignUpOrSignin.xml*.
+1. Lägg till en `<UserJourneyBehaviors>` underordnad nod till noden om den inte redan finns `<RelyingParty>` . Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="User journey Id" />` , till exempel: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .
 1. Lägg till följande nod som underordnad till `<UserJourneyBehaviors>` elementet.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -90,9 +90,9 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** – anger hur sessionen utökas med den tid som anges i `SessionExpiryInSeconds` och `KeepAliveInDays`. `Rolling` Värdet (standard) visar att sessionen är utökad varje gång användaren utför autentiseringen. `Absolute` Värdet anger att användaren tvingas att autentisera igen efter den angivna tids perioden.
+    - **SessionExpiryType** – anger hur sessionen utökas med den tid som anges i `SessionExpiryInSeconds` och `KeepAliveInDays` . `Rolling`Värdet (standard) visar att sessionen är utökad varje gång användaren utför autentiseringen. `Absolute`Värdet anger att användaren tvingas att autentisera igen efter den angivna tids perioden.
 
-    - **SessionExpiryInSeconds** – livs längden för sessionscookies när *jag låter mig vara inloggad* är inte aktive rad, eller om en användare inte väljer *Jag vill förbli inloggad*. Sessionen upphör att gälla när `SessionExpiryInSeconds` den har gått ut, eller så har webbläsaren stängts.
+    - **SessionExpiryInSeconds** – livs längden för sessionscookies när *jag låter mig vara inloggad* är inte aktive rad, eller om en användare inte väljer *Jag vill förbli inloggad*. Sessionen upphör att gälla när den `SessionExpiryInSeconds` har gått ut, eller så har webbläsaren stängts.
 
     - **KeepAliveInDays** – livs längden för sessionscookies när *jag låter mig vara inloggad* är aktive rad och användaren väljer *Håll mig inloggad*.  Värdet för `KeepAliveInDays` har företräde framför `SessionExpiryInSeconds` värdet och avgör förfallo tiden för sessionen. Om en användare stänger webbläsaren och öppnar den igen senare kan de fortfarande logga in så länge de är inom KeepAliveInDays tids period.
 
@@ -100,7 +100,7 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
 
 Vi rekommenderar att du anger värdet för SessionExpiryInSeconds till en kort period (1200 sekunder), medan värdet för KeepAliveInDays kan anges till en relativt lång period (30 dagar), vilket visas i följande exempel:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>

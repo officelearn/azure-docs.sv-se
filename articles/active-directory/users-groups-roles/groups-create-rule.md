@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 4855db7678a8cdea9bdad19ac0a8ec33503ff983
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582914"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728424"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
@@ -67,7 +67,7 @@ Om regeln du angav inte är giltig visas en förklaring av varför regeln inte k
 ## <a name="to-update-an-existing-rule"></a>Så här uppdaterar du en befintlig regel
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, grupp administratör, Intune-administratör eller användar administratör i Azure AD-organisationen.
-1. Välj **grupper** > **alla grupper**.
+1. Välj **grupper**  >  **alla grupper**.
 1. Välj en grupp för att öppna dess profil.
 1. På sidan profil för gruppen väljer du regler för **dynamiskt medlemskap**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
 
@@ -98,7 +98,7 @@ Följande status meddelanden kan visas för status för **medlemskaps bearbetnin
 
 Följande status meddelanden kan visas för **medlemskapets senast uppdaterade** status:
 
-- &lt;**Datum och tid**&gt;: när medlemskapet senast uppdaterades.
+- &lt;**Datum och tid** &gt; : när medlemskapet senast uppdaterades.
 - **Pågår**: uppdateringar pågår just nu.
 - **Okänd**: det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
 

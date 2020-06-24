@@ -7,21 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 332b221043356eb32b4f1ef4eed8b1b7246c0f21
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282762"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080553"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Översikt över data import – Azure Kognitiv sökning
 
 I Azure Kognitiv sökning körs frågor över ditt innehåll som läses in i och sparas i ett [sökindex](search-what-is-an-index.md). Den här artikeln går igenom de två grundläggande metoderna för att fylla ett index: *Skicka* data till indexet program mässigt eller peka en [Azure kognitiv sökning-indexerare](search-indexer-overview.md) på en data källa som stöds för att *Hämta* data.
 
-Med båda metoderna är målet att *läsa in data* från en extern data källa till ett Azure kognitiv sökning-index. Med Azure Kognitiv sökning kan du skapa ett tomt index, men tills du skickar eller hämtar data till den är det inte möjligt att fråga.
+Med båda metoderna är målet att läsa in data från en extern data källa till ett Azure Kognitiv sökning-index. Med Azure Kognitiv sökning kan du skapa ett tomt index, men tills du skickar eller hämtar data till den är det inte möjligt att fråga.
+
+> [!NOTE]
+> Om [AI-berikning](cognitive-search-concept-intro.md) är ett lösnings krav måste du använda pull-modellen (indexerarna) för att läsa in ett index. Extern bearbetning stöds bara via färdighetsuppsättningar som är kopplade till en indexerare.
 
 ## <a name="pushing-data-to-an-index"></a>Skicka data till ett index
+
 Push-modellen, som används för att program mässigt skicka data till Azure Kognitiv sökning, är den mest flexibla metoden. För det första finns det inga begränsningar på vilken typ av datakälla som får användas. Alla data uppsättningar som består av JSON-dokument kan skickas till ett Azure Kognitiv sökning-index, förutsatt att varje dokument i data uppsättningen har fält mappning till fält som definierats i index schemat. För det andra finns det inga begränsningar på körningsfrekvensen. Du kan skicka ändringar till ett index så ofta du vill. För program som har mycket låga fördröjningskrav (t.ex. om det är viktigt att sökåtgärder är synkroniserade med dynamiska inventeringsdatabaser) är push-modellen ditt enda alternativ.
 
 Den här metoden är mer flexibel än pull-modellen eftersom du kan ladda upp dokument individuellt eller i batchar (upp till 1 000 per batch eller 16 MB, beroende på vilken gräns som nås först). Med push-modellen kan du också ladda upp dokument till Azure Kognitiv sökning oavsett var dina data finns.
@@ -48,18 +52,15 @@ I REST API skickar du HTTP POST-begäranden med JSON-begäranden till URL: en f�
 I .NET SDK ska du paketera dina data i ett `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilka åtgärder som ska utföras i dokumentet. Ett kod exempel finns i [snabb start för C#](search-get-started-dotnet.md).
 
 
-| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Obs! |
+| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Kommentarer |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
-| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK omfattar detta fält av typen `DataType.Collection(DataType.String)`. I REST API innehåller detta fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags``["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK omfattar detta fält av typen `DataType.Collection(DataType.String)` . I REST API innehåller detta fält av typen `Collection(Edm.String)` . Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags``["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
 | `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
 
-## <a name="decide-which-indexing-action-to-use"></a>Bestäm vilken indexeringsåtgärd som du vill använda
-Importera data med hjälp av .NET SDK, (Ladda upp, sammanfoga, ta bort och mergeOrUpload). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
-
-
 ### <a name="formulate-your-query"></a>Formulera frågan
+
 Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
 
 För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-versionen* (den aktuella API-versionen är `2019-05-06` vid tidpunkten för publiceringen av det här dokumentet) i URL:en för begäran. För GET anger du frågeparametrarna i *frågesträngen* i slutet av URL:en. Se URL-formatet nedan:
@@ -68,13 +69,13 @@ För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-v
 
 Formatet för POST är samma, men med endast ”api-version” i frågesträngsparametrarna.
 
-
 ## <a name="pulling-data-into-an-index"></a>Hämta in data till ett index
+
 Datahämtningsmodellen crawlar en datakälla som stöds och överför automatiskt data till ditt index. I Azure Kognitiv sökning implementeras den här funktionen genom *indexerare*som för närvarande är tillgängliga för dessa plattformar:
 
-+ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
++ [Blob-lagring](search-howto-indexing-azure-blob-storage.md)
 + [Table Storage](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database och SQL Server på virtuella Azure-datorer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Indexerare ansluter ett index till en datakälla (vanligtvis en tabell, vy eller motsvarande struktur) och mappar källfält till motsvarande fält i indexet. Under körningen omvandlas raduppsättningen automatiskt till JSON och läses in i det angivna indexet. Alla indexerare stöder schemaläggning så att du kan ange hur ofta data ska uppdateras. De flesta indexerare tillhandahåller ändringsspårning om datakällan har stöd för det. Indexerare spårar ändringar och borttagningar av befintliga dokument och identifierar nya dokument, vilket gör att du slipper hantera dina data i indexet aktivt. 

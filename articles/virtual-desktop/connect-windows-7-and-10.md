@@ -4,16 +4,16 @@ description: Hur du ansluter till virtuella Windows-datorer med hjälp av Window
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d333b2f8bbb660e9fd71339159d942c0520f4f4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612698"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201556"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
@@ -22,7 +22,7 @@ ms.locfileid: "82612698"
 Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Skriv bords klienten.
 
 >[!NOTE]
->Windows-klienten har automatiskt standard versionen av Windows virtuella skriv bord 2019. Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga. 
+>Windows-klienten har automatiskt standard versionen av Windows virtuella skriv bord 2019. Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282489"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712232"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -35,7 +35,7 @@ En användare styr över vilken telemetri som kommer från deras program efterso
 
 Service Fabric tillhandahåller en omfattande uppsättning händelser från rutan. Dessa [Service Fabric händelser](service-fabric-diagnostics-events.md) kan nås via EventStore eller drift kanalen (händelse kanalen som exponeras av plattformen). 
 
-* Service Fabric Event Channels – i Windows är Service Fabric-händelser tillgängliga från en enda ETW-Provider med en uppsättning `logLevelKeywordFilters` relevant som används för att välja mellan drift-och data & meddelande kanaler – det här är det sätt på vilket vi avgränsar utgående Service Fabric händelser som ska filtreras efter behov. I Linux går Service Fabric-händelser genom LTTng och placeras i en lagrings tabell där de kan filtreras efter behov. Dessa kanaler innehåller granskade, strukturerade händelser som kan användas för att bättre förstå klustrets tillstånd. Diagnostik aktive ras som standard när klustret skapas, vilket skapar en Azure Storage tabell där händelserna från dessa kanaler skickas så att du kan fråga i framtiden. 
+* Service Fabric Event Channels – i Windows är Service Fabric-händelser tillgängliga från en enda ETW-Provider med en uppsättning relevant som `logLevelKeywordFilters` används för att välja mellan drift-och Data & meddelande kanaler – det här är det sätt på vilket vi avgränsar utgående Service Fabric händelser som ska filtreras efter behov. I Linux går Service Fabric-händelser genom LTTng och placeras i en lagrings tabell där de kan filtreras efter behov. Dessa kanaler innehåller granskade, strukturerade händelser som kan användas för att bättre förstå klustrets tillstånd. Diagnostik aktive ras som standard när klustret skapas, vilket skapar en Azure Storage tabell där händelserna från dessa kanaler skickas så att du kan fråga i framtiden. 
 
 * EventStore – EventStore är en funktion som erbjuds av plattformen som tillhandahåller Service Fabric plattforms händelser som är tillgängliga i Service Fabric Explorer och via REST API. Du kan se en Snapshot-vy över vad som händer i ditt kluster för varje entitet, t. ex. Node, service, program och fråga baserat på händelsens tidpunkt. Du kan också läsa mer om EventStore i EventStore- [översikten](service-fabric-diagnostics-eventstore.md).    
 

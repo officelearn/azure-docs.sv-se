@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: ee8e8ee4ca64de0390b6fa34e36fb4d06348a8ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804817"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207104"
 ---
 # <a name="how-to-use-image-templates"></a>Så här använder du avbildningsmallar
 
@@ -26,13 +26,13 @@ Avbildningar kan användas med HTML-markörer och olika skikt i Azure Maps Web S
 
 För att säkerställa bästa prestanda med lager läser du in avbildningarna i bild Sprite-resursen för avbildningar före åter givning. [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), i SymbolLayer, förinstallerar ett par markör bilder i en fåtal med färgerna i kart bilden Sprite som standard. Dessa markör bilder och fler är tillgängliga som SVG-mallar. De kan användas för att skapa bilder med anpassade skalor eller som en primär och sekundär-färg för kunden. Det finns totalt 42 bildmallar har angetts: 27 symbol ikoner och 15 polygon fyllnings mönster.
 
-Bildmallar kan läggas till i kart avbildningen Sprite-resurser `map.imageSprite.createFromTemplate` med hjälp av funktionen. Den här funktionen tillåter att upp till fem parametrar skickas in.
+Bildmallar kan läggas till i kart avbildningen Sprite-resurser med hjälp av `map.imageSprite.createFromTemplate` funktionen. Den här funktionen tillåter att upp till fem parametrar skickas in.
 
 ```javascript
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-`id` Är en unik identifierare som du skapar. `id` Är tilldelad till bilden när den läggs till i Maps-bilden Sprite. Använd den här identifieraren i skikten för att ange vilken bild resurs som ska renderas. `templateName` Anger vilken avbildnings mal len som ska användas. `color` Alternativet anger bildens primära färg och `secondaryColor` alternativen anger bildens sekundära färg. `scale` Alternativet skalar bildmallen innan den tillämpas på bilden Sprite. När avbildningen tillämpas på bilden Sprite, konverteras den till en PNG. För att säkerställa en tydlig åter givning är det bättre att skala upp bildmallen innan du lägger till den i spriten, än att skala den i ett lager.
+`id`Är en unik identifierare som du skapar. `id`Är tilldelad till bilden när den läggs till i Maps-bilden Sprite. Använd den här identifieraren i skikten för att ange vilken bild resurs som ska renderas. `templateName`Anger vilken avbildnings mal len som ska användas. `color`Alternativet anger bildens primära färg och `secondaryColor` alternativen anger bildens sekundära färg. `scale`Alternativet skalar bildmallen innan den tillämpas på bilden Sprite. När avbildningen tillämpas på bilden Sprite, konverteras den till en PNG. För att säkerställa en tydlig åter givning är det bättre att skala upp bildmallen innan du lägger till den i spriten, än att skala den i ett lager.
 
 Den här funktionen läser in bilden asynkront i bilden Sprite. Därför returneras ett löfte som du kan vänta på att den här funktionen slutförs.
 
@@ -52,26 +52,26 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 ## <a name="use-an-image-template-with-a-symbol-layer"></a>Använda en bildmall med ett symbol lager
 
-När en bildmall har lästs in i kart bilden Sprite, kan den återges som en symbol i ett symbol lager genom att referera till bild resurs-ID `image` : t i `iconOptions`alternativet för.
+När en bildmall har lästs in i kart bilden Sprite, kan den återges som en symbol i ett symbol lager genom att referera till bild resurs-ID: t i `image` alternativet för `iconOptions` .
 
-I följande exempel återges ett symbol lager med hjälp `marker-flat` av bild mal len med en primär blågrön-färg och en vit sekundär färg. 
+I följande exempel återges ett symbol lager med hjälp av `marker-flat` bild mal len med en primär blågrön-färg och en vit sekundär färg. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Symbol lager med inbyggd ikon mall" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>symbol lagret med den inbyggda Icon-mallen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+Se Penn <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>symbol lagret med den inbyggda Icon-mallen</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="use-an-image-template-along-a-lines-path"></a>Använda en bildmall längs en linje Sök väg
 
-När en bildmall har lästs in i kart bilden Sprite, kan den återges längs sökvägen för en linje genom att lägga till en lin Est ring till en data källa och använda ett symbol lager `lineSpacing`med ett alternativ och genom att referera till bild resursens ID i `image` alternativet för `iconOptions`. 
+När en bildmall har lästs in i kart bilden Sprite, kan den återges längs sökvägen för en linje genom att lägga till en lin Est ring till en data källa och använda ett symbol lager med ett `lineSpacing` alternativ och genom att referera till bild resursens ID i `image` alternativet för `iconOptions` . 
 
 Följande exempel återger en rosa linje på kartan och använder ett symbol lager med hjälp av `car` bild mal len med en blå klarblå blå primär färg och en vit sekundär färg. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Linje skikt med inbyggd ikon mall" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>linje lagret med den inbyggda Icon-mallen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+Se Penn <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>linje lagret med den inbyggda Icon-mallen</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -79,14 +79,14 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>linje lagret med den 
 
 ## <a name="use-an-image-template-with-a-polygon-layer"></a>Använda en bildmall med ett polygon-lager
 
-När en bildmall har lästs in i kart bilden Sprite, kan den återges som ett fyllnings mönster i ett polygon lager genom att referera till bild resurs- `fillPattern` ID: t i lagrets alternativ.
+När en bildmall har lästs in i kart bilden Sprite, kan den återges som ett fyllnings mönster i ett polygon lager genom att referera till bild resurs-ID: t i `fillPattern` lagrets alternativ.
 
-I följande exempel återges ett polygon-lager med `dot` hjälp av bild mal len med en röd primär färg och en transparent sekundär färg.  
+I följande exempel återges ett polygon-lager med hjälp av `dot` bild mal len med en röd primär färg och en transparent sekundär färg.  
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Fyll polygon med inbyggd ikon mall" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fyllnings polygonen med den inbyggda Icon-mallen</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se Penn <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fyllnings polygonen med den inbyggda Icon-mallen</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -94,15 +94,26 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fyllnings polygonen m
 
 ## <a name="use-an-image-template-with-an-html-marker"></a>Använda en bildmall med en HTML-markör
 
-En bildmall kan hämtas med hjälp av `altas.getImageTemplate` funktionen och används som innehåll i en HTML-markör. Mallen kan `htmlContent` skickas till alternativ för markören och sedan anpassas med alternativen `color`, `secondaryColor`och. `text`
+En bildmall kan hämtas med hjälp av `altas.getImageTemplate` funktionen och används som innehåll i en HTML-markör. Mallen kan skickas till `htmlContent` alternativ för markören och sedan anpassas med `color` `secondaryColor` alternativen, och `text` .
 
 I följande exempel används `marker-arrow` mallen med en röd primär färg, en rosa sekundär färg och ett text värde på 00.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="HTML-markör med inbyggd ikon mall" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören med inbyggd Icon-mall</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören med inbyggd Icon-mall</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+
+> [!TIP]
+> Bildmallar kan användas utanför kartan. GetImageTemplate-funciton returnerar en SVG-sträng med plats hållare; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Ersätt dessa plats hållarnas värden för att skapa en giltig SVG-sträng. Du kan sedan antingen lägga till SVG-strängen direkt i HTML DOM eller konvertera den till en data-URI och infoga den i en bildtagg. Ett exempel:
+> ```JavaScript
+> //Retrieve an SVG template and replace the placeholder values.
+> var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
+>
+> //Convert to data URI for use in image tags.
+> var dataUri = 'data:image/svg+xml;base64,' + btoa(svg);
+> ```
 
 ## <a name="create-custom-reusable-templates"></a>Skapa anpassade åter användnings bara mallar
 
@@ -128,7 +139,7 @@ I följande exempel visas hur du tar en SVG-mall och lägger till den i Azure Ma
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Lägg till mall för anpassad ikon i Atlas-namnrymd" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>mallen Lägg till anpassad ikon i Atlas-namnrymden</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>mallen Lägg till anpassad ikon i Atlas-namnrymden</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="list-of-image-templates"></a>Lista över bildmallar
@@ -176,6 +187,25 @@ I den här tabellen visas alla bildmallar som är tillgängliga i Azure Maps Web
 | Sick –-Sack | Sick –-Sack-lodrätt | bild |  |
 | ![Sick--Sack-ikon](./media/image-templates/zig-zag.png) | ![Sick--Sack-lodrät ikon](./media/image-templates/zig-zag-vertical.png) | ![ikon för punkter](./media/image-templates/dots.png) | |
 
+**Förinstallerade bild ikoner**
+
+Kartan förinstallerar en uppsättning ikoner i Maps-bildspriten med hjälp av `marker` -, `pin` -och- `pin-round` mallarna. Dessa ikon namn och deras färg värden visas i tabellen nedan.
+
+| ikon namn | color | secondaryColor |
+|-----------|-------|----------------|
+| `marker-black` | `#231f20` | `#ffffff` |
+| `marker-blue` | `#1a73aa` | `#ffffff` |
+| `marker-darkblue` | `#003963` | `#ffffff` |
+| `marker-red` | `#ef4c4c` | `#ffffff` |
+| `marker-yellow` | `#f2c851` | `#ffffff` |
+| `pin-blue` | `#2072b8` | `#ffffff` |
+| `pin-darkblue` | `#003963` | `#ffffff` |
+| `pin-red` | `#ef4c4c` | `#ffffff` |
+| `pin-round-blue` | `#2072b8` | `#ffffff` |
+| `pin-round-darkblue` | `#003963` | `#ffffff` |
+| `pin-round-red` | `#ef4c4c` | `#ffffff` |
+
+
 ## <a name="try-it-now-tool"></a>Prova nu-verktyget
 
 Med följande verktyg kan du återge de olika inbyggda Bildmallarna på olika sätt och anpassa de primära och sekundära färgerna och skalan.
@@ -183,7 +213,7 @@ Med följande verktyg kan du återge de olika inbyggda Bildmallarna på olika s�
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Alternativ för ikonnamn" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se mall- <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>alternativen</a> för Penn ikonen efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se mall- <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>alternativen</a> för Penn ikonen efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

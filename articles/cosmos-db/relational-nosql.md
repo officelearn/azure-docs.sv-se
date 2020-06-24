@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1cd80fee51565f2a2c1afa38ed883c10f51a5ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75896628"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113697"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Förstå skillnaderna mellan NoSQL och Relations databaser
 
@@ -29,7 +29,7 @@ I dessa scenarier kan [distribuerade databaser](https://en.wikipedia.org/wiki/Di
 
 Om dina transaktions volymer når extrema nivåer, till exempel många tusentals transaktioner per sekund, bör du överväga en distribuerad NoSQL-databas. Överväg Azure Cosmos DB för maximal effektivitet, enkel underhåll och minskad ägande kostnad.
 
-![Serverdel](./media/relational-or-nosql/backend-scaled.png)
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Serverdel" border="false":::
 
 ## <a name="hierarchical-data"></a>Hierarkiska data
 
@@ -39,7 +39,7 @@ I dag är det dock betydligt större av dokument format databaser. De här datab
 
 Uppkomsten av [objektorienterad design](https://en.wikipedia.org/wiki/Object-oriented_design)och den [avvikelse](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) som uppstår när den kombineras med relations modeller, visar också ett anti-mönster i Relations databaser för vissa användnings fall. Dolt men ofta betydande underhålls kostnader kan uppstå som ett resultat. Även om [orm-metoder](https://en.wikipedia.org/wiki/Object-relational_mapping) har utvecklats för att delvis minimera detta, så sammansamlingen av dokumentbaserade databaser på ett mycket bättre sätt med objektorienterade metoder. Med den här metoden tvingas utvecklare inte att allokeras till ORM-drivrutiner eller eker-språkspecifika [säkerhets-databasmotor](https://en.wikipedia.org/wiki/Object_database). Om dina data innehåller många överordnade och underordnade relationer och djup hierarkier, kanske du vill överväga att använda en NoSQL-dokument databas som [Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Komplexa nätverk och relationer
 
@@ -49,7 +49,7 @@ Olika former av "nätverks"-databaser pågick under den tid då Relations databa
 
 Om du upprätthåller ett komplext nätverk av relationer i databasen kanske du vill överväga en graf-databas som [Azure Cosmos DB Gremlin-API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) för att hantera dessa data.
 
-![Graph](./media/relational-or-nosql/graph.png)
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
 
 Azure Cosmos DB är en databas tjänst för flera modeller som erbjuder en API-projektion för alla större NoSQL modell typer; Kolumn – familj, dokument, graf och nyckel värde. API-skikten [Gremlin (graf)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) och SQL (Core) Document är helt driftskompatibla. Detta har fördelar för att växla mellan olika modeller på programmerings nivå. Diagram lager kan frågas i termer av både komplexa nätverks bläddringskontroll och transaktioner som modelleras som dokument poster i samma butik.
 
@@ -76,7 +76,7 @@ Mönstret för [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) har
 
 Den första utmaningen är att använda NoSQL-databaser i-databaser är vanligt vis avnormaliserat, vilket som tidigare har ändrats, vilket ger mer effektiva läsningar i ett distribuerat system. Det finns dock några design utmaningar som kommer i spel med den här metoden. Låt oss ta ett exempel på en produkt som är relaterad till en kategori och flera Taggar:
 
-![Kopplingar](./media/relational-or-nosql/many-joins.png)
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Kopplingar":::
 
 En metod för metod tips i en NoSQL-dokument databas är att avnormalisera kategori namn och taggnamn direkt i ett "produkt dokument". För att se till att kategorier, taggar och produkter är synkroniserade har design alternativen för att under lätta detta ytterligare underhåll, eftersom data dupliceras över flera poster i produkten, i stället för en enkel uppdatering i en "1-till-många"-relation och en koppling för att hämta data. 
 

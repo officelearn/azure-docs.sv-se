@@ -7,17 +7,17 @@ documentationcenter: ''
 author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
-ms.openlocfilehash: f5e9b7690c28793a35c692a6125a6b11c7a140a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5299c72d96fd7453d7df352ca842b4ede35f41fd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938759"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707675"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera cirkulations metoden för prestanda trafik
 
@@ -32,7 +32,7 @@ Med routningsmetoden för prestanda trafik kan du dirigera trafik till slut punk
     1. För routningsmetoden för **trafikroutning** **väljer du** **prestanda**.
     2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
         1. Välj lämpligt **protokoll**och ange **port** numret. 
-        2. För **sökväg** anger du ett snedstreck */*. Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
         3. Klicka på **Spara**längst upp på sidan.
 5.  Testa ändringarna i konfigurationen på följande sätt:
     1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.

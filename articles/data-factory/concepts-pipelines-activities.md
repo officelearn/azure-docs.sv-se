@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c3af10d2a88e6d18a7317a2e7e4106cf14132a1e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194283"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253771"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
@@ -69,7 +69,7 @@ Mer information finns i artikeln om [datatransformeringsaktiviteter](transform-d
 ## <a name="control-flow-activities"></a>Kontroll flödes aktiviteter
 Följande kontrollflödesaktiviteter stöds:
 
-Kontrollaktivitet | Description
+Kontrollaktivitet | Beskrivning
 ---------------- | -----------
 [Lägg till variabel](control-flow-append-variable-activity.md) | Lägg till ett värde i en befintlig mat ris variabel.
 [Kör pipeline](control-flow-execute-pipeline-activity.md) | Med Execute Pipeline-aktiviteten kan en Data Factory-pipeline anropa en annan pipeline.
@@ -106,13 +106,13 @@ Så här definieras en pipeline i JSON-format:
 }
 ```
 
-Tagga | Description | Typ | Obligatorisk
+Tagga | Beskrivning | Typ | Obligatorisk
 --- | ----------- | ---- | --------
 name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | Sträng | Yes
 description | Ange texten som beskriver vad pipeline används till. | Sträng | No
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Yes
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Lista | No
-samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Tal | No 
+samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Antal | No 
 anteckningar | En lista med taggar som är associerade med pipelinen | Matris | No
 
 ## <a name="activity-json"></a>Aktivitets-JSON
@@ -141,7 +141,7 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagga | Description | Obligatorisk
+Tagga | Beskrivning | Obligatorisk
 --- | ----------- | ---------
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Yes</li></ul>
 description | Text som beskriver vad aktiviteten används till | Yes
@@ -182,7 +182,7 @@ Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsal
 }
 ```
 
-JSON-namn | Description | Tillåtna värden | Obligatorisk
+JSON-namn | Beskrivning | Tillåtna värden | Obligatorisk
 --------- | ----------- | -------------- | --------
 timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
 retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
@@ -206,7 +206,7 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagga | Description | Obligatorisk
+Tagga | Beskrivning | Obligatorisk
 --- | ----------- | --------
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Yes</li><ul>
 description | Text som beskriver vad aktiviteten används till | Yes
@@ -268,7 +268,7 @@ Exempel: Om en pipeline har Aktivitet A -> Aktivitet B är de olika scenarier so
 `"
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {

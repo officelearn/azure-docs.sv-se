@@ -7,18 +7,18 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 5/26/2020
-ms.openlocfilehash: d7a6f87b704a2e366e0a4e1fc647e83ed88c486c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 53ef9f66034d40e221a9ae4c8647cecdfe709107
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050858"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726896"
 ---
-# <a name="customize-azure-database-for-mariadb-server-parameters-using-powershell"></a>Anpassa Azure Database for MariaDB Server parametrar med PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Konfigurera Server parametrar i Azure Database for MariaDB med PowerShell
 
 Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MariaDB-server med hjälp av PowerShell. En del av motor konfigurationerna exponeras på server nivå och kan ändras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 

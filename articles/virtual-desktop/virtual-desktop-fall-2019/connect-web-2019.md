@@ -4,16 +4,16 @@ description: Ansluta till virtuella Windows-datorer med hjälp av webb klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b73a6bf2c8b853d9e3e939b6c8ff6fc05ac7021
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e95498498fd15d7a6e73630e218f9bdd1b892f09
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657268"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204803"
 ---
 # <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
 
@@ -29,7 +29,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Webbläsare           | Operativ system som stöds                     | Anteckningar               |
+| Webbläsare           | Operativ system som stöds                     | Kommentarer               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

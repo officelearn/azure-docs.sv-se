@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac9e3fd4fec8ab2fe9f0c93d46489e67feebe88d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72754797"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116272"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Total ägande kostnad (TCO) med Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Etablerings modellen utan server för Azure Cosmos DB eliminerar behovet av att 
 
 * **Ingen NoSQL DevOps-administration krävs:** Med Azure Cosmos DB en behöver inte använda DevOps för att hantera distributioner, utföra underhåll, skalning eller korrigering. Du kan köra alla arbets belastningar som du skulle göra med OSS NoSQL-kluster som finns lokalt eller i moln infrastrukturen.
 
-![Azure Cosmos DB ägande kostnad](./media/total-cost-ownership/tco.png)
+:::image type="content" source="./media/total-cost-ownership/tco.png" alt-text="Azure Cosmos DB ägande kostnad" border="false":::
 
 * **Möjlighet att bygga ut elastiskt:** Azure Cosmos DB data flöde kan skalas upp och ned så att du kan minska ägande kostnaden under låg belastnings tider. OSS NoSQL-kluster som distribueras i moln infrastruktur erbjuder begränsad elastiskhet och lokala distributioner är inte elastiska av definition. I Azure Cosmos DB, om du etablerar mer data flöde, garanterar du att data flödet skalas linjärt. Den här säkerheten säkerhets kopie ras av finansiella service avtal och vid 99 percentilen i valfri skala.
 

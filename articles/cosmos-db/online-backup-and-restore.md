@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: f5cc4339d7d6dce6d49c8d3eb744fca7fa5774d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ed9e23b178b8eeefbd3c3a690491124e6901180
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240437"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112930"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Med Azure Cosmos DB, inte bara för dina data, utan även säkerhets kopior av d
 
 Följande bild visar hur en Azure Cosmos-behållare med alla de tre primära fysiska partitionerna i västra USA säkerhets kopie ras i ett fjärran slutet Azure Blob Storage-konto i USA och sedan replikeras till USA, östra:
 
-![Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
+:::image type="content" source="./media/online-backup-and-restore/automatic-backup.png" alt-text="Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage" border="false":::
 
 ## <a name="options-to-manage-your-own-backups"></a>Alternativ för att hantera dina egna säkerhets kopior
 
@@ -62,7 +62,7 @@ Oavsiktlig borttagning eller ändring av data kan ske i något av följande scen
 
 * En delad erbjudande databas eller behållare i en delad erbjudande databas tas bort eller skadas
 
-Azure Cosmos DB kan återställa data i alla scenarier ovan. Återställningsprocessen skapar alltid ett nytt Azure Cosmos-konto som lagrar återställda data. Namnet på det nya kontot, om det inte anges, kommer att ha formatet `<Azure_Cosmos_account_original_name>-restored1`. Den sista siffran ökas, om flera försök görs. Du kan inte återställa data till ett redan skapat Azure Cosmos-konto.
+Azure Cosmos DB kan återställa data i alla scenarier ovan. Återställningsprocessen skapar alltid ett nytt Azure Cosmos-konto som lagrar återställda data. Namnet på det nya kontot, om det inte anges, kommer att ha formatet `<Azure_Cosmos_account_original_name>-restored1` . Den sista siffran ökas, om flera försök görs. Du kan inte återställa data till ett redan skapat Azure Cosmos-konto.
 
 När ett Azure Cosmos-konto tas bort kan vi återställa data till ett konto med samma namn, förutsatt att konto namnet inte används. I sådana fall rekommenderar vi att du inte återskapar kontot efter borttagningen, eftersom det inte bara förhindrar att de återställda data använder samma namn, men det gör också att identifiera rätt konto för återställning från svårare. 
 

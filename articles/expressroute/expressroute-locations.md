@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/09/2020
+ms.date: 06/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 26251742eb092508f2b2e18251dbddec17372848
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: c4ad466a8c643c1922749f6afd694255b75176b1
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636350"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100443"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -91,10 +91,11 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **CDC** | Stöds | Stöds | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Stöds |Stöds |Amsterdam2, Chicago, Frankfurt, Hongkong, Las Vegas, London2, New York, Paris, San-Antonio, Silicon dal, Tokyo, Toronto, Washington DC, Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Stöds |Stöds |Hong Kong, Taipei, |
-| **Kina, mobil internationell** |Stöds |Stöds | Singapore |
+| **Kina, mobil internationell** |Stöds |Stöds | Hong Kong, Hong Kong2, Singapore |
 | **China Telecom Global** |Stöds |Stöds |Hong Kong, Hong Kong2 |
 | **Kina, Unicom global** |Stöds |Stöds | Singapore2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Stöds |Stöds |Taipei |
+| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Stöds |Stöds |Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Stöds |Stöds |Chicago, Borås, Montrealprotokollet, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Chicago, Dublin, Frankfurt, London, London2, Newport, New York, Osaka, Paris, Silicon dal, Silicon Valley2, Singapore2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
@@ -104,11 +105,12 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **du datamena** |Stöds |Stöds | Dubai2 |
 | **eir** |Stöds |Stöds |Dublin|
 | **[Epsilon, global kommunikation](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Stöds |Stöds |Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Borås, Dublin, Frankfurt, Genève, Hongkong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, kisel dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Borås, Dublin, Frankfurt, Genève, Hongkong SAR, London, London2, Los Angeles, Melbourne, Miami, Milano, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
-| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, London |
+| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Stöds |Stöds |Taipei|
-| **GÉANT** |Stöds |Stöds |Amsterdam, Frankfurt, Marseille |
+| **GÉANT** |Stöds |Stöds |Amsterdam, Dublin, Frankfurt, Marseille |
+| **GTT** |Stöds |Stöds |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
 | **Intelsat** | Stöds | Stöds | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, Chicago, Hongkong, London, New York, Paris, kisel dal, Singapore, Washington DC, Zürich |
@@ -160,13 +162,14 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telus](https://www.telus.com)** |Stöds |Stöds |Montrealprotokollet, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Stöds |Stöds |Kapstaden, Johannesburg |
 | **[TID dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Stöds | Stöds | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Los Angeles, Queretaro|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Queretaro|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Stöds |Stöds |Sao Paulo |
+| **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Stöds | Stöds | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Norrköping, Borås, Hongkong SAR, London, Mumbai, Silicon dal, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Stöds | Stöds | Washington DC2 |
 | **[Vocus-grupp NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Stöds | Stöds | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Stöds |Stöds |Amsterdam2, London, Singapore |
-| **[Vodafone-idé](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Stöds | Stöds | Mumbai, Mumbai2 |
+| **[Vodafone-idé](https://discover.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Stöds | Stöds | Mumbai2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Denver, London, Los Angeles, Montrealprotokollet, New York, Paris, Seattle, Silicon dal, Toronto, Washington DC, Washington DC2 |
 
  **+** kommer snart

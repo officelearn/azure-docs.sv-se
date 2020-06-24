@@ -4,12 +4,12 @@ description: Lär dig snabbt att köra ett Batch-jobb med Azure CLI. Skapa och h
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266907"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262692"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Snabb start: skapa ett batch-konto med hjälp av Azure Resource Manager mall
 
@@ -23,7 +23,7 @@ Du måste ha en aktiv Azure-prenumeration.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-batch-account-with-storage"></a>Skapa ett batch-konto med lagring
 
 ### <a name="review-the-template"></a>Granska mallen
 
@@ -34,7 +34,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 Två Azure-resurser definieras i mallen:
 
 - [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): skapar ett lagrings konto.
-- [Microsoft. batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): skapar ett batch-konto.
+- [Microsoft.BatCH/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): skapar ett batch-konto.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 

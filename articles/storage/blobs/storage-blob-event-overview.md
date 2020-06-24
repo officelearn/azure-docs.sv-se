@@ -7,13 +7,13 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
-ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: dineshm
+ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811537"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809077"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob Storage-händelser
 
@@ -39,7 +39,7 @@ Om du vill visa djupgående exempel för att agera på Blob Storage-händelser m
 - [Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Endast lagrings konton av typen **StorageV2 (generell användning v2)**, **BlockBlobStorage**och **BlobStorage** stöder händelse integrering. **Lagring (Genral Purpose v1)** stöder *inte* integrering med event Grid.
+> Endast lagrings konton av typen **StorageV2 (generell användning v2)**, **BlockBlobStorage**och **BlobStorage** stöder händelse integrering. **Lagring (generell användning v1)** stöder *inte* integrering med event Grid.
 
 ## <a name="the-event-model"></a>Händelse modellen
 
@@ -70,19 +70,19 @@ Mer information om hur du använder filter finns i [Filtrera händelser för Eve
 
 Om du vill matcha alla händelser för ett lagrings konto kan du lämna ämnes filtren tomma.
 
-Om du vill matcha händelser från blobbar som skapats i en uppsättning behållare som delar ett prefix använder `subjectBeginsWith` du ett filter som:
+Om du vill matcha händelser från blobbar som skapats i en uppsättning behållare som delar ett prefix använder du ett `subjectBeginsWith` filter som:
 
 ```
 /blobServices/default/containers/containerprefix
 ```
 
-Om du vill matcha händelser från blobbar som skapats i en speciell behållare `subjectBeginsWith` använder du ett filter som:
+Om du vill matcha händelser från blobbar som skapats i en speciell behållare använder du ett `subjectBeginsWith` filter som:
 
 ```
 /blobServices/default/containers/containername/
 ```
 
-Om du vill matcha händelser från blobbar som skapats i en speciell behållare som delar ett BLOB- `subjectBeginsWith` namn använder du ett filter som:
+Om du vill matcha händelser från blobbar som skapats i en speciell behållare som delar ett BLOB-namn använder du ett `subjectBeginsWith` filter som:
 
 ```
 /blobServices/default/containers/containername/blobs/blobprefix
@@ -99,10 +99,10 @@ Program som hanterar Blob Storage-händelser bör följa några rekommenderade m
 > * När meddelanden kan komma efter en viss fördröjning använder du etag-fälten för att ta reda på om din information om objekt fortfarande är uppdaterad. Information om hur du använder etag-fältet finns i [Hantera samtidighet i Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * När meddelanden kan komma in i turordning använder du fälten sekvenser för att förstå händelse ordningen för ett visst objekt. Fältet Sequencer är ett sträng värde som representerar den logiska sekvensen av händelser för ett visst BLOB-namn. Du kan använda standard sträng jämförelse för att förstå den relativa sekvensen av två händelser på samma BLOB-namn.
 > * Lagrings händelser garanterar minst en leverans till prenumeranter, vilket säkerställer att alla meddelanden är i kö. Men på grund av återförsök eller tillgänglighet för prenumerationer kan det ibland hända att duplicerade meddelanden inträffar. Läs mer om meddelande leverans och försök igen i [Event Grid meddelande leverans och försök igen](../../event-grid/delivery-and-retry.md).
-> * Använd fältet blobType för att förstå vilken typ av åtgärder som tillåts i blobben och vilka klient biblioteks typer som du ska använda för att få åtkomst till bloben. Giltiga värden är antingen `BlockBlob` eller `PageBlob`. 
-> * Använd fältet URL med- `CloudBlockBlob` och `CloudAppendBlob` -konstruktörer för att komma åt blobben.
+> * Använd fältet blobType för att förstå vilken typ av åtgärder som tillåts i blobben och vilka klient biblioteks typer som du ska använda för att få åtkomst till bloben. Giltiga värden är antingen `BlockBlob` eller `PageBlob` . 
+> * Använd fältet URL med- `CloudBlockBlob` och- `CloudAppendBlob` konstruktörer för att komma åt blobben.
 > * Ignorera fält som du inte förstår. Den här övningen hjälper dig att hålla dig flexibel till nya funktioner som kan läggas till i framtiden.
-> * Om du vill se till att händelsen **Microsoft. Storage. BlobCreated** endast utlöses när en block-BLOB är fullständigt allokerad, filtrerar du händelsen för `CopyBlob`- `PutBlob`, `PutBlockList` - `FlushWithClose` eller REST API-anrop. Dessa API-anrop utlöser händelsen **Microsoft. Storage. BlobCreated** endast efter att data har allokerats till en Block-Blob fullständigt. Information om hur du skapar ett filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Om du vill se till att händelsen **Microsoft. Storage. BlobCreated** endast utlöses när en block-BLOB är fullständigt allokerad, filtrerar du händelsen för `CopyBlob` -, `PutBlob` - `PutBlockList` eller REST API- `FlushWithClose` anrop. Dessa API-anrop utlöser händelsen **Microsoft. Storage. BlobCreated** endast efter att data har allokerats till en Block-Blob fullständigt. Information om hur du skapar ett filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## <a name="next-steps"></a>Nästa steg

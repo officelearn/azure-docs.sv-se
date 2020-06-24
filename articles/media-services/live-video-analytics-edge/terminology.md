@@ -1,14 +1,14 @@
 ---
-title: Terminologi – Azure
+title: Live video analys på IoT EDG-terminologi – Azure
 description: Den här artikeln innehåller en översikt över video analys på IoT Edge terminologi.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 51fcc962f6546d727dbbc5e7ff62dc9c4e5677af
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261046"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816522"
 ---
 # <a name="terminology"></a>Terminologi
 
@@ -26,7 +26,7 @@ Live video analys på IoT Edge kan skapa till gångar och/eller lägga till data
 
 ## <a name="streaming"></a>Strömning
 
-Om du har tittat på video på en mobil enhet från tjänster som Netflix, YouTube och andra, har du erfaren strömmande video. Uppspelningen börjar strax efter att du har nått "Play" (om du har tillräckligt med bandbredd) och du kan söka fram och tillbaka längs videons tids linje. Med strömning är tanken att leverera endast den del av videon som bevakas och att låta visnings programmet spela upp videon medan data fortfarande överförs från en server till uppspelnings klienten. I samband med Azure Media Services avser [streaming](https://en.wikipedia.org/wiki/Streaming_media) processen att leverera medier från [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) till en strömmande klient (till exempel Azure Media Player). Du kan använda Azure Media Services för att strömma video till klienter som använder branschstandardiserade HTTP-baserade medie strömnings protokoll som [http Live Streaming (HLS)](https://developer.apple.com/streaming/) och [MPEG-streck](https://dashif.org/about/). HLS stöds av Azure Media Player och Web-spelarna som [JW Player](https://www.jwplayer.com/), [HLS. js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Googles Shaka Player](https://github.com/google/shaka-player), eller så kan du återge internt i mobilappar med Android: s [Exoplayer](https://github.com/google/ExoPlayer) och iOS [av Foundation](https://developer.apple.com/av-foundation/). MPEG-bindestreck stöds också av Azure Media Player, [hittar du en lista över klienter på den här sidan](https://dashif.org/clients/). 
+Om du har tittat på video på en mobil enhet från tjänster som Netflix, YouTube och andra, har du erfaren strömmande video. Uppspelningen börjar strax efter att du har nått "Play" (om du har tillräckligt med bandbredd) och du kan söka fram och tillbaka längs videons tids linje. Med strömning är tanken att leverera endast den del av videon som bevakas och att låta visnings programmet spela upp videon medan data fortfarande överförs från en server till uppspelnings klienten. I samband med Azure Media Services avser [streaming](https://en.wikipedia.org/wiki/Streaming_media) processen att leverera medier från [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) till en strömmande klient (till exempel Azure Media Player). Du kan använda Azure Media Services för att strömma video till klienter som använder branschstandardiserade HTTP-baserade medie strömnings protokoll som [http Live Streaming (HLS)](https://developer.apple.com/streaming/) och [MPEG-streck](https://dashif.org/about/). HLS stöds av Azure Media Player och Web-spelarna som [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Googles Shaka Player](https://github.com/google/shaka-player), eller så kan du återge internt i mobilappar med Android: s [Exoplayer](https://github.com/google/ExoPlayer) och iOS [av Foundation](https://developer.apple.com/av-foundation/). MPEG-bindestreck stöds också av Azure Media Player, [hittar du en lista över klienter på den här sidan](https://dashif.org/clients/). 
 
 Genom att använda [Media Graph](#media-graph)s för att spela in videor till en till gång i Azure Media Services kan du använda Media Services streaming-kapacitet för att leverera video STRÖMMAR i HLS och bindestreck. Du kan läsa mer om det i artikeln [video uppspelning](video-playback-concept.md) .
 
@@ -34,7 +34,7 @@ Genom att använda [Media Graph](#media-graph)s för att spela in videor till en
 
 I samband med ett video hanterings system för säkerhets kameror refererar videoinspelningen till processen för att hämta video från kameror och lagra den i en fil (eller filer) för efterföljande visning via mobil-och webbläsarbaserade appar. Videoinspelning kan delas in i [kontinuerlig video inspelning](continuous-video-recording-concept.md) och [händelsebaserade videoinspelningar](event-based-video-recording-concept.md). Dessa beskrivs mer ingående på sidan för [video inspelnings](video-recording-concept.md) begrepp.
 
-## <a name="media-graph"></a>Medie diagram
+## <a name="media-graph"></a>Mediegraf
 
 Med [medie diagram](media-graph-concept.md) kan du definiera var media ska samlas in, hur de ska bearbetas och var resultaten ska levereras. Det gör att du kan definiera en graf som består av källor, processorer och Sink-noder och därmed ge dig möjlighet att bygga Real video analys program. Medie diagram beskrivs i detalj på sidan för medie Graph-koncept.
 

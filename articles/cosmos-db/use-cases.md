@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: de2bc551547706fb820813e57996e77bf49148d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76016da2ec542091aa57d5081e275a1f9f6671cd
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73888934"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114273"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga Azure Cosmos DB användnings fall
 Den här artikeln innehåller en översikt över flera vanliga användnings fall för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en utgångs punkt när du utvecklar ditt program med Cosmos DB.   
@@ -42,7 +42,7 @@ Dessa attribut är fördelaktiga i webb-, mobil-, spel-och IoT-program som behö
 ## <a name="iot-and-telematics"></a>IoT och telematik
 Användnings områden för IoT delar ofta några mönster i hur de matar in, bearbetar och lagrar data.  För det första måste dessa system mata in burst-överföring av data från enhets sensorer för olika språk. Därefter kan dessa system bearbeta och analysera strömmande data för att få insikter i real tid. Data arkiveras sedan till kall lagring för batch Analytics. Microsoft Azure erbjuder omfattande tjänster som kan användas för användnings fall i IoT, inklusive Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight och Power BI. 
 
-![Referens arkitektur för Azure Cosmos DB IoT](./media/use-cases/iot.png)
+:::image type="content" source="./media/use-cases/iot.png" alt-text="Referens arkitektur för Azure Cosmos DB IoT" border="false":::
 
 Burst-data kan matas in av Azure Event Hubs eftersom det erbjuder data inmatning med hög data flöde med låg latens. Data som matas in och som behöver bearbetas för insikter i real tid kan delas in i Azure Stream Analytics för analys i real tid. Data kan läsas in i Azure Cosmos DB för adhoc-frågor. När data har lästs in i Azure Cosmos DB är data klara att frågas. Dessutom kan nya data och ändringar i befintliga data läsas vid ändrings flöde. Ändra feed är en beständigt, bifogad logg som lagrar ändringar i Cosmos-behållare i sekventiell ordning. Alla data eller bara ändringar av data i Azure Cosmos DB kan användas som referens data som en del av analys i real tid. Dessutom kan data förfinas och bearbetas genom att du ansluter Azure Cosmos DB data till HDInsight för gris-, Hive-eller Map/minska-jobb.  Förfinade data läses sedan tillbaka till Azure Cosmos DB för rapportering.   
 
@@ -57,11 +57,11 @@ Scenarier för katalog data användning innebär att lagra och fråga en uppsät
 
 Överväg ett exempel på en produkt katalog för en bil delar leverantör. Varje del kan ha sina egna attribut utöver de gemensamma attribut som delas av alla delar. Dessutom kan attribut för en speciell del ändra följande år när en ny modell släpps. Azure Cosmos DB stöder flexibla scheman och hierarkiska data och lämpar sig därför väl för att lagra produkt katalog data.
 
-![Referens arkitektur för Azure Cosmos DB Retail Catalog](./media/use-cases/product-catalog.png)
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Referens arkitektur för Azure Cosmos DB Retail Catalog" border="false":::
 
 Azure Cosmos DB används ofta för händelse källor till Power Event driven arkitekturer med dess funktion för att [ändra feed](change-feed.md) . Ändrings flödet ger underordnade mikrotjänster möjlighet till tillförlitlig och stegvis läsning av infogningar och uppdateringar (till exempel order händelser) som görs till en Azure Cosmos DB. Den här funktionen kan användas för att tillhandahålla en beständig händelse lagring som en meddelande koordinator för tillstånds ändrings händelser och bearbetning av arbets flöde för enhets ordnings bearbetning mellan många mikrotjänster (som kan implementeras som [Server lös Azure Functions](https://azure.com/serverless)).
 
-![Azure Cosmos DB ordning för pipeline för pipeliniska referenser](./media/use-cases/event-sourcing.png)
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordning för pipeline för pipeliniska referenser" border="false":::
 
 Dessutom kan data som lagras i Azure Cosmos DB integreras med HDInsight för Big data Analytics via Apache Spark-jobb. Mer information om Spark-anslutaren för Azure Cosmos DB finns i [köra ett Spark-jobb med Cosmos DB och HDInsight](spark-connector.md).
 
@@ -76,7 +76,7 @@ Azure Cosmos DB används av spel som inblandning [: ingen man är jord](https://
 * Sociala funktioner, inklusive chatt meddelanden i spelet, spelare guild-medlemskap, utmaningar som slutförs, ranknings listor och sociala grafer är enklare att implementera med ett flexibelt schema.
 * Azure Cosmos DB som en hanterad plattform som en tjänst (PaaS) krävde minimalt konfigurations-och hanterings arbete för att möjliggöra snabb iteration och minska tiden till marknaden.
 
-![Referens arkitektur för Azure Cosmos DB spel](./media/use-cases/gaming.png)
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Referens arkitektur för Azure Cosmos DB spel" border="false":::
 
 ## <a name="web-and-mobile-applications"></a>Webb program och mobilappar
 Azure Cosmos DB används ofta i webb program och mobilappar, och passar utmärkt för att utforma sociala interaktioner, integrera med tjänster från tredje part och för att skapa anpassade upplevelser. Cosmos DB SDK: er kan användas för att bygga rika iOS-och Android-program med hjälp av det populära [Xamarin-ramverket](mobile-apps-with-xamarin.md).  
@@ -88,14 +88,14 @@ Program som integreras med sociala nätverk från tredje part måste reagera på
 
 Många av de sociala programmen körs i global skala och kan uppvisa oförutsägbara användnings mönster. Flexibilitet vid skalning av data lagringen är viktig eftersom program lagret skalas för att matcha användnings behovet.  Du kan skala ut genom att lägga till ytterligare datapartitioner under ett Cosmos DB konto.  Dessutom kan du också skapa ytterligare Cosmos DB konton över flera regioner. Information om tillgänglighet för Cosmos DB service regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-![Referens arkitektur för Azure Cosmos DB Web App](./media/use-cases/apps-with-global-reach.png)
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Referens arkitektur för Azure Cosmos DB Web App" border="false":::
 
-### <a name="personalization"></a>Personanpassning
+### <a name="personalization"></a>Anpassning
 Nuförtiden, moderna program levereras med komplexa vyer och upplevelser. Dessa är vanligt vis dynamiska, catering till användar preferenser eller stämnings-och märkes behov. Därför måste program kunna hämta anpassade inställningar effektivt för att snabbt återge GRÄNSSNITTs element och upplevelser. 
 
 JSON, ett format som stöds av Cosmos DB, är ett effektivt format som representerar GRÄNSSNITTets layoutinformation eftersom det inte bara är lätt att tolka, men det kan också enkelt tolkas av Java Script. Cosmos DB ger justerbara konsekvens nivåer som tillåter snabba läsningar med låg latens skrivningar. Därför är det ett effektivt sätt att lagra data i gränssnittet, inklusive anpassade inställningar som JSON-dokument i Cosmos DB, för att hämta data över hela kabeln.
 
-![Referens arkitektur för Azure Cosmos DB Web App](./media/use-cases/personalization.png)
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Referens arkitektur för Azure Cosmos DB Web App" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

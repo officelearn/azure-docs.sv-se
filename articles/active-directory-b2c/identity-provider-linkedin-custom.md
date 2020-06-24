@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a22f61d198b9fe8ac8150d6990d0d6c13823a176
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188179"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202032"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett LinkedIn-konto med anpassade principer i Azure Active Directory B2C
 
@@ -65,10 +65,10 @@ Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-k
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Manual`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `LinkedInSecret`. Prefixet *B2C_1A_* läggs automatiskt till namnet på din nyckel.
+6. För **alternativ**väljer du `Manual` .
+7. Ange ett **namn** för princip nyckeln. Exempelvis `LinkedInSecret`. Prefixet *B2C_1A_* läggs automatiskt till namnet på din nyckel.
 8. I **hemlighet**anger du den klient hemlighet som du tidigare har registrerat.
-9. För **nyckel användning**väljer `Signature`du.
+9. För **nyckel användning**väljer du `Signature` .
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -77,7 +77,7 @@ Om du vill att användarna ska logga in med ett LinkedIn-konto måste du definie
 
 Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna filen *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
+1. Öppna filen *SocialAndLocalAccounts/* * TrustFrameworkExtensions.xml** * i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
 1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 1. Lägg till en ny **ClaimsProvider** enligt följande:
 
@@ -134,9 +134,9 @@ Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till 
 
 Den tekniska profilen LinkedIn kräver att **ExtractGivenNameFromLinkedInResponse** -och **ExtractSurNameFromLinkedInResponse** -postomvandlingar läggs till i listan över ClaimsTransformations. Om du inte har ett **ClaimsTransformations** -element definierat i filen lägger du till de överordnade XML-elementen som visas nedan. Anspråks omvandlingarna behöver också en ny anspråks typ som definierats med namnet **nullStringClaim**.
 
-Lägg till elementet **BuildingBlocks** längst upp i filen *TrustFrameworkExtensions. XML* . Se *TrustFrameworkBase. XML* för ett exempel.
+Lägg till elementet **BuildingBlocks** längst upp i *TrustFrameworkExtensions.xmls* filen. Se *TrustFrameworkBase.xml* ett exempel.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -177,27 +177,27 @@ Lägg till elementet **BuildingBlocks** längst upp i filen *TrustFrameworkExten
 Nu har du en princip konfigurerad så att Azure AD B2C vet hur man kommunicerar med ditt LinkedIn-konto. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
 
 1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 3. Klicka på **Överför**.
 
 ## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
 
 Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig på någon av registrerings-eller inloggnings skärmarna. För att göra det tillgängligt, skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har LinkedIn-identitetsprovider.
 
-1. Öppna filen *TrustFrameworkBase. XML* i Start paketet.
-2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
+1. Öppna *TrustFrameworkBase.xml* -filen i Start paketet.
+2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
+3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInLinkedIn`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInLinkedIn`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
 **ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-eller inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för ett LinkedIn-konto visas en ny knapp när en användare hamnar på sidan.
 
 1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade.
-2. Lägg till följande-element under **ClaimsProviderSelections**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `LinkedInExchange`:
+2. Lägg till följande-element under **ClaimsProviderSelections**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `LinkedInExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
@@ -208,13 +208,13 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Exempelvis `LinkedIn-OAUTH`.
 
-3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
+3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
 
@@ -226,8 +226,8 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 
 Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
-1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignInLinkedIn. XML*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInLinkedIn`.
+1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignInLinkedIn.xml*.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInLinkedIn`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignLinkedIn).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
@@ -241,14 +241,14 @@ LinkedIn har nyligen [uppdaterat sina API: er från v 1.0 till v 2.0](https://en
 
 I det befintliga **metadata** -elementet i **TechnicalProfile**uppdaterar du följande **objekt** element från:
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
 Till:
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
@@ -257,7 +257,7 @@ Till:
 
 I TechnicalProfile **metadata** lägger du **TechnicalProfile**till följande **objekt** element:
 
-```XML
+```xml
 <Item Key="external_user_identity_claim_id">id</Item>
 <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -267,14 +267,14 @@ I TechnicalProfile **metadata** lägger du **TechnicalProfile**till följande **
 
 I den befintliga **OutputClaims** av **TechnicalProfile**uppdaterar du följande **OutputClaim** -element från:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
 Till:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
@@ -283,7 +283,7 @@ Till:
 
 Lägg till följande **OutputClaimsTransformation** -element i **OutputClaimsTransformations** i **TechnicalProfile**:
 
-```XML
+```xml
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
@@ -292,9 +292,9 @@ Lägg till följande **OutputClaimsTransformation** -element i **OutputClaimsTra
 
 I det sista steget lade du till nya anspråk-omvandlingar som måste definieras. Du definierar anspråks Transformationerna genom att lägga till dem i listan över **ClaimsTransformations**. Om du inte har ett **ClaimsTransformations** -element definierat i filen lägger du till de överordnade XML-elementen som visas nedan. Anspråks omvandlingarna behöver också en ny anspråks typ som definierats med namnet **nullStringClaim**.
 
-**BuildingBlocks** -elementet ska läggas till längst upp i filen. Se *TrustframeworkBase. XML* som exempel.
+**BuildingBlocks** -elementet ska läggas till längst upp i filen. Se *TrustframeworkBase.xml* som exempel.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -336,9 +336,9 @@ Som en del av LinkedIn-migreringen från v 1.0 till v 2.0 krävs ytterligare ett
 
 1. Slutför stegen ovan för att tillåta att Azure AD B2C federera med LinkedIn så att användaren kan logga in. Som en del av federationen Azure AD B2C tar emot åtkomsttoken för LinkedIn.
 2. Spara LinkedIn-åtkomsttoken i ett anspråk. [Se instruktionerna här](idp-pass-through-custom.md).
-3. Lägg till följande anspråks leverantör som gör begäran till LinkedIn `/emailAddress` -API: et. För att godkänna den här begäran behöver du LinkedIn-åtkomsttoken.
+3. Lägg till följande anspråks leverantör som gör begäran till LinkedIn- `/emailAddress` API: et. För att godkänna den här begäran behöver du LinkedIn-åtkomsttoken.
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
@@ -364,9 +364,9 @@ Som en del av LinkedIn-migreringen från v 1.0 till v 2.0 krävs ytterligare ett
     </ClaimsProvider>
     ```
 
-4. Lägg till följande Orchestration-steg i din användar resa, så att API-anspråks leverantören utlöses när en användare loggar in med LinkedIn. Se till att uppdatera numret `Order` på rätt sätt. Lägg till det här steget direkt efter Orchestration-steget som utlöser den tekniska profilen för LinkedIn.
+4. Lägg till följande Orchestration-steg i din användar resa, så att API-anspråks leverantören utlöses när en användare loggar in med LinkedIn. Se till att uppdatera `Order` numret på rätt sätt. Lägg till det här steget direkt efter Orchestration-steget som utlöser den tekniska profilen för LinkedIn.
 
-    ```XML
+    ```xml
     <!-- Extra step for LinkedIn to get the email -->
     <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>

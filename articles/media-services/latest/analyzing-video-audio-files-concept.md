@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269892"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708968"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
 
@@ -61,9 +61,9 @@ För inställningen kan du extrahera flera ljud-och video insikter från en vide
 * **Redaktör för visuellt innehåll**: den del av videor som har flaggats som vuxen eller vågat.
 * **Anteckning**: ett resultat av att kommentera videor baserat på en fördefinierad objekt modell
 
-## <a name="insightsjson-elements"></a>Insights. JSON-element
+## <a name="insightsjson-elements"></a>insights.jspå element
 
-Utdata innehåller en JSON-fil (Insights. JSON) med alla insikter som finns i videon eller ljudet. JSON kan innehålla följande element:
+Utdata innehåller en JSON-fil (insights.jspå) med alla insikter som finns i videon eller ljudet. JSON kan innehålla följande element:
 
 ### <a name="transcript"></a>avskrifts
 
@@ -158,7 +158,7 @@ Exempel:
 |knownPersonId|Det interna ID: t (om det är en känd person).|
 |referenceId|Bing-ID: t (om det är en Bing-kändis).|
 |referenceType|Just Bing.|
-|title|Rubriken (om det är en kändis, till exempel "Microsofts VD").|
+|rubrik|Rubriken (om det är en kändis, till exempel "Microsofts VD").|
 |imageUrl|Bild-URL: en, om det är en kändis.|
 |pipe|Instanser där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 

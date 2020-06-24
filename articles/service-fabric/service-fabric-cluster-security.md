@@ -4,12 +4,12 @@ description: Lär dig mer om säkerhets scenarier för ett Azure Service Fabric-
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 71a5891bf26cbd79ba5cfeff8324e225b3febd73
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324019"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080686"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
 
@@ -41,6 +41,11 @@ Information om hur du konfigurerar certifikat säkerhet i ett kluster för ett f
 
 ### <a name="node-to-node-windows-security"></a>Windows-säkerhet från nod till nod
 
+> [!NOTE]
+> Windows-autentisering baseras på Kerberos. NTLM stöds inte som autentiseringstyp.
+>
+> När det är möjligt ska du använda 509 certifikatautentisering för Service Fabric kluster.
+
 Information om hur du konfigurerar Windows-säkerhet för ett fristående Windows Server-kluster finns i [skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
 
 ## <a name="client-to-node-security"></a>Säkerhet från klient till nod
@@ -49,7 +54,7 @@ Säkerhet mellan klienter autentiserar klienter och skyddar kommunikationen mell
 
 ![Diagram över klient-till-nod-kommunikation][Client-to-Node]
 
-Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx).
+Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx), även om rekommendationen är att använda 509 certifikatautentisering när det är möjligt.
 
 ### <a name="client-to-node-certificate-security"></a>Säkerhet för klient-till-nod-certifikat
 
@@ -95,7 +100,7 @@ X. 509 digitala certifikat används ofta för att autentisera klienter och servr
 Några viktiga saker att tänka på:
 
 * Om du vill skapa certifikat för kluster som kör produktions arbets belastningar använder du en korrekt konfigurerad Windows Server-certifikatutfärdare eller en från en godkänd [certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority).
-* Använd aldrig temporära eller test certifikat som du skapar med hjälp av verktyg som MakeCert. exe i en produktions miljö.
+* Använd aldrig temporära eller test certifikat som du skapar med hjälp av verktyg som MakeCert.exe i en produktions miljö.
 * Du kan använda ett självsignerat certifikat, men endast i ett test kluster. Använd inte ett självsignerat certifikat i produktionen.
 * När du genererar certifikatets tumavtryck ska du se till att generera ett SHA1-tumavtryck. SHA1 är det som används när du konfigurerar klient-och kluster certifikat tumavtrycken.
 

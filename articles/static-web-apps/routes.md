@@ -7,30 +7,32 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 84067917a43fc7c84770b8852f11622ffe2af930
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: e6c38f3bc695db0e27547e434a81f95fa556e84b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629309"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296006"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
-Routning i Azures statiska Web Apps definierar regler för Routning och auktorisering av både statiskt innehåll och API: er. Reglerna definieras som en uppsättning regler i _routes. JSON_ -filen.
+Routning i Azures statiska Web Apps definierar regler för Routning och auktorisering av både statiskt innehåll och API: er<sup>1</sup>. Reglerna definieras som en uppsättning regler i _routes.js_ i filen.
 
-- _Routes. JSON_ -filen måste finnas i roten i appens build-artefakt mapp.
+- _routes.js_ filen måste finnas i roten i appens version av programartefakt.
 - Regler körs i samma ordning som de visas i `routes` matrisen.
 - Regel utvärderingen stoppas vid den första matchningen. Routningsregler sammanställs inte tillsammans.
-- Roller definieras i _routes. JSON_ -filen och användarna är kopplade till roller via [inbjudningar](authentication-authorization.md).
+- Roller definieras i _routes.jspå_ filen och användare är kopplade till roller via [inbjudningar](authentication-authorization.md).
 - Du har fullständig kontroll över roll namn.
 
 Ämnet i routningen överlappar avsevärt med autentiserings-och auktoriserings koncept. Se till att läsa guiden för [autentisering och auktorisering](authentication-authorization.md) tillsammans med den här artikeln.
 
+Mer information finns i [exempel cirkulations filen](#example-route-file) .
+
 ## <a name="location"></a>Location
 
-_Routes. JSON_ -filen måste finnas i roten i appens build-artefakt mapp. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste filen _routes. JSON_ finnas i den specifika mappen.
+_routes.js_ filen måste finnas i roten i appens version av programartefakt. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste _routes.js_ filen finnas i den specifika mappen.
 
-I följande tabell visas en lista över lämpliga platser för att lägga till din _routers. JSON_ -fil för ett antal frontend-ramverk och bibliotek i front-end.
+I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal frontend-ramverk och bibliotek i front-end.
 
 |Ramverk/bibliotek | Location  |
 |---------|----------|
@@ -41,14 +43,14 @@ I följande tabell visas en lista över lämpliga platser för att lägga till d
 
 ## <a name="defining-routes"></a>Definiera vägar
 
-Vägar definieras i _routes. JSON_ -filen som en matris med väg regler i `routes` egenskapen. Varje regel består av ett väg mönster, tillsammans med en eller flera av de valfria regel egenskaperna. Se [exempel på väg filen](#example-route-file) för användnings exempel.
+Vägar definieras i _routes.jspå_ filen som en matris med väg regler i `routes` egenskapen. Varje regel består av ett väg mönster, tillsammans med en eller flera av de valfria regel egenskaperna. Se [exempel på väg filen](#example-route-file) för användnings exempel.
 
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index. html_.</ul>|
-| `serve`        | Nej       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde har definierats används den begärda sökvägen. |
-| `allowedRoles` | Nej       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | Nej       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `route`        | Yes      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
+| `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve`värdena måste peka på faktiska filer.  |
+| `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 
@@ -88,7 +90,7 @@ Om du till exempel vill implementera vägar för ett kalender program kan du map
 }
 ```
 
-Filen _Calendar. html_ kan sedan använda routning på klient sidan för att hantera en annan vy för URL-variationer som `/calendar/january/1` , `/calendar/2020` och `/calendar/overview` .
+_calendar.html_ -filen kan sedan använda routning på klient sidan för att hantera en annan vy för URL-variationer som `/calendar/january/1` , `/calendar/2020` och `/calendar/overview` .
 
 Du kan också skydda vägar med jokertecken. I följande exempel kräver alla filer som begärs under _admin_ -sökvägen en autentiserad användare som är medlem i rollen _administratör_ .
 
@@ -126,7 +128,7 @@ En vanlig återställnings väg visas i följande exempel:
 
 Du kan använda [301](https://en.wikipedia.org/wiki/HTTP_301) -och [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP-statuskod för att omdirigera begär Anden från en väg till en annan.
 
-Till exempel skapar följande regel en 301-omdirigering från _Old-Page. html_ till _New-Page. html_.
+Till exempel skapar följande regel en 301-omdirigering från _old-page.html_ till _new-page.html_.
 
 ```json
 {
@@ -148,7 +150,10 @@ Omdirigeringar fungerar också med sökvägar som inte definierar distinkta file
 
 ## <a name="custom-error-pages"></a>Anpassade felsidor
 
-Användare kan stöta på ett antal olika situationer som kan resultera i ett fel. Med hjälp av `platformErrorOverrides` matrisen kan du tillhandahålla en anpassad upplevelse som svar på dessa fel. Referera till [exempel cirkulations filen](#example-route-file) för placering av matrisen i _routes. JSON_ -filen.
+Användare kan stöta på ett antal olika situationer som kan resultera i ett fel. Med hjälp av `platformErrorOverrides` matrisen kan du tillhandahålla en anpassad upplevelse som svar på dessa fel. Referera till [exempel cirkulations filen](#example-route-file) för placering av matrisen i _routes.jsi_ filen.
+
+> [!NOTE]
+> När en begäran gör det till plattformens åsidosättningar-nivå körs inte flödes regler igen.
 
 I följande tabell visas de tillgängliga plattforms fel åsidosättningarna:
 
@@ -164,7 +169,7 @@ I följande tabell visas de tillgängliga plattforms fel åsidosättningarna:
 
 ## <a name="example-route-file"></a>Exempel på cirkulations fil
 
-I följande exempel visas hur du skapar väg regler för statiskt innehåll och API: er i en _routes. JSON_ -fil. Vissa vägar använder [ _/.auth_ -systemmappen](authentication-authorization.md) som använder autentiserings-relaterade slut punkter.
+I följande exempel visas hur du skapar väg regler för statiskt innehåll och API: er i en _routes.jspå_ en fil. Vissa vägar använder [ _/.auth_ -systemmappen](authentication-authorization.md) som använder autentiserings-relaterade slut punkter.
 
 ```json
 {
@@ -214,7 +219,7 @@ I följande exempel visas hur du skapar väg regler för statiskt innehåll och 
     },
     {
       "errorType": "Unauthenticated",
-      "statusCode": "301",
+      "statusCode": "302",
       "serve": "/login"
     }
   ]
@@ -225,23 +230,27 @@ I följande exempel beskrivs vad som händer när en begäran matchar en regel.
 
 |Begär anden till...  | Resultat i... |
 |---------|---------|---------|
-| _/Profile_ | Autentiserade användare behandlas som _/Profile/index.html-_ filen. Oautentiserade användare Omdirigerad till _/login_. |
-| _/admin/reports_ | Autentiserade användare i rollen _Administratörer_ behandlas som _/admin/Reports/index.html-_ filen. Autentiserade användare som inte tillhör rollen _Administratörer_ hanteras med 401 fel<sup>1</sup>. Oautentiserade användare Omdirigerad till _/login_. |
+| _/Profile_ | Autentiserade användare betjänar filen _/profile/index.html_ . Oautentiserade användare Omdirigerad till _/login_. |
+| _/admin/reports_ | Autentiserade användare i rollen _Administratörer_ betjänar filen _/admin/Reports/index.html_ . Autentiserade användare som inte tillhör rollen _Administratörer_ hanteras ett 401-fel<sup>2</sup>. Oautentiserade användare Omdirigerad till _/login_. |
 | _/api/admin_ | Begär Anden från autentiserade användare i rollen _Administratörer_ skickas till API: et. Autentiserade användare som inte tillhör rollen _Administratörer_ och oautentiserade användare hanteras ett 401-fel. |
-| _/customers/contoso_ | Autentiserade användare som tillhör antingen _Administratörer_ eller _kunders \_ contoso_ -roller behandlas som _/Customers/contoso/index.html-_ filen<sup>1</sup>. Autentiserade användare som inte tillhör _Administratörer_ eller _kunder \_ contoso_ -roller behandlas ett 401-fel. Oautentiserade användare Omdirigerad till _/login_. |
+| _/customers/contoso_ | Autentiserade användare som tillhör antingen _Administratörer_ eller _kunder \_ contoso_ -roller behandlas som _/Customers/contoso/index.html_ -fil<sup>2</sup>. Autentiserade användare som inte tillhör _Administratörer_ eller _kunder \_ contoso_ -roller behandlas ett 401-fel. Oautentiserade användare Omdirigerad till _/login_. |
 | _/login_     | Oautentiserade användare ifrågasätts att autentisera med GitHub. |
 | _/.auth/login/twitter_     | Auktorisering med Twitter har inaktiverats. Servern svarar med ett 404-fel. |
 | _/logout_     | Användare loggas ut från en autentiseringsprovider. |
-| _/calendar/2020/01_ | Webbläsaren betjänar filen _/Calendar.html_ . |
+| _/calendar/2020/01_ | Webbläsaren betjänar filen _/calendar.html_ . |
 | _/specials_ | Webbläsaren omdirigeras till _/Deals_. |
-| _/unknown-folder_     | _/Custom-404.html_ -filen hanteras. |
+| _/unknown-folder_     | Filen _/custom-404.html_ behandlas. |
 
-<sup>1</sup> du kan ange en anpassad felsida genom att definiera en `Unauthorized_MissingRoles` regel i `platformErrorOverrides` matrisen.
+<sup>1</sup> väg regler för API-funktioner stöder bara [omdirigeringar](#redirects) och [skydd av vägar med roller](#securing-routes-with-roles).
+
+<sup>2</sup> du kan ange en anpassad felsida genom att definiera en `Unauthorized_MissingRoles` regel i `platformErrorOverrides` matrisen.
 
 ## <a name="restrictions"></a>Begränsningar
 
-- _Routes. JSON_ -filen får inte vara större än 100 kB
-- Filen _routes. JSON_ stöder högst 50 distinkta roller
+- _routes.jspå_ filen får inte vara större än 100 kB
+- _routes.jsi_ filen stöder högst 50 distinkta roller
+
+Se [artikeln om kvoter](quotas.md) för allmänna begränsningar och begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,15 +3,15 @@ title: Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 description: Lär dig hur du konfigurerar en privat Azure-länk för att få åtkomst till ett Azure Cosmos-konto genom att använda en privat IP-adress i ett virtuellt nätverk.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/04/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: thweiss
-ms.openlocfilehash: b05fa32529372a89ff441b953f001dc2ab1b5606
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431648"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261638"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -31,7 +31,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. Välj **privata slut punkts anslutningar** i listan över inställningar och välj sedan **privat slut punkt**:
 
-   ![Val för att skapa en privat slut punkt i Azure Portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Val för att skapa en privat slut punkt i Azure Portal":::
 
 1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
@@ -66,7 +66,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
     | Undernät | Välj ditt undernät. |
     |**Privat DNS-integrering**||
     |Integrera med privat DNS-zon |Välj **Ja**. <br><br/> För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer. |
-    |Privat DNS zon |Välj **privatelink.Documents.Azure.com**. <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
+    |Privat DNS zon |Välj **privatelink.documents.Azure.com**. <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
     |||
 
 1. Välj **Granska + skapa**. På sidan **Granska + skapa** verifierar Azure konfigurationen.
@@ -94,7 +94,7 @@ När den privata slut punkten har allokerats kan du fråga IP-adresserna. Så h�
 1. Sök efter den privata slut punkt som du skapade tidigare. I det här fallet är det **cdbPrivateEndpoint3**.
 1. Välj fliken **Översikt** för att se DNS-inställningar och IP-adresser.
 
-![Privata IP-adresser i Azure Portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Privata IP-adresser i Azure Portal":::
 
 Flera IP-adresser skapas per privat slut punkt:
 
@@ -263,7 +263,7 @@ az network private-dns record-set a add-record --record-set-name recordSet2 --zo
 
 Du kan konfigurera en privat länk genom att skapa en privat slut punkt i ett undernät för virtuellt nätverk. Du uppnår detta genom att använda en Azure Resource Manager mall.
 
-Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateEndpoint_template. JSON". Den här mallen skapar en privat slut punkt för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
+Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateEndpoint_template.jspå." Den här mallen skapar en privat slut punkt för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
 
 ```json
 {
@@ -324,7 +324,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
 
 **Definiera parameter filen för mallen**
 
-Skapa en parameter fil för mallen och ge den namnet "PrivateEndpoint_parameters. JSON". Lägg till följande kod i parameter filen:
+Skapa en parameter fil för mallen och ge den namnet "PrivateEndpoint_parameters.jspå". Lägg till följande kod i parameter filen:
 
 ```json
 {
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
@@ -407,13 +407,13 @@ För dessa konton måste du skapa en privat slut punkt för varje API-typ. Motsv
 
 När mallen har distribuerats kan du se utdata som liknar det som visas i följande bild. `provisioningState`Värdet är `Succeeded` om de privata slut punkterna har kon figurer ATS korrekt.
 
-![Distributions utdata för Resource Manager-mallen](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Distributions utdata för Resource Manager-mallen":::
 
 När mallen har distribuerats reserveras de privata IP-adresserna i under nätet. Brand Väggs regeln för Azure Cosmos-kontot har kon figurer ATS för att endast godkänna anslutningar från den privata slut punkten.
 
 ### <a name="integrate-the-private-endpoint-with-a-private-dns-zone"></a>Integrera den privata slut punkten med en Privat DNS zon
 
-Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZone_template. JSON". Den här mallen skapar en privat DNS-zon för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
+Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZone_template.jspå." Den här mallen skapar en privat DNS-zon för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
 
 ```json
 {
@@ -455,7 +455,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
 }
 ```
 
-Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZoneRecords_template. JSON".
+Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZoneRecords_template.jspå."
 
 ```json
 {
@@ -489,7 +489,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
 
 **Definiera parameter filen för mallen**
 
-Skapa följande två parameter fil för mallen. Skapa PrivateZone_parameters. JSON. med följande kod:
+Skapa följande två parameter fil för mallen. Skapa PrivateZone_parameters.jspå. med följande kod:
 
 ```json
 {
@@ -506,7 +506,7 @@ Skapa följande två parameter fil för mallen. Skapa PrivateZone_parameters. JS
 }
 ```
 
-Skapa PrivateZoneRecords_parameters. JSON. med följande kod:
+Skapa PrivateZoneRecords_parameters.jspå. med följande kod:
 
 ```json
 {
@@ -645,6 +645,8 @@ Du kan använda samma steg när du tar bort en region. När du har tagit bort re
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 Följande begränsningar gäller när du använder en privat länk med ett Azure Cosmos-konto:
+
+* Du kan inte ha mer än 200 privata slut punkter på ett enda Azure Cosmos-konto.
 
 * När du använder en privat länk med ett Azure Cosmos-konto via en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte för närvarande.
 

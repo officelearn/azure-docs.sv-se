@@ -4,15 +4,15 @@ description: Så här begär du en ökning av vCPU-kvot gränsen för en VM-seri
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843769"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117173"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Standard kvot: öka gränserna efter VM-serien
 
@@ -26,7 +26,7 @@ Standard kvoten för vCPU för att betala per användning och reserverade instan
 * Den första nivån är den *totala regionala virtuella processorer-gränsen*för alla VM-serier.
 * Den andra nivån är *virtuella processorer-gränsen per VM-serien*, till exempel dv3-serien virtuella processorer.
 
-När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för VM-serien inte överskrida den godkända vCPU-kvoten för den aktuella VM-serien. Dessutom får det totala antalet nya och befintliga virtuella processorer som distribueras över alla VM-serien inte överstiga den totala godkända regionala vCPU-kvoten för prenumerationen. Om någon av dessa kvoter överskrids tillåts inte VM-distributionen.
+När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för alla VM-instanser för virtuella datorer inte överskrida den godkända kvot gränsen för vCPU. Om kvoten överskrids tillåts inte distributionen av virtuella datorer.
 
 Du kan begära en ökning av vCPU kvot gräns för VM-serien med hjälp av Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala vCPU-gränsen med samma belopp.
 

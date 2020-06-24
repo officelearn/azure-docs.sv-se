@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 94479bda00e2ea7fa7cf2d0b7cd8001a070a5703
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a6e7e01917ac6499b9836b460077a5513782a4ce
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343276"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254012"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -68,7 +68,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 - **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna registreras i en sido tabell i användar databasen. Observera att BULK INSERT inte utlösa utlösare som standard. Om FIRE_TRIGGERS inte anges körs inga infognings utlösare. Lägg till alternativet FIRE_TRIGGERS så att datasynkronisering kan spåra dessa infogningar. 
 - **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniseras med varje medlem individuellt. Ändringar från hubben laddas ned till medlemmen och ändringar från medlemmen överförs till hubben.
@@ -218,7 +218,7 @@ Ja. Skapa schemat manuellt i den nya databasen genom att skriva skript från ori
 
 Vi rekommenderar inte att du använder SQL Data Sync för att skapa en säkerhets kopia av dina data. Du kan inte säkerhetskopiera och återställa till en viss tidpunkt eftersom SQL Data Sync-synkronisering inte är versions hantering. Dessutom kan SQL Data Sync inte säkerhetskopiera andra SQL-objekt, t. ex. lagrade procedurer, och gör inte lika med en återställnings åtgärd snabbt.
 
-En rekommenderad säkerhets kopierings teknik finns i [Kopiera en Azure SQL-databas](database-copy.md).
+En rekommenderad säkerhets kopierings teknik finns [i kopiera en databas i Azure SQL Database](database-copy.md).
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Kan synkronisera krypterade tabeller och kolumner med datasynkronisering
 

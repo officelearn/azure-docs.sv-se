@@ -4,21 +4,20 @@ description: Lär dig hur du använder plats villkoret för att kontrol lera åt
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605467"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253230"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
 
@@ -141,6 +140,30 @@ Det här alternativet gäller för:
 ### <a name="selected-locations"></a>Valda platser
 
 Med det här alternativet kan du välja en eller flera namngivna platser. För att en princip med den här inställningen ska tillämpas måste användaren ansluta från någon av de valda platserna. När du klickar på **Välj** den namngivna nätverks val kontrollen som visar listan över namngivna nätverk som öppnas. I listan visas även om nätverks platsen har marker ATS som betrodd. Den namngivna platsen för **MFA-betrodda IP-adresser** används för att inkludera de IP-inställningar som kan konfigureras på inställnings sidan för Multi-Factor Authentication-tjänsten.
+
+## <a name="ipv6-traffic"></a>IPv6-trafik
+
+Som standard gäller principer för villkorlig åtkomst för all IPv6-trafik. Med den [namngivna platsens för hands version](#preview-features)kan du undanta vissa IPv6-adressintervall från en princip för villkorlig åtkomst. Det här alternativet är användbart i fall där du inte vill att principen ska tillämpas för vissa IPv6-intervall. Till exempel, om du inte vill genomdriva en princip för användning i företags nätverket och företagets nätverk finns på offentliga IPv6-intervall.  
+
+### <a name="when-will-my-tenant-have-ipv6-traffic"></a>När kommer min klient att ha IPv6-trafik?
+
+Azure Active Directory (Azure AD) stöder för närvarande inte direkta nätverks anslutningar som använder IPv6. Det finns dock vissa fall där autentiserings trafik är via proxy via en annan tjänst. I dessa fall används IPv6-adressen under princip utvärderingen.
+
+Merparten av den IPv6-trafik som hämtar proxy till Azure AD kommer från Microsoft Exchange Online. När det är tillgängligt kommer Exchange att föredra IPv6-anslutningar. **Så om du har några principer för villkorlig åtkomst för Exchange, som har kon figurer ATS för vissa IPv4-intervall, vill du se till att du även har lagt till dina organisations IPv6-intervall.** Att inte inkludera IPv6-intervall orsakar oväntat beteende i följande två fall:
+
+- När en e-postklient används för att ansluta till Exchange Online med äldre autentisering kan Azure AD ta emot en IPv6-adress. Begäran om inledande autentisering går till Exchange och skickas sedan till proxy till Azure AD.
+- När Outlook Web Access (OWA) används i webbläsaren kontrollerar det regelbundet att alla principer för villkorlig åtkomst fortfarande är uppfyllda. Den här kontrollen används för att fånga upp fall där en användare kan ha flyttat från en tillåten IP-adress till en ny plats, t. ex. att kaféet är i gatan. I det här fallet, om en IPv6-adress används och IPv6-adressen inte är i ett konfigurerat intervall, kan användaren avbryta sessionen och dirigera tillbaka till Azure AD för att autentisera igen. 
+
+Detta är de vanligaste orsakerna till att du kan behöva konfigurera IPv6-intervall på dina namngivna platser. Om du använder Azure-virtuella nätverk kommer du dessutom att ha trafik som kommer från en IPv6-adress. Om du har VNet-trafik blockerad av en princip för villkorlig åtkomst, kontrollerar du inloggnings loggen för Azure AD. När du har identifierat trafiken kan du hämta IPv6-adressen som används och utesluta den från principen. 
+
+> [!NOTE]
+> Om du vill ange ett IP-CIDR-intervall för en enskild adress använder du bit masken/32. Om du säger IPv6-adressen 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A och vill utesluta den enkla adressen som ett intervall, använder du 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/32.
+
+### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identifiera IPv6-trafik i rapporter om inloggnings aktiviteter i Azure AD
+
+Du kan identifiera IPv6-trafik i din klient genom att gå till [rapporterna för inloggnings aktiviteter i Azure AD](../reports-monitoring/concept-sign-ins.md). Lägg till kolumnen "IP-adress" när du har öppnat aktivitets rapporten. I den här kolumnen kan du identifiera IPv6-trafiken.
+
+Du kan också hitta klientens IP-adress genom att klicka på en rad i rapporten och sedan gå till fliken "plats" i inloggnings aktivitetens information. 
 
 ## <a name="what-you-should-know"></a>Det här bör du veta
 

@@ -5,15 +5,15 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd4d6e1632ba858e709f6d463a6da4779314e64d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617038"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262029"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ansluta ett MongoDB-program till Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Lär dig hur du ansluter MongoDB-appen till en Azure Cosmos DB med hjälp av en 
 
 I den här självstudien beskrivs två sätt att hämta information om anslutningssträng:
 
-- [Snabb starts metoden](#get-the-mongodb-connection-string-by-using-the-quick-start)för användning med .net, Node. js, MongoDB Shell-, Java-och python-drivrutiner
+- [Snabb starts metoden](#get-the-mongodb-connection-string-by-using-the-quick-start)för användning med .net, Node.js, MongoDB Shell-, Java-och python-drivrutiner
 - [Metoden anpassad anslutnings sträng](#get-the-mongodb-connection-string-to-customize), som används med andra driv rutiner
 
 ## <a name="prerequisites"></a>Krav
@@ -34,7 +34,7 @@ I den här självstudien beskrivs två sätt att hämta information om anslutnin
 1. Logga in på [Azure Portal](https://portal.azure.com)i en webbläsare.
 2. På bladet **Azure Cosmos DB** väljer du API: et.
 3. I det vänstra fönstret på konto bladet klickar du på **snabb start**.
-4. Välj din plattform (**.net**, **Node. js**, **MongoDB Shell**, **Java**, **python**). Om du inte ser den driv rutin eller det verktyg som visas, behöver vi kontinuerligt dokumentera fler anslutnings kods tycken. Kommentera nedan om vad du vill se. Information om hur du kan skapa en egen anslutning finns [i Hämta kontots anslutnings sträng information](#get-the-mongodb-connection-string-to-customize).
+4. Välj din plattform (**.net**, **Node.js**, **MongoDB Shell**, **Java**, **python**). Om du inte ser den driv rutin eller det verktyg som visas, behöver vi kontinuerligt dokumentera fler anslutnings kods tycken. Kommentera nedan om vad du vill se. Information om hur du kan skapa en egen anslutning finns [i Hämta kontots anslutnings sträng information](#get-the-mongodb-connection-string-to-customize).
 5. Kopiera och klistra in kodfragmentet i MongoDB-appen.
 
     ![Bladet snabb start](./media/connect-mongodb-account/QuickStartBlade.png)
@@ -46,7 +46,7 @@ I den här självstudien beskrivs två sätt att hämta information om anslutnin
 3. I det vänstra fönstret på konto bladet klickar du på **anslutnings sträng**.
 4. Bladet **anslutnings sträng** öppnas. Den innehåller all information som krävs för att ansluta till kontot med hjälp av en driv rutin för MongoDB, inklusive en förkonstruerad anslutnings sträng.
 
-   [![Bladet](./media/connect-mongodb-account/ConnectionStringBlade.png) anslutnings sträng](./media/connect-mongodb-account/ConnectionStringBlade.png#lightbox)
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Bladet Anslutningssträng" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Krav för anslutnings sträng
 

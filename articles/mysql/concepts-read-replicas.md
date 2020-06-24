@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: 15b146a9299a089a3bf9601c432eb179187a9473
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/10/2020
+ms.openlocfilehash: 35aedbc4a3d1dcb87b23633acd413c4a55448ef9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610108"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710413"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -64,6 +64,9 @@ Det finns dock begränsningar att tänka på:
    Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
 
 ## <a name="create-a-replica"></a>Skapa en replik
+
+> [!IMPORTANT]
+> Funktionen Läs replik är bara tillgänglig för Azure Database for MySQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
 
 Om en huvud server inte har några befintliga replik servrar startar originalet om första gången för att förbereda sig för replikering.
 
@@ -157,7 +160,7 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 
 Om du vill uppdatera en av parametrarna ovan på huvud servern, tar du bort replik servrar, uppdaterar parametervärdet i huvud servern och återskapar repliker.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Globala transaktions-ID: n (GTID) stöds inte.
 - Det finns inte stöd för att skapa en replik av en replik.

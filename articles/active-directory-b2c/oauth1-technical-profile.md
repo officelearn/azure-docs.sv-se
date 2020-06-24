@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184085"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204089"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -26,9 +26,9 @@ Azure Active Directory B2C (Azure AD B2C) ger stöd för [OAuth 1,0-protokollets
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `OAuth1`. Till exempel är `OAuth1`protokollet för den tekniska profilen **Twitter-OAUTH1** .
+Namnattributet **för** **protokoll** elementet måste anges till `OAuth1` . Till exempel är protokollet för den tekniska profilen **Twitter-OAUTH1** `OAuth1` .
 
-```XML
+```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />
@@ -54,7 +54,7 @@ I följande exempel visas de anspråk som returneras av Twitter-identitets lever
 Den tekniska profilen returnerar även anspråk som inte returneras av identitets leverantören:
 
 - **IdentityProvider** -anspråket som innehåller namnet på identitets leverantören.
-- **AuthenticationSource** -anspråket med standardvärdet `socialIdpAuthentication`.
+- **AuthenticationSource** -anspråket med standardvärdet `socialIdpAuthentication` .
 
 ```xml
 <OutputClaims>
@@ -70,13 +70,13 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Ja | Program identifieraren för identitets leverantören. |
-| ProviderName | Inga | Namnet på identitets leverantören. |
-| request_token_endpoint | Ja | URL: en för token för begäran som enligt RFC 5849. |
-| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 5849. |
-| access_token_endpoint | Ja | URL: en för token-slutpunkten enligt RFC 5849. |
-| ClaimsEndpoint | Inga | URL till användar informations slut punkten. |
-| ClaimsResponseFormat | Inga | Format för anspråk svar.|
+| client_id | Yes | Program identifieraren för identitets leverantören. |
+| ProviderName | No | Namnet på identitets leverantören. |
+| request_token_endpoint | Yes | URL: en för token för begäran som enligt RFC 5849. |
+| authorization_endpoint | Yes | URL: en för Authorization-slutpunkten enligt RFC 5849. |
+| access_token_endpoint | Yes | URL: en för token-slutpunkten enligt RFC 5849. |
+| ClaimsEndpoint | No | URL till användar informations slut punkten. |
+| ClaimsResponseFormat | No | Format för anspråk svar.|
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -84,11 +84,11 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Ja | Klient hemligheten för Identity Provider-programmet.   |
+| client_secret | Yes | Klient hemligheten för Identity Provider-programmet.   |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 
-När du konfigurerar omdirigerings-URL: en för din `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`identitetsprovider anger du. Se till att ersätta **klient organisationen** med klient namnet (till exempel contosob2c.onmicrosoft.com) och **policyId** med identifieraren för principen (till exempel b2c_1a_policy). Omdirigerings-URI: n måste vara i gemener. Lägg till en omdirigerings-URL för alla principer som använder identitets leverantörs inloggningen.
+När du konfigurerar omdirigerings-URL: en för din identitetsprovider anger du `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp` . Se till att ersätta **klient organisationen** med klient namnet (till exempel contosob2c.onmicrosoft.com) och **policyId** med identifieraren för principen (till exempel b2c_1a_policy). Omdirigerings-URI: n måste vara i gemener. Lägg till en omdirigerings-URL för alla principer som använder identitets leverantörs inloggningen.
 
 Om du använder **b2clogin.com** -domänen i stället för **login.microsoftonline.com** ska du se till att använda b2clogin.com i stället för login.microsoftonline.com.
 

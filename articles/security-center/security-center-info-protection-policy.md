@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5120e7ca3a29f12066343e5c4a81d6e51278f9ef
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020412"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711093"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
@@ -75,7 +75,11 @@ Om du vill anpassa information Protection-principen för din Azure-klient måste
 7. Se till att klicka på **Spara** i bladet med huvud **Etiketter** för att tillämpa alla ändringar.
  
 När din information Protection-princip är fullständigt definierad och Sparad, kommer den att gälla för klassificering av data på alla Azure SQL-databaser i din klient organisation.
- 
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Hantera SQL information Protection med Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): hämtar den effektiva klientens SQL information Protection-princip.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): anger den effektiva klientens SQL information Protection-princip.
  
 ## <a name="next-steps"></a>Nästa steg
  

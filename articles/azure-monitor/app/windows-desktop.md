@@ -2,22 +2,22 @@
 title: Övervaka användning och prestanda för Windows-appar
 description: Analysera användning och prestanda för Windows-program med Application Insights.
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/11/2020
+ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537397"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718792"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
 Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application Insights. Den enda begränsningen är behovet av att [tillåta kommunikation](../../azure-monitor/app/ip-addresses.md) till Application Insights-tjänsten. För övervakning av UWP-program (Universell Windows-plattform) rekommenderar vi [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Så här skickar du telemetri till Application Insights från ett klassiskt Windows-program
-1. [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ) på [Azure Portal](https://portal.azure.com). Välj ASP.NET-app för programtyp.
-2. Kopiera instrumenteringsnyckeln. Hitta nyckeln i Essentials-listrutan för den nya resursen som du nyss skapade. 
-3. Redigera NuGet-paketet av för ett programprojekt och lägg till Microsoft.ApplicationInsights.WindowsServer i Visual Studio. (Eller välj Microsoft.ApplicationInsights om du bara vill ha API, utan standardmoduler för telemetrisk insamling)
+1. [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ) på [Azure Portal](https://portal.azure.com). 
+2. Kopiera instrumenteringsnyckeln.
+3. Redigera NuGet-paketet av för ett programprojekt och lägg till Microsoft.ApplicationInsights.WindowsServer i Visual Studio. (Eller välj Microsoft. ApplicationInsights om du bara vill ha bas-API: et, utan standardmodulerna för telemetri för telemetri.)
 4. Ange antingen instrumentationsnyckeln i koden:
    
     `TelemetryConfiguration.Active.InstrumentationKey = "` *din nyckel* `";`
@@ -31,6 +31,7 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
 6. Kör din app och se Telemetrin i resursen som du skapade i Azure Portal.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Exempelkod
+
 ```csharp
 using Microsoft.ApplicationInsights;
 
@@ -70,7 +71,11 @@ using Microsoft.ApplicationInsights;
 
 ## <a name="override-storage-of-computer-name"></a>Åsidosätt lagring av dator namn
 
-Som standard samlar denna SDK upp och lagrar dator namnet för telemetri för system som du avger. Om du vill åsidosätta samlingen måste du använda en telemetri-initierare:
+Som standard samlar denna SDK upp och lagrar dator namnet för telemetri för system som du avger.
+
+Dator namnet används av Application Insights [äldre Enterprise (per nod) pris nivå](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) för interna fakturerings behov. Som standard om du använder en telemetri-initierare för att åsidosätta `telemetry.Context.Cloud.RoleInstance` skickas en separat egenskap `ai.internal.nodeName` som fortfarande kommer att innehålla värdet dator namn. Det här värdet kommer inte att lagras med din Application Insights telemetri, men används internt vid inmatning för att möjliggöra bakåtkompatibilitet med den äldre nodens fakturerings modell.
+
+Om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) och bara behöver åsidosätta lagringen av dator namnet använder du en telemetri-initierare:
 
 **Skriv anpassade TelemetryInitializer enligt nedan.**
 
@@ -84,15 +89,17 @@ namespace CustomInitializer.Telemetry
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleInstance))
             {
-                //set custom role name here, you can pass an empty string if needed.
+                // Set custom role name here. Providing an empty string will result
+                // in the computer name still be sent via this property.
                   telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
+
 Instansiera initieraren i `Program.cs` `Main()` metoden nedan ange Instrumentation-nyckeln:
 
 ```csharp
@@ -103,8 +110,69 @@ Instansiera initieraren i `Program.cs` `Main()` metoden nedan ange Instrumentati
         {
             TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
             TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+            //...
         }
 ```
+
+## <a name="override-transmission-of-computer-name"></a>Åsidosätt överföring av dator namn
+
+Om du inte är på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) och vill förhindra att all telemetri som innehåller dator namnet skickas, måste du använda en telemetri-processor.
+
+### <a name="telemetry-processor"></a>Telemetri-processor
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+
+namespace WindowsFormsApp2
+{
+    public class CustomTelemetryProcessor : ITelemetryProcessor
+    {
+        private readonly ITelemetryProcessor _next;
+
+        public CustomTelemetryProcessor(ITelemetryProcessor next)
+        {
+            _next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            if (item != null)
+            {
+                item.Context.Cloud.RoleInstance = string.Empty;
+            }
+
+            _next.Process(item);
+        }
+    }
+}
+```
+
+Instansiera telemetri-processorn i `Program.cs` `Main()` metoden nedan och ange Instrumentation-nyckeln:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace WindowsFormsApp2
+{
+    static class Program
+    {
+        static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.Use((next) => new CustomTelemetryProcessor(next));
+            builder.Build();
+            //...
+        }
+    }
+}
+
+```
+
+> [!NOTE]
+> Även om du kan använda en telemetri-processor på ett tekniskt sätt enligt beskrivningen ovan även om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), kommer detta att resultera i att det går att betala för flera noder.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en instrumentpanel](../../azure-monitor/app/overview-dashboard.md)

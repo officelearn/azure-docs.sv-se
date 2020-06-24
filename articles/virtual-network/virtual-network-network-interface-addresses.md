@@ -11,17 +11,17 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 3dd62d63216d7694f91c9024e4ee57272070a69c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321656"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711008"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverksgränssnitt
 
@@ -52,12 +52,12 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 4. Under **IP-konfigurationer**väljer du **+ Lägg till**.
 5. Ange följande och välj sedan **OK**:
 
-   |Inställning|Obligatoriskt?|Information|
+   |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
-   |Name|Ja|Måste vara unikt för nätverks gränssnittet|
-   |Typ|Ja|Eftersom du lägger till en IP-konfiguration i ett befintligt nätverks gränssnitt, och varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration, är ditt enda alternativ **sekundärt**.|
-   |Tilldelnings metod för privat IP-adress|Ja|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en oanvänd adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i.|
-   |Offentlig IP-adress|Inga|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
+   |Name|Yes|Måste vara unikt för nätverks gränssnittet|
+   |Typ|Yes|Eftersom du lägger till en IP-konfiguration i ett befintligt nätverks gränssnitt, och varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration, är ditt enda alternativ **sekundärt**.|
+   |Tilldelnings metod för privat IP-adress|Yes|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en oanvänd adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i.|
+   |Offentlig IP-adress|No|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Lägg till sekundära privata IP-adresser manuellt i operativ systemet för den virtuella datorn genom att följa anvisningarna i artikeln [tilldela flera IP-adresser till operativ systemen för virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config) . Se [privata](#private) IP-adresser för särskilda överväganden innan du manuellt lägger till IP-adresser i ett operativ system för virtuella datorer. Lägg inte till några offentliga IP-adresser i operativ systemet för den virtuella datorn.
 
 **Kommandon**

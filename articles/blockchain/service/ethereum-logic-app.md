@@ -2,14 +2,14 @@
 title: Använda Ethereum blockchain Connector med Azure Logic Apps-Azure blockchain-tjänsten
 description: Använd Ethereum blockchain-anslutningen med Azure Logic Apps för att utlösa smarta kontrakts funktioner och reagera på smarta kontrakt händelser.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325225"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200740"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Använd Ethereum blockchain-anslutningen med Azure Logic Apps
 
@@ -114,7 +114,7 @@ Följande steg genererar till exempel en REST-baserad Logic-app som baseras på 
     Logic app-konfigurationen och-kodfragment skapas i **generatedLogicApp** -katalogen.
 
 1. Visa katalogen **generatedLogicApp/HelloBlockchain** . Det finns en Logic app JSON-fil för varje smart kontrakts funktion, händelse och egenskap.
-1. Öppna **generatedLogicApp/HelloBlockchain/Service/Property. RequestMessage. logicapp. JSON** -fil och kopiera innehållet.
+1. Öppna filen **generatedLogicApp/HelloBlockchain/service/property.RequestMessage.logicapp.jspå** filen och kopiera innehållet.
 
     ![JSON-fil med kod att kopiera](./media/ethereum-logic-app/requestmessage.png)
 
@@ -132,7 +132,7 @@ Följande steg genererar till exempel en REST-baserad Logic-app som baseras på 
 
     ![Logic Apps Designer-fönstret med HTTP POST-URL: en](./media/ethereum-logic-app/post-url.png)
 
-1. Använd sväng för att skapa en HTTP POST-begäran. Ersätt platshållartexten * \<http post URL\> * med URL: en från föregående steg.
+1. Använd sväng för att skapa en HTTP POST-begäran. Ersätt platshållartexten *\<HTTP POST URL\>* med URL: en från föregående steg.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -181,7 +181,7 @@ Azure blockchain-tjänstens RPC-slutpunkt krävs för att ansluta till ett block
 
     ![Sidan Transaction Nodes med valet (standard nod)](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. Välj **anslutnings strängar** > **åtkomst nycklar**.
+1. Välj **anslutnings strängar**  >  **åtkomst nycklar**.
 1. Kopiera slut punkts adressen från **https (åtkomst nyckel 1)** eller **https (åtkomst nyckel 2)**.
 
     ![Azure Portal med åtkomst nycklar för anslutnings strängen](./media/ethereum-logic-app/connection-string.png)

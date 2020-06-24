@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d259c6e2a6ac9ced5f9a1c29d4aec08010f4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a9dc504edac01654fb21ec3386a596e03492c9
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190559"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077790"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Vanliga scenarier i hantering av Azure AD-berättigande
 
 Det finns flera sätt som du kan konfigurera rättighets hantering för din organisation. Men om du precis är igång är det bra att förstå vanliga scenarier för administratörer, katalog ägare, åtkomst till paket hanterare, god kännare och beställare.
 
-## <a name="delegate"></a>Delegat
+## <a name="delegate"></a>Delegera
 
 ### <a name="administrator-delegate-management-of-resources"></a>Administratör: delegera hantering av resurser
 

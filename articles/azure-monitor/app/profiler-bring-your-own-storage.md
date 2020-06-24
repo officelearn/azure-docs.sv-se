@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: a185ec4938670519029abaf6fa4d23b7bf5c5399
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466533"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84882515"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Konfigurera ta med din egen lagring (BYOS) för Application Insights Profiler och Snapshot Debugger
 
@@ -32,7 +32,7 @@ Med ta med din egen lagring laddas dessa artefakter upp i ett lagrings konto som
 
 ## <a name="prerequisites"></a>Krav
 * Se till att skapa ditt lagrings konto på samma plats som din Application Insights-resurs. t.ex. Om din Application Insights-resurs ligger i USA, västra 2, måste ditt lagrings konto även vara i västra USA 2. 
-* Ge rollen "Storage BLOB Contributor" till AAD-appen "betrodd lagring för åtkomst till diagnostikdata" i ditt lagrings konto via gränssnittet Access Control (IAM).
+* Ge rollen "Storage BLOB data Contributor" till AAD-programmet "betrodd lagring för åtkomst till tillförlitliga enheter" i ditt lagrings konto via användar gränssnittet för Access Control (IAM).
 * Om den privata länken är aktive rad konfigurerar du ytterligare inställningen för att tillåta anslutning till vår betrodda Microsoft-tjänst från din Virtual Network. 
 
 ## <a name="how-to-enable-byos"></a>Så här aktiverar du BYOS
@@ -156,7 +156,7 @@ Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) 
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Konfigurera med Azure Resource Manager mall
 
-1. Skapa en Azure Resource Manager mallfil med följande innehåll (BYOS. template. JSON).
+1. Skapa en Azure Resource Manager mallfil med följande innehåll (byos.template.jspå).
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

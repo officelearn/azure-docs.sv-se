@@ -4,12 +4,12 @@ description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (A
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 5f0391c10a99173e7a2d87c1dd08a36852fc0450
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259243"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887980"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -105,13 +105,14 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny nod i klustret som kör den angivna Kubernetes-versionen, därefter noga [Cordon och tömmer][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs. När den nya noden bekräftas som att köra Application poddar tas den gamla noden bort. Den här processen upprepas tills alla noder i klustret har uppgraderats.
 
-I följande exempel uppgraderas ett kluster till version *1.13.10*:
-
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-Det tar några minuter att uppgradera klustret, beroende på hur många noder du har. 
+Det tar några minuter att uppgradera klustret, beroende på hur många noder du har.
 
 > [!NOTE]
 > Det finns en total tillåten tid för att en kluster uppgradering ska slutföras. Den här tiden beräknas genom att ta produkten av `10 minutes * total number of nodes in the cluster` . Till exempel i ett kluster med 20 noder, måste uppgraderings åtgärder lyckas på 200 minuter eller så kan AKS inte utföra åtgärden för att undvika ett oåterkalleligt kluster tillstånd. Om du vill återställa vid uppgraderings fel, försök att uppgradera igen när tids gränsen har nåtts.

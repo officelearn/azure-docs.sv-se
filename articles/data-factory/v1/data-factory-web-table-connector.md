@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265719"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689766"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webb tabell källa med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -70,11 +70,11 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för länkad webb tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **webb** |Ja |
-| URL |URL till webb adressen |Ja |
-| authenticationType |Antal. |Ja |
+| typ |Egenskapen Type måste anges till: **webb** |Yes |
+| URL |URL till webb adressen |Yes |
+| authenticationType |Antal. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
@@ -98,11 +98,11 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättning av typen **webtable** har följande egenskaper
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
+| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Yes |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
-| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
+| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Yes |
 
 **Exempel:**
 
@@ -288,7 +288,7 @@ Se egenskaper för Websource-typ för listan över egenskaper som stöds av Webs
 2. Klicka på **ny fråga** i verktygsfältet, peka på **från andra källor** och klicka på **från webben**.
 
     ![Power Query-menyn](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till https://en.wikipedia.org/wiki/) exempel: tillsammans med sökvägen som du anger för data uppsättningen (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
+3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för data UPPSÄTTNINGEN (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
 
     ![Från webben-dialog](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

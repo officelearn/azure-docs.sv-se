@@ -2,21 +2,21 @@
 title: Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 description: I den här artikeln beskrivs skillnaderna i Transact-SQL (T-SQL) mellan en hanterad Azure SQL-instans och SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 3a912e636c8bd8f762b401bda9623f23913047cb
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344534"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298455"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Tillfälliga kända problem som identifieras i SQL-hanterad instans och som komm
 
 ## <a name="availability"></a>Tillgänglighet
 
-### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Always on-tillgänglighetsgrupper
+### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>AlwaysOn-tillgänglighetsgrupper
 
 [Hög tillgänglighet](../database/high-availability-sla.md) är inbyggt i SQL-hanterad instans och kan inte styras av användare. Följande uttryck stöds inte:
 
@@ -159,7 +159,7 @@ SQL-hanterad instans har inte åtkomst till filer, så det går inte att skapa k
     - KÖRA SOM ANVÄNDARE
     - KÖRA SOM INLOGGNING
 
-- Databas export/import med BACPAC-filer stöds för Azure AD-användare i SQL-hanterad instans med antingen [SSMS v 18.4 eller senare](/sql/ssms/download-sql-server-management-studio-ssms), eller [SQLPackage. exe](/sql/tools/sqlpackage-download).
+- Databas export/import med BACPAC-filer stöds för Azure AD-användare i SQL-hanterad instans med antingen [SSMS v 18.4 eller senare](/sql/ssms/download-sql-server-management-studio-ssms), eller [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Följande konfigurationer stöds med hjälp av databasen BACPAC-fil: 
     - Exportera/importera en databas mellan olika hanterings instanser i samma Azure AD-domän.
     - Exportera en databas från SQL-hanterad instans och importera till SQL Database inom samma Azure AD-domän. 
@@ -276,7 +276,7 @@ Följande alternativ kan inte ändras:
 
 Mer information finns i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>SQL Server Agent
+### <a name="sql-server-agent"></a>SQL Server-agent
 
 - Det finns för närvarande inte stöd för att aktivera och inaktivera SQL Server Agent i SQL-hanterad instans. SQL Agent körs alltid.
 - SQL Server Agent inställningarna är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i SQL-hanterad instans. 
@@ -432,7 +432,7 @@ Mer information om hur du konfigurerar Transaktionsreplikering finns i följande
   - `FROM URL`(Azure Blob Storage) är det enda alternativ som stöds.
   - `FROM DISK`/`TAPE`/backup-enheten stöds inte.
   - Säkerhets kopierings uppsättningar stöds inte.
-- `WITH`alternativen stöds inte, till exempel Nej `DIFFERENTIAL` eller `STATS` .
+- `WITH`alternativ stöds inte. Återställnings försök `WITH` som t. ex.,, `DIFFERENTIAL` `STATS` `REPLACE` osv., kommer att Miss lyckas.
 - `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts, kan du kontrol lera `sys.dm_operation_status` status för en återställnings åtgärd och för att skapa och släppa en databas. Se [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Följande databas alternativ anges eller åsidosätts och kan inte ändras senare: 
@@ -490,7 +490,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - `@@SERVERNAME`Returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS`Returnerar ett fullständigt DNS "anslutnings bara" namn, t. ex `myinstance.domain.database.windows.net` . för egenskaperna "name" och "data_source". Se [sys. SERVRAR](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME`returnerar NULL eftersom begreppet tjänst som finns för SQL Server inte gäller SQL-hanterad instans. Se [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys.sysinloggningar. Se [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID`stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Miljö begränsningar

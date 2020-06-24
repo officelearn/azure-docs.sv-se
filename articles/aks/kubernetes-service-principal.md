@@ -3,13 +3,13 @@ title: Tjänstens huvudnamn för Azure Kubernetes Service (AKS)
 description: Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392723"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298556"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,10 @@ Om du vill delegera behörigheter skapar du en roll tilldelning med hjälp av ko
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-En resurs `--scope` måste vara ett fullständigt resurs-ID, som */subscriptions/\<guid\>/resourceGroups/myResourceGroup* eller */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+`--scope`För en resurs måste vara ett fullständigt resurs-ID, t. ex. */Subscriptions/ \<guid\> /ResourceGroups/myResourceGroup* eller */Subscriptions/ \<guid\> /resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> Om du har tagit bort deltagar roll tilldelningen från resurs gruppen för noden kan åtgärderna nedan Miss lyckas.  
 
 Följande avsnitt beskriver vanliga delegeringar som du kan behöva göra.
 
@@ -106,6 +109,9 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - Om du använder [anpassade väg tabeller i Kubernetes-kluster](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) lägger du till följande ytterligare behörigheter:
+    - *Microsoft. Network/routeTables/Write*
+    - *Microsoft. Network/routeTables/Read*
 - Eller tilldela [Nätverksdeltagare][rbac-network-contributor] en inbyggd roll i undernätet i det virtuella nätverket
 
 ### <a name="storage"></a>Storage
@@ -127,12 +133,12 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
 - Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
 - Som standard är autentiseringsuppgifterna för tjänstens huvud namn giltiga i ett år. Du kan när som helst [Uppdatera eller rotera autentiseringsuppgifterna för tjänstens huvud namn][update-credentials] .
-- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstens huvud namn för ett Kubernetes-kluster kan associeras med ett giltigt namn för Azure AD-program *https://www.contoso.org/example*(till exempel:). URL:en för programmet behöver inte vara en verklig slutpunkt.
+- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstens huvud namn för ett Kubernetes-kluster kan associeras med ett giltigt namn för Azure AD-program (till exempel: *https://www.contoso.org/example* ). URL:en för programmet behöver inte vara en verklig slutpunkt.
 - När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
 - På virtuella datorer i agent-noden i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstens huvud namn i filen`/etc/kubernetes/azure.json`
 - Om du använder kommandot [az aks create][az-aks-create] för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
-- Om du inte specifikt skickar ett huvud namn för tjänsten i ytterligare AKS CLI-kommandon används det standard tjänst huvud `~/.azure/aksServicePrincipal.json` namn som finns på.  
-- Du kan också ta bort filen aksServicePrincipal. JSON och AKS skapar ett nytt huvud namn för tjänsten.
+- Om du inte specifikt skickar ett huvud namn för tjänsten i ytterligare AKS CLI-kommandon används det standard tjänst huvud namn som finns på `~/.azure/aksServicePrincipal.json` .  
+- Du kan också ta bort aksServicePrincipal.jspå filen och AKS skapar ett nytt huvud namn för tjänsten.
 - När du tar bort ett AKS-kluster som skapats av [az aks create][az-aks-create] tas tjänstens huvudnamn som skapades automatiskt inte bort.
     - För att ta bort tjänstens huvudnamn kör du en fråga efter ditt kluster *servicePrincipalProfile.clientId* och tar sedan bort med [az ad app delete][az-ad-app-delete]. Ersätt följande resursgruppsnamn och klisternamn med dina egna värden:
 
@@ -156,7 +162,7 @@ Kontrol lera åldern på filen med autentiseringsuppgifter med följande kommand
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-Standard förfallo tiden för autentiseringsuppgifterna för tjänstens huvud namn är ett år. Om din *aksServicePrincipal. JSON* -fil är äldre än ett år tar du bort filen och försöker distribuera ett AKS-kluster igen.
+Standard förfallo tiden för autentiseringsuppgifterna för tjänstens huvud namn är ett år. Om *aksServicePrincipal.jspå* filen är äldre än ett år tar du bort filen och försöker distribuera ett AKS-kluster igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

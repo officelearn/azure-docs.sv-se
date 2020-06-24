@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: bbb6ac60c28635371760987b7a55ae7344dd73fb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217950"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115053"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Node.js och Azure Cosmos DB
 
@@ -24,12 +24,12 @@ ms.locfileid: "84217950"
 > * [Python](create-table-python.md)
 > 
 
-I den här snabb starten skapar du ett Azure Cosmos DB Tabell-API konto och använder Datautforskaren och en Node. js-app som klonas från GitHub för att skapa tabeller och entiteter. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
+I den här snabb starten skapar du ett Azure Cosmos DB Tabell-API konto och använder Datautforskaren och en Node.js app som klonas från GitHub för att skapa tabeller och entiteter. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
-- [Node. js-0.10.29 +](https://nodejs.org/) .
+- [Node.js 0.10.29 +](https://nodejs.org/) .
 - [Git](https://git-scm.com/downloads).
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -138,17 +138,17 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. Välj **anslutnings sträng**i Azure Cosmos DB-kontot i [Azure Portal](https://portal.azure.com/). 
 
-    ![Visa och kopiera den nödvändiga informationen från fönstret med anslutningssträngen](./media/create-table-nodejs/connection-string.png)
+    :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Visa och kopiera den nödvändiga informationen från fönstret med anslutningssträngen":::
 
 2. Kopiera den primära ANSLUTNINGS STRÄNGEN med kopierings knappen till höger.
 
-3. Öppna filen *app. config* och klistra in värdet i ConnectionString på rad tre. 
+3. Öppna *app.config* -filen och klistra in värdet i ConnectionString på rad tre. 
 
     > [!IMPORTANT]
     > Om slutpunkten använder documents.azure.com innebär det att du har ett förhandsversionskonto, och du måste skapa ett [nytt tabell-API-konto](#create-a-database-account) för att kunna arbeta med den allmänt tillgängliga SDK:n för tabell-API.
     >
 
-3. Spara filen *app. config* .
+3. Spara *app.config* -filen.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
@@ -160,13 +160,13 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Kör följande kommando för att installera [Azure], [Node-UUID], [NConf] och [async]-moduler lokalt samt för att spara en post för dem i *Package. JSON* -filen.
+2. Kör följande kommando för att installera [Azure], [Node-UUID], [NConf] och [async]-moduler lokalt samt för att spara en post för dem till *package.jsi* filen.
 
    ```
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. I git-terminalfönstret kör du följande kommandon för att köra Node. js-programmet.
+2. I git-terminalfönstret kör du följande kommandon för att köra programmet Node.js.
 
     ```
     node ./tableSample.js 
@@ -186,7 +186,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en tabell med hjälp av Datautforskaren och kör en Node. js-app för att lägga till tabell data.  Du kan nu ställa frågor mot dina data med tabell-API:t.  
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en tabell med hjälp av Datautforskaren och kör en Node.js-app för att lägga till tabell data.  Du kan nu ställa frågor mot dina data med tabell-API:t.  
 
 > [!div class="nextstepaction"]
 > [Importera tabelldata till tabell-API](table-import.md)

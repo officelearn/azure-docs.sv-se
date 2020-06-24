@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/19/2020
 ms.author: jgao
-ms.openlocfilehash: fb910260c562a41871fe0cd13d5e5e9652b2017d
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 3d9ab41fdb05eca3b39bf1ad222f6d42a3311b77
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417114"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193743"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -139,7 +139,7 @@ Information om egenskaps värde:
 - **typ**: ange typ av skript. Azure PowerShell-och Azure CLI-skript stöds för närvarande. Värdena är **AzurePowerShell** och **AzureCLI**.
 - **forceUpdateTag**: om du ändrar det här värdet mellan mallens distributioner tvingas distributions skriptet att köras igen. Använd funktionen newGuid () eller utcNow () som måste anges som defaultValue för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
 - **containerSettings**: Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om det inte anges skapas grupp namnet automatiskt.
-- **storageAccountSettings**: Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-an-existing-storage-account).
+- **storageAccountSettings**: Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-existing-storage-account).
 - **azPowerShellVersion** / **azCliVersion**: Ange den version av modulen som ska användas. En lista över PowerShell-och CLI-versioner som stöds finns i [krav](#prerequisites).
 - **argument**: ange parameter värden. Värdena avgränsas med blank steg.
 - **environmentVariables**: Ange de miljövariabler som ska överföras till skriptet. Mer information finns i [utveckla distributions skript](#develop-deployment-scripts).
@@ -152,9 +152,9 @@ Information om egenskaps värde:
 
 ### <a name="additional-samples"></a>Ytterligare exempel
 
-- [Skapa och tilldela ett certifikat till ett nyckel valv](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
-
-- [skapa och tilldela en användardefinierad hanterad identitet till en resurs grupp och kör ett distributions skript](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+- [Exempel 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): skapa ett nyckel valv och Använd distributions skriptet för att tilldela ett certifikat till nyckel valvet.
+- [Exempel 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): skapa en resurs grupp på prenumerations nivån, skapa ett nyckel valv i resurs gruppen och Använd sedan distributions skriptet för att tilldela ett certifikat till nyckel valvet.
+- [Exempel 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): skapa en användardefinierad hanterad identitet, tilldela deltagar rollen till identiteten på resurs grupps nivå, skapa ett nyckel valv och Använd sedan distributions skriptet för att tilldela ett certifikat till nyckel valvet.
 
 > [!NOTE]
 > Vi rekommenderar att du skapar en användardefinierad identitet och beviljar behörigheter i förväg. Du kan få inloggnings-och behörighets relaterade fel om du skapar identiteten och beviljar behörigheter i samma mall där du kör distributions skript. Det tar lite tid innan behörigheterna börjar gälla.
@@ -168,7 +168,7 @@ Följande mall har en resurs definierad med `Microsoft.Resources/deploymentScrip
 > [!NOTE]
 > Eftersom de infogade distributions skripten omges av dubbla citat tecken måste strängarna i distributions skripten undantas genom att använda en **&#92;** eller omges av enkla citat tecken. Du kan också överväga att använda sträng ersättning som det visas i föregående JSON-exempel.
 
-Skriptet tar en parameter och matar ut parametervärdet. **DeploymentScriptOutputs** används för att lagra utdata.  I avsnittet utdata visar **värde** raden hur du kommer åt de lagrade värdena. `Write-Output`används för fel söknings syfte. Information om hur du kommer åt utdatafilen finns i [fel sökning av distributions skript](#debug-deployment-scripts).  För egenskaps beskrivningar, se [exempel-mallar](#sample-templates).
+Skriptet tar en parameter och matar ut parametervärdet. **DeploymentScriptOutputs** används för att lagra utdata.  I avsnittet utdata visar **värde** raden hur du kommer åt de lagrade värdena. `Write-Output`används för fel söknings syfte. Information om hur du kommer åt utdatafilen finns i [övervaka och felsöka distributions skript](#monitor-and-troubleshoot-deployment-scripts).  För egenskaps beskrivningar, se [exempel-mallar](#sample-templates).
 
 Om du vill köra skriptet väljer du **prova** att öppna Cloud Shell och klistrar in följande kod i rutan Shell.
 
@@ -190,7 +190,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Ett exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -244,6 +244,50 @@ Utdata för distributions skript måste sparas på AZ_SCRIPTS_OUTPUT_PATH plats 
 
 [JQ](https://stedolan.github.io/jq/) används i föregående exempel. Den levereras med behållar avbildningarna. Se [Konfigurera utvecklings miljö](#configure-development-environment).
 
+## <a name="use-existing-storage-account"></a>Använd befintligt lagrings konto
+
+Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. Kraven för att använda ett befintligt lagrings konto:
+
+- De typer av lagrings konton som stöds är:
+
+    | SKU             | Typ som stöds     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Lagring, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Lagring, StorageV2 |
+    | Standard_RAGRS  | Lagring, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Dessa kombinationer stöder fil resurs.  Mer information finns i [skapa en Azure-filresurs](../../storage/files/storage-how-to-create-file-share.md) och [typer av lagrings konton](../../storage/common/storage-account-overview.md).
+- Brand Väggs regler för lagrings konto stöds inte än. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md).
+- Distributions skriptets tilldelade hanterade identitet måste ha behörighet att hantera lagrings kontot, som innehåller läsa, skapa, ta bort fil resurser.
+
+Om du vill ange ett befintligt lagrings konto lägger du till följande JSON till egenskaps elementet för `Microsoft.Resources/deploymentScripts` :
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+- **storageAccountName**: Ange namnet på lagrings kontot.
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Ett exempel:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
+
+Se [exempel på mallar](#sample-templates) för ett komplett `Microsoft.Resources/deploymentScripts` definitions exempel.
+
+När ett befintligt lagrings konto används skapar skript tjänsten en fil resurs med ett unikt namn. Se [Rensa distributions skript resurser](#clean-up-deployment-script-resources) för hur skript tjänsten rensar fil resursen.
+
 ## <a name="develop-deployment-scripts"></a>Utveckla distributions skript
 
 ### <a name="handle-non-terminating-errors"></a>Hantera icke-avslutande fel
@@ -258,7 +302,7 @@ Genom att ställa in miljövariabler (EnvironmentVariable) i behållar instanser
 
 Den högsta tillåtna storleken för miljövariabler är 64 kB.
 
-## <a name="debug-deployment-scripts"></a>Felsöka distributions skript
+## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Övervaka och felsöka distributions skript
 
 Skript tjänsten skapar ett [lagrings konto](../../storage/common/storage-account-overview.md) (om du inte anger ett befintligt lagrings konto) och en [behållar instans](../../container-instances/container-instances-overview.md) för skript körning. Om dessa resurser skapas automatiskt av skript tjänsten, har båda resurserna **azscripts** -suffixet i resurs namnen.
 
@@ -266,7 +310,122 @@ Skript tjänsten skapar ett [lagrings konto](../../storage/common/storage-accoun
 
 Användar skriptet, körnings resultaten och STDOUT-filen lagras i lagrings kontots fil resurser. Det finns en mapp med namnet **azscripts**. I mappen finns det två fler mappar för indata och utdatafilerna: **azscriptinput** och **azscriptoutput**.
 
-Mappen utdata innehåller en **executionresult. JSON** -fil och skript utdatafilen. Du kan se fel meddelandet för skript körning i **executionresult. JSON**. Utdatafilen skapas endast när skriptet har körts. Mappen indata innehåller en system PowerShell-skriptfil och skript filen för användar distribution. Du kan ersätta skript filen för användar distribution med en ändrad, och köra distributions skriptet på nytt från Azure Container instance.
+Mappen utdata innehåller en **executionresult.jspå** och skript utdatafilen. Du kan se fel meddelandet för skript körning i **executionresult.jspå**. Utdatafilen skapas endast när skriptet har körts. Mappen indata innehåller en system PowerShell-skriptfil och skript filen för användar distribution. Du kan ersätta skript filen för användar distribution med en ändrad, och köra distributions skriptet på nytt från Azure Container instance.
+
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
+
+När du har distribuerat en distributions skript resurs visas resursen under resurs gruppen i Azure Portal. Följande skärm bild visar översikts sidan för en distributions skript resurs:
+
+![Översikt över distribution av skript portalen för Resource Manager-mall](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
+
+På sidan Översikt visas viktig information om resursen, till exempel **etablerings status**, **lagrings konto**, **behållar instans**och **loggar**.
+
+På den vänstra menyn kan du Visa distributions skriptets innehåll, argumenten som skickas till skriptet och utdata.  Du kan också exportera en mall för distributions skriptet, inklusive distributions skriptet.
+
+### <a name="use-powershell"></a>Använd PowerShell
+
+Med hjälp av Azure PowerShell kan du hantera distributions skript på prenumerations-eller resurs grupps omfång:
+
+- [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript): hämtar eller visar distributions skript.
+- [Get-AzDeploymentScriptLog](/powershell/module/az.resources/get-azdeploymentscriptlog): hämtar loggen för en körning av distributions skript.
+- [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): tar bort ett distributions skript och dess associerade resurser.
+- [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): sparar loggen för en distributions skript körning till disk.
+
+Get-AzDeploymentScript-utdata liknar:
+
+```output
+Name                : runPowerShellInlineWithOutput
+Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+ResourceGroupName   : myds0618rg
+Location            : centralus
+SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+ProvisioningState   : Succeeded
+Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+ScriptKind          : AzurePowerShell
+AzPowerShellVersion : 3.0
+StartTime           : 6/18/2020 7:46:45 PM
+EndTime             : 6/18/2020 7:49:45 PM
+ExpirationDate      : 6/19/2020 7:49:45 PM
+CleanupPreference   : OnSuccess
+StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+Outputs             :
+                      Key                 Value
+                      ==================  ==================
+                      text                Hello John Dole
+
+RetentionInterval   : P1D
+Timeout             : PT1H
+```
+
+### <a name="use-azure-cli"></a>Använda Azure CLI
+
+Med Azure CLI kan du hantera distributions skript på prenumerations-eller resurs grupps omfång:
+
+- [AZ distribution-skript ta bort](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): ta bort ett distributions skript.
+- [AZ distribution – skript lista](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): visar alla distributions skript.
+- [AZ distribution – skript Visa](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): Hämta ett distributions skript.
+- [AZ distribution – skript Visa-logg](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Visa distributions skript loggar.
+
+Utdata för list kommandot liknar:
+
+```json
+[
+  {
+    "arguments": "-name 'John Dole'",
+    "azPowerShellVersion": "3.0",
+    "cleanupPreference": "OnSuccess",
+    "containerSettings": {
+      "containerGroupName": null
+    },
+    "environmentVariables": null,
+    "forceUpdateTag": "20200618T194637Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "identity": {
+      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "type": "userAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
+      }
+    },
+    "kind": "AzurePowerShell",
+    "location": "centralus",
+    "name": "runPowerShellInlineWithOutput",
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "primaryScriptUri": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myds0618rg",
+    "retentionInterval": "1 day, 0:00:00",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts",
+      "endTime": "2020-06-18T19:49:45.926522+00:00",
+      "error": null,
+      "expirationTime": "2020-06-19T19:49:45.926522+00:00",
+      "startTime": "2020-06-18T19:46:45.667124+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts"
+    },
+    "supportingScriptUris": null,
+    "systemData": {
+      "createdAt": "2020-06-18T19:46:41.363741+00:00",
+      "createdBy": "someon@contoso.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2020-06-18T19:46:41.363741+00:00",
+      "lastModifiedBy": "someone@contoso.com",
+      "lastModifiedByType": "User"
+    },
+    "tags": null,
+    "timeout": "1:00:00",
+    "type": "Microsoft.Resources/deploymentScripts"
+  },
+```
+
+### <a name="use-rest-api"></a>Använd REST API
 
 Du kan hämta distributions information för distributions skriptets resurs på resurs grupps nivå och prenumerations nivå genom att använda REST API:
 
@@ -303,50 +462,6 @@ Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda type
 
 ![Distributions skript för Resource Manager-mall, Visa dolda typer, Portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
-## <a name="use-an-existing-storage-account"></a>Använd ett befintligt lagrings konto
-
-Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. Kraven för att använda ett befintligt lagrings konto:
-
-- De typer av lagrings konton som stöds är:
-
-    | SKU             | Typ som stöds     |
-    |-----------------|--------------------|
-    | Premium_LRS     | FileStorage        |
-    | Premium_ZRS     | FileStorage        |
-    | Standard_GRS    | Lagring, StorageV2 |
-    | Standard_GZRS   | StorageV2          |
-    | Standard_LRS    | Lagring, StorageV2 |
-    | Standard_RAGRS  | Lagring, StorageV2 |
-    | Standard_RAGZRS | StorageV2          |
-    | Standard_ZRS    | StorageV2          |
-
-    Dessa kombinationer stöder fil resurs.  Mer information finns i [skapa en Azure-filresurs](../../storage/files/storage-how-to-create-file-share.md) och [typer av lagrings konton](../../storage/common/storage-account-overview.md).
-- Brand Väggs regler för lagrings konto stöds inte än. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md).
-- Distributions skriptets tilldelade hanterade identitet måste ha behörighet att hantera lagrings kontot, som innehåller läsa, skapa, ta bort fil resurser.
-
-Om du vill ange ett befintligt lagrings konto lägger du till följande JSON till egenskaps elementet för `Microsoft.Resources/deploymentScripts` :
-
-```json
-"storageAccountSettings": {
-  "storageAccountName": "myStorageAccount",
-  "storageAccountKey": "myKey"
-},
-```
-
-- **storageAccountName**: Ange namnet på lagrings kontot.
-- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Exempel:
-
-    ```json
-    "storageAccountSettings": {
-        "storageAccountName": "[variables('storageAccountName')]",
-        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
-    }
-    ```
-
-Se [exempel på mallar](#sample-templates) för ett komplett `Microsoft.Resources/deploymentScripts` definitions exempel.
-
-När ett befintligt lagrings konto används skapar skript tjänsten en fil resurs med ett unikt namn. Se [Rensa distributions skript resurser](#clean-up-deployment-script-resources) för hur skript tjänsten rensar fil resursen.
-
 ## <a name="clean-up-deployment-script-resources"></a>Rensa distributions skript resurser
 
 Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas ett lagrings konto tillsammans med en behållar instans automatiskt av skript tjänsten. De två automatiskt skapade resurserna tas bort av skript tjänsten när distributions skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Pris informationen finns i [container instances priser](https://azure.microsoft.com/pricing/details/container-instances/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
@@ -380,17 +495,9 @@ Körning av distributions skript är en idempotenta åtgärd. Om ingen av resurs
 
 ## <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
 
-Du kan använda en förkonfigurerad Docker-behållar avbildning som utvecklings miljö för distributions skript. Följande procedur visar hur du konfigurerar Docker-avbildningen i Windows. För Linux och Mac kan du hitta informationen på Internet.
+Du kan använda en förkonfigurerad Docker-behållar avbildning som utvecklings miljö för distributions skript. Information om hur du installerar Docker finns i [Hämta Docker](https://docs.docker.com/get-docker/).
+Du måste också konfigurera fildelning för att montera katalogen som innehåller distributions skripten i Docker-behållaren.
 
-1. Installera [Docker Desktop](https://www.docker.com/products/docker-desktop) på din utvecklings dator.
-1. Öppna Docker Desktop.
-1. Välj ikonen Docker Desktop på aktivitets fältet och välj sedan **Inställningar**.
-1. Välj **delade enheter**, Välj en lokal enhet som du vill ska vara tillgänglig för dina behållare och välj sedan **Använd**
-
-    ![Distributions skript Docker-enhet för Resource Manager-mall](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
-
-1. Ange dina Windows-autentiseringsuppgifter i prompten.
-1. Öppna ett terminalfönster, antingen kommando tolken eller Windows PowerShell (Använd inte PowerShell ISE).
 1. Hämta distributions skriptets behållar avbildning till den lokala datorn:
 
     ```command
@@ -427,12 +534,11 @@ Du kan använda en förkonfigurerad Docker-behållar avbildning som utvecklings 
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Välj **dela den** när du får en prompt.
-1. Följande skärm bild visar hur du kör ett PowerShell-skript, eftersom du har en HelloWorld. ps1-fil i mappen d:\docker.
+1. Följande skärm bild visar hur du kör ett PowerShell-skript, eftersom du har en helloworld.ps1-fil på den delade enheten.
 
     ![Resource Manager-mall distribution skript Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-När skriptet har testats kan du använda det som ett distributions skript.
+När skriptet har testats kan du använda det som ett distributions skript i mallarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

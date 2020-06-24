@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270061"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708016"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för data inmatning
 
@@ -65,7 +65,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | Vad är detta?   | Verktyg för att importera data från olika källor till Azure Cosmos DB en NoSQL-databas i molnet. Dessa källor innehåller JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och Azure Cosmos DB SQL API-samlingar.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure Table Storage till CosmosDB och importera data från en Microsoft SQL Server databas till CosmosDB.     |
-|  Hur använder man/kör den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt`. Om du vill använda GUI-verktyget öppnar du en kommando tolk `dtui`och skriver.    |
+|  Hur använder man/kör den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt` . Om du vill använda GUI-verktyget öppnar du en kommando tolk och skriver `dtui` .    |
 | Länkar till exempel      | [Importera data för CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 

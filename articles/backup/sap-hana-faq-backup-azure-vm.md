@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248812"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262590"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -45,7 +45,7 @@ En döpt databas behandlas som en ny databas. Tjänsten kommer därför att beha
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet gör för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
-### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Vilka behörigheter ska ställas in för Azure för att kunna säkerhetskopiera SAP HANA databaser?
+### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Vilka behörigheter ska ställas in så att Azure kan säkerhetskopiera SAP HANA databaser?
 
 Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om skriptet för för [registrering.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
@@ -55,11 +55,7 @@ Se [det här avsnittet](https://docs.microsoft.com/azure/backup/backup-azure-sap
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Kan Azure HANA-säkerhetskopiering konfigureras mot en virtuell IP-adress (belastningsutjämnare) och inte en virtuell dator?
 
-För närvarande har vi inte möjlighet att konfigurera lösningen mot en virtuell IP-adress. Vi behöver en virtuell dator för att köra lösningen.
-
-### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Jag har en SAP HANA system replikering (HSR), hur ska jag konfigurera säkerhets kopiering för den här installationen?
-
-De primära och sekundära noderna i HSR kommer att behandlas som två egna, icke-relaterade virtuella datorer. Du måste konfigurera säkerhets kopiering på den primära noden och när redundansen inträffar måste du konfigurera säkerhets kopiering på den sekundära noden (som nu blir den primära noden). Det finns ingen automatisk "redundans" av säkerhets kopian till den andra noden.
+För närvarande har vi inte möjlighet att konfigurera lösningen mot enbart en virtuell IP-adress. Vi behöver en virtuell dator för att köra lösningen.
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Hur kan jag flytta en säkerhets kopia på begäran till det lokala fil systemet i stället för Azure-valvet?
 
@@ -72,6 +68,40 @@ De primära och sekundära noderna i HSR kommer att behandlas som två egna, ick
 1. Återgå till de tidigare inställningarna så att säkerhets kopieringar kan flöda till Azure-valvet:
     1. Ange enable_auto_log_backup till **Ja**
     1. Ange log_backup_using_backint till **Sant**
+
+### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Hur kan jag använda SAP HANA säkerhets kopiering med min HANA-replikering?
+
+För närvarande har Azure Backup inte möjlighet att förstå en HSR-konfiguration. Det innebär att de primära och sekundära noderna i HSR kommer att behandlas som två enskilda, icke-relaterade virtuella datorer. Du måste först konfigurera säkerhets kopiering på den primära noden. När ett misslyckande inträffar måste säkerhets kopieringen konfigureras på den sekundära noden (som nu blir den primära noden). Det finns ingen automatisk redundans av säkerhets kopiering till den andra noden.
+
+Om du vill säkerhetskopiera data från den aktiva (primära) noden vid en viss tidpunkt kan du **Växla skydd** till den sekundära noden, som nu är primärt efter redundans.
+
+Följ dessa steg om du vill utföra det här **växel skyddet**:
+
+- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (med Behåll data) på primär
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) på den sekundära noden
+- [Identifiera databaserna](tutorial-backup-sap-hana-db.md#discover-the-databases) på den sekundära noden och [Konfigurera säkerhets kopior](tutorial-backup-sap-hana-db.md#configure-backup) på dem
+
+De här stegen måste utföras manuellt efter varje redundans. Du kan utföra dessa steg genom kommando raden/HTTP REST förutom Azure Portal. Du kan automatisera de här stegen genom att använda en Azure-Runbook.
+
+Här är ett detaljerat exempel på hur **växel skydd** måste utföras:
+
+I det här exemplet har du två noder-Node 1 (primär) och nod 2 (sekundär) i HSR-konfiguration.  Säkerhets kopior konfigureras på nod 1. Som nämnts ovan försöker du inte konfigurera säkerhets kopior på nod 2 ännu.
+
+När den första redundansväxlingen sker blir nod 2 primär. Dra
+
+1. Stoppa skyddet av nod 1 (tidigare primär) med alternativet Kvarhåll data.
+1. Kör skriptet för för registrering på nod 2 (som nu är den primära).
+1. Identifiera databaser på nod 2, tilldela säkerhets kopierings policy och konfigurera säkerhets kopior.
+
+Sedan utlöses en första fullständig säkerhets kopiering på nod 2 och när det är klart startar logg säkerhets kopieringen.
+
+När nästa misslyckade händer blir nod 1 primär igen och nod 2 blir sekundär. Upprepa nu processen:
+
+1. Stoppa skyddet av nod 2 med alternativet för kvarhållning av data.
+1. Kör skriptet för för registrering på nod 1 (som har blivit primärt igen)
+1. [Återuppta sedan säkerhets kopieringen](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) på nod 1 med den nödvändiga principen (eftersom säkerhets kopiorna stoppades tidigare på nod 1).
+
+Sedan aktive ras den fullständiga säkerhets kopieringen på nod 1 och när den är klar startar logg säkerhets kopieringen.
 
 ## <a name="restore"></a>Återställ
 
@@ -87,7 +117,7 @@ Se till att alternativet **Framtvinga överskrivning** är valt vid återställn
 
 Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) för att se vilka återställnings typer som stöds för närvarande.
 
-### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Kan jag använda en säkerhets kopia av en databas som körs på SLES för att återställa till ett RHEL HANA-system eller vice versa?
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>Kan jag använda en säkerhets kopia av en databas som körs på SLES för att återställa till ett RHEL HANA-system eller vice versa?
 
 Ja, du kan använda strömmande säkerhets kopieringar som har utlösts på en HANA-databas som körs på SLES för att återställa den till ett RHEL HANA-system och vice versa. Det vill säga det går att återställa mellan operativ system med hjälp av strömmande säkerhets kopior. Du måste dock se till att det HANA-system som du vill återställa till, och det HANA-system som används för återställning, båda är kompatibla för återställning enligt SAP. Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) för att se vilka återställnings typer som är kompatibla.
 

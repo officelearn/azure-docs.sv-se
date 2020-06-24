@@ -4,12 +4,13 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757763"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207015"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -112,7 +113,7 @@ Körningen innehåller `customDimensions.LogLevel` fälten och `customDimensions
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurera kategorier och logg nivåer
 
-Du kan använda Application Insights utan någon anpassad konfiguration. Standard konfigurationen kan resultera i stora data mängder. Om du använder en Azure-prenumeration från Visual Studio kan du träffa din data Kap för Application Insights. Senare i den här artikeln får du lära dig hur du konfigurerar och anpassar de data som dina funktioner skickar till Application Insights. För en Function-app konfigureras loggning i [Host. JSON] -filen.
+Du kan använda Application Insights utan någon anpassad konfiguration. Standard konfigurationen kan resultera i stora data mängder. Om du använder en Azure-prenumeration från Visual Studio kan du träffa din data Kap för Application Insights. Senare i den här artikeln får du lära dig hur du konfigurerar och anpassar de data som dina funktioner skickar till Application Insights. För en Function-app konfigureras loggning i [host.js] i filen.
 
 ### <a name="categories"></a>Kategorier
 
@@ -147,9 +148,9 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 
 Logg nivån `None` förklaras i nästa avsnitt. 
 
-### <a name="log-configuration-in-hostjson"></a>Logg konfiguration i Host. JSON
+### <a name="log-configuration-in-hostjson"></a>Logg konfiguration i host.jspå
 
-[Host. JSON] -filen konfigurerar hur mycket loggning av en Function-app som skickar till Application Insights. För varje kategori anger du den lägsta logg nivå som ska skickas. Det finns två exempel: det första exemplet riktar sig till [version 2. x och senare](functions-versions.md#version-2x) av Functions-körningen (med .net Core) och det andra exemplet är för version 1. x-körningsmiljön.
+[host.jspå] fil konfigurerar hur mycket loggning av en Function-app som ska skickas till Application Insights. För varje kategori anger du den lägsta logg nivå som ska skickas. Det finns två exempel: det första exemplet riktar sig till [version 2. x och senare](functions-versions.md#version-2x) av Functions-körningen (med .net Core) och det andra exemplet är för version 1. x-körningsmiljön.
 
 ### <a name="version-2x-and-higher"></a>Version 2. x och högre
 
@@ -189,12 +190,12 @@ Version v2. x och senare versioner av Functions-körningen använder [.net Core 
 I det här exemplet anges följande regler:
 
 * För loggar med kategori `Host.Results` eller `Function` , skicka endast `Error` nivån och över till Application Insights. Loggar för `Warning` nivån och nedan ignoreras.
-* `Host.Aggregator`Skicka alla loggar till Application Insights för loggar med kategori. `Trace`Logg nivån är samma som för alla loggar som anropar `Verbose` , men används `Trace` i [Host. JSON] -filen.
+* `Host.Aggregator`Skicka alla loggar till Application Insights för loggar med kategori. `Trace`Logg nivån är samma som för vissa loggar `Verbose` , men används `Trace` i [host.jsi] filen.
 * För alla andra loggar skickar du bara `Information` nivån och över den till Application Insights.
 
-Kategori värdet i [Host. JSON] kontrollerar loggningen för alla kategorier som börjar med samma värde. `Host`i [Host. JSON] kontrollerar loggningen för `Host.General` ,, `Host.Executor` `Host.Results` och så vidare.
+Kategori värdet i [host.jspå] kontrollerar loggningen för alla kategorier som börjar med samma värde. `Host`i [host.jspå] kontrollerar loggningen för `Host.General` , `Host.Executor` , `Host.Results` och så vidare.
 
-Om [Host. JSON] innehåller flera kategorier som börjar med samma sträng matchas de längre först. Anta att du vill ha allt från körnings miljön förutom `Host.Aggregator` att logga på `Error` nivå, men du vill `Host.Aggregator` Logga på `Information` nivån:
+Om [host.jspå] innehåller flera kategorier som börjar med samma sträng matchas de längre först. Anta att du vill ha allt från körnings miljön förutom `Host.Aggregator` att logga på `Error` nivå, men du vill `Host.Aggregator` Logga på `Information` nivån:
 
 ### <a name="version-2x-and-later"></a>Version 2. x och senare
 
@@ -233,7 +234,7 @@ Om du vill ignorera alla loggar för en kategori kan du använda loggnings nivå
 
 ## <a name="configure-the-aggregator"></a>Konfigurera Aggregator
 
-Enligt vad som anges i föregående avsnitt sammanställer körnings miljön data om funktions körningar under en viss tids period. Standard perioden är 30 sekunder eller 1 000 körningar, beroende på vilket som kommer först. Du kan konfigurera den här inställningen i [Host. JSON] -filen.  Här är ett exempel:
+Enligt vad som anges i föregående avsnitt sammanställer körnings miljön data om funktions körningar under en viss tids period. Standard perioden är 30 sekunder eller 1 000 körningar, beroende på vilket som kommer först. Du kan konfigurera den här inställningen i [host.jspå] filen.  Här är ett exempel:
 
 ```json
 {
@@ -246,7 +247,7 @@ Enligt vad som anges i föregående avsnitt sammanställer körnings miljön dat
 
 ## <a name="configure-sampling"></a>Konfigurera sampling
 
-Application Insights har en [samplings](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att skapa för mycket telemetri-data vid slutförda körningar vid tider med hög belastning. När antalet inkommande körningar överskrider ett angivet tröskelvärde börjar Application Insights att ignorera några av de inkommande körningarna slumpmässigt. Standardvärdet för maximalt antal körningar per sekund är 20 (fem i version 1. x). Du kan konfigurera sampling i [Host. JSON].  Här är ett exempel:
+Application Insights har en [samplings](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att skapa för mycket telemetri-data vid slutförda körningar vid tider med hög belastning. När antalet inkommande körningar överskrider ett angivet tröskelvärde börjar Application Insights att ignorera några av de inkommande körningarna slumpmässigt. Standardvärdet för maximalt antal körningar per sekund är 20 (fem i version 1. x). Du kan konfigurera sampling i [host.jspå](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Här är ett exempel:
 
 ### <a name="version-2x-and-later"></a>Version 2. x och senare
 
@@ -256,12 +257,15 @@ Application Insights har en [samplings](../azure-monitor/app/sampling.md) funkti
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+I version 2. x kan du undanta vissa typer av telemetri från sampling. I exemplet ovan undantas data av typen `Request` från sampling. Detta säkerställer att *alla* funktions körningar (begär Anden) loggas medan andra typer av telemetri är underkastade sampling.
 
 ### <a name="version-1x"></a>Version 1. x 
 
@@ -314,7 +318,7 @@ Här är ett exempel på en JSON-representation av `customDimensions` data:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -335,7 +339,7 @@ Den här koden är ett alternativ till att anropa `TrackMetric` med hjälp av Ap
 
 ## <a name="write-logs-in-javascript-functions"></a>Skriva loggar i JavaScript-funktioner
 
-Använd för att skriva loggar i Node. js-funktioner `context.log` . Strukturerad loggning är inte aktiverat.
+Använd `context.log` för att skriva loggar i Node.js funktioner. Strukturerad loggning är inte aktiverat.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
@@ -343,13 +347,13 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>Anpassad mått loggning
 
-När du kör på [version 1. x](functions-versions.md#creating-1x-apps) av Functions-körningen kan Node. js-funktioner använda `context.log.metric` metoden för att skapa anpassade mått i Application Insights. Den här metoden stöds inte för närvarande i version 2. x och senare. Här är ett exempel på metod anrop:
+När du kör på [version 1. x](functions-versions.md#creating-1x-apps) av Functions-körningen kan Node.js Functions använda `context.log.metric` metoden för att skapa anpassade mått i Application Insights. Den här metoden stöds inte för närvarande i version 2. x och senare. Här är ett exempel på metod anrop:
 
 ```javascript
 context.log.metric("TestMetric", 1234);
 ```
 
-Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av Node. js SDK för Application Insights.
+Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av Node.js SDK för Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Logga anpassad telemetri i C#-funktioner
 
@@ -534,7 +538,7 @@ Ange inte `telemetryClient.Context.Operation.Id` . Den här globala inställning
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Logga anpassad telemetri i JavaScript-funktioner
 
-Här är exempel kods tycken som skickar anpassad telemetri med [Application Insights Node. js SDK](https://github.com/microsoft/applicationinsights-node.js):
+Här är exempel kods tycken som skickar anpassad telemetri med [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
 
 ### <a name="version-2x-and-later"></a>Version 2. x och senare
 
@@ -655,7 +659,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
@@ -685,6 +689,28 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
+## <a name="scale-controller-logs"></a>Loggar för skalnings styrenhet
+
+Den [Azure Functions skalnings styrenheten](./functions-scale.md#runtime-scaling) övervakar de funktions värd instanser som kör din app och fattar beslut om när du ska lägga till eller ta bort funktions värd instanser. Om du behöver förstå de beslut som skalnings styrenheten gör i ditt program kan du konfigurera den så att den genererar loggar till Application Insights eller Blob Storage.
+
+> [!WARNING]
+> Den här funktionen är en förhandsversion. Vi rekommenderar inte att du lämnar den här funktionen aktive rad och du bör istället aktivera den när du behöver den information som samlas in och sedan inaktivera den.
+
+Om du vill aktivera den här funktionen lägger du till en ny program inställning med namnet `SCALE_CONTROLLER_LOGGING_ENABLED` . Värdet för den här inställningen måste ha formatet `{Destination}:{Verbosity}` , där:
+* `{Destination}`anger målet för loggarna som ska skickas till och måste vara antingen `AppInsights` eller `Blob` .
+* `{Verbosity}`anger den loggnings nivå som du vill ha och måste vara en av `None` , `Warning` eller `Verbose` .
+
+Om du till exempel vill logga utförlig information från skalnings styrenheten till Application Insights använder du värdet `AppInsights:Verbose` .
+
+> [!NOTE]
+> Om du aktiverar `AppInsights` måltypen måste du se till att du konfigurerar [Application Insights för din Function-app](#enable-application-insights-integration).
+
+Om du ställer in målet till `Blob` skapas loggarna i en BLOB-behållare med namnet i `azure-functions-scale-controller` lagrings kontot som angetts i `AzureWebJobsStorage` program inställningen.
+
+Om du ställer in verbose-värdet på `Verbose` , kommer skalnings styrenheten att logga en orsak för varje ändring i antalet arbets uppgifter, samt information om utlösare som deltar i skal kontrollens beslut. Loggarna inkluderar till exempel utlösare och de hashar som används av utlösarna innan och efter att skalnings styrenheten körs.
+
+Om du vill inaktivera loggning av skalnings styrenhet anger du värdet för `{Verbosity}` `None` eller ta bort `SCALE_CONTROLLER_LOGGING_ENABLED` program inställningen.
+
 ## <a name="disable-built-in-logging"></a>Inaktivera inbyggd loggning
 
 När du aktiverar Application Insights inaktiverar du den inbyggda loggning som använder Azure Storage. Den inbyggda loggningen är användbar för testning med lätta arbets belastningar, men är inte avsedd för användning med hög belastnings produktion. För produktions övervakning rekommenderar vi Application Insights. Om den inbyggda loggningen används i produktionen kan loggnings posten vara ofullständig på grund av begränsning på Azure Storage.
@@ -698,4 +724,4 @@ Mer information finns i följande resurser:
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core loggning](/aspnet/core/fundamentals/logging/)
 
-[Host. JSON]: functions-host-json.md
+[host.jspå]: functions-host-json.md

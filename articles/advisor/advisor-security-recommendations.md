@@ -3,12 +3,12 @@ title: Gör resurser säkrare med Azure Advisor
 description: Använd Azure Advisor för att förbättra säkerheten för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443045"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113865"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Gör resurser säkrare med Azure Advisor
 
@@ -29,9 +29,9 @@ Mer information om säkerhets rekommendationer finns [i hantera säkerhets rekom
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
-* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+* [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
-
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
  

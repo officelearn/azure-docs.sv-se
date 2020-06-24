@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar komplex datamigrering för en-till-lite-re
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 467e9627a2623779bd808ca5aebdf76d8a5eda42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f79ad56d8083e7ef75279eb2a07e1d35a50c45b5
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75896641"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261111"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrera ett-till-lite-relationellt data till Azure Cosmos DB SQL API-konto
 
@@ -25,7 +25,7 @@ En vanlig omvandling avnormaliserar data genom att bädda in relaterade under ob
 Anta att vi har följande två tabeller i vår SQL-databas, beställningar och OrderDetails.
 
 
-![Beställnings information](./media/migrate-relational-to-cosmos-sql-api/orders.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="Beställnings information" border="false" :::
 
 Vi vill kombinera den här en-till-lite-relation till ett JSON-dokument under migreringen. Vi kan göra detta genom att skapa en T-SQL-fråga med hjälp av "för JSON" som nedan:
 
@@ -91,31 +91,31 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf1.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="ADF-kopia":::
 
 
-För mottagare av SqlJsonToBlobText kopierings aktiviteten väljer vi "avgränsad text" och pekar på en viss mapp i Azure Blob Storage med ett dynamiskt genererat unikt fil namn (till exempel "@concat(pipeline (). RunId,. JSON.
+För mottagare av SqlJsonToBlobText kopierings aktiviteten väljer vi "avgränsad text" och pekar på en viss mapp i Azure Blob Storage med ett dynamiskt genererat unikt fil namn (till exempel " @concat (pipeline (). RunId,. JSON.
 Eftersom vår textfil inte verkligen är avgränsad och vi inte vill att den ska parsas i separata kolumner med kommatecken och vill bevara dubbla citat tecken ("), anger vi" kolumn avgränsare "på en flik (" \t ") eller ett annat tecken som inte förekommer i data-och" citat tecken "till" inget citat tecken ".
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf2.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="ADF-kopia":::
 
 ### <a name="copy-activity-2-blobjsontocosmos"></a>Kopierings aktivitet #2: BlobJsonToCosmos
 
 Sedan ändrar vi vår ADF-pipeline genom att lägga till den andra kopierings aktiviteten som söker i Azure Blob Storage för text filen som skapades av den första aktiviteten. Den bearbetar den som "JSON"-källa för att infoga Cosmos DB Sink som ett dokument per JSON-rad som finns i text filen.
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf3.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="ADF-kopia":::
 
 Du kan också lägga till en "ta bort"-aktivitet till pipelinen så att den tar bort alla tidigare filer som finns kvar i mappen/Orders/före varje körning. Vår ADF-pipeline ser nu ut ungefär så här:
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf4.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="ADF-kopia":::
 
 När vi har utlöst pipelinen ovan ser vi en fil som skapats i vår mellanliggande Azure Blob Storage-plats som innehåller ett JSON-objekt per rad:
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf5.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="ADF-kopia":::
 
 Vi ser även order dokument med korrekt inbäddad OrderDetails som infogats i vår Cosmos DB-samling:
 
-![ADF-kopia](./media/migrate-relational-to-cosmos-sql-api/adf6.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="ADF-kopia":::
 
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -128,7 +128,7 @@ Vi kan också använda spark i [Azure Databricks](https://azure.microsoft.com/se
 
 Först skapar vi och kopplar den nödvändiga [SQL-anslutningen](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) och [Azure Cosmos DB anslutnings](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) bibliotek till vårt Azure Databricks-kluster. Starta om klustret för att kontrol lera att bibliotek har lästs in.
 
-![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks1.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="Databricks":::
 
 Nu presenterar vi två exempel för Scala och python. 
 
@@ -151,7 +151,7 @@ val orders = sqlContext.read.sqlDB(configSql)
 display(orders)
 ```
 
-![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks2.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="Databricks":::
 
 Nu ansluter vi till vår Cosmos DB databas och samling:
 
@@ -208,7 +208,7 @@ display(ordersWithSchema)
 CosmosDBSpark.save(ordersWithSchema, configCosmos)
 ```
 
-![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks3.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="Databricks":::
 
 
 ### <a name="python"></a>Python
@@ -338,7 +338,7 @@ pool.map(writeOrder, orderids)
 ```
 I båda metoderna bör vi i slutet få en korrekt Sparad inbäddad OrderDetails i varje order dokument i Cosmos DB samling:
 
-![Databricks](./media/migrate-relational-to-cosmos-sql-api/databricks4.png)
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Databricks":::
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [data modellering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)

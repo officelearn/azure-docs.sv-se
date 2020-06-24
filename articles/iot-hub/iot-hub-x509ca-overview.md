@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284517"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84717808"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Enhetsautentisering med X.509-certifikatutfärdarcertifikat
 
@@ -28,7 +28,7 @@ I den här artikeln beskrivs hur du använder certifikat från X. 509 certifikat
 
 Funktionen X. 509-CA: er aktiverar enhetsautentisering för att IoT Hub med hjälp av en certifikat utfärdare (CA). Det fören klar den första processen för registrering av enheter och levererar logistik för att tillhandahålla kedja vid enhets tillverkning. [Läs mer i den här scenario artikeln om värdet för att använda X. 509 CA-certifikat](iot-hub-x509ca-concept.md) för enhetsautentisering.  Vi rekommenderar att du läser den här scenario artikeln innan du fortsätter, vilket förklarar varför stegen som följer.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Om du använder funktionen X. 509-CA måste du ha ett IoT Hub-konto.  [Lär dig hur du skapar en IoT Hub instans](quickstart-send-telemetry-dotnet.md) om du inte redan har en.
 
@@ -50,7 +50,7 @@ Lär dig hur du [skapar ett självsignerat CA-certifikat](https://github.com/Azu
 
 ![IMG-Generic-cert-kedja-of-Trust](./media/generic-cert-chain-of-trust.png)
 
-Enhets certifikatet (även kallat ett löv certifikat) måste ha *ämnes namnet* inställt på det **enhets-ID** som användes när IoT-enheten registrerades i Azure-IoT Hub. Den här inställningen krävs för autentisering.
+Enhets certifikatet (även kallat ett löv certifikat) måste ha *ämnes namnet* inställt på **enhets-ID: t** ( `CN=deviceId` ) som användes när IoT-enheten registrerades i Azure-IoT Hub. Den här inställningen krävs för autentisering.
 
 Lär dig hur du [skapar en certifikat kedja](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) som när du signerar enheter.
 
@@ -80,7 +80,7 @@ En lyckad enhets anslutning till IoT Hub är klar med autentiseringsprocessen oc
 
 Lär dig här steg för att [slutföra den här enhets anslutningen](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig mer om [värdet X. 509 ca-autentisering](iot-hub-x509ca-concept.md) i IoT.
 

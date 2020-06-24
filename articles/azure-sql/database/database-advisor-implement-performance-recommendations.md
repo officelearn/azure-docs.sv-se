@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 14f304e3846cab25691da347732de50924356540
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048877"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254947"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Database Advisor prestanda rekommendationer för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Tillgängliga alternativ för prestanda rekommendation i Azure SQL Database:
 
 | Prestanda rekommendation | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Nej |
-| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
-| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Nej |
-| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i SQL-databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Nej |
+| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Inga |
+| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Inga |
+| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Inga |
+| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Inga |
 
 ![Prestanda rekommendationer för Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -97,11 +97,11 @@ När du har tillämpat den här rekommendationen aktiverar den Tvingad Parameter
 > [!IMPORTANT]
 > Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. Vi rekommenderar att du använder [intelligent Insights](intelligent-insights-overview.md) för att övervaka databas prestanda problem, inklusive schema problem som rekommendationerna "åtgärda schema problem" tidigare täckt.
 
-**Åtgärda problem med schema problem** visas när Azure SQL Database upptäcker en avvikelse i antalet schema-relaterade SQL-fel som inträffar i SQL-databasen. Den här rekommendationen visas vanligt vis när databasen påträffar flera schema-relaterade fel (Ogiltigt kolumn namn, ogiltigt objekt namn och så vidare) inom en timme.
+**Åtgärda problem med schema problem** visas när Azure SQL Database upptäcker en avvikelse i antalet schema-relaterade SQL-fel som uppstår i databasen. Den här rekommendationen visas vanligt vis när databasen påträffar flera schema-relaterade fel (Ogiltigt kolumn namn, ogiltigt objekt namn och så vidare) inom en timme.
 
 "Schema problem" är en klass av syntaxfel. De inträffar när definitionen av SQL-frågan och definitionen av databasschemat inte är justerad. Till exempel kan en av de kolumner som förväntas av frågan saknas i mål tabellen eller vice versa.
 
-Rekommendationen "åtgärda schema problem" visas när Azure SQL Database upptäcker en avvikelse i antalet schema-relaterade SQL-fel som inträffar i SQL-databasen. I följande tabell visas de fel som rör schema problem:
+Rekommendationen "åtgärda schema problem" visas när Azure SQL Database visar en avvikelse i antalet schema-relaterade SQL-fel som inträffar i databasen. I följande tabell visas de fel som rör schema problem:
 
 | SQL-felkod | Meddelande |
 | --- | --- |

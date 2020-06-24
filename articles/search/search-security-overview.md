@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: fb79c3546037aabf5ce60905044901f0d5793990
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465634"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081035"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
@@ -123,7 +123,7 @@ Administratörs rättigheter över innehåll som är värd för tjänsten, till 
 
 ## <a name="certifications-and-compliance"></a>Certifieringar och efterlevnad
 
-Azure Kognitiv sökning har certifierats vara kompatibel för flera globala, regionala och branschspecifika standarder för både det offentliga molnet och Azure Government. För den fullständiga listan hämtar du [fakta bladet om **Microsoft Azure regelefterlevnad** ](https://aka.ms/azurecompliance) från sidan officiella gransknings rapporter.
+Azure Kognitiv sökning har certifierats vara kompatibel för flera globala, regionala och branschspecifika standarder för både det offentliga molnet och Azure Government. För den fullständiga listan hämtar du [fakta bladet om **Microsoft Azure regelefterlevnad** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) från sidan officiella gransknings rapporter.
 
 ## <a name="see-also"></a>Se även
 

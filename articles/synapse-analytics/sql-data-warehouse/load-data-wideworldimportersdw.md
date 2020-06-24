@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 14868b2642b2b77ce6bc7315e58a7ae2dc0f115d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019936"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211184"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
@@ -68,7 +68,7 @@ Följ de här stegen för att skapa en tom SQL-pool.
     | Inställningen | Föreslaget värde | Beskrivning |
     | ------- | --------------- | ----------- |
     |**SQL-poolnamn**|SampleDW| För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
     | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
@@ -132,7 +132,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Inställningen      | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
+    | Servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |

@@ -3,25 +3,25 @@ title: Det tar för lång tid att läsa in Application Proxy-programmet | Micros
 description: Felsöka prestanda problem vid sid inläsning med Azure-AD-programproxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac1182d719d7c90129115e1fadf94f4f86a28e8
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65782651"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760190"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Det tar för lång tid att läsa in Application Proxy-programmet
 
@@ -35,7 +35,7 @@ Förutom nätverk sto pol Ogin finns det för närvarande inga ytterligare rekom
 Data Center med Application Proxy-tjänsten kan hittas med [test verktyget för anslutnings portar](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback om platser för data Center i Application Proxy 
-Det kan finnas Azure-datacenter som ännu inte innehåller programproxy, men som leder till en bättre tids fördröjning. Skicka data Center platsen till aadapfeedback@microsoft.com. Microsoft använder din feedback för expansions planer.
+Det kan finnas Azure-datacenter som ännu inte innehåller programproxy, men som leder till en bättre tids fördröjning. Skicka data Center platsen till aadapfeedback@microsoft.com . Microsoft använder din feedback för expansions planer.
 
 Microsoft arbetar med ytterligare funktioner för att förbättra svars tiden. Så snart dessa förbättringar är tillgängliga kommer dokumentationen att uppdateras.
 

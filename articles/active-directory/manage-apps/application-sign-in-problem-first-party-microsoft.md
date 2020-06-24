@@ -3,25 +3,25 @@ title: Problem med att logga in till ett Microsoft-program | Microsoft Docs
 description: Felsök vanliga problem som ansikteade vid inloggning till Microsoft-program från första part med hjälp av Azure AD (som Office 365)
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67108306"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759291"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem med att logga in till ett Microsoft-program
 
@@ -512,19 +512,19 @@ Så här kontrollerar eller validerar du en enskild princip för villkorlig åtk
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Utför en åtgärd på administratörs nivå för alla program
 
--   För att endast få program som har **utvecklats med v1-programmodellen**kan du tvinga den här administratörs behörigheten att ske genom att lägga till "**? prompt = admin\_medgivande**" i slutet av programmets inloggnings-URL.
+-   För att endast få program som har **utvecklats med v1-programmodellen**kan du tvinga den här administratörs behörigheten att ske genom att lägga till "**? prompt = admin \_ medgivande**" i slutet av programmets inloggnings-URL.
 
 -   För **alla program som har utvecklats med v2-programmodellen**kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Utföra ett godkännande på administratörs nivå för ett program med en klient
 
--   För **program med en enda klient** som begär behörigheter (t. ex. de som du utvecklar eller äger i din organisation) kan du utföra en godkännande åtgärd på **Administratörs nivå** för alla användare genom att logga in som global administratör och klicka på knappen **bevilja behörigheter** överst i **program registret –&gt; alla program –&gt; Välj en app-&gt; nödvändig behörighets** ruta.
+-   För **program med en enda klient** som begär behörigheter (t. ex. de som du utvecklar eller äger i din organisation) kan du utföra en godkännande åtgärd på **Administratörs nivå** för alla användare genom att logga in som global administratör och klicka på knappen **bevilja behörigheter** överst i **program registret – &gt; alla program – &gt; Välj en app- &gt; nödvändig behörighets** ruta.
 
 -   För **alla program som har utvecklats med v1-eller v2-programmodellen**kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Utföra ett godkännande på administratörs nivå för ett program med flera klienter
 
--   För **program med flera klienter** som begär behörigheter (t. ex. ett program från tredje part eller Microsoft utvecklar) kan du utföra en **medgivande åtgärd på administrativ nivå** . Logga in som global administratör och klicka på knappen **bevilja behörigheter** under **företags program&gt; – alla program –&gt; Välj en app-&gt; Permissions** -fönster (tillgänglig snart).
+-   För **program med flera klienter** som begär behörigheter (t. ex. ett program från tredje part eller Microsoft utvecklar) kan du utföra en **medgivande åtgärd på administrativ nivå** . Logga in som global administratör och klicka på knappen **bevilja behörigheter** under **företags program – &gt; alla program – &gt; Välj en app- &gt; Permissions** -fönster (tillgänglig snart).
 
 -   Du kan också tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i [att använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

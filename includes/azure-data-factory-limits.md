@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086148"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754634"
 ---
 Azure Data Factory är en tjänst för flera innehavare som har följande standard gränser på plats för att se till att kund prenumerationer skyddas från var and ras arbets belastningar. Kontakta supporten om du vill höja gränserna upp till max gränsen för din prenumeration.
 
@@ -32,7 +32,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Maximalt antal aktiviteter per pipeline, som omfattar inre aktiviteter för behållare | 40 | 40 |
 | Maximalt antal länkade integrerings körningar som kan skapas mot en enda egen värd för integration runtime | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Högsta antal parametrar per pipeline | 50 | 50 |
-| ForEach-objekt | 100 000 | 100 000 |
+| ForEach-objekt | 100 000 | 100 000 |
 | Förgrunds parallellitet | 20 | 50 |
 | Högsta antal köade körningar per pipeline | 100 | 100 |
 | Tecken per uttryck | 8 192 | 8 192 |
@@ -46,7 +46,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Övervaka frågor per minut | 1,000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Entitet CRUD-åtgärder per minut | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximal tid för fel sökning av data flöde | 8 timmar | 8 timmar |
-| Samtidiga antalet data flöden per fabrik | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Samtidiga antalet data flöden per integration runtime | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga antalet fel söknings sessioner per användare per fabrik | 3 | 3 |
 | Data flöde Azure IR TTL-gräns | 4 timmar | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 

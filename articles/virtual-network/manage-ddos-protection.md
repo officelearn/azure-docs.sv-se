@@ -5,31 +5,31 @@ description: Lär dig hur du använder Azure DDoS Protection standard telemetri 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: f208119ce80d6b728030ea96f13d6c3d0375e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182947"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711518"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 
 Lär dig hur du aktiverar och inaktiverar DDoS-skydd (distributed denial of Service) och använder telemetri för att minimera en DDoS-attack med Azure DDoS Protection standard. DDoS Protection standard skyddar Azure-resurser, till exempel virtuella datorer, belastningsutjämnare och programgatewayer som har tilldelats en [offentlig Azure-IP-adress](virtual-network-public-ip-address.md) . Mer information om DDoS Protection standard och dess funktioner finns i [DDoS Protection standard översikt](ddos-protection-overview.md).
 
-Innan du slutför några steg i den här självstudien loggar du in på https://portal.azure.com Azure Portal på med ett konto som tilldelats rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
+Innan du slutför några steg i den här självstudien loggar du in på Azure Portal på https://portal.azure.com med ett konto som tilldelats rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-ddos-protection-plan"></a>Skapa en DDoS skydds plan
 
@@ -42,7 +42,7 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
 3. Välj **Skapa**.
 4. Ange eller Välj dina egna värden eller ange eller Välj följande exempel värden och välj sedan **skapa**:
 
-    |Inställning        |Värde                                              |
+    |Inställningen        |Värde                                              |
     |---------      |---------                                          |
     |Namn           | myDdosProtectionPlan                              |
     |Prenumeration   | Välj din prenumeration.                         |
@@ -55,7 +55,7 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. Ange eller Välj dina egna värden, av ange eller Välj följande exempel värden, acceptera återstående standardvärden och välj sedan **skapa**:
 
-    | Inställning         | Värde                                                        |
+    | Inställningen         | Värde                                                        |
     | ---------       | ---------                                                    |
     | Namn            | myVirtualNetwork                                             |
     | Prenumeration    | Välj din prenumeration.                                    |
@@ -105,7 +105,7 @@ Du kan välja något av de tillgängliga DDoS-skydds måtten för att varna dig 
 3. Välj **mått** under **delade tjänster**.
 4. Ange eller Välj dina egna värden eller ange följande exempel värden, Godkänn återstående standardvärden och välj sedan **OK**:
 
-    |Inställning                  |Värde                                                                                               |
+    |Inställningen                  |Värde                                                                                               |
     |---------                |---------                                                                                           |
     |Namn                     | myDdosAlert                                                                                        |
     |Prenumeration             | Välj den prenumeration som innehåller den offentliga IP-adress som du vill ta emot aviseringar för.        |

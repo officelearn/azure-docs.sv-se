@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251627"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687454"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 I den här artikeln beskrivs olika exempel data källor och mål scenarier som kan hanteras av [TDSP (Team data science process)](overview.md). TDSP innehåller en systematisk metod för team att samar beta med att skapa intelligenta program. De scenarier som visas här visar de alternativ som är tillgängliga i arbets flödet för data bearbetning som är beroende av data egenskaper, käll platser och mål databaser i Azure.
@@ -29,13 +29,13 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 > **För alla följande scenarier måste du:**
 > <br/>
 > 
-> * [skapar ett lagringskonto](../../storage/common/storage-account-create.md)
+> * [Skapa ett lagringskonto](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md)
 > 
 > 
 
-## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Scenario \#1: liten till medels Tor tabell data uppsättning i lokala filer
+## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Scenario \# 1: liten till medels Tor tabell data uppsättning i lokala filer
 ![Små till medel stora lokala filer][1]
 
 #### <a name="additional-azure-resources-none"></a>Ytterligare Azure-resurser: ingen
@@ -43,7 +43,7 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Ladda upp en data uppsättning.
 1. Bygg ett Azure Machine Learning experiment flöde med Uppladdad data uppsättning (ar).
 
-## <a name="scenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Scenario \#2: liten till medelhög data uppsättning för lokala filer som kräver bearbetning
+## <a name="scenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Scenario \# 2: liten till medelhög data uppsättning för lokala filer som kräver bearbetning
 ![Små till medel stora lokala filer med bearbetning][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ytterligare Azure-resurser: virtuell Azure-dator (IPython Notebook-Server)
@@ -56,7 +56,7 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Läs data från Azure-blobbar med modulen [Importera data][import-data] .
 1. Bygg ett Azure Machine Learning experiment flöde som börjar med inmatad data uppsättning (ar).
 
-## <a name="scenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Scenario \#3: stor data uppsättning lokala filer, riktade till Azure-blobbar
+## <a name="scenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Scenario \# 3: stor data uppsättning lokala filer, riktade till Azure-blobbar
 ![Stora lokala filer][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ytterligare Azure-resurser: virtuell Azure-dator (IPython Notebook-Server)
@@ -71,7 +71,7 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Läs data från Azure-blobbar med modulen [Importera data][import-data] .
 1. Bygg Azure Machine Learning experiment flöde som börjar med inmatad data uppsättning (ar).
 
-## <a name="scenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Scenario \#4: små till medel stora data uppsättningar för lokala filer, riktade SQL Server på en virtuell Azure-dator
+## <a name="scenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Scenario \# 4: små till medel stora data uppsättningar för lokala filer, riktade SQL Server på en virtuell Azure-dator
 ![Små till medel stora lokala filer till SQL DB i Azure][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: virtuell Azure-dator (SQL Server/IPython Notebook Server)
@@ -82,14 +82,14 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Spara data till VM-lokala filer (IPython Notebook körs på den virtuella datorn, lokala enheter avser VM-enheter).
 1. Läs in data till SQL Server databas som körs på en virtuell Azure-dator.
    
-   Alternativ \#1: använda SQL Server Management Studio.
+   Alternativ \# 1: använda SQL Server Management Studio.
    
    * Logga in på SQL Server VM
    * Kör SQL Server Management Studio.
    * Skapa databas-och mål tabeller.
    * Använd någon av metoderna för Mass import för att läsa in data från VM-lokala filer.
    
-   Alternativ \#2: använda IPython Notebook – inte lämpligt för medel stora och större data uppsättningar
+   Alternativ \# 2: använda IPython Notebook – inte lämpligt för medel stora och större data uppsättningar
    
    <!-- -->    
    * Använd ODBC-anslutningssträng för att få åtkomst till SQL Server på den virtuella datorn.
@@ -101,7 +101,7 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Läs data direkt från SQL Server med modulen [Importera data][import-data] . Klistra in nödvändig fråga som extraherar fält, skapar funktioner och exempel data om det behövs direkt i frågan [Importera data][import-data] .
 1. Bygg Azure Machine Learning experiment flöde som börjar med inmatad data uppsättning (ar).
 
-## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scenario \#5: stor data uppsättning i lokala filer, mål SQL Server i virtuell Azure-dator
+## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scenario \# 5: stor data uppsättning i lokala filer, mål SQL Server i virtuell Azure-dator
 ![Stora lokala filer till SQL DB i Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: virtuell Azure-dator (SQL Server/IPython Notebook Server)
@@ -138,7 +138,7 @@ I följande avsnitt presenteras ett exempel scenario. För varje scenario visas 
 1. Läs data direkt från SQL Server med modulen [Importera data][import-data] . Klistra in nödvändig fråga som extraherar fält, skapar funktioner och exempel data om det behövs direkt i frågan [Importera data][import-data] .
 1. Enkelt Azure Machine Learning experiment flöde som börjar med överförd data uppsättning
 
-## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scenario \#6: stor data uppsättning i en SQL Server databas lokalt, mål SQL Server på en virtuell Azure-dator
+## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scenario \# 6: stor data uppsättning i en SQL Server databas lokalt, mål SQL Server på en virtuell Azure-dator
 ![Stora SQL DB-lokal till SQL DB i Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: virtuell Azure-dator (SQL Server/IPython Notebook Server)
@@ -186,7 +186,7 @@ Om du vill replikera hela SQL Server databasen i SQL Server VM ska du kopiera en
 
 [Flytta en databas med hjälp av koppla från och Anslut (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Scenario \#7: Big data i lokala filer, målets Hive-databas i Azure HDInsight Hadoop kluster
+## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Scenario \# 7: Big data i lokala filer, målets Hive-databas i Azure HDInsight Hadoop kluster
 ![Big data i den lokala mål registrerings data filen][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure HDInsight Hadoop kluster och virtuell Azure-dator (IPython Notebook-Server)

@@ -4,15 +4,15 @@ description: Lär dig hur du konfigurerar Azure Active Directory autentisering f
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 703b832d58f2374eac131cfd380ba27f2c890618
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059492"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753949"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurera Azure Active Directory autentisering för användar-VPN
 
@@ -54,7 +54,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
 3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
 
-   ![Virtuellt WAN](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
+   ![Virtual WAN](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
 
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resurs grupp** – skapa ny eller Använd befintlig.
@@ -125,7 +125,7 @@ Använd VPN-profilen för att konfigurera dina klienter.
 För att ansluta måste du ladda ned Azure VPN-klienten och importera VPN-klienttjänsten som hämtades i föregående steg på varje dator som vill ansluta till det virtuella nätverket.
 
 > [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN&reg; -protokoll anslutningar.
+> Azure AD-autentisering stöds bara för OpenVPN- &reg; protokoll anslutningar.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Ladda ned Azure VPN-klienten

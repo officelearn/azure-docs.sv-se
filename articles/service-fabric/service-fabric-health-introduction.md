@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282424"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712198"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
@@ -101,7 +101,7 @@ Följande exempel är ett utdrag från ett kluster manifest. Om du vill definier
 ```
 
 ### <a name="application-health-policy"></a>Program hälso princip
-[Program hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och sammansättning av underordnade tillstånd görs för program och deras underordnade. Den kan definieras i applikations manifestet, **ApplicationManifest. XML**, i programpaketet. Om inga principer anges förutsätter Service Fabric att enheten inte är felfri om den har en hälso rapport eller en underordnad i varnings-eller fel hälso tillståndet.
+[Program hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och sammansättning av underordnade tillstånd görs för program och deras underordnade. Den kan definieras i applikations manifestet **ApplicationManifest.xml**i programpaketet. Om inga principer anges förutsätter Service Fabric att enheten inte är felfri om den har en hälso rapport eller en underordnad i varnings-eller fel hälso tillståndet.
 De konfigurerbara principerna är:
 
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
@@ -179,7 +179,7 @@ När hälso insamlingen har utvärderat alla underordnade, aggregerar de sina h�
 ## <a name="health-reporting"></a>Hälso rapportering
 System komponenter, system Fabric-program och interna/externa övervaknings enheter kan rapportera mot Service Fabric entiteter. Rapporterna gör *lokala* bestämningar av hälsan hos de övervakade enheterna, baserat på de villkor som de övervakar. De behöver inte titta på några globala eller aggregerade data. Det önskade beteendet är att ha enkla rapporter och inte komplexa organismer som behöver titta på många saker för att härleda vilken information som ska skickas.
 
-För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er `Partition` som `CodePackageActivationContext` exponeras på objekten eller, PowerShell-cmdlets eller rest.
+För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er som exponeras på `Partition` `CodePackageActivationContext` objekten eller, PowerShell-cmdlets eller rest.
 
 ### <a name="health-reports"></a>Hälso rapporter
 [Hälso rapporter](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:

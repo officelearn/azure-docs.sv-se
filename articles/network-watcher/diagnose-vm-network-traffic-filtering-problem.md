@@ -17,18 +17,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241600"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709223"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
 I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontrollera kommunikationen till en IP-adress och URL och från en IP-adress. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -40,14 +40,14 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla de definierade kraven på komplexitet.|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -59,7 +59,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 ### <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
+Om du redan har en nätverks övervakare aktive rad i minst en region kan du gå vidare till [kontrol lera IP-flödet](#use-ip-flow-verify).
 
 1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
@@ -76,7 +76,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
-    |Inställning            |Värde                                                                                              |
+    |Inställningen            |Värde                                                                                              |
     |---------          |---------                                                                                          |
     | Resursgrupp    | Välj myResourceGroup                                                                            |
     | Virtuell dator   | Välj myVm                                                                                       |
@@ -98,19 +98,19 @@ Nu när du vet vilka säkerhetsregler som tillåter eller nekar trafik till elle
 
 ## <a name="view-details-of-a-security-rule"></a>Visa information om en säkerhetsregel
 
-1. Gå igenom de aktiva säkerhetsreglerna för nätverksgränssnittet på den virtuella datorn för att se varför reglerna i steg 3–5 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) tillåter eller nekar kommunikationen. Skriv *myvm* i sökrutan överst på portalen. Välj nätverksgränssnittet **myvm** (eller namnet på ditt nätverksgränssnitt om du valt ett annat namn) när det visas i sökresultaten.
+1. Gå igenom de aktiva säkerhetsreglerna för nätverksgränssnittet på den virtuella datorn för att se varför reglerna i steg 3–5 i **Använda Kontrollera IP-flöde** tillåter eller nekar kommunikationen. Skriv *myvm* i sökrutan överst på portalen. Välj nätverksgränssnittet **myvm** (eller namnet på ditt nätverksgränssnitt om du valt ett annat namn) när det visas i sökresultaten.
 2. Välj **Gällande säkerhetsregler** under **SUPPORT + FELSÖKNING**, som du ser i följande bild:
 
     ![Gällande säkerhetsregler](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    I steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) såg du att kommunikationen tilläts på grund av regeln **AllowInternetOutbound**. Som du ser i föregående bild är **Internet****MÅL** för regeln. Det är dock oklart hur 13.107.21.200, adressen som du testade i steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify), relaterar till **Internet**.
+    I steg 3 i **Använda Kontrollera IP-flöde** såg du att kommunikationen tilläts på grund av regeln **AllowInternetOutbound**. Som du ser i föregående bild är **Internet****MÅL** för regeln. Det är dock oklart hur 13.107.21.200, adressen som du testade i steg 3 i **Använda Kontrollera IP-flöde**, relaterar till **Internet**.
 3. Välj regeln **AllowInternetOutBound** och välj sedan **Mål**, som du ser i följande bild:
 
     ![Prefix för säkerhetsregler](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     Ett av prefixen i listan är **12.0.0.0/6**, vilken omfattar IP-adressintervallet 12.0.0.1–15.255.255.254. Eftersom 13.107.21.200 ligger inom det adressintervallet tillåter regeln **AllowInternetOutBound** den utgående trafiken. Dessutom visar bilden i steg 2 inga regler med högre prioritet (lägre nummer) som åsidosätter den här regeln. Stäng rutan **Adressprefix**. Om du vill neka utgående kommunikation till 13.107.21.200 kan du lägga till en säkerhetsregel med högre prioritet, som nekar utgående trafik på port 80 till IP-adressen.
-4. När du körde kontrollen för utgående trafik till 172.131.0.100 i steg 4 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) såg du att regeln **DefaultOutboundDenyAll** nekade kommunikationen. Regeln motsvarar regeln **DenyAllOutBound** i bilden i steg 2 som definierar **0.0.0.0/0** som **MÅL**. Den här regeln nekar utgående kommunikation till 172.131.0.100 eftersom adressen inte ligger inom **MÅL** för någon av de andra **utgående reglerna** i bilden. Om du vill tillåta den utgående kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter utgående trafik på port 80 för adressen 172.131.0.100.
-5. När du körde kontrollen för inkommande trafik från 172.131.0.100 i steg 5 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) såg du att regeln **DefaultInboundDenyAll** nekade kommunikationen. Regeln motsvarar regeln **DenyAllInBound** som visas i bilden i steg 2. Regeln **DenyAllInBound** tillämpas eftersom det inte finns någon annan regel med högre prioritet som tillåter inkommande trafik på port 80 till den virtuella datorn från 172.31.0.100. Om du vill tillåta den inkommande kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter inkommande trafik på port 80 från 172.31.0.100.
+4. När du körde kontrollen för utgående trafik till 172.131.0.100 i steg 4 i **Använda Kontrollera IP-flöde** såg du att regeln **DefaultOutboundDenyAll** nekade kommunikationen. Regeln motsvarar regeln **DenyAllOutBound** i bilden i steg 2 som definierar **0.0.0.0/0** som **MÅL**. Den här regeln nekar utgående kommunikation till 172.131.0.100 eftersom adressen inte ligger inom **MÅL** för någon av de andra **utgående reglerna** i bilden. Om du vill tillåta den utgående kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter utgående trafik på port 80 för adressen 172.131.0.100.
+5. När du körde kontrollen för inkommande trafik från 172.131.0.100 i steg 5 i **Använda Kontrollera IP-flöde** såg du att regeln **DefaultInboundDenyAll** nekade kommunikationen. Regeln motsvarar regeln **DenyAllInBound** som visas i bilden i steg 2. Regeln **DenyAllInBound** tillämpas eftersom det inte finns någon annan regel med högre prioritet som tillåter inkommande trafik på port 80 till den virtuella datorn från 172.31.0.100. Om du vill tillåta den inkommande kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter inkommande trafik på port 80 från 172.31.0.100.
 
 Kontrollerna i den här snabbstarten testade Azure-konfigurationen. Om kontrollerna returnerar förväntat resultat och du fortfarande har problem med nätverket kontrollerar du att det inte finns en brandvägg mellan den virtuella datorn och den slutpunkt som du kommunicerar med, samt att operativsystemet på den virtuella datorn inte har en brandvägg som tillåter eller nekar kommunikationen.
 

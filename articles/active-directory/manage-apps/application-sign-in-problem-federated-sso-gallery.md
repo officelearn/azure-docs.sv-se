@@ -3,27 +3,27 @@ title: Problem med att logga in till en federerad Galleri app för enkel inloggn
 description: Vägledning för de specifika felen vid inloggning till ett program som du har konfigurerat för SAML-baserad federerad enkel inloggning med Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c2dc73038151297952dc208031b4a3b6dbcf146
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367895"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759325"
 ---
-# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in till ett galleri program som kon figurer ATS för federerad enkel inloggning
+# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in på ett program som inte är ett galleriprogram och som konfigurerats för federerad enkel inloggning
 
 För att felsöka inloggnings problemen nedan rekommenderar vi att du följer dessa förslag för att få bättre diagnos och automatisera lösnings stegen:
 
@@ -33,15 +33,15 @@ För att felsöka inloggnings problemen nedan rekommenderar vi att du följer de
 
 ## <a name="application-not-found-in-directory"></a>Programmet hittades inte i katalogen
 
-*Fel AADSTS70001: det gick inte att hitta programmet\/med ID: t https:/contoso.com i katalogen*.
+*Fel AADSTS70001: det gick inte att hitta programmet med ID: t https: \/ /contoso.com i katalogen*.
 
 **Möjlig orsak**
 
-`Issuer` Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
+`Issuer`Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
-**Upplösning**
+**Lösning**
 
-Kontrol lera att `Issuer` ATTRIBUTET i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
+Kontrol lera att `Issuer` attributet i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör**.
 
@@ -63,13 +63,13 @@ Kontrol lera att `Issuer` ATTRIBUTET i SAML-begäran matchar det ID-värde som k
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svars adressen stämmer inte överens med de svars adresser som har kon figurer ATS för programmet
 
-*Fel AADSTS50011: svars adressen https:\//contoso.com matchar inte svars adresserna som har kon figurer ATS för programmet*
+*Fel AADSTS50011: svars adressen https: \/ /contoso.com matchar inte svars adresserna som har kon figurer ATS för programmet*
 
 **Möjlig orsak**
 
-`AssertionConsumerServiceURL` Värdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som kon figurer ATS i Azure AD. `AssertionConsumerServiceURL` Värdet i SAML-begäran är den URL som visas i fel meddelandet.
+`AssertionConsumerServiceURL`Värdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som kon figurer ATS i Azure AD. `AssertionConsumerServiceURL`Värdet i SAML-begäran är den URL som visas i fel meddelandet.
 
-**Upplösning**
+**Lösning**
 
 Se till att `AssertionConsumerServiceURL` värdet i SAML-begäran matchar svars-URL-värdet som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
@@ -87,19 +87,19 @@ Se till att `AssertionConsumerServiceURL` värdet i SAML-begäran matchar svars-
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Verifiera eller uppdatera värdet i text rutan svars-URL så att `AssertionConsumerServiceURL` det matchar värdet i SAML-begäran.    
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Verifiera eller uppdatera värdet i text rutan svars-URL så att det matchar `AssertionConsumerServiceURL` värdet i SAML-begäran.    
     
 När du har uppdaterat svars-URL-värdet i Azure AD och det matchar värdet som skickas av programmet i SAML-begäran, bör du kunna logga in på programmet.
 
 ## <a name="user-not-assigned-a-role"></a>Användaren har inte tilldelats någon roll
 
-*Fel AADSTS50105: den inloggade användaren brian\@contoso.com har inte tilldelats någon roll för programmet*.
+*Fel AADSTS50105: den inloggade användaren brian \@ contoso.com har inte tilldelats någon roll för programmet*.
 
 **Möjlig orsak**
 
 Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
-**Upplösning**
+**Lösning**
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
@@ -148,7 +148,7 @@ Azure AD stöder inte den SAML-begäran som skickas av programmet för enkel inl
 -   Obligatoriska fält som saknas i SAML-begäran
 -   SAML-begärandekodad metod
 
-**Upplösning**
+**Lösning**
 
 1. Avbilda SAML-begäran. Följ självstudien [för att FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) för att lära dig hur du samlar in SAML-begäran.
 
@@ -166,11 +166,11 @@ Program leverantören bör kontrol lera att de stöder Azure AD SAML-implementer
 
 **Möjlig orsak**
 
-`Issuer` Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
+`Issuer`Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
-**Upplösning**
+**Lösning**
 
-Kontrol lera att `Issuer` ATTRIBUTET i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
+Kontrol lera att `Issuer` attributet i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
 
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör**.
 
@@ -197,7 +197,7 @@ Kontrol lera att `Issuer` ATTRIBUTET i SAML-begäran matchar det ID-värde som k
 
 Programobjektet är skadat och Azure AD känner inte igen det certifikat som har kon figurer ATS för programmet.
 
-**Upplösning**
+**Lösning**
 
 Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 
@@ -233,7 +233,7 @@ Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 
 Azure AD kunde inte identifiera SAML-begäran inom URL-parametrarna i HTTP-begäran. Detta kan inträffa om programmet inte använder HTTP-omdirigering när SAML-begäran skickas till Azure AD.
 
-**Upplösning**
+**Lösning**
 
 Programmet måste skicka SAML-begäran kodad till plats rubriken med hjälp av HTTP-omdirigering. Mer information om hur du implementerar det finns i avsnittet om HTTP-omdirigeringsbindning i [dokumentet om SAML-protokollets specifikationer](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
@@ -241,11 +241,11 @@ Programmet måste skicka SAML-begäran kodad till plats rubriken med hjälp av H
 
 **Möjlig orsak**
 
-Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) under enkel inloggning, kommer Azure AD att välja någon av de konfigurerade förlitande URL: erna för programmet. Även om programmet har en explicit svars-URL konfigurerad, kan användaren vara Omdirigerad https://127.0.0.1:444. 
+Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) under enkel inloggning, kommer Azure AD att välja någon av de konfigurerade förlitande URL: erna för programmet. Även om programmet har en explicit svars-URL konfigurerad, kan användaren vara Omdirigerad https://127.0.0.1:444 . 
 
 När programmet lades till som en icke-galleriapp skapade Azure Active Directory den här svars-URL:en som ett standardvärde. Det här beteendet har ändrats och Azure Active Directory lägger inte längre till den här URL:en som standard. 
 
-**Upplösning**
+**Lösning**
 
 Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 
@@ -263,7 +263,7 @@ Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 
 6.  Välj det program som du vill konfigurera för enkel inloggning.
 
-7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Ta bort oanvända eller vanliga svars-URL: er som skapats av systemet i **svars-URL: en (intygad konsument tjänst-URL)**. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Ta bort oanvända eller vanliga svars-URL: er som skapats av systemet i **svars-URL: en (intygad konsument tjänst-URL)**. Exempelvis `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem vid anpassning av SAML-anspråk som skickas till ett program
 

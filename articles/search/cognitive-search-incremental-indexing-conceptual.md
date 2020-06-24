@@ -1,5 +1,5 @@
 ---
-title: Stegvis anrikning (för hands version)
+title: Stegvisa anriknings begrepp (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Cachelagra mellanliggande innehåll och stegvisa ändringar från AI-pipeline i Azure Storage för att bevara investeringar i befintliga bearbetade dokument. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 manager: nitinme
@@ -7,20 +7,32 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 0fa152a2edc55067aa8a15a90766a9ad5f66149e
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77024151"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052066"
 ---
-# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduktion till stegvis anrikning och cachelagring i Azure Kognitiv sökning
+# <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
 > Stegvis anrikning är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
 
-Avancerad berikning ger till gång till cachelagring och statefulness till en anriknings pipeline, som bevarar din investering i befintliga utdata och bara ändrar de dokument som påverkas av särskilda ändringar. Detta bevarar inte bara din monetära investering i bearbetningen (särskilt OCR-bearbetning och bild bearbetning), men det gör också ett mer effektivt system. När strukturer och innehåll cachelagras kan en indexerare avgöra vilka kunskaper som har ändrats och bara köra de som har ändrats, samt eventuella underordnade beroende kunskaper. 
+*Stegvis anrikning* är en funktion som är riktad mot [färdighetsuppsättningar](cognitive-search-working-with-skillsets.md). Den använder Azure Storage för att spara bearbetnings resultatet som släpps av en pipeline-pipeline för åter användning i framtida indexerare körs. När det är möjligt återanvänder indexeraren alla cachelagrade utdata som fortfarande är giltiga. 
+
+Den stegvisa berikningen bevarar inte bara din monetära investering i bearbetningen (särskilt OCR-bearbetning och bild bearbetning), men det gör också ett mer effektivt system. När strukturer och innehåll cachelagras kan en indexerare avgöra vilka kunskaper som har ändrats och bara köra de som har ändrats, samt eventuella underordnade beroende kunskaper. 
+
+Ett arbets flöde som använder stegvis cachelagring innehåller följande steg:
+
+1. [Skapa eller identifiera ett Azure Storage-konto](../storage/common/storage-account-create.md) för lagring av cacheminnet.
+1. [Aktivera stegvis berikning](search-howto-incremental-index.md) i indexeraren.
+1. [Skapa en indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) – plus en [färdigheter](https://docs.microsoft.com/rest/api/searchservice/create-skillset) -för att anropa pipelinen. Under bearbetningen sparas stadier av berikning för varje dokument i Blob Storage för framtida bruk.
+1. Testa koden och när du har gjort ändringarna använder du [Uppdatera färdigheter](https://docs.microsoft.com/rest/api/searchservice/update-skillset) för att ändra en definition.
+1. [Kör indexeraren](https://docs.microsoft.com/rest/api/searchservice/run-indexer) för att anropa pipelinen, Hämta cachelagrade utdata för snabbare och mer kostnads effektiv bearbetning.
+
+Mer information om steg och överväganden när du arbetar med en befintlig indexerare finns i [Konfigurera stegvis berikning](search-howto-incremental-index.md).
 
 ## <a name="indexer-cache"></a>Indexerare-cache
 
@@ -65,13 +77,13 @@ Livs längden för cachen hanteras av indexeraren. Om `cache` egenskapen på ind
 
 Ange `enableReprocessing` egenskapen för att styra bearbetningen av inkommande dokument som redan visas i cacheminnet. När `true` (standard), kommer dokument som redan finns i cacheminnet att ombearbetas när du kör om indexeraren, förutsatt att din kunskaps uppdatering påverkar dokumentet. 
 
-När `false`de befintliga dokumenten inte bearbetas igen, prioriteras nya, inkommande innehåll i befintligt innehåll. Du bör bara `enableReprocessing` ställas `false` in på temporär basis. För att säkerställa konsekvens över sökkorpus `enableReprocessing` bör du vara `true` det mesta av tiden, vilket säkerställer att alla dokument, både nya och befintliga, är giltiga enligt den aktuella färdigheter-definitionen.
+När de `false` befintliga dokumenten inte bearbetas igen, prioriteras nya, inkommande innehåll i befintligt innehåll. Du bör bara ställas in `enableReprocessing` `false` på temporär basis. För att säkerställa konsekvens över sökkorpus `enableReprocessing` bör du vara det `true` mesta av tiden, vilket säkerställer att alla dokument, både nya och befintliga, är giltiga enligt den aktuella färdigheter-definitionen.
 
 ### <a name="bypass-skillset-evaluation"></a>Kringgå färdigheter-utvärdering
 
 Det går inte att ändra en färdigheter och ombearbeta den färdigheter. Vissa ändringar i en färdigheter bör dock inte resultera i ombearbetning (till exempel att distribuera en anpassad färdighet till en ny plats eller med en ny åtkomst nyckel). De flesta sannolika är att de är kring utrustnings ändringar som inte har någon verklig inverkan på själva färdigheter. 
 
-Om du vet att en ändring i färdigheter verkligen är ytlig, bör du åsidosätta färdigheter-utvärderingen genom att `disableCacheReprocessingChangeDetection` ange parametern `true`till:
+Om du vet att en ändring i färdigheter verkligen är ytlig, bör du åsidosätta färdigheter-utvärderingen genom `disableCacheReprocessingChangeDetection` att ange parametern till `true` :
 
 1. Anropa Update färdigheter och ändra färdigheter-definitionen.
 1. Lägg till `disableCacheReprocessingChangeDetection=true` parametern i begäran.
@@ -87,7 +99,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 ### <a name="bypass-data-source-validation-checks"></a>Kringgå verifierings kontroller för data Källa
 
-De flesta ändringar av en data käll definition kommer att ogiltig förklara cachen. Men för scenarier där du vet att en ändring inte ska göra detta ska du inte göra en ändring i cachen, till exempel ändra en anslutnings sträng eller rotera nyckeln på lagrings kontot – Lägg till`ignoreResetRequirement` parametern i uppdateringen av data källan. Om du anger den `true` här parametern så att incheckning kan gå igenom, utan att utlösa ett återställnings villkor som skulle resultera i att alla objekt byggs om och fylls från från början.
+De flesta ändringar av en data käll definition kommer att ogiltig förklara cachen. Men för scenarier där du vet att en ändring inte ska göra detta ska du inte göra en ändring i cachen, till exempel ändra en anslutnings sträng eller rotera nyckeln på lagrings kontot – Lägg till `ignoreResetRequirement` parametern i uppdateringen av data källan. Om du anger den här parametern så att `true` incheckning kan gå igenom, utan att utlösa ett återställnings villkor som skulle resultera i att alla objekt byggs om och fylls från från början.
 
 ```http
 PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
@@ -109,7 +121,7 @@ En ogiltig ändring är en där hela cachen inte längre är giltig. Ett exempel
 
 * Ändra till typ av data Källa
 * Ändra till data källans behållare
-* Autentiseringsuppgifter för datakälla
+* Datakällans autentiseringsuppgifter
 * Princip för ändrings identifiering av data Källa
 * Ta bort identifierings princip för data källor
 * Fält mappningar för indexerare
@@ -138,7 +150,7 @@ Stegvis bearbetning utvärderar din färdigheter-definition och avgör vilka kun
 
 ## <a name="api-reference"></a>API-referens
 
-REST API- `2019-05-06-Preview` versionen ger stegvis berikning genom ytterligare egenskaper för indexerare, färdighetsuppsättningar och data källor. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
+REST API `2019-05-06-Preview` -versionen ger stegvis berikning genom ytterligare egenskaper för indexerare, färdighetsuppsättningar och data källor. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
 
 + [Skapa indexerare (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
@@ -148,7 +160,7 @@ REST API- `2019-05-06-Preview` versionen ger stegvis berikning genom ytterligare
 
 + [Återställ kompetens (api-version=2019-05-06-förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas `true` in på när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
++ Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas in på `true` när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
 
   Använd **ignoreResetRequirement** sparsamt eftersom det kan leda till oavsiktlig inkonsekvens i dina data som inte kommer att identifieras enkelt.
 

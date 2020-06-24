@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 62c7a3ecec3f941971cad552af2e36f63ab67c60
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 1fee761c8377824773fa56ba25edd2a779c33547
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485113"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710226"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -32,14 +32,13 @@ Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azur
 
 **Server** | **Krav** | **Information**
 --- | --- | ---
-Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar (inklusive Server Core-installation av dessa operativ system) | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md)
-Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019 Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (inklusive Server Core-installation av dessa operativ system) | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.
+Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar (inklusive Server Core-installation av dessa operativ system, förutom Windows Server 2019) | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md)
+Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019 Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (inklusive Server Core-installation av dessa operativ system utom Virtual Machine Manager 2019) | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.
 
 > [!NOTE]
 >
 > - Se till att .NET Framework 4.6.2 eller högre finns på den lokala servern.
-> - Återställning efter fel stöds inte för Windows Server 2019 Server Core-version.
-> - Det finns inte stöd för återställning efter fel till den alternativa platsen för Windows Server 2019-värdar.
+> - Redundansväxling och återställning efter fel till alternativ plats eller ursprunglig plats, som körs med eller utan Virtual Machine Manager, stöds inte för Windows Server 2019 Server Core-version.
 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
 
@@ -66,14 +65,14 @@ Lägg till disk på replikerad virtuell Hyper-V-dator | Stöds inte. Inaktivera 
 Värd nätverk: NIC Teaming | Ja | Ja
 Värd nätverk: VLAN | Ja | Ja
 Värd nätverk: IPv4 | Ja | Ja
-Värd nätverk: IPv6 | Nej | Nej
-Gäst-VM-nätverk: NIC Teaming | Nej | Nej
+Värd nätverk: IPv6 | Inga | Inga
+Gäst-VM-nätverk: NIC Teaming | Inga | Inga
 Gäst-VM-nätverk: IPv4 | Ja | Ja
-Gäst-VM-nätverk: IPv6 | Nej | Ja
+Gäst-VM-nätverk: IPv6 | No | Yes
 Gäst-VM-nätverk: statisk IP (Windows) | Ja | Ja
-Gäst-VM-nätverk: statisk IP (Linux) | Nej | Nej
+Gäst-VM-nätverk: statisk IP (Linux) | Inga | Inga
 Gäst-VM-nätverk: multi-NIC | Ja | Ja
-Https-proxy | Nej | Nej
+Https-proxy | Inga | Inga
 
 
 
@@ -90,7 +89,7 @@ Reserverad IP | Ja | Ja
 IPv4 | Ja | Ja
 Behåll Källans IP-adress | Ja | Ja
 Azure Virtual Network-tjänstens slut punkter<br/> (utan Azure Storage brand väggar) | Ja | Ja
-Accelererat nätverk | Nej | Nej
+Accelererat nätverk | Inga | Inga
 
 
 ## <a name="hyper-v-host-storage"></a>Lagring av Hyper-V-värd
@@ -110,18 +109,18 @@ VMDK | NA | NA
 VHD/VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
 EFI/UEFI<br></br>Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start. Den virtuella datorn ska endast köra Windows Server 2012 och senare. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken måste vara mindre än 300 GB.| Ja | Ja
-Delad kluster disk | Nej | Nej
-Krypterad disk | Nej | Nej
+Delad kluster disk | Inga | Inga
+Krypterad disk | Inga | Inga
 NFS | NA | NA
-SMB 3.0 | Nej | Nej
+SMB 3.0 | Inga | Inga
 RDM | NA | NA
 Disk >1 TB | Ja, upp till 4 095 GB | Ja, upp till 4 095 GB
 Disk: logisk och fysisk sektor i 4K | Stöds inte: gen 1/Gen 2 | Stöds inte: gen 1/Gen 2
 Disk: logisk och 512-byte fysisk sektor | Ja |  Ja
 Hantering av logiska volymer (LVM). LVM stöds endast på data diskar. Azure tillhandahåller bara en enda OS-disk. | Ja | Ja
 Volym med Striped disk >1 TB | Ja | Ja
-Lagringsutrymmen | Nej | Nej
-Snabb Lägg till/ta bort disk | Nej | Nej
+Lagringsutrymmen | Inga | Inga
+Snabb Lägg till/ta bort disk | Inga | Inga
 Uteslut disk | Ja | Ja
 Multipath (MPIO) | Ja | Ja
 
@@ -132,15 +131,15 @@ Multipath (MPIO) | Ja | Ja
 Lokalt redundant lagring | Ja | Ja
 Geografiskt redundant lagring | Ja | Ja
 Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja | Ja
-Cool Storage | Nej | Nej
-Frekvent lagring| Nej | Nej
-Blockblobar | Nej | Nej
+Cool Storage | Inga | Inga
+Frekvent lagring| Inga | Inga
+Blockblobar | Inga | Inga
 Kryptering i rest (SSE)| Ja | Ja
 Kryptering i vilo läge (CMK) <br></br> (Endast för redundans till Managed Disks)| Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium Storage | Ja | Ja
-Import/export-tjänst | Nej | Nej
+Import/export-tjänst | Inga | Inga
 Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Nej
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | No
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure
@@ -175,8 +174,8 @@ VM-typ | Generation 1<br/><br/> Generation 2--Windows | Generation 2 virtuella d
 
 **Åtgärd** |  **Hyper-V med VMM** | **Hyper-V utan VMM**
 --- | --- | ---
-Flytta valv över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
+Flytta valv över resurs grupper<br/><br/> Inom och över prenumerationer | Inga | Inga
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/> Inom och över prenumerationer | Inga | Inga
 
 > [!NOTE]
 > När du replikerar virtuella Hyper-VM: ar från lokala datorer till Azure kan du bara replikera till en AD-klient från en särskild miljö – Hyper-V-plats eller Hyper-V med VMM som tillämpligt.

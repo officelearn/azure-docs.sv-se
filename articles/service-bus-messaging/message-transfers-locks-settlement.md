@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261000"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686995"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och uppgörelser
 
@@ -139,5 +139,5 @@ Den typiska mekanismen för att identifiera dubbla meddelande leveranser är gen
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283945"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710379"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
 
@@ -29,22 +29,22 @@ Dessa tabeller sammanfattar de data åtgärder som du kan använda och organiser
 
 Med de här åtgärderna kan du arbeta med data i matriser.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
 | [**Skapa CSV-tabell**](#create-csv-table-action) | Skapa en kommaavgränsad tabell (CSV) från en matris. |
 | [**Skapa HTML-tabell**](#create-html-table-action) | Skapa en HTML-tabell från en matris. |
 | [**Filtrera matris**](#filter-array-action) | Skapa en mat ris del uppsättning från en matris baserat på det angivna filtret eller villkoret. |
-| [**Ansluta**](#join-action) | Skapa en sträng från alla objekt i en matris och avgränsa varje objekt med det angivna specialtecknet. |
-| [**Select**](#select-action) | Skapa en matris från de angivna egenskaperna för alla objekt i en annan matris. |
+| [**Slå ihop**](#join-action) | Skapa en sträng från alla objekt i en matris och avgränsa varje objekt med det angivna specialtecknet. |
+| [**Välj**](#select-action) | Skapa en matris från de angivna egenskaperna för alla objekt i en annan matris. |
 ||| 
 
 **JSON-åtgärder**
 
 De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notation-format (JSON).
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
-| [**Utgör**](#compose-action) | Skapa ett meddelande eller en sträng från flera indata som kan ha olika data typer. Du kan sedan använda den här strängen som ett enda indata, i stället för att upprepade gånger ange samma indata. Du kan till exempel skapa ett enda JSON-meddelande från olika indata. |
+| [**Compose**](#compose-action) | Skapa ett meddelande eller en sträng från flera indata som kan ha olika data typer. Du kan sedan använda den här strängen som ett enda indata, i stället för att upprepade gånger ange samma indata. Du kan till exempel skapa ett enda JSON-meddelande från olika indata. |
 | [**Parsa JSON**](#parse-json-action) | Skapa användarvänliga datatoken för egenskaper i JSON-innehåll så att du enkelt kan använda egenskaperna i dina Logic Apps. |
 |||
 
@@ -90,7 +90,7 @@ Följ dessa steg med hjälp av Logic Apps designer för att prova ett exempel. O
 
      ![Välj "nytt steg" för åtgärden "Skriv"](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `compose` som ditt filter. I listan åtgärder väljer du åtgärden **Skriv** .
 
@@ -148,7 +148,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell**
 
      ![Välj "nytt steg" för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `create csv table` som ditt filter. I listan åtgärder väljer du åtgärden **Skapa CSV-tabell** .
 
@@ -179,7 +179,7 @@ Som standard är egenskapen **columns** inställd på att automatiskt skapa tabe
 
 1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **Skapa CSV-tabell** . Du kan `For_each` använda [ `items()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#items)i en slinga.
+Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **Skapa CSV-tabell** . `For_each`Du kan använda [ `items()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#items)i en slinga.
 
 Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
@@ -219,11 +219,11 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
 #### <a name="work-in-code-view"></a>Arbeta i kodvyn
 
-I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskapen till en tom sträng. Referera till varje `value` mat ris egenskap som du vill använda för varje egenskap.
 
 1. I verktygsfältet designer väljer du **kodvyn**.
 
-1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till `header` egenskapen Tom och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
 
    ```json
    {
@@ -299,7 +299,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell*
 
      ![Välj "nytt steg" för åtgärden "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `create html table` som ditt filter. I listan åtgärder väljer du åtgärden **skapa HTML-tabell** .
 
@@ -330,7 +330,7 @@ Som standard är egenskapen **columns** inställd på att automatiskt skapa tabe
 
 1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **skapa HTML-tabell** . Du kan `For_each` använda [ `items()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#items)i en slinga.
+Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **skapa HTML-tabell** . `For_each`Du kan använda [ `items()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#items)i en slinga.
 
 Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
@@ -370,11 +370,11 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
 #### <a name="work-in-code-view"></a>Arbeta i kodvyn
 
-I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskapen till en tom sträng. Referera till varje `value` mat ris egenskap som du vill använda för varje egenskap.
 
 1. I verktygsfältet designer väljer du **kodvyn**.
 
-1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till `header` egenskapen Tom och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
 
    ```json
    {
@@ -464,7 +464,7 @@ Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** oc
 
      ![Välj "nytt steg" för "Filtrera matris"-åtgärd](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger `filter array` du som filter. I listan åtgärder väljer du åtgärden **filtrera matris** .
 
@@ -478,7 +478,7 @@ Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** oc
 
 1. För villkoret anger du de mat ris objekt som ska jämföras, väljer jämförelse operator och anger jämförelse värdet.
 
-   I det här exemplet `item()` används funktionen för att komma åt varje objekt i matrisen medan **filter mat ris** åtgärden söker efter mat ris objekt vars värde är större än ett:
+   I det här exemplet används `item()` funktionen för att komma åt varje objekt i matrisen medan **filter mat ris** åtgärden söker efter mat ris objekt vars värde är större än ett:
 
    ![Det färdiga exemplet för åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
@@ -526,7 +526,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Anslut** till och 
 
      ![SSelect "nytt steg" för "koppla"-åtgärd](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger `join` du som filter. I listan åtgärder väljer du den här åtgärden: **Anslut**
 
@@ -586,7 +586,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **parsa JSON** och *
 
      ![Välj "nytt steg" för "parsa JSON"-åtgärd](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger `parse json` du som filter. I listan åtgärder väljer du åtgärden **parsa JSON** .
 
@@ -661,7 +661,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initie
 
      ![Välj "nytt steg" för "Välj"-åtgärd](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att**+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `select` du som filter. I listan åtgärder väljer du åtgärden **Välj** .
 
@@ -675,7 +675,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initie
 
 1. Ange det egenskaps namn som du vill tilldela varje värde i käll mat ris i rutan till vänster i **Map** -kolumnen. I kolumnen till höger anger du ett uttryck som representerar värdet som du vill tilldela egenskapen.
 
-   I det här exemplet anges "Product_ID" som egenskaps namn för att tilldela varje värde i heltals mat `item()` ris med hjälp av funktionen i ett uttryck som har åtkomst till varje mat ris objekt. 
+   I det här exemplet anges "Product_ID" som egenskaps namn för att tilldela varje värde i heltals mat ris med hjälp av `item()` funktionen i ett uttryck som har åtkomst till varje mat ris objekt. 
 
    ![Ange JSON-objektets egenskap och värden för att skapa matris](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
@@ -697,7 +697,7 @@ För att bekräfta om **Select** -åtgärden skapar förväntade resultat kan du
 
    `@actionBody('Select')`
 
-   I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och inkludera `@actionBody('Select')` utdata från uttrycket i e-postmeddelandets brödtext:
+   I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och inkludera utdata från `@actionBody('Select')` uttrycket i e-postmeddelandets brödtext:
 
    ![Åtgärds utdata från "Välj"-åtgärd](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

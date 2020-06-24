@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74892591"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84883708"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Hantera Azure CDN caching-princip i Azure Media Services
 Azure Media Services tillhandahåller HTTP-baserad anpassad direkt uppspelning och progressiv nedladdning. HTTP-baserad strömning är mycket skalbar med fördelarna med cachelagring i proxy-och CDN-lager samt cachelagring på klient sidan. Slut punkter för direkt uppspelning tillhandahåller generella strömnings funktioner och även konfiguration för HTTP-cache-huvuden. Slut punkter för direkt uppspelning anger HTTP-cache-Control: max-ålder och Expires-huvuden. Du kan få mer information om HTTP-cacheposter från [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

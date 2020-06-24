@@ -4,23 +4,23 @@ description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a60d34c73eed5d71599a90e463138186e21fdf7
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677907"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209359"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
 >[!IMPORTANT]
 >Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 När du ramperar användningen i din värd pool kan du behöva expandera den befintliga poolen med nya sessionsbaserade värdar för att hantera den nya belastningen.
@@ -57,12 +57,12 @@ Expandera din värddator genom att lägga till virtuella datorer:
 6. Ignorera fliken grundläggande inställningar och välj sedan fliken **VM-information** . Här kan du Visa och redigera information om den virtuella datorn (VM) som du vill lägga till i poolen.
 
 7. Välj den resurs grupp som du vill skapa de virtuella datorerna under och välj sedan regionen. Du kan välja den aktuella region som du använder eller en ny region.
-   
+
 8. Ange antalet värdar för sessionen som du vill lägga till i din värddator i **antal virtuella datorer**. Om du till exempel expanderar din värd-pool med fem värdar anger du **5**.
-   
+
     >[!NOTE]
     >Du kan inte redigera storleken eller avbildningen av de virtuella datorerna eftersom det är viktigt att se till att alla virtuella datorer i poolen har samma storlek.
-    
+
 9. För information om det **virtuella nätverket**väljer du det virtuella nätverk och undernät som du vill att de virtuella datorerna ska anslutas till. Du kan välja samma virtuella nätverk som befintliga datorer som används eller välja en annan som passar den region som du valde i steg 7.
 
 10. För **Administratörs kontot**anger du Active Directory domän användar namn och lösen ord som är associerat med det virtuella nätverk som du har valt. Dessa autentiseringsuppgifter används för att ansluta de virtuella datorerna till det virtuella nätverket.
@@ -70,9 +70,9 @@ Expandera din värddator genom att lägga till virtuella datorer:
       >[!NOTE]
       >Se till att dina administratörs namn överensstämmer med informationen som lämnas här. Och det finns inget MFA aktiverat för kontot.
 
-11. Välj fliken **taggar** om du har några taggar som du vill gruppera de virtuella datorerna med. Annars hoppar du över den här fliken. 
+11. Välj fliken **taggar** om du har några taggar som du vill gruppera de virtuella datorerna med. Annars hoppar du över den här fliken.
 
-12. Välj fliken **Granska + skapa** . granska dina val och om allt ser bra ut väljer du **skapa**. 
+12. Välj fliken **Granska + skapa** . granska dina val och om allt ser bra ut väljer du **skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 

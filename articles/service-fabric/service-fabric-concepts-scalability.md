@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282567"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710702"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
 Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänsterna, partitionerna och replikerna på noderna i ett kluster. Att köra många arbets belastningar på samma maskin vara möjliggör maximal resursutnyttjande, men ger också flexibilitet när det gäller hur du väljer att skala dina arbets belastningar. Den här kanalen 9-videon beskriver hur du kan bygga skalbara mikrotjänster-program:
@@ -27,7 +27,7 @@ Skalning i Service Fabric utförs på flera olika sätt:
 6. Skalning med hjälp av kluster resurs hanterarens mått
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Skalning genom att skapa eller ta bort tillstånds lösa tjänst instanser
-Ett av de enklaste sätten att skala inom Service Fabric fungerar med tillstånds lösa tjänster. När du skapar en tillstånds lös tjänst får du möjlighet att definiera en `InstanceCount`. `InstanceCount`definierar hur många körnings kopior av den här tjänst koden som skapas när tjänsten startas. Anta till exempel att det finns 100 noder i klustret. Vi antar också att en tjänst har skapats med `InstanceCount` 10. Under körningen kan de 10 löpande kopiorna av koden bli för upptagna (eller inte vara tillräckligt upptagna). Ett sätt att skala arbets belastningen är att ändra antalet instanser. Till exempel kan vissa övervaknings-eller hanterings koder ändra det befintliga antalet instanser till 50 eller 5, beroende på om arbets belastningen måste skalas in eller ut baserat på belastningen. 
+Ett av de enklaste sätten att skala inom Service Fabric fungerar med tillstånds lösa tjänster. När du skapar en tillstånds lös tjänst får du möjlighet att definiera en `InstanceCount` . `InstanceCount`definierar hur många körnings kopior av den här tjänst koden som skapas när tjänsten startas. Anta till exempel att det finns 100 noder i klustret. Vi antar också att en tjänst har skapats med `InstanceCount` 10. Under körningen kan de 10 löpande kopiorna av koden bli för upptagna (eller inte vara tillräckligt upptagna). Ett sätt att skala arbets belastningen är att ändra antalet instanser. Till exempel kan vissa övervaknings-eller hanterings koder ändra det befintliga antalet instanser till 50 eller 5, beroende på om arbets belastningen måste skalas in eller ut baserat på belastningen. 
 
 C#
 
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalning genom att skapa eller ta bort nya namngivna tjänster
 En namngiven tjänst instans är en specifik instans av en tjänst typ (se [Service Fabric livs cykel för program](service-fabric-application-lifecycle.md)) inom en namngiven program instans i klustret. 
 
-Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), eller genom kod anrop [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
+Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) , eller genom kod anrop [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
 
 Att skapa tjänster dynamiskt kan användas i alla typer av scenarier och är ett vanligt mönster. Anta till exempel en tillstånds känslig tjänst som representerar ett visst arbets flöde. Anrop som representerar arbete kommer att visas i den här tjänsten och den här tjänsten kommer att utföra stegen för arbets flödet och registrera förloppet. 
 

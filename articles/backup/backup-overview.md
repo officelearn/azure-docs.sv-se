@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
 ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240298"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709937"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är tjänsten Azure Backup?
 
@@ -20,10 +20,10 @@ Azure Backup tillhandahåller enkla, säkra och kostnadseffektiva lösningar fö
 ## <a name="what-can-i-back-up"></a>Vad kan jag säkerhetskopiera?
 
 - **Lokala** säkerhets kopierings filer, mappar, system tillstånd med hjälp av [Microsoft Azure Recovery Services (mars) Agent](backup-support-matrix-mars-agent.md). Eller Använd DPM-eller Azure Backup Server-agenten (MABS) för att skydda lokala virtuella datorer ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) och [VMware](backup-azure-backup-server-vmware.md)) och andra [lokala arbets belastningar](backup-mabs-protection-matrix.md)
-- **Virtuella Azure-datorer** - [säkerhetskopierar hela Windows/Linux-datorer](backup-azure-vms-introduction.md) (med säkerhets kopierings tillägg) eller säkerhetskopierar filer, mappar och system tillstånd med hjälp av [mars-agenten](backup-azure-manage-mars.md).
-- **Azure Files delar** - [upp Azure-filresurser till ett lagrings konto](backup-afs.md)
-- **SQL Server i Azure VM** -  -[säkerhetskopierade SQL Server databaser som körs på virtuella Azure-datorer](backup-azure-sql-database.md)
-- **SAP HANA databaser i Azure VM** - -[säkerhetskopiering SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md)
+- **Virtuella Azure-datorer**  -  [Säkerhetskopiera hela virtuella Windows-eller Linux-datorer](backup-azure-vms-introduction.md) (med hjälp av säkerhets kopierings tillägg) eller säkerhetskopiera filer, mappar och system tillstånd med hjälp av [mars-agenten](backup-azure-manage-mars.md).
+- **Azure Files resurser**  -  [Säkerhetskopiera Azure-filresurser till ett lagrings konto](backup-afs.md)
+- **SQL Server på virtuella Azure-datorer**  -   [Säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer](backup-azure-sql-database.md)
+- **SAP HANA-databaser på virtuella Azure-datorer**  -  [Säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md)
 
 ![Översikt över Azure Backup](./media/backup-overview/azure-backup-overview.png)
 

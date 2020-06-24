@@ -4,15 +4,15 @@ description: Använd en mall för att flytta den offentliga Azure-IP-konfigurati
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: a4fd5da3c910b10c81caccde307df0fd36e2fa78
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235403"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711484"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Flytta Azures offentliga IP-konfiguration till en annan region med hjälp av Azure Portal
 
@@ -21,7 +21,7 @@ Det finns olika scenarier där du vill flytta dina befintliga offentliga Azure-I
 **Offentliga Azure-IP-adresser är regions information och kan inte flyttas från en region till en annan.** Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen av en offentlig IP-adress.  Du kan sedan mellanlagra resursen i en annan region genom att exportera den offentliga IP-adressen till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att den offentliga Azure-IP-adressen finns i den Azure-region som du vill flytta från.
 
@@ -45,7 +45,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 2. Leta upp resurs gruppen som innehåller den offentliga käll-IP-adressen och klicka på den.
 3. Välj **Settings**  >  **Exportera mall**för > inställningar.
 4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall**  >  **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
+5. Klicka på **mall**  >  **Redigera parametrar** för att öppna **parameters.jspå** filen i redigeraren online.
 8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen under **parameter**  >  **värde** från den offentliga IP-adressen till namnet på din mål-offentliga IP-adress, se till att namnet är inom citat tecken:
 
     ```json
@@ -62,7 +62,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     ```
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall**  >  **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
+9.  Klicka på **mall**  >  **Redigera mall** för att öppna **template.jspå** filen i redigeraren online.
 
 10. Om du vill redigera mål regionen där den offentliga IP-adressen ska flyttas ändrar du egenskapen **location** under **resurser**:
 
@@ -94,7 +94,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU**-  >  **namn** i filen **Template. JSON** :
+    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU**-  >  **namn** i **template.jspå** filen:
 
         ```json
           "resources": [

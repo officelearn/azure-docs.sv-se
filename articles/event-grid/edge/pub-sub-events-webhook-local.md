@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281007"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710872"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Självstudie: publicera, prenumerera på händelser lokalt
 
@@ -118,7 +118,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 
 Som utgivare av en händelse måste du skapa ett event Grid-ämne. I Azure Event Grid refererar ett ämne till en slut punkt där utgivare kan skicka händelser till.
 
-1. Skapa topic. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md).
+1. Skapa topic.jsmed följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md).
 
     ```json
         {
@@ -129,7 +129,7 @@ Som utgivare av en händelse måste du skapa ett event Grid-ämne. I Azure Event
         }
     ```
 
-1. Kör följande kommando för att skapa ett event Grid-ämne. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
+1. Kör följande kommando för att skapa ett event Grid-ämne. Bekräfta att du ser HTTP-statuskoden är `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -163,7 +163,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Skapa Subscription. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
+1. Skapa subscription.jsmed följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
 
     ```json
         {
@@ -180,7 +180,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
 
     >[!NOTE]
     > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure-prenumerantens exempel som du distribuerade tidigare.
-2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
+2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -212,7 +212,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
 
 ## <a name="publish-an-event"></a>Publicera en händelse
 
-1. Skapa event. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md).
+1. Skapa event.jsmed följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md).
 
     ```json
         [

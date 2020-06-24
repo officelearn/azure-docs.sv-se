@@ -4,11 +4,11 @@ description: Den här artikeln innehåller en introduktion till att uppgradera e
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259050"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710328"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
@@ -49,7 +49,7 @@ När en program uppgradering återställs återställs standard tjänst parametr
 > Kluster konfigurations inställningen [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) måste vara *sann* för att aktivera reglerna 2) och 3) ovan (standard uppdatering och borttagning av tjänst). Den här funktionen stöds från och med Service Fabric version 5,5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Uppgradera flera program med HTTPS-slutpunkter
-Du måste vara noga med att inte använda **samma port** för olika instanser av samma program när du använder http**S**. Orsaken är att Service Fabric inte kan uppgradera certifikatet för en av program instanserna. Till exempel, om program 1 eller program 2 både vill uppgradera sitt certifikat 1 till cert 2. När uppgraderingen sker kan Service Fabric ha rensat certifikat 1-registreringen med http. sys trots att det andra programmet fortfarande använder den. För att förhindra detta identifierar Service Fabric att det redan finns en annan program instans registrerad på porten med certifikatet (på grund av http. sys) och åtgärden kan inte utföras.
+Du måste vara noga med att inte använda **samma port** för olika instanser av samma program när du använder http**S**. Orsaken är att Service Fabric inte kan uppgradera certifikatet för en av program instanserna. Till exempel, om program 1 eller program 2 både vill uppgradera sitt certifikat 1 till cert 2. När uppgraderingen sker kan Service Fabric ha rensat certifikat 1-registreringen med http.sys även om det andra programmet fortfarande använder den. För att förhindra detta identifierar Service Fabric att det redan finns en annan program instans registrerad på porten med certifikatet (på grund av http.sys) och åtgärden kan inte utföras.
 
 Därför stöder Service Fabric inte uppgradering av två olika tjänster med **samma port** i olika program instanser. Med andra ord kan du inte använda samma certifikat på olika tjänster på samma port. Om du behöver ett delat certifikat på samma port måste du se till att tjänsterna placeras på olika datorer med placerings begränsningar. Eller Överväg att använda Service Fabric dynamiska portar om det är möjligt för varje tjänst i varje program instans. 
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257997"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710243"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -44,7 +44,7 @@ Dessutom har det särskilda exemplet som beskrivs i den här artikeln följande 
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Steg 1: Logga in på ditt Azure-konto
 
-1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för `Connect-AzAccount`ditt konto:.
+1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för ditt konto: `Connect-AzAccount` .
    - Alternativt kan du inkludera dina konto uppgifter som en parameter i `Connect-AzAccount` cmdleten med hjälp av parametern **Credential** .
    - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempelvis: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
@@ -73,13 +73,13 @@ Dessutom har det särskilda exemplet som beskrivs i den här artikeln följande 
 
 ## <a name="step-2-set-up-the-vault"></a>Steg 2: Konfigurera valvet
 
-1. Skapa en Azure Resource Manager resurs grupp där valvet ska skapas, eller Använd en befintlig resurs grupp. Skapa en ny resurs grupp på följande sätt. `$ResourceGroupName` Variabeln innehåller namnet på den resurs grupp som du vill skapa och variabeln $geo innehåller den Azure-region där du vill skapa resurs gruppen (till exempel "Brasilien, södra").
+1. Skapa en Azure Resource Manager resurs grupp där valvet ska skapas, eller Använd en befintlig resurs grupp. Skapa en ny resurs grupp på följande sätt. `$ResourceGroupName`Variabeln innehåller namnet på den resurs grupp som du vill skapa och variabeln $geo innehåller den Azure-region där du vill skapa resurs gruppen (till exempel "Brasilien, södra").
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
    ```
 
-1. Kör `Get-AzResourceGroup` cmdleten om du vill hämta en lista över resurs grupper i din prenumeration.
+1. Kör cmdleten om du vill hämta en lista över resurs grupper i din prenumeration `Get-AzResourceGroup` .
 1. Skapa ett nytt Azure Recovery Services-valv på följande sätt:
 
    ```azurepowershell
@@ -130,7 +130,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Om du kör en Hyper-V Core-server laddar du ned installations filen och följer de här stegen:
 
-1. Extrahera filerna från _AzureSiteRecoveryProvider. exe_ till en lokal katalog genom att köra det här kommandot:
+1. Extrahera filerna från _AzureSiteRecoveryProvider.exe_ till en lokal katalog genom att köra det här kommandot:
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
@@ -241,7 +241,7 @@ Innan du börjar bör det angivna lagrings kontot finnas i samma Azure-region so
 >
 > 1. Aktivera redundans till hanterade diskar genom att uppdatera VM-egenskaper
 > 1. Använd `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdleten för att hämta disk-ID: t för varje disk i det skyddade objektet
-> 1. Skapa ett Dictionary-objekt `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` med hjälp av en cmdlet som innehåller mappningen av disk-ID till disk krypterings uppsättning. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
+> 1. Skapa ett Dictionary-objekt med hjälp av en `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet som innehåller mappningen av disk-ID till disk krypterings uppsättning. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
 > 1. Uppdatera VM-egenskaperna med `Set-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet genom att skicka Dictionary-objektet i **DiskIdToDiskEncryptionSetMap** -parametern.
 
 ## <a name="step-8-run-a-test-failover"></a>Steg 8: köra ett redundanstest

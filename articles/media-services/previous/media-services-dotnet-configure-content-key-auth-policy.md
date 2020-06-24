@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251211"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712402"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurera en auktoriseringsprincip för innehålls nycklar
 
@@ -51,7 +51,7 @@ Mer information finns i följande artiklar:
 * Nyckel leverans tjänsten cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (princip alternativ och begränsningar) i 15 minuter. Du kan skapa ContentKeyAuthorizationPolicy och ange om du vill använda en begränsning för token, testa den och sedan uppdatera principen till den öppna begränsningen. Den här processen tar ungefär 15 minuter innan principen växlar till den öppna versionen av principen.
 * Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort eventuella befintliga lokaliserare och skapa en ny.
 * För närvarande kan du inte kryptera Progressive hämtningar.
-* En Media Services strömnings slut punkt anger värdet för CORS-rubriken "Access-Control-Allow-Origin" i preflight-svar som jokertecknet\*"". Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Men vissa spelare som använder dashjs fungerar inte eftersom, med läget för autentiseringsuppgifter inställt på "inkludera", XMLHttpRequest i deras dashjs inte tillåter jokertecknet "\*" som värde för "Access-Control-Allow-Origin". Som en lösning på den här begränsningen i dashjs, om du är värd för din klient från en enda domän, kan Media Services ange domänen i svars huvudet för preflight. Om du behöver hjälp öppnar du ett support ärende via Azure Portal.
+* En Media Services strömnings slut punkt anger värdet för CORS-rubriken "Access-Control-Allow-Origin" i preflight-svar som jokertecknet " \* ". Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Men vissa spelare som använder dashjs fungerar inte eftersom, med läget för autentiseringsuppgifter inställt på "inkludera", XMLHttpRequest i deras dashjs inte tillåter jokertecknet " \* " som värde för "Access-Control-Allow-Origin". Som en lösning på den här begränsningen i dashjs, om du är värd för din klient från en enda domän, kan Media Services ange domänen i svars huvudet för preflight. Om du behöver hjälp öppnar du ett support ärende via Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dynamisk kryptering
 ### <a name="open-restriction"></a>Öppna begränsning

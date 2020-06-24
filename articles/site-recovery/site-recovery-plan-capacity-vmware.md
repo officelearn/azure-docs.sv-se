@@ -8,11 +8,11 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257620"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710719"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware haveri beredskap till Azure
 
@@ -124,7 +124,7 @@ Om du skalar ut distributionen utöver 200-käll datorer, eller om du har en tot
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrera datorer till att använda den nya processervern
 
-1. Välj **Inställningar** > **Site Recovery servrar**. Välj konfigurations servern och expandera sedan **process servrar**.
+1. Välj **Inställningar**  >  **Site Recovery servrar**. Välj konfigurations servern och expandera sedan **process servrar**.
 
     ![Skärm bild av dialog rutan Processerver](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Högerklicka på den processerver som för närvarande används och välj sedan **switch**.
@@ -144,12 +144,12 @@ Information om hur du lägger till en huvud mål server för en Linux-baserad vi
 
 Så här lägger du till en huvud mål server för en Windows-baserad virtuell dator:
 
-1. Gå till **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**.
+1. Gå till **Recovery Services valv**  >  **Site Recovery infrastruktur**  >  **konfigurations servrar**.
 2. Välj den konfigurations server som krävs och välj sedan **huvud mål server**.
 
     ![Skärm bild som visar knappen Lägg till huvud mål Server](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Hämta den enhetliga installations filen och kör sedan filen på den virtuella datorn för att konfigurera huvud mål servern.
-4. Välj **Installera huvud mål** > **Nästa**.
+4. Välj **Installera huvud mål**  >  **Nästa**.
 
     ![Skärm bild som visar val av alternativet för att installera huvud mål](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Välj standard installations plats och välj sedan **Installera**.
@@ -163,7 +163,7 @@ Så här lägger du till en huvud mål server för en Windows-baserad virtuell d
     ![Skärm bild som visar var du anger IP-adressen och lösen frasen för konfigurations servern](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Välj **Registrera**. När registreringen är klar väljer du **Slutför**.
 
-När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**, på huvud mål servrarna på konfigurations servern.
+När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv**  >  **Site Recovery infrastruktur**  >  **konfigurations servrar**, på huvud mål servrarna på konfigurations servern.
 
  > [!NOTE]
  > Ladda ned den senaste versionen av den [enhetliga installations filen för huvud mål servern för Windows](https://aka.ms/latestmobsvc).

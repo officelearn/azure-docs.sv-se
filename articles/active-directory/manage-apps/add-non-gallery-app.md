@@ -2,22 +2,22 @@
 title: Lägg till ett program som inte är ett galleri program – Microsoft Identity Platform | Microsoft Docs
 description: Lägg till ett program som inte är ett galleri till din Azure AD-klient.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9691ecb8d742952ba4364dcda2b62c3829f79d60
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063619"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760328"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Lägg till ett ej listat program (ej Galleri) i din Azure AD-organisation
 
@@ -34,7 +34,7 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com/) med ditt administratörs konto för Microsoft Identity Platform.
 
-2. Välj **företags program** > **nytt program**.
+2. Välj **företags program**  >  **nytt program**.
 
 3. (Valfritt men rekommenderas) I sökrutan Sök **efter Azure AD-Galleri** anger du visnings namnet för programmet. 
 

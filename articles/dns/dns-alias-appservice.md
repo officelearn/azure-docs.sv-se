@@ -4,23 +4,23 @@ description: Använd en Azure DNS Ali Aset för att vara värd för belastningsu
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937372"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710549"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värd belastnings utjämning av Azure-Webbappar i zon Apex
 
-DNS-protokollet förhindrar tilldelning av något annat än en A-eller AAAA-post i zonens Apex. Ett exempel på en zons Apex är contoso.com. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Traffic Manager. Det går inte att peka på Traffic Manager profilen från zonens Apex-post. Därför måste program ägare använda en lösning. En omdirigering på program nivån måste omdirigeras från zonens Apex till en annan domän. Ett exempel är en omdirigering från contoso.com till\.www-contoso.com. Den här ordningen visar en enskild felpunkt för omdirigerings funktionen.
+DNS-protokollet förhindrar tilldelning av något annat än en A-eller AAAA-post i zonens Apex. Ett exempel på en zons Apex är contoso.com. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Traffic Manager. Det går inte att peka på Traffic Manager profilen från zonens Apex-post. Därför måste program ägare använda en lösning. En omdirigering på program nivån måste omdirigeras från zonens Apex till en annan domän. Ett exempel är en omdirigering från contoso.com till www- \. contoso.com. Den här ordningen visar en enskild felpunkt för omdirigerings funktionen.
 
 Det här problemet finns inte längre med Ali Aset poster. Nu kan program ägare peka sin zon Apex-post till en Traffic Manager profil som har externa slut punkter. Program ägare kan peka på samma Traffic Manager profil som används för alla andra domäner i DNS-zonen.
 
-Till exempel kan contoso.com och www\.-contoso.com peka på samma Traffic Manager profil. Detta är fallet så länge den Traffic Manager profilen bara har konfigurerat externa slut punkter.
+Till exempel kan contoso.com och www- \. contoso.com peka på samma Traffic Manager profil. Detta är fallet så länge den Traffic Manager profilen bara har konfigurerat externa slut punkter.
 
 I den här artikeln får du lära dig hur du skapar en aliasresurspost för din domän Apex och konfigurerar Traffic Manager profil slut punkter för dina webb program.
 
@@ -43,7 +43,7 @@ Skapa en resurs grupp som innehåller alla resurser som används i den här arti
 Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tabell för konfigurations information. Mer information om hur du skapar en App Service plan finns i [hantera ett App Service plan i Azure](../app-service/app-service-plan-manage.md).
 
 
-|Name  |Operativsystem  |Plats  |Prisnivå  |
+|Name  |Operativsystem  |Location  |Prisnivå  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|USA, östra|Dev/test D1 – delad|
 |ASP-02     |Windows|USA, centrala|Dev/test D1 – delad|
@@ -87,10 +87,10 @@ Nu kan du skapa slut punkter för de två webbapparna.
 3. Välj **Lägg till**.
 4. Använd följande tabell för att konfigurera slut punkterna:
 
-   |Typ  |Name  |Mål  |Plats  |Anpassade huvud inställningar|
+   |Typ  |Name  |Mål  |Location  |Anpassade huvud inställningar|
    |---------|---------|---------|---------|---------|
-   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|USA, östra|värd:\<den URL som du registrerade för app-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
-   |Extern slut punkt     |Slut punkt 02|IP-adress som du har spelat in för app-02|USA, centrala|värd:\<den URL som du registrerade för appen-02\><br>Exempel: **värd: app-02.azurewebsites.net**
+   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|USA, östra|värd\<the URL you recorded for App-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
+   |Extern slut punkt     |Slut punkt 02|IP-adress som du har spelat in för app-02|USA, centrala|värd\<the URL you recorded for App-02\><br>Exempel: **värd: app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Skapa DNS-zon
 
@@ -134,7 +134,7 @@ Lägg nu till en aliasresurspost för zonens Apex.
 
    |Name  |Typ  |Aliasuppsättning för post uppsättning  |Typ av alias  |Azure-resurs|
    |---------|---------|---------|---------|-----|
-   |@     |A|Ja|Azure-resurs|Traffic Manager – din profil|
+   |@     |A|Yes|Azure-resurs|Traffic Manager – din profil|
 
 
 ## <a name="test-your-web-apps"></a>Testa dina webb program

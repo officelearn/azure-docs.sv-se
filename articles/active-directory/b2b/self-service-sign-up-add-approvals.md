@@ -1,22 +1,22 @@
 ---
-title: API-kopplingar för anpassade godkännande arbets flöden i externa identiteter självbetjänings registrering – Azure AD
+title: Lägg till anpassade godkännanden till självbetjänings registrerings flöden – Azure AD
 description: Lägg till API-kopplingar för anpassade godkännande arbets flöden i externa identiteter självbetjänings registrering-Azure Active Directory (Azure AD)
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172f2041e7339a69648bfb84c0955eec15a0bc6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 45a08ff8d1f796cec2d4562ae64392253a539416
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680065"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886496"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
 
@@ -34,7 +34,7 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
 2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
 3. Välj **Appregistreringar**på den vänstra menyn och välj sedan **ny registrering**.
-4. Ange ett **namn** för programmet, t. ex. *inloggnings godkännanden*.
+4. Ange ett **namn** för programmet, t. ex. _inloggnings godkännanden_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
@@ -46,11 +46,11 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 7. Välj **Microsoft Graph**på sidan **begär API-behörigheter** och välj sedan **program behörigheter**.
 8. Under **Välj behörigheter**expanderar du **användare**och markerar sedan kryss rutan **User. readwrite. all** . Med den här behörigheten kan godkännande systemet skapa användaren vid godkännande. Välj sedan **Lägg till behörigheter**.
 
-    ![Registrera en program sida](media/self-service-sign-up-add-approvals/request-api-permissions.png)
+   ![Registrera en program sida](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
 9. På sidan **API-behörigheter** väljer du **bevilja administrativt medgivande för (ditt klient namn)** och väljer sedan **Ja**.
 10. Under **Hantera** i den vänstra menyn väljer du **certifikat & hemligheter**och väljer sedan **ny klient hemlighet**.
-11. Ange en **Beskrivning** av hemligheten, till exempel *godkännande av klient hemlighet*, och välj varaktigheten för när klient hemligheten **upphör att gälla**. Välj sedan **Lägg till**.
+11. Ange en **Beskrivning** av hemligheten, till exempel _godkännande av klient hemlighet_, och välj varaktigheten för när klient hemligheten **upphör att gälla**. Välj sedan **Lägg till**.
 12. Kopiera värdet för klient hemligheten.
 
     ![Kopiera klient hemligheten för användning i godkännande systemet](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -63,11 +63,11 @@ Härnäst ska du [skapa API-kopplingarna](self-service-sign-up-add-api-connector
 
 - **Kontrol lera godkännande statusen**. Skicka ett anrop till godkännande systemet omedelbart efter att en användare loggar in med en identitets leverantör för att kontrol lera om användaren har en befintlig godkännandebegäran eller om den redan har nekats. Om ditt godkännande system endast har automatiska godkännande beslut kanske denna API-anslutning inte behövs. Följande är ett exempel på API-anslutningen "kontrol lera godkännande status".
 
-   ![Kontrol lera godkännande status API Connector-konfiguration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
+  ![Kontrol lera godkännande status API Connector-konfiguration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
 - **Begär godkännande** – skicka ett anrop till godkännande systemet när en användare har slutfört sidan för attribut samling, men innan användar kontot skapas för att begära godkännande. Begäran om godkännande kan beviljas automatiskt eller granskas manuellt. Följande är ett exempel på en API-anslutning med "begär godkännande". Välj eventuella **anspråk som ska skickas** till godkännande systemet för att fatta ett godkännande beslut.
 
-   ![Begär konfiguration av API-koppling för begäran](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+  ![Begär konfiguration av API-koppling för begäran](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 Följ stegen i [skapa en API-anslutning](self-service-sign-up-add-api-connector.md#create-an-api-connector)för att skapa dessa anslutningar.
 
@@ -80,8 +80,9 @@ Nu ska du lägga till API-kopplingarna i ett användar flöde för självbetjän
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **användar flöden (förhands granskning)** och välj sedan det användar flöde som du vill aktivera API-kopplingen för.
 5. Välj **API-kopplingar**och välj sedan de API-slutpunkter som du vill anropa i följande steg i användar flödet:
-   - **När du har loggat in med en identitetsprovider**: Välj din godkännande status API-koppling, till exempel *kontrol lera godkännande status*.
-   - **Innan du skapar användaren**: Välj din API-koppling för godkännande förfrågan, t. ex. *begäran om godkännande*.
+
+   - **När du har loggat in med en identitetsprovider**: Välj din godkännande status API-koppling, till exempel _kontrol lera godkännande status_.
+   - **Innan du skapar användaren**: Välj din API-koppling för godkännande förfrågan, t. ex. _begäran om godkännande_.
 
    ![Lägga till API: er i användar flödet](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -182,7 +183,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -191,7 +192,7 @@ Content-type: application/json
 
 API-slutpunkten för **begär ande godkännande** bör returnera ett fortsättnings svar om:
 
-- Användaren kan ***godkännas automatiskt***.
+- Användaren kan **_godkännas automatiskt_**.
 
 Följande är ett exempel på ett fortsättnings svar:
 
@@ -273,7 +274,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -298,19 +299,19 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value"
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
 }
 ```
 
-| Parameter  | Krävs | Beskrivning |
-|---|---|---|
-| userPrincipalName | Yes | Kan genereras genom att ta emot `email_address` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled  | Yes  | Måste anges till `true` .  |
-| e-post  | Yes | Motsvarar det `email_address` anspråk som skickas till API: et. |
-| userType | Yes | Måste vara `Guest` . Utser den här användaren som gäst användare. |
-| identiteter  | Yes  | Federerad identitets information. |
-| \<otherBuiltInAttribute>  | No  | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.|
-| \<extension_\<aad-extensions-app-id>\_CustomAttribute> | No | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen. |
+| Parameter                                           | Krävs | Beskrivning                                                                                                                                                            |
+| --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userPrincipalName                                   | Yes      | Kan genereras genom att ta emot `email_address` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Måste anges till `true` .                                                                                                                                                 |
+| e-post                                                | Yes      | Motsvarar det `email_address` anspråk som skickas till API: et.                                                                                                               |
+| userType                                            | Yes      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
+| identiteter                                          | Yes      | Federerad identitets information.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>För en federerad Azure Active Directory användare
 
@@ -326,7 +327,7 @@ Content-type: application/json
  "email_address": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -334,11 +335,11 @@ Content-type: application/json
 2. Godkännande systemet skapar inbjudan med hjälp av `email_address` API-anslutningen.
 
 ```http
-POST https://graph.microsoft.com/v1.0/invitations 
+POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com", 
+    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
     "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
@@ -366,11 +367,11 @@ Content-type: application/json
 {
     "displayName": "John Smith",
     "city": "Redmond",
-    "extension_<aad-extensions-app-id>_AttributeName": "custom attribute value"
+    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
 }
 ```
 
-<!-- ## Next steps -->
-<!-- - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system).  -->
-<!--TODO: link to sample-->
+## <a name="next-steps"></a>Nästa steg
 
+- Kom igång med våra [snabb starts exempel för Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+- Checka ut självbetjänings [registreringen för gäst användare med ett manuellt godkännande exempel](code-samples-self-service-sign-up.md#custom-approval-workflows). 

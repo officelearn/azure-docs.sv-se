@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267825"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711943"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -48,11 +48,11 @@ Du kan välja om du vill få ett meddelande via e-post om aviserings villkoren f
 > [!NOTE]
 > Du kan ange högst 20 e-postadresser per enhet.
 
-När du har aktiverat e-postavisering för en enhet kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-\@noreply mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
+När du har aktiverat e-postavisering för en enhet kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-noreply \@ mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Så här aktiverar du e-postavisering om aviseringar för en enhet
 1. Gå till StorSimple Device Manager-tjänsten. I listan med enheter väljer du och klickar på den enhet som du vill konfigurera.
-2. Gå till **Inställningar** > **Allmänt** för enheten.
+2. Gå till **Inställningar**  >  **Allmänt** för enheten.
 
    ![Varnings blad](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ När du har aktiverat e-postavisering för en enhet kommer medlemmar i meddeland
    
    1. I fältet **skicka e-postavisering** väljer du **Ja**.
    2. I fältet **Administratörer för e-posttjänst** väljer du **Ja** om du vill att tjänst administratören och alla medadministratörer ska få aviserings meddelanden.
-   3. I fältet **andra e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon\@Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per enhet. 
+   3. I fältet **andra e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon \@ Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per enhet. 
       
 3. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
 
@@ -152,7 +152,7 @@ Om det inte går att ansluta till en StorSimple produktions enhet kan följande 
 | Enheten växlade över till <*enhets namnet*>. |Annan/okänd orsak. |Om du ser ett stort antal aviseringar kontaktar du Microsoft Support. När problemet har lösts tar du bort den här aviseringen från aviserings sidan. |
 | En kritisk enhets tjänst rapporterar status som misslyckad. |Datapath-tjänstens haveri. |Kontakta Microsoft Support om du behöver hjälp. |
 | Virtuell IP-adress för nätverks gränssnitt <*data #*> rapporterar status som misslyckad. |Annan/okänd orsak. |Ibland kan tillfälliga förhållanden orsaka dessa aviseringar. I så fall kommer den här aviseringen att rensas automatiskt efter en stund. Kontakta Microsoft Support om problemet kvarstår. |
-| Virtuell IP-adress för nätverks gränssnitt <*data #*> rapporterar status som misslyckad. |Gränssnitts namn: <*data #*> IP `<IP address>` -adressen kan inte anslutas på grund av att en dubblett-IP-adress har identifierats i nätverket. |Se till att den duplicerade IP-adressen tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
+| Virtuell IP-adress för nätverks gränssnitt <*data #*> rapporterar status som misslyckad. |Gränssnitts namn: <*data #*> IP-adressen `<IP address>` kan inte anslutas på grund av att en dubblett-IP-adress har identifierats i nätverket. |Se till att den duplicerade IP-adressen tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
 
 ### <a name="disaster-recovery-alerts"></a>Aviseringar om haveri beredskap
 
@@ -192,9 +192,9 @@ Om det inte går att ansluta till en StorSimple produktions enhet kan följande 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Det gick inte att starta StorSimple-tjänst (er). |Datapath-fel |Kontakta Microsoft Support om problemet kvarstår. |
-| En duplicerad IP-adress har identifierats för ' Data0 '. | |Systemet har upptäckt en konflikt för IP-adressen 10.0.0.1. Nätverks resursen "Data0" på enhetens * \<device1>* är offline. Se till att den här IP-adressen inte används av någon annan entitet i det här nätverket. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta nätverks administratören om du behöver hjälp med att lösa problemet. Kontakta Microsoft Support om problemet kvarstår. |
-| IPv4-adressen (eller IPv6) för ' Data0 ' är offline. | |Nätverks resursen "Data0" med IP-adressen 10.0.0.1. " prefixlängden "22" på enhetens * \<device1>* är offline. Se till att växel portarna som det här gränssnittet är anslutna till fungerar. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Det gick inte att ansluta till Autentiseringstjänsten. |Datapath-fel |Det går inte att hitta URLthat som används för att autentisera. Se till att brand Väggs reglerna innehåller de URL-mönster som anges för StorSimple-enheten. Mer information om URL-mönster i Azure Portal finns i https:\//aka.MS/SS-8000-Network-reqs. Om du använder Azure Government Cloud går du till URL-mönstren i\/https:/aka.MS/ss8000-gov-Network-reqs.|
+| En duplicerad IP-adress har identifierats för ' Data0 '. | |Systemet har upptäckt en konflikt för IP-adressen 10.0.0.1. Nätverks resursen "Data0" på enheten *\<device1>* är offline. Se till att den här IP-adressen inte används av någon annan entitet i det här nätverket. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta nätverks administratören om du behöver hjälp med att lösa problemet. Kontakta Microsoft Support om problemet kvarstår. |
+| IPv4-adressen (eller IPv6) för ' Data0 ' är offline. | |Nätverks resursen "Data0" med IP-adressen 10.0.0.1. " och prefixlängden ' 22 ' på enheten *\<device1>* är offline. Se till att växel portarna som det här gränssnittet är anslutna till fungerar. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Det gick inte att ansluta till Autentiseringstjänsten. |Datapath-fel |Det går inte att hitta URLthat som används för att autentisera. Se till att brand Väggs reglerna innehåller de URL-mönster som anges för StorSimple-enheten. Mer information om URL-mönster i Azure Portal finns i https: \/ /aka.MS/SS-8000-Network-reqs. Om du använder Azure Government Cloud går du till URL-mönstren i https: \/ /aka.MS/ss8000-gov-Network-reqs.|
 
 ### <a name="performance-alerts"></a>Prestanda varningar
 

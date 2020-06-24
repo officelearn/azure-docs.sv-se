@@ -1,5 +1,5 @@
 ---
-title: Introduktion till AI-anrikning
+title: Koncept för AI-anrikning
 titleSuffix: Azure Cognitive Search
 description: Innehålls extrahering, naturlig språk bearbetning (NLP) och bild bearbetning används för att skapa sökbart innehåll i Azure Kognitiv sökning index med både fördefinierade kognitiva kunskaper och anpassade AI-algoritmer.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/18/2020
+ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265207"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052269"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Komma igång med AI-anrikning
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>AI-anrikning i Azure Kognitiv sökning
 
-AI-anrikning är en funktion i Azure Kognitiv sökning indexering som används för att extrahera text från bilder, blobbar och andra ostrukturerade data källor. Anrikning och extraktion gör innehållet mer sökbart i ett [index](search-what-is-an-index.md) eller [kunskaps lager](knowledge-store-concept-intro.md). Extraktion och berikning implementeras med *kognitiva kunskaper* som är kopplade till indexerings pipelinen. Kognitiva kunskaper som är inbyggda i tjänsten ingår i följande kategorier: 
+AI-anrikning är ett tillägg till [indexerare](search-indexer-overview.md) som kan användas för att extrahera text från bilder, blobbar och andra ostrukturerade data källor. Anrikning och extraktion gör innehållet mer sökbart i objekt i indexerare, antingen ett [sökindex](search-what-is-an-index.md) eller ett [kunskaps lager](knowledge-store-concept-intro.md). 
+
+Extraktion och berikning implementeras med *kognitiva kunskaper* som är kopplade till den indexerade pipelinen. Du kan använda inbyggda kunskaper från Microsoft eller bädda in extern bearbetning i en [*anpassad färdighet*](cognitive-search-create-custom-skill-example.md) som du skapar. Exempel på en anpassad färdighet kan vara en anpassad enhets-eller dokument klassificerare som riktar sig till en speciell domän, till exempel ekonomi, vetenskapliga publikationer eller medicin.
+
+Inbyggda kunskaper ingår i följande kategorier: 
 
 + Kunskaper om **bearbetning av naturligt språk** inkluderar [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [språk identifiering](cognitive-search-skill-language-detection.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment identifiering](cognitive-search-skill-sentiment.md)och [identifiering av PII](cognitive-search-skill-pii-detection.md). Med dessa kunskaper mappas ostrukturerad text som sökbara och filter bara fält i ett index.
 
@@ -25,9 +29,9 @@ AI-anrikning är en funktion i Azure Kognitiv sökning indexering som används f
 
 ![Pipeline-diagram för anrikning](./media/cognitive-search-intro/cogsearch-architecture.png "Översikt över anriknings pipeline")
 
-Kognitiva kunskaper i Azure Kognitiv sökning baseras på förtränade maskin inlärnings modeller i API:er för Cognitive Services: [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) och [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Inbyggda kunskaper i Azure Kognitiv sökning baseras på förtränade maskin inlärnings modeller i API:er för Cognitive Services: [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) och [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Du kan koppla en Cognitive Services-resurs om du vill utnyttja dessa resurser under innehålls bearbetning.
 
-Naturligt språk och bild bearbetning används under fasen för data inmatning, med resultat som blir en del av ett dokuments sammansättning i ett sökbart index i Azure Kognitiv sökning. Data visas som en Azure-datauppsättning och flyttas sedan till en indexerings pipeline med hjälp av de [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver. Arkitekturen är utöknings bar så om de inbyggda färdigheterna inte räcker kan du skapa och koppla [anpassade kunskaper](cognitive-search-create-custom-skill-example.md) för att integrera anpassad bearbetning. Exempel kan vara en anpassad enhets-eller dokument klassificerare som riktar sig till en speciell domän, till exempel ekonomi, vetenskapliga publikationer eller medicin.
+Naturligt språk och bild bearbetning används under fasen för data inmatning, med resultat som blir en del av ett dokuments sammansättning i ett sökbart index i Azure Kognitiv sökning. Data visas som en Azure-datauppsättning och flyttas sedan till en indexerings pipeline med hjälp av de [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver.  
 
 ## <a name="when-to-use-ai-enrichment"></a>När AI-anrikning ska användas
 
@@ -55,8 +59,7 @@ En [färdigheter](cognitive-search-defining-skillset.md) som samlas in med inbyg
 
 Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](/azure/cognitive-services/form-recognizer/overview), integrering av [API för entitetsökning i Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Steg i en pipeline för berikning
+<a name="enrichment-steps"># # Steg i en anriknings pipeline</a>
 
 En pipeline för anrikning baseras på [*indexerare*](search-indexer-overview.md). Indexerare fyller ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. Färdigheter, som nu är kopplade till indexerare, utsnappa och utöka dokument enligt de färdigheter som du definierar. När du har indexerat kan du komma åt innehåll via Sök begär Anden via alla [frågetyper som stöds av Azure kognitiv sökning](search-query-overview.md).  Om du inte har använt indexerare i det här avsnittet vägleder vi dig genom stegen.
 

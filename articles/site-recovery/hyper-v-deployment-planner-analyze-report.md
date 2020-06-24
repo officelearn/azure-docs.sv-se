@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257906"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710277"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Distributionshanteraren för Azure Site Recovery rapporten
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
@@ -187,7 +187,7 @@ Excel-rapporten som genereras av distributionshanteraren för Site Recovery inne
 * 1025 till 2048 GB är en P40.
 * 2049 till 4095 GB är en P50.
 
-Exempel: om arbets belastnings egenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
+Exempel: om arbets belastnings egenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den virtuella datorn som **Ja** \* . Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
 
 **Lagringstyp**: Standard eller premium.
 

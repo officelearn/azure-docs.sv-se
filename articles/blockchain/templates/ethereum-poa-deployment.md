@@ -2,14 +2,14 @@
 title: Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 description: Använd Ethereum-lösningen för att distribuera och konfigurera ett Ethereum-nätverk med flera medlemmar i Azure
 ms.date: 06/04/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 2be87dec252aa927c6b1acfc6cb1aa23bf7d2620
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434355"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210124"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -78,11 +78,11 @@ I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det �
 
 Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grundläggande inställningar
 
 Under **grunderna**anger du värden för standard parametrar för alla distributioner.
 
-![Grunderna](./media/ethereum-poa-deployment/basic-blade.png)
+![Grundläggande inställningar](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
@@ -327,7 +327,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj **Spara**. Det kan ta några minuter att göra ändringar.
 
-Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Exempel:
+Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Ett exempel:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -558,7 +558,7 @@ I följande exempel skapar du ett enkelt Smart kontrakt. Du använder Truffle f�
 #### <a name="prerequisites"></a>Krav
 
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för Truffle och web3. Välj alternativet Installera för att inkludera python i sökvägen.
-* Installera Truffle v-5.0.5 `npm install -g truffle@v5.0.5` . Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/). Mer information finns i [Truffle-dokumentationen](https://github.com/trufflesuite/truffle).
+* Installera Truffle v-5.0.5 `npm install -g truffle@v5.0.5` . Truffle kräver att flera verktyg installeras, inklusive [Node.js](https://nodejs.org), [git](https://git-scm.com/). Mer information finns i [Truffle-dokumentationen](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Skapa Truffle-projekt
 
@@ -648,7 +648,7 @@ Truffle använder migrations skript för att distribuera smarta kontrakt till et
 Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för att anropa en funktion.
 
 1. Skapa en ny fil med namnet i Truffle-projekt katalogen `sendtransaction.js` .
-1. Lägg till följande innehåll i **sendtransaction. js**.
+1. Lägg till följande innehåll i **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256814"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711909"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -83,12 +83,12 @@ Installera uppdateringarna på följande sätt:
 Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurationsfiler för [MySQL och php-uppgraderingen](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) . Filen Update. zip innehåller alla de grundläggande binärfilerna och de ackumulerade uppgraderings binärfilerna för följande komponenter: 
 - InMage_ScoutCloud_RX_8.0,1.0_RHEL6-64_GA_02Mar2015. tar. gz
 - RX_8.0,7.0_GA_Update_7_2965621_28Dec18. tar. gz
-- InMage_CX_8.0,25.0_Windows_GA_26Feb2015_release. exe
-- InMage_CX_TP_8.0,25.0_Windows_GA_26Feb2015_release. exe
-- CX_Windows_8.0,7.0_GA_Update_7_2965621_28Dec18. exe
-- InMage_PI_8.0,25.0_Windows_GA_26Feb2015_release. exe
-- InMage_Scout_vContinuum_MT_8.0,7.0_Windows_GA_27Dec2018_release. exe
-- InMage_UA_8.0,7.0_Windows_GA_27Dec2018_release. exe
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
 - InMage_UA_8.0,7.0_OL5-32_GA_03Dec2018_release. tar. gz
 - InMage_UA_8.0,7.0_OL5-64_GA_03Dec2018_release. tar. gz
 - InMage_UA_8.0,7.0_OL6-32_GA_03Dec2018_release. tar. gz
@@ -119,12 +119,12 @@ Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurations
 - InMage_UA_8.0,7.0_SLES11-SP4-64_GA_03Dec2018_release. tar. gz
   1. Extrahera zip-filerna.
   2. **RX-Server**: kopiera **RX_8.0,7.0_GA_Update_7_2965621_28Dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
-  3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0,7.0_GA_Update_7_2965621_28Dec18. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0,7.0_Windows_GA_27Dec2018_release. exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
-  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0,7.0_Windows_GA_27Dec2018_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  5. **vContinuum-Server**: kopiera **InMage_Scout_vContinuum_MT_8.0,7.0_Windows_GA_27Dec2018_release. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  5. **vContinuum-Server**: kopiera **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
   6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till Linux-huvudmål servern och extraherar den. Kör **/install**i den extraherade mappen.
-  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0,7.0_Windows_GA_27Dec2018_release. exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till käll servern. Dubbelklicka på filen för att köra den. 
   8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
   9. När du har uppgraderat konfigurations servern, processervern och RX-servern med ovanstående installations program måste PHP-och MySQL-biblioteken uppgraderas manuellt med de steg som beskrivs i avsnitt 7,4 i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide).
 
@@ -184,27 +184,27 @@ Installera uppdateringarna på följande sätt:
 
 Hämta filen [Update](https://aka.ms/asr-scout-update6) . zip. Filen innehåller följande komponenter: 
 - RX_8.0.4.0_GA_Update_4_8725872_16Sep16. tar. gz
-- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17. exe
-- UA_Windows_8.0,5.0_GA_Update_5_11525802_20Apr17. exe
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
-- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17. exe
-- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_ \<Linux OS> _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
   1. Extrahera zip-filerna.
   2. **RX-Server**: kopiera **RX_8.0.4.0_GA_Update_4_8725872_16Sep16. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
-  3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0,5.0_GA_Update_5_11525802_20Apr17. exe** till servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
-  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0,25.0_Windows_GA_10Oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  5. **vContinuum-Server**: kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
-  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0,25.0_Windows_GA_10Oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  5. **vContinuum-Server**: kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
   6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
-  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0,5.0_GA_Update_5_11525802_20Apr17. exe** till käll servern. Dubbelklicka på filen för att köra den. 
-  Du behöver inte installera uppdatering 5-agenten på käll servern om den redan har uppdaterats till uppdatering 4 eller käll agenten installeras med det senaste grundläggande installations programmet **InMage_UA_8.0,25.0_Windows_GA_28Sep2017_release. exe**.
+  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  Du behöver inte installera uppdatering 5-agenten på käll servern om den redan har uppdaterats till uppdatering 4 eller käll agenten har installerats med den senaste bas installations **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
   8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
 
 
 > [!NOTE]
-> * Installations programmet för grundläggande Unified agent (UA) för Windows har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations programmet **InMage_UA_8.0,25.0_Windows_GA_28Sep2017_release. exe** är paketerat med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 ga-Oct17. zip**). Samma installations program kommer att användas för alla Windows-versioner som stöds. 
-> * Grundläggande Windows-vContinuum & huvud mål installations programmet har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations programmet **InMage_Scout_vContinuum_MT_8.0,25.0_Windows_GA_10Oct2017_release. exe** är paketerat med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 ga-Oct17. zip**). Samma installations program kommer att användas för att distribuera Windows 2016 huvud mål och Windows 2012R2 huvud mål.
+> * Installations programmet för grundläggande Unified agent (UA) för Windows har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** paketeras med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 GA-Oct17.zip**). Samma installations program kommer att användas för alla Windows-versioner som stöds. 
+> * Grundläggande Windows-vContinuum & huvud mål installations programmet har uppdaterats för att ge stöd för Windows Server 2016. Det nya installations **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** paketeras med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 GA-Oct17.zip**). Samma installations program kommer att användas för att distribuera Windows 2016 huvud mål och Windows 2012R2 huvud mål.
 > * Windows Server 2016 på fysisk server stöds inte av ASR Scout. Den stöder endast Windows Server 2016 VMware VM. 
 >
 
@@ -218,7 +218,7 @@ Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeri
 
 #### <a name="new-platform-support"></a>Nytt plattforms stöd
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
-* SLES 11 SP4 64 **-bit InMage_UA_8.0,25.0_SLES11-SP4-64_GA_13Apr2017_release. tar. gz** paketeras med det grundläggande Scout ga-paketet (**INMAGE_SCOUT_STANDARD_8.0,1 ga. zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i skapa ett valv.
+* SLES 11 SP4 64 **-bit InMage_UA_8.0,25.0_SLES11-SP4-64_GA_13Apr2017_release. tar. gz** paketeras med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i skapa ett valv.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
@@ -252,7 +252,7 @@ Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringar 
   * CentOS 6,8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bitar **InMage_UA_8.0,1.0_RHEL7-64_GA_06Oct2016_release. tar. gz** paketeras med bas Scout ga-paketet **INMAGE_SCOUT_STANDARD_8.0,1 ga. zip**. Hämta Scout GA-paketet från portalen enligt beskrivningen i skapa ett valv.
+> RHEL/CentOS 7 64 bitar **InMage_UA_8.0,1.0_RHEL7-64_GA_06Oct2016_release. tar. gz** paketeras med Base Scout ga-paketet **InMage_Scout_Standard_8.0,1 GA.zip**. Hämta Scout GA-paketet från portalen enligt beskrivningen i skapa ett valv.
 
 #### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
 
@@ -275,9 +275,9 @@ Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringar 
   * Det finns ett tillgängligt driv rutins tillstånd för Scout på käll servern.
 
 > [!NOTE]
-> * **InMage_Scout_Standard_8 DPM\DPM\ProtectionAgents\RA\3.0.. 1_GA. zip** -bas paketet har:
->     * Ett uppdaterat bas installations program för konfigurations servern (**InMage_CX_8.0,1.0_Windows_GA_26Feb2015_release. exe**)
->     * Ett bas installations program för Windows huvud mål (**InMage_Scout_vContinuum_MT_8.0,1.0_Windows_GA_26Feb2015_release. exe**).
+> * **InMage_Scout_Standard_8.0.1_GA.zip** base-paketet har:
+>     * Ett uppdaterat bas installations program för konfigurations servern (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * Ett grundläggande installations program för Windows huvud mål (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
 >     * För alla nya installationer använder du den nya konfigurations servern och Windows huvud mål GA-bitar.
 > * Uppdatering 4 kan tillämpas direkt på 8.0.1 GA.
 > * Konfigurations servern och RX-uppdateringar kan inte återställas när de har tillämpats.
@@ -297,7 +297,7 @@ Uppdatering 3 åtgärdar följande problem:
 * Offlinesynkronisering fungerar inte som förväntat.
 * Efter den virtuella datorn går det inte att ta bort replikeringen i konfigurations Server konsolen under en längre tid. Användare kan inte slutföra återställnings-eller återställnings åtgärder.
 * De övergripande ögonblicks bild åtgärderna för konsekvens jobbet har optimerats för att hjälpa till att minska program från koppling, till exempel SQL Server klienter.
-* Prestandan för konsekvens verktyget (VACP. exe) har förbättrats. Den minnes användning som krävs för att skapa ögonblicks bilder i Windows har minskat.
+* Prestanda för konsekvens verktyget (VACP.exe) har förbättrats. Den minnes användning som krävs för att skapa ögonblicks bilder i Windows har minskat.
 * Push-installations tjänsten kraschar när lösen ordet är större än 16 tecken.
 * vContinuum kontrollerar inte och efterfrågar inga nya vCenter-autentiseringsuppgifter när autentiseringsuppgifterna ändras.
 * I Linux laddar inte Master Target cache Manager (cachemgr) filer från processervern. Detta resulterar i en begränsning av replikeringstrafiken.

@@ -5,17 +5,17 @@ description: Använda Azure Machine Learning webb tjänster direkt i Excel utan 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: ae51ed2ce39705e66e82ee28442374e8bcd0f901
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118453"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211331"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-tillägg för Azure Machine Learning Studio (klassiska) webb tjänster
 
@@ -83,4 +83,4 @@ Hämta API-nyckeln för webb tjänsten. Var du utför den här åtgärden beror 
 ## <a name="sharing-your-workbook"></a>Dela din arbets bok
 Om du sparar din arbets bok sparas även API: n/primär nyckeln för de webb tjänster som du har lagt till. Det innebär att du endast bör dela arbets boken med individer som du litar på.
 
-Ställ frågor i följande kommentars avsnitt eller i vårt [Forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ställ frågor i följande kommentars avsnitt eller i vårt [Forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

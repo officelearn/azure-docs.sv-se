@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251003"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712351"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Använda flera indatafiler och komponent egenskaper med Premium-kodare
 ## <a name="overview"></a>Översikt
@@ -97,7 +97,7 @@ Exempel:
 ```
 
 ### <a name="property-with-an-xml-value"></a>Egenskap med ett XML-värde
-Ange en egenskap som förväntar sig ett XML-värde genom att kapsla `<![CDATA[ and ]]>`in med.
+Ange en egenskap som förväntar sig ett XML-värde genom att kapsla in med `<![CDATA[ and ]]>` .
 
 Exempel:
 
@@ -131,7 +131,7 @@ Exempel:
 ```
 
 > [!NOTE]
-> Se till att du inte anger någon vagn retur strax `<![CDATA[`efter.
+> Se till att du inte anger någon vagn retur strax efter `<![CDATA[` .
 
 ### <a name="propertypath-value"></a>propertyPath-värde
 I föregående exempel var propertyPath "/Media File in/filename" eller "/inactiveTimeout" eller "clipListXml".
@@ -272,10 +272,10 @@ Med ytterligare ram-korrekt trimning:
 ## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exempel 1: lägga till en bild ovanpå videon
 
 ### <a name="presentation"></a>Presentation
-Överväg ett exempel där du vill täcka in en logo typ bild i indata-videon medan videon kodas. I det här exemplet heter ininspelnings videon "Microsoft_HoloLens_Possibilities_816p24. mp4" och logo typen kallas "logo. png". Du bör utföra följande steg:
+Överväg ett exempel där du vill täcka in en logo typ bild i indata-videon medan videon kodas. I det här exemplet heter ininspelnings videon "Microsoft_HoloLens_Possibilities_816p24.mp4" och logo typen kallas "logo.png". Du bör utföra följande steg:
 
 * Skapa en arbets flödes till gång med arbets flödes filen (se följande exempel).
-* Skapa en medie till gång, som innehåller två filer: MyInputVideo. mp4 som primär fil och min logo typ. png.
+* Skapa en medie till gång, som innehåller två filer: MyInputVideo.mp4 som primär fil och MyLogo.png.
 * Skicka en uppgift till Media Encoder Premium Workflow medie processor med ovanstående ingångs till gångar och ange följande konfigurations sträng.
 
 Konfiguration:
@@ -299,7 +299,7 @@ I exemplet ovan skickas namnet på video filen till indatafilen för medie filen
 ### <a name="step-by-step-workflow-creation"></a>Steg för steg skapa arbets flöde
 Här följer stegen för att skapa ett arbets flöde som tar två filer som indata: en video och en bild. Bilden överläggs ovanpå videon.
 
-Öppna **arbetsflödesdesigner** och välj **Arkiv** > **nytt** > **Omkoda skiss**.
+Öppna **arbetsflödesdesigner** och välj **Arkiv**  >  **nytt**  >  **Omkoda skiss**.
 
 Det nya arbets flödet visar tre element:
 
@@ -442,7 +442,7 @@ Följ dessa steg om du vill koda:
 * Skapa en Media Services till gång med MXF-filen och ljudfilerna (0 till 18 ljudfiler).
 * Kontrol lera att MXF-filen har angetts som en primär fil.
 * Skapa ett jobb och en aktivitet med hjälp av Premium Workflow Encoder-processorn. Använd arbets flödet som tillhandahålls (MultiMP4-1080p-19audio-v1. Workflow).
-* Skicka setruntime. XML-data till uppgiften (om du använder Azure Media Services Explorer använder du "skicka XML-data till arbets flödes knappen").
+* Skicka setruntime.xml data till aktiviteten (om du använder Azure Media Services Utforskaren använder du "skicka XML-data till arbets flödes knappen").
   * Uppdatera XML-data för att ange rätt fil namn och språk etiketter.
   * Arbets flödet har ljud komponenter med namnet ljud 1 till ljud 18.
   * RFC5646 stöds för språk tag gen.

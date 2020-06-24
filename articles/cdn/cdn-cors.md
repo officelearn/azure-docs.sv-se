@@ -11,26 +11,26 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63919d7770746025189f3d6e578919b2fc2799c3
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74278106"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84884917"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
 CORS (resurs delning mellan ursprung) är en HTTP-funktion som gör det möjligt för ett webb program att köras under en domän för att få åtkomst till resurser i en annan domän. För att minska risken för skript angrepp över flera webbplatser, implementerar alla moderna webbläsare en säkerhets begränsning som kallas princip för [samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Detta förhindrar att en webb sida anropar API: er i en annan domän.  CORS är ett säkert sätt att tillåta ett ursprung (ursprungs domänen) att anropa API: er i ett annat ursprung.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa begär Anden.*
 
 ### <a name="for-simple-requests"></a>För enkla begär Anden:
 
-1. Webbläsaren skickar CORS-begäran med en ytterligare **källa** för http-begäran. Värdet för den här rubriken är ursprunget som hanterade den överordnade sidan, som definieras som kombinationen av *protokoll,* *domän* och *port.*  När en sida från https\://www.contoso.com försöker komma åt en användares data i Fabrikam.com ursprung, skickas följande begär ande huvud till fabrikam.com:
+1. Webbläsaren skickar CORS-begäran med en ytterligare **källa** för http-begäran. Värdet för den här rubriken är ursprunget som hanterade den överordnade sidan, som definieras som kombinationen av *protokoll,* *domän* och *port.*  När en sida från https \: //www.contoso.com försöker komma åt en användares data i Fabrikam.com ursprung, skickas följande begär ande huvud till fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
@@ -48,7 +48,7 @@ Det finns två typer av CORS-begäranden, *enkla begär Anden* och *komplexa beg
 
 ### <a name="for-complex-requests"></a>För komplexa begär Anden:
 
-En komplex begäran är en CORS-begäran där webbläsaren krävs för att skicka en *preflight-begäran* (det vill säga en preliminär avsökning) innan den aktuella CORS-begäran skickas. Preflight-begäran ber Server behörigheten om den ursprungliga CORS-begäran kan fortsätta och är `OPTIONS` en begäran till samma URL.
+En komplex begäran är en CORS-begäran där webbläsaren krävs för att skicka en *preflight-begäran* (det vill säga en preliminär avsökning) innan den aktuella CORS-begäran skickas. Preflight-begäran ber Server behörigheten om den ursprungliga CORS-begäran kan fortsätta och är en `OPTIONS` begäran till samma URL.
 
 > [!TIP]
 > Mer information om CORS-flöden och vanliga fall GRO par finns i [guiden till CORS för REST-API: er](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).

@@ -2,14 +2,14 @@
 title: Blockchain app-versioner – Azure blockchain Workbench
 description: Så här använder du program versioner i Azure blockchain Workbench Preview.
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74323916"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209886"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versions hantering av Azure blockchain Workbench Preview-program
 
@@ -26,7 +26,7 @@ Du kan skapa och använda flera versioner av en Azure blockchain Workbench Previ
 
 Om du vill lägga till en ny version laddar du upp den nya konfigurationen och smarta kontrakts filer till blockchain Workbench.
 
-1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress, se [BLOCKCHAIN Workbench Web URL](deploy.md#blockchain-workbench-web-url)
+1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress, se [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Logga in som [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
 3. Välj det blockchain-program som du vill uppdatera med en annan version.
 4. Välj **Lägg till version**. Fönstret **Lägg till version** visas.

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 566347414ffe707b1d68a61b00ba21d19ff2b1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c96fa4c453911c4ca4b8cf6d8f74647b4532109f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869386"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711552"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Ändra den OS-disk som används av en virtuell Azure-dator med PowerShell
 
@@ -23,6 +23,7 @@ Om du har en befintlig virtuell dator, men vill byta disk för en säkerhets kop
 Den virtuella datorn måste vara stopped\deallocated. resurs-ID: t för den hanterade disken kan ersättas med resurs-ID: t för en annan hanterad disk.
 
 Kontrol lera att storleken på den virtuella datorn och lagrings typen är kompatibla med den disk som du vill ansluta. Om den disk som du vill använda till exempel är i Premium Storage måste den virtuella datorn kunna Premium Storage (som en storlek för en DS-serie). Båda diskarna måste också ha samma storlek.
+Och se till att du inte blandar en icke-krypterad virtuell dator med en krypterad OS-disk, vilket inte stöds. Om den virtuella datorn inte använder Azure Disk Encryption ska den OS-disk som byts ut i inte använda Azure Disk Encryption.
 
 Hämta en lista över diskar i en resurs grupp med [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267916"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711773"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Ersätta en diskenhet på en enhet i StorSimple 8000-serien
 
@@ -46,7 +46,7 @@ I den här proceduren förklaras hur du kan använda skydd mot manipulering av S
    
     **Bild 1** Skydd mot manipulering
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Indikator öppning |
    | 2 |Skydd mot manipulering |
@@ -103,7 +103,7 @@ När en enhet har misslyckats i StorSimple-enheten och du har tagit bort den, s�
     **Bild 6**  Dra enhets transporten till chassit
 3. När enhetens bärvåg har satts in stänger du enhetens frakt-handtag samtidigt som du fortsätter att push-överföra enhetens bärvåg till chassit tills enhetens frakt handtag fästs på en låst plats.
 4. Använd lås nyckeln som tillhandahölls av Microsoft (tamperproof Torx Screwdriver) för att skydda bär Vågs handtaget på plats genom att sätta på Lås skruven ett kvartal moturs.
-5. Kontrol lera att ersättningen lyckades och att enheten fungerar. Öppna Azure Portal och navigera till **enhets inställningar** > **maskin varu hälsa**. Under **delade komponenter** eller **EBOD delade komponenter**ska enhetens status vara grön, vilket indikerar att den är felfri.
+5. Kontrol lera att ersättningen lyckades och att enheten fungerar. Öppna Azure Portal och navigera till **enhets inställningar**  >  **maskin varu hälsa**. Under **delade komponenter** eller **EBOD delade komponenter**ska enhetens status vara grön, vilket indikerar att den är felfri.
 
    
    > [!NOTE]

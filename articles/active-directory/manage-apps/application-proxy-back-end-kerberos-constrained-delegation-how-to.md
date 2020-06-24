@@ -3,25 +3,25 @@ title: Felsöka Kerberos-begränsad delegering – App proxy
 description: Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275680"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760447"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
 
@@ -66,7 +66,7 @@ Båda dessa bilder visar samma symptom: SSO-problem. Användar åtkomst till pro
 
 Hur du felsöker beror på problemet och de symtom du ser. Utforska följande artiklar innan du går längre tillbaka. De ger användbar felsöknings information:
 
-- [Felsök problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md)
+- [Felsöka problem med programproxy och felmeddelanden](application-proxy-troubleshoot.md)
 - [Kerberos-fel och symptom](application-proxy-troubleshoot.md#kerberos-errors)
 - [Arbeta med SSO när lokala och moln identiteter inte är identiska](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 

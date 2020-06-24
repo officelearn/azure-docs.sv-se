@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911722"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817721"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box
 
@@ -45,7 +45,6 @@ Data Box är en säker lösning för dataskydd som garanterar att endast behöri
 Data Box-enheten skyddas med hjälp av följande funktioner:
 
 - Ett robust hölje som motstår stötar, felaktig transport och miljöförhållanden. 
-- Säkerhetsförslutningar som anger om enheten manipulerats under transport.
 - Identifiering av manipulation av maskin- och programvara som förhindrar vidare enhetsåtgärder.
 - Kör endast Data Box-specifik programvara.
 - Startar i låst tillstånd.
@@ -57,7 +56,7 @@ Data Box-enheten skyddas med hjälp av följande funktioner:
 Data som flödar in och ut från Data Box skyddas med hjälp av följande funktioner:
 
 - AES 256-bitars kryptera för data i vila.
-- Krypterade protokoll kan användas för data i flykt.
+- Krypterade protokoll kan användas för data i flykt. Vi rekommenderar att du använder SMB 3,0 med kryptering för att skydda data när du kopierar den från dina data servrar.
 - Data raderas från enheten när uppladdningen till Azure är klar. Data radering är i enlighet med rikt linjerna i [bilaga A för ATA Hard Disk-enheter i NIST 800-88r1-standarder](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Händelsen radering av data registreras i [order historiken](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Skydd av Data Box-tjänsten

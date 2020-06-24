@@ -4,15 +4,15 @@ description: Lär dig hur du ställer in miljövariabler i de behållare som du 
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247233"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686747"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i behållar instanser
 
-Genom att ställa in miljövariabler i dina containerinstanser kan du skapa en dynamisk konfiguration av programmet eller skriptet som körs av containern. Detta liknar `--env` kommando rads argumentet för `docker run`. 
+Genom att ställa in miljövariabler i dina containerinstanser kan du skapa en dynamisk konfiguration av programmet eller skriptet som körs av containern. Detta liknar `--env` kommando rads argumentet för `docker run` . 
 
 Ange miljövariabler i en behållare genom att ange dem när du skapar en behållar instans. Den här artikeln innehåller exempel på hur du ställer in miljövariabler när du startar en behållare med [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)och [Azure Portal](#azure-portal-example). 
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Om du vill ändra utdata startar du en andra behållare med `--environment-variables` det tillagda argumentet och anger värden för *NUMWORDS* -och *minLength* -variablerna. (Det här exemplet förutsätter att du kör CLI i ett bash-gränssnitt eller Azure Cloud Shell. Om du använder kommando tolken i Windows anger du variablerna med dubbla citat tecken, till `--environment-variables "NumWords"="5" "MinLength"="8"`exempel.)
+Om du vill ändra utdata startar du en andra behållare med det `--environment-variables` tillagda argumentet och anger värden för *NUMWORDS* -och *minLength* -variablerna. (Det här exemplet förutsätter att du kör CLI i ett bash-gränssnitt eller Azure Cloud Shell. Om du använder kommando tolken i Windows anger du variablerna med dubbla citat tecken, till exempel `--environment-variables "NumWords"="5" "MinLength"="8"` .)
 
 ```azurecli-interactive
 az container create \
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Kör nu följande [New-AzContainerGroup-][new-Azcontainergroup] kommando. Detta anger *NUMWORDS* -och *minLength* -miljövariablerna när du har `envVars`fyllt i en mat ris variabel:
+Kör nu följande [New-AzContainerGroup-][new-Azcontainergroup] kommando. Detta anger *NUMWORDS* -och *minLength* -miljövariablerna när du har fyllt i en mat ris variabel `envVars` :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -144,7 +144,7 @@ Azure:\
 Om du vill ställa in miljövariabler när du startar en behållare i Azure Portal anger du dem på sidan **Avancerat** när du skapar behållaren.
 
 1. På sidan **Avancerat** ställer du in principen för att **starta om** *på att Miss lyckas*
-2. Under **miljövariabler**anger `NumWords` du ett värde `5` för den första variabeln och anger `MinLength` värdet `8` för den andra variabeln. 
+2. Under **miljövariabler**anger `NumWords` du ett värde för `5` den första variabeln och anger `MinLength` värdet `8` för den andra variabeln. 
 1. Välj **Granska + skapa** för att verifiera och distribuera behållaren.
 
 ![Portal sidan visar hur du aktiverar knappar och text rutor i miljö variabeln][portal-env-vars-01]
@@ -159,7 +159,7 @@ Objekt med säkra värden är avsedda att innehålla känslig information som l�
 
 Miljövariabler med säkra värden visas inte i behållarens egenskaper – deras värden kan bara nås från behållaren. Till exempel visar behållar egenskaper som visas i Azure Portal eller Azure CLI bara en säker variabels namn, inte dess värde.
 
-Ange en säker miljö variabel genom att `secureValue` ange egenskapen i stället för vanlig `value` för variabelns typ. De två variablerna som definieras i följande YAML demonstrerar de två variabel typerna.
+Ange en säker miljö variabel genom att ange `secureValue` egenskapen i stället för vanlig `value` för variabelns typ. De två variablerna som definieras i följande YAML demonstrerar de två variabel typerna.
 
 ### <a name="yaml-deployment"></a>YAML-distribution
 

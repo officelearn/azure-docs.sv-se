@@ -7,17 +7,17 @@ author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152932"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725063"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Paket granskning med Azure Network Watcher
 
@@ -77,7 +77,7 @@ I det här exemplet granskar vi en tidigare paket fångst för oönskade protoko
 
 ### <a name="step-1"></a>Steg 1
 
-Använd samma avbildning i föregående scenario och klicka på **statistik** > **protokoll-hierarki**
+Använd samma avbildning i föregående scenario och klicka på **statistik**  >  **protokoll-hierarki**
 
 ![meny för protokoll-hierarki][2]
 
@@ -93,7 +93,7 @@ Att förstå vilka typer av trafik, slut punkterna och portarna som kommunicerat
 
 ### <a name="step-1"></a>Steg 1
 
-Använd samma avbildning i föregående scenario och klicka på **statistik** > **IPv4 statistik** > **destinationer och portar**
+Använd samma avbildning i föregående scenario och klicka på **statistik**  >  **IPv4 statistik**  >  **destinationer och portar**
 
 ![fönstret paket fångst][4]
 

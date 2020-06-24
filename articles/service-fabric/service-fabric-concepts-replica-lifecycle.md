@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258569"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710753"
 ---
 # <a name="replicas-and-instances"></a>Repliker och instanser 
 Den här artikeln ger en översikt över livs cykeln för repliker av tillstånds känsliga tjänster och instanser av tillstånds lösa tjänster.
@@ -37,7 +37,7 @@ I stängnings tillstånd håller Azure Service Fabric processen att stänga av i
 Instansen körs inte längre på noden i tappat tillstånd. Vid det här tillfället underhåller Service Fabric metadata om den här instansen, som slutligen också tas bort.
 
 > [!NOTE]
-> Det går att övergå från vilket tillstånd som helst till läget släppt med hjälp av alternativet **ForceRemove** på `Remove-ServiceFabricReplica`.
+> Det går att övergå från vilket tillstånd som helst till läget släppt med hjälp av alternativet **ForceRemove** på `Remove-ServiceFabricReplica` .
 >
 
 ## <a name="replicas-of-stateful-services"></a>Repliker av tillstånds känsliga tjänster
@@ -101,7 +101,7 @@ Replik rollen är inte relevant i vänte läge.
 >
 
 > [!NOTE]
-> Det går att övergå från vilket tillstånd som helst till läget tappad med alternativet **ForceRemove** på `Remove-ServiceFabricReplica`.
+> Det går att övergå från vilket tillstånd som helst till läget tappad med alternativet **ForceRemove** på `Remove-ServiceFabricReplica` .
 >
 
 ## <a name="replica-role"></a>Replik roll 

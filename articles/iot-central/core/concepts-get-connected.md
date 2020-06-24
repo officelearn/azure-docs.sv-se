@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930496"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710447"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Anslut till Azure IoT Central
 
@@ -50,7 +50,7 @@ Den här metoden är användbar när du experimenterar med IoT Central eller tes
 
 ![SAS-nycklar för en enskild enhet](./media/concepts-get-connected/single-device-sas.png)
 
-Mer information finns i själv studie kursen [skapa och ansluta ett Node. js-klientprogram till Azure IoT Central Application](./tutorial-connect-device-nodejs.md) .
+Mer information finns i själv studie kursen [skapa och ansluta ett Node.js klient program till Azure IoT Central](./tutorial-connect-device-nodejs.md) .
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Ansluta enheter i stor skala med SAS
 
@@ -97,7 +97,7 @@ Generera löv certifikat för X. 509 för dina enheter med hjälp av det överf�
 
 #### <a name="sample-device-code"></a>Exempel på enhets kod
 
-Följande exempel från [Azure IoT Node. js SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) visar hur en Node. js-enhet använder ett X. 509 löv certifikat och DPS för att registrera sig för ett IoT Central program:
+Följande exempel från [Azure IoT Node.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) visar hur en Node.js enhets klient använder ett X. 509 löv certifikat och DPS för att registrera sig för ett IoT Central program:
 
 :::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
 
@@ -107,7 +107,7 @@ Ett motsvarande C-exempel finns i [prov_dev_client_sample. C](https://github.com
 
 För testning kan du använda följande verktyg för att generera rot-, mellanliggande och enhets certifikat:
 
-- [Verktyg för Azure IoT Device Provisioning-enhetens SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): en samling Node. js-verktyg som du kan använda för att generera och verifiera X. 509-certifikat och nycklar.
+- [Verktyg för Azure IoT Device Provisioning enhets-SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): en samling Node.js verktyg som du kan använda för att generera och verifiera X. 509-certifikat och-nycklar.
 - Om du använder en DevKit-enhet genererar detta [kommando rads verktyg](https://aka.ms/iotcentral-docs-dicetool) ett CA-certifikat som du kan lägga till i ditt IoT Central program för att verifiera certifikaten.
 - [Hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): en samling PowerShell-och bash-skript för att:
   - Skapa en certifikat kedja.
@@ -180,7 +180,7 @@ IoT Central stöder följande mekanismer för attestering för enskilda registre
 - **X. 509-certifikat:** Om du vill skapa en enskild registrering med X. 509-certifikat, öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **certifikat (X. 509)** som mekanism. Enhets certifikat som används med en enskild registrerings post har ett krav på att utfärdaren och ämnet CN anges till enhets-ID: t.
 
     > [!TIP]
-    > För testning kan du använda [verktyg för Azure IoT Device Provisioning-enheten SDK för Node. js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) för att skapa ett självsignerat certifikat:`node create_test_cert.js device "mytestdevice"`
+    > För testning kan du använda [verktyg för Azure IoT Device Provisioning-enheten SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) att generera ett självsignerat certifikat:`node create_test_cert.js device "mytestdevice"`
 
 - **Trusted Platform Module (TPM) attestering:** En [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) är en typ av modul för maskin varu säkerhet. Att använda en TPM är ett av de säkraste sätten att ansluta en enhet. I den här artikeln förutsätter vi att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskreta, inbyggda program eller integrerade TPM: er. Använd inte programvaru-TPM: er i produktion. Om du vill skapa en enskild registrering som använder en TPM öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **TPM** som mekanism. Ange TPM-bekräftelse nyckeln och spara anslutnings informationen för enheten.
 
@@ -231,7 +231,7 @@ När en riktig enhet ansluter till ditt IoT Central-program ändras enhetens sta
 
     Operatören kan koppla en enhet till en enhets mall från sidan **enheter** med knappen **migrera** .
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Behåll eller cachelagra inte enhets anslutnings strängen som DPS returnerar när du först ansluter enheten. Om du vill återansluta en enhet går du igenom standard enhets registrerings flödet för att få rätt anslutnings sträng för enheten. Om enheten cachelagrar anslutnings strängen, körs enhetens program vara i risken att en inaktuell anslutnings sträng används, om IoT Central uppdaterar den underliggande Azure IoT-hubb som används.
 
@@ -261,7 +261,7 @@ I följande tabell sammanfattas hur Azure IoT Central enhets funktioner mappas t
 | Egenskap (skrivbar) | Enhetens dubbla önskade och rapporterade egenskaper |
 | Kommando | Direkta metoder |
 
-Mer information om hur du använder enhets-SDK: er finns i [ansluta en DevDiv-paket-enhet till ditt Azure IoT Central-program](howto-connect-devkit.md) till exempel kod.
+Mer information om hur du använder enhets-SDK: er finns i [ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](howto-connect-devkit.md) till exempel kod.
 
 ### <a name="protocols"></a>Protokoll
 

@@ -3,25 +3,25 @@ title: Fel meddelande visas på App-sidan efter att du har loggat in | Microsoft
 description: Så här löser du problem med Azure AD-inloggning när appen returnerar ett fel meddelande.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185480"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759546"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>En app-sida visar ett fel meddelande när användaren loggar in
 

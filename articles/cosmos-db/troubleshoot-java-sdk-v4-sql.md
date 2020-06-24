@@ -3,17 +3,17 @@ title: Diagnostisera och Felsök Azure Cosmos DB Java SDK v4
 description: Använd funktioner som loggning på klient sidan och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Cosmos DB problem i Java SDK v4.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/11/2020
+ms.date: 06/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.openlocfilehash: 2deec6f6753a03ab46260432c6faceab009e2911
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4663839ffa85af0be1de93e2834e1c89e97e95c7
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651867"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718044"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Felsöka problem när du använder Azure Cosmos DB Java SDK v4 med SQL API-konton
 
@@ -95,57 +95,20 @@ Ta till exempel en titt på följande kodfragment som lägger till objekt i en b
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-readtimeout"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-```java
-@Test
-public void badCodeWithReadTimeoutException() throws Exception {
-  int requestTimeoutInSeconds = 10;
-  ConnectionPolicy policy = new ConnectionPolicy();
-  policy.setRequestTimeout(Duration.ofMillis(requestTimeoutInSeconds * 1000));
-  AtomicInteger failureCount = new AtomicInteger();
-  // Max number of concurrent item inserts is # CPU cores + 1
-  Flux<Family> familyPub = 
-      Flux.just(Families.getAndersenFamilyItem(), Families.getWitherspoonFamilyItem(), Families.getCarltonFamilyItem());
-  familyPub.flatMap(family -> {
-      return container.createItem(family);
-  }).flatMap(r -> {
-      try {
-          // Time-consuming work is, for example,
-          // writing to a file, computationally heavy work, or just sleep.
-          // Basically, it's anything that takes more than a few milliseconds.
-          // Doing such operations on the IO Netty thread
-          // without a proper scheduler will cause problems.
-          // The subscriber will get a ReadTimeoutException failure.
-          TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-      } catch (Exception e) {
-      }
-      return Mono.empty();
-  }).doOnError(Exception.class, exception -> {
-      failureCount.incrementAndGet();
-  }).blockLast();
-  assert(failureCount.get() > 0);
-}
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootNeedsSchedulerAsync)]
 
 Lösningen är att ändra den tråd som du utför för arbete som tar tid. Definiera en singleton-instans av Scheduler för din app.
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-```java
-// Have a singleton instance of an executor and a scheduler.
-ExecutorService ex  = Executors.newFixedThreadPool(30);
-Scheduler customScheduler = Schedulers.fromExecutor(ex);
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootCustomSchedulerAsync)]
+
 Du kan behöva utföra arbete som tar tid, till exempel hårt belastat arbete eller blockera IO. I det här fallet byter du tråd till en arbets tagare som tillhandahålls av med `customScheduler` hjälp av `.publishOn(customScheduler)` API: et.
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-apply-custom-scheduler"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-```java
-container.createItem(family)
-    .publishOn(customScheduler) // Switches the thread.
-    .subscribe(
-        // ...
-    );
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootPublishOnSchedulerAsync)]
+
 Genom att använda `publishOn(customScheduler)` , släpper du den uppdelade IO-tråden och växlar till din egen anpassade tråd från den anpassade Schemaläggaren. Den här ändringen löser problemet. Du får inte `io.netty.handler.timeout.ReadTimeoutException` längre ett problem.
 
 ### <a name="request-rate-too-large"></a>Begäran kostar för stor
@@ -165,7 +128,7 @@ Azure Cosmos DB Java SDK hämtar i ett antal beroenden. Om ditt projekt beroende
 
 Lösningen för ett sådant problem är att identifiera vilka av dina projekt beroenden som finns i den gamla versionen och undanta det transitiva beroendet av den äldre versionen och att tillåta Azure Cosmos DB Java SDK att ta med i den nyare versionen.
 
-För att identifiera vilka projekt beroenden som finns i en äldre version av något som Azure Cosmos DB Java SDK är beroende av kör du följande kommando mot din Project Pom. XML-fil:
+För att identifiera vilka av dina projekt beroenden som finns i en äldre version av något som Azure Cosmos DB Java SDK är beroende av kör du följande kommando mot din Project pom.xml-fil:
 ```bash
 mvn dependency:tree
 ```

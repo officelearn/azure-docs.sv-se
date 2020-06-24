@@ -11,25 +11,23 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: fd4804ccbd98bd3cab9f5b55c56274f8cbc34c65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6ea7709d1385eff3d538d69b25a9b31b88e7b904
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051026"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718010"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Använd Resource Health för att felsöka anslutningar för Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-## <a name="overview"></a>Översikt
-
-[Resource Health](../../service-health/resource-health-overview.md#get-started) för Azure SQL Database och Azure SQL-hanterad instans hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänster.
+[Resource Health](../../service-health/resource-health-overview.md#get-started) för Azure SQL Database och Azure SQL-hanterad instans hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänsten.
 
 ![Översikt](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Hälso kontroller
 
-Resource Health fastställer hälso tillståndet för din SQL-resurs genom att undersöka lyckade och misslyckade inloggningar till resursen. För närvarande undersöker Resource Health för din SQL Database-resurs bara inloggnings fel på grund av systemfel och inte användar fel. Resource Healths status uppdateras var 1-2: e minut.
+Resource Health fastställer hälso tillståndet för din SQL-resurs genom att undersöka lyckade och misslyckade inloggningar till resursen. För närvarande undersöker Resource Health för din SQL Database-resurs bara inloggnings fel på grund av systemfel och inte användar fel. Resource Healths status uppdateras var 1 till 2 minuter.
 
 ## <a name="health-states"></a>Hälso tillstånd
 
@@ -41,7 +39,7 @@ Statusen **tillgänglig** innebär att Resource Health inte har identifierat inl
 
 ### <a name="degraded"></a>Degraderad
 
-Statusen **försämrad** innebär att Resource Health har identifierat en majoritet av lyckade inloggningar, men vissa fel. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel ska du implementera [logik för omförsök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
+Statusen **försämrad** innebär att Resource Health har identifierat en majoritet av lyckade inloggningar, men vissa fel. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel, implementera [logik för omförsök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
 
 ![Degraderad](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
@@ -59,7 +57,7 @@ Hälso tillståndet för **okänd** indikerar att Resource Health inte har tagit
 
 ## <a name="historical-information"></a>Historisk information
 
-Du kan komma åt upp till 14 dagar hälso historik i avsnittet hälso historik i Resource Health. Avsnittet innehåller även orsaken till stillestånds tiden (när det är tillgängligt) för de stillestånds tider som rapporteras av Resource Health. För närvarande visar Azure stillestånds tiden för din databas resurs med en precision på två minuter. Den faktiska avbrottstiden är förmodligen mindre än en minut – genomsnittet är 8 sekunder.
+Du kan komma åt upp till 14 dagar hälso historik i avsnittet hälso historik i Resource Health. Avsnittet innehåller även orsaken till stillestånds tiden (när det är tillgängligt) för de stillestånds tider som rapporteras av Resource Health. För närvarande visar Azure stillestånds tiden för din databas resurs med en precision på två minuter. Den faktiska avbrottstiden är förmodligen mindre än en minut. Genomsnittet är 8 sekunder.
 
 ### <a name="downtime-reasons"></a>Orsaker till stillestånds tid
 
@@ -67,7 +65,7 @@ När din databas upplever avbrott utförs analysen för att fastställa en orsak
 
 #### <a name="planned-maintenance"></a>Planerat underhåll
 
-Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin-eller program varu komponenter i data centret. Medan databasen genomgår underhåll kan SQL avsluta vissa befintliga anslutningar och neka nya. De inloggnings fel som uppstod under planerat underhåll är vanligt vis tillfälliga och [nya omprövnings logik](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) bidrar till att minska påverkan. Om du fortsätter att uppleva inloggnings fel kan du kontakta supporten.
+Azure-infrastrukturen utför regelbundet planerat underhåll – uppgraderingen av maskin-eller program varu komponenter i data centret. Medan databasen genomgår underhåll kan Azure SQL avsluta vissa befintliga anslutningar och neka nya. De inloggnings fel som uppstod under planerat underhåll är vanligt vis tillfälliga och [omprövnings logiken](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) bidrar till att minska påverkan. Kontakta supporten om du fortsätter att uppleva inloggnings fel.
 
 #### <a name="reconfiguration"></a>Omkonfiguration
 
@@ -75,8 +73,8 @@ Omkonfigurationer betraktas som tillfälliga villkor och förväntas av tiden. D
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [logik för återförsök för tillfälliga fel](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Felsöka, diagnostisera och förhindra SQL-anslutningsfel](troubleshoot-common-connectivity-issues.md)
-- Läs mer om hur du [konfigurerar Resource Health aviseringar](../../service-health/resource-health-alert-arm-template-guide.md)
-- Få en översikt över [Resource Health](../../application-gateway/resource-health-overview.md)
-- [Vanliga frågor och svar om Resource Health](../../service-health/resource-health-faq.md)
+- Läs mer om [logik för återförsök för tillfälliga fel](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- [Felsöka, diagnostisera och förhindra SQL-anslutningsfel](troubleshoot-common-connectivity-issues.md).
+- Läs mer om hur du [konfigurerar Resource Health-aviseringar](../../service-health/resource-health-alert-arm-template-guide.md).
+- Få en översikt över [Resource Health](../../application-gateway/resource-health-overview.md).
+- Läs [Resource Health vanliga frågor och svar](../../service-health/resource-health-faq.md).

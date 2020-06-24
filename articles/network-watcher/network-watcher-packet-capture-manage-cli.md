@@ -7,17 +7,17 @@ author: damendo
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7a69610d1ac176354a9d7e388a12ccc7f064d848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d72a981749af87e1b73625bdce2e0fd2d24fff0d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382723"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84724934"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Hantera paket fångster med Azure Network Watcher med Azure CLI
 
@@ -124,7 +124,7 @@ Nu är du redo att skapa en paket fångst.  Först ska vi undersöka de parametr
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-I följande exempel visas förväntade utdata från att `az network watcher packet-capture create` köra kommandot.
+I följande exempel visas förväntade utdata från att köra `az network watcher packet-capture create` kommandot.
 
 ```json
 {
@@ -204,7 +204,7 @@ cketCaptures/packetCaptureName",
 
 ## <a name="stop-a-packet-capture"></a>Stoppa en paket fångst
 
-Genom att `az network watcher packet-capture stop` köra kommandot, om en redigeringssession pågår, stoppas den.
+Genom att köra `az network watcher packet-capture stop` kommandot, om en redigeringssession pågår, stoppas den.
 
 ```azurecli-interactive
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus

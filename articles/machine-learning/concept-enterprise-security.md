@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e030bd1124a93c667070a2b58f2f0e1c10c7d3a6
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683068"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718565"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -42,7 +42,7 @@ Mer information finns i [Konfigurera autentisering för Azure Machine Learning r
 
 Azure Machine Learning stöder två typer av autentisering för webb tjänster: nyckel och token. Varje webb tjänst kan bara aktivera en form av autentisering i taget.
 
-|Autentiseringsmetod|Description|Azure Container Instances|AKS|
+|Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
 |Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgänglig| Inaktiverat som standard |
@@ -146,7 +146,7 @@ Om du vill använda egna (Kundhanterade) nycklar för att kryptera Azure Cosmos 
 
 Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med Kundhanterade nycklar utför du följande åtgärder:
 
-* Registrera Azure Machine Learning och Azure Cosmos DB resurs leverantörer i din prenumeration, om de inte redan har gjort det.
+* Registrera Microsoft. MachineLearning-och Microsoft.DocumentDB-resurs leverantörerna i din prenumeration, om de inte redan har gjort det.
 
 * Auktorisera Machine Learning-appen (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
 

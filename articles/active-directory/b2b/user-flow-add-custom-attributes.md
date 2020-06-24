@@ -1,37 +1,39 @@
 ---
-title: Lägg till anpassade attribut för Azure AD-användarkonton
+title: Lägg till anpassade attribut till självbetjänings registrerings flöden – Azure AD
 description: Läs om hur du anpassar attributen för dina självbetjänings registrerings användar flöden.
 services: active-directory
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b0acd84112e9fd997cb0d60a914da9528cffd9a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: fbf5b758059dc44f17afba191e49fc170e38feef
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673045"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886420"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiera anpassade attribut för användar flöden (förhands granskning)
-|     |
-| --- |
-| Funktionen för anpassade användarattribut är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
-|     |
+
+|      |
+| ---- |
+| Funktionen för anpassade användarattribut är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna. |
+|      |
 
 För varje program kan du ha olika krav för den information som du vill samla in under registreringen. Azure AD levereras med en inbyggd uppsättning information som lagras i attribut, till exempel namn, efter namn, stad och post nummer. Med Azure AD kan du utöka uppsättningen med attribut som lagras på ett gäst konto när den externa användaren loggar in via ett användar flöde.
 
-Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<aad-extensions-app-id>_attributename` . Exempel:
+Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<extensions-app-id>_attributename` . Ett exempel:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-`<aad-extensions-app-id>`Är unik för din klient. Du hittar den här identifieraren genom att gå till Azure Active Directory > Appregistreringar > alla program. Sök efter appen som börjar med "AAD-Extensions-app" och markera den. Notera program-ID (klient) på appens översikts sida.
+`<extensions-app-id>`Är unik för din klient. Du hittar den här identifieraren genom att gå till Azure Active Directory > Appregistreringar > alla program. Sök efter appen som börjar med "AAD-Extensions-app" och markera den. Notera program-ID (klient) på appens översikts sida.
 
 ## <a name="create-a-custom-attribute"></a>Skapa ett anpassat attribut
 

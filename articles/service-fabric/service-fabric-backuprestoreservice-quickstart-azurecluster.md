@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259011"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712470"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Periodisk säkerhets kopiering och återställning i ett Azure Service Fabric-kluster
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ Aktivera `Include backup restore service` kryss rutan under `+ Show optional set
 ### <a name="using-azure-resource-manager-template"></a>Använda Azure Resource Manager mall
 Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_ i klustret. Hämta mallen för det kluster som du vill distribuera. Du kan antingen använda [exempel mallarna](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en Resource Manager-mall. Aktivera _säkerhets kopierings-och återställnings tjänsten_ med följande steg:
 
-1. Kontrol lera att `apiversion` är inställt **`2018-02-01`** på `Microsoft.ServiceFabric/clusters` för resursen och uppdatera den enligt följande kodfragment:
+1. Kontrol lera att `apiversion` är inställt på **`2018-02-01`** för `Microsoft.ServiceFabric/clusters` resursen och uppdatera den enligt följande kodfragment:
 
     ```json
     {
@@ -88,7 +88,7 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
     }
     ```
 
-2. Aktivera _säkerhets kopierings-och återställnings tjänsten_ genom `addonFeatures` att lägga `properties` till följande avsnitt under avsnittet som visas i följande kodfragment: 
+2. Aktivera _säkerhets kopierings-och återställnings tjänsten_ genom att lägga till följande `addonFeatures` avsnitt under `properties` avsnittet som visas i följande kodfragment: 
 
     ```json
         "properties": {
@@ -99,7 +99,7 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
         }
 
     ```
-3. Konfigurera X. 509-certifikat för kryptering av autentiseringsuppgifter. Detta är viktigt för att säkerställa att de autentiseringsuppgifter som angetts för att ansluta till lagrings platsen krypteras innan de sparas. Konfigurera krypterings certifikat genom att lägga `BackupRestoreService` till följande `fabricSettings` avsnitt under avsnittet som visas i följande kodfragment: 
+3. Konfigurera X. 509-certifikat för kryptering av autentiseringsuppgifter. Detta är viktigt för att säkerställa att de autentiseringsuppgifter som angetts för att ansluta till lagrings platsen krypteras innan de sparas. Konfigurera krypterings certifikat genom att lägga till följande `BackupRestoreService` avsnitt under `fabricSettings` avsnittet som visas i följande kodfragment: 
 
     ```json
     "properties": {
@@ -116,23 +116,23 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
     }
     ```
 
-4. När du har uppdaterat kluster mal len med föregående ändringar, tillämpar du dem och låter distributionen/uppgraderingen slutföras. När du är klar börjar _säkerhets kopierings-och återställnings tjänsten_ att köras i klustret. URI: n för den här `fabric:/System/BackupRestoreService` tjänsten är och tjänsten kan finnas i avsnittet system service i Service Fabric Explorer. 
+4. När du har uppdaterat kluster mal len med föregående ändringar, tillämpar du dem och låter distributionen/uppgraderingen slutföras. När du är klar börjar _säkerhets kopierings-och återställnings tjänsten_ att köras i klustret. URI: n för den här tjänsten är `fabric:/System/BackupRestoreService` och tjänsten kan finnas i avsnittet system service i Service Fabric Explorer. 
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors
 Låt oss gå igenom stegen för att aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors. De här stegen förutsätter
 - Att klustret har kon figurer ATS med X. 509-säkerhet med _säkerhets kopierings-och återställnings tjänsten_.
-- En tillförlitlig tillstånds känslig tjänst har distribuerats i klustret. I den här snabb starts guiden är `fabric:/SampleApp` program-URI och URI för tillförlitlig tillstånds känslig tjänst som tillhör det här programmet. `fabric:/SampleApp/MyStatefulService` Den här tjänsten distribueras med en enda partition och partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`: t är.
-- Klient certifikatet med administratörs rollen är installerat i _mitt_ (_personliga_) Arkiv namn för _CurrentUser_ på den dator där skripten ska startas. Det här exemplet `1b7ebe2174649c45474a4819dafae956712c31d3` använder som tumavtryck för det här certifikatet. Mer information om klient certifikat finns i [rollbaserad åtkomst kontroll för Service Fabric klienter](service-fabric-cluster-security-roles.md).
+- En tillförlitlig tillstånds känslig tjänst har distribuerats i klustret. I den här snabb starts guiden är program-URI `fabric:/SampleApp` och URI för tillförlitlig tillstånds känslig tjänst som tillhör det här programmet `fabric:/SampleApp/MyStatefulService` . Den här tjänsten distribueras med en enda partition och partitions-ID: t är `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
+- Klient certifikatet med administratörs rollen är installerat i _mitt_ (_personliga_) Arkiv namn för _CurrentUser_ på den dator där skripten ska startas. Det här exemplet använder `1b7ebe2174649c45474a4819dafae956712c31d3` som tumavtryck för det här certifikatet. Mer information om klient certifikat finns i [rollbaserad åtkomst kontroll för Service Fabric klienter](service-fabric-cluster-security-roles.md).
 
 ### <a name="create-backup-policy"></a>Skapa säkerhets kopierings princip
 
 Det första steget är att skapa en säkerhets kopierings princip som beskriver säkerhets kopierings schema, mål lagring för säkerhets kopierings data, princip namn, maximala stegvisa säkerhets kopior som ska tillåtas innan fullständig säkerhets kopiering och bevarande princip för säkerhets kopierings lagringen utlöses. 
 
-Använd Azure Storage kontot som du skapade ovan för säkerhets kopierings lagring. Container `backup-container` har kon figurer ATS för att lagra säkerhets kopior. En behållare med det här namnet skapas, om den inte redan finns, under uppladdning av säkerhets kopiering. Fyll `ConnectionString` i med en giltig anslutnings sträng för Azure Storage kontot, Ersätt `account-name` med ditt lagrings konto namn och `account-key` med din lagrings konto nyckel.
+Använd Azure Storage kontot som du skapade ovan för säkerhets kopierings lagring. Container `backup-container` har kon figurer ATS för att lagra säkerhets kopior. En behållare med det här namnet skapas, om den inte redan finns, under uppladdning av säkerhets kopiering. Fyll i `ConnectionString` med en giltig anslutnings sträng för Azure Storage kontot, Ersätt `account-name` med ditt lagrings konto namn och `account-key` med din lagrings konto nyckel.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
-Kör följande PowerShell-cmdletar för att skapa en ny säkerhets kopierings princip. Ersätt `account-name` med namnet på ditt lagrings konto `account-key` och med din lagrings konto nyckel.
+Kör följande PowerShell-cmdletar för att skapa en ny säkerhets kopierings princip. Ersätt `account-name` med namnet på ditt lagrings konto och `account-key` med din lagrings konto nyckel.
 
 ```powershell
 
@@ -142,7 +142,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Kör följande PowerShell-skript för att anropa nödvändiga REST API för att skapa en ny princip. Ersätt `account-name` med namnet på ditt lagrings konto `account-key` och med din lagrings konto nyckel.
+Kör följande PowerShell-skript för att anropa nödvändiga REST API för att skapa en ny princip. Ersätt `account-name` med namnet på ditt lagrings konto och `account-key` med din lagrings konto nyckel.
 
 ```powershell
 $StorageInfo = @{
@@ -198,7 +198,7 @@ Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupP
 ```
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Kör följande PowerShell-skript för att anropa nödvändiga REST API för att associera en säkerhets `BackupPolicy1` kopierings princip med ett namn `SampleApp`som skapats i ovanstående steg med programmet.
+Kör följande PowerShell-skript för att anropa nödvändiga REST API för att associera en säkerhets kopierings princip med ett namn som `BackupPolicy1` skapats i ovanstående steg med programmet `SampleApp` .
 
 ```powershell
 $BackupPolicyReference = @{
@@ -241,7 +241,7 @@ Get-SFApplicationBackupList -ApplicationId WordCount
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Kör följande PowerShell-skript för att anropa HTTP API för att räkna upp de säkerhets kopior som skapats för `SampleApp` alla partitioner i programmet.
+Kör följande PowerShell-skript för att anropa HTTP API för att räkna upp de säkerhets kopior som skapats för alla partitioner i `SampleApp` programmet.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"

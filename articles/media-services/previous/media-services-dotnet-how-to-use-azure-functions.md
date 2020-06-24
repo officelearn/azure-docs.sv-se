@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251172"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712504"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
@@ -54,7 +54,7 @@ Funktionen som definieras i den här artikeln förutsätter att du har följande
 
 **AMSClientSecret**: Azure AD-programmets klient hemlighet.
 
-**StorageConnection**: lagrings anslutning för det konto som är kopplat till Media Services kontot. Det här värdet används i **Function. JSON** -filen och filen **Run. CSX** (beskrivs nedan).
+**StorageConnection**: lagrings anslutning för det konto som är kopplat till Media Services kontot. Det här värdet används i filen **function.jspå** filen och filen **Run. CSX** (beskrivs nedan).
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
@@ -72,20 +72,20 @@ När din Function-app har distribuerats kan du hitta den bland **App Services** 
 
 4. Klicka på **Skapa**. 
 
-## <a name="files"></a>Filer
+## <a name="files"></a>Files
 
-Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. När du använder Azure Portal för att skapa en funktion skapas **funktionen function. JSON** och **Run. CSX** . Du måste lägga till eller ladda upp en **Project. JSON** -fil. Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
+Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. När du använder Azure Portal för att skapa en funktion skapas **function.jspå** och **Kör. CSX** . Du måste lägga till eller ladda upp en **project.jspå** filen. Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
 
 ![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-Function. JSON-filen definierar funktions bindningarna och andra konfigurations inställningar. Körningen använder den här filen för att avgöra vilka händelser som ska övervakas och hur du skickar data till och returnerar data från funktions körning. Mer information finns i [Azure Functions HTTP-och webhook-bindningar](../../azure-functions/functions-reference.md#function-code).
+Filen function.jsi definierar funktions bindningarna och andra konfigurations inställningar. Körningen använder den här filen för att avgöra vilka händelser som ska övervakas och hur du skickar data till och returnerar data från funktions körning. Mer information finns i [Azure Functions HTTP-och webhook-bindningar](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Ange egenskapen **Disabled** till **True** för att förhindra att funktionen körs. 
 
-Ersätt innehållet i den befintliga function. JSON-filen med följande kod:
+Ersätt innehållet i den befintliga function.jspå filen med följande kod:
 
 ```json
 {
@@ -102,11 +102,11 @@ Ersätt innehållet i den befintliga function. JSON-filen med följande kod:
 }
 ```
 
-### <a name="projectjson"></a>Project. JSON
+### <a name="projectjson"></a>project.jspå
 
-Filen Project. JSON innehåller beroenden. Här är ett exempel på en **Project. JSON** -fil som innehåller nödvändiga .net Azure Media Services-paket från NuGet. Observera att versions numren ändras med de senaste uppdateringarna av paketen, så du bör bekräfta de senaste versionerna. 
+project.jsfilen innehåller beroenden. Här är ett exempel på **project.jspå** en fil som innehåller de nödvändiga .net Azure Media Services-paketen från NuGet. Observera att versions numren ändras med de senaste uppdateringarna av paketen, så du bör bekräfta de senaste versionerna. 
 
-Lägg till följande definition i Project. JSON. 
+Lägg till följande definition i project.jspå. 
 
 ```json
 {

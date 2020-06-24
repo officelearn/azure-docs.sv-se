@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458445"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687012"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -27,7 +27,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Du kan bara ange en kundhanterad nyckel *när du skapar din ISE*, inte senare. Du kan inte inaktivera den här nyckeln när du har skapat din ISE. För närvarande finns det inget stöd för att rotera en kundhanterad nyckel för en ISE.
 
-* För att stödja Kundhanterade nycklar kräver din ISE att den [systemtilldelade hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) är aktive rad. Med den här identiteten kan ISE autentisera åtkomst till resurser i andra Azure Active Directory (Azure AD)-klient organisationer så att du inte behöver logga in med dina autentiseringsuppgifter.
+* För att stödja Kundhanterade nycklar kräver din ISE att den [systemtilldelade hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) är aktive rad. Med den här identiteten kan ISE autentisera åtkomst till resurser i andra Azure Active Directory (Azure AD)-klient organisationer så att du inte behöver logga in med dina autentiseringsuppgifter.
 
 * För närvarande måste du anropa Logic Apps REST API genom att använda en HTTPS-begäran om du vill skapa en ISE som stöder Kundhanterade nycklar och har den systemtilldelade identiteten aktive rad.
 
@@ -47,7 +47,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
   |----------|-------|
   | **Nyckel typ** | RSA |
   | **Nyckel storlek för RSA** | 2048 |
-  | **Aktiva** | Ja |
+  | **Aktiverad** | Yes |
   |||
 
   ![Skapa din kund hanterade krypterings nyckel](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -80,7 +80,7 @@ Distributionen tar vanligt vis inom två timmar att slutföra. Ibland kan distri
 
 I begär ande huvudet inkluderar du följande egenskaper:
 
-* `Content-type`: Ange det här egenskap svärdet `application/json`till.
+* `Content-type`: Ange det här egenskap svärdet till `application/json` .
 
 * `Authorization`: Ange det här egenskap svärdet till Bearer-token för den kund som har åtkomst till den Azure-prenumeration eller resurs grupp som du vill använda.
 
@@ -203,7 +203,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
 1. Öppna Azure Key Vault i [Azure Portal](https://portal.azure.com).
 
-1. På menyn Key Vault väljer du **åtkomst principer** > **Lägg till åtkomst princip**, till exempel:
+1. På menyn Key Vault väljer du **åtkomst principer**  >  **Lägg till åtkomst princip**, till exempel:
 
    ![Lägg till åtkomst princip för systemtilldelad hanterad identitet](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -219,7 +219,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
       ![Välj nyckel hantering > nyckel behörigheter](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. För **Välj huvud konto**väljer du **ingen vald**. När **huvud** fönstret öppnas går du till sökrutan och söker efter och väljer din ISE. När du är klar väljer du **Välj** > **Lägg till**.
+   1. För **Välj huvud konto**väljer du **ingen vald**. När **huvud** fönstret öppnas går du till sökrutan och söker efter och väljer din ISE. När du är klar väljer du **Välj**  >  **Lägg till**.
 
       ![Välj den ISE som ska användas som huvud konto](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

@@ -5,15 +5,15 @@ description: Associera peer-ASN till en Azure-prenumeration med hjälp av portal
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 9feefa8801892a668784ed7406f46dba2afd69da
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266958"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710855"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 

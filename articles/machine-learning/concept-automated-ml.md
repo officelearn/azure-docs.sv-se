@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: dc40668ec7008042b5f1600214184cbf8bba4701
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cec4213cc9b4d40707607b00ef96761e69438ee2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119090"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210260"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -37,7 +37,7 @@ Data experter, analytiker och utvecklare i olika branscher kan använda automati
 
 Klassificering är en vanlig maskin inlärnings uppgift. Klassificering är en typ av övervakad inlärning där modeller lär sig använda tränings data och tillämpa dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-configure-auto-features.md#featurization). 
 
-Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering.  Läs mer och se ett exempel på [klassificering med automatiserad maskin inlärning](tutorial-train-models-with-aml.md).
+Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering. Läs mer och se ett exempel på hur du [skapar en klassificerings modell med automatiserad ml](tutorial-first-experiment-automated-ml.md).
 
 Se exempel på klassificering och automatisk maskin inlärning i de här python-anteckningarna: [bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [marknads förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)och [diskussions grupps data klassificering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
@@ -97,6 +97,10 @@ Följande diagram illustrerar den här processen.
 Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen genererar ett serialiserat objekt ( `.pkl` fil) som innehåller modellen och data förbearbetningen.
 
 När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) i de genererade modellerna.
+
+Lär dig hur du använder ett [fjärrberäknings mål](how-to-auto-train-remote.md).
+
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -267,17 +271,30 @@ ONNX runtime stöder också C#, så du kan använda modellen som skapats automat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning:
+Det finns flera resurser som du kan använda för att komma igång med AutoML. 
 
-+ Konfigurera inställningarna för automatiskt utbildnings experiment:
-  + [Använd de här stegen](how-to-use-automated-ml-for-ml-models.md)i Azure Machine Learning Studio.
-  + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
+### <a name="tutorials-how-tos"></a>Självstudier/anvisningar – TOS
+Självstudier är från början till slut inledande exempel på AutoML-scenarier.
++ **För en kod första**gången följer du [självstudien: träna en Regressions modell automatiskt med Azure Machine Learning python SDK](tutorial-auto-train-models.md).
 
-+ Lär dig hur du använder ett [fjärrberäknings mål](how-to-auto-train-remote.md)
+ + Information **om låg eller ingen kod**får du i [självstudien: skapa automatiska ml-klassificerings modeller med Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-+ Följ [själv studie kursen: träna en Regressions modell automatiskt med Azure Machine Learning](tutorial-auto-train-models.md) 
+Artiklar ger ytterligare information om vilka funktioner AutoML erbjuder. Exempel: 
 
-+ Lär dig hur du automatiskt tränar använda Time Series-data med hjälp av [de här stegen](how-to-auto-train-forecast.md).
++ Konfigurera inställningarna för automatiska utbildnings experiment
+    + [Använd de här stegen](how-to-use-automated-ml-for-ml-models.md)i Azure Machine Learning Studio. 
+    + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
 
-+ Prova [Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-* Automatisk ML är också tillgängligt i andra Microsoft-lösningar som, [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
++  Lär dig hur du tränar att använda Time Series-data automatiskt [med de här stegen](how-to-auto-train-forecast.md).
+
+### <a name="jupyter-notebook-samples"></a>Jupyter Notebook-exempel 
+
+Granska detaljerade kod exempel och användnings fall i [GitHub Notebook-lagringsplatsen för automatiserade maskin inlärnings](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)exempel.
+
+### <a name="python-sdk-reference"></a>Python SDK-referens 
+
+Fördjupa dina kunskaper om SDK design mönster och klass specifikationer med [AutoML klass Reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+
+> [!Note]
+> Automatiska maskin inlärnings funktioner är också tillgängliga i andra Microsoft-lösningar som, [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+

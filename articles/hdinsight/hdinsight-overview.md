@@ -9,11 +9,11 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241222"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709240"
 ---
 # <a name="what-is-azure-hdinsight"></a>Vad är Azure HDInsight?
 
@@ -36,10 +36,10 @@ Det här avsnittet visar funktionerna i Azure HDInsight.
 |Funktion  |Beskrivning  |
 |---------|---------|
 |Molnbaserat     |     Med Azure HDInsight kan du skapa optimerade kluster för [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), [Spark](./spark/apache-spark-jupyter-spark-sql.md), [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), [Kafka](./kafka/apache-kafka-get-started.md), [Storm](./storm/apache-storm-tutorial-get-started-linux.md), [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) och  [ML Services](./r-server/r-server-overview.md) i Azure. HDInsight tillhandahåller även ett serviceavtal från slutpunkt till slutpunkt för alla produktionsarbetsbelastningar.  |
-|Billigt och skalbart     | Med HDInsight kan du [skala](./hdinsight-administer-use-portal-linux.md#scale-clusters) upp eller ned arbets belastningar.Du kan minska kostnaderna genom att [skapa kluster på begäran](./hdinsight-hadoop-create-linux-clusters-adf.md) och bara betala för det du använder. Du kan också skapa datapipelines för att operationalisera dina jobb. Frikopplad beräkning och lagring ger bättre prestanda och flexibilitet. |
+|Billigt och skalbart     | Med HDInsight kan du [skala](./hdinsight-administer-use-portal-linux.md#scale-clusters)   upp eller ned arbets belastningar.Du kan minska kostnaderna genom att [skapa kluster på begäran](./hdinsight-hadoop-create-linux-clusters-adf.md)   och bara betala för det du använder. Du kan också skapa datapipelines för att operationalisera dina jobb. Frikopplad beräkning och lagring ger bättre prestanda och flexibilitet. |
 |Säkert och följer standarder    | Med HDInsight kan du skydda företagets datatillgångar med [Azure Virtual Network](./hdinsight-plan-virtual-network-deployment.md), [kryptering](./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) och integrering med [Azure Active Directory](./domain-joined/hdinsight-security-overview.md). HDInsight uppfyller också de vanligaste [efterlevnadskraven](https://azure.microsoft.com/overview/trusted-cloud) för olika branscher och myndigheter.        |
 |Övervakning    | Azure HDInsight integreras med [Azure Monitor-loggar](./hdinsight-hadoop-oms-log-analytics-tutorial.md) så att du får ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.        |
-|Global tillgänglighet | HDInsight är tillgängligt i fler [regioner](https://azure.microsoft.com/regions/services/) än något annat erbjudande för stor data analys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden. |  
+|Global tillgänglighet | HDInsight är tillgängligt i fler [regioner](https://azure.microsoft.com/regions/services/)   än något annat erbjudande för stor data analys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden. |  
 |Produktivitet     |  Med Azure HDInsight kan du använda omfattande produktiva verktyg för Hadoop och Spark med de utvecklingsmiljöer du föredrar. Dessa utvecklingsmiljöer omfattar stöd för [Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md), [VSCode](./hdinsight-for-vscode.md), [Eclipse](./spark/apache-spark-eclipse-tool-plugin.md) och [IntelliJ](./spark/apache-spark-intellij-tool-plugin.md) för Scala, Python, R, Java och .NET. Dataexperter kan också samarbeta med vanliga anteckningsböcker som [Jupyter](./spark/apache-spark-jupyter-notebook-kernels.md) och [Zeppelin](./spark/apache-spark-zeppelin-notebook.md).    |
 |Utökningsbarhet     |  Du kan utöka HDInsight-klustren genom att installera komponenter (Hue, Presto osv.) med hjälp av [skriptåtgärder](./hdinsight-hadoop-customize-cluster-linux.md), genom att [lägga till gränsnoder](./hdinsight-apps-use-edge-node.md) eller genom [integrering med andra stordatacertifierade program](./hdinsight-apps-install-applications.md). HDInsight ger enkel integrering med de vanligaste stordatalösningarna med distribution med [ett klick](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|
 

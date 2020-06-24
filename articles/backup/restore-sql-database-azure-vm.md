@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du återställer SQL Server databas
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252459"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687437"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -95,7 +95,7 @@ För att återställa måste du ha följande behörigheter:
 
 ### <a name="restore-and-overwrite"></a>Återställ och skriv över
 
-1. I menyn **Återställ konfiguration** , under **återställningen**, väljer du **Skriv över DB** > **OK**.
+1. I menyn **Återställ konfiguration** , under **återställningen**, väljer du **Skriv över DB**  >  **OK**.
 
     ![Välja Overwrite DB (Skriv över databas)](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -117,7 +117,7 @@ Om du vill återställa säkerhets kopierings data som. bak-filer i stället fö
     >- Kör `PsExec -s cmd` för att ange i NT instans\system-gränssnittet
     >   - Kör `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verifiera åtkomst med`dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Starta en återställning som filer från säkerhets kopierings valvet `\\<storageacct>.file.core.windows.net\<filesharename>` till som sökväg<BR>
+    >- Starta en återställning som filer från säkerhets kopierings valvet till `\\<storageacct>.file.core.windows.net\<filesharename>` som sökväg<BR>
     Du kan ladda ned PsExec via<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. Välj **OK**.

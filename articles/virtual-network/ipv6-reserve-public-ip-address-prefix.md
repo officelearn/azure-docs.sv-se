@@ -7,17 +7,17 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420548"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711501"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Reservera offentligt IPv6-adressprefix
 Med IPv6 för Azure Virtual Network (VNet) kan du vara värd för program i Azure med IPv6-och IPv4-anslutning både i ett virtuellt nätverk och till och från Internet. Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall av Azure IPv6-adresser (kallas även IP-prefix) för din användning. I den här artikeln beskrivs hur du skapar offentliga IP-adresser och adress intervall för IPv6 med hjälp av Azure PowerShell och CLI.
@@ -87,7 +87,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
- Du skapar en offentlig IP-IP-adress från ett reserverat `-PublicIpPrefix` prefix genom att lägga till argumentet när du skapar den offentliga IP-adressen med Azure PowerShell. I följande exempel förutsätts att ett prefix har skapats och lagrats i en PowerShell-variabel med namnet: *$MyOwnIPv 6prefix*.
+ Du skapar en offentlig IP-IP-adress från ett reserverat prefix genom att lägga till `-PublicIpPrefix` argumentet när du skapar den offentliga IP-adressen med Azure PowerShell. I följande exempel förutsätts att ett prefix har skapats och lagrats i en PowerShell-variabel med namnet: *$MyOwnIPv 6prefix*.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \

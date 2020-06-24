@@ -3,14 +3,14 @@ title: Hantera Runbooks i Azure Automation
 description: Den här artikeln beskriver hur du hanterar Runbooks i Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834704"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718316"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -46,7 +46,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importera en Runbook
 
-Du kan importera ett PowerShell-eller PowerShell-arbetsflöde (**. ps1**), en grafisk Runbook (**. graphrunbook**) eller ett python 2-skript (**. py**) för att skapa en egen Runbook.  Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
+Du kan importera ett PowerShell-eller PowerShell-arbetsflöde (**. ps1**), en grafisk Runbook (**. graphrunbook**) eller ett python 2-skript (**. py**) för att skapa en egen Runbook. Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
 
 * Du kan importera en **. ps1** -fil som inte innehåller ett arbets flöde till antingen en [PowerShell-Runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-Runbook konverteras den till ett arbets flöde. I det här fallet ingår kommentarer i runbooken för att beskriva de ändringar som gjorts.
 
@@ -54,7 +54,7 @@ Du kan importera ett PowerShell-eller PowerShell-arbetsflöde (**. ps1**), en gr
 
 * Importera inte en **. ps1** -fil som innehåller ett PowerShell-arbetsflöde till en [PowerShell-Runbook](automation-runbook-types.md#powershell-runbooks), eftersom PowerShell-skriptfilen inte kan identifiera den.
 
-* Importera bara en **. graphrunbook** -fil till en ny [grafisk Runbook](automation-runbook-types.md#graphical-runbooks). 
+* Importera bara en **. graphrunbook** -fil till en ny [grafisk Runbook](automation-runbook-types.md#graphical-runbooks).
 
 ### <a name="import-a-runbook-from-the-azure-portal"></a>Importera en Runbook från Azure Portal
 
@@ -161,7 +161,7 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
 
 # Check for already running or new runbooks
 $runbookName = "<RunbookName>"
@@ -192,7 +192,7 @@ Om din Runbook normalt körs inom en tids gräns, ska skriptet implementera logi
 
 ## <a name="work-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
 
-Din Runbook måste kunna arbeta med [prenumerationer](automation-runbook-execution.md#subscriptions). Om du till exempel vill hantera flera prenumerationer använder Runbook cmdleten [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Den här cmdleten säkerställer att autentiserings kontexten inte hämtas från en annan Runbook som körs i samma sandbox. Runbooken använder också- `AzContext` parametern i cmdletarna för AZ-modulen och skickar den till rätt kontext.
+Din Runbook måste kunna arbeta med [prenumerationer](automation-runbook-execution.md#subscriptions). Om du till exempel vill hantera flera prenumerationer använder Runbook cmdleten [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Den här cmdleten säkerställer att autentiserings kontexten inte hämtas från en annan Runbook som körs i samma sandbox. Runbooken använder också `Get-AzContext` cmdleten för att hämta kontexten för den aktuella sessionen och tilldelar den till variabeln `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -204,7 +204,7 @@ Connect-AzAccount -ServicePrincipal `
 -ApplicationId $Conn.ApplicationID `
 -CertificateThumbprint $Conn.CertificateThumbprint
 
-$context = Get-AzContext
+$AzureContext = Get-AzContext
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
@@ -214,7 +214,7 @@ Start-AzAutomationRunbook `
     -ResourceGroupName $ResourceGroupName `
     -AutomationAccountName $AutomationAccountName `
     -Name $ChildRunbookName `
-    -DefaultProfile $context
+    -DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>Arbeta med ett anpassat skript

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498383"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051726"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Återskapa ett index i Azure Kognitiv sökning
 
@@ -21,7 +21,17 @@ I den här artikeln förklaras hur du återaktiverar ett Azure Kognitiv sökning
 
 En *Rebuild* syftar på att släppa och återskapa de fysiska data strukturer som är associerade med ett index, inklusive alla fältbaserade inverterade index. I Azure Kognitiv sökning kan du inte släppa och återskapa enskilda fält. För att återskapa ett index måste alla fält lagrings enheter tas bort, återskapas baserat på ett befintligt eller uppdaterat index schema och sedan fyllas i igen med data som skickas till indexet eller hämtas från externa källor. 
 
-Det är vanligt att bygga om index under utvecklingen, men du kan också behöva återskapa ett index på produktions nivå för att hantera strukturella ändringar, till exempel lägga till komplexa typer eller lägga till fält i förslag.
+Det är vanligt att bygga om index under utvecklingen när du har itererat över index design, men du kan också behöva återskapa ett index på produktions nivå för att hantera strukturella ändringar, till exempel lägga till komplexa typer eller lägga till fält i förslag.
+
+## <a name="rebuild-versus-refresh"></a>"Återskapa" jämfört med "uppdatera"
+
+Rebuild bör inte förväxlas med uppdatering av innehållet i ett index med nya, ändrade eller borttagna dokument. Att uppdatera en Sök-sökkorpus är nästan en del i varje Sökapp, med vissa scenarier som kräver uppdaterade uppdateringar (till exempel när en Sök sökkorpus behöver Visa inventerings ändringar i en app som är online Sales).
+
+Så länge du inte ändrar indexets struktur kan du uppdatera ett index med samma teknik som du använde för att läsa in indexet från början:
+
+* Anropa [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att skicka ändringar till ett index i push-läge-indexering.
+
+* För indexerare kan du [Schemalägga körning av indexerare](search-howto-schedule-indexers.md) och använda ändrings spårning eller tidsstämplar för att identifiera delta. Om uppdateringar måste reflekteras snabbare än vad en Scheduler kan hantera kan du i stället använda indexering i push-läge.
 
 ## <a name="rebuild-conditions"></a>Återskapa villkor
 

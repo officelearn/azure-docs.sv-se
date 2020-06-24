@@ -3,8 +3,8 @@ title: Säkerhets aspekter för Azure AD-programproxy | Microsoft Docs
 description: Omfattar säkerhets överväganden för att använda Azure AD-programproxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739976"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759896"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -79,7 +79,7 @@ Du behöver inte bekymra dig om att underhålla och korrigera lokala servrar.
 
 Program vara som inte har uppdaterats har fortfarande konton för ett stort antal attacker. Azure AD-programproxy är en Internet-Scale-tjänst som Microsoft äger, så att du alltid får de senaste säkerhets korrigeringarna och-uppgraderingar.
 
-För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången ett robot försök försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots. txt-fil som innehåller `User-agent: * Disallow: /` .
+För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången en webb robot försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots.txt-fil som innehåller `User-agent: * Disallow: /` .
 
 #### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
 

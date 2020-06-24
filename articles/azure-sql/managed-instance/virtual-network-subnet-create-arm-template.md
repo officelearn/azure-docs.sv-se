@@ -3,8 +3,8 @@ title: Skapa ett virtuellt nätverk
 titleSuffix: Azure SQL Managed Instance
 description: Den här artikeln beskriver hur du skapar ett virtuellt nätverk som har kon figurer ATS för att stödja distribution av hanterad Azure SQL-instans
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 4cbcad991da6a7517ca2914cfd99b8517853c0e4
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d6458794b8d3c5ba68109dbc90a075d6a2a577b9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657920"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711331"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Skapa ett virtuellt nätverk för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

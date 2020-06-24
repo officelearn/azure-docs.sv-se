@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254487"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711722"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installera uppdatering 1,1 på din virtuella StorSimple-matris
 
@@ -66,7 +66,7 @@ Utför följande steg för att ladda ned uppdatering 1,1 från Microsoft Update 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabb korrigeringen
 
-1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Om du använder Microsoft Update katalogen för första gången på datorn klickar du på **Installera** när du uppmanas att installera Microsoft Update Catalog-tillägget.
 
@@ -85,8 +85,8 @@ Utför följande steg för att ladda ned uppdatering 1,1 från Microsoft Update 
     ![Filer i paketet](./media/storsimple-virtual-array-install-update-11/update01folder.png)
 
     Du ser två filer:
-    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64`. Den här filen används för att uppdatera enhetens program vara.
-    - En fil som innehåller ackumulerade uppdateringar för `Windows8.1-KB4284815-x64`juni. För mer information om vad som ingår i den här samlade uppdateringen, gå till [månatlig säkerhets](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815)insamling i juni.
+    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64` . Den här filen används för att uppdatera enhetens program vara.
+    - En fil som innehåller ackumulerade uppdateringar för juni `Windows8.1-KB4284815-x64` . För mer information om vad som ingår i den här samlade uppdateringen, gå till [månatlig säkerhets](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815)insamling i juni.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
@@ -99,7 +99,7 @@ Den här proceduren tar cirka 4 minuter att slutföra. Utför följande steg fö
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
-1. I det lokala webb gränssnittet går du till **Underhåll** > **program uppdatering**. Anteckna den program varu version som du kör. **Fortsätt bara med uppdateringen om du kör uppdatering 1 (10.0.10296.0). Om du kör uppdatering 0,6 installerar du [uppdatering 1](storsimple-virtual-array-install-update-1.md) på enheten först och installerar sedan uppdatering 1,1.**
+1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**. Anteckna den program varu version som du kör. **Fortsätt bara med uppdateringen om du kör uppdatering 1 (10.0.10296.0). Om du kör uppdatering 0,6 installerar du [uppdatering 1](storsimple-virtual-array-install-update-1.md) på enheten först och installerar sedan uppdatering 1,1.**
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
@@ -115,14 +115,14 @@ Den här proceduren tar cirka 4 minuter att slutföra. Utför följande steg fö
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
-5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll** > **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10307** för uppdatering 1,1.
+5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10307** för uppdatering 1,1.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10307** och Azure Portal rapporterar **10.0.10307.0** för samma version.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
-6. Upprepa steg 2-4 för att installera säkerhets korrigeringen för Windows `Windows8.1-KB4284815-x64`med hjälp av fil. Den virtuella matrisen startas om efter installationen och du måste logga in på det lokala webb gränssnittet.
+6. Upprepa steg 2-4 för att installera säkerhets korrigeringen för Windows med hjälp av fil `Windows8.1-KB4284815-x64` . Den virtuella matrisen startas om efter installationen och du måste logga in på det lokala webb gränssnittet.
 
 
 ## <a name="next-steps"></a>Nästa steg

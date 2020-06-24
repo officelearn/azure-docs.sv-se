@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606103"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886630"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
@@ -37,7 +37,7 @@ Den här videon ger en introduktion till några av de komplexa lösningar som du
 
 ## <a name="schema-drift-in-source"></a>Schema avvikelse i källa
 
-Kolumner som kommer till ditt data flöde från din käll definition definieras som "inställt" när de inte finns i din käll projektion. Du kan visa käll projektionen från fliken projektion i käll omvandlingen. När du väljer en data uppsättning för källan tar ADF automatiskt schemat från data uppsättningen och skapar ett projekt från schema definitionen för data uppsättningen.
+Kolumner som kommer till ditt data flöde från din käll definition definieras som "inställt" när de inte finns i din käll projektion. Du kan visa käll projektionen från fliken projektion i käll omvandlingen. När du väljer en data uppsättning för källan tar ADF automatiskt schemat från data uppsättningen och skapar en projektion från den data uppsättningens schema definition.
 
 I en käll omvandling definieras schema avvikelsen som att läsa kolumner som inte har definierats i data uppsättnings schemat. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din käll omvandling.
 
@@ -59,7 +59,7 @@ Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **autom
 
 När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
 
-* Använd uttryck `byPosition` och `byName` för att explicit referera till en kolumn efter namn eller positions nummer.
+* Använd `byPosition` uttryck och `byName` för att explicit referera till en kolumn efter namn eller positions nummer.
 * Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
 * Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
 

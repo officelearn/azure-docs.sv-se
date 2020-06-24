@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272310"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709257"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -87,11 +87,11 @@ Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfiguration
 
 ### <a name="view-the-script-action-logs"></a>Visa skript åtgärds loggar
 
-HDInsight [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör skript i ett kluster, antingen manuellt eller när det anges. Skript åtgärder kan till exempel användas för att installera ytterligare program vara i klustret eller ändra konfigurations inställningarna från standardvärdena. Skript åtgärds loggar kan ge insikter om fel som uppstått under installationen av klustret och även konfigurations inställningarnas ändringar som kan påverka kluster prestanda och tillgänglighet.  Om du vill se status för en skript åtgärd väljer du knappen **Ops** i AMBARI-användargränssnittet eller åtkomst till status loggarna på standard lagrings kontot. Lagrings loggarna är tillgängliga `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`på.
+HDInsight [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör skript i ett kluster, antingen manuellt eller när det anges. Skript åtgärder kan till exempel användas för att installera ytterligare program vara i klustret eller ändra konfigurations inställningarna från standardvärdena. Skript åtgärds loggar kan ge insikter om fel som uppstått under installationen av klustret och även konfigurations inställningarnas ändringar som kan påverka kluster prestanda och tillgänglighet.  Om du vill se status för en skript åtgärd väljer du knappen **Ops** i AMBARI-användargränssnittet eller åtkomst till status loggarna på standard lagrings kontot. Lagrings loggarna är tillgängliga på `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE` .
 
 ### <a name="view-ambari-alerts-status-logs"></a>Visa status loggar för Ambari-aviseringar
 
-Apache Ambari skriver aviserings status ändringar `ambari-alerts.log`till. Den fullständiga sökvägen är `/var/log/ambari-server/ambari-alerts.log`. Om du vill aktivera fel sökning för loggen ändrar du en egenskap `/etc/ambari-server/conf/log4j.properties.` i ändra och sedan `# Log alert state changes` post under från:
+Apache Ambari skriver aviserings status ändringar till `ambari-alerts.log` . Den fullständiga sökvägen är `/var/log/ambari-server/ambari-alerts.log` . Om du vill aktivera fel sökning för loggen ändrar du en egenskap i `/etc/ambari-server/conf/log4j.properties.` ändra och sedan post under `# Log alert state changes` från:
 
 ```
 log4j.logger.alerts=INFO,alerts
@@ -131,7 +131,7 @@ De sammanställda loggarna kan inte läsas direkt, eftersom de skrivs i ett TFil
 
 #### <a name="yarn-cli-tools"></a>GARN CLI-verktyg
 
-Om du vill använda garn CLI-verktygen måste du först ansluta till HDInsight-klustret med SSH. Ange information `<applicationId>`om `<user-who-started-the-application>`, `<containerId>`, och `<worker-node-address>` när du kör de här kommandona. Du kan visa loggarna som oformaterad text med något av följande kommandon:
+Om du vill använda garn CLI-verktygen måste du först ansluta till HDInsight-klustret med SSH. Ange `<applicationId>` `<user-who-started-the-application>` `<containerId>` information om,, och `<worker-node-address>` när du kör de här kommandona. Du kan visa loggarna som oformaterad text med något av följande kommandon:
 
 ```bash
 yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
@@ -171,7 +171,7 @@ Du kan använda .NET SDK för Hadoop för att undersöka de loggfiler som genere
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Kontrol lera storlek och antal säkerhets kopierings index för gamla loggfiler
 
-Om du vill kontrol lera storleken på och antalet loggfiler, anger du följande egenskaper för `RollingFileAppender`:
+Om du vill kontrol lera storleken på och antalet loggfiler, anger du följande egenskaper för `RollingFileAppender` :
 
 * `maxFileSize`är filens kritiska storlek, ovanför vilken filen har registrerats. Standardvärdet är 10 MB.
 * `maxBackupIndex`anger det antal säkerhets kopierings filer som ska skapas, standard 1.

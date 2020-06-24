@@ -5,19 +5,19 @@ description: Den här artikeln visar hur du distribuerar ett program med dubbla 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b1a91dd8779b8e79e221c620881d4848bae9e1f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420650"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711535"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – mall
 

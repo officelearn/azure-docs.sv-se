@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 70dbe927c3d106e6a853f215f93c51bd7e547150
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658518"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886959"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -86,7 +86,6 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.9 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -95,8 +94,6 @@ az aks create \
 ```
 
 > [!NOTE]
-> Om du inte kan skapa AKS-klustret eftersom versionen inte stöds i den här regionen kan du använda kommandot [AZ AKS get-versions-location öster] för att hitta den versions lista som stöds för den här regionen.
->  
 > Om du får ett lösen ords verifierings fel kan du försöka skapa en resurs grupp i en annan region.
 > Försök sedan att skapa klustret med den nya resurs gruppen.
 
@@ -112,8 +109,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
-    --node-count 1 \
-    --kubernetes-version 1.16.9
+    --node-count 1
 ```
 
 Kommandot ovan skapar en ny Node-pool med namnet *npwin* och lägger till den i *myAKSCluster*. När du skapar en Node-pool för att köra Windows Server-behållare är standardvärdet för *Node-VM-size* *Standard_D2s_v3*. Om du väljer att ange parametern *Node-VM-size* kontrollerar du listan över [begränsade VM-storlekar][restricted-vm-sizes]. Den minsta rekommenderade storleken är *Standard_D2s_v3*. Kommandot ovan använder också standard under nätet i det virtuella nätverk som skapas när det körs `az aks create` .

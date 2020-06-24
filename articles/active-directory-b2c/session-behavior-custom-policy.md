@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3841f4c4f068fd597bd537288a45dd188c7d1a2f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966602"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203343"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera sessionens beteende med anpassade principer i Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Du kan använda följande egenskaper för att hantera WebApplication-sessioner:
 
 Om du vill ändra sessionens beteende och SSO-konfigurationer lägger du till ett **UserJourneyBehaviors** -element i [RelyingParty](relyingparty.md) -elementet.  **UserJourneyBehaviors** -elementet måste omedelbart följa **DefaultUserJourney**. Ditt **UserJourneyBehavors** -element bör se ut som i det här exemplet:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -48,7 +48,7 @@ Om du vill ändra sessionens beteende och SSO-konfigurationer lägger du till et
 
 ### <a name="configure-the-applications"></a>Konfigurera program
 
-När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för både OAuth2-och SAML-protokoll) rensar Azure AD B2C användarens session från webbläsaren.  Om du vill tillåta [enkel utloggning](session-overview.md#single-sign-out)ställer du in programmet från Azure Portal: `LogoutUrl`
+När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för både OAuth2-och SAML-protokoll) rensar Azure AD B2C användarens session från webbläsaren.  Om du vill tillåta [enkel utloggning](session-overview.md#single-sign-out)ställer du in `LogoutUrl` programmet från Azure Portal:
 
 1. Navigera till [Azure Portal](https://portal.azure.com).
 1. Välj din Azure AD B2C katalog genom att klicka på ditt konto i det övre högra hörnet på sidan.
@@ -60,7 +60,7 @@ När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för b
 För att stödja enkel utloggning måste token Issuer tekniska profiler för både JWT och SAML ange:
 
 - Protokoll namnet, t. ex.`<Protocol Name="OpenIdConnect" />`
-- Referens till teknisk profil för sessionen, till exempel `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- Referens till teknisk profil för sessionen, till exempel `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />` .
 
 I följande exempel illustrerar JWT-och SAML-token-utfärdare med enkel utloggning:
 

@@ -3,12 +3,12 @@ title: Identifiera rörelse, spela in video till Azure Media Services
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse i en video ström i real tid och spela in videoklipp i Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262046"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817324"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Snabb start: identifiera rörelse, spela in video till Media Services
 
@@ -21,9 +21,9 @@ Den här artikeln bygger ovanpå [komma igång snabb start](get-started-detect-m
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) på din dator med [Azure IoT tools-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Om du inte har slutfört [komma igång snabb](get-started-detect-motion-emit-events-quickstart.md) starten tidigare går du igenom följande steg:
-    * Slutför [konfigurationen av Azure-resurser](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Ställa in Azure-resurser](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Distribuera moduler](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Konfigurera Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Konfigurera Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Granska exempel videon
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3085e664b75e404e14ba0992a286d33cbf3ef771
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015972"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077822"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Konfigurera Azure Firewall-programregler med SQL-FQDN
 
@@ -24,7 +24,7 @@ Med SQL-FQDN kan du filtrera trafik:
 - Från lokalt till Azure SQL-hanterade instanser eller SQL-IaaS som körs i din virtuella nätverk.
 - Från ekrar till ekrar till Azure SQL-hanterade instanser eller SQL-IaaS som körs i din virtuella nätverk.
 
-SQL-FQDN-filtrering stöds endast i [proxy-läge](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Om du använder SQL i standard läget för omdirigering kan du filtrera åtkomst med SQL Service-taggen som en del av [nätverks reglerna](overview.md#network-traffic-filtering-rules).
+SQL-FQDN-filtrering stöds endast i [proxy-läge](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Om du använder SQL i standard läget för omdirigering kan du filtrera åtkomst med SQL Service-taggen som en del av [nätverks reglerna](features.md#network-traffic-filtering-rules).
 Om du använder portar som inte är standard för SQL IaaS-trafik kan du konfigurera dessa portar i brand Väggs program reglerna.
 
 ## <a name="configure-using-azure-cli"></a>Konfigurera med Azure CLI

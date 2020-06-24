@@ -12,21 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: a741fb76827327c1231890d71ee1da79e052ed50
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c9a9ac742981734daf107d73c9cec8777dc642
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232418"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85257541"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
-Azure Security Center utökar sitt moln skydds plattforms skydds plattform genom att integrera med [Microsoft Defender Advanced Threat Protection](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) (ATP).
-Den här ändringen ger dig omfattande funktioner för identifiering och svar på slutpunkter (EDR). Med Microsoft Defender ATP-integrering kan du upptäcka avvikelser. Du kan också identifiera och svara på avancerade attacker på Server slut punkter som övervakas av Azure Security Center.
+Azure Security Center integreras med [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) för att tillhandahålla omfattande funktioner för slut punkts identifiering och-svar (EDR).
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Microsoft Defender ATP-funktioner i Security Center
 
-När du använder Microsoft Defender ATP får du:
+Microsoft Defender ATP tillhandahåller:
 
 - **Avancerade sensorer efter intrång**: Microsoft Defender ATP-sensorer för Windows-servrar samlar in en omfattande uppsättning beteende signaler.
 
@@ -34,19 +33,18 @@ När du använder Microsoft Defender ATP får du:
 
 - **Hot information**: Microsoft Defender ATP genererar aviseringar när det identifierar angrepps verktyg, tekniker och procedurer. Den använder data som genererats av Microsoft Threat Hunters och säkerhets team, som tillhandahålls av våra partner.
 
-Följande funktioner är nu tillgängliga i Azure Security Center:
 
-- **Automatiserad onboarding**: Microsoft Defender ATP-sensorn aktive ras automatiskt för Windows-servrar som har registrerats för Azure Security Center (med undantag för de som kör Windows Server 2019).
+Genom att integrera Defender ATP med Azure Security Center kan du också dra nytta av följande ytterligare funktioner:
 
-- **En ruta i glas**: Azure Security Center-konsolen visar Microsoft Defender ATP-aviseringar.
+- **Automatiserad onboarding**: integreringen aktiverar automatiskt Microsoft Defender ATP-sensorn för Windows-servrar som övervakas av Azure Security Center (om de inte kör Windows Server 2019).
 
-Undersök ytterligare genom att använda Microsoft Defender ATP. Microsoft Defender ATP tillhandahåller ytterligare information som varnings process trädet och incident diagrammet. Du kan också se en detaljerad dator tids linje som visar varje beteende för en historisk period på upp till sex månader.
+- **En ruta i glas**: Azure Security Center-konsolen visar Microsoft Defender ATP-aviseringar. Undersök ytterligare genom att använda Microsoft Defender ATP. Microsoft Defender ATP tillhandahåller ytterligare information som varnings process trädet och incident diagrammet. Du kan också se en detaljerad dator tids linje som visar varje beteende för en historisk period på upp till sex månader.
 
-![Sidan Microsoft Defender ATP med detaljerad information om en avisering](media/security-center-wdatp/image3.png)
+    ![Sidan Microsoft Defender ATP med detaljerad information om en avisering](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Plattformssupport
 
-Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1 för virtuella Azure-datorer behöver du en prenumeration på en standard nivå och för virtuella datorer som inte är Azure-datorer behöver du endast standard nivå på arbets ytans nivå.
+Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1. För virtuella Azure-datorer behöver du en prenumeration på standard nivå och för virtuella datorer som inte är Azure-datorer behöver du endast standard nivå på arbets ytans nivå.
 
 > [!NOTE]
 > När du använder Azure Security Center för att övervaka servrar skapas en Microsoft Defender ATP-klient automatiskt och Microsoft Defender ATP-data lagras i Europa som standard. Om du behöver flytta dina data till en annan plats måste du kontakta Microsoft Support för att återställa klienten. Övervakning av Server slut punkt som använder denna integrering har inaktiverats för Office 365 GCC-kunder.
@@ -66,7 +64,7 @@ Om du vill publicera servrar till Security Center klickar **du på gå till Azur
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Aktivera Microsoft Defender ATP-integrering
 
-Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du pris för **säkerhets Center** > **& inställningar** > klickar på din prenumeration.
+Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du pris för **säkerhets Center**  >  **& inställningar** > klickar på din prenumeration.
 Här kan du se de integreringar som är aktiverade för tillfället.
 
   ![Sidan Azure Security Center inställningar för hot identifiering med Microsoft Defender ATP-integrering aktive rad](media/security-center-wdatp/enable-integrations.png)
@@ -81,11 +79,9 @@ Här kan du se de integreringar som är aktiverade för tillfället.
 
 ## <a name="access-to-the-microsoft-defender-atp-portal"></a>Åtkomst till Microsoft Defender ATP-portalen
 
-Följ instruktionerna i [Tilldela användar åtkomst till portalen](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Följ instruktionerna i [Tilldela användar åtkomst till portalen](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-## <a name="set-the-firewall-configuration"></a>Ange brand Väggs konfigurationen
-
-Om du har en proxy eller brand vägg som blockerar anonym trafik, som en Microsoft Defender ATP-sensor ansluter från systemets kontext, kontrollerar du att anonym trafik tillåts. Följ instruktionerna i [ge åtkomst till Microsoft Defender ATP-tjänstens URL-adresser i proxyservern](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Kontrol lera om du har en proxy eller brand vägg som blockerar anonym trafik. Defender ATP-sensorn ansluter från systemets kontext, så anonym trafik måste tillåtas. För att säkerställa förhindrad åtkomst till Microsoft Defender ATP-portalen följer du anvisningarna i [ge åtkomst till Microsoft Defender ATP-tjänstens URL: er i proxyservern](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## <a name="test-the-feature"></a>Testa funktionen
 
@@ -93,7 +89,7 @@ Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
 1. Skapa en mapp ' C:\test-MDATP-test '.
 
-1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator. Öppna ett kommando rads fönster.
+1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator. Öppna ett kommandotolksfönster.
 
 1. Kopiera och kör följande kommando i kommando tolken. Kommando tolks fönstret stängs automatiskt.
 
@@ -105,7 +101,7 @@ Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
 1. Om kommandot lyckas visas en ny avisering på instrument panelen för Azure Security Center och Microsoft Defender ATP-portalen. Den här aviseringen kan ta några minuter innan den visas.
 
-1. Om du vill granska aviseringen i Security Center går du till **säkerhets varningar** > ,**misstänkt PowerShell-kommandorad**.
+1. Om du vill granska aviseringen i Security Center går du till **säkerhets varningar**  >  ,**misstänkt PowerShell-kommandorad**.
 
 1. I undersöknings fönstret väljer du länken för att gå till Microsoft Defender ATP-portalen.
 

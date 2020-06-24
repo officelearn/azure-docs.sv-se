@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02d488108474084346d9e37d5cc6ecbe3a8a05c6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484281"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201284"
 ---
 # <a name="boolean-claims-transformations"></a>Omvandlingar med booleska anspråk
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du använder booleska anspråks om
 
 Utför en och-åtgärd av två booleska inputClaims och anger outputClaim med resultatet av åtgärden.
 
-| Objekt  | TransformationClaimType  | Datatyp  | Obs! |
+| Objekt  | TransformationClaimType  | Datatyp  | Kommentarer |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
 | InputClaim | inputClaim2  | boolean | Den andra ClaimType som ska utvärderas. |
@@ -36,7 +36,7 @@ Utför en och-åtgärd av två booleska inputClaims och anger outputClaim med re
 
 Följande anspråks omvandling visar hur du och två booleska ClaimTypes: `isEmailNotExist` , och `isSocialAccount` . Utgående anspråk `presentEmailSelfAsserted` anges till `true` om värdet för båda indata-anspråken är `true` . I ett Orchestration-steg kan du använda ett villkor för att förinställa en självkontrollerad sida, bara om ett e-postmeddelande om sociala konton är tomt.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -61,7 +61,7 @@ Följande anspråks omvandling visar hur du och två booleska ClaimTypes: `isEma
 
 Kontrollerar att booleska värden för två anspråk är lika och genererar ett undantag om de inte är det.
 
-| Objekt | TransformationClaimType  | Datatyp  | Obs! |
+| Objekt | TransformationClaimType  | Datatyp  | Kommentarer |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | Den ClaimType som ska försäkras. |
 | InputParameter |valueToCompareTo | boolean | Värdet som ska jämföras (sant eller falskt). |
@@ -72,7 +72,7 @@ Omvandlingen av **AssertBooleanClaimIsEqualToValue** -anspråk körs alltid frå
 
 Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk ClaimType med ett `true` värde. Om värdet för `accountEnabled` claimType är falskt genereras ett fel meddelande.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -86,7 +86,7 @@ Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk
 
 Den `login-NonInteractive` tekniska verifierings profilen anropar `AssertAccountEnabledIsTrue` anspråks omvandlingen.
 
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -97,7 +97,7 @@ Den `login-NonInteractive` tekniska verifierings profilen anropar `AssertAccount
 
 Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-inaktiv** teknisk profil.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -119,7 +119,7 @@ Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-in
 
 Kontrollerar att det booleska värdet för ett anspråk är lika med `true` eller `false` och returnerar resultatet av komprimeringen.
 
-| Objekt | TransformationClaimType  | Datatyp  | Obs! |
+| Objekt | TransformationClaimType  | Datatyp  | Kommentarer |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim | boolean | Den ClaimType som ska försäkras. |
 | InputParameter |valueToCompareTo | boolean | Värdet som ska jämföras (sant eller falskt). |
@@ -127,7 +127,7 @@ Kontrollerar att det booleska värdet för ett anspråk är lika med `true` elle
 
 Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk ClaimType med ett `true` värde. Om värdet för `IsAgeOver21Years` claimType är lika med `true` returnerar omvandlingen av anspråk `true` , annars `false` .
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -154,14 +154,14 @@ Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk
 
 Utför en not-åtgärd för den booleska inputClaim och ställer in outputClaim med resultatet av åtgärden.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | Det anspråk som ska användas. |
 | OutputClaim | outputClaim | boolean | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
 
 Använd den här anspråks omvandlingen för att utföra logisk negation på ett anspråk.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -183,7 +183,7 @@ Använd den här anspråks omvandlingen för att utföra logisk negation på ett
 
 Beräknar en eller två booleska inputClaims och anger outputClaim med resultatet av åtgärden.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
 | InputClaim | inputClaim2 | boolean | Den andra ClaimType som ska utvärderas. |
@@ -191,7 +191,7 @@ Beräknar en eller två booleska inputClaims och anger outputClaim med resultate
 
 Följande anspråks omvandling visar hur man `Or` två booleska ClaimTypes. I Orchestration-steget kan du använda ett villkor för att förinställa en självkontrollerad sida om värdet för ett av anspråken är `true` .
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />

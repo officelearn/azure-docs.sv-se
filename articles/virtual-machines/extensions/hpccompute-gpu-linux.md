@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559675"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753547"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
@@ -30,7 +30,7 @@ Anvisningar om manuell installation av driv rutinerna och de aktuella versioner 
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer med Windows N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -146,8 +146,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
-  }'
+  --version 1.3 
 ```
 
 Följande exempel lägger också till två valfria anpassade inställningar som exempel på driv rutins installation som inte är standard. Mer specifikt uppdaterar OS-kerneln till den senaste och installerar en specifik versions driv rutin för CUDA Toolkit. Observera återigen att "--Settings" är valfria och standard. Observera att uppdateringen av kernel kan öka installations tiderna för tillägget. Du kan också välja en speciell (äldre) CUDA tolkit-version som inte alltid är kompatibel med nyare kärnor.

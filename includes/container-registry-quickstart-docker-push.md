@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b10bf18fde850223bda80a597f448747558113f1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187899"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752158"
 ---
 ## <a name="push-image-to-registry"></a>Push-överför avbildningen till registret
 
@@ -23,24 +23,24 @@ Innan du kan push-överföra en avbildning till Azure Container Registry måste 
 docker pull hello-world
 ```
 
-Innan du kan push-överföra en avbildning till ditt register måste du tagga den med det fullständiga namnet på din ACR-inloggningsserver. Inloggnings serverns namn har formatet * \<register namn\>. azurecr.io* (alla gemener), till exempel *mycontainerregistry007.azurecr.io*.
+Innan du kan push-överföra en avbildning till registret måste du tagga den med det fullständigt kvalificerade namnet på inloggnings servern för registret. Inloggnings serverns namn har formatet * \<registry-name\> . azurecr.io* (alla gemener), till exempel *mycontainerregistry007.azurecr.io*.
 
-Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för ACR-instansen.
-
-```
-docker tag hello-world <acrLoginServer>/hello-world:v1
-```
-
-Använd slutligen [docker push][docker-push] för att överföra avbildningen till ACR-instansen. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för ACR-instansen. Det här exemplet skapar lagringsplatsen **hello-world**, som innehåller `hello-world:v1`-avbildningen.
+Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt `<login-server>` med namnet på inloggningsservern för ACR-instansen.
 
 ```
-docker push <acrLoginServer>/hello-world:v1
+docker tag hello-world <login-server>/hello-world:v1
+```
+
+Slutligen använder du [Docker push][docker-push] för att push-överföra avbildningen till register instansen. Ersätt `<login-server>` med inloggnings Server namnet för din register instans. Det här exemplet skapar lagringsplatsen **hello-world**, som innehåller `hello-world:v1`-avbildningen.
+
+```
+docker push <login-server>/hello-world:v1
 ```
 
 När du har push-överfört avbildningen till containerregistret tar du bort `hello-world:v1`-avbildningen från den lokala Docker-miljön. (Observera att detta [docker rmi][docker-rmi]-kommando inte tar bort avbildningen från **hello-world**-lagringsplatsen i Azure-containerregistret.)
 
 ```
-docker rmi <acrLoginServer>/hello-world:v1
+docker rmi <login-server>/hello-world:v1
 ```
 
 <!-- LINKS - External -->

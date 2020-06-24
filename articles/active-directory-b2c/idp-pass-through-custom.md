@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7307d047861a4fd6ba2065d231fde8040a383cfb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187803"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201845"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorizatio
 
 ## <a name="add-the-claim-elements"></a>Lägg till anspråks elementen
 
-1. Öppna filen *TrustframeworkExtensions. XML* och Lägg till följande **claimType** -element med en identifierare för `identityProviderAccessToken` elementet **ClaimsSchema** :
+1. Öppna *TrustframeworkExtensions.xml* -filen och Lägg till följande **claimType** -element med en identifierare för `identityProviderAccessToken` **ClaimsSchema** -elementet:
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="identityProviderAccessToken">
@@ -47,7 +47,7 @@ Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorizatio
 
 2. Lägg till elementet **OutputClaim** i **TechnicalProfile** -elementet för varje OAuth 2,0-identitetsprovider som du vill ha åtkomsttoken för. I följande exempel visas det element som har lagts till i den nya Facebook-tekniska profilen:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Facebook</DisplayName>
       <TechnicalProfiles>
@@ -61,10 +61,10 @@ Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorizatio
     </ClaimsProvider>
     ```
 
-3. Spara filen *TrustframeworkExtensions. XML* .
-4. Öppna den förlitande part princip filen, till exempel *SignUpOrSignIn. XML*, och Lägg till **OutputClaim** -elementet i **TechnicalProfile**:
+3. Spara *TrustframeworkExtensions.xml* -filen.
+4. Öppna den förlitande part princip filen, till exempel *SignUpOrSignIn.xml*, och Lägg till **OutputClaim** -elementet till **TechnicalProfile**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
       <TechnicalProfile Id="PolicyProfile">
@@ -80,7 +80,7 @@ Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorizatio
 
 ## <a name="test-your-policy"></a>Testa principen
 
-När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure AD B2C token som returneras `https://jwt.ms` för att kunna granska anspråk i det.
+När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure AD B2C token som returneras för att `https://jwt.ms` kunna granska anspråk i det.
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
@@ -89,14 +89,14 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
-6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustframeworkExtensions. XML-* filen.
+6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj den *TrustframeworkExtensions.xml* filen.
 7. Välj **Överför**.
-8. Upprepa steg 5 till 7 för den förlitande part filen, till exempel *SignUpOrSignIn. XML*.
+8. Upprepa steg 5 till 7 för den förlitande part filen, till exempel *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Kör principen
 
 1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_signup_signin*.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en visas `https://jwt.ms`.
+2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en visas `https://jwt.ms` .
 3. Välj **Kör nu**.
 
     Du bör se något som liknar följande exempel:

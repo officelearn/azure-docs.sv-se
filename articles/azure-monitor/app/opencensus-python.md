@@ -7,18 +7,18 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 3a47296d755c2a933e7e136a4b17ae87561213ad
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 04581826ab6b05333e910a162c7a0ca9566ec334
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553857"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079119"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
@@ -342,36 +342,10 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     > [!NOTE]
     > `traces`i den här kontexten är inte samma sak som `Tracing` . `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
-5. Om du vill formatera dina logg meddelanden kan du använda `formatters` i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
+    > [!NOTE]
+    > Rot loggaren har kon figurer ATS med nivå varning. Det innebär att alla loggar som du skickar som har mindre av allvarlighets graden ignoreras och i sin tur inte skickas till Azure Monitor. Mer information finns i den här [dokumentationen](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel) .
 
-    ```python
-    import logging
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    
-    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
-    date_format = '%Y-%m-%d %H:%M:%S'
-    formatter = logging.Formatter(format_str, date_format)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    handler = AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    
-    def valuePrompt():
-        line = input("Enter a value: ")
-        logger.warning(line)
-    
-    def main():
-        while True:
-            valuePrompt()
-    
-    if __name__ == "__main__":
-        main()
-    ```
-
-6. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord med hjälp av fältet custom_dimensions. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
+5. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord med hjälp av fältet custom_dimensions. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
     > [!NOTE]
     > För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ kommer loggaren att ignorera dem.
 
@@ -390,6 +364,39 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
     # Use properties in logging statements
     logger.warning('action', extra=properties)
+    ```
+
+#### <a name="configure-logging-for-django-applications"></a>Konfigurera loggning för django-program
+
+Du kan konfigurera loggningen explicit i program koden, till exempel ovan för dina django-program, eller så kan du ange den i loggnings konfigurationen för django. Den här koden kan gå till den fil som du använder för konfiguration av Django-inställningar. Se [django-inställningar](https://docs.djangoproject.com/en/3.0/topics/settings/) för hur du konfigurerar inställningar för Django och [django-loggning](https://docs.djangoproject.com/en/3.0/topics/logging/) för mer information om hur du konfigurerar loggning.
+
+    ```python
+    LOGGING = {
+        "handlers": {
+            "azure": {
+                "level": "DEBUG",
+                "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+                "instrumentation_key": "<your-ikey-here>",
+            },
+            "console": {
+                "level": "DEBUG",
+                "class": "logging.StreamHandler",
+                "stream": sys.stdout,
+            },
+        },
+        "loggers": {
+            "logger_name": {"handlers": ["azure", "console"]},
+        },
+    }
+    ```
+
+Se till att du använder loggaren med samma namn som den som angetts i konfigurationen.
+
+    ```python
+    import logging
+        
+    logger = logging.getLogger("logger_name")
+    logger.warning("this will be tracked")
     ```
 
 #### <a name="sending-exceptions"></a>Skickar undantag
@@ -428,6 +435,21 @@ Mer information om hur du kan utöka dina loggar med spårnings kontext data fin
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
 Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+
+## <a name="configure-azure-monitor-exporters"></a>Konfigurera Azure Monitor exportörer
+
+Som du ser ovan finns det tre olika Azure Monitor exportörer som stöder openräkning, varje skickar olika typer av telemetri till Azure Monitor. Se nedan för att se vilka typer av telemetri som varje exportör skickar.
+
+Varje exportör accepterar samma argument för konfiguration, som skickas genom konstruktörerna. Du kan se information om var och en nedan.
+
+1. `connection_string`– Anslutnings strängen som används för att ansluta till din Azure Monitor-resurs. Prioriteras `instrumentation_key` .
+2. `enable_standard_metrics`– Används för `AzureMetricsExporter` . Signalerar export verktyget att skicka [prestanda räknar](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) mått automatiskt till Azure Monitor. Standardvärdet är `True` .
+3. `export_interval`– Används för att ange frekvensen i sekunder för exporten.
+4. `instrumentation_key`– Den Instrumentation-nyckel som används för att ansluta till din Azure Monitor-resurs.
+5. `logging_sampling_rate`– Används för `AzureLogHandler` . Innehåller en samplings frekvens [0, 1.0] för att exportera loggar. Standardvärdet är 1,0.
+6. `max_batch_size`-Anger den maximala storleken på telemetri som exporteras samtidigt.
+7. `proxies`-Anger en sekvens med proxyservrar som ska användas för att skicka data till Azure Monitor. Se [proxyservrar](https://requests.readthedocs.io/en/master/user/advanced/#proxies) för mer information.
+8. `storage_path`– En sökväg till platsen där den lokala lagringsmappen finns (ej skickat telemetri). Från och med `opencensus-ext-azure` v 1.0.3 är standard Sök vägen till den temporära katalogen för operativ systemet + `opencensus-python`  +  `your-ikey` . För för-v-1.0.3 är standard Sök vägen $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

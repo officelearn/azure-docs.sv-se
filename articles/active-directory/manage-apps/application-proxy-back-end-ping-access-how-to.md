@@ -3,25 +3,25 @@ title: Så här konfigurerar du en Application Proxy-app för att använda PingA
 description: Lär dig hur du använder PingAccess för att utöka fördelarna med programproxyn till program med hjälp av en huvud-baserad autentisering
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c852c69b6f64b59845b551202bd1a25646a49eb6
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 7cfbca2e7542315b59d741a9e8f6f9eb92af6ebf
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275645"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760226"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Så här konfigurerar du ett Application Proxy-program för att använda PingAccess
 

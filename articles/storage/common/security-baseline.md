@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792079"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751638"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -218,7 +218,7 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
-**Vägledning**: om du vill granska Azure Storage loggar finns det vanliga alternativ, till exempel frågor genom Log Analytics-erbjudandet och ett unikt alternativ för att Visa loggfilerna direkt. I Azure Storage lagras loggarna i blobbar som måste nås direkt på http://accountname.blob.core.windows.net/$logs (mappen loggning är dold som standard, så du måste navigera direkt. Den visas inte i list kommandon) 
+**Vägledning**: om du vill granska Azure Storage loggar finns det vanliga alternativ, till exempel frågor genom Log Analytics-erbjudandet och ett unikt alternativ för att Visa loggfilerna direkt. I Azure Storage lagras loggarna i blobbar som måste nås direkt på http://accountname.blob.core.windows.net/ $logs (mappen loggning är dold som standard, så du måste navigera direkt. Den visas inte i list kommandon) 
 
 Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med Azure Security Center och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot. 
 
@@ -785,7 +785,10 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. Storage" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av dina lagrings konto instanser. Du kan också använda inbyggda Azure Policy definitioner för Azure Storage konto, till exempel: 
 
-Granska obegränsad nätverks åtkomst till lagrings konton distribuera Avancerat skydd på lagrings konton lagrings konton ska migreras till nya Azure Resource Manager resurser säker överföring till lagrings konton ska aktive ras 
+Granska obegränsad nätverks åtkomst till lagrings konton  
+Distribuera Avancerat skydd på lagrings konton  
+Lagrings konton ska migreras till nya Azure Resource Manager resurser  
+Säker överföring till lagringskonton ska vara aktiverat  
 
 Använd rekommendationer från Azure Security Center som en säker konfigurations bas linje för dina lagrings konton. 
 

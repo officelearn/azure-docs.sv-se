@@ -5,20 +5,20 @@ description: Lär dig hur du lägger till, ändrar eller tar bort ett virtuellt 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b43fb027116d746a60c9cd4e690e63181fff4ade
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186092"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711025"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverksundernät
 
@@ -32,9 +32,9 @@ Om du inte har något konfigurerar du ett Azure-konto med en aktiv prenumeration
 
 - **PowerShell-användare**: kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller kör PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. På fliken Azure Cloud Shell webbläsare letar du upp List rutan **Välj miljö** och väljer sedan **PowerShell** om den inte redan är markerad.
 
-    Om du kör PowerShell lokalt använder du Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az.Network` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Kör `Connect-AzAccount` också för att skapa en anslutning till Azure.
+    Om du kör PowerShell lokalt använder du Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az.Network` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Kör också `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-- **Kommando rads gränssnitt för Azure (CLI)**: kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller kör CLI från datorn. Använd Azure CLI version 2.0.31 eller senare om du kör Azure CLI lokalt. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Kör `az login` också för att skapa en anslutning till Azure.
+- **Kommando rads gränssnitt för Azure (CLI)**: kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller kör CLI från datorn. Använd Azure CLI version 2.0.31 eller senare om du kör Azure CLI lokalt. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Kör också `az login` för att skapa en anslutning till Azure.
 
 Det konto som du loggar in på, eller ansluter till Azure med, måste tilldelas [rollen nätverks deltagar roll](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
 
@@ -44,11 +44,11 @@ Det konto som du loggar in på, eller ansluter till Azure med, måste tilldelas 
 
 2. Välj namnet på det virtuella nätverk som du vill lägga till ett undernät i.
 
-3. Under **Inställningar**väljer du **undernät** > **under**nät.
+3. Under **Inställningar**väljer du **undernät**  >  **under**nät.
 
 4. I dialog rutan **Lägg till undernät** anger du värden för följande inställningar:
 
-    | Inställning | Beskrivning |
+    | Inställningen | Beskrivning |
     | --- | --- |
     | **Namn** | Namnet måste vara unikt inom det virtuella nätverket. För maximal kompatibilitet med andra Azure-tjänster rekommenderar vi att du använder en bokstav som det första tecknet i namnet. Azure Application Gateway kommer till exempel inte att distribueras till ett undernät som har ett namn som börjar med en siffra. |
     | **Adressintervall** | <p>Intervallet måste vara unikt inom adress utrymmet för det virtuella nätverket. Intervallet får inte överlappa andra under näts adress intervall inom det virtuella nätverket. Adress utrymmet måste anges med hjälp av CIDR-notering (Classless Inter-Domain routing).</p><p>I ett virtuellt nätverk med adress utrymmet *10.0.0.0/16*kan du till exempel definiera ett under näts adress utrymme på *10.0.0.0/22*. Det minsta intervallet du kan ange är */29*, vilket ger åtta IP-adresser för under nätet. Azure reserverar den första och sista adressen i varje undernät för protokoll avvikelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänster. Det innebär att du kan definiera ett undernät med ett */29* -adressintervall som resulterar i tre användbara IP-adresser i under nätet.</p><p>Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway måste du skapa ett Gateway-undernät. Läs mer om [vissa adress intervall för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adress intervallet när under nätet har lagts till under vissa förhållanden. Information om hur du ändrar ett adress intervall för ett undernät finns i [ändra under näts inställningar](#change-subnet-settings).</p> |
@@ -78,7 +78,7 @@ Det konto som du loggar in på, eller ansluter till Azure med, måste tilldelas 
 
 5. På sidan undernät ändrar du någon av följande inställningar:
 
-    | Inställning | Beskrivning |
+    | Inställningen | Beskrivning |
     | --- | --- |
     | **Adressintervall** | Om inga resurser har distribuerats i under nätet kan du ändra adress intervallet. Om det finns några resurser i under nätet måste du antingen flytta resurserna till ett annat undernät eller ta bort dem från under nätet först. De steg du tar för att flytta eller ta bort en resurs varierar beroende på resursen. Läs dokumentationen för var och en av dessa resurs typer för att lära dig hur du flyttar eller tar bort resurser i undernät. Se begränsningarna för **adress intervall** i steg 4 i [Lägg till ett undernät](#add-a-subnet). |
     | **Användare** | Du kan styra åtkomsten till under nätet genom att använda inbyggda roller eller dina egna anpassade roller. Mer information om hur du tilldelar roller och användare åtkomst till under nätet finns i [lägga till en roll tilldelning](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |

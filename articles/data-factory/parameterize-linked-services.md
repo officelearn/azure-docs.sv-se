@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/18/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d2ccdd0a8000cb6c78244445a34529bc8f37d7f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016635"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987782"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parameterisera länkade tjänster i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,15 +33,16 @@ En introduktion till sju minuter och demonstration av den här funktionen finns 
 
 ## <a name="supported-data-stores"></a>Datalager som stöds
 
-För närvarande stöds länkade tjänst Parameterisering i användar gränssnittet för Data Factory i Azure Portal för följande data lager. För alla andra data lager kan du Parameterisera den länkade tjänsten genom att välja **kod** ikonen på fliken **anslutningar** och använda JSON-redigeraren.
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- SQL Server
-- Oracle
-- Cosmos DB
+För tillfället stöds länkade tjänst Parameterisering i Data Factory användar gränssnitt för följande data lager. För alla andra data lager kan du Parameterisera den länkade tjänsten genom att välja **kod** ikonen på fliken **anslutningar** och använda JSON-redigeraren.
+
 - Amazon Redshift
-- MySQL
+- Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
+- Azure SQL Database
+- Azure Synapse Analytics (tidigare SQL DW)
+- MySQL
+- Oracle
+- SQL Server
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 

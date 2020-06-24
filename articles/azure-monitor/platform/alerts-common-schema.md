@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249053"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710940"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -31,7 +31,7 @@ Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera 
 
 Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
-| Action | Förbättringar |
+| Åtgärd | Förbättringar |
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviserings typer. |
 | E-post | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |

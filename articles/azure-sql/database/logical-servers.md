@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 596967a918dc3a94061ce907848e7e502660b97c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c587af529831c4fb8cdb15b50b2a0b16a868efe3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324376"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255389"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Vad är en logisk SQL-Server i Azure SQL Database-och Azure-Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Du kan skapa resurs gruppen för en server i förväg eller samtidigt som du ska
 
 Om du vill skapa en server (utan en databas, elastisk pool eller informations lager databas) med hjälp av [Azure Portal](https://portal.azure.com)går du till en tom SQL Server-form (logisk SQL-Server).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Skapa en tom eller exempel-SQL-databas i Azure SQL Database
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Skapa en tom databas eller en exempel databas i Azure SQL Database
 
 Om du vill skapa en databas i SQL Database med hjälp av [Azure Portal](https://portal.azure.com)navigerar du till ett tomt SQL Database formulär och anger den begärda informationen. Du kan skapa resurs gruppen och servern i förväg eller när du skapar själva databasen. Du kan skapa en tom databas eller skapa en exempel databas baserad på Adventure Works LT.
 
@@ -87,7 +87,7 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 
 Om du vill skapa och hantera servrar, databaser och brand väggar med Azure PowerShell använder du följande PowerShell-cmdletar. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en databas |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser|
@@ -112,7 +112,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Azure Powe
 
 Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för att skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
 |[AZ SQL DB-lista](/cli/azure/sql/db#az-sql-db-list)|Visar alla databaser som hanteras av en server eller alla databaser i en elastisk pool|
@@ -145,7 +145,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera servrar, databaser 
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en server med hjälp av Transact-SQL.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[SKAPA databas (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Skapar en ny databas i Azure SQL Database. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 |[SKAPA databas (Azure-Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Skapar en ny informations lager databas i Azure-Synapse. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
@@ -171,7 +171,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera servrar, databaser 
 
 Använd dessa REST API begär Anden för att skapa och hantera servrar, databaser och brand väggar.
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 | --- | --- |
 |[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
 |[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en server.|

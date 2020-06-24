@@ -3,25 +3,25 @@ title: Tyst installation Azure AD App proxy Connector | Microsoft Docs
 description: Beskriver hur du utför en obevakad installation av Azure AD-programproxy Connector för att ge säker fjärråtkomst till dina lokala appar.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/24/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae3cd491db03fd036869a8d86aeb646e3175b59
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 0b959649074e68d50a266f05841ce4c87e2b3e20
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609977"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760022"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installations skript för Azure AD-programproxy-anslutningen
 
@@ -53,7 +53,7 @@ Det finns två metoder som du kan använda för att registrera anslutningen:
 * Registrera anslutningen med en token som skapats offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrera anslutningen med hjälp av ett Windows PowerShell-objekt för autentiseringsuppgifter
-1. Skapa ett Windows PowerShell-autentiseringsuppgifter `$cred` som innehåller ett administrativt användar namn och lösen ord för din katalog. Kör följande kommando och Ersätt * \<användar namn\> * och * \<lösen\>ord*:
+1. Skapa ett Windows PowerShell-autentiseringsuppgifter `$cred` som innehåller ett administrativt användar namn och lösen ord för din katalog. Kör följande kommando och Ersätt *\<username\>* och *\<password\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -175,7 +175,7 @@ Det finns två metoder som du kan använda för att registrera anslutningen:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Kör följande Windows PowerShell-kommando och Ersätt \<klient-\> GUID med ditt katalog-ID:
+3. Kör följande Windows PowerShell-kommando och Ersätt \<tenant GUID\> med ditt katalog-ID:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 

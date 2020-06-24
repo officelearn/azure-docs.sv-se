@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: 94949a31db5321929a3440281cebd01712c79bb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a799309b6e5d00db3b6c206187eec7097c9dc11a
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260147"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887258"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Styra Azure CDN cachelagring med frågesträngar – Premium-nivå
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "81260147"
 > 
 
 ## <a name="overview"></a>Översikt
-Med Azure Content Delivery Network (CDN) kan du styra hur filer cachelagras för en webb förfrågan som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Till exempel http:\//www.contoso.com/content.mov?Field1=value1&fält2 = värde2. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar det ingen roll. 
+Med Azure Content Delivery Network (CDN) kan du styra hur filer cachelagras för en webb förfrågan som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Till exempel http: \/ /www.contoso.com/content.mov?field1=value1&fält2 = värde2. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar det ingen roll. 
 
 > [!IMPORTANT]
 > Standard-och Premium CDN-produkterna tillhandahåller samma funktioner för cachelagring av frågesträng, men användar gränssnittet är annorlunda. I den här artikeln beskrivs gränssnittet för **Azure CDN Premium från Verizon**. För cachelagring av frågesträngar med Azure CDN Standard produkter, se [kontroll Azure CDN cachelagring med frågesträngar – standard nivå](cdn-query-string.md).

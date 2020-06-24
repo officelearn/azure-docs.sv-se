@@ -1,7 +1,7 @@
 ---
-title: ta med fil
+title: inkludera fil
 titleSuffix: Azure
-description: ta med fil
+description: inkludera fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680783"
 ---
-PowerShell-cmdleten **Get-AzPeeringLocation** returnerar en lista med peering-platser med den `Kind`obligatoriska parametern, som du kommer att använda i senare steg.
+PowerShell-cmdleten **Get-AzPeeringLocation** returnerar en lista med peering-platser med den obligatoriska parametern `Kind` , som du kommer att använda i senare steg.
 
 ```powershell
 Get-AzPeeringLocation -Kind Direct
@@ -23,7 +23,7 @@ Get-AzPeeringLocation -Kind Direct
 
 Direkta peering-platser innehåller följande fält:
 * PeeringLocation 
-* Land/region
+* Land
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
 * BandwidthOffers

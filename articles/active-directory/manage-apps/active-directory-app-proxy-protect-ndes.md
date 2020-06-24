@@ -3,22 +3,22 @@ title: Integrera med AD-programproxy på en NDES-Server
 titleSuffix: Azure Active Directory
 description: Vägledning om hur du distribuerar en Azure Active Directory-programproxy för att skydda NDES-servern.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77032262"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760804"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrera med Azure AD-programproxy på en server för registrerings tjänsten för nätverks enheter (NDES)
 
@@ -45,7 +45,7 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 1. Läs användningsvillkoren. När du är klar väljer du **Godkänn villkoren & Ladda ned**.
 1. Kopiera installations filen för Azure AD-programproxy Connector till NDES-servern. 
    > Du kan installera anslutningen på vilken server som helst i företags nätverket med åtkomst till NDES. Du behöver inte installera det på själva NDES-servern.
-1. Kör installations filen, till exempel *AADApplicationProxyConnectorInstaller. exe*. Godkänn licens villkoren för program varan.
+1. Kör installations filen, t. ex. *AADApplicationProxyConnectorInstaller.exe*. Godkänn licens villkoren för program varan.
 1. Under installationen uppmanas du att registrera anslutnings programmet med programproxyn i Azure AD-katalogen.
    * Ange autentiseringsuppgifter för en global eller program administratör i Azure AD-katalogen. Autentiseringsuppgifterna för Global Azure AD-eller program administratör kan skilja sig från dina Azure-autentiseringsuppgifter i portalen.
 
@@ -56,7 +56,7 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 
    * Om förbättrad säkerhets konfiguration i Internet Explorer är aktive rad för den server där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
    * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](application-proxy-troubleshoot.md).
-1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD-programproxy-anslutningen så att den fungerar via den utgående proxyn kör du det `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`tillhandahållna skriptet, till exempel.
+1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD-programproxy-anslutningen så att den fungerar via den utgående proxyn kör du det tillhandahållna skriptet, till exempel `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` .
 1. På sidan Application Proxy i Azure Portal visas den nya anslutningen med statusen *aktiv*, som visas i följande exempel:
 
     ![Den nya Azure AD-programproxy-anslutningen visas som aktiv i Azure Portal](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
@@ -83,7 +83,7 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 
 1. Testa om du kan komma åt NDES-servern via Azure AD-programproxyn genom att klistra in länken som du kopierade i steg 10 i en webbläsare. Du bör se en standard välkomst sida för IIS.
 
-1. Som ett slutligt test lägger du till sökvägen *mscep. dll* till den befintliga URL som du klistrade in i föregående steg:
+1. Som ett slutligt test lägger du till *mscep.dll* sökvägen till den befintliga URL: en som du klistrade in i föregående steg:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

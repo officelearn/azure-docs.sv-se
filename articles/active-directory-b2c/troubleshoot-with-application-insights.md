@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc227081af4f306a27b77eb727ea96467f94fa2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203120"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Samla in Azure Active Directory B2C loggar med Application Insights
 
@@ -42,28 +42,28 @@ Om du inte redan har en, skapar du en instans av Application Insights i din pren
 
 ## <a name="configure-the-custom-policy"></a>Konfigurera den anpassade principen
 
-1. Öppna den förlitande part filen (RP), till exempel *SignUpOrSignin. XML*.
+1. Öppna den förlitande part filen (RP), till exempel *SignUpOrSignin.xml*.
 1. Lägg till följande attribut i `<TrustFrameworkPolicy>` elementet:
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Lägg till en `<UserJourneyBehaviors>` underordnad nod till `<RelyingParty>` noden om den inte redan finns. Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
+1. Lägg till en `<UserJourneyBehaviors>` underordnad nod till noden om den inte redan finns `<RelyingParty>` . Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
 1. Lägg till följande nod som underordnad till `<UserJourneyBehaviors>` elementet. Ersätt `{Your Application Insights Key}` med den Application Insights **Instrumentation-nyckel** som du registrerade tidigare.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
     * `DeveloperMode="true"`instruerar ApplicationInsights att påskynda Telemetrin genom bearbetnings pipelinen. Lämpligt för utveckling, men är begränsat till hög volym.
-    * `ClientEnabled="true"`skickar skript för ApplicationInsights på klient sidan för att spåra sid visning och fel på klient sidan. Du kan visa dessa i tabellen **browserTimings** i Application Insights-portalen. Genom att `ClientEnabled= "true"`ställa in lägger du till Application Insights i sid skriptet och du får tids inställningar för sid inläsningar och AJAX-anrop, antal, information om webb läsar undantag och AJAX-fel samt antal användare och sessioner. Det här fältet är **valfritt**och anges som `false` standard.
+    * `ClientEnabled="true"`skickar skript för ApplicationInsights på klient sidan för att spåra sid visning och fel på klient sidan. Du kan visa dessa i tabellen **browserTimings** i Application Insights-portalen. Genom att ställa in `ClientEnabled= "true"` lägger du till Application Insights i sid skriptet och du får tids inställningar för sid inläsningar och AJAX-anrop, antal, information om webb läsar undantag och AJAX-fel samt antal användare och sessioner. Det här fältet är **valfritt**och anges som `false` standard.
     * `ServerEnabled="true"`skickar den befintliga UserJourneyRecorder-JSON som en anpassad händelse till Application Insights.
 
     Ett exempel:
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"

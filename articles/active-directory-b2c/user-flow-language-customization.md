@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2040d4521f655a0043987f2363e520abcc6c5d3a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78185768"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203184"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan ditt anvä
 
 ## <a name="how-language-customization-works"></a>Så här fungerar språk anpassning
 
-Du kan använda språk anpassning för att välja vilka språk som ditt användar flöde är tillgängligt i. När funktionen är aktive rad kan du ange `ui_locales`frågesträngparametern, från ditt program. När du anropar Azure AD B2C översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språken i ditt användar flöde och ignorerar språk inställningarna i kundens webbläsare.
+Du kan använda språk anpassning för att välja vilka språk som ditt användar flöde är tillgängligt i. När funktionen är aktive rad kan du ange frågesträngparametern, `ui_locales` från ditt program. När du anropar Azure AD B2C översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språken i ditt användar flöde och ignorerar språk inställningarna i kundens webbläsare.
 
 Du kanske inte behöver den kontroll nivån över vilka språk som din kund ser. Om du inte anger en `ui_locales` parameter, styrs kundens upplevelse av webbläsarens inställningar. Du kan fortfarande styra vilka språk som ditt användar flöde ska översättas till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill ha stöd för, visas det språk som du valde som standard i en kultur som stöds i stället.
 
@@ -72,19 +72,19 @@ De här stegen ger dig en JSON-fil som du kan använda för att börja redigera 
 ### <a name="change-any-string-on-the-page"></a>Ändra valfri sträng på sidan
 
 1. Öppna JSON-filen som hämtats från tidigare instruktioner i en JSON-redigerare.
-1. Hitta det element som du vill ändra. Du kan söka `StringId` efter den sträng som du söker eller leta efter det `Value` attribut som du vill ändra.
+1. Hitta det element som du vill ändra. Du kan söka efter `StringId` den sträng som du söker eller leta efter det `Value` attribut som du vill ändra.
 1. Uppdatera `Value` attributet med det du vill visa.
-1. Ändra `Override` till `true`för varje sträng som du vill ändra.
+1. Ändra till för varje sträng som du vill ändra `Override` `true` .
 1. Spara filen och överför ändringarna. (Du kan hitta överförings kontrollen på samma plats som du laddade ned JSON-filen.)
 
 > [!IMPORTANT]
-> Om du behöver åsidosätta en sträng, se till att ange `Override` värdet till. `true` Om värdet inte ändras ignoreras posten.
+> Om du behöver åsidosätta en sträng, se till att ange `Override` värdet till `true` . Om värdet inte ändras ignoreras posten.
 
 ### <a name="change-extension-attributes"></a>Ändra attribut för tillägg
 
 Om du vill ändra strängen för ett anpassat användarattribut, eller om du vill lägga till ett i JSON, är det i följande format:
 
-```JSON
+```json
 {
   "LocalizedStrings": [
     {
@@ -104,9 +104,9 @@ Ersätt `<ExtensionAttributeValue>` med den nya strängen som ska visas.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Ange en lista med värden med hjälp av LocalizedCollections
 
-Om du vill ange en uppsättning värden för svar måste du skapa ett `LocalizedCollections` -attribut. `LocalizedCollections`är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas. Använd följande `LocalizedCollections`format för att lägga till:
+Om du vill ange en uppsättning värden för svar måste du skapa ett- `LocalizedCollections` attribut. `LocalizedCollections`är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas. Använd följande format för att lägga till `LocalizedCollections` :
 
-```JSON
+```json
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{
@@ -128,7 +128,7 @@ Om du vill ange en uppsättning värden för svar måste du skapa ett `Localized
 }
 ```
 
-* `ElementId`är det användar-attribut som `LocalizedCollections` det här attributet är ett svar på.
+* `ElementId`är det användar-attribut som det här `LocalizedCollections` attributet är ett svar på.
 * `Name`är värdet som visas för användaren.
 * `Value`är vad som returneras i anspråket när det här alternativet är markerat.
 
@@ -145,15 +145,15 @@ Om du vill ange en uppsättning värden för svar måste du skapa ett `Localized
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Anpassa sid gränssnittet med hjälp av språk anpassning
 
-Det finns två sätt att lokalisera ditt HTML-innehåll. Ett sätt är att aktivera [språk anpassning](user-flow-language-customization.md). Om du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect- `ui-locales`parametern till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är språkspecifika.
+Det finns två sätt att lokalisera ditt HTML-innehåll. Ett sätt är att aktivera [språk anpassning](user-flow-language-customization.md). Om du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect-parametern `ui-locales` till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är språkspecifika.
 
-Du kan också hämta innehåll från olika platser baserat på de nationella inställningar som används. I din CORS-aktiverade slut punkt kan du ställa in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`. Anta till exempel att det här är din anpassade sid-URI:
+Du kan också hämta innehåll från olika platser baserat på de nationella inställningar som används. I din CORS-aktiverade slut punkt kan du ställa in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}` . Anta till exempel att det här är din anpassade sid-URI:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
 
-Du kan läsa in sidan i `fr`. När sidan hämtar HTML-och CSS-innehåll, hämtas de från:
+Du kan läsa in sidan i `fr` . När sidan hämtar HTML-och CSS-innehåll, hämtas de från:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
@@ -211,7 +211,7 @@ Azure AD B2C har stöd för följande språk. Användar flödes språk tillhanda
 | Danska                | da            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Tyska                | de            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Grekiska                 | El            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Svenska               | en            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Engelska               | en            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Spanska               | ES            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Estniska              | ge            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Baskiska                | gemenskaps            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
@@ -228,7 +228,7 @@ Azure AD B2C har stöd för följande språk. Användar flödes språk tillhanda
 | Japanska              | ja            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Kazakiska                | kk            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Kannada               | 5,0            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Koreansk                | Ko            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Koreanska                | Ko            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Litauiska            | långsiktiga            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Lettiska               | LV            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Malayalam             | ml            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |

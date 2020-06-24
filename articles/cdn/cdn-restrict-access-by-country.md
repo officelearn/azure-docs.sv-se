@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260164"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887022"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Begränsa Azure CDN innehåll efter land/region
 
@@ -42,7 +42,7 @@ Om du vill komma åt geo-filtrerings funktionen väljer du din CDN-slutpunkt i p
 
 I rutan **sökväg** anger du den relativa sökvägen till den plats som användarna ska beviljas eller nekas åtkomst till. 
 
-Du kan använda geo-filtrering för alla filer med ett snedstreck (/) eller välja vissa mappar genom att ange katalog Sök vägar (till exempel */Pictures/*). Du kan också använda geo-filtrering på en enskild fil (till exempel */Pictures/City.png*). Flera regler är tillåtna. När du har angett en regel visas en tom rad där du kan ange nästa regel.
+Du kan använda geo-filtrering för alla filer med ett snedstreck (/) eller välja vissa mappar genom att ange katalog Sök vägar (till exempel */Pictures/*). Du kan också använda geo-filtrering på en enskild fil (till exempel */pictures/city.png*). Flera regler är tillåtna. När du har angett en regel visas en tom rad där du kan ange nästa regel.
 
 Till exempel är alla följande katalog Sök vägs filter giltiga:   
 */*                                 
@@ -59,8 +59,8 @@ I listan **åtgärd** väljer du **Tillåt** eller **blockera**:
 - **Blockera**: användare från de angivna länderna/regionerna nekas åtkomst till de till gångar som begärs från den rekursiva sökvägen. Om inga andra länder/regions filtrerings alternativ har kon figurer ATS för den platsen kommer alla andra användare att få åtkomst.
 
 En geo-filtrerings regel för att blockera sökvägen */photos/Strasbourg/* filtrerar till exempel följande filer:     
-*http\//:\<slut punkt>. azureedge.net/photos/Strasbourg/1000.jpg*
-*http\//\<: slut punkt>. azureedge.net/photos/Strasbourg/Cathedral/1000.jpg*
+*http: \/ / \<endpoint> . azureedge.net/photos/Strasbourg/1000.jpg* 
+ *http: \/ / \<endpoint> . azureedge.net/photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Definiera länder/regioner
 I listan **lands koder** väljer du de länder/regioner som du vill blockera eller tillåta för sökvägen. 

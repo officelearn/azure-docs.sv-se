@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a939eece83b94043f750d6f7f63db290f827da4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611275"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077978"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper och program i åtkomst granskningar för Azure AD
 
@@ -43,7 +43,7 @@ Du kan starta åtkomst gransknings processen från e-postmeddelandet eller genom
 
 - **Om du inte har e-postmeddelandet**kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-    1. Logga in på mina apps-portalen på [https://myapps.microsoft.com](https://myapps.microsoft.com).
+    1. Logga in på mina apps-portalen på [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
         ![Min Apps-portal som visar appar som du har behörighet att](./media/perform-access-review/myapps-access-panel.png)
 
@@ -113,7 +113,7 @@ Du kan komma åt den nya granskaren med det uppdaterade användar gränssnittet 
 
 ### <a name="my-apps-portal"></a>Min Apps-Portal
 
-1. Logga in till Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Logga in till Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
     ![Min Apps-portal som visar appar som du har behörighet att](./media/perform-access-review/myapps-access-panel.png)
 

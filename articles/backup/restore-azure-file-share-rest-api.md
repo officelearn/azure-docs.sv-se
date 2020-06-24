@@ -4,11 +4,11 @@ description: Lär dig hur du använder REST API för att återställa Azure-filr
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252511"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710583"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Återställa Azure-filresurser med hjälp av REST API
 
@@ -378,7 +378,7 @@ En fullständig lista över definitioner av begär ande texten och annan informa
 
 ### <a name="restore-to-original-location"></a>Återställ till ursprunglig plats
 
-Följande brödtext i begäran är att återställa filen *Restoretest. txt* i *migreringsåtgärden* -filresursen i *afsaccount* lagrings konto.
+Följande brödtext i begäran är att återställa *Restoretest.txt* -filen i *migreringsåtgärden* -filresursen i *afsaccount* Storage-kontot.
 
 Skapa brödtext för begäran
 
@@ -404,7 +404,7 @@ Skapa brödtext för begäran
 
 ### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
 
-Följande brödtext i begäran är att återställa filen *Restoretest. txt* i *migreringsåtgärden* -filresursen i *afsaccount* lagrings konto till *restoredata* -mappen för *azurefiles1* -filresursen i *afaccount1* lagrings konto.
+Följande brödtext i begäran är att återställa *Restoretest.txt* -filen i *migreringsåtgärden* -filresursen i *afsaccount* -lagrings kontot till mappen *restoredata* i *azurefiles1* -filresursen i *afaccount1* lagrings konto.
 
 Skapa brödtext för begäran
 

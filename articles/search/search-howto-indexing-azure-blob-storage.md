@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 413f8d02420b5442b5ffa1491f4312292e8b3a0e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067651"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077509"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -33,7 +33,7 @@ Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
 * [Azure Portal](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Kognitiv sökning [.NET SDK](https://aka.ms/search-sdk)
+* Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
 > [!NOTE]
 > Vissa funktioner (till exempel fält mappningar) är ännu inte tillgängliga i portalen och måste användas program mässigt.
@@ -47,7 +47,7 @@ En data källa anger vilka data som ska indexeras, autentiseringsuppgifter som b
 För BLOB-indexering måste data källan ha följande obligatoriska egenskaper:
 
 * **Name** är det unika namnet på data källan i Sök tjänsten.
-* **typen** måste vara `azureblob`.
+* **typen** måste vara `azureblob` .
 * **autentiseringsuppgifterna** tillhandahåller anslutnings strängen för lagrings kontot som `credentials.connectionString` parameter. Mer information finns i [ange autentiseringsuppgifter](#Credentials) nedan.
 * **container** anger en behållare i ditt lagrings konto. Som standard kan alla blobar i behållaren hämtas. Om du bara vill indexera blobbar i en viss virtuell katalog kan du ange den katalogen med hjälp av parametern valfri **fråga** .
 
@@ -78,7 +78,7 @@ Du kan ange autentiseringsuppgifter för BLOB-behållaren på något av följand
 Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Om du använder SAS-autentiseringsuppgifter måste du uppdatera autentiseringsuppgifterna för data källan regelbundet med förnyade signaturer för att förhindra att de upphör att gälla. Om autentiseringsuppgifter för SAS går ut Miss Miss känner indexeraren med ett fel meddelande som `Credentials provided in the connection string are invalid or have expired.`liknar.  
+> Om du använder SAS-autentiseringsuppgifter måste du uppdatera autentiseringsuppgifterna för data källan regelbundet med förnyade signaturer för att förhindra att de upphör att gälla. Om autentiseringsuppgifter för SAS går ut Miss Miss känner indexeraren med ett fel meddelande som liknar `Credentials provided in the connection string are invalid or have expired.` .  
 
 ### <a name="step-2-create-an-index"></a>Steg 2: Skapa ett index
 Indexet anger fält i ett dokument, attribut och andra konstruktioner som formar Sök funktionen.
@@ -130,23 +130,23 @@ Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexera
 > [!NOTE]
 > Som standard indexeras blobbar med strukturerat innehåll som JSON eller CSV som ett enda text segment. Om du vill indexera JSON-och CSV-blobbar på ett strukturerat sätt, se [INDEXERA JSON-blobbar](search-howto-index-json-blobs.md) och [Indexera CSV-blobbar](search-howto-index-csv-blobs.md) för mer information.
 >
-> Ett sammansatt eller inbäddat dokument (till exempel ett ZIP-arkiv eller ett Word-dokument med inbäddad Outlook-e-post med bifogade filer) indexeras också som ett enda dokument.
+> Ett sammansatt eller inbäddat dokument (till exempel ett ZIP-arkiv, ett Word-dokument med inbäddad Outlook-e-post med bifogade filer eller en. MSG-filen med bifogade filer är också indexerad som ett enda dokument. Till exempel alla bilder som extraheras från bilagorna till en. MSG-filen kommer att returneras i fältet normalized_images.
 
-* Text innehållet i dokumentet extraheras till ett sträng fält med namnet `content`.
+* Text innehållet i dokumentet extraheras till ett sträng fält med namnet `content` .
 
 > [!NOTE]
 > Azure Kognitiv sökning begränsar hur mycket text den extraherar beroende på pris nivå: 32 000 tecken för kostnads fri nivå, 64 000 för Basic, 4 000 000 för standard, 8 000 000 för standard S2 och 16 000 000 för standard S3. En varning ingår i status svaret för indexeraren för trunkerade dokument.  
 
-* Användare-angivna metadataegenskaper som finns i blobben extraheras orda Grant. Observera att detta kräver att ett fält definieras i indexet med samma namn som metadata-nyckeln för blobben. Om din `Sensitivity` blob till exempel har en nyckel för med värde `High`, bör du definiera ett fält med namnet `Sensitivity` i Sök indexet så att det fylls med värdet. `High`
+* Användare-angivna metadataegenskaper som finns i blobben extraheras orda Grant. Observera att detta kräver att ett fält definieras i indexet med samma namn som metadata-nyckeln för blobben. Om din BLOB till exempel har en nyckel för `Sensitivity` med värde `High` , bör du definiera ett fält med namnet `Sensitivity` i Sök indexet så att det fylls med värdet `High` .
 * Standard egenskaper för BLOB-metadata extraheras i följande fält:
 
-  * **\_lagrings\_namn för metadata** (EDM. String) – fil namnet för blobben. Om du till exempel har en BLOB-/My-container/My-Folder/subfolder/Resume.pdf är `resume.pdf`värdet för det här fältet.
-  * **\_lagrings\_Sök väg för metadata** (EDM. String)-den fullständiga URI: n för blobben, inklusive lagrings kontot. Till exempel, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **innehålls\_typ\_för metadata\_-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Till exempel `application/octet-stream`.
-  * **metadata\_Storage\_senast\_ändrad** (EDM. DateTimeOffset)-den senaste ändrade tidsstämpeln för blobben. Azure Kognitiv sökning använder den här tidsstämpeln för att identifiera ändrade blobbar, för att undvika att indexera om allt efter den inledande indexeringen.
-  * **\_lagrings\_storlek för metadata** (EDM. Int64) – BLOB-storlek i byte.
-  * **innehåll\_för\_metadata\_Storage MD5** (EDM. String) – MD5-hash av BLOB-innehållet, om det är tillgängligt.
-  * **SAS\_-\_token för metadata\_Storage** (EDM. String) – en tillfällig SAS-token som kan användas av [anpassade kunskaper](cognitive-search-custom-skill-interface.md) för att få åtkomst till blobben. Denna token ska inte lagras för senare användning eftersom den kan gå ut.
+  * ** \_ lagrings \_ namn för metadata** (EDM. String) – fil namnet för blobben. Om du till exempel har en BLOB-/My-container/My-Folder/subfolder/resume.pdf är värdet för det här fältet `resume.pdf` .
+  * ** \_ lagrings \_ Sök väg för metadata** (EDM. String)-den fullständiga URI: n för blobben, inklusive lagrings kontot. Till exempel, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * ** \_ \_ innehålls \_ typ för metadata-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Exempelvis `application/octet-stream`.
+  * **metadata \_ Storage \_ senast \_ ändrad** (EDM. DateTimeOffset)-den senaste ändrade tidsstämpeln för blobben. Azure Kognitiv sökning använder den här tidsstämpeln för att identifiera ändrade blobbar, för att undvika att indexera om allt efter den inledande indexeringen.
+  * ** \_ lagrings \_ storlek för metadata** (EDM. Int64) – BLOB-storlek i byte.
+  * **innehåll för metadata \_ Storage \_ \_ Md5** (EDM. String) – MD5-hash av BLOB-innehållet, om det är tillgängligt.
+  * ** \_ SAS- \_ \_ token för metadata Storage** (EDM. String) – en tillfällig SAS-token som kan användas av [anpassade kunskaper](cognitive-search-custom-skill-interface.md) för att få åtkomst till blobben. Denna token ska inte lagras för senare användning eftersom den kan gå ut.
 
 * Metadata-egenskaper som är speciella för varje dokument format extraheras till fälten som visas [här](#ContentSpecificMetadata).
 
@@ -163,16 +163,16 @@ I Azure Kognitiv sökning identifierar dokument nyckeln ett dokument unikt. Varj
 
 Du bör noga överväga vilka extraherade fält som ska mappas till nyckel fältet för ditt index. Kandidater är:
 
-* **\_lagrings\_namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp `base64Encode` av [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för det syftet).
-* **\_lagrings\_Sök väg för metadata** – genom att använda den fullständiga sökvägen ser du till att `/` sökvägen är unik, men sökvägen innehåller definitivt [ogiltiga tecken i en dokument nyckel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp `base64Encode` av [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
+* ** \_ lagrings \_ namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för det syftet).
+* ** \_ lagrings \_ Sök väg för metadata** – genom att använda den fullständiga sökvägen ser du till att sökvägen är unik, men sökvägen innehåller definitivt `/` [ogiltiga tecken i en dokument nyckel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp av `base64Encode` [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
 * Om inget av alternativen ovan fungerar kan du lägga till en anpassad metadata-egenskap till Blobbarna. Det här alternativet kräver dock att BLOB-uppladdnings processen lägger till denna metadata-egenskap till alla blobbar. Eftersom nyckeln är en obligatorisk egenskap, kommer alla blobar som inte har denna egenskap att kunna indexeras.
 
 > [!IMPORTANT]
-> Om det inte finns någon explicit mappning för nyckel fältet i indexet, används `metadata_storage_path` automatiskt Azure kognitiv sökning som nyckel-och bas-64-kodningar nyckel värden (det andra alternativet ovan).
+> Om det inte finns någon explicit mappning för nyckel fältet i indexet, används automatiskt Azure Kognitiv sökning `metadata_storage_path` som nyckel-och bas-64-kodningar nyckel värden (det andra alternativet ovan).
 >
 >
 
-I det här exemplet väljer vi `metadata_storage_name` fältet som dokument nyckel. Vi antar också att ditt index har ett nyckel fält med `key` namnet och ett `fileSize` fält för att lagra dokument storleken. Om du vill ansluta saker efter behov anger du följande fält mappningar när du skapar eller uppdaterar indexeraren:
+I det här exemplet väljer vi `metadata_storage_name` fältet som dokument nyckel. Vi antar också att ditt index har ett nyckel fält med namnet `key` och ett fält `fileSize` för att lagra dokument storleken. Om du vill ansluta saker efter behov anger du följande fält mappningar när du skapar eller uppdaterar indexeraren:
 
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
@@ -228,7 +228,7 @@ Du kan exkludera blobbar med vissa fil namns tillägg från indexering med hjäl
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Om både `indexedFileNameExtensions` och `excludedFileNameExtensions` -parametrarna finns, tittar Azure kognitiv sökning först på `indexedFileNameExtensions`, sedan på `excludedFileNameExtensions`. Det innebär att om samma fil namns tillägg finns i båda listorna, kommer det att undantas från indexering.
+Om både `indexedFileNameExtensions` och `excludedFileNameExtensions` -parametrarna finns, tittar Azure kognitiv sökning först på `indexedFileNameExtensions` , sedan på `excludedFileNameExtensions` . Det innebär att om samma fil namns tillägg finns i båda listorna, kommer det att undantas från indexering.
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrol lera vilka delar av blobben som indexeras
@@ -262,7 +262,7 @@ De konfigurations parametrar som beskrivs ovan gäller för alla blobbar. Ibland
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Hantera fel
 
-Som standard stoppas BLOB-indexeraren så snart den påträffar en blob med en innehålls typ som inte stöds (till exempel en bild). Du kan naturligtvis använda `excludedFileNameExtensions` parametern för att hoppa över vissa innehålls typer. Du kan dock behöva indexera blobbar utan att känna till alla möjliga innehålls typer i förväg. Om du vill fortsätta indexera när en innehålls typ som inte stöds har påträffats `failOnUnsupportedContentType` ställer du in `false`konfigurations parametern på:
+Som standard stoppas BLOB-indexeraren så snart den påträffar en blob med en innehålls typ som inte stöds (till exempel en bild). Du kan naturligtvis använda `excludedFileNameExtensions` parametern för att hoppa över vissa innehålls typer. Du kan dock behöva indexera blobbar utan att känna till alla möjliga innehålls typer i förväg. Om du vill fortsätta indexera när en innehålls typ som inte stöds har påträffats ställer du in `failOnUnsupportedContentType` konfigurations parametern på `false` :
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -281,7 +281,7 @@ Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` parametrarna `maxFailedItemsPerBatch` och för konfigurationen till önskade värden. Ett exempel:
+Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` `maxFailedItemsPerBatch` parametrarna och för konfigurationen till önskade värden. Ett exempel:
 
     {
       ... other parts of indexer definition
@@ -290,7 +290,7 @@ Du kan också fortsätta att indexera om fel inträffar när som helst, antingen
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Identifiering och borttagning av stegvis indexering
 
-När du konfigurerar en BLOB-indexerare så att den körs enligt ett schema, indexerar den bara om de ändrade Blobbarna, vilket bestäms av `LastModified` blobens tidsstämpel.
+När du konfigurerar en BLOB-indexerare så att den körs enligt ett schema, indexerar den bara om de ändrade Blobbarna, vilket bestäms av blobens `LastModified` tidsstämpel.
 
 > [!NOTE]
 > Du behöver inte ange en princip för ändrings identifiering – stegvis indexering aktive ras automatiskt.
@@ -331,7 +331,7 @@ Använd följande steg:
 
 #### <a name="reindexing-undeleted-blobs"></a>Omindexerade blobar som inte har raderats
 
-Om du tar bort en BLOB från Azure Blob Storage med inbyggd mjuk borttagning aktive rad på ditt lagrings konto, övergår bloben till ett mjukt borttaget tillstånd och ger dig möjlighet att ångra borttagningen av bloben inom kvarhållningsperioden. När en Azure Kognitiv sökning-datakälla har en inbyggd princip för mjuk borttagning av BLOB och indexeraren bearbetar en mjuk borttagen BLOB tas dokumentet bort från indexet. Om bloben senare tas bort, kommer indexeraren inte alltid att indexera om denna blob. Detta beror på att indexeraren bestämmer vilka blobbar som ska indexeras baserat på blobens `LastModified` tidsstämpel. När en mjuk borttagen BLOB inte har tagits bort `LastModified` kommer dess tidsstämpel inte att uppdateras, så om indexeraren redan har bearbetat `LastModified` blobbar med tidsstämplar senare än den borttagna blobben indexeras inte den icke borttagna blobben. För att se till att en ångrad BLOB indexeras om måste du uppdatera blobens `LastModified` tidstämpel. Ett sätt att göra detta är genom att spara om metadata för denna blob. Du behöver inte ändra metadata, men om du sparar om metadata uppdateras blobens `LastModified` tidstämpel så att indexeraren vet att den måste indexera om denna blob.
+Om du tar bort en BLOB från Azure Blob Storage med inbyggd mjuk borttagning aktive rad på ditt lagrings konto, övergår bloben till ett mjukt borttaget tillstånd och ger dig möjlighet att ångra borttagningen av bloben inom kvarhållningsperioden. När en Azure Kognitiv sökning-datakälla har en inbyggd princip för mjuk borttagning av BLOB och indexeraren bearbetar en mjuk borttagen BLOB tas dokumentet bort från indexet. Om bloben senare tas bort, kommer indexeraren inte alltid att indexera om denna blob. Detta beror på att indexeraren bestämmer vilka blobbar som ska indexeras baserat på blobens `LastModified` tidsstämpel. När en mjuk borttagen BLOB inte har tagits bort `LastModified` kommer dess tidsstämpel inte att uppdateras, så om indexeraren redan har bearbetat blobbar med `LastModified` tidsstämplar senare än den borttagna blobben indexeras inte den icke borttagna blobben. För att se till att en ångrad BLOB indexeras om måste du uppdatera blobens `LastModified` tidstämpel. Ett sätt att göra detta är genom att spara om metadata för denna blob. Du behöver inte ändra metadata, men om du sparar om metadata uppdateras blobens `LastModified` tidstämpel så att indexeraren vet att den måste indexera om denna blob.
 
 ### <a name="soft-delete-using-custom-metadata"></a>Mjuk borttagning med anpassade metadata
 
@@ -343,7 +343,7 @@ Använd följande steg:
 1. Konfigurera en princip för identifiering av mjuk borttagnings kolumner på data källan. Ett exempel på detta visas nedan.
 1. När indexeraren har bearbetat blobben och tagit bort dokumentet från indexet kan du ta bort bloben för Azure Blob Storage.
 
-Följande princip anser till exempel att en BLOB tas bort om den har en metadata-egenskap `IsDeleted` med värdet: `true`
+Följande princip anser till exempel att en BLOB tas bort om den har en metadata-egenskap `IsDeleted` med värdet `true` :
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
@@ -370,7 +370,7 @@ Om du anger en princip för att ta bort en mjuk borttagnings kolumn på din data
 Indexering av blobbar kan vara en tids krävande process. I de fall där du har miljon tals blobbar att indexera kan du påskynda indexeringen genom att partitionera data och använda flera indexerare för att bearbeta data parallellt. Så här kan du konfigurera detta:
 
 - Partitionera dina data i flera BLOB-behållare eller virtuella mappar
-- Konfigurera flera Azure Kognitiv sökning data källor, en per behållare eller mapp. Använd `query` parametern för att peka på en BLOB-mapp:
+- Konfigurera flera Azure Kognitiv sökning data källor, en per behållare eller mapp. Använd parametern för att peka på en BLOB-mapp `query` :
 
     ```
     {
@@ -394,7 +394,7 @@ För att detta ska fungera måste alla indexerare och andra komponenter godkänn
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexera oformaterad text 
 
-Om alla blobar innehåller oformaterad text i samma kodning, kan du förbättra indexerings prestanda avsevärt genom att använda **text tolknings läge**. Om du vill använda text tolknings läge ställer `parsingMode` du in konfigurations egenskapen på `text`:
+Om alla blobar innehåller oformaterad text i samma kodning, kan du förbättra indexerings prestanda avsevärt genom att använda **text tolknings läge**. Om du vill använda text tolknings läge ställer du in `parsingMode` konfigurations egenskapen på `text` :
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -405,7 +405,7 @@ Om alla blobar innehåller oformaterad text i samma kodning, kan du förbättra 
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-Som standard antas `UTF-8` kodningen. Om du vill ange en annan kodning använder `encoding` du konfigurations egenskapen: 
+Som standard `UTF-8` antas kodningen. Om du vill ange en annan kodning använder du `encoding` konfigurations egenskapen: 
 
     {
       ... other parts of indexer definition
@@ -421,9 +421,9 @@ I följande tabell sammanfattas bearbetningen för varje dokument format och de 
 | --- | --- | --- |
 | HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Remsa HTML-kod och extrahera text |
 | PDF (program/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extrahera text, inklusive inbäddade dokument (exklusive bilder) |
-| DOCX (Application/VND. openxmlformats-officedocument. WordprocessingML. Document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
+| DOCX (Application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
 | DOC (program/MSWord) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
-| DOCM (Application/VND. MS-Word. Document. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
+| DOCM (Application/vnd.ms-word.document. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
 | WORD XML (Application/VND. MS-word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Stripe XML-kod och extrahera text |
 | WORD 2003 XML (Application/VND. MS-WordML) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |Stripe XML-kod och extrahera text |
 | XLSX (Application/VND. openxmlformats-officedocument. SpreadsheetML. Sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extrahera text, inklusive inbäddade dokument |
@@ -432,7 +432,7 @@ I följande tabell sammanfattas bearbetningen för varje dokument format och de 
 | PPTX (Application/VND. openxmlformats-officedocument. presentationml. presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive inbäddade dokument |
 | PPT (Application/VND. MS-PowerPoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive inbäddade dokument |
 | PPTM (Application/VND. MS-PowerPoint. presentation. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrahera text, inklusive inbäddade dokument |
-| MSG (Application/VND. MS-Outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive bifogade filer. `metadata_message_to_email`, `metadata_message_cc_email` och `metadata_message_bcc_email` är sträng samlingar, är resten av fälten strängar.|
+| MSG (Application/VND. MS-Outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrahera text, inklusive text som extraherats från bilagor. `metadata_message_to_email`, `metadata_message_cc_email` och `metadata_message_bcc_email` är sträng samlingar, är resten av fälten strängar.|
 | ODT (Application/VND. Oasis. OpenDocument. text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extrahera text, inklusive inbäddade dokument |
 | ODS (Application/VND. Oasis. OpenDocument. kalkyl blad) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extrahera text, inklusive inbäddade dokument |
 | ODP (Application/VND. Oasis. OpenDocument. presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extrahera text, inklusive inbäddade dokument |

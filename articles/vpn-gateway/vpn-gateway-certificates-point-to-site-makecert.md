@@ -4,15 +4,15 @@ description: Skapa ett självsignerat rot certifikat, exportera den offentliga n
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7903dc7f614d16380626f27579363b1529665cc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75833979"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84988119"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Skapa och exportera certifikat för punkt-till-plats-anslutningar med MakeCert
 
@@ -27,7 +27,7 @@ Vi rekommenderar att du använder [Windows 10 PowerShell-stegen](vpn-gateway-cer
 Följande steg visar hur du skapar ett självsignerat certifikat med MakeCert. De här stegen är inte distributions modell som är speciell. De är giltiga för både Resource Manager och klassisk.
 
 1. Hämta och installera [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Efter installationen kan du vanligt vis hitta verktyget Makecert. exe under den här sökvägen: ' C:\Program Files (x86) \Windows Kits\10\bin\<båge> '. Även om det är möjligt är det möjligt att det har installerats på en annan plats. Öppna en kommando tolk som administratör och navigera till platsen för MakeCert-verktyget. Du kan använda följande exempel för att justera efter rätt plats:
+2. Efter installationen kan du vanligt vis hitta makecert.exe-verktyget under denna sökväg: ' C:\Program Files (x86) \Windows Kits\10\bin \<arch> '. Även om det är möjligt är det möjligt att det har installerats på en annan plats. Öppna en kommando tolk som administratör och navigera till platsen för MakeCert-verktyget. Du kan använda följande exempel för att justera efter rätt plats:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

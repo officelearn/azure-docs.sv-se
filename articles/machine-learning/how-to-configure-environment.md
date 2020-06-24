@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: bc312964b9afe5c025b6e13657ccf2725aff3bd8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552403"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816727"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 * [Visual Studio Code](#vscode): om du använder Visual Studio code innehåller [Azure Machine Learning tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) omfattande språk stöd för python samt funktioner för att arbeta med Azure Machine Learning mycket bekvämare och produktivitet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#compute-instance), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
 
@@ -59,7 +59,7 @@ Azure Machine Learning [Compute-instansen (förhands granskning)](concept-comput
 
 Det finns inget att installera eller konfigurera för en beräknings instans.  Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
-Läs mer om [beräknings instanser](concept-compute-instance.md).
+Om du vill veta mer om beräknings instanser, inklusive hur du installerar paket, se [Compute instances](concept-compute-instance.md).
 
 [Stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#clean-up-resources)om du vill sluta att debiteras för beräknings kostnader.
 
@@ -243,7 +243,7 @@ Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
 
 1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learning går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visuell Studio-kod
 
 Visual Studio Code är en mycket populär kod redigerare för olika plattformar som stöder en omfattande uppsättning programmeringsspråk och verktyg via tillägg som är tillgängliga i [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installerar [python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för kodning i alla typer av python-miljöer (Virtual, Anaconda osv.). Dessutom innehåller den praktiska funktioner för att arbeta med Azure Machine Learning resurser och köra Azure Machine Learning experiment utan att lämna Visual Studio Code.
 
@@ -345,7 +345,7 @@ Prova:
 
 ## <a name="create-a-workspace-configuration-file"></a><a id="workspace"></a>Skapa en konfigurations fil för arbets ytor
 
-Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config. JSON*och har följande format:
+Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config.jspå*och har följande format:
 
 ```json
 {
@@ -361,9 +361,9 @@ Använd om du vill använda den här filen från din kod `ws=Workspace.from_conf
 
 Du kan skapa konfigurations filen på tre sätt:
 
-* **Använd [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: för att skriva en *config. JSON* -fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config. JSON* till andra utvecklings miljöer.
+* **Använd [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: för att skriva en *config.jspå* en fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config.js* till andra utvecklings miljöer.
 
-* **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från **översikts** avsnittet på arbets ytan.
+* **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -384,7 +384,7 @@ Du kan skapa konfigurations filen på tre sätt:
         print('Workspace not found')
     ```
 
-    Den här koden skriver konfigurations filen till *. azureml-/config. JSON-* filen.
+    Den här koden skriver konfigurations filen till filen *. azureml/config.jspå* filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

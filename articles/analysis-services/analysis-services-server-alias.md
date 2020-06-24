@@ -4,15 +4,15 @@ description: Lär dig hur du skapar Azure Analysis Services server namn-alias. A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 42055762c9c0a642b3efd05af841d70f3f91413c
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698997"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816875"
 ---
 # <a name="alias-server-names"></a>Ali Aset Server namn
 
@@ -37,7 +37,7 @@ När du ansluter från en klient anges Ali Aset serverns namn med hjälp av prot
 
 Om du vill skapa en alias-slutpunkt kan du använda valfri metod som returnerar ett giltigt Azure Analysis Services server namn. Till exempel en referens till en fil i Azure Blob Storage som innehåller det riktiga Server namnet eller skapa och publicera ett ASP.NET webb formulär program.
 
-I det här exemplet skapas ett ASP.NET webb formulär program i Visual Studio. Huvud sid referensen och användar kontrollen tas bort från default. aspx-sidan. Innehållet i default. aspx är bara följande sid direktiv:
+I det här exemplet skapas ett ASP.NET webb formulär program i Visual Studio. Sid referensen och användar kontrollen tas bort från default. aspx-sidan. Innehållet i default. aspx är bara följande sid direktiv:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>

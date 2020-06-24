@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309676"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079048"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -201,16 +201,37 @@ När du skapar ett AKS-kluster skapas automatiskt en nätverks säkerhets grupp 
 
 I Kubernetes måste det finnas en routningstabell i dina kluster under nät (er). AKS stöder att du använder ditt eget befintliga undernät och routningstabellen.
 
-Om det anpassade under nätet inte innehåller någon routningstabell, skapar AKS ett för dig och lägger till regler till den. Om ditt anpassade undernät innehåller en routningstabell när du skapar klustret, bekräftar AKS den befintliga routningstabellen under kluster åtgärder och uppdaterar regler i enlighet med detta för moln leverantörs åtgärder.
+Om det anpassade under nätet inte innehåller någon routningstabell, skapar AKS ett för dig och lägger till regler till den under hela kluster livs cykeln. Om ditt anpassade undernät innehåller en routningstabell när du skapar klustret, bekräftar AKS den befintliga routningstabellen under kluster åtgärder och lägger till/uppdaterar regler för moln leverantörs åtgärder.
+
+> [!WARNING]
+> Anpassade regler kan läggas till i tabellen för anpassade vägar och uppdateras. Regler läggs dock till av Kubernetes Cloud-providern som inte får uppdateras eller tas bort. Regler som 0.0.0.0/0 måste alltid finnas i en specifik routningstabell och mappas till målet för din Internet-gateway, till exempel en NVA eller andra utgående Gateway. Var försiktig när du uppdaterar regler som bara de anpassade reglerna ändras i.
+
+Lär dig mer om att skapa en [anpassad routningstabell][custom-route-table].
+
+Kubernetes nätverk kräver strukturerade väg tabell regler för att kunna dirigera begär Anden. På grund av den här designen måste routningstabeller upprätthållas noggrant för varje kluster som förlitar sig på den. Flera kluster kan inte dela en routningstabell eftersom Pod CIDR-fel från olika kluster kan överlappa, vilket orsakar oväntad och bruten routning. Se till att följande begränsningar beaktas när du konfigurerar flera kluster i samma virtuella nätverk eller dedicera ett virtuellt nätverk till varje kluster.
 
 Begränsningar:
 
 * Behörigheter måste tilldelas innan klustret skapas, se till att du använder ett huvud namn för tjänsten med Skriv behörighet för ditt anpassade undernät och en anpassad routningstabell.
 * Hanterade identiteter stöds för närvarande inte med anpassade routningstabeller i Kubernetes.
-* En anpassad routningstabell måste vara kopplad till under nätet innan du skapar AKS-klustret. Det går inte att uppdatera väg tabellen och alla routningsregler måste läggas till eller tas bort från den första routningstabellen innan du skapar AKS-klustret.
-* Alla undernät i ett AKS virtuellt nätverk måste använda associeras med samma routningstabell.
-* Varje AKS-kluster måste använda en unik routningstabell. Du kan inte återanvända en routningstabell med flera kluster.
+* En anpassad routningstabell måste vara kopplad till under nätet innan du skapar AKS-klustret.
+* Den tillhör ande väg tabell resursen kan inte uppdateras efter att klustret har skapats. Medan väg tabell resursen inte kan uppdateras kan anpassade regler ändras i routningstabellen.
+* Varje AKS-kluster måste använda en enda, unik routningstabell för alla undernät som är associerade med klustret. Du kan inte återanvända en routningstabell med flera kluster på grund av risken för överlappande Pod CIDR och motstridiga regler för routning.
 
+När du har skapat en anpassad routningstabell och associerat den till ditt undernät i ditt virtuella nätverk kan du skapa ett nytt AKS-kluster som använder routningstabellen.
+Du måste använda under nätets ID för var du planerar att distribuera ditt AKS-kluster. Det här under nätet måste också vara kopplat till din anpassade routningstabell.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -238,3 +259,4 @@ Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella 
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

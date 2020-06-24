@@ -1,20 +1,20 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 06/01/2020
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80286191"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686364"
 ---
 Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har fått ett intresse eller distribuerar din produkt.
 
@@ -22,7 +22,6 @@ Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppl
 
 Partner Center stöder följande CRM-system för hantering av leads. Välj länken för installations anvisningar.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) – ange kontakt-e-postadress, container namn och anslutnings sträng för lagrings konto. 
 - [Azure-tabell](../commercial-marketplace-lead-management-instructions-azure-table.md) – ange anslutnings sträng för kontakt-och lagrings konto. 
 - [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) – ange kontakt-e-post, URL och autentiseringsläge (Office 365 eller Azure Active Directory).
 - [Https-slutpunkt](../commercial-marketplace-lead-management-instructions-https.md) – ange URL för kontakt-e-postadress och HTTPS-slutpunkt. 

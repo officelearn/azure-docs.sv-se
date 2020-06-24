@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 716fbafb444985a9c47635f944f6c9c7078c9aa6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636262"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202661"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du stöder flera språk i principen för användar r
 1. Lägg till `Localization` elementet med de språk som stöds: engelska (standard) och spanska.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -51,7 +51,7 @@ Du konfigurerar lokaliserade resurs element för innehålls definitionen och val
 > [!NOTE]
 > I följande exempel lade vi till pund `#` symbolen i begging för varje rad, så att du kan easly hitta de lokaliserade etiketterna på skärmen.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -218,7 +218,7 @@ Klistra in hela innehållet i ContentDefinitions-elementet som du kopierade som 
 
 I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängarna till i registrerings-eller inloggnings sidan och på registrerings sidan för lokalt konto. **LocalizedResourcesReferenceId** för varje **LocalizedResourcesReference** är detsamma som deras nationella inställningar, men du kan använda valfri sträng som identifierare. För varje språk-och sid kombination pekar du på motsvarande **LocalizedResources** som du skapade tidigare.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -252,7 +252,7 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 1. Välj den princip som du överförde och välj sedan **Kör nu**.
 1. Du bör kunna se den lokaliserade registrerings-eller inloggnings sidan.
 1. Klicka på registrerings länken och du bör kunna se den lokaliserade anmälnings sidan.
-1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Till exempel: 
+1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Ett exempel: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

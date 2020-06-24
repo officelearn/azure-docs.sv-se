@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat i Azure Government
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat i Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: a7a2e90b718c50cb86fdca9911e7535d434e7afa
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84332009"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052488"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurera en installation i Azure Government 
 
@@ -19,7 +19,7 @@ Följ den här artikeln för att distribuera en [Azure Migrate-apparat](deploy-a
 > Alternativet för att distribuera en installation med hjälp av en mall (för virtuella VMware-datorer och virtuella Hyper-V-datorer) stöds inte i Azure Government.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 
@@ -45,7 +45,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
 3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
@@ -71,7 +71,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller. ps1**på följande sätt:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
@@ -97,7 +97,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
 3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
@@ -124,7 +124,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller. ps1**på följande sätt:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
@@ -150,7 +150,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
 3. Kontrol lera den senaste versionen av produkten och hash-värdet:
 
@@ -176,7 +176,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller. ps1**på följande sätt:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst

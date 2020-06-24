@@ -5,20 +5,20 @@ description: Den här artikeln visar hur du distribuerar IPv6-adresser till ett 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ba8e34c1fb219d86086e73203acf65c2351c340
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420791"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708356"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Lägg till IPv6 i ett IPv4-program i Azure Virtual Network – Azure CLI
 

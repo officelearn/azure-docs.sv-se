@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Uppdateringshantering
 description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 06/03/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: fcc34f8d5a07354b31880ebfa605012e05ec3a20
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 85b724cacc9c878f39de62e91e18713a1817933d
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342960"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817236"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -29,7 +29,7 @@ Du kan aktivera Uppdateringshantering för virtuella datorer på följande sätt
 En [Azure Resource Manager mall](automation-update-management-deploy-template.md) är tillgänglig för att hjälpa dig att distribuera uppdateringshantering till ett nytt eller befintligt Automation-konto och Log Analytics arbets yta i din prenumeration.
 
 > [!NOTE]
-> Du kan inte använda en dator som kon figurer ATS med Uppdateringshantering för att köra anpassade skript från Azure Automation. Den här datorn kan bara köra det Microsoft-signerade uppdaterings skriptet. 
+> Du kan inte använda en dator som kon figurer ATS med Uppdateringshantering för att köra anpassade skript från Azure Automation. Den här datorn kan bara köra det Microsoft-signerade uppdaterings skriptet.
 
 ## <a name="about-update-management"></a>Om Uppdateringshantering
 
@@ -68,21 +68,22 @@ När du definierar en distribution anger du även ett schema för att godkänna 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa Runbooks och de kräver inte någon konfiguration. När en uppdaterings distribution skapas, skapar den ett schema som startar en huvud uppdaterings-Runbook vid den angivna tiden för de datorer som ingår. Huvud-Runbook startar en underordnad Runbook på varje agent för att installera nödvändiga uppdateringar.
 
 Vid det datum och den tid som anges i uppdaterings distributionen kör mål datorerna distributionen parallellt. Före installationen körs en genomsökning för att verifiera att uppdateringarna fortfarande krävs. För WSUS-klientdatorer, om uppdateringarna inte är godkända i WSUS, Miss lyckas uppdaterings distributionen.
+
 En dator som är registrerad för Uppdateringshantering i fler än en Log Analytics arbets yta (kallas även multihoming) stöds inte.
 
 ## <a name="clients"></a>Klienter
 
 ### <a name="supported-client-types"></a>Klient typer som stöds
 
-I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
+I följande tabell visas de operativ system som stöds för uppdaterings bedömning och uppdatering. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)för arbets ytan. 
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
-|Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder endast utvärderingar för det här operativ systemet. Uppdatering stöds inte eftersom [hybrid Runbook Worker](automation-windows-hrw-install.md) inte stöds för Windows Server 2008 R2. |
+|Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 ||
+|Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder utvärderingar och korrigeringar för det här operativ systemet. [Hybrid Runbook Worker](automation-windows-hrw-install.md) stöds för Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter kräver åtkomst till ett uppdaterings lager. Klassificerings-baserad uppdatering kräver `yum` att returnera säkerhets data som CentOS inte har i sina RTM-versioner. Mer information om klassificerings-baserad uppdatering på CentOS finns i [uppdaterings klassificeringar i Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter kräver åtkomst till ett uppdaterings lager.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter kräver åtkomst till ett uppdaterings lager.        |
@@ -95,7 +96,7 @@ I följande tabell visas de operativ system som stöds för utvärdering av uppd
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Windows Update för Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
@@ -103,7 +104,7 @@ I följande tabell visas operativ system som inte stöds:
 
 ### <a name="client-requirements"></a>Klientkrav
 
-Följande information beskriver särskilda klient krav för operativ systemet. Ytterligare vägledning finns i [nätverks planering](#ports).  Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Följande information beskriver särskilda klient krav för operativ systemet. Ytterligare vägledning finns i [nätverks planering](#ports). Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
@@ -152,7 +153,7 @@ Om din Operations Manager hanterings grupp är [ansluten till en Log Analytics a
 * Uppdatera distributions-MP
 
 > [!NOTE]
-> Om du har en Operations Manager 1807-eller 2019-hanteringsserver ansluten till en Log Analytics arbets yta med agenter som kon figurer ATS i hanterings gruppen för att samla in loggdata måste du åsidosätta parametern `IsAutoRegistrationEnabled` och ange den som sann i regeln **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Om du har en Operations Manager 1807-eller 2019-hanteringsserver ansluten till en Log Analytics arbets yta med agenter som kon figurer ATS i hanterings gruppen för att samla in loggdata måste du åsidosätta parametern `IsAutoRegistrationEnabled` och ange den som sann i **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** -regeln.
 
 Mer information om uppdateringar av hanterings paket finns i [anslut Operations Manager till Azure Monitor loggar](../azure-monitor/platform/om-agents.md).
 
@@ -165,11 +166,11 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
-| Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| Windows-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Yes |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -187,10 +188,10 @@ Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen 
 
 |Azure, offentlig  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com    | *. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *. azure-automation.us|
+|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+|`*.azure-automation.net` | `*.azure-automation.us`|
 
 För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update. Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -206,7 +207,7 @@ Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/
 
 I följande tabell definieras de klassificeringar som Uppdateringshantering stöder för Windows-uppdateringar. 
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar     | En uppdatering för ett särskilt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
@@ -219,7 +220,7 @@ I följande tabell definieras de klassificeringar som Uppdateringshantering stö
 
 Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar.
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |

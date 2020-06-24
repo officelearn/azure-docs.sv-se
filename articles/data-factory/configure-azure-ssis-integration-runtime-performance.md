@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 36662a0089fef34a539788cfac667b5086a10c78
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194273"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255542"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
@@ -150,7 +150,7 @@ Här följer rikt linjerna för att ange rätt värde för egenskapen **AzureSSI
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** är pris nivån för SSIS Catalog-databasen (SSISDB) på en Azure SQL-databas. Den här inställningen påverkar det maximala antalet arbetare i IR-instansen, hastigheten för att köa en paket körning och hastigheten för att läsa in körnings loggen.
+**SSISDBPricingTier** är pris nivån för SSIS Catalog-databasen (SSISDB) på i Azure SQL Database. Den här inställningen påverkar det maximala antalet arbetare i IR-instansen, hastigheten för att köa en paket körning och hastigheten för att läsa in körnings loggen.
 
 -   Om du inte bryr dig om hastigheten med att köa paket körningen och läsa in körnings loggen kan du välja den lägsta databas pris nivån. Azure SQL Database med Basic-prissättning stöder 8 arbetare i en integration runtime-instans.
 

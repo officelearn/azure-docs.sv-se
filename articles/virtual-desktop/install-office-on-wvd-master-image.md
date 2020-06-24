@@ -4,20 +4,20 @@ description: Installera och anpassa Office på en Windows-huvudavbildning för v
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2c62fdb41cdd19e34062124564ace9645df1dde6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672705"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200536"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
-Den här artikeln beskriver hur du installerar Office 365 ProPlus, OneDrive och andra vanliga program på en avbildning av en virtuell hård disk (VHD) för uppladdning till Azure. Om dina användare behöver åtkomst till vissa LOB-program (Line of Business) rekommenderar vi att du installerar dem när du har slutfört instruktionerna i den här artikeln.
+Den här artikeln beskriver hur du installerar Microsoft 365-appar för företag, OneDrive och andra vanliga program på en virtuell hård disk avbildning (VHD) för uppladdning till Azure. Om dina användare behöver åtkomst till vissa LOB-program (Line of Business) rekommenderar vi att du installerar dem när du har slutfört instruktionerna i den här artikeln.
 
 Den här artikeln förutsätter att du redan har skapat en virtuell dator (VM). Om inte, se [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md#create-a-vm)
 
@@ -28,29 +28,30 @@ Den här artikeln förutsätter också att du har förhöjd åtkomst på den vir
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installera Office i läget för delad dator aktivering
 
-Med den delade dator aktiveringen kan du distribuera Office 365 ProPlus till en dator i organisationen som används av flera användare. Mer information om aktivering av delade datorer finns i [Översikt över delad dator aktivering för Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
+Med den delade dator aktiveringen kan du distribuera Microsoft 365 appar för företag till en dator i organisationen som används av flera användare. Mer information om aktivering av delade datorer finns i [Översikt över aktivering av delade datorer för Microsoft 365 appar](/deployoffice/overview-shared-computer-activation).
 
 Använd [distributions verktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117) för att installera Office. Windows 10 Enterprise multi-session stöder endast följande versioner av Office:
-- Office 365 ProPlus
-- Office 365-verksamhet som medföljer en Microsoft 365 Business prenumeration
+
+   - Microsoft 365-appar för företag
+   - Microsoft 365 appar för företag som medföljer en Microsoft 365 Business Premium-prenumeration
 
 Distributions verktyget för Office kräver en konfigurations-XML-fil. Information om hur du anpassar följande exempel finns i [konfigurations alternativen för distributions verktyget för Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Den här exempel konfigurations-XML: en som vi har angett kommer att göra följande:
 
-- • Installera Office från den månatliga företags kanalen och leverera uppdateringar från den månatliga företags kanalen när de körs.
-- Använd x64-arkitekturen.
-- Inaktivera automatiska uppdateringar.
-- Ta bort alla befintliga installationer av Office och migrera sina inställningar.
-- Aktivera aktivering av delad dator.
+   - Installera Office från den månatliga Enterprise-kanalen och leverera uppdateringar från den månatliga företags kanalen.
+   - Använd x64-arkitekturen.
+   - Inaktivera automatiska uppdateringar.
+   - Ta bort alla befintliga installationer av Office och migrera sina inställningar.
+   - Aktivera aktivering av delad dator.
 
 >[!NOTE]
 >Sök funktionen i Visios stencil kanske inte fungerar som förväntat i Windows Virtual Desktop.
 
 Det här är den här exempel konfigurations-XML: en:
 
-- Installera Skype för företag
-- Installera OneDrive i per användare-läge. Läs mer i [Installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
+   - Installera Skype för företag
+   - Installera OneDrive i per användare-läge. Läs mer i [Installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
 >Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns på **dator konfigurations \\ principer \\ administrativa mallar \\ Microsoft Office 2016 (dator) \\ licens inställningar**
@@ -121,7 +122,7 @@ Så här installerar du OneDrive i per dator läge:
 2. Ladda ned OneDriveSetup.exe till din mellanlagrade plats med den här länken:<https://aka.ms/OneDriveWVD-Installer>
 
 3. Om du har installerat Office med OneDrive genom att utesluta **\<ExcludeApp ID="OneDrive" /\>** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
-    
+
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
@@ -160,7 +161,7 @@ Så här installerar du OneDrive i per dator läge:
 
 Virtuella Windows-datorer har inte stöd för Skype för företag.
 
-Information om hur du installerar Microsoft Teams finns i [använda Microsoft Teams på Windows Virtual Desktop](teams-on-wvd.md).
+Information om hur du installerar Microsoft Teams finns i [använda Microsoft Teams på Windows Virtual Desktop](teams-on-wvd.md). Medie optimering för Microsoft Teams i Windows Virtual Desktop finns i för hands version.
 
 ## <a name="next-steps"></a>Nästa steg
 

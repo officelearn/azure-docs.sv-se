@@ -2,14 +2,14 @@
 title: Konfigurera blockchain Data Manager med Azure CLI – Azure blockchain-tjänsten
 description: Skapa och hantera en blockchain-Data Manager för Azure blockchain-tjänsten med hjälp av Azure CLI
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254418"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200469"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -25,7 +25,7 @@ Om du vill konfigurera en blockchain Data Manager instans:
 
 ## <a name="prerequisites"></a>Krav
 
-* Installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och logga `az login`in med.
+* Installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och logga in med `az login` .
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). *Standard* nivån för Azure blockchain service rekommenderas när du använder blockchain Data Manager.
 * Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Lär dig mer om [händelse hanterare i Azure Event Grid](../../event-grid/event-handlers.md)
@@ -34,7 +34,7 @@ Om du vill konfigurera en blockchain Data Manager instans:
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/bash](https://shell.azure.com/bash)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.51 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Inmatade exempel
 
-Konfigurations-JSON-exempel för att skapa en inmatad resurs i regionen *USA, östra* som är ansluten till \<blockchain-medlemmen\>.
+Konfigurations-JSON-exempel för att skapa en inmatad resurs i regionen *USA, östra* som är ansluten till \<Blockchain member\> .
 
 ``` json
 {
@@ -151,7 +151,7 @@ Konfigurations-JSON-exempel för att skapa en inmatad resurs i regionen *USA, ö
 |---------|-------------|
 | location | Region där du vill skapa den angivna resursen. |
 | inputType | Ledger-typ för Azure blockchain-tjänstemedlem. **Ethereum** stöds för närvarande. |
-| resourceId | Transaction-nod som indatamängden är ansluten till. Ersätt \<prenumerations\>- \<ID,\>resurs grupp \<och blockchain\> -medlem med värdena för Transaction Node-resursen. Indatamängden ansluter till noden standard transaktion för Azure blockchain-tjänstemedlemen. |
+| resourceId | Transaction-nod som indatamängden är ansluten till. Ersätt \<Subscription ID\> , \<Resource group\> och \<Blockchain member\> med värdena för Transaction Node-resursen. Indatamängden ansluter till noden standard transaktion för Azure blockchain-tjänstemedlemen. |
 
 Skapa ett *inmatat värde med namnet mina* invärden för *prewatcher* med en JSON-sträng för konfiguration.
 
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Exempel på utdata
 
-Konfigurations-JSON-exempel för att skapa en utgående resurs i regionen\>USA, *östra* som är ansluten till ett \<Event Grid-ämne som heter Event Grid-ämne.
+Konfigurations-JSON-exempel för att skapa en utgående resurs i regionen *USA, östra* som är ansluten till ett event Grid-ämne med namnet \<event grid topic\> .
 
 ``` json
 {
@@ -223,7 +223,7 @@ Konfigurations-JSON-exempel för att skapa en utgående resurs i regionen\>USA, 
 |---------|-------------|
 | location | Region där du vill skapa utdata-resursen. |
 | outputType | Typ av utdata. **EventGrid** stöds för närvarande. |
-| resourceId | Resurs som resultatet är anslutet till. Ersätt \<prenumerations\>- \<ID,\>resurs grupp \<och blockchain\> -medlem med värdena för Event Grid-resursen. |
+| resourceId | Resurs som resultatet är anslutet till. Ersätt \<Subscription ID\> , \<Resource group\> och \<Blockchain member\> med värdena för Event Grid-resursen. |
 
 Skapa utdata med namnet mina *utdata* för *prewatcher* som ansluter till ett event Grid-ämne med hjälp av en JSON-konfigurationsfil.
 
@@ -348,7 +348,7 @@ az resource invoke-action \
 | Parameter | Beskrivning |
 |-----------|-------------|
 | åtgärd | Använd **Start** för att köra bevakaren. |
-| kompatibilitet | Resurs-ID för övervakare. Ersätt \<prenumerations\>- \<ID,\>resurs grupp \<och namn\> på övervakare med värdena för övervaknings resursen.|
+| kompatibilitet | Resurs-ID för övervakare. Ersätt \<Subscription ID\> , \<Resource group\> och \<Watcher name\> med värdena för övervaknings resursen.|
 
 ### <a name="start-instance-example"></a>Exempel på Start instans
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | Parameter | Beskrivning |
 |-----------|-------------|
 | åtgärd | Använd **stopp** för att stoppa bevakaren. |
-| kompatibilitet | Namn på övervakare. Ersätt \<prenumerations\>- \<ID,\>resurs grupp \<och namn\> på övervakare med värdena för övervaknings resursen. |
+| kompatibilitet | Namn på övervakare. Ersätt \<Subscription ID\> , \<Resource group\> och \<Watcher name\> med värdena för övervaknings resursen. |
 
 ### <a name="stop-watcher-example"></a>Exempel på STOP Watcher
 

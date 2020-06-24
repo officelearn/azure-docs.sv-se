@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/28/2020
+ms.date: 06/12/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: c0cf361cc00466a8ddf098b52bfaacc2fa63dad4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bc9ab6ddf3a9032fd1919b70d830f0d65cdc06ed
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559443"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817984"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Arbets flödet är ungefär oavsett [var du distribuerar](#target) din modell:
 
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -255,9 +255,34 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 ```
 
 **Exempel på flera modeller**
+
+I det här scenariot registreras två modeller med arbets ytan:
+
+* `my_first_model`: Innehåller en fil ( `my_first_model.pkl` ) och det finns bara en version ( `1` ).
+* `my_second_model`: Innehåller en fil ( `my_second_model.pkl` ) och det finns två versioner, `1` och `2` .
+
+När tjänsten distribuerades anges båda modellerna i distributions åtgärden:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+I Docker-avbildningen som är värd för tjänsten `AZUREML_MODEL_DIR` innehåller miljövariabeln den katalog där modellerna finns.
+I den här katalogen finns varje modell i en katalog Sök väg för `MODEL_NAME/VERSION` . Där `MODEL_NAME` är namnet på den registrerade modellen och `VERSION` är versionen av modellen. De filer som utgör den registrerade modellen lagras i dessa kataloger.
+
+I det här exemplet är Sök vägarna `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` och `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl` .
+
+
 ```python
 # Example when the model is a file, and the deployment contains multiple models
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -322,6 +347,8 @@ def run(data):
         return error
 ```
 
+##### <a name="power-bi-compatible-endpoint"></a>Power BI kompatibel slut punkt 
+
 Följande exempel visar hur du definierar indata som en `<key: value>` ord lista med hjälp av en DataFrame. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI. ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
@@ -358,8 +385,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
-
-@input_schema('data', PandasParameterType(input_sample))
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
@@ -576,13 +604,13 @@ Under modell distributionen kan tjänst tillstånds ändringen visas när den di
 
 I följande tabell beskrivs de olika tjänst tillstånden:
 
-| Webservice-tillstånd | Description | Slutligt tillstånd?
+| Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | Inga |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Inga |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Inga |
-| Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
-| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
+| Övergår | Tjänsten håller på att distribueras. | No |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | No |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | No |
+| Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Yes |
+| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Yes |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Beräknings instans webb tjänst (dev/test)
 
@@ -925,13 +953,18 @@ output = service.run(input_payload)
 print(output)
 ```
 
-Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern:
+Obs! de här beroendena ingår i den förbyggda scikit-lärens härlednings behållare:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## <a name="package-models"></a>Paket modeller
@@ -1129,7 +1162,7 @@ import requests
 # Load image data
 data = open('example.jpg', 'rb').read()
 # Post raw data to scoring URI
-res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
 ```
 
 <a id="cors"></a>

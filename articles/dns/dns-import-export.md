@@ -7,13 +7,13 @@ author: rohinkoul
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: rohink
-ms.topic: conceptual
-ms.openlocfilehash: a5c2fdde564eba2d95e7f14f4d47e4d381739d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79365176"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709104"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI
 
@@ -43,7 +43,7 @@ Om du importerar en zonfil skapas en ny zon i Azure DNS om den inte redan finns.
 
 * Som standard slås befintliga och nya post uppsättningar samman. Identiska poster i en sammanfogad post uppsättning är deduplicerade.
 * När post uppsättningar slås samman används TTL-värdet (Time to Live) för befintliga post uppsättningar.
-* SOA-parametrar (Start of Authority) ( `host`förutom) hämtas alltid från den importerade zonfilen. På samma sätt hämtas TTL-värdet från den importerade zonfilen på samma sätt som den namn server post som angetts i zon Apex.
+* SOA-parametrar (Start of Authority) (förutom `host` ) hämtas alltid från den importerade zonfilen. På samma sätt hämtas TTL-värdet från den importerade zonfilen på samma sätt som den namn server post som angetts i zon Apex.
 * En importerad CNAME-post ersätter inte en befintlig CNAME-post med samma namn.  
 * När en konflikt uppstår mellan en CNAME-post och en annan post med samma namn men annan typ (oavsett vilken som är befintlig eller ny), behålls den befintliga posten. 
 
@@ -51,9 +51,9 @@ Om du importerar en zonfil skapas en ny zon i Azure DNS om den inte redan finns.
 
 Följande kommentarer ger ytterligare teknisk information om zon import processen.
 
-* `$TTL` Direktivet är valfritt och stöds. När inget `$TTL` direktiv anges importeras poster utan explicit TTL till en standard-ttl på 3600 sekunder. När två poster i samma post uppsättning anger olika TTLs, används det lägre värdet.
-* `$ORIGIN` Direktivet är valfritt och stöds. När inget `$ORIGIN` har angetts är standardvärdet som används zon namnet som anges på kommando raden (plus det avslutande ".").
-* - `$INCLUDE` Och `$GENERATE` -direktiven stöds inte.
+* `$TTL`Direktivet är valfritt och stöds. När inget `$TTL` direktiv anges importeras poster utan explicit TTL till en standard-TTL på 3600 sekunder. När två poster i samma post uppsättning anger olika TTLs, används det lägre värdet.
+* `$ORIGIN`Direktivet är valfritt och stöds. När inget `$ORIGIN` har angetts är standardvärdet som används zon namnet som anges på kommando raden (plus det avslutande ".").
+* - `$INCLUDE` Och- `$GENERATE` direktiven stöds inte.
 * Dessa post typer stöds: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV och TXT.
 * SOA-posten skapas automatiskt av Azure DNS när en zon skapas. När du importerar en zonfil tas alla SOA-parametrar från zonfilen *förutom* `host` parametern. Den här parametern använder det värde som tillhandahålls av Azure DNS. Detta beror på att den här parametern måste referera till den primära namnserver som tillhandahålls av Azure DNS.
 * Namn server posten som anges i zonens Apex skapas också automatiskt av Azure DNS när zonen skapas. Endast TTL-värdet för den här post uppsättningen importeras. Dessa poster innehåller namn server namnen som tillhandahålls av Azure DNS. Postdata skrivs inte över av de värden som finns i den importerade zonfilen.
@@ -85,7 +85,7 @@ Så här importerar du en zonfil för zonen **contoso.com**.
     az group create --group myresourcegroup -l westeurope
     ```
 
-2. Om du vill importera zonen **contoso.com** från filen **contoso. com. txt** till en ny DNS-zon i resurs gruppen **myresourcegroup**kör du kommandot `az network dns zone import`.<BR>Detta kommando läser in zonfilen och tolkar den. Kommandot kör en serie kommandon på Azure DNS-tjänsten för att skapa zonen och alla post uppsättningar i zonen. Kommandot rapporterar förlopp i konsol fönstret, tillsammans med eventuella fel eller varningar. Eftersom post uppsättningar skapas i serien kan det ta några minuter att importera en stor zon fil.
+2. Om du vill importera zonen **contoso.com** från filen **contoso.com.txt** till en ny DNS-zon i resurs gruppen **myresourcegroup**kör du kommandot `az network dns zone import` .<BR>Detta kommando läser in zonfilen och tolkar den. Kommandot kör en serie kommandon på Azure DNS-tjänsten för att skapa zonen och alla post uppsättningar i zonen. Kommandot rapporterar förlopp i konsol fönstret, tillsammans med eventuella fel eller varningar. Eftersom post uppsättningar skapas i serien kan det ta några minuter att importera en stor zon fil.
 
     ```azurecli
     az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
@@ -101,8 +101,8 @@ Du kan kontrol lera DNS-zonen när du har importerat filen genom att använda n�
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* Du kan lista posterna med hjälp av Azure CLI-kommandot `az network dns record-set ns list`.
-* Du kan använda `nslookup` för att kontrol lera namn matchningen för posterna. Eftersom zonen inte har delegerats ännu, måste du ange rätt Azure DNS namnservrar uttryckligen. I följande exempel visas hur du hämtar namn server namnen som har tilldelats zonen. Här visas också hur du frågar "www"-post med hjälp `nslookup`av.
+* Du kan lista posterna med hjälp av Azure CLI-kommandot `az network dns record-set ns list` .
+* Du kan använda `nslookup` för att kontrol lera namn matchningen för posterna. Eftersom zonen inte har delegerats ännu, måste du ange rätt Azure DNS namnservrar uttryckligen. I följande exempel visas hur du hämtar namn server namnen som har tilldelats zonen. Här visas också hur du frågar "www"-post med hjälp av `nslookup` .
 
     ```azurecli
     az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
@@ -171,7 +171,7 @@ Precis som med zon importen måste du först logga in, välja din prenumeration 
 
 ### <a name="to-export-a-zone-file"></a>Exportera en zonfil
 
-Om du vill exportera den befintliga Azure DNS zonen **contoso.com** i resurs gruppen **myresourcegroup** till filen **contoso. com. txt** (i den aktuella mappen) kör `azure network dns zone export`du. Det här kommandot anropar Azure DNS tjänsten för att räkna upp post uppsättningar i zonen och exportera resultaten till en BIND-kompatibel zon fil.
+Om du vill exportera den befintliga Azure DNS zonen **contoso.com** i resurs gruppen **myresourcegroup** till filen **contoso.com.txt** (i den aktuella mappen) kör du `azure network dns zone export` . Det här kommandot anropar Azure DNS tjänsten för att räkna upp post uppsättningar i zonen och exportera resultaten till en BIND-kompatibel zon fil.
 
 ```azurecli
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt

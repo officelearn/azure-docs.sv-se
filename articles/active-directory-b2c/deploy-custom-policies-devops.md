@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f17bbe1a19b969fec681082df50be754f5d6034b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188757"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202372"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuera anpassade principer med Azure-pipeliner
 
@@ -29,7 +29,7 @@ Det finns tre primära steg som krävs för att aktivera Azure-pipelines för at
 1. Konfigurera en Azure-pipeline
 
 > [!IMPORTANT]
-> Hantering av Azure AD B2C anpassade principer med en Azure-pipeline använder för närvarande för **hands versions** åtgärder `/beta` som är tillgängliga i Microsoft Graph API-slutpunkten. Användning av dessa API:er i produktionsprogram stöds inte. Mer information finns i referens för [Microsoft Graph REST API beta-slutpunkt](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Hantering av Azure AD B2C anpassade principer med en Azure-pipeline använder för närvarande för **hands versions** åtgärder som är tillgängliga i Microsoft Graph API- `/beta` slutpunkten. Användning av dessa API:er i produktionsprogram stöds inte. Mer information finns i referens för [Microsoft Graph REST API beta-slutpunkt](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -46,7 +46,7 @@ Scenariot som beskrivs här använder tjänst-till-tjänst-anrop mellan Azure-pi
 
 Som vi nämnt i [krav](#prerequisites)behöver du en program registrering som dina PowerShell-skript – som körs av Azure-pipelines – kan använda för att komma åt resurserna i din klient organisation.
 
-Om du redan har en program registrering som du använder för automatiserings aktiviteter ser du till att den har beviljats **Microsoft Graph** > **princip** > **princip princip princip. readwrite. TrustFramework** -behörighet inom **API-behörigheterna** för appens registrering.
+Om du redan har en program registrering som du använder för automatiserings aktiviteter ser du till att den har beviljats **Microsoft Graph**  >  **princip**  >  **princip princip princip. readwrite. TrustFramework** -behörighet inom **API-behörigheterna** för appens registrering.
 
 Anvisningar om hur du registrerar ett hanterings program finns i [hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -58,9 +58,9 @@ När ett hanterings program är registrerat är du redo att konfigurera en lagri
 1. [Skapa ett nytt projekt][devops-create-project] eller Välj ett befintligt projekt.
 1. I projektet navigerar du till **databaser** och väljer sidan **filer** . Välj en befintlig databas eller skapa en för den här övningen.
 1. Skapa en mapp med namnet *B2CAssets*. Ge den nödvändiga plats hållar filen *Readme.MD* och **Spara** filen. Du kan ta bort den här filen senare, om du vill.
-1. Lägg till dina Azure AD B2C princip-filer i mappen *B2CAssets* Detta inkluderar *TrustFrameworkBase. XML*, *TrustFrameWorkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset original. XML*och andra principer som du har skapat. Registrera fil namnet för varje Azure AD B2C princip fil som ska användas i ett senare steg (de används som PowerShell-skript argument).
-1. Skapa en mapp med namnet *scripts* i rot katalogen för lagrings platsen, ge plats hållaren fil *DeployToB2c. ps1*. Spara inte filen just nu, du kommer att göra det i ett senare steg.
-1. Klistra in följande PowerShell-skript i *DeployToB2c. ps1*och **Spara** sedan filen. Skriptet hämtar en token från Azure AD och anropar Microsoft Graph-API: t för att överföra principerna i mappen *B2CAssets* till din Azure AD B2C-klient.
+1. Lägg till dina Azure AD B2C princip-filer i mappen *B2CAssets* Detta omfattar *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*och andra principer som du har skapat. Registrera fil namnet för varje Azure AD B2C princip fil som ska användas i ett senare steg (de används som PowerShell-skript argument).
+1. Skapa en mapp med namnet *scripts* i rot katalogen för lagrings platsen, namnge plats hållar filen *DeployToB2c.ps1*. Spara inte filen just nu, du kommer att göra det i ett senare steg.
+1. Klistra in följande PowerShell-skript i *DeployToB2c.ps1*och **Spara** sedan filen. Skriptet hämtar en token från Azure AD och anropar Microsoft Graph-API: t för att överföra principerna i mappen *B2CAssets* till din Azure AD B2C-klient.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -114,7 +114,7 @@ När du har initierat och fyllt i din databas med dina anpassade principfiler, �
 ### <a name="create-pipeline"></a>Skapa pipeline
 
 1. Logga in på din Azure DevOps Services-organisation och navigera till projektet.
-1. I ditt projekt väljer du **pipelines** > **släpper** > **ny pipeline**.
+1. I ditt projekt väljer du **pipelines**  >  **släpper**  >  **ny pipeline**.
 1. Under **Välj en mall**väljer du **tomt jobb**.
 1. Ange ett **namn på scenen**, till exempel *DeployCustomPolicies*, och stäng sedan fönstret.
 1. Välj **Lägg till en artefakt**och välj **Azure-lagringsplats**under **typ av källa**.
@@ -144,14 +144,14 @@ När du har initierat och fyllt i din databas med dina anpassade principfiler, �
 Lägg sedan till en aktivitet för att distribuera en princip fil.
 
 1. Välj fliken **aktiviteter** .
-1. Välj **Agent jobb**och välj sedan plus tecknet (**+**) för att lägga till en aktivitet till Agent jobbet.
+1. Välj **Agent jobb**och välj sedan plus tecknet ( **+** ) för att lägga till en aktivitet till Agent jobbet.
 1. Sök efter och välj **PowerShell**. Välj inte "Azure PowerShell", "PowerShell på mål datorer" eller någon annan PowerShell-post.
 1. Välj nyligen tillagd **PowerShell-skript** aktivitet.
 1. Ange följande värden för aktiviteten PowerShell-skript:
     * **Uppgifts version**: 2. *
     * **Visnings namn**: namnet på den princip som den här aktiviteten ska överföra. Till exempel *B2C_1A_TrustFrameworkBase*.
     * **Typ**: fil Sök väg
-    * **Skript Sök väg**: Välj ellipsen (***...***), navigera till mappen *skript* och välj sedan filen *DeployToB2C. ps1* .
+    * **Skript Sök väg**: Välj ellipsen (***...***), navigera till mappen *skript* och välj sedan filen *DeployToB2C.ps1* .
     * **Ogiltiga**
 
         Ange följande värden för **argument**. Ersätt `{alias-name}` med det alias som du angav i föregående avsnitt.
@@ -172,11 +172,11 @@ Lägg sedan till en aktivitet för att distribuera en princip fil.
 
 Uppgiften som du nyss lade till överför *en* princip fil till Azure AD B2C. Innan du fortsätter utlöser du jobbet manuellt (**Skapa version**) för att se till att det slutförs innan du skapar ytterligare aktiviteter.
 
-Om uppgiften har slutförts lägger du till distributions uppgifter genom att utföra de föregående stegen för var och en av de anpassade principfiler. Ändra värdena `-PolicyId` och `-PathToFile` för varje princip.
+Om uppgiften har slutförts lägger du till distributions uppgifter genom att utföra de föregående stegen för var och en av de anpassade principfiler. Ändra `-PolicyId` värdena och `-PathToFile` för varje princip.
 
-`PolicyId` Är ett värde som finns i början av en XML-princip fil i TrustFrameworkPolicy-noden. Till exempel `PolicyId` är följande princip-XML *B2C_1A_TrustFrameworkBase*:
+`PolicyId`Är ett värde som finns i början av en XML-princip fil i TrustFrameworkPolicy-noden. Till exempel `PolicyId` är följande princip-XML *B2C_1A_TrustFrameworkBase*:
 
-```XML
+```xml
 <TrustFrameworkPolicy
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -189,11 +189,11 @@ PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 
 När du kör agenterna och laddar upp principfiler, se till att de överförs i följande ordning:
 
-1. *TrustFrameworkBase. XML*
-1. *TrustFrameworkExtensions. XML*
-1. *SignUpOrSignin. XML*
-1. *ProfileEdit. XML*
-1. *PasswordReset original. XML*
+1. *TrustFrameworkBase.xml*
+1. *TrustFrameworkExtensions.xml*
+1. *SignUpOrSignin.xml*
+1. *ProfileEdit.xml*
+1. *PasswordReset.xml*
 
 I ramverket med identitets upplevelsen används den här ordningen eftersom fil strukturen bygger på en hierarkisk kedja.
 

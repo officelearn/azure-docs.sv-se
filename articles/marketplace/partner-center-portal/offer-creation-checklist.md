@@ -1,33 +1,36 @@
 ---
-title: Check lista för att skapa SaaS – kommersiell marknads plats för Azure
-description: Den information som du kan ange i SaaS för att skapa erbjudandet. – Kommersiell marknads plats för Azure
+title: Check lista för att skapa SaaS i Microsofts kommersiella marknads platser
+description: Den information som du kan ange i SaaS för att skapa erbjudanden i Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/08/2020
+ms.openlocfilehash: c34eee74070dfb137311867615f55a7c89522cd5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850019"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708997"
 ---
-# <a name="saas-offer-creation-checklist"></a>Checklista för skapande av SaaS-erbjudande
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Check lista för att skapa SaaS i Partner Center
 
-Processen för att skapa SaaS tar dig igenom flera sidor. Här är den information som du kan tillhandahålla på varje sida, med länkar till mer information om varje objekt.
+Processen för att skapa SaaS tar dig igenom flera sidor.  Här är den information som du kan tillhandahålla på varje sida, med länkar till mer information om varje objekt.
 
-Objekt som du måste ange eller ange anges nedan. Vissa områden är valfria eller har standardvärden som du kan ändra efter behov. Du behöver inte arbeta med de här avsnitten i den ordning som visas här.
+Objekt som du måste ange eller ange anges nedan.  Vissa områden är valfria eller har standardvärden som du kan ändra efter behov.  Du behöver inte arbeta med de här avsnitten i den ordning som visas här.
+
+>[!Note]
+>Om du skapar ett transactable SaaS-erbjudande måste du implementera integrering med [API: er för SaaS-utförande](./pc-saas-fulfillment-apis.md).  Integrering med API: erna är det enda sättet för att det ska gå att använda tjänsten i marknads platsen för att fungera korrekt.
 
 | **Objekt**    | **Syfte**  |
 | :---------- | :-------------------|
 | [**Nytt erbjudande modal**](#new-offer-modal) | Samlar in identitets information för erbjudandet.  |
 | [Installations sida för erbjudande](#offer-setup-page) | Gör att du kan välja att använda viktiga funktioner och välja hur du säljer ditt erbjudande via Microsoft.  |
 | [Egenskaps sida](#properties-page) | Definiera de kategorier och branscher som används för att gruppera ditt erbjudande på marknads platser, juridiska avtal som stöder ditt erbjudande och din program version. |
-| [Sida för erbjudande lista](#offer-listing-page) | Definiera information om erbjudandet som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar. |
-| [Sidan förhandsgranska](#preview-page) | Definiera en begränsad förhands gransknings grupp så att du kan släppa ditt erbjudande innan du publicerar erbjudandet Live till de bredare Marketplace-användarna. |
-| [Sidan erbjud teknisk konfiguration](#technical-configuration-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera teknisk information (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. |
+| [Sida för erbjudande lista](#offer-listing-page) | Definiera information om erbjudandet som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar.|
+| [Sidan förhandsgranska](#preview-page) | Definiera en begränsad förhands gransknings grupp så att du kan släppa ditt erbjudande innan du publicerar erbjudandet Live till de bredare Marketplace-användarna.|
+| [Sidan erbjud teknisk konfiguration](#technical-configuration-page)  |  Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft.  Definiera teknisk information (landnings sidans URL, anslutningens webhook-URL, Azure AD-klient-ID och Azure AD App-ID) som används av Marketplace för att ansluta till ditt erbjudande.  Dessa parametrar krävs för att integreras korrekt med SaaS-uppfyllelse och Marketplace-avgiftsbelagda fakturerings-API: er.|
 | [**Ny plan modal**](#plan-identity-modal) | Samlar in information om plan identitet.  |
 | [Plan List sida](#plan-listing-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft. Definiera informationen som används för att Visa planen i Marketplace.  |
 | [Sidan planera pris & tillgänglighet](#plan-pricing--availability-page)  | Endast tillgängligt om du väljer att sälja erbjudandet via Microsoft.  Samlar in affärs egenskaper (pris modell), mål grupp och marknads tillgänglighet för varje plan (version) av erbjudandet.  |
@@ -40,7 +43,7 @@ Objekt som du måste ange eller ange anges nedan. Vissa områden är valfria ell
 
 De första uppgifterna du kommer att uppmanas att ange är ett ID och alias för ditt erbjudande. 
 
-| **Fältnamn**    | **Obs!**   |  
+| **Fältnamn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
 | Erbjudande-ID  | Krävs, kan inte ändras efter att det har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
 | Erbjud alias  | Krävs. |
@@ -49,7 +52,7 @@ De första uppgifterna du kommer att uppmanas att ange är ett ID och alias för
 
 På sidan erbjudande konfiguration kan du välja olika kanaler och sälja rörelser, samt förklara användningen av viktiga funktioner, till exempel test enhet och kund leads. 
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
 | Vill du sälja via Microsoft?  | Krävs. Standard: Ja |
 | Hur vill du att potentiella kunder ska kunna interagera med erbjudande listan? (Anrop till åtgärd)  | Krävs om de inte säljs via Microsoft. Standard: kostnads fri utvärderings version, alternativ: "Hämta nu", "kostnads fri utvärdering", "kontakta mig". |
@@ -64,7 +67,7 @@ På sidan erbjudande konfiguration kan du välja olika kanaler och sälja rörel
 
 På sidan egenskaper definierar du de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din program version. Se till att tillhandahålla fullständig och korrekt information om ditt erbjudande på den här sidan, så att det visas på lämpligt sätt och erbjuds till rätt kund uppsättning. 
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
 | Kategori och under kategori | Krävs 1 och max 3. Standard: inget har valts. |
 | Branscher och under branscher | Valfritt. högst 2 L1-branscher och högst 2 under branscher inom varje L1-bransch, standard: ingen vald |
@@ -76,7 +79,7 @@ På sidan egenskaper definierar du de kategorier och branscher som används för
 
 På registrerings sidan är det där du anger den text och de bilder som kunderna ser när du visar ditt erbjudandes lista på Marketplace. 
 
-| **Fältnamn**    | **Obs!**   |
+| **Fältnamn**    | **Anteckningar**   |
 | :---------------- | :-----------| 
 | Name  | Obligatoriskt, max 50 tecken. |
 | Sammanfattning  | Obligatoriskt, max 100 tecken. | 
@@ -98,7 +101,7 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 
 På sidan förhands granskning kan du ange vilken mål grupp som ska ha åtkomst till din för hands version av erbjudandet, för att kontrol lera att erbjudandet uppfyller alla krav innan det går live. 
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | AAD/MSA e-post + Beskrivning | Krävs, min 1 och max 10 om de anges manuellt, eller upp till 20 vid överföring av en CSV-fil. |
 
@@ -106,7 +109,7 @@ På sidan förhands granskning kan du ange vilken mål grupp som ska ha åtkomst
 
 På sidan teknisk konfiguration anger du de tekniska uppgifter som används av Microsoft för att ansluta till ditt erbjudande. Den här sidan visas inte om du valde att inte sälja via Microsoft.
 
-| **Fältnamn**    | **Obs!**   |  
+| **Fältnamn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
 | URL för landnings sida | Krävs om du säljer via Microsoft. |
 | Anslutning-webhook | Krävs om du säljer via Microsoft. |
@@ -117,7 +120,7 @@ På sidan teknisk konfiguration anger du de tekniska uppgifter som används av M
 
 De första delarna av informationen som du uppmanas att ange är ett namn och ett ID för din plan. Den här sidan är inte synlig för dig om du har valt att inte sälja via Microsoft.
 
-| **Fältnamn**    | **Obs!**   |  
+| **Fältnamn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
 | Plan-ID  | Krävs om du säljer via Microsoft. Den kan inte ändras efter att den har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
 | Plannamn  | Krävs om du säljer via Microsoft. Måste vara unikt för alla planer i erbjudandet. Högst 50 tecken. |
@@ -126,7 +129,7 @@ De första delarna av informationen som du uppmanas att ange är ett namn och et
 
 På sidan med prenumerations listan kan du se hur kunderna ser när de visar planen i Marketplace. Den här sidan visas inte om du valde att inte sälja via Microsoft.
 
-| **Fältnamn**    | **Obs!**   |  
+| **Fältnamn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
 | Beskrivning av plan   | Krävs om du säljer via Microsoft. Högst 500 tecken. | |
 
@@ -134,7 +137,7 @@ På sidan med prenumerations listan kan du se hur kunderna ser när de visar pla
 
 På sidan planera priser och tillgänglighet kan du definiera affärs egenskaper, mål grupp och marknads tillgänglighet för varje plan (version) av erbjudandet. Den här sidan visas inte om du valde att inte sälja via Microsoft.
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | Marknads tillgänglighet  | Krävs, min 1 och Max 141. |
 | Pris modell  | Krävs. Standard: fast pris. Alternativ: fast pris, per användare. |
@@ -148,7 +151,7 @@ På sidan planera priser och tillgänglighet kan du definiera affärs egenskaper
 
 Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudande. Definiera informationen som används för att visa en lista på test enheten i Marketplace.
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | Beskrivning  | Krävs. |
 | Användarens manuella namn + fil  | Obligatoriskt, max 1 dokument måste vara PDF-format. |
@@ -156,7 +159,7 @@ Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudand
 
 ## <a name="review-and-publish-page"></a>Sidan granska och publicera
 
-| **Fältnamn**    | **Obs!**   | 
+| **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | Kommentarer för certifiering  | Valfritt. |
 

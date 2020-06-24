@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730564"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052018"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regel grupper och regler för brand vägg för webb program brand vägg
 
@@ -39,6 +39,9 @@ WAF skyddar mot följande webb sårbarheter:
 ### <a name="owasp-crs-31"></a>OWASP BOKNINGS SYSTEM 3,1
 
 Boknings system 3,1 innehåller 13 regel grupper som visas i följande tabell. Varje grupp innehåller flera regler, som kan inaktive ras.
+
+> [!NOTE]
+> BOKNINGs-3,1 är bara tillgängligt på WAF_v2 SKU.
 
 |Regelgrupp|Beskrivning|
 |---|---|

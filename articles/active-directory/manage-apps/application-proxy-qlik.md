@@ -3,23 +3,23 @@ title: Azure AD App proxy och Qlik Sense | Microsoft Docs
 description: Aktivera Application Proxy i Azure Portal och installera anslutningarna för den omvända proxyn.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036998"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760056"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy och Qlik Sense 
 Azure Active Directory-programproxy och Qlik Sense har samarbetat för att se till att du enkelt kan använda Application Proxy för att ge fjärråtkomst till din Qlik Sense-distribution.  
@@ -38,7 +38,7 @@ Följ de här stegen för att publicera din app. En mer detaljerad genom gång a
 
 
 1. Logga in på Azure Portal som global administratör. 
-2. Välj **Azure Active Directory** > **företags program**. 
+2. Välj **Azure Active Directory**  >  **företags program**. 
 3. Välj **Lägg till** överst på bladet. 
 4. Välj **lokalt program**. 
 5. Fyll i de obligatoriska fälten med information om din nya app. Använd följande vägledning för inställningarna: 

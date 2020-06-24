@@ -3,27 +3,28 @@ title: 'Program hantering: metod tips och rekommendationer | Microsoft Docs'
 description: Lär dig metod tips och rekommendationer för att hantera program i Azure Active Directory. Lär dig mer om att använda automatisk etablering och publicera lokala appar med programproxyn.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6534efb6fcd07ee3b9f3979cabf2feb77496a8b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74085296"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760277"
 ---
 # <a name="application-management-best-practices"></a>Metod tips för program hantering
+
 Den här artikeln innehåller rekommendationer och metod tips för att hantera program i Azure Active Directory (Azure AD), med automatisk etablering och publicering av lokala appar med programproxy.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Rekommendationer för Cloud App och enkel inloggning

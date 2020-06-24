@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd319dd6a83a392f6df26d07a58be22a9c8bdb61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f65cd11f61c25af205fa1b6400a8243382673e47
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063687"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077875"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -93,7 +93,7 @@ Vi rekommenderar att du använder den minst privilegierade rollen för att utfö
 | Berättigandehantering | Användar administratör (med undantag för att lägga till SharePoint Online-webbplatser i kataloger som kräver global administratör) |
 | Åtkomstgranskningar | Användar administratör (med undantag för åtkomst granskningar av Azure-eller Azure AD-roller, som kräver administratör för privilegierade roller) |
 |Privileged Identity Management | Privilegie rad roll administratör |
-| Användningsvillkor | Säkerhets administratör eller administratör för villkorlig åtkomst |
+| Villkor för användning | Säkerhets administratör eller administratör för villkorlig åtkomst |
 
 ## <a name="next-steps"></a>Nästa steg
 

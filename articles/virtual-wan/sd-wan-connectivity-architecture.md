@@ -5,15 +5,15 @@ description: Lär dig mer om att ansluta ett privat SD-WAN med Azure Virtual WAN
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: sukishen
-ms.openlocfilehash: 9b935c1f612e7634bad86818cd8331fba0078a9d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 7b134e8ef4e09f1506f1d548ffb7579dcf65fbdd
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860587"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753336"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>SD – WAN-anslutning med Azure Virtual WAN
 

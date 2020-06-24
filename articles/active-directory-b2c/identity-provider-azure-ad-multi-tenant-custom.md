@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb2c2f3183ac63d8e5889faf3899a272407f42f4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678107"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202152"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
-1. Ange ett **namn** för ditt program. Till exempel `Azure AD B2C App`.
+1. Ange ett **namn** för ditt program. Exempelvis `Azure AD B2C App`.
 1. Välj **konton i valfri organisations katalog** för det här programmet.
 1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
@@ -44,7 +44,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    Exempelvis `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Välj **Registrera**. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
@@ -60,7 +60,7 @@ Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du 
 1. I avsnittet **Hantera** väljer du **token-konfiguration**.
 1. Välj **Lägg till valfritt anspråk**.
 1. I **tokentyp**väljer du **ID**.
-1. Välj de valfria anspråk som ska läggas `family_name` till `given_name`och.
+1. Välj de valfria anspråk som ska läggas till `family_name` och `given_name` .
 1. Klicka på **Lägg till**.
 
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
@@ -71,10 +71,10 @@ Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisa
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Under **principer**väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-1. För **alternativ**väljer `Manual`du.
-1. Ange ett **namn** för princip nyckeln. Till exempel `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_AADAppSecret*.
+1. För **alternativ**väljer du `Manual` .
+1. Ange ett **namn** för princip nyckeln. Exempelvis `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_AADAppSecret*.
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
-1. För **nyckel användning**väljer `Signature`du.
+1. För **nyckel användning**väljer du `Signature` .
 1. Välj **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -83,11 +83,11 @@ Om du vill att användarna ska logga in med Azure AD måste du definiera Azure A
 
 Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azure AD i **ClaimsProvider** -elementet i tilläggs filen för din princip.
 
-1. Öppna filen *TrustFrameworkExtensions. XML* .
+1. Öppna *TrustFrameworkExtensions.xml* -filen.
 1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 1. Lägg till en ny **ClaimsProvider** enligt följande:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>commonaad</Domain>
       <DisplayName>Common AAD</DisplayName>
@@ -136,24 +136,24 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
     ```
 
 1. Under elementet **ClaimsProvider** uppdaterar du värdet för **domän** till ett unikt värde som kan användas för att skilja den från andra identitets leverantörer.
-1. Uppdatera värdet för DisplayName under **TechnicalProfile** -elementet, **DisplayName**till exempel `Contoso Employee`. Det här värdet visas på inloggnings knappen på inloggnings sidan.
+1. Uppdatera värdet för **DisplayName**under **TechnicalProfile** -elementet, till exempel `Contoso Employee` . Det här värdet visas på inloggnings knappen på inloggnings sidan.
 1. Ange **client_id** till program-ID: t för Azure AD-programmet för flera klient organisationer som du registrerade tidigare.
-1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som skapades tidigare. Till exempel `B2C_1A_AADAppSecret`.
+1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som skapades tidigare. Exempelvis `B2C_1A_AADAppSecret`.
 
 ### <a name="restrict-access"></a>Begränsa åtkomst
 
 > [!NOTE]
-> Om `https://login.microsoftonline.com/` du använder som värde för **ValidTokenIssuerPrefixes** kan alla Azure AD-användare logga in i ditt program.
+> Om du använder `https://login.microsoftonline.com/` som värde för **ValidTokenIssuerPrefixes** kan alla Azure AD-användare logga in i ditt program.
 
 Du måste uppdatera listan över giltiga token-utfärdare och begränsa åtkomsten till en särskild lista över Azure AD-Innehavaradministratörer som kan logga in.
 
-Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Ett exempel:
+Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` , där `your-tenant` är namnet på din Azure AD-klient. Ett exempel:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Utför de här stegen för varje Azure AD-klient som ska användas för att logga in:
 
-1. Öppna webbläsaren och gå till URL: en för OpenID Connect-metadata för klienten. Hitta **Issuer** -objektet och registrera dess värde. Det bör se ut ungefär `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`så här.
+1. Öppna webbläsaren och gå till URL: en för OpenID Connect-metadata för klienten. Hitta **Issuer** -objektet och registrera dess värde. Det bör se ut ungefär så här `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/` .
 1. Kopiera och klistra in värdet i **ValidTokenIssuerPrefixes** -nyckeln. Avgränsa flera utfärdare med kommatecken. Ett exempel med två utfärdare visas i föregående `ClaimsProvider` XML-exempel.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggs filen för verifiering
@@ -161,27 +161,27 @@ Utför de här stegen för varje Azure AD-klient som ska användas för att logg
 Nu har du konfigurerat principen så att Azure AD B2C vet hur de kan kommunicera med dina Azure AD-kataloger. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
 
 1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 3. Välj **Överför**.
 
 ## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
 
 Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig på någon av inloggnings-och inloggnings skärmarna. För att göra det tillgängligt, skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har Azure AD-identitetsprovider.
 
-1. Öppna filen *TrustFrameworkBase. XML* från start paketet.
-2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
+1. Öppna *TrustFrameworkBase.xml* -filen från start paketet.
+2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
+3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInContoso`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInContoso`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
 **ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-och inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för Azure AD visas en ny knapp när en användare hamnar på sidan.
 
-1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade i *TrustFrameworkExtensions. XML*.
-1. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `AzureADExchange`:
+1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade i *TrustFrameworkExtensions.xml*.
+1. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `AzureADExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
     ```
 
@@ -192,13 +192,13 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för **ID** som du använde för **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Till exempel `Common-AAD`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Exempelvis `Common-AAD`.
 
-3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
+3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
 
@@ -210,9 +210,9 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 
 Uppdatera den förlitande part filen (RP) som initierar användar resan som du skapade:
 
-1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignContoso. XML*.
-1. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInContoso`.
-1. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignContoso.xml*.
+1. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInContoso`.
+1. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Exempelvis `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID: t för användar resan som du skapade tidigare. Till exempel *SignUpSignInContoso*.
 1. Spara ändringarna och ladda upp filen.
 1. Under **anpassade principer**väljer du den nya principen i listan.
@@ -220,7 +220,7 @@ Uppdatera den förlitande part filen (RP) som initierar användar resan som du s
 1. Kopiera **Kör nu-slutpunkten** och öppna den i ett privat webbläsarfönster, till exempel Incognito läge i Google Chrome eller ett InPrivate-fönster i Microsoft Edge. Genom att öppna ett privat webbläsarfönster kan du testa hela användar resan genom att inte använda några cachelagrade autentiseringsuppgifter för Azure AD.
 1. Välj knappen för Azure AD-inloggning, till exempel *contoso Employee*, och ange sedan autentiseringsuppgifterna för en användare i någon av dina Azure AD-organisatoriska klienter. Du uppmanas att auktorisera programmet och sedan ange information om din profil.
 
-Om inloggningen lyckas omdirigeras webbläsaren till `https://jwt.ms`, som visar innehållet i den token som returnerades av Azure AD B2C.
+Om inloggningen lyckas omdirigeras webbläsaren till `https://jwt.ms` , som visar innehållet i den token som returnerades av Azure AD B2C.
 
 Testa inloggnings funktionen för flera innehavare genom att utföra de senaste två stegen med autentiseringsuppgifterna för en användare som finns i en annan Azure AD-klient.
 

@@ -4,15 +4,15 @@ description: Med den här utbildnings vägen börjar du delegera en Azure DNS un
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937437"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710889"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegera en Azure DNS under domän
 

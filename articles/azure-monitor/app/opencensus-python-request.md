@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 10d54088859332ad986dc642247c6af96b378978
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553894"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753213"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Spåra inkommande begär Anden med openräkningar python
 
@@ -33,7 +33,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     )
     ```
 
-3. Kontrol lera att AzureExporter har kon figurer ATS korrekt i `settings.py` under `OPENCENSUS` .
+3. Kontrol lera att AzureExporter har kon figurer ATS korrekt i `settings.py` under `OPENCENSUS` . För förfrågningar från URL: er som du inte vill spåra lägger du till dem i `BLACKLIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -42,20 +42,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. Du kan också lägga till URL: er för `settings.py` `BLACKLIST_PATHS` begär Anden som du inte vill spåra.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -87,7 +74,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     
     ```
 
-2. Du kan konfigurera `flask` mellanprogram direkt i koden. För förfrågningar från URL: er som du inte vill spåra lägger du till dem i `BLACKLIST_PATHS` .
+2. Du kan också konfigurera ditt `flask` program genom `app.config` . För förfrågningar från URL: er som du inte vill spåra lägger du till dem i `BLACKLIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {

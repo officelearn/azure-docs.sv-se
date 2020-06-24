@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 225a7f7725762c6887858366b134a7ad9a7b8eb6
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402379"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052675"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -61,6 +61,10 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Använd [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) för att Visa användnings information om säkerhets kopierings objekt (inklusive Azure-resurser som ännu inte har kon figurer ATS för säkerhets kopiering) och övervaknings information (jobb och aviseringar) för delegerade prenumerationer. Backup Explorer är för närvarande endast tillgängligt för Azure VM-data.
 - Använd [säkerhets kopierings rapporter](../../backup/configure-reports.md) över delegerade prenumerationer för att spåra historiska trender, analysera förbrukning av lagrings utrymme för säkerhets kopior och granska säkerhets kopieringar och återställning.
 
+[Azure Cost Management + fakturering](../../cost-management-billing/index.yml):
+
+- Från hanterings klienten kan CSP-partner se, hantera och analysera förbruknings kostnader för moms (inte inklusive inköp) för kunder som följer Azure-prenumerationen. Kostnaden baseras på detaljist avgifter och den Azure RBAC-åtkomst som partnern har för kundens prenumeration.
+
 [Azure Kubernetes service (AKS)](../../aks/index.yml):
 
 - Hantera värdbaserade Kubernetes-miljöer och distribuera och hantera program i behållare inom kund klienter
@@ -99,7 +103,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
   - Kontinuerlig övervakning av efterlevnad för flera kunder i en enda vy
   - Övervaka, prioritering och prioritera åtgärds bara säkerhets rekommendationer med säker Poäng beräkning
 - Hantering av säkerhets position över flera innehavare
-  - Hantera säkerhets principer
+  - Hantera säkerhetsprinciper
   - Vidta åtgärder för resurser som inte är kompatibla med åtgärds bara säkerhets rekommendationer
   - Samla in och lagra säkerhetsrelaterade data
 - Hot identifiering och skydd mellan klienter
@@ -143,7 +147,6 @@ Tänk på följande nuvarande begränsningar i alla scenarier:
 - Roll tilldelningar måste använda [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare eller inbyggda roller med [DataActions](../../role-based-access-control/role-definitions.md#dataactions) -behörighet. Rollen administratör för användar åtkomst stöds endast för begränsad användning i [tilldela roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Administratörs roller för anpassade roller och [klassiska prenumerationer](../../role-based-access-control/classic-administrators.md) stöds inte.
 - Även om du kan publicera prenumerationer som använder Azure Databricks kan användare i hanterings klienten inte starta Azure Databricks arbets ytor i en delegerad prenumeration just nu.
 - Även om du kan publicera prenumerationer och resurs grupper för Azure delegerad resurs hantering som har resurs lås, kommer dessa lås inte att förhindra att åtgärder utförs av användare i hanterings klienten. [Neka tilldelningar](../../role-based-access-control/deny-assignments.md) som skyddar systemhanterade resurser, t. ex. de som skapats av Azure-hanterade program eller Azure-skisser (systemtilldelade neka-tilldelningar), förhindrar användare i hanterings klienten från att fungera på dessa resurser. men vid den här tidpunkten kan användare i kund klienten inte skapa sina egna neka-tilldelningar (användar tilldelning neka tilldelningar).
-- Användare i hanterings klienten kommer inte att ha åtkomst till att Visa fakturerings information för en delegerad kund prenumeration, även om de har en inbyggd roll som vanligt vis tillåter åtkomst. Detta beror på att åtkomsten till fakturerings information kräver ytterligare steg som för närvarande endast stöds för användare inom samma klient organisation.
 
 ## <a name="next-steps"></a>Nästa steg
 

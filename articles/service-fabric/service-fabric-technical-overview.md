@@ -7,11 +7,11 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258244"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710294"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric terminologi
 
@@ -21,7 +21,7 @@ Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att
 
 **Kluster**: en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i.  Kluster kan skalas upp till tusentals datorer.
 
-**Nod**: en dator eller en virtuell dator som ingår i ett kluster kallas för en *nod*. Varje nod tilldelas ett nodnamn (sträng). Noder har egenskaper, till exempel placerings egenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar `FabricHost.exe`automatiskt, som börjar köras vid start och sedan startar två körbara `Fabric.exe` filer `FabricGateway.exe`: och. Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en enskild dator eller virtuell dator genom att `Fabric.exe` köra `FabricGateway.exe`flera instanser av och.
+**Nod**: en dator eller en virtuell dator som ingår i ett kluster kallas för en *nod*. Varje nod tilldelas ett nodnamn (sträng). Noder har egenskaper, till exempel placerings egenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar automatiskt, `FabricHost.exe` som börjar köras vid start och sedan startar två körbara filer: `Fabric.exe` och `FabricGateway.exe` . Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en enskild dator eller virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe` .
 
 ## <a name="application-and-service-concepts"></a>Program-och tjänst koncept
 
@@ -60,7 +60,7 @@ Mer information finns i artikeln om [program modellen](service-fabric-applicatio
 
 **Programpaket**: en disk katalog som innehåller program typens `ApplicationManifest.xml` fil. Refererar till tjänst paketen för varje tjänst typ som utgör program typen. Filerna i programpaketets katalog kopieras till Service Fabric klustrets avbildnings arkiv. Ett programpaket för en e-postprograms typ kan till exempel innehålla referenser till ett kö-service-paket, ett klient dels tjänst paket och ett databas tjänst paket.
 
-**Namngivet program**: när du har kopierat ett programpaket till avbildnings arkivet skapar du en instans av programmet i klustret. Du skapar en instans när du anger programpaketets program typ, genom att använda dess namn eller version. Varje program typ instans tilldelas ett URI-namn (Uniform Resource Identifier) som ser ut så `"fabric:/MyNamedApp"`här:. I ett kluster kan du skapa flera namngivna program från en enda program typ. Du kan också skapa namngivna program från olika program typer. Varje namngivet program hanteras och versioner sker oberoende av varandra.
+**Namngivet program**: när du har kopierat ett programpaket till avbildnings arkivet skapar du en instans av programmet i klustret. Du skapar en instans när du anger programpaketets program typ, genom att använda dess namn eller version. Varje program typ instans tilldelas ett URI-namn (Uniform Resource Identifier) som ser ut så här: `"fabric:/MyNamedApp"` . I ett kluster kan du skapa flera namngivna program från en enda program typ. Du kan också skapa namngivna program från olika program typer. Varje namngivet program hanteras och versioner sker oberoende av varandra.
 
 **Tjänst typ**: namnet/versionen som tilldelats en tjänsts kod paket, data paket och konfigurations paket. Tjänst typen definieras i `ServiceManifest.xml` filen och bäddas in i en katalog för tjänst paket. Katalogen för tjänst paketet refereras sedan till av en Programpakets `ApplicationManifest.xml` fil. När du har skapat ett namngivet program i klustret kan du skapa en namngiven tjänst från en av program typens tjänst typer. Tjänst typens `ServiceManifest.xml` fil beskriver tjänsten.
 
@@ -77,7 +77,7 @@ Det finns två typer av tjänster:
 
 **Tjänst paket**: en disk katalog som innehåller tjänst typens `ServiceManifest.xml` fil. Den här filen refererar till koden, statiska data och konfigurations paketen för tjänst typen. Filerna i tjänst paket katalogen refereras till av program typens `ApplicationManifest.xml` fil. Ett tjänst paket kan till exempel referera till kod, statiska data och konfigurations paket som utgör en databas tjänst.
 
-**Namngiven tjänst**: när du har skapat ett namngivet program kan du skapa en instans av en av tjänst typerna i klustret. Du anger tjänst typen genom att använda dess namn/version. Varje instans av tjänst typ har tilldelats ett URI-namn som omfattas av dess URI för det namngivna programmet. Om du t. ex. skapar en "databas" med namnet "databas" i ett "MyNamedApp"-namngivet program, ser `"fabric:/MyNamedApp/MyDatabase"`URI: n ut så här:. I ett namngivet program kan du skapa flera namngivna tjänster. Varje namngiven tjänst kan ha ett eget partitionsschema och instans-eller replik antal.
+**Namngiven tjänst**: när du har skapat ett namngivet program kan du skapa en instans av en av tjänst typerna i klustret. Du anger tjänst typen genom att använda dess namn/version. Varje instans av tjänst typ har tilldelats ett URI-namn som omfattas av dess URI för det namngivna programmet. Om du t. ex. skapar en "databas" med namnet "databas" i ett "MyNamedApp"-namngivet program, ser URI: n ut så här: `"fabric:/MyNamedApp/MyDatabase"` . I ett namngivet program kan du skapa flera namngivna tjänster. Varje namngiven tjänst kan ha ett eget partitionsschema och instans-eller replik antal.
 
 **Kod paket**: en disk katalog som innehåller tjänst typens körbara filer, vanligt vis exe/dll-filer. Filerna i kod paket katalogen refereras till av tjänst typens `ServiceManifest.xml` fil. När du skapar en namngiven tjänst kopieras kod paketet till den nod eller de noder som har valts för att köra den namngivna tjänsten. Sedan börjar koden att köras. Det finns två typer av kod paket körbara filer:
 
@@ -141,7 +141,7 @@ Du kan också köra dina befintliga program på Service Fabric:
 
 **Behållare**: Service Fabric stöder distribution av Docker-behållare på Linux-och Windows Server-behållare i windows Server 2016, tillsammans med stöd för isolerings läget för Hyper-V. I Service Fabric [program modellen](service-fabric-application-model.md)representerar en behållare en program värd där flera tjänst repliker placeras. Service Fabric kan köra alla behållare, och scenariot liknar scenariot för gäst körning, där du paketerar ett befintligt program i en behållare. Dessutom kan du [köra Service Fabric tjänster i behållare](service-fabric-services-inside-containers.md) också.
 
-**Körbara gäst program**: du kan köra vilken typ av kod som Node. js, python, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program, som behandlas som tillstånds lösa tjänster. Fördelarna med att köra en körbar gäst fil i ett Service Fabric kluster är hög tillgänglighet, hälso övervakning, hantering av program livs cykel, hög densitet och identifiering.
+**Körbara gäst program**: du kan köra vilken typ av kod som helst, till exempel Node.js, python, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program, som behandlas som tillstånds lösa tjänster. Fördelarna med att köra en körbar gäst fil i ett Service Fabric kluster är hög tillgänglighet, hälso övervakning, hantering av program livs cykel, hög densitet och identifiering.
 
 Mer information finns i artikeln [Välj en programmerings modell för din tjänst](service-fabric-choose-framework.md) .
 

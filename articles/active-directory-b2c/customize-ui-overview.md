@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbf789d804ab903489c809fc96f1514d6c4f577
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8e0a4a3cac51f54d0bb4e5b23d0b44052d1e89a1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658084"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202491"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -169,7 +169,7 @@ Om du vill anpassa dina användar flödes sidor konfigurerar du först företags
 
 Börja med att ange banderoll, bakgrunds bild och bakgrunds färg inom **företags anpassning**.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **Hantera**väljer du **företags anpassning**.
@@ -219,13 +219,13 @@ Innehållet kan hämtas från olika platser baserat på det språk som används.
 
 Din anpassade sid-URI kan till exempel se ut så här:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 Du kan läsa in sidan på franska genom att dra innehåll från:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

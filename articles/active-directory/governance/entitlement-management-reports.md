@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128425"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078138"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
 
@@ -79,17 +79,17 @@ Med den här rapporten kan du Visa en lista över resurser som är kopplade till
 
 ## <a name="determine-the-status-of-a-users-request"></a>Fastställa status för en användares begäran
 
-Om du vill ha mer information om hur en användare begärde och fick åtkomst till ett Access-paket kan du använda Azure AD-gransknings loggen. I synnerhet kan du använda logg posterna i kategorierna `EntitlementManagement` och `UserManagement` för att få ytterligare information om bearbetnings stegen för varje begäran.  
+Om du vill ha mer information om hur en användare begärde och fick åtkomst till ett Access-paket kan du använda Azure AD-gransknings loggen. I synnerhet kan du använda logg posterna i `EntitlementManagement` `UserManagement` kategorierna och för att få ytterligare information om bearbetnings stegen för varje begäran.  
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **gransknings loggar**.
 
-1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement`, beroende på vilken gransknings post du letar efter.  
+1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement` , beroende på vilken gransknings post du letar efter.  
 
 1. Klicka på **Använd**.
 
 1. Klicka på **Hämta**om du vill hämta loggarna.
 
-När Azure AD tar emot en ny begäran skriver den en gransknings post i vilken **kategorin** är `EntitlementManagement` och **aktiviteten** är vanligt vis `User requests access package assignment`.  Om det finns en direkt tilldelning som skapats i Azure Portal, är `Administrator directly assigns user to access package` **aktivitets** fältet för gransknings posten och den användare som utför tilldelningen identifieras av **ActorUserPrincipalName**.
+När Azure AD tar emot en ny begäran skriver den en gransknings post i vilken **kategorin** är `EntitlementManagement` och **aktiviteten** är vanligt vis `User requests access package assignment` .  Om det finns en direkt tilldelning som skapats i Azure Portal, är **aktivitets** fältet för gransknings posten `Administrator directly assigns user to access package` och den användare som utför tilldelningen identifieras av **ActorUserPrincipalName**.
 
 Azure AD skriver ytterligare gransknings poster medan begäran pågår, inklusive:
 
@@ -101,11 +101,11 @@ Azure AD skriver ytterligare gransknings poster medan begäran pågår, inklusiv
 | `EntitlementManagement` | `Approve access package assignment request` | Begäran godkänd |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Begäran godkänd eller kräver inte godkännande |
 
-När en användare tilldelas åtkomst skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** `Fulfill access package assignment`.  Användaren som har tagit emot åtkomsten identifieras av **ActorUserPrincipalName** -fältet.
+När en användare tilldelas åtkomst skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** `Fulfill access package assignment` .  Användaren som har tagit emot åtkomsten identifieras av **ActorUserPrincipalName** -fältet.
 
-Om åtkomst `EntitlementManagement` inte har tilldelats skriver Azure AD en gransknings post för kategorin med **aktivitet** antingen `Deny access package assignment request`, om begäran nekades av en god kännare, eller `Access package assignment request timed out (no approver action taken)`om tids gränsen nåddes för begäran innan en god kännare kan godkänna.
+Om åtkomst inte har tilldelats skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** antingen `Deny access package assignment request` , om begäran nekades av en god kännare, eller om tids gränsen nåddes för `Access package assignment request timed out (no approver action taken)` begäran innan en god kännare kan godkänna.
 
-När användarens åtkomst paket tilldelning går ut, annulleras av användaren eller tas bort av en administratör, skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** i. `Remove access package assignment`
+När användarens åtkomst paket tilldelning går ut, annulleras av användaren eller tas bort av en administratör, skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** i `Remove access package assignment` .
 
 ## <a name="next-steps"></a>Nästa steg
 

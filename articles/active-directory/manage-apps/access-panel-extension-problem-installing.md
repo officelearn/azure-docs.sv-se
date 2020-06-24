@@ -3,25 +3,25 @@ title: Installera webb läsar tillägget för program åtkomst panelen – Azure
 description: Åtgärda vanliga fel när du installerar åtkomst panelens webb läsar tillägg.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/04/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2046c24220079a604792d07f3ebc3f6ef11e9c8a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275863"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761093"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installera åtkomst panelens webb läsar tillägg
 
@@ -67,7 +67,7 @@ Du kan också ladda ned tillägget för Chrome och Microsoft Edge direkt från f
 - [Firefox-tillägg](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd tillägget Mina appar säker inloggning
-* Om du använder en min Apps-URL än `https://myapps.microsoft.com`konfigurerar du din standard-URL genom att göra följande:
+* Om du använder en min Apps-URL än `https://myapps.microsoft.com` konfigurerar du din standard-URL genom att göra följande:
    1. När du *inte* är inloggad på tillägget högerklickar du på ikonen för tillägg.
    2. På menyn väljer du **min Apps URL**.
    3. Välj din standard-URL.

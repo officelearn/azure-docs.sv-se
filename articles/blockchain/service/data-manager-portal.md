@@ -2,14 +2,14 @@
 title: Konfigurera blockchain Data Manager med hjälp av Azure Portal Azure blockchain-tjänsten
 description: Skapa och hantera blockchain-Data Manager för Azure blockchain-tjänsten med hjälp av Azure Portal.
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260606"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200689"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -76,7 +76,7 @@ ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hu
 
     Kontraktets ABI kopieras till Urklipp.
 
-1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
+1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *abi.jspå*. Du använder filen i ett senare steg.
 
 Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan använda Azure blockchain Development Kit-tillägget för att kopiera bytekod till Urklipp.
 
@@ -88,11 +88,11 @@ Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet.
 
     Bytekod kopieras till Urklipp.
 
-1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
+1. Spara **bytekod** -värdet som en JSON-fil. Till exempel *bytecode.jspå*. Du använder filen i ett senare steg.
 
-I följande exempel visas *ABI. JSON* och *bytekod. JSON* -filer öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
+I följande exempel visas *abi.jspå* och *bytecode.jspå* filer som är öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
 
-![Exempel på ABI. JSON och bytekod. JSON-filer](./media/data-manager-portal/contract-files.png)
+![Exempel på abi.jspå och bytecode.jspå filer](./media/data-manager-portal/contract-files.png)
 
 ### <a name="create-contract-abi-and-bytecode-url"></a>Skapa kontrakts ABI och bytekod-URL
 
@@ -108,7 +108,7 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     ![Skapa en lagrings konto behållare](./media/data-manager-portal/create-container.png)
 
-    | Field | Beskrivning |
+    | Fält | Beskrivning |
     |-------|-------------|
     | Name  | Ge containern ett namn. Till exempel *smartcontract* |
     | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |

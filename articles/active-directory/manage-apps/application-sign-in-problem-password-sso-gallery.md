@@ -2,25 +2,25 @@
 title: Det gick inte att logga in på Azure AD Gallery-appen som kon figurer ATS för SSO | Microsoft Docs
 description: Så här felsöker du problem med ett Azure AD Gallery-program som är konfigurerat för enkel inloggning med lösen ord.
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6eebde3a7c6163b7faf92be193fe442cd5b74d2c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68381303"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759121"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Inloggnings problem med en Azure AD Gallery-app som kon figurer ATS för SSO
 

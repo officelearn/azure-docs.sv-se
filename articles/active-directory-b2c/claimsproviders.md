@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189777"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201267"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -23,7 +23,7 @@ ms.locfileid: "78189777"
 
 En anspråks leverantör innehåller en uppsättning [tekniska profiler](technicalprofiles.md). Varje anspråks leverantör måste ha en eller flera tekniska profiler som avgör slut punkterna och de protokoll som behövs för att kommunicera med anspråks leverantören. En anspråks leverantör kan ha flera tekniska profiler. Till exempel kan flera tekniska profiler definieras eftersom anspråks leverantören stöder flera protokoll, olika slut punkter med olika funktioner eller släpper olika anspråk på olika garanti nivåer. Det kan vara acceptabelt att släppa känsliga anspråk i en användar resa, men inte i en annan.
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <Domain>Domain name</Domain>
@@ -57,7 +57,7 @@ En anspråks leverantör innehåller en uppsättning [tekniska profiler](technic
 
 **ClaimsProvider** ordnar hur dina tekniska profiler är relaterade till anspråks leverantören. I följande exempel visas providern Azure Active Directory anspråk med Azure Active Directory tekniska profiler:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Azure Active Directory</DisplayName>
   <TechnicalProfiles>
@@ -95,7 +95,7 @@ En anspråks leverantör innehåller en uppsättning [tekniska profiler](technic
 
 I följande exempel visas Facebook-anspråks leverantören med den tekniska profilen för **Facebook-OAuth** .
 
-```XML
+```xml
 <ClaimsProvider>
   <Domain>facebook.com</Domain>
   <DisplayName>Facebook</DisplayName>

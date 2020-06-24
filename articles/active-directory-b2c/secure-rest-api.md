@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f1897a4f58276bbac2a7de673544e592a562562
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1028707a63f720f814c90b1376caf7b745a76224
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826680"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203477"
 ---
 # <a name="secure-your-restful-services"></a>Skydda dina RESTful-tjänster 
 
@@ -28,7 +28,7 @@ Lär dig hur du integrerar en REST API inom Azure AD B2C användar resa i artikl
 
 I den här artikeln får du lära dig hur du skyddar REST API med antingen HTTP Basic, klient certifikat eller OAuth2-autentisering. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i någon av följande rikt linjer:
 
@@ -67,7 +67,7 @@ Om du vill konfigurera en REST API teknisk profil med HTTP Basic-autentisering s
 
 När du har skapat de nödvändiga nycklarna konfigurerar du REST API teknisk profils metadata så att de refererar till autentiseringsuppgifterna.
 
-1. Öppna tilläggs princip filen (TrustFrameworkExtensions. xml) i arbets katalogen.
+1. Öppna tilläggs princip filen (TrustFrameworkExtensions.xml) i arbets katalogen.
 1. Sök efter den REST API tekniska profilen. Till exempel `REST-ValidateProfile` eller `REST-GetProfile` .
 1. Leta upp `<Metadata>` elementet.
 1. Ändra *AuthenticationType* till `Basic` .
@@ -114,7 +114,7 @@ Autentisering av klient certifikat är en ömsesidigt certifikatbaserad autentis
 Om du inte redan har ett certifikat kan du använda ett självsignerat certifikat för icke-produktions miljöer. I Windows kan du använda PowerShell: s [New-SelfSignedCertificate-](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet för att skapa ett certifikat.
 
 1. Kör PowerShell-kommandot för att generera ett självsignerat certifikat. Ändra `-Subject` argumentet efter behov för ditt program och Azure AD B2C klient namn. Du kan också justera `-NotAfter` datumet för att ange ett annat förfallo datum för certifikatet.
-    ```PowerShell
+    ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
         -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -148,7 +148,7 @@ Om du inte redan har ett certifikat kan du använda ett självsignerat certifika
 
 När du har skapat den nödvändiga nyckeln konfigurerar du REST API teknisk profils metadata så att de refererar till klient certifikatet.
 
-1. Öppna tilläggs princip filen (TrustFrameworkExtensions. xml) i arbets katalogen.
+1. Öppna tilläggs princip filen (TrustFrameworkExtensions.xml) i arbets katalogen.
 1. Sök efter den REST API tekniska profilen. Till exempel `REST-ValidateProfile` eller `REST-GetProfile` .
 1. Leta upp `<Metadata>` elementet.
 1. Ändra *AuthenticationType* till `ClientCertificate` .
@@ -264,7 +264,7 @@ För ServiceUrl ersätter du namnet på din klient organisation med namnet på d
 
 Om du vill stödja autentisering med Bearer-token i din anpassade princip ändrar du REST API tekniska profilen med följande:
 
-1. Öppna tilläggs princip filen *TrustFrameworkExtensions. XML* i arbets katalogen.
+1. Öppna princip filen *TrustFrameworkExtensions.xml* tillägg i arbets katalogen.
 1. Sök efter `<TechnicalProfile>` noden som innehåller `Id="REST-API-SignUp"` .
 1. Leta upp `<Metadata>` elementet.
 1. Ändra *AuthenticationType* till *Bearer*på följande sätt:
@@ -285,7 +285,7 @@ Om du vill stödja autentisering med Bearer-token i din anpassade princip ändra
 
 När du har lagt till ovanstående kodfragment bör din tekniska profil se ut som följande XML-kod:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
@@ -320,7 +320,7 @@ Skapa en princip nyckel för att lagra värdet för Bearer-token.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar**och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual` .
-1. Ange ett **namn** för princip nyckeln. Till exempel `RestApiBearerToken`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Exempelvis `RestApiBearerToken`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
 1. För **nyckel användning**väljer du `Encryption` .
 1. Välj **Skapa**.
@@ -329,7 +329,7 @@ Skapa en princip nyckel för att lagra värdet för Bearer-token.
 
 När du har skapat den nödvändiga nyckeln konfigurerar du REST API teknisk profils metadata så att de refererar till Bearer-token.
 
-1. Öppna tilläggs princip filen (TrustFrameworkExtensions. xml) i arbets katalogen.
+1. Öppna tilläggs princip filen (TrustFrameworkExtensions.xml) i arbets katalogen.
 1. Sök efter den REST API tekniska profilen. Till exempel `REST-ValidateProfile` eller `REST-GetProfile` .
 1. Leta upp `<Metadata>` elementet.
 1. Ändra *AuthenticationType* till `Bearer` .

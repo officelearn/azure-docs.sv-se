@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fdbd6784ea3333c92154e940916f052dd9cdbfd9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636084"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202517"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Genom gång: Lägg till REST API Claims-utbyten till anpassade principer i Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
 1. Klistra in i `<UserJourneys>` tilläggs filen efter slutet av `<ClaimsProviders>` elementet.
 1. Leta upp `<UserJourney Id="SignUpOrSignIn">` och Lägg till följande Orchestration-steg före det sista.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
 
 1. Återtvingar det senaste Orchestration-steget genom att ändra `Order` till `8` . Dina sista steg i dirigeringen bör se ut ungefär så här:
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -171,9 +171,9 @@ Om du vill återgå `balance` tillbaka till det förlitande part programmet läg
 </RelyingParty>
 ```
 
-Upprepa det här steget för **ProfileEdit. XML**och **PasswordReset original. XML-** användar resan.
+Upprepa det här steget för **ProfileEdit.xml**och **PasswordReset.xml** användar resor.
 
-Spara de filer som du ändrade: *TrustFrameworkBase. XML*och *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*och *PasswordReset original. XML*. 
+Spara de filer som du ändrade: *TrustFrameworkBase.xml*och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*och *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
@@ -181,7 +181,7 @@ Spara de filer som du ändrade: *TrustFrameworkBase. XML*och *TrustFrameworkExte
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ramverk för identitets upplevelse**.
-1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkBase. XML*och *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*och *PasswordReset original. XML*. 
+1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkBase.xml*och *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*och *PasswordReset.xml*. 
 1. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 1. Du bör kunna registrera dig med hjälp av en e-postadress eller ett Facebook-konto.
 1. Den token som skickas tillbaka till programmet inkluderar `balance` anspråket.

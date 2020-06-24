@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481576"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203001"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk validerings profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En teknisk verifierings profil är en vanlig teknisk profil från alla protokoll, till exempel [Azure Active Directory](active-directory-technical-profile.md) eller en [REST API](restful-technical-profile.md). Den tekniska verifierings profilen returnerar utgående anspråk eller returnerar 4xx HTTP-statuskod med följande data. Mer information finns i [returnera fel meddelande](restful-technical-profile.md#returning-error-message)
+En teknisk verifierings profil är en vanlig teknisk profil från alla protokoll, till exempel [Azure Active Directory](active-directory-technical-profile.md) eller en [REST API](restful-technical-profile.md). Den tekniska verifierings profilen returnerar utgående anspråk eller returnerar 4xx HTTP-statuskod med följande data. Mer information finns i [returnera fel meddelande](restful-technical-profile.md#returning-validation-error-message)
 
-```JSON
+```json
 {
     "version": "1.0.0",
     "status": 409,
@@ -55,9 +55,9 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ReferenceId | Ja | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
-|ContinueOnError|Inga| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
-|ContinueOnSuccess | Inga | Anger om validering av eventuella efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false`. Standardvärdet `true`är, vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
+| ReferenceId | Yes | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
+|ContinueOnError|No| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
+|ContinueOnSuccess | No | Anger om validering av eventuella efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false` . Standardvärdet är `true` , vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
 
 **ValidationTechnicalProfile** -elementet innehåller följande element:
 
@@ -69,25 +69,25 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Ja | Typ av kontroll eller fråga som ska utföras för villkoret. Antingen `ClaimsExist` anges för att säkerställa att åtgärder ska utföras om de angivna anspråken finns i användarens aktuella anspråks `ClaimEquals` uppsättning eller anges att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
-| `ExecuteActionsIf` | Ja | Anger om åtgärderna i villkoret ska utföras om testet är sant eller falskt. |
+| `Type` | Yes | Typ av kontroll eller fråga som ska utföras för villkoret. Antingen `ClaimsExist` anges för att säkerställa att åtgärder ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller `ClaimEquals` anges att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| `ExecuteActionsIf` | Yes | Anger om åtgärderna i villkoret ska utföras om testet är sant eller falskt. |
 
 **Villkors** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Värde | 1: n | De data som används av kontrollen. Om typen av kontroll är `ClaimsExist`, anger det här fältet en ClaimTypeReferenceId att fråga efter. Om typen av kontroll är `ClaimEquals`, anger det här fältet en ClaimTypeReferenceId att fråga efter. Ett annat värde-element innehåller det värde som ska kontrol leras.|
-| Åtgärd | 1:1 | Den åtgärd som ska vidtas om villkors kontrollen i ett Orchestration-steg är sann. Värdet för **åtgärden** är inställt på `SkipThisValidationTechnicalProfile`. Anger att den tillhör ande tekniska profilen för verifiering inte ska köras. |
+| Värde | 1: n | De data som används av kontrollen. Om typen av kontroll är `ClaimsExist` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Om typen av kontroll är `ClaimEquals` , anger det här fältet en ClaimTypeReferenceId att fråga efter. Ett annat värde-element innehåller det värde som ska kontrol leras.|
+| Åtgärd | 1:1 | Den åtgärd som ska vidtas om villkors kontrollen i ett Orchestration-steg är sann. Värdet för **åtgärden** är inställt på `SkipThisValidationTechnicalProfile` . Anger att den tillhör ande tekniska profilen för verifiering inte ska köras. |
 
 ### <a name="example"></a>Exempel
 
 I följande exempel används de här verifierings teknik profilerna:
 
 1. Den första verifierings tekniska profilen kontrollerar användarautentiseringsuppgifter och fortsätter inte om ett fel inträffar, t. ex. ogiltigt användar namn eller felaktigt lösen ord.
-2. Nästa validerings tekniska profil körs inte om userType-anspråket inte finns eller om värdet för userType är `Partner`. Den tekniska verifierings profilen försöker läsa användar profilen från den interna kund databasen och fortsätta om ett fel inträffar, till exempel REST API tjänsten inte är tillgänglig eller något internt fel.
-3. Den senaste verifierings tekniska profilen körs inte om userType-anspråket inte fanns eller om värdet för userType är `Customer`. Den tekniska verifierings profilen försöker läsa användar profilen från den interna partner databasen och fortsätter om ett fel inträffar, till exempel REST API tjänsten inte är tillgänglig eller något internt fel.
+2. Nästa validerings tekniska profil körs inte om userType-anspråket inte finns eller om värdet för userType är `Partner` . Den tekniska verifierings profilen försöker läsa användar profilen från den interna kund databasen och fortsätta om ett fel inträffar, till exempel REST API tjänsten inte är tillgänglig eller något internt fel.
+3. Den senaste verifierings tekniska profilen körs inte om userType-anspråket inte fanns eller om värdet för userType är `Customer` . Den tekniska verifierings profilen försöker läsa användar profilen från den interna partner databasen och fortsätter om ett fel inträffar, till exempel REST API tjänsten inte är tillgänglig eller något internt fel.
 
-```XML
+```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >

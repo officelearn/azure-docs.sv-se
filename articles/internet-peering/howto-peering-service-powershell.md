@@ -5,15 +5,15 @@ description: Aktivera Azure peering-tjänsten på en direkt peering med hjälp a
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c029b822d00ce545e3623a6212421a55b2d1971f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 579af2d5cbe0f3dcdbdf749894d5c400112f37cd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686975"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710804"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Aktivera Azure peering-tjänsten på en direkt peering med hjälp av PowerShell
 

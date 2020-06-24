@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab2974cf95726f44641b4ac220c7ee871890ca56
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 64a619843f781fa24bfdc2a339e67fdb49b1bff1
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736865"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078849"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd åtkomst granskningar i Azure AD för att hantera användare som uteslutits från principer för villkorlig åtkomst
 
@@ -63,7 +63,7 @@ Följ dessa steg om du vill skapa en ny Azure AD-grupp och en princip för villk
 
 ### <a name="create-an-exclusion-group"></a>Skapa en undantags grupp
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Klicka på **Azure Active Directory** i det vänstra navigerings fönstret och klicka sedan på **grupper**.
 

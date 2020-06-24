@@ -11,21 +11,21 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254809"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84883991"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
 Med Azure Diagnostic-loggar kan du Visa kärn analyser och spara dem i en eller flera destinationer, inklusive:
 
- - Azure Storage-konto
+ - Azure-lagringskonto
  - Azure Event Hubs
  - [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
@@ -176,8 +176,8 @@ Innan du kan komma åt kärn analys data från ett Azure Storage-konto behöver 
 2.  Hitta lagrings kontot
 3.  Expandera noden **BLOB containers** under det här lagrings kontot.
 4.  Välj behållaren med namnet *Insights-logs-coreanalytics*.
-5.  Resultaten visas i den högra rutan, med början på den första nivån som *resourceId =*. Fortsätt att markera varje nivå tills du hittar filen *PT1H. JSON*. En förklaring av sökvägen finns i [BLOB Path-format](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  Varje Blob- *PT1H. JSON* -fil representerar analys loggar för en timme för en angiven CDN-slutpunkt eller dess anpassade domän.
+5.  Resultaten visas i den högra rutan, med början på den första nivån som *resourceId =*. Fortsätt att markera varje nivå tills du hittar filen *PT1H.js*. En förklaring av sökvägen finns i [BLOB Path-format](cdn-azure-diagnostic-logs.md#blob-path-format).
+6.  Varje Blob- *PT1H.jsi* filen representerar analys loggar för en timme för en angiven CDN-slutpunkt eller dess anpassade domän.
 7.  Schemat för innehållet i denna JSON-fil beskrivs i avsnittet-schemat i Core Analytics-loggarna.
 
 
@@ -195,10 +195,10 @@ Kärn analys loggar genereras varje timme och data samlas in och lagras i en end
 |Resurs grupps namn |Namnet på resurs gruppen som CDN-resurserna tillhör.|
 |Profilnamn |Namn på CDN-profilen|
 |Slut punkts namn |Namn på CDN-slutpunkten|
-|Year|  Fyrsiffrig representation av året, till exempel 2017|
-|Month| Tvåsiffrig representation av månads nummer. 01 = januari... 12 = december|
-|Day|   Tvåsiffrig representation av dagen i månaden|
-|PT1H. JSON| Faktisk JSON-fil där analys data lagras|
+|År|  Fyrsiffrig representation av året, till exempel 2017|
+|Månad| Tvåsiffrig representation av månads nummer. 01 = januari... 12 = december|
+|Dag|   Tvåsiffrig representation av dagen i månaden|
+|PT1H.jspå| Faktisk JSON-fil där analys data lagras|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportera huvud analys data till en CSV-fil
 
@@ -323,7 +323,7 @@ Microsoft erbjuder för närvarande endast grundläggande analys loggar, som inn
 I följande tabell visas en lista över mått som är tillgängliga i Core Analytics-loggarna för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**och **Azure CDN Standard/Premium från Verizon**. Alla mått är inte tillgängliga från alla leverantörer, även om sådana skillnader är minimala. Tabellen visar även om ett specifikt mått är tillgängligt från en leverantör. Måtten är endast tillgängliga för de CDN-slutpunkter som har trafik på dem.
 
 
-|Mått                     | Beskrivning | Microsoft | Verizon | Akamai |
+|Metric                     | Beskrivning | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totalt antal begär ande träffar under denna period. | Ja | Ja |Ja |
 | RequestCountHttpStatus2xx | Antal begär Anden som resulterade i en 2xx HTTP-kod (till exempel 200, 202). | Ja | Ja |Ja |
@@ -331,27 +331,27 @@ I följande tabell visas en lista över mått som är tillgängliga i Core Analy
 | RequestCountHttpStatus4xx | Antal begär Anden som resulterade i en 4xx HTTP-kod (till exempel 400, 404). | Ja | Ja |Ja |
 | RequestCountHttpStatus5xx | Antal begär Anden som resulterade i en 5xx HTTP-kod (till exempel 500, 504). | Ja | Ja |Ja |
 | RequestCountHttpStatusOthers | Antal andra HTTP-koder (utanför 2xx-5xx). | Ja | Ja |Ja |
-| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Ja | Nej  |Ja |
-| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Nej  |
-| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten, och därför hämtades från ursprunget. | Ja | Ja | Nej |
-| RequestCountCacheNoCache | Antalet förfrågningar till en till gång som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
-| RequestCountCacheUncacheable | Antalet förfrågningar till till gångar som förhindras från att cachelagras av till gångens Cache-Control-och Expires-huvuden, vilket indikerar att den inte ska cachelagras på en POP eller HTTP-klienten. | Ja | Ja | Nej |
-| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Nej | Ja | Nej  |
+| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Yes | Inga  |Yes |
+| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Yes | Inga  |Yes |
+| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Yes | Inga  |Yes |
+| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Yes | Inga  |Yes |
+| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Yes | Inga  |Yes |
+| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Inga  |
+| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten, och därför hämtades från ursprunget. | Ja | Ja | Inga |
+| RequestCountCacheNoCache | Antalet förfrågningar till en till gång som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
+| RequestCountCacheUncacheable | Antalet förfrågningar till till gångar som förhindras från att cachelagras av till gångens Cache-Control-och Expires-huvuden, vilket indikerar att den inte ska cachelagras på en POP eller HTTP-klienten. | Ja | Ja | Inga |
+| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Inga | Yes | Inga  |
 | EgressTotal | Utgående data överföring i GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Nej |
-| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Nej  |
-| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Nej |
-| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Nej |
-| EgressCacheNoCache | Utgående data överföring för till gångar som hindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
-| EgressCacheUncacheable | Utgående data överföring för till gångar som hindras från att cachelagras av till gångens Cache-Control och/eller Expires-huvuden. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Nej |
-| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Nej | Ja | Nej |
+| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Inga |
+| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Inga  |
+| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Inga |
+| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Inga |
+| EgressCacheNoCache | Utgående data överföring för till gångar som hindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
+| EgressCacheUncacheable | Utgående data överföring för till gångar som hindras från att cachelagras av till gångens Cache-Control och/eller Expires-huvuden. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Inga |
+| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Inga | Yes | Inga |
 
 * Utgående data överföring avser trafik som levereras från CDN POP-servrar till klienten.
 

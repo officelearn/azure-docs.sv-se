@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260532"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710158"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -59,14 +59,14 @@ I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera 
 
 Följande tabell innehåller beskrivningar av de JSON-element som är speciella för en Amazon RedShift-länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| **bastyp** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
-| **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
+| **bastyp** |Den här egenskapen måste anges till **AmazonRedshift**. |Yes |
+| **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Yes |
 | **lastning** |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 5439) |
-| **databas** |Namnet på Amazon RedShift-databasen. |Ja |
-| **användar** |Namnet på den användare som har åtkomst till databasen. |Ja |
-| **lösenord** |Lösen ordet för användar kontot. |Ja |
+| **databas** |Namnet på Amazon RedShift-databasen. |Yes |
+| **användar** |Namnet på den användare som har åtkomst till databasen. |Yes |
+| **lösenord** |Lösen ordet för användar kontot. |Yes |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
@@ -74,7 +74,7 @@ En lista över de avsnitt och egenskaper som är tillgängliga för att definier
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i arkivet. Avsnittet **typeProperties** för en data uppsättning av typen **RelationalTable**, som innehåller Amazon RedShift-datauppsättningen, har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i Amazon RedShift-databasen som den länkade tjänsten refererar till. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
 
@@ -84,16 +84,16 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera a
 
 För kopierings aktiviteten, när källan är av typen **AmazonRedshiftSource**, finns följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | **frågeterm** | Använd den anpassade frågan för att läsa data. |Nej (om egenskapen **TableName** för en data uppsättning anges) |
-| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | Inga |
+| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | No |
 | **s3LinkedServiceName** | Amazon S3 som används som ett interimistiskt lager. Den länkade tjänsten anges med ett Azure Data Factory namn av typen **en awsaccesskey**. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 | **bucketName** | Anger den Amazon S3-Bucket som ska användas för att lagra interims data. Om den här egenskapen inte anges genererar kopiera aktivitet automatiskt en Bucket. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 
 Du kan också använda **RelationalSource** -typen, som innehåller Amazon Redshift, med följande egenskap i avsnittet **typeProperties** . OBS! den här käll typen har inte stöd för kommandot RedShift **Unload** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | **frågeterm** |Använd den anpassade frågan för att läsa data. | Nej (om egenskapen **TableName** för en data uppsättning anges) |
 
@@ -333,7 +333,7 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Enkel |
+| REAL |Enskilt |
 | DUBBEL PRECISION |Double |
 | BOOLESKT |Sträng |
 | CHAR |Sträng |

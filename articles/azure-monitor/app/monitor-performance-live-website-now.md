@@ -3,17 +3,17 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 874069ec9ce9870c3deba37387ee470de1d1699f
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536836"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079086"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
 > [!IMPORTANT]
-> Statusövervakare rekommenderas inte längre för användning. Den har ersatts av Azure Monitor Application Insights agent (tidigare namngiven Statusövervakare v2). Se vår dokumentation om distributioner [av lokala Server-distributioner](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) eller virtuella [Azure-datorer och skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Statusövervakare rekommenderas inte längre för användning och från och med den **1 juni 2021** kommer den här versionen av status övervakaren inte att stödjas. Den har ersatts av Azure Monitor Application Insights agent (tidigare namngiven Statusövervakare v2). Se vår dokumentation om distributioner [av lokala Server-distributioner](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) eller virtuella [Azure-datorer och skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Du behöver en [Microsoft Azure](https://azure.com)-prenumeration.
 
@@ -40,13 +40,13 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | Förfrågningar och undantag |Ja |Ja |
-| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Ja |
+| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | [Systemprestandaräknare](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
-| [API för anpassad telemetri][api] |Ja |Nej |
-| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Ja |Nej |
-| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Ja |Nej |
-| Du måste återskapa koden |Ja | Nej |
+| [API för anpassad telemetri][api] |Yes |Inga |
+| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Inga |
+| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Yes |Inga |
+| Du måste återskapa koden |Yes | Inga |
 
 
 
@@ -90,14 +90,14 @@ Om du vill publicera på nytt utan att lägga till Application Insights i koden,
 
 Dessa är några steg som du kan utföra för att bekräfta att installationen lyckades.
 
-- Bekräfta att filen applicationInsights. config finns i mål app-katalogen och innehåller din iKey.
+- Bekräfta att applicationInsights.config-filen finns i mål app-katalogen och innehåller din iKey.
 
-- Om du misstänker att data saknas kan du köra en enkel fråga i [Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri.
+- Om du misstänker att data saknas kan du köra en fråga i [Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Om du behöver bekräfta att Application Insights har anslutits kan du köra [Sysinternals-handtaget](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights. dll har lästs in av IIS.
+- Om du behöver bekräfta att Application Insights har anslutits kan du köra Sysinternals- [handtaget](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights.dll har lästs in av IIS.
   ```cmd
   handle.exe /p w3wp.exe
   ```
@@ -119,7 +119,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Det gick inte att läsa in filen eller sammansättningen system. Diagnostics. DiagnosticSource
 
 Du kan få det här felet när du har aktiverat Application Insights. Detta beror på att installations programmet ersätter denna DLL i din bin-katalog.
-Åtgärda uppdateringen av Web. config:
+Så här åtgärdar du web.config:
 
 ```xml
 <dependentAssembly>
@@ -141,7 +141,7 @@ Vi spårar det här problemet [här](https://github.com/Microsoft/ApplicationIns
 
 * Som standard kommer Statusövervakare att utgående diagnostikloggar vid:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
-* Ändra konfigurations filen för att mata ut utförliga loggar `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` : och `<add key="TraceLevel" value="All" />` Lägg till `appsettings`i.
+* Ändra konfigurations filen för att mata ut utförliga loggar: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` och Lägg till `<add key="TraceLevel" value="All" />` i `appsettings` .
 Starta sedan om status övervakaren.
 
 * Som Statusövervakare är ett .NET-program kan du också aktivera [.net-spårning genom att lägga till lämplig diagnostik i konfigurations filen](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). I vissa fall kan det till exempel vara användbart att se vad som händer på nätverks nivå genom att [Konfigurera nätverks spårning](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
@@ -162,10 +162,10 @@ Om Statusövervakare Miss lyckas under en installation kan du lämna en ofullst�
 
 Ta bort de här filerna som finns i program katalogen:
 - Alla DLL-filer i din bin-katalog börjar med antingen "Microsoft.AI". eller "Microsoft. ApplicationInsights".
-- Den här DLL-filen i bin-katalogen "Microsoft. Web. Infrastructure. dll"
-- Denna DLL i bin-katalogen "system. Diagnostics. DiagnosticSource. dll"
+- Den här DLL-filen i din bin-katalog "Microsoft.Web.Infrastructure.dll"
+- Den här DLL-filen i din bin-katalog "System.Diagnostics.DiagnosticSource.dll"
 - I din program katalog tar du bort "App_Data \packages"
-- Ta bort "applicationinsights. config" i program katalogen
+- I program katalogen tar du bort "applicationinsights.config"
 
 
 ### <a name="additional-troubleshooting"></a>Ytterligare felsökning
@@ -268,7 +268,7 @@ Den samlar inte in telemetri på egen hand. Den bara konfigurerar webbappar och 
 
 När du har valt en webbapp som Statusövervakaren ska instrumentera gör den följande:
 
-* Hämtar och placerar Application Insights sammansättningar och ApplicationInsights. config-filen i webbappens mapp för binärfiler.
+* Laddar ned och placerar Application Insights sammansättningar och ApplicationInsights.config-filen i webbappens binärfiler-mapp.
 * Aktiverar CLR-profilering för att samla in beroendeanrop.
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Vilken version av Application Insights SDK Statusövervakare installerar du?

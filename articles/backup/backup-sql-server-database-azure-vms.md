@@ -1,15 +1,14 @@
 ---
 title: Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Server databaser på virtuella Azure-datorer med Azure Backup.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: faf5ffd65f9b3133c504413201d58aee988af71a
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248115"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817534"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -34,9 +33,10 @@ I den här artikeln får du lära dig att:
 Innan du säkerhetskopierar en SQL Server databas kontrollerar du följande kriterier:
 
 1. Identifiera eller skapa ett [Recovery Services valv](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) i samma region och prenumeration som den virtuella dator som är värd för SQL Server-instansen.
-2. Kontrol lera att den virtuella datorn är [ansluten till nätverket](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Se till att SQL Server-databaser följer [rikt linjerna för namngivning av databasen för Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Kontrol lera att inga andra säkerhets kopierings lösningar har Aktiver ATS för databasen. Inaktivera alla andra SQL Server säkerhets kopieringar innan du säkerhetskopierar databasen.
+1. Kontrol lera att den virtuella datorn är [ansluten till nätverket](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Se till att SQL Server-databaser följer [rikt linjerna för namngivning av databasen för Azure Backup](#database-naming-guidelines-for-azure-backup).
+1. Se till att den kombinerade längden för SQL Server VM namn och resurs grupps namnet inte överskrider 84 tecken för virtuella datorer i Azure Resource Manager (ARM) (eller 77 tecken för klassiska virtuella datorer). Den här begränsningen beror på att vissa tecken reserveras av tjänsten.
+1. Kontrol lera att inga andra säkerhets kopierings lösningar har Aktiver ATS för databasen. Inaktivera alla andra SQL Server säkerhets kopieringar innan du säkerhetskopierar databasen.
 
 > [!NOTE]
 > Du kan aktivera Azure Backup för en virtuell Azure-dator och även för en SQL Server databas som körs på den virtuella datorn utan konflikter.
@@ -264,7 +264,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
 Du kan aktivera automatiskt skydd för att automatiskt säkerhetskopiera alla befintliga och framtida databaser till en fristående SQL Server instans eller till en tillgänglighets grupp som alltid är tillgänglig.
 
-* Det finns ingen gräns för hur många databaser du kan välja för automatiskt skydd på en och samma tidpunkt.
+* Det finns ingen gräns för hur många databaser du kan välja för automatiskt skydd i taget. Identifieringen körs vanligt vis var åttonde timme. Du kan dock identifiera och skydda nya databaser omedelbart om du kör en identifiering manuellt genom att välja alternativet **identifiera databaser** .
 * Du kan inte selektivt skydda eller utesluta databaser från skydd i en instans vid den tidpunkt då du aktiverar automatiskt skydd.
 * Om din instans redan innehåller vissa skyddade databaser förblir de skyddade under respektive principer även efter att du har aktiverat automatiskt skydd. Alla oskyddade databaser som lagts till senare kommer bara att ha en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd, som visas under **Konfigurera säkerhets kopiering**. Du kan dock ändra principen som är kopplad till en automatiskt skyddad databas senare.  
 

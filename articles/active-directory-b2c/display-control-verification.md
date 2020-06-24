@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188791"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202322"
 ---
 # <a name="verification-display-control"></a>Verifierings kontroll
 
@@ -40,12 +40,12 @@ Verifierings visnings kontrollen består av två steg (åtgärder):
 
 **VerificationControl** måste innehålla följande element:
 
-- Typen för `DisplayControl` är `VerificationControl`.
+- Typen för `DisplayControl` är `VerificationControl` .
 - `DisplayClaims`
   - **Skicka till** en eller flera anspråk som anger var verifierings koden ska skickas till. Till exempel *e-post* , *landskod* och *telefonnummer*.
-  - **Verifierings kod** – den verifierings kod som användaren anger efter att koden har skickats. Detta anspråk måste anges som obligatoriskt och `ControlClaimType` måste vara inställt på. `VerificationCode`
+  - **Verifierings kod** – den verifierings kod som användaren anger efter att koden har skickats. Detta anspråk måste anges som obligatoriskt och `ControlClaimType` måste vara inställt på `VerificationCode` .
 - Utgående anspråk (valfritt) som ska returneras till den självkontrollerade sidan när användaren har slutfört verifierings processen. Till exempel *e-post* , *landskod* och *telefonnummer*. Den självkontrollerade tekniska profilen använder anspråk för att bevara data eller bubblar över utgående anspråk till nästa Orchestration-steg.
-- Två `Action`s med följande namn:
+- Två `Action` s med följande namn:
   - **SendCode** – skickar en kod till användaren. Den här åtgärden innehåller vanligt vis två validerings tekniska profiler, för att generera en kod och skicka den.
   - **VerifyCode** – verifierar koden. Den här åtgärden innehåller vanligt vis en teknisk profil med en validering.
 
@@ -53,7 +53,7 @@ I exemplet nedan visas en **e-** posttext ruta på sidan. När användaren anger
 
 Sedan anger användaren **verificationCode** och väljer **VerifyCode** för att utlösa **VerifyCode** -åtgärden i Server delen. Om alla verifierings pass godkänns anses **VerificationControl** vara slutförd och användaren kan fortsätta till nästa steg.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

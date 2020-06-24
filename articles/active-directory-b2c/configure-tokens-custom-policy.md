@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0b460d5a3c5535b74e349fa46c6a2ad55fc3a8d8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a60824ecac9d62de74ac00472ca9108789b9b3a8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966576"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202884"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera SSO-och token-anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Infoga elementet ClaimsProviders mellan elementet BasePolicy och RelyingParty-el
 
 I måste du ange den information som påverkar dina livstider för token. XML-filen ser ut så här:
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -55,13 +55,13 @@ Följande värden anges i föregående exempel:
 - **Livstid** för åtkomsttoken – åtkomsttoken för åtkomsttoken anges med **token_lifetime_secs** metadata-objekt. Standardvärdet är 3600 sekunder (60 minuter).
 - **ID-token livs längd** -värdet för ID-token anges med **id_token_lifetime_secs** metadataobjektet. Standardvärdet är 3600 sekunder (60 minuter).
 - **Giltighets tid** för uppdateringstoken – värdet för uppdateringstoken anges med **refresh_token_lifetime_secs** metadataobjektet. Standardvärdet är 1209600 sekunder (14 dagar).
-- **Uppdatera token glidande fönster livs längd** – om du vill ange en varaktighet för en glidande period till din uppdateringstoken anger du värdet för **rolling_refresh_token_lifetime_secs** metadataelement. Standardvärdet är 7776000 (90 dagar). Om du inte vill framtvinga en glidande fönster livs längd ersätter du objektet med `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Issuer-anspråk (ISS)** -anspråket Issuer (ISS) anges med **IssuanceClaimPattern** metadata-objekt. Tillämpliga värden är `AuthorityAndTenantGuid` och `AuthorityWithTfp`.
-- **Inställning av anspråk som representerar princip-ID** – alternativen för att ange `TFP` det här värdet är (förtroende `ACR` Ramverks princip) och (referens för autentisering). `TFP`är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`.
+- **Uppdatera token glidande fönster livs längd** – om du vill ange en varaktighet för en glidande period till din uppdateringstoken anger du värdet för **rolling_refresh_token_lifetime_secs** metadataelement. Standardvärdet är 7776000 (90 dagar). Om du inte vill framtvinga en glidande fönster livs längd ersätter du objektet med `<Item Key="allow_infinite_rolling_refresh_token">True</Item>` .
+- **Issuer-anspråk (ISS)** -anspråket Issuer (ISS) anges med **IssuanceClaimPattern** metadata-objekt. Tillämpliga värden är `AuthorityAndTenantGuid` och `AuthorityWithTfp` .
+- **Inställning av anspråk som representerar princip-ID** – alternativen för att ange det här värdet är `TFP` (förtroende Ramverks princip) och `ACR` (referens för autentisering). `TFP`är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None` .
 
     Lägg till följande element i **ClaimsSchema** -elementet:
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -70,21 +70,21 @@ Följande värden anges i föregående exempel:
 
     Lägg till följande element i **OutputClaims** -elementet:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
     Ta bort **AuthenticationContextReferenceClaimPattern** -objektet för ACR.
 
-- **Subject (sub)-anspråk** – det här alternativet är standardvärdet ObjectID, om du vill växla den `Not Supported`här inställningen till ersätter du den här raden:
+- **Subject (sub)-anspråk** – det här alternativet är standardvärdet ObjectID, om du vill växla den här inställningen till `Not Supported` ersätter du den här raden:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     med den här raden:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 

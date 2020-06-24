@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4f03033942517f4778192e0b12f84610df8fd469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429218"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85195002"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
@@ -106,7 +106,7 @@ Du kan se en översikt över jobbet i diagrammet genererat jobb. Som standard vi
 
 ![Jobb-ID för Spark-program och jobb diagram](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Skärm
+### <a name="display"></a>Visning
 
 Som standard är visnings **förloppet** markerat. Du kan kontrol lera data flödet genom att välja **läsa** eller **skriva** i list rutan **Visa** .
 
@@ -120,7 +120,7 @@ Graf-noden visar de färger som visas i termisk karta-förklaringen.
 
 Om du vill spela upp jobbet väljer du **uppspelning**. Du kan välja **stoppa** när som helst för att stoppa. Aktivitets färgerna visar olika status vid uppspelning:
 
-|Färg|Betydelse|
+|Färg|Innebörd|
 |-|-|
 |Grön|Lyckades: jobbet har slutförts.|
 |Orange|Nytt försök: instanser av aktiviteter som misslyckats men inte påverkar jobbets slut resultat. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.|

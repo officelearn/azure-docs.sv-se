@@ -3,25 +3,25 @@ title: Problem med att logga in till ett program från åtkomst panelen | Micros
 description: Så här felsöker du problem med att komma åt ett program från Microsoft Azure AD åtkomst panelen på myapps.microsoft.com
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b93ee38666b93253c7cda6c756d4f58daaea236
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 9c8d2c1ba156ba4e3c937ced6b81950859e1c095
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74082147"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759597"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problem med att logga in till ett program från åtkomst panelen
 
@@ -181,7 +181,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
     2. Klicka på **Spara.** Det nya attributet visas i tabellen.
 
-13. Klicka **på &lt;Konfigurera program&gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också de metadata-URL: er och certifikat som krävs för att konfigurera SSO med programmet.
+13. Klicka på **Konfigurera &lt; program &gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också de metadata-URL: er och certifikat som krävs för att konfigurera SSO med programmet.
 
 14. Klicka på **Spara** för att spara konfigurationen.
 
@@ -298,7 +298,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program som 
 
     2. Klicka på **Spara.** Det nya attributet visas i tabellen.
 
-14. Klicka **på &lt;Konfigurera program&gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Dessutom har du Azure AD-URL: er och certifikat som krävs för programmet.
+14. Klicka på **Konfigurera &lt; program &gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Dessutom har du Azure AD-URL: er och certifikat som krävs för programmet.
 
 ### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Välj användar-ID och Lägg till användarattribut som ska skickas till programmet
 

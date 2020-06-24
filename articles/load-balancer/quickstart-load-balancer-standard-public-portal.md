@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78898839"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052743"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Portal
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabb starten visar hur du kan belastningsutjämna virtuella datorer med en offentlig Load Balancer.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -36,10 +36,10 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 I det här avsnittet skapar du en Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Load Balancer eller en intern Load Balancer. När du skapar en offentlig Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för Load Balancer.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *myResourceGroupSLB* i text rutan.|
@@ -78,7 +78,7 @@ Om du vill tillåta att Load Balancer övervakar appens status använder du en h
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange *myHealthProbe*. |
     | Protokoll | Välj **http**. |
@@ -95,7 +95,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
 2. Välj **belastnings Utjämnings regler**under **Inställningar**och välj sedan **Lägg till**.
 3. Använd följande värden när du konfigurerar belastningsutjämningsregeln:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange *myHTTPRule*. |
     | Protokoll | Välj **TCP**. |
@@ -116,26 +116,26 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroupSLB |
-| **\<virtuell-nätverks namn>** | myVNet          |
-| **\<region namn>**          | Europa, västra      |
-| **\<IPv4-adress utrymme>**   | 10.1.0.0 \ 16          |
-| **\<under näts namn>**          | myBackendSubnet        |
-| **\<undernät-adress – intervall>** | 10.1.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa, västra      |
+| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 Offentliga IP-SKU: er och Load Balancer SKU: er måste matcha. För Standard Load Balancer använder du virtuella datorer med standard-IP-adresser i backend-poolen. I det här avsnittet ska du skapa tre virtuella datorer (*myVM1*, *myVM2* och *MyVM3*) med en offentlig standard-IP-adress i tre olika zoner (*zon 1*, *zon 2*och *Zon 3*) som senare läggs till i backend-poolen för Load Balancer som skapades tidigare. Om du har valt grundläggande använder du virtuella datorer med grundläggande IP-adresser.
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**. 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Windows Server 2019 Data Center**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupSLB**.
-   - **Instans information** > **namn på virtuell dator**: Skriv *myVM1*.
-   - **Instans information** > **region** > Välj **Europa, västra**.
-   - **Instans information** > **tillgänglighets alternativ** > Välj **tillgänglighets zoner**. 
-   - **Instans information** > **tillgänglighets zon** > Välj **1**.
+   - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupSLB**.
+   - **Instans information**  >  **Namn på virtuell dator**: Skriv *myVM1*.
+   - **Instans information**  >  **Region** > Välj **Europa, västra**.
+   - **Instans information**  >  **Tillgänglighets alternativ** > Välj **tillgänglighets zoner**. 
+   - **Instans information**  >  **Tillgänglighets zon** > Välj **1**.
    - **Administratörs konto**> ange **användar namn**, **lösen ord** och **Bekräfta lösen ords** information.
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
@@ -162,7 +162,7 @@ Offentliga IP-SKU: er och Load Balancer SKU: er måste matcha. För Standard Loa
     | Tillgänglighetszon | 2 |3|
     |Offentlig IP-adress| **Standard** SKU|**Standard** SKU|
     | Offentlig IP-tillgänglighets zon| **Zonen är redundant** |**Zonen är redundant**|
-    | Nätverkssäkerhetsgrupp | Välj den befintliga *myNetworkSecurity-gruppen*| Välj den befintliga *myNetworkSecurity-gruppen*|
+    | Nätverkssäkerhetsgrupp | Välj den befintliga *myNetworkSecurityGroup*| Välj den befintliga *myNetworkSecurityGroup*|
 
  ### <a name="create-nsg-rule"></a>Skapa NSG-regel
 
@@ -191,7 +191,7 @@ I det här avsnittet skapar du en regel för nätverks säkerhets grupper för a
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen *myResourceGroupSLB* i resurs gruppen.
 2. Välj **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 5. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn. När du gör det startar en fjärrskrivbordssession med den virtuella datorn *myVM1*.
-6. Gå till **Windows administrations verktyg**>**Windows PowerShell**på server Skriv bordet.
+6. Gå till **Windows administrations verktyg** > **Windows PowerShell**på server Skriv bordet.
 7. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
 
    ```azurepowershell-interactive

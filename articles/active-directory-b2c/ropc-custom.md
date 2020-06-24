@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: eeea35b3564bc2407a2458a43c8349937a4cd845
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638565"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203528"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -36,10 +36,10 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 ##  <a name="create-a-resource-owner-policy"></a>Skapa en resurs ägar princip
 
-1. Öppna filen *TrustFrameworkExtensions. XML* .
+1. Öppna *TrustFrameworkExtensions.xml* -filen.
 2. Om den inte redan finns lägger du till ett **ClaimsSchema** -element och dess underordnade element som det första elementet under elementet **BuildingBlocks** :
 
-    ```XML
+    ```xml
     <ClaimsSchema>
       <ClaimType Id="logonIdentifier">
         <DisplayName>User name or email address that the user can use to sign in</DisplayName>
@@ -62,7 +62,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 3. Efter **ClaimsSchema**lägger du till ett **ClaimsTransformations** -element och dess underordnade element till **BuildingBlocks** -elementet:
 
-    ```XML
+    ```xml
     <ClaimsTransformations>
       <ClaimsTransformation Id="CreateSubjectClaimFromObjectID" TransformationMethod="CreateStringClaim">
         <InputParameters>
@@ -88,7 +88,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 4. Leta upp det **ClaimsProvider** -element som har ett **visnings** namn `Local Account SignIn` och Lägg till följande tekniska profil:
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
       <DisplayName>Local Account SignIn</DisplayName>
       <Protocol Name="OpenIdConnect" />
@@ -128,7 +128,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 5. Lägg till följande **ClaimsProvider** -element med sina tekniska profiler i **ClaimsProviders** -elementet:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -182,7 +182,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 6. Lägg till ett **UserJourneys** -element och dess underordnade element till elementet **TrustFrameworkPolicy** :
 
-    ```XML
+    ```xml
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
       <OrchestrationSteps>
@@ -218,19 +218,19 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     ```
 
 7. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-8. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
+8. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *TrustFrameworkExtensions.xml* -filen.
 9. Klicka på **Överför**.
 
 ## <a name="create-a-relying-party-file"></a>Skapa en förlitande parts fil
 
 Uppdatera sedan den förlitande part filen som initierar användar resan som du skapade:
 
-1. Gör en kopia av *SignUpOrSignin. XML-* filen i din arbets katalog och Byt namn på den till *ROPC_Auth. XML*.
+1. Gör en kopia av *SignUpOrSignin.xml* -filen i din arbets katalog och Byt namn på den till *ROPC_Auth.xml*.
 2. Öppna den nya filen och ändra värdet för attributet **PolicyId** för **TrustFrameworkPolicy** till ett unikt värde. Princip-ID är namnet på principen. Till exempel **B2C_1A_ROPC_Auth**.
 3. Ändra värdet för attributet **ReferenceId** i **DefaultUserJourney** till `ResourceOwnerPasswordCredentials` .
 4. Ändra **OutputClaims** -elementet så att det endast innehåller följande anspråk:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
     <OutputClaim ClaimTypeReferenceId="displayName" DefaultValue="" />
@@ -239,7 +239,7 @@ Uppdatera sedan den förlitande part filen som initierar användar resan som du 
     ```
 
 5. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
-6. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *ROPC_Auth. XML* .
+6. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj *ROPC_Auth.xml* -filen.
 7. Klicka på **Överför**.
 
 ## <a name="test-the-policy"></a>Testa principen
@@ -267,7 +267,7 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 
 Förfrågningen om faktisk POST ser ut som i följande exempel:
 
-```HTTPS
+```https
 POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -277,7 +277,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 
 Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
     "token_type": "Bearer",
@@ -309,7 +309,7 @@ Skapa ett POST samtal som det som visas här. Använd informationen i följande 
 
 Ett lyckat svar ser ut som i följande exempel:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhT...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQn...",

@@ -5,22 +5,22 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 32087b1b2340508f7f868455e2db476046eaa4b5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: fa33f2d9e0c4606587ca5ef65a3f4a021319431f
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235275"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85195053"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Ansluta till Azure Synapse-länken (för hands version) för Azure Cosmos DB
 
 Den här artikeln beskriver hur du kommer åt en Azure Cosmos DB databas från Azure Synapse Analytics Studio med Azure Synapse-länken.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du ansluter en Azure Cosmos DB-databas till din arbets yta behöver du följande:
 

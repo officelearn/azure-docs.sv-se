@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: fe4dec0d1223468126723a19d5218d6e93707f50
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558818"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052228"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Webbapp som loggar in användare: kod konfiguration
 
@@ -27,9 +27,9 @@ Lär dig hur du konfigurerar koden för din webbapp som loggar in användare.
 <!-- This section can be in an include for web app and web APIs -->
 De bibliotek som används för att skydda en webbapp (och ett webb-API) är:
 
-| Plattform | Bibliotek | Description |
+| Plattform | Bibliotek | Beskrivning |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Som används direkt av ASP.NET och ASP.NET Core föreslår Microsoft Identity Model-tillägg för .NET en uppsättning dll: er som körs på både .NET Framework och .NET Core. Från en ASP.NET-eller ASP.NET Core-webbapp kan du kontrol lera token-verifieringen med hjälp av **TokenValidationParameters** -klassen (särskilt i vissa partner scenarier). |
+| ![.NET](media/sample-v2-code/logo_NET.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Som används direkt av ASP.NET och ASP.NET Core föreslår Microsoft Identity Model-tillägg för .NET en uppsättning dll: er som körs på både .NET Framework och .NET Core. Från en ASP.NET-eller ASP.NET Core-webbapp kan du kontrol lera token-verifieringen med hjälp av **TokenValidationParameters** -klassen (särskilt i vissa partner scenarier). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Stöd för Java-webbprogram |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Stöd för python-webbprogram |
 
@@ -73,7 +73,7 @@ Ibland kan program parametrized av `Authority` , vilket är en sammanfogning av 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-I ASP.NET Core finns de här inställningarna i filen [appSettings. JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) i avsnittet "AzureAd".
+I ASP.NET Core finns de här inställningarna i [appsettings.jspå](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) filen i avsnittet "AzureAd".
 
 ```Json
 {
@@ -95,12 +95,12 @@ I ASP.NET Core finns de här inställningarna i filen [appSettings. JSON](https:
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
     "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-callback-oidc"
+    "SignedOutCallbackPath ": "/signout-oidc"
   }
 }
 ```
 
-I ASP.NET Core innehåller en annan fil ([properties\launchSettings.JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) URL ( `applicationUrl` ) och TLS/SSL-porten ( `sslPort` ) för ditt program och olika profiler.
+I ASP.NET Core innehåller en annan fil ([properties\launchSettings.jspå](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) URL ( `applicationUrl` ) och TLS/SSL-porten ( `sslPort` ) för ditt program och olika profiler.
 
 ```Json
 {
@@ -134,11 +134,11 @@ I ASP.NET Core innehåller en annan fil ([properties\launchSettings.JSON](https:
 
 I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. För de två föregående konfigurationsfilerna är de `https://localhost:44321/signin-oidc` . Orsaken är att `applicationUrl` `http://localhost:3110` , men har `sslPort` angetts (44321). `CallbackPath`är `/signin-oidc` , enligt definitionen i `appsettings.json` .
 
-På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-callback-oidc` .
+På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-oidc` .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-I ASP.NET konfigureras programmet via [Web. config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) -filen, rader 12 till 15.
+I ASP.NET konfigureras programmet via [Web.config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) -filen, rader 12 till 15.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1d3804a019add8f97dcbad0f9d707d50c35830bb
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847727"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753918"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -79,6 +79,17 @@ På den här sidan kan du definiera Marketplace-information (t. ex. namn, beskri
 
 > [!NOTE]
 > Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder och användnings villkor) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
+
+Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Titel
+2. Beskrivning
+3. Användbara länkar
+4. Skärmbilder
 
 ### <a name="name"></a>Name
 

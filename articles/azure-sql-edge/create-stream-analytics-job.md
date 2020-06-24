@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 931511a44e19bfe094791a3ee9b9ca30e03648cb
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669666"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255423"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa ett Azure Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -33,16 +33,16 @@ T-SQL streaming använder den externa data käll funktionen i SQL Server för at
 
 - [Skapa extern ström (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Om Azure SQL Edge, SQL Server eller Azure SQL Database används som utdataström måste du dessutom använda [Transact-SQL (Create Database begränsade autentiseringsuppgifter)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Det här T-SQL-kommandot definierar autentiseringsuppgifterna för åtkomst till SQL-databasen.
+Om Azure SQL Edge, SQL Server eller Azure SQL Database används som utdataström måste du dessutom använda [Transact-SQL (Create Database begränsade autentiseringsuppgifter)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Det här T-SQL-kommandot definierar de autentiseringsuppgifter som krävs för att komma åt databasen.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Data källor för indata och utdataström som stöds
 
 Azure SQL Edge stöder för närvarande endast följande data källor som indata och utdata.
 
-| Typ av data Källa | Indata | Resultat | Description |
+| Typ av data Källa | Indata | Resultat | Beskrivning |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge hubb | J | J | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. SQL-databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
+| SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
 | Azure Blob Storage | N | J | Data källa för att skriva data till en BLOB på ett Azure Storage-konto. |
 | Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
 

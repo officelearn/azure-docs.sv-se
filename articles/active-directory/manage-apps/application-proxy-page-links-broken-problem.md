@@ -2,21 +2,22 @@
 title: Länkar på sidan fungerar inte för ett Application Proxy-program
 description: Så här felsöker du problem med brutna länkar i Application Proxy-program som du har integrerat med Azure AD
 services: active-directory
-author: msmimart
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430235"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760209"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkar på sidan fungerar inte för ett Application Proxy-program
 
@@ -33,7 +34,7 @@ Det finns tre sätt att lösa det här problemet. Alternativen nedan visas i ök
 
 1.  Kontrol lera att den interna URL: en är en rot som innehåller alla relevanta länkar för programmet. Detta gör att alla länkar kan matchas när innehåll publiceras i samma program.
 
-    Om du ändrar den interna URL: en men inte vill ändra landnings sidan för användare ändrar du Start sidans URL till den tidigare publicerade interna URL: en. Detta kan göras genom att gå till "Azure Active Directory"-&gt; app-registreringar&gt; – Välj program&gt; varu anpassning. I avsnittet anpassning ser du fältet "hem sidans URL", som du kan anpassa till den önskade landnings sidan. Om du fortfarande använder den äldre Appregistreringar-upplevelsen visas information om start sidans webb adress i fliken Egenskaper. 
+    Om du ändrar den interna URL: en men inte vill ändra landnings sidan för användare ändrar du Start sidans URL till den tidigare publicerade interna URL: en. Detta kan göras genom att gå till "Azure Active Directory"- &gt; app-registreringar – &gt; Välj program &gt; varu anpassning. I avsnittet anpassning ser du fältet "hem sidans URL", som du kan anpassa till den önskade landnings sidan. Om du fortfarande använder den äldre Appregistreringar-upplevelsen visas information om start sidans webb adress i fliken Egenskaper. 
     
     > [!IMPORTANT]
     > För att göra ovanstående ändringar måste du ha behörighet att ändra program objekt i Azure AD. Användaren måste tilldelas rollen [program administratör](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) som beviljar programmet modificaion-rättigheter i Azure AD till användaren.

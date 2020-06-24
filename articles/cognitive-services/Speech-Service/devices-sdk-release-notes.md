@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780920"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212504"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
 
@@ -39,10 +39,10 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 
 - Linux ARM stöds nu.
 - Första binärfiler för [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2) tillhandahålls (Linux-arm64).
-- Windows-användare kan `AudioConfig.fromDefaultMicrophoneInput()` använda `AudioConfig.fromMicrophoneInput(deviceName)` eller för att ange vilken mikrofon som ska användas.
+- Windows-användare kan använda `AudioConfig.fromDefaultMicrophoneInput()` eller `AudioConfig.fromMicrophoneInput(deviceName)` för att ange vilken mikrofon som ska användas.
 - Biblioteks storleken har optimerats.
 - Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
-- Korrigera tillfällig låsning som skulle inträffa när du stoppar igenkänningen.
+- Åtgärda tillfälligt problem där processen slutar svara vid stopp av igenkänning.
 - Exempel appar innehåller nu en exempel deltagare. Properties-fil för att demonstrera fil formatet.
 - Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.7.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
 
@@ -63,7 +63,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Nya nyckelords teknik ger avsevärda kvalitets förbättringar, se bryta ändringar.
 - Ny pipeline för ljud bearbetning för förbättrad igenkänning i långt fält.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - På grund av den nya nyckelords tekniken måste alla nyckelord skapas på nytt i den förbättrade nyckelords portalen. För att helt ta bort gamla nyckelord från enheten avinstallera den gamla appen.
   - ADB Uninstall com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -78,7 +78,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Uppdaterad nyckelords hantering, se bryta ändringar.
 - Exempel programmet lägger till val av språk för både tal igenkänning och översättning.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - Att [Installera ett nyckelord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
 - Nyckelords igenkänningen har ändrats och två händelser stöds.
@@ -97,7 +97,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Tal igenkännings precisionen förbättras med vår förbättrade algoritm för ljud bearbetning
 - Ett program med kontinuerlig igenkännings ljud session har åtgärd ATS.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar. Mer information om API: erna finns i [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
 - KWS-modellens filer är inte kompatibla med tal enheter SDK-1.0.1. De befintliga nyckelorden tas bort när de nya nyckelorden skrivs till enheten.

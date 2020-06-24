@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235051"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255440"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Självstudie: synkronisera data från SQL Edge till Azure Blob Storage med hjälp av Azure Data Factory
 
@@ -25,10 +25,10 @@ I den här självstudien använder du Azure Data Factory för att stegvis synkro
 Om du inte redan har skapat en databas eller tabell i din Azure SQL Edge-distribution använder du någon av följande metoder för att skapa en:
 
 * Använd [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) eller [Azure Data Studio](/sql/azure-data-studio/download/) för att ansluta till SQL Edge. Kör ett SQL-skript för att skapa databasen och tabellen.
-* Skapa en SQL-databas och-tabell med [SQLCMD](/sql/tools/sqlcmd-utility/) genom att ansluta direkt till SQL Edge-modulen. Mer information finns i [ansluta till databas motorn med hjälp av SQLCMD](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Använd SQLPackage. exe för att distribuera en DAC-paketfil till SQL Edge-behållaren. Du kan automatisera processen genom att ange SqlPackage-fil-URI som en del av modulens önskade egenskaper-konfiguration. Du kan också direkt använda klient verktyget SqlPackage. exe för att distribuera ett DAC-paket till SQL Edge.
+* Skapa en databas och tabell genom att använda [SQLCMD](/sql/tools/sqlcmd-utility/) genom att ansluta direkt till SQL Edge-modulen. Mer information finns i [ansluta till databas motorn med hjälp av SQLCMD](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Använd SQLPackage.exe för att distribuera en DAC-paketfil till SQL Edge-behållaren. Du kan automatisera processen genom att ange SqlPackage-fil-URI som en del av modulens önskade egenskaper-konfiguration. Du kan också använda SqlPackage.exe klient verktyget direkt för att distribuera ett DAC-paket till SQL Edge.
 
-    Information om hur du laddar ned SqlPackage. exe finns i [Hämta och installera SqlPackage](/sql/tools/sqlpackage-download/). Följande är några exempel kommandon för SqlPackage. exe. Mer information finns i dokumentationen för SqlPackage. exe.
+    Information om hur du hämtar SqlPackage.exe finns i [Hämta och installera sqlpackage](/sql/tools/sqlpackage-download/). Här följer några exempel kommandon för SqlPackage.exe. Mer information finns i SqlPackage.exe-dokumentationen.
 
     **Skapa ett DAC-paket**
 

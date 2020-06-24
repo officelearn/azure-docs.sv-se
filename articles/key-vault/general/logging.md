@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9198892f95635add27bcfe9e479d0dd6fe3f08d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422594"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211401"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -43,7 +43,7 @@ Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du s
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
-* Azure PowerShell, lägsta versionen av 1.0.0. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte känner till versionen från Azure PowerShell-konsolen anger `$PSVersionTable.PSVersion`du.  
+* Azure PowerShell, lägsta versionen av 1.0.0. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte känner till versionen från Azure PowerShell-konsolen anger du `$PSVersionTable.PSVersion` .  
 * Tillräckligt med utrymme i Azure för Key Vault-loggarna.
 
 ## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Anslut till din Key Vault-prenumeration
@@ -95,7 +95,7 @@ I [självstudien komma igång](../secrets/quick-create-cli.md)var nyckel valv na
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a name="enable-logging"></a><a id="enable"></a>Aktivera loggning
+## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Aktivera loggning med Azure PowerShell
 
 Om du vill aktivera loggning för Key Vault använder vi cmdleten **set-AzDiagnosticSetting** tillsammans med de variabler som vi skapade för det nya lagrings kontot och nyckel valvet. Vi ställer också in flaggan **-Enabled** till **$True** och anger kategorin till **AuditEvent** (den enda kategorin för Key Vault loggning):
 
@@ -131,6 +131,25 @@ Vad loggas:
   * Skapa, ändra eller ta bort nycklar eller hemligheter.
   * Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.  
+
+## <a name="enable-logging-using-azure-cli"></a>Aktivera loggning med Azure CLI
+
+```azurecli
+az login
+
+az account set --subscription {AZURE SUBSCRIPTION ID}
+
+az provider register -n Microsoft.KeyVault
+
+az monitor diagnostic-settings create  \
+--name KeyVault-Diagnostics \
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault \
+--logs    '[{"category": "AuditEvent","enabled": true}]' \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
 
 ## <a name="access-your-logs"></a><a id="access"></a>Komma åt loggarna
 
@@ -203,7 +222,7 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Ett exempel:
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
-* Om du vill hämta alla loggar i januari 2019 använder `-Blob '*/year=2019/m=01/*'`du:
+* Om du vill hämta alla loggar i januari 2019 använder du `-Blob '*/year=2019/m=01/*'` :
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
@@ -214,15 +233,10 @@ Nu är det dags att börja titta på vad som finns i loggarna. Men innan vi går
 * Om du vill fråga efter statusen för nyckelvalvsresursens diagnostikinställningar: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Om du vill inaktivera loggning för nyckelvalvsresursen: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
+
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Tolka Key Vault-loggarna
 
-Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Nu ska vi titta på en exempel logg post. Kör följande kommando:
-
-```powershell
-Get-AzKeyVault -VaultName 'contosokeyvault'`
-```
-
-Den returnerar en loggpost som liknar denna:
+Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Nu ska vi titta på en exempel logg post. 
 
 ```json
     {
@@ -267,9 +281,9 @@ I följande tabell visas fält namn och beskrivningar:
 
 Värdena för **operationName** -fältet är i *ObjectVerb* -format. Ett exempel:
 
-* Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate`.
-* Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och. `KeyList`
-* Alla hemliga åtgärder har `Secret<action>` formatet, till exempel `SecretGet` och. `SecretListVersions`
+* Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
+* Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .
+* Alla hemliga åtgärder har `Secret<action>` formatet, till exempel `SecretGet` och `SecretListVersions` .
 
 I följande tabell visas **operationName** -värdena och motsvarande REST API-kommandon:
 

@@ -6,8 +6,6 @@ documentationcenter: android
 keywords: push-meddelanden, push-meddelande, push-meddelande i android
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -18,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595026"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249251"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
 
@@ -160,7 +158,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
 
 ### <a name="adding-code"></a>Lägga till kod
 
-1. I projektvyn expanderar du **app** > **src** > **main** > **Java**. Högerklicka på paketmappen under **java**, klicka på **Ny** och sedan klickar du på **Java-klass**. Lägg till en ny klass med namnet `NotificationSettings`.
+1. I projektvyn expanderar du **app**  >  **src**  >  **main**  >  **Java**. Högerklicka på paketmappen under **java**, klicka på **Ny** och sedan klickar du på **Java-klass**. Lägg till en ny klass med namnet `NotificationSettings`.
 
     ![Android Studio – ny Java-klass][6]
 
@@ -449,7 +447,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
         }
     }
     ```
-14. I Android Studio på Meny raden klickar du på **skapa** > återskapa**projekt** för att kontrol lera att det inte finns några fel i koden.
+14. I Android Studio på Meny raden klickar du på **skapa**återskapa  >  **projekt** för att kontrol lera att det inte finns några fel i koden.
 
 ## <a name="testing-your-app"></a>Testa din app
 
@@ -483,13 +481,13 @@ Du kan testa att ta emot push-meddelanden i appen genom att skicka dem från [Az
 
 Om du vill testa push-meddelanden inne i en emulator, måste du se till att emulatorbilden stöder den Google-API-nivå som du har valt för din app. Om avbildningen inte stöder interna Google-API:er kommer processen att avslutas med undantaget **TJÄNSTEN\_ÄR INTE\_TILLGÄNGLIG**.
 
-Se dessutom till att du har lagt till ditt Google-konto till din aktiva emulator under **Inställningar** > **konton**. Annars kan försöken att registrera med GCM leda till undantaget **AUTENTISERINGEN\_MISSLYCKADES**.
+Se dessutom till att du har lagt till ditt Google-konto till din aktiva emulator under **Inställningar**  >  **konton**. Annars kan försöken att registrera med GCM leda till undantaget **AUTENTISERINGEN\_MISSLYCKADES**.
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Valfritt) Skicka push-meddelanden direkt från appen
 
 Normalt sett skickar du meddelanden med hjälp av en backend-server. I vissa fall kanske du vill kunna skicka push-meddelanden direkt från klientprogrammet. I det här avsnittet beskrivs hur du skickar meddelanden från klienten med hjälp av [Azure Notification Hub REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. Expandera **app** > **src** > **main**main > **res**res > **layout**i Android Studio projektvyn. Öppna layoutfilen för `activity_main.xml` och klicka på fliken **Text** för att uppdatera filens textinnehåll. Uppdatera den med koden nedan. Detta lägger till nya `Button`- och `EditText`-kontroller för att skicka push-meddelanden till meddelandehubben. Lägg till den här koden längst ned, precis före `</RelativeLayout>`.
+1. Expandera **app**  >  **src**  >  **main**  >  **res**  >  **layout**i Android Studio projektvyn. Öppna layoutfilen för `activity_main.xml` och klicka på fliken **Text** för att uppdatera filens textinnehåll. Uppdatera den med koden nedan. Detta lägger till nya `Button`- och `EditText`-kontroller för att skicka push-meddelanden till meddelandehubben. Lägg till den här koden längst ned, precis före `</RelativeLayout>`.
 
     ```xml
     <Button
@@ -510,7 +508,7 @@ Normalt sett skickar du meddelanden med hjälp av en backend-server. I vissa fal
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. Expandera **app** > **src** > **main**main > **res**res > **värden**i Android Studio projektvyn. Öppna filen `strings.xml` och lägg till strängvärden som refererar till de nya `Button`- och `EditText`-kontrollerna. Lägg till följande rader längst ned i filen, precis före `</resources>`.
+2. Expandera **app**  >  **src**  >  **main**  >  **res**  >  **värden**i Android Studio projektvyn. Öppna filen `strings.xml` och lägg till strängvärden som refererar till de nya `Button`- och `EditText`-kontrollerna. Lägg till följande rader längst ned i filen, precis före `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
@@ -746,4 +744,4 @@ I de här självstudierna har du skickat meddelanden till alla Android-enheter s
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

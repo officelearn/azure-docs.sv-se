@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73488906"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977916"
 ---
 1. Leta upp det virtuella WAN-nätverket som du har skapat. På sidan virtuellt WAN, under avsnittet **anslutning** , väljer du **hubbar**.
 2. På sidan hubbar väljer du **+ ny hubb** för att öppna sidan **Skapa virtuell hubb** .
@@ -25,7 +25,7 @@ ms.locfileid: "73488906"
 
    * Region (tidigare kallad plats)
    * Name
-   * NAV, privat adress utrymme. Det minsta adress utrymmet är/24 för att skapa en hubb, vilket innebär att allt mellan/25 och/32 genererar ett fel när det skapas.
+   * NAV, privat adress utrymme. Det minsta adress utrymmet är/24 för att skapa en hubb, vilket innebär att allt mellan/25 och/32 genererar ett fel när det skapas. Azure Virtual WAN som en hanterad tjänst av Microsoft skapar lämpliga undernät i den virtuella hubben för olika gatewayer/tjänster (t. ex. VPN-gatewayer, ExpressRoute-gatewayer, användares VPN/punkt-till-plats-gatewayer, brand vägg, routning osv.). Användaren behöver inte uttryckligen planera för under nätets adress utrymme för tjänsterna i den virtuella hubben eftersom Microsoft gör detta som en del av tjänsten.
 4. Välj **Nästa: plats-till-plats**.
 
     ![Plats-till-plats](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Plats-till-plats")

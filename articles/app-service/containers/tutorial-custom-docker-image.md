@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 88ca971986119b3612c79d0bee381d3a0fc9a977
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561108"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906861"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudie: skapa en anpassad avbildning och köra i App Service från ett privat register
 
-[App Service](app-service-linux-intro.md) tillhandahåller inbyggda Docker-avbildningar i Linux med stöd för vissa versioner, till exempel php 7,3 och Node. js 10,14. App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
+[App Service](app-service-linux-intro.md) tillhandahåller inbyggda Docker-avbildningar i Linux med stöd för olika versioner, till exempel php 7,3 och Node.js 10,14. App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Distribuera en anpassad avbildning till ett privat behållar register
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -236,23 +236,33 @@ Verifiera att webbappen fungerar genom att bläddra till den (`http://<app-name>
 
 ## <a name="change-web-app-and-redeploy"></a>Ändra och distribuera om appen
 
-I din lokala Git-lagringsplats öppnar du app/templates/app/index.html. Leta reda på det första HTML-elementet och ändra det.
+Öppna *app/templates/app/index.html*i din lokala git-lagringsplats. Ändra det första HTML-elementet så att det matchar följande kod.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-När du har ändrat Python-filen och sparat den måste du återskapa och push-överföra den nya Docker-avbildningen. Starta sedan om webbappen för att ändringarna ska börja gälla. Använd samma kommandon som du tidigare har använt i den här självstudien. Du kan referera till att [bygga avbildningen från Docker-filen](#build-the-image-from-the-docker-file) och [push-avbildningen till Azure Container Registry](#push-image-to-azure-container-registry). Testa webbappen genom att följa anvisningarna i [Testa webbappen](#test-the-web-app).
+När du har sparat ändringarna kan du återskapa och push-överföra den nya Docker-avbildningen med samma kommandon som du använde tidigare i den här självstudien. Du kan referera till att [bygga avbildningen från Docker-filen](#build-the-image-from-the-docker-file) och [push-avbildningen till Azure Container Registry](#push-image-to-azure-container-registry).
+
+När du har skickat den nya avbildningen startar du om webbappen för att ändringarna ska börja gälla med hjälp av följande kommando:
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+Ersätt `<app_name>` med det angivna namnet som användes tidigare.
+
+När appen har startats om testar du den genom att följa anvisningarna i [testa webbappen](#test-the-web-app).
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="enable-ssh-connections"></a>Aktivera SSH-anslutningar
 

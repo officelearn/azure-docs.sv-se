@@ -6,8 +6,6 @@ keywords: push-meddelanden för ios, push-meddelanden, push-aviseringar, push-av
 documentationcenter: xamarin
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -18,12 +16,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3bab449f6c6807028e6d1bcf1563cf29b96d0f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127016"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255491"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till Xamarin. iOS-appar med hjälp av Azure Notification Hubs
 
@@ -73,11 +71,11 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
     ![Visual Studio – iOS-appkonfiguration][32]
 
-4. I vyn lösning dubbelklickar du `Entitlements.plist` på och kontrollerar att **Aktivera push-meddelanden** är markerat.
+4. I vyn lösning dubbelklickar du på `Entitlements.plist` och kontrollerar att **Aktivera push-meddelanden** är markerat.
 
     ![Visual Studio – konfigurera iOS-berättiganden][33]
 
-5. Lägg till Azure Messaging-paketet. I vyn lösning högerklickar du på projektet och väljer **Lägg till** > **Lägg till NuGet-paket**. Sök efter **Xamarin.Azure.NotificationHubs.iOS** och lägg till paketet i projektet.
+5. Lägg till Azure Messaging-paketet. I vyn lösning högerklickar du på projektet och väljer **Lägg till**  >  **Lägg till NuGet-paket**. Sök efter **Xamarin.Azure.NotificationHubs.iOS** och lägg till paketet i projektet.
 
 6. Lägg till en ny fil i klassen och ge den namnet `Constants.cs` Lägg till följande variabler och ersätt stränglitteralplatshållarna med `hubname` och `DefaultListenSharedAccessSignature` som noterats tidigare.
 

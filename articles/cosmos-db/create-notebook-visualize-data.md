@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743577"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115286"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
@@ -30,7 +30,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
 1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
 
-   ![Skapa en ny notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Skapa en ny antecknings bok":::
 
 1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
 
@@ -49,7 +49,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
    Om du vill köra en cell markerar `Shift + Enter` du eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Utforskaren.
 
-   ![Kör den aktiva cellen](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Kör den aktiva cellen":::
 
    Databasen och behållaren skapas i ditt nuvarande Azure Cosmos-konto. Behållaren har tillhandahållits med 400 RU/s. Följande utdata visas när databasen och behållaren har skapats. 
 
@@ -60,7 +60,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
    Du kan också uppdatera fliken **data** och se de nyligen skapade resurserna:
 
-   ![Uppdatera fliken data om du vill se den nya behållaren](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Uppdatera fliken data om du vill se den nya behållaren":::
 
 1. Härnäst ska du importera exempel detalj handels data till Azure Cosmos-behållaren. Här är formatet för ett objekt från detalj handels data:
 
@@ -135,7 +135,7 @@ I en ny Notebook-cell kör du följande kod för att läsa de första 10 objekte
 df_cosmos.head(10)
 ```
 
-![Kör fråga för att hämta de 10 främsta objekten](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Kör fråga för att hämta de 10 främsta objekten":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Köra frågor och analysera dina data
 
@@ -148,7 +148,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    display(df_revenue.head(5))
    ```
 
-   ![Total försäljnings intäkt, utdata](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Total försäljnings intäkt, utdata":::
 
 * **Query2:** Öppna en ny Notebook-cell och kör följande kod för att få en lista över de fem främsta inköpta objekten:
 
@@ -159,7 +159,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![De fem främsta inköpta artiklarna](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="De fem främsta inköpta artiklarna":::
 
 ## <a name="visualize-your-data"></a>Visualisera dina data  
 
@@ -286,7 +286,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    show(p)
    ```
 
-   ![Visualisera inköps konverterings takt](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualisera inköps konverterings takt":::
 
 ## <a name="next-steps"></a>Nästa steg
 

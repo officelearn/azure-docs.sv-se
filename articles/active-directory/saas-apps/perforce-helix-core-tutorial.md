@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med Helix Core-Helix Authentication Service | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Helix Core-Helix Authentication Service.
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med perforce Helix Core-Helix Authentication Service | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och perforce Helix Core-Helix Authentication Service.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/03/2020
+ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe752dbaffc96186d37bfae319367e2c6e13385
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 0ea6531d85670301691e4aa88503d7eee4fb16d9
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466161"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905535"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helix-core---helix-authentication-service"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Helix Core-Helix Authentication Service
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core--helix-authentication-service"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med perforce Helix Core-Helix Authentication Service
 
-I den här självstudien får du lära dig hur du integrerar Helix Core-Helix Authentication Service med Azure Active Directory (Azure AD). När du integrerar Helix Core-Helix Authentication Service med Azure AD kan du:
+I den här självstudien får du lära dig att integrera perforce Helix Core-Helix Authentication Service med Azure Active Directory (Azure AD). När du integrerar perforce Helix Core-Helix Authentication Service med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Helix Core-Helix Authentication Service.
-* Gör det möjligt för användarna att logga in automatiskt till Helix Core-Helix Authentication Service med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till perforce Helix Core-Helix Authentication Service.
+* Gör det möjligt för användarna att logga in automatiskt till perforce Helix Core-Helix Authentication Service med deras Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -37,44 +37,44 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* HELIX Core-Helix Authentication Service-prenumeration med enkel inloggning (SSO).
+* Perforce Helix Core-Helix Authentication Service, enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* HELIX Core-Helix Authentication Service stöder **SP** -INITIERAd SSO
-* När du har konfigurerat Helix Core-Helix Authentication Service kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Perforce Helix Core-Helix Authentication Service stöder **SP** -INITIERAd SSO
+* När du har konfigurerat perforce Helix Core-Helix Authentication Service kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-helix-core---helix-authentication-service-from-the-gallery"></a>Lägga till Helix Core-Helix Authentication Service från galleriet
+## <a name="adding-perforce-helix-core--helix-authentication-service-from-the-gallery"></a>Lägga till perforce Helix Core-Helix Authentication Service från galleriet
 
-Om du vill konfigurera integrationen av HELIX Core-Helix Authentication Service i Azure AD måste du lägga till Helix Core-Helix Authentication Service från galleriet till listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av perforce Helix Core-Helix Authentication Service i Azure AD, måste du lägga till perforce Helix Core-Helix Authentication Service från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , Skriv **Helix Core-Helix Authentication Service** i sökrutan.
-1. Välj **Helix Core-Helix Authentication Service** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** skriver du **perforce Helix Core-Helix Authentication Service** i sökrutan.
+1. Välj **perforce Helix Core-Helix Authentication Service** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-helix-core---helix-authentication-service"></a>Konfigurera och testa enkel inloggning med Azure AD för HELIX Core-Helix Authentication Service
+## <a name="configure-and-test-azure-ad-single-sign-on-for-perforce-helix-core--helix-authentication-service"></a>Konfigurera och testa enkel inloggning med Azure AD för perforce Helix Core-Helix Authentication Service
 
-Konfigurera och testa Azure AD SSO med Helix Core-Helix Authentication Service med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Helix Core-Helix Authentication Service.
+Konfigurera och testa Azure AD SSO med perforce Helix Core-Helix Authentication Service med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i perforce Helix Core-Helix Authentication Service.
 
-Om du vill konfigurera och testa Azure AD SSO med Helix Core-Helix Authentication Service, fyller du i följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med perforce Helix Core-Helix Authentication Service, fyller du i följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera Helix Core-Helix Authentication Service SSO](#configure-helix-core-helix-authentication-service-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Helix Core-Helix Authentication Service](#create-helix-core-helix-authentication-service-test-user)** för att få en motsvarighet till B. Simon i Helix Core-Helix-autentiseringstjänst som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera perforce Helix Core-Helix Authentication Service SSO](#configure-perforce-helix-core--helix-authentication-service-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa perforce Helix Core-Helix Authentication Service-test](#create-perforce-helix-core--helix-authentication-service-test-user)** för att få en motsvarighet till B. Simon i perforce Helix Core-Helix Authentication Service som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Helix Core-Helix Authentication Service** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **perforce Helix Core-Helix Authentication Service** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -86,8 +86,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<helix-auth-service>.<customer-hostname>.com/saml`
 
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<HELIX-AUTH-SERVICE>.<CUSTOMER-HOSTNAME>.com/saml/sso`
+
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Helix Core-Helix-klient support team](mailto:support@perforce.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [perforce Helix Core-Helix Authentication Service support team](mailto:support@perforce.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -107,10 +109,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Helix Core-Helix Authentication Service.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till perforce Helix Core-Helix Authentication Service.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Helix Core-Helix Authentication Service**.
+1. I listan program väljer du **perforce Helix Core-Helix Authentication Service**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -123,19 +125,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-helix-core-helix-authentication-service-sso"></a>Konfigurera Helix Core-Helix Authentication Service SSO
+## <a name="configure-perforce-helix-core--helix-authentication-service-sso"></a>Konfigurera perforce Helix Core-Helix Authentication Service SSO
 
-Om du vill konfigurera enkel inloggning på **Helix Core-Helix Authentication Service** måste du skicka **URL: en för appens Federations-metadata** till [Helix Core-Helix Authentication Service support team](mailto:support@perforce.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **perforce Helix Core-Helix Authentication Service** -sidan måste du skicka **URL: en för appens Federations-metadata** till [perforce Helix Core-Helix Authentication Service-teamet](mailto:support@perforce.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-helix-core-helix-authentication-service-test-user"></a>Skapa test användare av HELIX Core-Helix Authentication Service
+### <a name="create-perforce-helix-core--helix-authentication-service-test-user"></a>Skapa perforce Helix Core-Helix Authentication Service-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Helix Core-Helix Authentication Service. Arbeta med [Helix Core-Helix Authentication Service-teamet](mailto:support@perforce.com) för att lägga till användarna i Helix Core-Helix Authentication Service Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i perforce Helix Core-Helix Authentication Service. Arbeta med [perforce Helix Core-Helix Authentication Service-teamet](mailto:support@perforce.com) för att lägga till användare i perforce Helix Core-Helix Authentication Service Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Helix Core-Helix Authentication Service på åtkomst panelen, bör du loggas in automatiskt på den Helix Core-Helix-Autentiseringstjänsten som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen perforce Helix Core-Helix Authentication Service på åtkomst panelen, bör du loggas in automatiskt till perforce Helix-tjänsten Core-Helix som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -145,9 +147,8 @@ När du klickar på panelen Helix Core-Helix Authentication Service på åtkomst
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Helix Core-Helix Authentication Service med Azure AD](https://aad.portal.azure.com/)
+- [Prova perforce Helix Core-Helix Authentication Service med Azure AD](https://aad.portal.azure.com/)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Skydda Helix Core-Helix Authentication Service med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Skydda perforce Helix Core-Helix Authentication Service med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -9,14 +9,14 @@ ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: f77aacbddc5b3dcb5da62e5e87405477d47e7001
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672331"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945655"
 ---
 # <a name="secure-access-to-application-data"></a>Säker åtkomst till program data
 
@@ -135,11 +135,13 @@ Följande klasser, egenskaper och metoder används i den föregående aktivitete
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Söka i data](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Lägg till](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Kryptering på serversidan
+## <a name="azure-storage-encryption"></a>Azure Storage-kryptering
 
-[Azure Storage Service Encryption (SSE)](../common/storage-service-encryption.md) hjälper dig att skydda dina data. SSE krypterar vilande data och hanterar kryptering, dekryptering och nycklar. Alla data krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns.
+[Azure Storage kryptering](../common/storage-service-encryption.md) hjälper dig att skydda och skydda dina data genom att kryptera data i vila och genom att hantera kryptering och dekryptering. Alla data krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns.
 
-SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). 
+Du kan välja att låta Microsoft hantera krypterings nycklar, eller så kan du ta med dina egna nycklar med Kundhanterade nycklar med Azure Key Vault. Mer information finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../common/encryption-customer-managed-keys.md).
+
+Azure Storage kryptering krypterar automatiskt data i alla prestanda nivåer (standard och Premium), alla distributions modeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (BLOB, kö, tabell och fil).
 
 ## <a name="enable-https-only"></a>Aktivera endast HTTPS
 

@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: fafb16d1f8c37eab7ebaaeacb3a3e9b218347a04
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c150d60b05ccd306f055c60d180ee9421b356feb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112105"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242194"
 ---
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Paket (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Paket (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -90,7 +90,7 @@ form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self
 ## <a name="define-variables"></a>Definiera variabler
 
 > [!NOTE]
-> Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview) och [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) och [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 Du måste också lägga till referenser till URL: erna för din utbildning och testa data.
 * Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640583"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904770"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
@@ -48,7 +48,7 @@ Den här självstudien gäller för både iOS-och macOS-appar. Observera att vis
 
 ## <a name="prerequisites"></a>Krav
 
-- XCode version 11. x krävs för att bygga appen i den här hand boken. Du kan hämta XCode från [iTunes-webbplatsen](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Nedladdnings-URL för XCode").
+- XCode version 11. x krävs för att bygga appen i den här hand boken. Du kan ladda ned XCode från [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Nedladdnings-URL för XCode").
 - Microsoft Authentication Library ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda en beroende hanterare eller lägga till biblioteket manuellt. Anvisningarna nedan visar hur du gör.
 
 I den här kursen skapas ett nytt projekt. Om du vill hämta den slutförda självstudien i stället laddar du ned koden:
@@ -626,7 +626,7 @@ När du har en token kan appen använda den i HTTP-huvudet för att skapa en auk
 
 | rubrik nyckel    | värde                 |
 | ------------- | --------------------- |
-| Auktorisering | > för Bearer \< -åtkomst-token |
+| Auktorisering | Ägar\<access-token> |
 
 Lägg till följande kod i `ViewController` klassen:
 

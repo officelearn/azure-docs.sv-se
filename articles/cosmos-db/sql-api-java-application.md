@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6f8431bfd3be75651f3a08fe9b07fc3902436331
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657290"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113813"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -32,7 +32,7 @@ Den här självstudiekursen om webbprogram i Java beskriver hur du kan använda 
 
 I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitetshanteringsapp där du kan skapa, hämta och markera aktiviteter som slutförda, enligt bilden nedan. Alla aktiviteter i att göra-listan lagras som JSON-dokument i Azure Cosmos DB.
 
-![Java-app med att göra-lista](./media/sql-api-java-application/image1.png)
+:::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Java-app med att göra-lista":::
 
 > [!TIP]
 > Den här självstudien om apputveckling förutsätter att du har tidigare erfarenhet av Java. Om du inte har använt Java eller [verktygen som krävs](#Prerequisites) tidigare, rekommenderar vi att du hämtar det fullständiga [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-projektet från GitHub och skapar det enligt [anvisningarna i slutet av artikeln](#GetProject). När du har skapat det kan du läsa den här artikeln för information om koden i projektets sammanhang.  
@@ -66,7 +66,7 @@ Så här skapar du JSP-appen:
 
 1. Först börjar vi med att skapa ett Java-projekt. Starta Eclipse och klicka på **Arkiv**, **Nytt** och slutligen **Dynamiskt webbprojekt**. Om du inte ser **dynamiskt webb projekt** som visas som ett tillgängligt projekt gör du följande: Klicka på **Arkiv**, klicka på **nytt**, klicka på **projekt**..., expandera **webb**, klicka på **dynamiskt webb projekt**och klicka på **Nästa**.
    
-    ![JSP Java-apputveckling](./media/sql-api-java-application/image10.png)
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java-apputveckling":::
 
 1. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför**. När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
 
@@ -74,11 +74,11 @@ Så här skapar du JSP-appen:
 
 1. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp**. Behåll den överordnade mappen som **Webbinnehåll**, så som visas i nedanstående bild, och klicka sedan på **Nästa**.
    
-    ![Skapa en ny JSP-fil – självstudie om Java-webbapp](./media/sql-api-java-application/image11.png)
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Skapa en ny JSP-fil – självstudie om Java-webbapp":::
 
 1. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
 
-1. När filen *index. jsp* öppnas i Sol förmörkelse lägger du till text att visa **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
+1. När *index.jsp* -filen öppnas i Sol förmörkelse lägger du till text att visa **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
 
    ```html
    <body>
@@ -86,7 +86,7 @@ Så här skapar du JSP-appen:
    </body>
    ```
 
-1. Spara *index. jsp* -filen.
+1. Spara filen *index.jsp* .
 
 1. Om du anger ett mål för körning i steg 2 kan du klicka på **Projekt** och **Kör** för att köra JSP-appen lokalt:
 
@@ -110,7 +110,7 @@ Det enklaste sättet att hämta SQL Java SDK och dess beroenden är via [Apache 
    * I rutan **artefakt-ID** anger du `azure-cosmos` .
    * I rutan **version** anger du `4.0.1-beta.1` .
   
-   Du kan också lägga till beroendet XML för grupp-ID och artefakt-ID direkt till filen *Pom. XML* :
+   Du kan också lägga till beroendet XML för grupp-ID och artefakt-ID direkt till *pom.xml* -filen:
 
    ```xml
    <dependency>
@@ -120,7 +120,7 @@ Det enklaste sättet att hämta SQL Java SDK och dess beroenden är via [Apache 
    </dependency>
    ```
 
-1. Klicka på **OK** och maven kommer att installera SQL Java SDK eller spara Pom. XML-filen.
+1. Klicka på **OK** och maven kommer att installera SQL Java SDK eller spara pom.xml-filen.
 
 ## <a name="use-the-azure-cosmos-db-service-in-your-java-application"></a><a id="UseService"></a>Använda tjänsten Azure Cosmos DB i ditt Java-program
 
@@ -174,7 +174,7 @@ Skapa sedan en servlet för att dirigera HTTP-förfrågningar till kontrollanten
 
 Nu när vi har slutfört de roliga bitarna är allt det som återstår att bygga ett snabb användar gränssnitt och ansluta det till ditt DAO.
 
-1. Du behöver ett webb användar gränssnitt för att visa för användaren. Nu ska vi skriva om *index. jsp* som vi skapade tidigare med följande kod:
+1. Du behöver ett webb användar gränssnitt för att visa för användaren. Nu ska vi skriva om *index.jsp* vi skapade tidigare med följande kod:
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/index.jsp":::
 
@@ -251,4 +251,4 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bygg ett Node. js-program med Azure Cosmos DB](sql-api-nodejs-application.md)
+> [Bygg ett node.js-program med Azure Cosmos DB](sql-api-nodejs-application.md)

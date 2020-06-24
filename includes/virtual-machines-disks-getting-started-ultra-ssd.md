@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4468025f6389d31269d9e587fca25390f19bdbbc
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 269cc52f1e96a6864de55f729fe39a5f609d35c9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200404"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902712"
 ---
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar.
 
@@ -30,11 +30,11 @@ Om du vill använda Ultra disks måste du bestämma vilken tillgänglighets zon 
 #### <a name="cli"></a>CLI
 
 ```azurecli
-subscription = "<yourSubID>"
+subscription="<yourSubID>"
 # example value is southeastasia
-region = "<yourLocation>"
+region="<yourLocation>"
 # example value is Standard_E64s_v3
-vmSize = "<yourVMSize>"
+vmSize="<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -65,10 +65,10 @@ Nu när du vet vilken zon du ska distribuera till, följer du distributions steg
 Ultra disks som distribueras i västra USA måste distribueras utan några alternativ för redundans för tillfället. Alla disk storlekar som stöder Ultra disks kan dock vara i den här regionen. Du kan ta reda på vilka som har stöd för Ultra disks i västra USA genom att använda något av följande kodfragment. Se till att ersätta `vmSize` värdena och `subscription` innan värdena:
 
 ```azurecli
-subscription = "<yourSubID>"
-region = "westus"
+subscription="<yourSubID>"
+region="westus"
 # example value is Standard_E64s_v3
-vmSize = "<yourVMSize>"
+vmSize="<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
@@ -132,12 +132,12 @@ Det här avsnittet beskriver hur du distribuerar en virtuell dator som är utrus
 - Fyll i de återstående posterna med val som du väljer.
 - Välj **Diskar**.
 
-![Create-Ultra-disk-Enabled-VM. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+![create-ultra-disk-enabled-vm.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
 
 - På bladet diskar väljer du **Ja** för **att aktivera Ultra disk Compatibility**.
 - Välj **skapa och Anslut en ny disk** för att ansluta en Ultra disk nu.
 
-![Enable-and-Attach-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+![enable-and-attach-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
 
 - På bladet **skapa en ny disk** anger du ett namn och väljer sedan **ändra storlek**.
 - Ändra **konto typen** till **Ultra disk**.
@@ -145,7 +145,7 @@ Det här avsnittet beskriver hur du distribuerar en virtuell dator som är utrus
 - Välj **OK** på båda bladen.
 - Fortsätt med distributionen av virtuella datorer. det är detsamma som du distribuerar andra virtuella datorer.
 
-![Create-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+![create-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
 
 ## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Ansluta en Ultra disk med hjälp av Azure Portal
 
@@ -154,27 +154,27 @@ Alternativt, om din befintliga virtuella dator finns i en region/tillgänglighet
 - Gå till den virtuella datorn och välj **diskar**.
 - Välj **Redigera**.
 
-![Options-Selector-Ultra-disks. png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+![options-selector-ultra-disks.png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
 
 - Välj **Ja** om du vill **Aktivera Ultra disk Compatibility**.
 
-![Ultra-Options-Yes-enable. png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+![ultra-options-yes-enable.png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
 - Välj **Spara**.
 - Välj **Lägg till datadisk** och välj sedan **skapa disk**i list rutan för **namn** .
 
-![Create-and-Attach-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+![create-and-attach-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
 
 - Fyll i ett namn för din nya disk och välj sedan **ändra storlek**.
 - Ändra **konto typen** till **Ultra disk**.
 - Ändra värdena för **anpassad disk storlek (GIB)**, **disk-IOPS**och **disk data flöde** som du väljer själv.
 - Välj **OK** och välj sedan **skapa**.
 
-![making-a-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+![making-a-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
 
 - När du har kommit tillbaka till din disks blad väljer du **Spara**.
 
-![Saving-and-attaching-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+![saving-and-attaching-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
 
 ### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Justera prestanda för en Ultra disk med hjälp av Azure Portal
 
@@ -183,12 +183,12 @@ Ultra disks erbjuder en unik funktion som gör att du kan justera prestandan. Du
 - Gå till den virtuella datorn och välj **diskar**.
 - Välj den Ultra disk som du vill ändra prestanda för.
 
-![selecting-Ultra-disk-to-Modify. png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+![selecting-ultra-disk-to-modify.png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
 - Välj **konfiguration** och gör dina ändringar.
 - Välj **Spara**.
 
-![Configuring-Ultra-disk-Performance-and-size. png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+![configuring-ultra-disk-performance-and-size.png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Distribuera en Ultra disk med CLI
 
@@ -244,10 +244,10 @@ az disk create `
 Alternativt, om din befintliga virtuella dator finns i en region/tillgänglighets zon som kan använda Ultra disks, kan du använda Ultra disks utan att behöva skapa en ny virtuell dator.
 
 ```azurecli
-rgName = "<yourResourceGroupName>"
-vmName = "<yourVMName>"
-diskName = "<yourDiskName>"
-subscriptionId = "<yourSubscriptionID>"
+rgName="<yourResourceGroupName>"
+vmName="<yourVMName>"
+diskName="<yourDiskName>"
+subscriptionId="<yourSubscriptionID>"
 
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```

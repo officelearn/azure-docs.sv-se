@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75444745"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114392"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa användargränssnittet med Angular
 
@@ -51,7 +51,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
 
     En bekräftelse av de nya komponenterna visas i terminalfönstret.
 
-    ![Installera hero-komponenter](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="Installera hero-komponenter":::
 
     Nu ska vi titta på filerna som skapats och uppdaterats. 
 
@@ -62,7 +62,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
 
 4. Öppna filen **app.module.ts** i samma mapp och notera att `HeroesComponent` har lagts till i deklarationerna på rad 5 och att den även har importerats på rad 10.
 
-    ![Öppna filen app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Öppna filen app-module.ts":::
 
 5. Gå tillbaka till filen **heroes.component.html** och kopiera in den här koden. `<div>` är containern för hela sidan. Containern innehåller en lista med heroes-komponenter som vi måste skapa, så att du när du klickar på en komponent kan markera den och redigera eller ta bort den i användargränssnittet. I HTML-koden använder vi en del formatering så att du vet vilken komponent som har markerats. Det finns också ett redigeringsområde så att du kan lägga till en ny hero-komponent eller redigera en befintlig. 
 
@@ -394,7 +394,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
 5. Vänsterklicka på termen `Hero` så visas en ikon av en glödlampa i Visual Studio till vänster om kodblocket. 
 
-    ![Glödlampa i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Glödlampa i Visual Studio Code":::
 
 6. Klicka på glödlampan och sedan på **Importera Hero från "/app/hero".** eller **Importera Hero från ”./hero”.** (Meddelandet varierar beroende på din konfiguration)
 
@@ -490,7 +490,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
 3. Öppna en webbläsare och gå till **localhost:3000** och se när appen körs lokalt.
 
-     ![Hero-programmet körs lokalt](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Hero-programmet körs lokalt":::
 
 ## <a name="next-steps"></a>Nästa steg
 

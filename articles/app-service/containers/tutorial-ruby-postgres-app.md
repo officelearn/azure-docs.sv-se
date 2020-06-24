@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 2bc30786ccd0bccfba438fa6e553fdcbbf7fdde1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92432966808583c28f31e47173dd4c62b5a0e8bb
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085797"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906215"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
 
@@ -18,7 +18,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ![Ruby on Rails-appen körs i Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
@@ -118,7 +118,7 @@ I det här steget skapar du en Postgres-databas i [Azure Database for PostgreSQL
 
 Skapa en PostgreSQL-server med [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) kommandot.
 
-Kör följande kommando i Cloud Shell och Ersätt ett unikt server namn för plats hållaren * \<postgres-Server-Name>* . Servernamnet måste vara unikt för alla servrar i Azure. 
+Kör följande kommando i Cloud Shell och Ersätt ett unikt server namn för *\<postgres-server-name>* plats hållaren. Servernamnet måste vara unikt för alla servrar i Azure. 
 
 ```azurecli-interactive
 az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
@@ -148,7 +148,7 @@ När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure C
 
 ### <a name="configure-server-firewall"></a>Konfigurera serverbrandväggen
 
-I Cloud Shell skapar du en brand Väggs regel för din postgres-Server för att tillåta klient anslutningar [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) med hjälp av kommandot. När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. Ersätt ett unikt server namn för * \<postgres-Server-Name>* plats hållaren.
+I Cloud Shell skapar du en brand Väggs regel för din postgres-Server för att tillåta klient anslutningar med hjälp av [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) kommandot. När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. Ersätt ett unikt server namn för *\<postgres-server-name>* plats hållaren.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -160,7 +160,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Anslut till Postgres produktionsserver lokalt
 
-I Cloud Shell, anslut till Postgres-servern i Azure. Använd det värde som du angav tidigare för _ &lt;postgres-Server-Name>_ plats hållare.
+I Cloud Shell, anslut till Postgres-servern i Azure. Använd det värde som du angav tidigare för _ &lt; postgres-Server-Name>_ plats hållare.
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
@@ -295,7 +295,7 @@ I det här steget, distribuerar du ditt Postgres-anslutna Rails-program till Azu
 
 I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
-Följande Cloud Shell-kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarna _ &lt;APPNAME>_ och _ &lt;postgres-Server-Name>_.
+Följande Cloud Shell-kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarna _ &lt; APPNAME>_ och _ &lt; postgres-Server-Name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
@@ -311,7 +311,7 @@ rails secret
 
 Konfigurera variablerna som krävs för Rails-produktionsmiljön.
 
-I följande Cloud Shell-kommando ersätter du plats hållarna två _ &lt;utdata-of-räler-Secret>_ med den nya hemliga nyckeln som du genererade i den lokala terminalen.
+I följande Cloud Shell-kommando ersätter du plats hållarna två _ &lt; utdata-of-räler-Secret>_ med den nya hemliga nyckeln som du genererade i den lokala terminalen.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
@@ -471,7 +471,7 @@ Om du har lagt till några uppgifter finns de kvar i databasen. Uppdateringar i 
 
 ## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 

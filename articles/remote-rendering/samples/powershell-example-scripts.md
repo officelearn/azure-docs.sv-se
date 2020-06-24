@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80891500"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052289"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -74,36 +74,39 @@ Bredvid `.ps1` filerna finns det en `arrconfig.json` som du måste fylla i:
 ```
 
 > [!CAUTION]
-> Se till att du på ett korrekt sätt kan kringgå omvänt snedstreck i LocalAssetDirectoryPath-sökvägen med dubbla omvända snedstreck: "\\\\" och Använd snedstreck "/" i alla andra sökvägar som inputFolderPath och inputAssetPath.
+> Se till att du på ett korrekt sätt kan kringgå omvänt snedstreck i LocalAssetDirectoryPath-sökvägen med dubbla omvända snedstreck: " \\ \\ " och Använd snedstreck "/" i alla andra sökvägar som InputFolderPath och inputAssetPath.
+
+> [!CAUTION]
+> Valfria värden måste fyllas i eller så måste du ta bort nyckeln och värdet helt. Om du till exempel inte använder `"outputAssetFileName"` parametern måste du ta bort hela raden i `arrconfig.json` .
 
 ### <a name="accountsettings"></a>accountSettings
 
-Mer information finns `arrAccountId` i [skapa ett konto för Azure Remote rendering.](../how-tos/create-an-account.md) `arrAccountKey`
-`region` Se [listan över tillgängliga regioner](../reference/regions.md).
+Mer `arrAccountId` `arrAccountKey` information finns i [skapa ett konto för Azure Remote rendering](../how-tos/create-an-account.md).
+`region`Se [listan över tillgängliga regioner](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Den här strukturen måste fyllas i om du vill köra **RenderingSession. ps1**.
+Den här strukturen måste fyllas i om du vill köra **RenderingSession.ps1**.
 
 - **vmSize:** Väljer storlek på den virtuella datorn. Välj *standard* eller *Premium*. Stäng av åter givnings sessioner när du inte behöver dem längre.
 - **maxLeaseTime:** Den varaktighet som du vill att den virtuella datorn ska lånas ut för. Det kommer att stängas av när lånet upphör att gälla. Låne tiden kan utökas senare (se nedan).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Den här strukturen måste fyllas i om du vill köra **Conversion. ps1**.
+Den här strukturen måste fyllas i om du vill köra **Conversion.ps1**.
 
 Mer information finns i [förbereda ett Azure Storage-konto](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
-## <a name="script-renderingsessionps1"></a>Skript: RenderingSession. ps1
+## <a name="script-renderingsessionps1"></a>Skript: RenderingSession.ps1
 
 Det här skriptet används för att skapa, fråga och stoppa åter givning av sessioner.
 
 > [!IMPORTANT]
-> Kontrol lera att du har fyllt i avsnitten *accountSettings* och *renderingSessionSettings* i ARRConfig. JSON.
+> Se till att du har fyllt i avsnitten *accountSettings* och *renderingSessionSettings* i arrconfig.jspå.
 
 ### <a name="create-a-rendering-session"></a>Skapa en åter givnings session
 
-Normal användning med en fullständigt ifylld ARRConfig. JSON:
+Normal användning med en fullständigt ifylld arrconfig.jspå:
 
 ```PowerShell
 .\RenderingSession.ps1
@@ -164,12 +167,12 @@ För tillfället stöder vi bara ändring av maxLeaseTime för en session.
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## <a name="script-conversionps1"></a>Skript: Conversion. ps1
+## <a name="script-conversionps1"></a>Skript: Conversion.ps1
 
 Det här skriptet används för att konvertera inmatade modeller till Azure Remote rendering Specific runtime-formatet.
 
 > [!IMPORTANT]
-> Kontrol lera att du har fyllt i avsnitten *accountSettings* och *assetConversionSettings* i ARRConfig. JSON.
+> Se till att du har fyllt i avsnitten *accountSettings* och *assetConversionSettings* i arrconfig.jspå.
 
 Skriptet visar de två alternativen för att använda lagrings konton med tjänsten:
 
@@ -178,7 +181,7 @@ Skriptet visar de två alternativen för att använda lagrings konton med tjäns
 
 ### <a name="linked-storage-account"></a>Länkat lagrings konto
 
-När du har fyllt i ARRConfig. JSON och länkat ett lagrings konto kan du använda följande kommando. Att länka ditt lagrings konto beskrivs i [skapa ett konto](../how-tos/create-an-account.md#link-storage-accounts).
+När du har fyllt i arrconfig.jspå och länkat ett lagrings konto kan du använda följande kommando. Att länka ditt lagrings konto beskrivs i [skapa ett konto](../how-tos/create-an-account.md#link-storage-accounts).
 
 Att använda ett länkat lagrings konto är det bästa sättet att använda konverterings tjänsten eftersom det inte finns några behov av att generera signaturer för delad åtkomst.
 
@@ -186,7 +189,7 @@ Att använda ett länkat lagrings konto är det bästa sättet att använda konv
 .\Conversion.ps1
 ```
 
-1. Ladda upp alla filer `assetConversionSettings.modelLocation` som finns i till BLOB-behållaren för inflöde under den angivna`inputFolderPath`
+1. Ladda upp alla filer som finns i `assetConversionSettings.modelLocation` till BLOB-behållaren för inflöde under den angivna`inputFolderPath`
 1. Anropa modell konverterings [REST API](../how-tos/conversion/conversion-rest-api.md) för att starta [modell konverteringen](../how-tos/conversion/model-conversion.md)
 1. Avsök konverterings statusen tills konverteringen lyckades eller misslyckades
 1. Information om den konverterade filens plats (lagrings konto, utdatafil, fil Sök väg i behållaren)

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Bygg en Node. js-webbapp med Azure Cosmos DB JavaScript SDK för att hantera SQL API-data'
+title: 'Självstudie: Bygg en Node.js-webbapp med Azure Cosmos DB JavaScript SDK för att hantera SQL API-data'
 description: I den här självstudien för Node.js visar vi hur du använder Microsoft Azure Cosmos DB till att lagra och komma åt data från ett Node.js Express-webbprogram i Web Apps-funktionen i Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 9257a87c69e98db1107528551fe9ce0553c50f75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858146"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114698"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node. js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node.js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -41,7 +41,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande resurser:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -84,7 +84,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
 
 1. Du kan visa det nya programmet genom att öppna `http://localhost:3000` i webbläsaren.
    
-   ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-express.png" alt-text="Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster":::
 
    Stoppa programmet genom att använda CTRL + C i terminalfönstret och välj **y** för att avbryta batch-jobbet.
 
@@ -92,7 +92,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
 
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. När du distribuerar det här programmet till Azure används den här filen för att avgöra vilka moduler som ska installeras på Azure för att stödja ditt program. Installera ytterligare två paket för den här självstudien.
 
-1. Installera ** \@Azure/Cosmos** -modulen via NPM. 
+1. Installera ** \@ Azure/Cosmos** -modulen via NPM. 
 
    ```bash
    npm install @azure/cosmos
@@ -106,7 +106,7 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 
 2. I katalogen **models** skapar du en ny fil med namnet **taskDao.js**. Den här filen innehåller den kod som krävs för att skapa databasen och containern. Den definierar även metoder för att läsa, uppdatera, skapa och hitta aktiviteter i Azure Cosmos DB. 
 
-3. Kopiera följande kod till filen **taskDao. js** :
+3. Kopiera följande kod till **taskDao.js** -filen:
 
    ```javascript
     // @ts-check
@@ -438,7 +438,7 @@ Nu när du har skapat programmet kan du köra det lokalt genom att använda föl
 
 1. Om du vill testa programmet på din lokala dator kör du `npm start` i terminalen för att starta programmet. Uppdatera sedan `http://localhost:3000`-webbläsarsidan. Sidan bör ser ut så som på följande skärmbild:
    
-    ![Skärmdump av programmet MyTodo List i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Skärmdump av programmet MyTodo List i ett webbläsarfönster":::
 
     > [!TIP]
     > Om du får ett felmeddelande om indrag i layout.jade- eller index.jade-filen, kontrollerar du att de första två raderna i båda filerna är vänsterjusterade, utan blanksteg. Om det finns blanksteg före de två första raderna tar du bort dem. Spara filerna och uppdatera sedan webbläsarfönstret. 
@@ -447,7 +447,7 @@ Nu när du har skapat programmet kan du köra det lokalt genom att använda föl
 
 3. Sidan bör uppdateras och visa det nya objektet i ToDo-listan.
    
-    ![Skärmdump av programmet med ett nytt objekt i ToDo-listan](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Skärmdump av programmet med ett nytt objekt i ToDo-listan":::
 
 4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Slutför. Klicka sedan på **Uppdatera uppgifter**. Då uppdateras det dokument som du redan har skapat och tas bort från vyn.
 

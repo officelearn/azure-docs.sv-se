@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258753"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100362"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
 
@@ -26,7 +26,7 @@ I kursen visas hur du kan transformera ditt API så att det inte avslöjar någo
 
 Den här självstudiekursen beskriver också hur du enkelt kan skydda ditt serverdels-API genom att konfigurera frekvensbegränsningar med Azure API Management. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. Mer information finns i [API Management-principer](api-management-policies.md)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -75,12 +75,12 @@ Det ursprungliga svaret ska se ut så här:
 2. Överst på skärmen väljer du fliken **Design**.
 3. Välj **alla åtgärder**.
 4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
-5. Placera markören inuti det ** &lt;utgående&gt; ** elementet.
+5. Placera markören inuti det ** &lt; utgående &gt; ** elementet.
 6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
    ![Principer](./media/transform-api/transform-api.png)
 
-7. Ändra den ** \<utgående>** koden så att den ser ut så här:
+7. Ändra **\<outbound>** koden så att den ser ut så här:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,11 +112,8 @@ Visa det ursprungliga svaret:
 2.  Välj **alla åtgärder**.
 3.  Överst på skärmen väljer du fliken **Design**.
 4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören inuti det ** &lt;&gt; utgående** elementet och klicka på knappen **Infoga princip** i det övre högra hörnet.
-6.  Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
-7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Ett exempel:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Placera markören inuti det ** &lt; utgående &gt; ** elementet och klicka på knappen **Visa kodfragment** i det övre högra hörnet.
+6.  I det högra fönstret, under **omvandlings principer**, klickar du på **maskera URL: er i innehåll**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Skydda ett API genom att lägga till en princip för frekvensbegränsningar (begränsning)
 
@@ -128,9 +125,9 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 2.  Välj **alla åtgärder**.
 3.  Överst på skärmen väljer du fliken **Design**.
 4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören inuti det ** &lt;inkommande&gt; ** elementet.
+5.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet.
 6.  Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-7.  Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
+7.  Ändra din **hastighets begränsning efter nyckel** kod (i- **\<inbound\>** elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

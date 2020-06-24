@@ -2,92 +2,101 @@
 title: Förbered datorer för migrering med Azure Migrate
 description: Lär dig hur du förbereder lokala datorer för migrering med Azure Migrate.
 ms.topic: tutorial
-ms.date: 02/17/2020
+ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: eba177a254606bb847e0866ae48281a889c53f9b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78927478"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106368"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
-Den här artikeln beskriver hur du förbereder lokala datorer innan du börjar migrera dem till Azure med hjälp av [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Den här artikeln beskriver hur du förbereder lokala datorer innan du migrerar dem till Azure med hjälp av [Azure Migrate: Migreringsverktyg för Server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
 
 Den här artikeln innehåller följande avsnitt:
 > [!div class="checklist"]
-> * Verifiera begränsningar för migrering.
-> * Kontrol lera operativ systemets krav och support begränsningar.
+> * Granska begränsningar för migrering.
+> * Välj en metod för migrering av virtuella VMware-datorer
+> * Kontrol lera hypervisor-och operativ system krav för datorer som du vill migrera.
 > * Granska URL och port åtkomst för datorer som du vill migrera.
 > * Granska ändringar som du kan behöva göra innan du påbörjar migreringen.
-> * Konfigurera inställningar så att enhets beteckningar bevaras efter migreringen.
+> * Kontrol lera kraven för virtuella Azure-datorer för migrerade datorer
 > * Förbered datorer så att du kan ansluta till de virtuella Azure-datorerna efter migreringen.
+
+
 
 ## <a name="verify-migration-limitations"></a>Verifiera begränsningar för migrering
 
-- Du kan utvärdera upp till 35 000 virtuella VMware-datorer/Hyper-V-datorer i ett enda Azure Migrate projekt med hjälp av Azure Migrate Server-migrering. Ett projekt kan kombinera virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till gränserna för var och en.
-- Du kan välja upp till 10 virtuella datorer i taget för migrering. Om du behöver replikera mer replikerar du i grupper om 10.
-- För VMware-agent lös migrering kan du köra upp till 100 replikeringar samtidigt.
+Tabellen sammanfattar identifierings-, utvärderings-och migrations gränser för Azure Migrate. Vi rekommenderar att du bedömer datorer innan migrering, men du behöver inte.
+
+**Scenario** | **Project** | **Identifiering/bedömning** | **Migrering**
+--- | --- | --- | ---
+**VMwares virtuella datorer** | Identifiera och utvärdera upp till 35 000 virtuella datorer i ett enda Azure Migrate projekt. | Identifiera upp till 10 000 virtuella VMware-datorer med en enda [Azure Migrate-apparat](common-questions-appliance.md) för VMware. | **Migrering utan agent**: du kan samtidigt replikera högst 300 virtuella datorer. För bästa prestanda rekommenderar vi att du skapar flera batchar av virtuella datorer om du har mer än 50.<br/><br/> **Agent-baserad migrering**: du kan [skala ut](./agent-based-migration-architecture.md#performance-and-scaling) [replikeringen](migrate-replication-appliance.md) för att replikera ett stort antal virtuella datorer.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
+**Hyper-V:s virtuella datorer** | Identifiera och utvärdera upp till 35 000 virtuella datorer i ett enda Azure Migrate projekt. | Identifiera upp till 5 000 virtuella Hyper-V-datorer med en enda Azure Migrate-apparat | En apparat används inte för Hyper-V-migrering. I stället körs Hyper-V-Replikeringsprovidern på varje Hyper-V-värd.<br/><br/> Replikeringens kapacitet påverkas av prestanda faktorer som VM-omsättning och uppladdning av bandbredd för replikeringsdata.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
+**Fysiska datorer** | Identifiera och utvärdera upp till 35 000 datorer i ett enda Azure Migrate projekt. | Identifiera upp till 250 fysiska servrar med en enda Azure Migrate-apparat för fysiska servrar. | Du kan [skala ut](/agent-based-migration-architecture.md#performance-and-scaling) [replikeringen](migrate-replication-appliance.md) för att replikera ett stort antal servrar.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
+
+## <a name="select-a-vmware-migration-method"></a>Välj en VMware-migrations metod
+
+Om du migrerar virtuella VMware-datorer till Azure bör du [jämföra](server-migrate-overview.md#compare-migration-methods) de metoder som används för att avgöra vad som passar dig bäst om du använder de metoder som är baserade på agent lös
+
+## <a name="verify-hypervisor-requirements"></a>Verifiera hypervisor-krav
+
+- Verifiera [VMware agent](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless)-undantagna eller [VMware agent-baserade](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) krav.
+- Kontrol lera kraven för [Hyper-V-värden](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) .
+
 
 ## <a name="verify-operating-system-requirements"></a>Kontrol lera krav för operativ system
 
-- Kontrol lera att dina [Windows-operativsystem](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) stöds i Azure.
-- Kontrol lera att [Linux-distributioner](../virtual-machines/linux/endorsed-distros.md) stöds i Azure.
+Kontrol lera att operativ system som stöds för migrering:
 
-## <a name="see-whats-supported"></a>Se vad som stöds
-
-För virtuella VMware-datorer stöder Server migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md).
-
-- **Virtuella VMware-datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-vmware-migration.md) för virtuella VMware-datorer.
-- **Virtuella Hyper-v-datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v-migration.md) för virtuella Hyper-v-datorer.
-- **Fysiska datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-physical-migration.md) för lokala fysiska datorer och andra virtualiserade servrar. 
+- Om du migrerar virtuella VMware-datorer eller virtuella Hyper-V-datorer bör du kontrol lera de virtuella VMware-datorerna för [agent](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless)utan agent [-baserad](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migrering och krav för [virtuella Hyper-v-datorer](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
+- Kontrol lera att [Windows-operativsystem](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) stöds i Azure.
+- Verifiera [Linux-distributioner](../virtual-machines/linux/endorsed-distros.md) som stöds i Azure.
 
 ## <a name="review-url-and-port-access"></a>Granska URL-och port åtkomst
 
-Datorer kan behöva Internet åtkomst under migreringen.
+Granska vilka URL: er och portar som nås under migreringen.
 
-- **Azure Migrate**-installation: granska [URL: er](migrate-appliance.md#url-access) och [portar](migrate-support-matrix-vmware-migration.md#agentless-ports) som Azure Migrate-installationen behöver för att få åtkomst under en agent lös migrering.
-- **VM-baserad VM-baserad migrering**: granska [webb adresser](migrate-replication-appliance.md#url-access) och [portar](migrate-replication-appliance.md#port-access) som Replication-enheten använder vid VM-baserad VMware-migrering. 
-- **Hyper-V-värdar**: granska [webb adresser och portar](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) som Hyper-v-värdarna måste ha åtkomst till under migreringen. 
-- **Fysiska servrar**: granska [webb adresser](migrate-replication-appliance.md#url-access) och [portar](migrate-replication-appliance.md#port-access) som Replication-enheten använder vid migrering av fysiska servrar.
+**Scenario** | **Information** |  **Webbadresser** | **Portar**
+--- | --- | --- | ---
+**VMware-agent utan migrering** | Använder [Azure Migrate-enheten](migrate-appliance-architecture.md) för migrering. Ingenting installeras på virtuella VMware-datorer. | Granska de offentliga moln-och myndighets- [URL: erna](migrate-appliance.md#url-access) som krävs för identifiering, utvärdering och migrering med produkten. | [Granska](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) port kraven för migrering utan agent.
+**VMware-agent-baserad migrering** | Använder [replikeringstjänsten](migrate-replication-appliance.md) för migrering. Mobilitets tjänst agenten är installerad på virtuella datorer. | Granska det [offentliga molnet](migrate-replication-appliance.md#url-access) och [Azure Government](migrate-replication-appliance.md#azure-government-url-access) de URL: er som krävs för att få åtkomst till replikerings enheten. | [Granska](migrate-replication-appliance.md#port-access) portarna som används vid agent-baserad migrering.
+**Hyper-V-migrering** | Använder en provider som är installerad på Hyper-V-värdar för migrering. Ingenting installeras på virtuella Hyper-V-datorer. | Granska det [offentliga molnet](migrate-support-matrix-hyper-v-migration.md#url-access-public-cloud) och [Azure Government](migrate-support-matrix-hyper-v-migration.md#url-access-azure-government) webb adresser som replikeringsprovidern som körs på värdarna måste ha åtkomst till. | Replikeringsprovidern på Hyper-V-värden använder utgående anslutningar på HTTPS-port 443 för att skicka data för VM-replikering.
+**Fysiska datorer** | Använder [replikeringstjänsten](migrate-replication-appliance.md) för migrering. Mobilitets tjänst agenten är installerad på de fysiska datorerna. | Granska det [offentliga molnet](migrate-replication-appliance.md#url-access) och [Azure Government](migrate-replication-appliance.md#azure-government-url-access) de URL: er som krävs för att få åtkomst till replikerings enheten. | [Granska](migrate-replication-appliance.md#port-access) portarna som används vid fysisk migrering.
 
 ## <a name="verify-required-changes-before-migrating"></a>Verifiera nödvändiga ändringar innan du migrerar
 
-Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Azure Migrate gör dessa ändringar automatiskt för virtuella datorer som kör dessa operativ system:
+Vissa ändringar krävs på virtuella datorer innan du migrerar dem till Azure.
 
-- Red Hat Enterprise Linux 7.0 +, 6.5 +
-- CentOS 7.0 +, 6.5 +
-- SUSE Linux Enterprise Server 12 SP1 +
-- Ubuntu 18.04 LTS, 16.04 LTS, 14.04 LTS
-- Debian 8, 7
+- För vissa operativ system gör Azure Migrate ändringar automatiskt under processen för replikering/migrering.
+- För andra operativ system måste du konfigurera inställningarna manuellt.
+- Det är viktigt att konfigurera inställningar manuellt innan du påbörjar migreringen. Om du migrerar den virtuella datorn innan du gör ändringen kanske den virtuella datorn inte startar i Azure.
 
-För andra operativ system måste du förbereda datorer manuellt innan du migrerar. 
+Granska tabellerna för att identifiera de ändringar du behöver göra.
 
-### <a name="prepare-windows-machines"></a>Förbereda Windows-datorer
+### <a name="windows-machines"></a>Windows-datorer
 
-Om du migrerar en Windows-dator gör du följande ändringar innan du migrerar. Om du migrerar den virtuella datorn innan du gör ändringarna kanske den virtuella datorn inte startar i Azure.
+Nödvändiga ändringar sammanfattas i tabellen.
 
-1. [Aktivera Azures serie konsol](../virtual-machines/troubleshooting/serial-console-windows.md) för den virtuella Azure-datorn. Genom att aktivera-konsolen kan du felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn. 
-2. Om du migrerar datorer som kör Windows Server 2003 installerar du Hyper-V-gäst integrerings tjänster på den virtuella datorns operativ system. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
+**Åtgärd** | **VMware (utan agent migrering)** | **VMware (agent-based)/Physical-datorer** | **Windows på Hyper-V** 
+--- | --- | --- | ---
+**Konfigurera SAN-principen som online alla**<br/><br/> Detta säkerställer att Windows-volymer i Azure VM använder samma enhets beteckningar som den lokala virtuella datorn. | Ställ in automatiskt för datorer som kör Windows Server 2008 R2 eller senare.<br/><br/> Konfigurera manuellt för tidigare operativ system. | Ställ in automatiskt i de flesta fall. | Konfigurera manuellt.
+**Installera Hyper-V-gäst integrering** | [Installera manuellt](prepare-windows-server-2003-migration.md#install-on-vmware-vms) på datorer som kör Windows Server 2003. | [Installera manuellt](prepare-windows-server-2003-migration.md#install-on-vmware-vms) på datorer som kör Windows Server 2003. | [Installera manuellt](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) på datorer som kör Windows Server 2003.
+**Aktivera Azures serie konsol**.<br/><br/>[Aktivera-konsolen](../virtual-machines/troubleshooting/serial-console-windows.md) på virtuella Azure-datorer så att du kan felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn. | Aktivera manuellt | Aktivera manuellt | Aktivera manuellt
+**Anslut efter migrering**<br/><br/> För att ansluta efter migreringen finns det ett antal steg som du bör vidta innan du migrerar. | [Konfigurera](#prepare-to-connect-to-azure-windows-vms) manuellt. | [Konfigurera](#prepare-to-connect-to-azure-windows-vms) manuellt. | [Konfigurera](#prepare-to-connect-to-azure-windows-vms) manuellt.
 
-### <a name="prepare-linux-machines"></a>Förbereda Linux-datorer
 
-1. Installera Hyper-V Linux Integration Services. I de flesta nya versioner av Linux-distributioner ingår Hyper-V Linux Integration Services som standard.
-2. Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna. Genom att återskapa init-avbildningen ser du till att den virtuella datorn startar i Azure (krävs endast för vissa distributioner).
-3. [Aktivera loggning av Azure-serienummer](../virtual-machines/troubleshooting/serial-console-linux.md). Genom att aktivera konsol loggning kan du felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn.
-4. Uppdatera enhets mappnings filen med enhets namn-till-volym-associationerna, så att du kan använda beständiga enhets identifierare.
-5. Uppdatera poster i fstab-filen för att använda beständiga volym identifierare.
-6. Ta bort alla udev-regler som reserverar gränssnitts namn baserat på MAC-adress och så vidare.
-7. Uppdatera nätverks gränssnitt för att ta emot en IP-adress från DHCP.
+#### <a name="configure-san-policy"></a>Konfigurera SAN-princip
 
-Lär dig mer om [stegen för att köra en virtuell Linux-dator på Azure](../virtual-machines/linux/create-upload-generic.md)och få instruktioner för några av de populära Linux-distributionerna.
+Som standard tilldelas virtuella Azure-datorer enhet D som används som tillfällig lagring.
 
-## <a name="preserve-drive-letters-after-migration"></a>Bevara enhets beteckningar efter migrering
+- Den här enhets tilldelningen gör att alla andra anslutna lagrings enhets tilldelningar ökar med en bokstav.
+- Om din lokala installation t. ex. använder en datadisk som är tilldelad enhet D för programinstallationer, ökar tilldelningen för den här enheten till E efter det att du har migrerat den virtuella datorn till Azure. 
+- För att förhindra denna automatiska tilldelning och för att säkerställa att Azure tilldelar nästa lediga enhets beteckning till dess tillfälliga volym, ställer du in storage area network (SAN)-principen på * * OnlineAll:
 
-När du migrerar en lokal dator till Microsoft Azure kan enhets beteckningarna för ytterligare data diskar ändras från sina ursprungliga värden. 
-
-Som standard tilldelas virtuella Azure-datorer enhet D som används som tillfällig lagring. Den här enhets tilldelningen gör att alla andra anslutna lagrings enhets tilldelningar ökar med en bokstav. Om din lokala installation t. ex. använder en datadisk som är tilldelad enhet D för programinstallationer, ökar tilldelningen för den här enheten till E efter det att du har migrerat den virtuella datorn till Azure. För att förhindra denna automatiska tilldelning och för att säkerställa att Azure tilldelar nästa lediga enhets beteckning till dess tillfälliga volym, ställer du in storage area network (SAN)-principen på **OnlineAll**:
+Konfigurera den här inställningen manuellt på följande sätt:
 
 1. På den lokala datorn (inte värd servern) öppnar du en upphöjd kommando tolk.
 2. Ange **DiskPart**.
@@ -95,9 +104,40 @@ Som standard tilldelas virtuella Azure-datorer enhet D som används som tillfäl
 4. Ange **San-princip = OnlineAll**i **DiskPart** -prompten. Den här inställningen säkerställer att diskarna är online och att du kan läsa och skriva till båda diskarna.
 5. Under testmigreringen kan du kontrol lera att enhets beteckningarna bevaras.
 
+
+### <a name="linux-machines"></a>Linux-datorer
+
+Azure Migrate slutför de här åtgärderna automatiskt för dessa versioner
+
+- Red Hat Enterprise Linux 7.0 +, 6.5 +
+- CentOS 7.0 +, 6.5 +
+- SUSE Linux Enterprise Server 12 SP1 +
+- Ubuntu 18.04 LTS, 16.04 LTS, 14.04 LTS
+- Debian 8, 7
+
+För andra versioner förbereder du datorer så att de sammanfattas i tabellen.  
+
+
+**Åtgärd** | **Information** | **Linux-version**
+--- | --- | ---
+**Installera Hyper-V Linux Integration Services** | Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna. Om du återskapar init-avbildningen ser du till att den virtuella datorn startar i Azure. | De flesta nya versioner av Linux-distributioner har detta inkluderat som standard.<br/><br/> Om den inte ingår installerar du manuellt för alla versioner utom de som anropas ovan.
+**Aktivera loggning av Azures serie konsol** | Genom att aktivera konsol loggning kan du felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn.<br/><br/> Följ [dessa instruktioner](../virtual-machines/troubleshooting/serial-console-linux.md) för att aktivera.
+**Uppdatera enhets mappnings fil** | Uppdatera enhets mappnings filen med enhets namn-till-volym-associationerna, så att du kan använda beständiga enhets identifierare. | Installera manuellt för alla versioner utom de som anropas ovan.
+**Uppdatera fstab-poster** |  Uppdatera poster för att använda beständiga volym identifierare.    | Uppdatera manuellt för alla versioner utom de som anropas ovan.
+**Ta bort udev-regel** | Ta bort alla udev-regler som reserverar gränssnitts namn baserat på Mac-adress osv. | Ta bort manuellt för alla versioner utom de som anropas ovan.
+**Uppdatera nätverks gränssnitt** | Uppdatera nätverks gränssnitt för att ta emot IP-adresser baserat på DHCP. nst | Uppdatera manuellt för alla versioner utom de som anropas ovan.
+**Aktivera SSH** | Se till att SSH är aktiverat och att sshd-tjänsten är inställd på att starta automatiskt vid omstart.<br/><br/> Se till att inkommande anslutningar för ssh-anslutning inte blockeras av OS-brandväggen eller skript bara regler.| Aktivera manuellt för alla versioner utom de som anropas ovan.
+
+Lär dig mer om hur du [kör en virtuell Linux-dator på Azure](../virtual-machines/linux/create-upload-generic.md)och få instruktioner för några av de populära Linux-distributionerna.
+
+
 ## <a name="check-azure-vm-requirements"></a>Kontrol lera kraven för virtuella Azure-datorer
 
-Lokala datorer som du replikerar till Azure måste uppfylla kraven på virtuella Azure-datorer för operativ system och arkitektur, diskar, nätverks inställningar och namngivning av virtuella datorer. Kontrol lera kraven för [virtuella VMware-datorer och fysiska servrar](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)och [virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) innan du migrerar.
+Lokala datorer som du replikerar till Azure måste uppfylla kraven på virtuella Azure-datorer för operativ system och arkitektur, diskar, nätverks inställningar och namngivning av virtuella datorer.
+
+Innan du migrerar bör du gå igenom kraven för virtuella Azure-datorer för [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)och migrering av [fysiska servrar](migrate-support-matrix-physical-migration.md#azure-vm-requirements) .
+
+
 
 ## <a name="prepare-to-connect-after-migration"></a>Förbered för att ansluta efter migreringen
 
@@ -114,6 +154,7 @@ På lokala Windows-datorer:
 5. Om du vill få åtkomst till en virtuell Azure-dator via en plats-till-plats-VPN efter migreringen, kan du i Windows-brandväggen på den lokala datorn tillåta RDP för domänen och privata profiler. Lär dig hur du [tillåter RDP-trafik](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules). 
 6. Se till att inga Windows-uppdateringar väntar på den lokala virtuella datorn när du migrerar. Om så är fallet kan uppdateringar börja installeras på den virtuella Azure-datorn efter migreringen och du kan inte logga in på den virtuella datorn förrän uppdateringarna har slutförts.
 
+
 ### <a name="prepare-to-connect-with-linux-azure-vms"></a>Förbered för att ansluta till virtuella Linux Azure-datorer
 
 På lokala Linux-datorer:
@@ -129,9 +170,15 @@ Efter migreringen slutför du de här stegen på de virtuella Azure-datorer som 
 2. Kontrol lera att reglerna för nätverks säkerhets gruppen (NSG) på den virtuella datorn tillåter inkommande anslutningar till RDP-eller SSH-porten.
 3. Kontrol lera [startdiagnostik](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) för att visa den virtuella datorn.
 
-> [!NOTE]
-> Azure skydds-tjänsten erbjuder privat RDP och SSH-åtkomst till virtuella Azure-datorer. [Läs mer](../bastion/bastion-overview.md) om den här tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Bestäm vilken metod du vill använda för att [migrera virtuella VMware-datorer](server-migrate-overview.md) till Azure, eller börja migrera virtuella [Hyper-V-datorer](tutorial-migrate-hyper-v.md) eller [fysiska servrar eller virtuella datorer eller virtuella datorer i molnet](tutorial-migrate-physical-virtual-machines.md).
+
+## <a name="see-whats-supported"></a>Se vad som stöds
+
+För virtuella VMware-datorer stöder Server migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md).
+
+- **Virtuella VMware-datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-vmware-migration.md) för virtuella VMware-datorer.
+- **Virtuella Hyper-v-datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v-migration.md) för virtuella Hyper-v-datorer.
+- **Fysiska datorer**: kontrol lera [kraven för migrering och stöd](migrate-support-matrix-physical-migration.md) för lokala fysiska datorer och andra virtualiserade servrar. 

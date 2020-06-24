@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82105581"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100932"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Självstudie: importera ett certifikat i Azure Key Vault
 
@@ -28,11 +28,12 @@ Självstudien visar hur du:
 > * Skapa ett nyckelvalv.
 > * Importera ett certifikat i Key Vault med hjälp av portalen.
 > * Importera ett certifikat i Key Vault med CLI.
+> * Importera ett certifikat i Key Vault med PowerShell.
 
 
 Läs [Key Vault grundläggande koncept](../general/basic-concepts.md)innan du börjar. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -66,7 +67,7 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-certifikatfil på disken. I det här fallet ska vi importera ett certifikat med fil namnet **ExampleCertificate**.
 
 > [!IMPORTANT]
-> I Azure Key Vault är certifikat format som stöds, PFX-och PEM. 
+> I Azure Key Vault är PFX och PEM de format som stöds. 
 > - . pem-filformat innehåller en eller flera X509-certifikatfiler.
 > - PFX-filformat är ett Arkiv fil format för lagring av flera kryptografiska objekt i en enda fil, t. ex. Server certifikat (utfärdat för din domän), en matchande privat nyckel och eventuellt även en mellanliggande certifikat utfärdare.  
 
@@ -79,13 +80,13 @@ Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-ce
     - **Lösen ord** : om du överför en lösenordsskyddad certifikat fil anger du detta lösen ord här. Annars lämnar du det tomt. När certifikat filen har importer ATS tar Key Vault bort lösen ordet.
 4. Klicka på **Skapa**.
 
-![Certifikat egenskaper](../media/certificates/tutorial-import-cert/cert-import.png)
+![Certifikategenskaper](../media/certificates/tutorial-import-cert/cert-import.png)
 
 Genom att lägga till ett certifikat med **import** metoden fyller Azure Key Vault automatiskt certifikat parametrar (t. ex. giltighets period, utfärdarens namn, aktiverings datum osv.).
 
 När du har fått ett meddelande om att certifikatet har importer ATS kan du klicka på det i listan för att visa dess egenskaper. 
 
-![Certifikat egenskaper](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+![Certifikategenskaper](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importera ett certifikat med Azure CLI
 
@@ -102,7 +103,8 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Läs mer om parametrarna [här](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+Läs mer om [parametrarna](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
 När du har importerat certifikatet kan du Visa certifikatet med [certifikat visning](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
@@ -116,9 +118,25 @@ az keyvault certificate show [--id]
                              [--version]
 ```
 
-
-
 Nu har du skapat ett nyckel valv, importerat ett certifikat och visat certifikat egenskaper.
+
+## <a name="import-a-certificate-using-azure-powershell"></a>Importera ett certifikat med Azure PowerShell
+
+```
+Import-AzureKeyVaultCertificate
+      [-VaultName] <String>
+      [-Name] <String>
+      -FilePath <String>
+      [-Password <SecureString>]
+      [-Tag <Hashtable>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+Läs mer om [parametrarna](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

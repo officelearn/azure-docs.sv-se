@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234336"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100853"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -27,7 +27,7 @@ Lagringspooler är en samling av en eller flera identiska virtuella datorer (VM)
 
 Den här artikeln vägleder dig genom installations processen för att skapa en adresspool för en Windows Virtual Desktop-miljö via Azure Portal. Den här metoden ger ett webbläsarbaserat användar gränssnitt för att skapa en adresspool i Windows Virtual Desktop, skapa en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluta de virtuella datorerna till den Azure Active Directory AD-domänen och registrera de virtuella datorerna med Windows Virtual Desktop.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ange följande parametrar för att skapa en värdbaserad pool:
 
@@ -41,7 +41,7 @@ Du måste också känna till följande saker:
 - Var källan till den avbildning du vill använda finns. Är det från Azure Gallery eller är det en anpassad avbildning?
 - Autentiseringsuppgifterna för din domän anslutning.
 
-Kontrol lera också att du har registrerat resurs leverantören för Microsoft. DesktopVirtualization. Om du inte redan har gjort det går du till **prenumerationer** , väljer namnet på din-prenumerationen och väljer sedan **Azure Resource providers**.
+Kontrol lera också att du har registrerat resurs leverantören för Microsoft. DesktopVirtualization. Om du inte redan har gjort det går du till **prenumerationer**, väljer namnet på din prenumeration och väljer sedan **Azure Resource providers**.
 
 När du skapar en Windows-pool för virtuella Skriv bords värdar med Azure Resource Manager-mallen kan du skapa en virtuell dator från Azure-galleriet, en hanterad avbildning eller en ohanterad avbildning. Mer information om hur du skapar VM-avbildningar finns i [förbereda en Windows VHD-eller VHDX-överföring till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) och [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -111,7 +111,7 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
 
     - Om du väljer **Galleri**väljer du en av de rekommenderade bilderna på den nedrullningsbara menyn:
 
-      - Windows 10 Enterprise multi-session, version 1909 + Office 365 ProPlus – gen 1
+      - Windows 10 Enterprise multi-session, version 1909 + Microsoft 365-appar för företag – gen 1
       - Windows 10 Enterprise multi-session, version 1909 – gen 1
       - Windows Server 2019 Data Center – gen1
 
@@ -169,7 +169,7 @@ Registrera Skriv bords gruppen på en arbets yta:
      >[!NOTE]
      >Verifierings processen för att granska och skapa kontrollerar inte om ditt lösen ord uppfyller säkerhets standarderna eller om arkitekturen är korrekt, så du måste kontrol lera eventuella problem med någon av dessa saker. 
 
-5. Granska informationen om distributionen för att kontrol lera att allting ser korrekt ut. När du är klar väljer du **Skapa**. Detta startar distributions processen, som skapar följande objekt:
+5. Granska informationen om distributionen för att kontrol lera att allting ser korrekt ut. När du är färdig väljer du **Skapa**. Detta startar distributions processen, som skapar följande objekt:
 
      - Den nya poolen för värdar.
      - En Skriv bords grupp.

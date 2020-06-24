@@ -5,15 +5,15 @@ description: Den här artikeln innehåller information om hur du felsöker probl
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293529"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806484"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-I föregående exempel ser du att svars huvudet har status kod 301 för omdirigering. Plats huvudet har App Service-värdnamnet i stället för det ursprungliga värd namnet `www.contoso.com`.
+I föregående exempel ser du att svars huvudet har status kod 301 för omdirigering. Plats huvudet har App Service-värdnamnet i stället för det ursprungliga värd namnet `www.contoso.com` .
 
 ## <a name="solution-rewrite-the-location-header"></a>Lösning: Skriv om plats rubriken
 
@@ -98,7 +98,7 @@ Du måste äga en anpassad domän och följa den här processen:
 
     ![App Service, anpassad domän lista](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Din app service är redo att acceptera värd namnet `www.contoso.com`. Ändra CNAME-posten i DNS så att den pekar tillbaka till programgatewayens FQDN, till exempel `appgw.eastus.cloudapp.azure.com`.
+- Din app service är redo att acceptera värd namnet `www.contoso.com` . Ändra CNAME-posten i DNS så att den pekar tillbaka till programgatewayens FQDN, till exempel `appgw.eastus.cloudapp.azure.com` .
 
 - Kontrol lera att din domän `www.contoso.com` matchar programgatewayens FQDN-namn när du gör en DNS-fråga.
 
@@ -111,7 +111,7 @@ Du måste äga en anpassad domän och följa den här processen:
 
 - Associera den anpassade avsökningen tillbaka till Server delens HTTP-inställningar och kontrol lera att Server delen är felfri.
 
-- Programgatewayen bör nu vidarebefordra samma värdnamn, `www.contoso.com`till App Service. Omdirigeringen sker på samma värdnamn. Kontrol lera följande exempel på begäran och svarshuvuden.
+- Programgatewayen bör nu vidarebefordra samma värdnamn, `www.contoso.com` till App Service. Omdirigeringen sker på samma värdnamn. Kontrol lera följande exempel på begäran och svarshuvuden.
 
 Använd PowerShell-skriptet nedan om du vill implementera föregående steg med PowerShell för en befintlig installation. Observera att vi inte har använt växlarna **-PickHostname** i konfigurationen för avsöknings-och http-inställningar.
 

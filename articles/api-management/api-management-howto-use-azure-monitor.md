@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128847"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982058"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -43,14 +43,13 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 ## <a name="view-metrics-of-your-apis"></a>Visa mått för dina API:er
 
-API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan följer en sammanfattning av några tillgängliga mått:
+API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan visas de två oftast använda måtten. En lista över alla tillgängliga mått finns i [mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
 * Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera dina APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
-* Totalt antal gatewaybegäranden: antalet API-begäranden under perioden. 
-* Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200).
-* Misslyckade gatewaybegäranden: antalet API-begäranden som tog emot felaktiga HTTP-svarskoder inklusive 400 och över 500.
-* Ej auktoriserad begäran: antalet API-begäranden som tog emot HTTP-svarskoder som 401, 403 och 429.
-* Övriga gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder som inte tillhör någon av ovanstående kategorier (til exempel 418).
+* Begär Anden: hjälper dig att analysera API-trafik som går via dina APIM-tjänster. Måttet genereras per minut och rapporterar antalet Gateway-begäranden med dimensioner, inklusive svars koder, plats, värdnamn och fel. 
+
+> [!IMPORTANT]
+> Följande mått är föråldrade från maj 2019 och kommer att dras tillbaka i augusti 2023: totalt antal Gateway-begäranden, lyckade Gateway-begäranden, obehöriga Gateway-begäranden, misslyckade Gateway-begäranden, andra gateway-begäranden. Migrera till begär ande måttet som ger motsvarande funktionalitet.
 
 ![måttdiagram](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Så här får du åtkomst till mått:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
-1. Diagrammet visar det totala antalet API-anrop.
-1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Klicka till exempel på **Lägg till filter**, Välj **Server del svars kod**, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
+2. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
+3. Diagrammet visar det totala antalet API-anrop.
+4. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Klicka till exempel på **Lägg till filter**, Välj **Server del svars kod**, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -188,7 +187,7 @@ API Management tillhandahåller för närvarande resurs loggar (grupperade per t
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ID för API Management Resource/SUBSCRIPTIONS/\<-prenumerationen>\</resourcegroups/Resource-Group>/providers/Microsoft. API Management/tjänst/\<namn> |
+| resourceId | sträng | ID för API Management resurs/SUBSCRIPTIONS/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /providers/Microsoft. API MANAGEMENT/SERVICE/\<name> |
 | properties | objekt | Egenskaper för aktuell begäran |
 | metod | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |

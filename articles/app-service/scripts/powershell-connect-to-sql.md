@@ -6,16 +6,16 @@ ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: e050675282d8a7784d31aaf45a564da991ff6e63
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9086e00e4b6caf89ab249bbf25ca03a6f068ba49
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020038"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248309"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database"></a>Ansluta en App Service-app till en SQL-databas
+# <a name="connect-an-app-service-app-to-sql-database"></a>Ansluta en App Service-app till SQL Database
 
-I det här scenariot får du lära dig hur du skapar en Azure SQL-databas och en App Service-app. Sedan länkar du SQL-databasen till appen med hjälp av appinställningar.
+I det här scenariot får du lära dig hur du skapar en databas i Azure SQL Database och en App Service-app. Sedan länkar du databasen till appen med hjälp av app-inställningar.
 
 Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
 
@@ -23,7 +23,7 @@ Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |

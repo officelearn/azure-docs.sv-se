@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5555c176adfb5be78ea73f17bfa01ba87766acc1
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607218"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100393"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
 
@@ -306,7 +306,7 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som en enhets utvecklare nu har du lärt dig grunderna för hur du skapar en enhet med hjälp av Node. js, men vissa föreslagna nästa steg är att:
+Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enhet med hjälp av python, men vissa föreslagna nästa steg är att:
 
 * Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
 * Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.

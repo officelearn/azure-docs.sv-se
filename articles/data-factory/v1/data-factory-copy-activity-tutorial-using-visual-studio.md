@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 013f82c33b149d754e059bbc4c9933f917a2555a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119311"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248640"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "84119311"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder den aktuella versionen av Data Factory-tjänsten. 
 
-I den här artikeln får du lära dig hur du använder Microsoft Visual Studio för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
+I den här artikeln får du lära dig hur du använder Microsoft Visual Studio för att skapa en data fabrik med en pipeline som kopierar data från en Azure Blob Storage till Azure SQL Database. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
 
 I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Mer information om kopierings aktiviteten finns i [aktiviteter för data förflyttning](data-factory-data-movement-activities.md).
 
@@ -44,7 +44,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 > [!NOTE] 
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -62,15 +62,15 @@ Här är de steg du utför som en del av de här självstudierna:
     
     AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en container och överfört data till det här lagringskontot som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-    AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den SQL-tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
+    AzureSqlLinkedService länkar Azure SQL Database till data fabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den SQL-tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Skapa **datauppsättningar** för indata och utdata i datafabriken.  
     
     Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Azure Blob-datauppsättning anger vilken blobcontainer och mapp som innehåller data.  
 
-    Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till din Azure SQL-databas. Och utdatauppsättningen för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen.
+    På samma sätt anger den länkade tjänsten Azure SQL Database den anslutnings sträng som Data Factory tjänsten använder vid körning för att ansluta till Azure SQL Database. Och utdatauppsättningen för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen.
 3. Skapa en **pipeline** i datafabriken. I det här steget kan du skapa en pipeline med en kopieringsaktivitet.   
     
-    Kopieringsaktiviteten kopierar data från en Azure-blob till en tabell i Azure SQL-databasen. Du kan använda en kopieringsaktivitet i en pipeline för att kopiera data från alla datakällor som stöds till ett mål som stöds. I avsnittet [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md#supported-data-stores-and-formats) finns en lista över datalager som stöds. 
+    Kopierings aktiviteten kopierar data från en BLOB i Azure Blob Storage till en tabell i Azure SQL Database. Du kan använda en kopieringsaktivitet i en pipeline för att kopiera data från alla datakällor som stöds till ett mål som stöds. I avsnittet [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md#supported-data-stores-and-formats) finns en lista över datalager som stöds. 
 4. Skapa en Azure-**datafabrik** när du distribuerar Data Factory-enheter (länkade tjänster, datauppsättningar och tabeller och pipelines). 
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt
@@ -89,7 +89,7 @@ Därför kan du skapa två länkade tjänster: AzureStorage och AzureSqlDatabase
 
 AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en container och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-AzureSQLLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Azure SQL-länkade tjänst länkar Azure SQL Database till data fabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory. I den här självstudiekursen använder du ingen tjänst för beräkning. 
 
@@ -108,18 +108,18 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 ### <a name="create-the-azure-sql-linked-service"></a>Skapa den länkade Azure SQL-tjänsten
 1. Högerklicka på noden **Länkade tjänster** i **Solution Explorer** igen, peka på **Lägg till** och klicka på **Nytt objekt**. 
 2. Den här gången väljer du **Länkad Azure SQL-tjänst** och klickar på **Lägg till**. 
-3. I **filen AzureSqlLinkedService1. JSON**ersätter du, `<servername>` `<databasename>` , `<username@servername>` och `<password>` med namnen på din server, databas, användar konto och lösen ord.    
+3. Ersätt, **AzureSqlLinkedService1.json file**, `<servername>` `<databasename>` `<username@servername>` , och `<password>` med namnen på din server, databas, användar konto och lösen ord iAzureSqlLinkedService1.jspå fil.    
 4. Spara filen **AzureSqlLinkedService1.json**. 
     
     Mer information om de här JSON-egenskaperna finns i [Anslutningsapp för Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det föregående steget skapade du kopplade tjänster för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken. I det här steget definierar du två datauppsättningar – InputDataset och OutputDataset – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService1 och AzureSqlLinkedService1.
+I föregående steg skapade du länkade tjänster för att länka ditt Azure Storage-konto och Azure SQL Database till din data fabrik. I det här steget definierar du två datauppsättningar – InputDataset och OutputDataset – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService1 och AzureSqlLinkedService1.
 
 Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobcontainer och mapp som innehåller indata.  
 
-Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till din Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
+På samma sätt anger den länkade tjänsten Azure SQL Database den anslutnings sträng som Data Factory tjänsten använder vid körning för att ansluta till Azure SQL Database. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobcontainer (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService1. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
@@ -177,7 +177,7 @@ Här kan använda du termen ”tabeller” i stället för ”datauppsättningar
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).   
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
-I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset**. Den här datauppsättningen pekar på en SQL-tabell i Azure SQL-databasen som representeras av **AzureSqlLinkedService1**. 
+I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset**. Den här data uppsättningen pekar på en SQL-tabell i Azure SQL Database representeras av **AzureSqlLinkedService1**. 
 
 1. Högerklicka på **Tabeller** i **Solution Explorer** igen, peka på **Lägg till** och klicka på **Nytt objekt**.
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Azure SQL** och klickar på **Lägg till**. 
@@ -213,7 +213,7 @@ I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset*
 
     | Egenskap | Beskrivning |
     |:--- |:--- |
-    | typ | Typegenskapen är **AzureSqlTable** eftersom data kopieras till en tabell i en Azure SQL-databas. |
+    | typ | Egenskapen Type anges till **AzureSqlTable** eftersom data kopieras till en tabell i Azure SQL Database. |
     | linkedServiceName | Refererar till **AzureSqlLinkedService** som du skapade tidigare. |
     | tableName | Ange **tabellen** dit data kopieras. | 
     | frekvens/intervall | Frekvensen är inställd på **timme** och intervallet är **1**, vilket innebär att utdatasegment produceras **varje timme** mellan pipelinens start- och sluttider, inte före eller efter dessa tider.  |
@@ -229,7 +229,7 @@ Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen ä
 
 1. Högerklicka på **Pipelines** i **Solution Explorer**, peka på **Lägg till** och klicka på **Nytt objekt**.  
 2. Välj **Kopiera datapipeline** i dialogrutan **Lägg till nytt objekt** och klicka på **Lägg till**. 
-3. Ersätt JSON med följande JSON och spara filen **CopyActivity1. JSON** .
+3. Ersätt JSON med följande JSON och spara **CopyActivity1.jspå** filen.
 
    ```json   
     {
@@ -363,12 +363,12 @@ Gå till startsidan för din datafabrik:
 5. Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur övervakar en pipeline och datauppsättningar som du har skapat i den här självstudien. Visual Studio stöder för närvarande inte övervakning av Data Factory-pipelines. 
 
 ## <a name="summary"></a>Sammanfattning
-I den här självstudien har du skapat en Azure-datafabrik som kopierar data från en Azure-blob till en Azure SQL-databas. Du använde Visual Studio till att skapa datafabriken, länkade tjänster, datauppsättningar och en pipeline. Här är de avancerade steg som du utförde i självstudien:  
+I den här självstudien har du skapat en Azure-datafabrik för att kopiera data från en Azure-blob till Azure SQL Database. Du använde Visual Studio till att skapa datafabriken, länkade tjänster, datauppsättningar och en pipeline. Här är de avancerade steg som du utförde i självstudien:  
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade **länkade tjänster**:
    1. En länkad **Azure Storage-** tjänst som länkar Azure Storage-kontot som innehåller indata.     
-   2. En länkad **Azure SQL**-tjänst som länkar din Azure SQL-databas som innehåller utdata. 
+   2. En länkad **Azure SQL** -tjänst för att länka databasen som innehåller utdata. 
 3. Du skapade **datauppsättningar** som beskriver indata och utdata för pipelines.
 4. Du skapade en **pipeline** med en **kopieringsaktivitet** med **BlobSource** som källa och **SqlSink** som mottagare. 
 
@@ -511,7 +511,7 @@ Det är inte tillrådligt och ofta mot säkerhetsprincipen införa känsliga dat
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen används Azure blob storage som ett datalager för källa och en Azure SQL-databas som ett dataarkiv som mål i en kopieringsåtgärd. Följande tabell innehåller en lista över datalager som stöds som källor och mål av kopieringsaktiviteten: 
+I den här självstudien använde du Azure Blob Storage som käll data lager och Azure SQL Database som mål data lager i en kopierings åtgärd. Följande tabell innehåller en lista över datalager som stöds som källor och mål av kopieringsaktiviteten: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

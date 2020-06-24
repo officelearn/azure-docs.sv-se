@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b5208d2da3635e822049859cae9c8f17b6105a
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464257"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130440"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
@@ -31,7 +31,11 @@ Den här artikeln ger en översikt över både e-postaviseringar.
 
 Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
 
-Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det du har angett. du får dock inga nya användare när de riskerar att identifiera e-postaviseringar för den här användaren när de har flyttat till den här användar risk nivån. Om du t. ex. ställer in principen för att varna om medelhög användar risk och din användare John flyttar till medelhög risk, får användarna ett hot som upptäckts via e-post för John. Du får dock ingen andra användare vid risk identifiering om John sedan flyttar till hög risk eller har ytterligare risk identifieringar.
+Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det som du har angett. Om du till exempel ställer in principen för att avisera om medelhög användar risk och användarens användar risk Poäng flyttar till medelhög risk på grund av en inloggnings risk i real tid, får du användarna ett hot som upptäckts via e-post. Om användaren har efterföljande risk identifieringar som gör att beräkning av användar risk nivån är den angivna risk nivån (eller högre) får du ytterligare användare vid risk identifiering av e-postmeddelanden när risken för användar risker beräknas om. Om en användare till exempel flyttar till medelhög risk den 1 januari får du ett e-postmeddelande om dina inställningar är inställda på varning för medelhög risk. Om samma användare sedan har en annan risk identifiering den 5 januari som också är medels Tor risk, och användar risk poängen beräknas om och är i hög grad, kommer du att få ett annat e-postmeddelande. 
+
+En ytterligare e-postavisering skickas dock endast om den tidpunkt då risk identifieringen inträffade (som orsakade ändringen av användar risk nivån) är senare än när den senaste e-postmeddelandet skickades. Till exempel är ett användar inloggnings program den 1 januari kl. 5 och det inte finns någon real tids risk (vilket innebär att ingen e-post genereras på grund av inloggningen). Tio minuter senare, kl. 5:10 är samma användare som loggar in igen och har hög risk i real tid, vilket gör att användar risk nivån går över till hög och ett e-postmeddelande som ska skickas. Vid 5:15 AM ändras offline-risk poängen för den ursprungliga inloggningen med 5 till hög risk på grund av bearbetning av offline-risker. Det gick inte att skicka en ytterligare användare som har flaggats för risk-e-post, eftersom tiden för den första inloggningen var före den andra inloggningen som redan utlöste ett e-postmeddelande.
+
+För att förhindra en överlagring av e-postmeddelanden får du bara en användare vid en risk för att identifiera ett e-postmeddelande inom en tids period på 5 sekunder. Det innebär att om flera användare flyttar till den angivna risk nivån under samma 5 andra tids period, kommer vi att aggregera och skicka ett e-postmeddelande för att representera ändringen av risk nivån för alla.
 
 ![Användare med skadligt upptäckt e-post](./media/howto-identity-protection-configure-notifications/01.png)
 

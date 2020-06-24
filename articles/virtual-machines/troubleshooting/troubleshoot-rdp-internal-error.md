@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266928"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703799"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar när du försöker ansluta till en virtuell Azure-dator via Fjärrskrivbord
 
@@ -59,7 +59,7 @@ Anslut till [serie konsolen och öppna PowerShell-instansen](./serial-console-wi
 ) för att kontrol lera om Port 8080 används av andra program:
 
         Netstat -anob |more
-2. Om TermService. exe använder 8080-porten går du till steg 2. Om en annan tjänst eller något annat program än TermService. exe använder 8080-porten följer du dessa steg:
+2. Om Termservice.exe använder 8080-porten går du till steg 2. Om en annan tjänst eller ett annat program än Termservice.exe använder 8080-porten följer du dessa steg:
 
     1. Stoppa tjänsten för programmet som använder tjänsten 3389:
 

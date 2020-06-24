@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 2f59bbb4711d79fdcb59e39378c25c031ac68af8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 71c5c5881ab34dd9bc1a4da9e097b46ec21dcea1
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249067"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124229"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Stöd för att flytta Azure-resurser mellan regioner
 
@@ -32,7 +32,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft. BatchAI](#microsoftbatchai)
+> - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft. Bingkartssökning](#microsoftbingmaps)
 > - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft. blockchain](#microsoftblockchain)
@@ -74,7 +74,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. Devices](#microsoftdevices)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. DevTestLab](#microsoftdevtestlab)
-> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft. DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft. EventGrid](#microsofteventgrid)
@@ -249,14 +249,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | batchaccounts |  Ja (med mall)<br/><br/> [Flytta batch-konto mellan regioner](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
+> | batchaccounts |  Batch-konton kan inte flyttas direkt från en region till en annan, men du kan använda en mall för att exportera en mall, ändra den och distribuera mallen till den nya regionen. <br/><br/> Lär dig mer om att [Flytta ett batch-konto över flera regioner](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
-## <a name="microsoftbatchai"></a>Microsoft. BatchAI
+## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster | No | 
+> | kluster | No <br/><br/> Tjänsten Azure Batch AI har [dragits tillbaka](https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | utskrifts | No | 
 > | arbetsytor | No | 
@@ -280,7 +280,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | blockchainmembers | No |
+> | blockchainmembers | No <br/><br/> Blockchain-nätverket kan inte ha noder i olika regioner. 
 > | Övervakare | No | 
 
 ## <a name="microsoftblueprint"></a>Microsoft. skiss
@@ -327,7 +327,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | domän namn | No |  
+> | domän namn | Inget arbete har planer ATS för klassiska tjänster.
 > | virtualmachines | No | 
 
 
@@ -337,7 +337,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | networksecuritygroups | No |
+> | networksecuritygroups | Inget arbete har planer ATS för klassiska tjänster.
 > | reservedips | No | 
 > | virtualnetworks | No | 
 
@@ -355,7 +355,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | konton | No | 
-> | Kognitiv sökning | Ja (med mall)<br/><br/> [Flytta din Kognitiv sökning-tjänst till en annan region](../../search/search-howto-move-across-regions.md)
+> | Cognitive Search | Stöds med manuella steg.<br/><br/> Läs om hur du [flyttar din Azure kognitiv sökning-tjänst till en annan region](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -410,7 +410,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | containerservices | No | 
+> | containerservices | Nej.<br/><br/> Tjänsten har [dragits tillbaka](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 > | managedclusters | No | 
 > | openshiftmanagedclusters | No | 
 
@@ -543,7 +543,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | brygghuvudservrar | No |  
+> | brygghuvudservrar | Om tjänsten är etablerad med Geo-redundant lagring, kan du använda geo-återställning för att återställa i andra regioner. [Läs mer](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
@@ -578,9 +578,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | elasticpools | No | 
-> | elasticpools / iothubtenants | No | 
-> | iothubs | Yes | 
+> | elasticpools | Nej. Resursen är inte exponerad.
+> | elasticpools / iothubtenants | Nej. Resursen är inte exponerad.
+> | iothubs | Ja. [Läs mer](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
@@ -603,7 +603,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | labb/virtualmachines | No |  
 > | scheman | No |  
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
@@ -715,7 +715,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | checknameavailability |  No
+> | checknameavailability |  Nej.<br/><br/> IoT Central fungerar med geografiska områden och inte regioner.
 > | Rita | No
 
 ## <a name="microsoftiothub"></a>Microsoft. IoTHub
@@ -768,7 +768,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | No | 
+> | konton | Nej, det är en global tjänst.
 
 ## <a name="microsoftlogic"></a>Microsoft. Logic
 
@@ -842,14 +842,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton |  No |  
+> | konton |  Nej, Azure Maps är en Geospatial tjänst. 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | classicdevservices | No | 
+> | classicdevservices | Inget arbete har planer ATS för klassiska tjänster 
 
 ## <a name="microsoftmedia"></a>Microsoft. Media
 
@@ -1011,7 +1011,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | valv | Nej. [Inaktivera valv och återskapa](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) för Site Recovery  | 
+> | valv | Nej.<br/><br/> Det finns inte stöd för att flytta Recovery Services valv för Azure Backup i Azure-regioner.<br/><br/> I Recovery Services valv för Azure Site Recovery kan du [inaktivera och återskapa valvet](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) i mål regionen. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay

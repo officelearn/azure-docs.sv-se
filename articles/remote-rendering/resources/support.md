@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8c471687579dfe30b913197c6f080a450f5f3449
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82107451"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782525"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Support alternativ för Azure Remote rendering
 
@@ -24,7 +24,7 @@ ms.locfileid: "82107451"
 
     ![Azure Portal hjälp och support](media/portal-help.png)
 
-1. Välj **ny supportbegäran**.
+1. Välj **Ny supportbegäran**.
 
     ![Azure Portal nytt support ärende](media/portal-new-request.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "82107451"
 
 ## <a name="community-support"></a>Community-support
 
-Om du vill ha support från användar gruppen kan du läsa mer i [Azure Remote rendering på Stack Overflow](https://stackoverflow.com/questions/tagged/azure-remote-rendering).
+Support från användar gruppen finns i [Azure Remote rendering på Stack Overflow](https://stackoverflow.com/questions/tagged/azure-remote-rendering).
 
 ## <a name="provide-documentation-feedback"></a>Ge feedback om dokumentation
 
@@ -52,6 +52,11 @@ Längst ned i varje dokumentations artikel kan du öppna ett GitHub-ärende för
 ## <a name="provide-product-feedback"></a>Ge produktfeedback
 
 Om du vill ge feedback, dela med dig av en idé eller förslag för Azure-fjärråter givning, eller rösta på de idéer som andra har skickat, kan du gå till Azure-tjänsten för [åter givning av feedback](https://feedback.azure.com/forums/928696-azure-remote-rendering)
+
+
+## <a name="microsoft-qa"></a>Microsoft Q&A
+
+För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), Azures önskade mål för Community-support.
 
 ## <a name="next-steps"></a>Nästa steg
 

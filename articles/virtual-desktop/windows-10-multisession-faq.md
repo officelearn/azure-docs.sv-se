@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612001"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735106"
 ---
-# <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om Windows 10 Enterprise multi-session
+# <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
 I den här artikeln besvaras vanliga frågor och rekommendationer för Windows 10 Enterprise multi-session.
  
@@ -53,7 +53,7 @@ Windows 10 Enterprise multi-session stöds för närvarande som hybrid Azure AD-
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Var kan jag hitta Windows 10 Enterprise multi-session-avbildningen?
 
-Windows 10 Enterprise multi-session finns i Azure-galleriet. Du hittar det genom att gå till Azure Portal och söka efter en utgåva av Windows 10 Enterprise för virtuella skriv bord. För en avbildning som är integrerad med Office Pro plus går du till Azure Portal och söker efter Microsoft Windows 10 + Office 365 ProPlus.
+Windows 10 Enterprise multi-session finns i Azure-galleriet. Du hittar det genom att gå till Azure Portal och söka efter en utgåva av Windows 10 Enterprise för virtuella skriv bord. För en avbildning som är integrerad med Microsoft 365 appar för företag går du till Azure Portal och söker efter **Microsoft Windows 10 + Microsoft 365-appar för företag**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Vilken Windows 10 Enterprise-avbildning av flera sessioner ska jag använda?
 
@@ -92,7 +92,7 @@ Du kan inaktivera Microsoft Store-appen för att se till att användarna inte la
 Så här inaktiverar du Store-appen:
 
 1. Skapa en ny grupprincip.
-2. Välj **dator konfiguration** > **administrativa mallar** > **Windows-komponenter**.
+2. Välj **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**.
 3. Välj **Arkiv**.
 4. Välj **Store-program**.
 5. Välj **inaktive rad**och välj sedan **OK**.

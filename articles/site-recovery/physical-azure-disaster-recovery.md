@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257932"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699914"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera Azure och lokala krav
@@ -98,14 +98,14 @@ Mobilitets tjänsten måste installeras på varje server som du vill replikera. 
 Välj vad du vill replikera och replikera den till.
 
 1. Klicka på **Recovery Services-valv** > valv.
-2. På resurs-menyn klickar du på **Site Recovery** > **förbereda infrastruktur** > **skydds mål**.
-3. I **skydds mål**väljer **du till Azure** > **inte virtualiserad/övrigt**.
+2. På resurs-menyn klickar du på **Site Recovery**  >  **förbereda infrastruktur**  >  **skydds mål**.
+3. I **skydds mål**väljer **du till Azure**  >  **inte virtualiserad/övrigt**.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
 Konfigurera konfigurations servern, registrera den i valvet och identifiera virtuella datorer.
 
-1. Klicka på **Site Recovery** > **Förbered infrastruktur** > **källa**.
+1. Klicka på **Site Recovery**  >  **Förbered infrastruktur**  >  **källa**.
 2. Om du inte har en konfigurations Server klickar du på **+ konfigurations Server**.
 3. I **Lägg till Server**kontrollerar du att **konfigurations servern** visas i **Server typ**.
 4. Hämta installations filen Site Recovery Unified setup.
@@ -136,13 +136,13 @@ Kör enhetlig installation som lokal administratör för att installera konfigur
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-När registreringen är klar visas konfigurations servern på sidan **Inställningar** > **servrar** i valvet.
+När registreringen är klar visas konfigurations servern på sidan **Inställningar**  >  **servrar** i valvet.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
 Välj och kontrollera målresurserna.
 
-1. Klicka på **Förbered infrastruktur** > **mål**och välj den Azure-prenumeration som du vill använda.
+1. Klicka på **Förbered infrastruktur**  >  **mål**och välj den Azure-prenumeration som du vill använda.
 2. Ange mål distributions modell.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
@@ -151,7 +151,7 @@ Välj och kontrollera målresurserna.
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery** > **principer** > för infrastruktur replikering **+ replikeringsprincip**.
+1. Om du vill skapa en ny replikeringsprincip klickar du på Site Recovery principer för **infrastruktur**  >  **replikering**  >  **+ replikeringsprincip**.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). Det här värdet anger hur ofta data återställnings punkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
@@ -169,7 +169,7 @@ Aktivera replikering för varje server.
 - Site Recovery installerar mobilitets tjänsten när replikering är aktive rad.
 - När du aktiverar replikering för en server kan det ta 15 minuter eller längre innan ändringarna börjar gälla och visas i portalen.
 
-1. Klicka på **Replikera program** > **källa**.
+1. Klicka på **Replikera program**  >  **källa**.
 2. I **Källa** väljer du konfigurationsservern.
 3. I **typ av dator**väljer du **fysiska datorer**.
 4. Välj processervern (konfigurations servern). Klicka sedan på **OK**.
@@ -178,12 +178,12 @@ Aktivera replikering för varje server.
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 8. Välj **Konfigurera nu för valda datorer**om du vill använda nätverks inställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. 
 9. I **fysiska datorer**och klicka på **+ fysisk dator**. Ange namn och IP-adress. Välj operativ system för den dator som du vill replikera. Det tar några minuter för servrarna att identifieras och visas. 
-10. I **Egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
-11. I **replikeringsinställningar** > **Konfigurera replikeringsinställningar**kontrollerar du att rätt replikeringsprincip är markerad. 
-12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **jobb** > **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+10. I **Egenskaper**  >  **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
+11. I **replikeringsinställningar**  >  **Konfigurera replikeringsinställningar**kontrollerar du att rätt replikeringsprincip är markerad. 
+12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar**  >  **jobb**  >  **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 
-Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrarna** > **senaste kontakt på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
+Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrarna**  >  **senaste kontakt på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,17 +7,17 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: a7b1e7471f7850f71596317c7e2c38db367bfd3a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 03a619a647da247347492076e9fd36414565bf33
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790124"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703158"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell
 
@@ -29,14 +29,14 @@ Du kan skapa en virtuell dator med en statisk offentlig IP-adress. Med en offent
 
 Du kan utföra följande steg från din lokala dator eller med hjälp av Azure Cloud Shell. Se till att du har [Azure PowerShell installerat](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)om du vill använda din lokala dator. Om du vill använda Azure Cloud Shell väljer du **testa det** i det övre högra hörnet i alla kommando rutor som följer. Cloud Shell signerar dig till Azure.
 
-1. Om du använder Cloud Shell går du vidare till steg 2. Öppna en kommando-session och logga in på `Connect-AzAccount`Azure med.
+1. Om du använder Cloud Shell går du vidare till steg 2. Öppna en kommando-session och logga in på Azure med `Connect-AzAccount` .
 2. Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp i Azure-regionen USA, östra:
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Skapa en virtuell dator med kommandot [New-AzVM](/powershell/module/az.Compute/New-azVM) . `-AllocationMethod "Static"` Alternativet tilldelar den virtuella datorn en statisk offentlig IP-adress. I följande exempel skapas en virtuell Windows Server-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*. När du uppmanas till det anger du ett användar namn och lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn:
+3. Skapa en virtuell dator med kommandot [New-AzVM](/powershell/module/az.Compute/New-azVM) . `-AllocationMethod "Static"`Alternativet tilldelar den virtuella datorn en statisk offentlig IP-adress. I följande exempel skapas en virtuell Windows Server-dator med en statisk, grundläggande SKU offentlig IP-adress med namnet *myPublicIpAddress*. När du uppmanas till det anger du ett användar namn och lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn:
 
    ```azurepowershell-interactive
    New-AzVm `

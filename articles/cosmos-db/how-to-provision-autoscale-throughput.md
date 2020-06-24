@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664762"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118737"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Etablera data flöde för autoskalning på databas eller behållare i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs hur du etablerar autoskalning av data flödet i en 
 
 1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Under **data flöde**väljer du alternativet **autoskalning** och anger det [maximala data flöde (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) som du vill att databasen eller behållaren ska skalas till.
 
-   ![Skapa en behållare och konfigurera autoskalning av allokerat data flöde](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Skapa en behållare och konfigurera autoskalning av allokerat data flöde":::
 
 1. Välj **OK**.
 
@@ -45,7 +45,7 @@ Om du vill etablera autoskalning på den delade data flödes databasen väljer d
 
 1. Under **skala**väljer du alternativet för **autoskalning** och **Spara**.
 
-   ![Aktivera autoskalning på en befintlig behållare](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Aktivera autoskalning på en befintlig behållare":::
 
 > [!NOTE]
 > När du aktiverar autoskalning på en befintlig databas eller behållare, bestäms startvärdet för max RU/s av systemet, baserat på dina aktuella manuella etablerade data flödes inställningar och lagrings utrymme. När åtgärden har slutförts kan du ändra Max RU/s vid behov. [Läs mer.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

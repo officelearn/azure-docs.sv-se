@@ -3,22 +3,20 @@ title: Tillägg för AMD GPU-drivrutin – virtuella Azure-datorer i Windows
 description: Microsoft Azure tillägget för att installera AMD GPU-drivrutiner på virtuella datorer i NVv4-serien som kör Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 0819eec5275fa9783fff363cabbd8c3ed22b7cd6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119560"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736976"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Tillägg för AMD GPU-drivrutin för Windows
 
@@ -71,7 +69,7 @@ Följande JSON visar schemat för tillägget.
 
 | Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. HpcCompute | sträng |
 | typ | AmdGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.0 | int |
@@ -157,7 +155,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="error-codes"></a>Felkoder
 
-| Felkod | Betydelse | Möjlig åtgärd |
+| Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
 | 1 | Åtgärden lyckades. Omstart krävs. |

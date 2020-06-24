@@ -11,21 +11,23 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 835bcba5e24137377c33c9166b1c3076d19cacc1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552387"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125420"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du ansluter till Azure Storage-tjänster via Azure Machine Learning data lager. Data lager lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Information om var data lagret får plats i Azure Machine Learning det totala arbets flödet för data åtkomst finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
+I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lager lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. 
 
-Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). Vi rekommenderar att du [flyttar dina data](#move) till Azure Storage-lösningar som stöds för lagrings lösningar som inte stöds och för att spara data Utgångs kostnader under Machine Learning-experiment. 
+**För lagrings lösningar som inte stöds**och för att spara utgående kostnader under ml-experiment, [flytta dina data](#move) till en Azure Storage-lösning som stöds.  Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). 
 
-## <a name="prerequisites"></a>Förutsättningar
+Information om var data lagret får plats i Azure Machine Learning det totala arbets flödet för data åtkomst finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
+
+## <a name="prerequisites"></a>Krav
 
 Du behöver:
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
@@ -95,12 +97,14 @@ Alla register metoder finns i- [`Datastore`](https://docs.microsoft.com/python/a
 
 Du hittar den information som du behöver för att fylla i `register_azure_*()` metoden på [Azure Portal](https://portal.azure.com).
 
+* Data lager namnet får bara bestå av gemena bokstäver, siffror och under streck. 
+
 * Om du planerar att använda en konto nyckel eller SAS-token för autentisering väljer du **lagrings konton** i den vänstra rutan och väljer det lagrings konto som du vill registrera. 
   * **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
       1. För konto nycklar går du till **åtkomst nycklar** i fönstret **Inställningar** . 
       1. För SAS-token, gå till **signaturer för delad åtkomst** i fönstret **Inställningar** .
 
-* Om du planerar att använda en tjänst princip för autentisering går du till din **Appregistreringar** och väljer vilken app du vill använda. 
+* Om du planerar att använda ett huvud namn för tjänsten för autentisering går du till din **Appregistreringar** och väljer vilken app du vill använda. 
     * Dess motsvarande **översikts** sida innehåller nödvändig information, t. ex. klient-ID och klient-ID.
 
 > [!IMPORTANT]
@@ -112,7 +116,7 @@ Om du vill skapa data lager för andra lagrings tjänster och se valfria paramet
 
 #### <a name="blob-container"></a>Blobcontainer
 
-Använd för att registrera en Azure Blob-behållare som ett data lager [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
+Använd för att registrera en Azure Blob-behållare som ett data lager [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
 Följande kod skapar och registrerar `blob_datastore_name` data lagret på `ws` arbets ytan. Detta data lager har åtkomst till `my-container-name` BLOB-behållaren på `my-account-name` lagrings kontot med hjälp av den angivna konto åtkomst nyckeln.
 
@@ -128,7 +132,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
-Om BLOB-behållaren finns i ett virtuellt nätverk inkluderar du parametern `skip_validation=True` i din [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) metod. 
+Om BLOB-behållaren finns i ett virtuellt nätverk inkluderar du parametern `skip_validation=True` i din [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) metod. 
 
 #### <a name="file-share"></a>Filresurs
 
@@ -289,7 +293,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
-| Metod | Åtkomst till data lager | Description |
+| Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
 | [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |

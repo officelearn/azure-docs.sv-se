@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416134"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213320"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Läs in Contosos detalj handels data till Synapse SQL 
 
@@ -292,7 +292,7 @@ Mer information om hur du behåller columnstore-index finns i artikeln [Hantera 
 
 Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Om du vet att vissa kolumner inte kommer att finnas i frågesyntaxen kan du hoppa över att skapa statistik för dessa kolumner. Om du skapar en statistik med en kolumn på varje kolumn kan det ta lång tid att återskapa all statistik.
 
-Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet `prc_sqldw_create_stats` på den lagrade procedur koden i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
+Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet på den lagrade procedur koden `prc_sqldw_create_stats` i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
 
 I följande exempel visas en start punkt för att skapa statistik. Den skapar statistik med en kolumn för varje kolumn i tabellen dimension och i varje kopplings kolumn i fakta tabellerna. Du kan alltid lägga till en eller flera kolumn statistik i andra fakta tabell kolumner senare.
 

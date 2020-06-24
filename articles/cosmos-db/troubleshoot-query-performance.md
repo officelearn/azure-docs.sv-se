@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714567"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117921"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Innan du läser den här guiden är det bra att överväga vanliga SDK-problem s
 
 - Följ dessa [prestanda tips](performance-tips.md)för bästa prestanda.
     > [!NOTE]
-    > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop. dll för att analysera och optimera frågor lokalt. ServiceInterop. dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds, där ServiceInterop. dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
+    > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop.dll för att analysera och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds där ServiceInterop.dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
 - SDK gör det möjligt att ställa in en `MaxItemCount` för dina frågor, men du kan inte ange ett minsta antal objekt.
     - Koden ska hantera vilken sid storlek som helst, från noll till `MaxItemCount` .
     - Antalet objekt på en sida är alltid mindre eller lika med det angivna `MaxItemCount` . Det `MaxItemCount` är dock bara maximalt och det kan finnas färre resultat än den här mängden.
@@ -47,7 +47,7 @@ Innan du läser den här guiden är det bra att överväga vanliga SDK-problem s
 
 När du optimerar en fråga i Azure Cosmos DB, är det första steget alltid att [Hämta frågans mått](profile-sql-api-query.md) för frågan. Dessa mått är också tillgängliga via Azure Portal. När du kör din fråga i Datautforskaren visas frågans mått bredvid fliken **resultat** :
 
-[![Hämta Frågeregler ](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Hämta Frågeregler" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 När du har hämtat frågeresultaten jämför du **antalet hämtade dokument** med **antalet utdata** i frågan. Använd den här jämförelsen för att identifiera relevanta avsnitt som ska granskas i den här artikeln.
 

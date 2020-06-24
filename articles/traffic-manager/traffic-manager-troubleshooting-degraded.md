@@ -7,17 +7,17 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130758"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704071"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
@@ -35,7 +35,7 @@ Om hälso tillståndet för Traffic Manager visar **inaktiv** status kan båda s
 * Ett 30 omdirigerings svar behandlas som ett haveri om du inte har angett en giltig svarskod i [förväntade status kod intervall](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) för din Traffic Manager profil. Traffic Manager avsöker inte omdirigerings målet.
 * Certifikat fel ignoreras för HTTPs-avsökningar.
 * Det faktiska innehållet i avsöknings Sök vägen spelar ingen roll, så länge som en 200 returneras. Avsökning av en URL till ett statiskt innehåll, t. ex. "/favicon.ico" är en vanlig teknik. Dynamiskt innehåll, som ASP-sidor, kan inte alltid returnera 200, även om programmet är felfritt.
-* Ett bra tips är att ställa in avsöknings Sök vägen till något som har tillräckligt med logik för att avgöra om platsen är aktiv eller inte. I föregående exempel, genom att ange sökvägen till "/favicon.ico", testar du bara att W3wp. exe svarar. Den här avsökningen kanske inte indikerar att webb programmet är felfritt. Ett bättre alternativ är att ange en sökväg till något som "/PROBE.aspx" som har logik för att fastställa webbplatsens hälso tillstånd. Du kan till exempel använda prestanda räknare för processor användning eller mäta antalet misslyckade förfrågningar. Eller så kan du försöka få åtkomst till databas resurser eller sessionstillstånd för att kontrol lera att webb programmet fungerar.
+* Ett bra tips är att ställa in avsöknings Sök vägen till något som har tillräckligt med logik för att avgöra om platsen är aktiv eller inte. I föregående exempel, genom att ange sökvägen till "/favicon.ico", testar du bara att w3wp.exe svarar. Den här avsökningen kanske inte indikerar att webb programmet är felfritt. Ett bättre alternativ är att ange en sökväg till något som "/PROBE.aspx" som har logik för att fastställa webbplatsens hälso tillstånd. Du kan till exempel använda prestanda räknare för processor användning eller mäta antalet misslyckade förfrågningar. Eller så kan du försöka få åtkomst till databas resurser eller sessionstillstånd för att kontrol lera att webb programmet fungerar.
 * Om alla slut punkter i en profil är degraderade Traffic Manager behandlar alla slut punkter som felfria och dirigerar trafik till alla slut punkter. Det här beteendet säkerställer att problem med avsöknings mekanismen inte resulterar i ett fullständigt avbrott i tjänsten.
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -48,7 +48,7 @@ Om du vill felsöka ett avsöknings fel behöver du ett verktyg som visar HTTP-s
 
 Du kan också använda fliken nätverk i verktyget F12-felsökning i Internet Explorer för att Visa HTTP-svar.
 
-I det här exemplet vill vi se svaret från vår avsöknings-URL:\/http:/watestsdp2008r2.cloudapp.net:80/PROBE. I följande PowerShell-exempel visas problemet.
+I det här exemplet vill vi se svaret från vår avsöknings-URL: http: \/ /watestsdp2008r2.cloudapp.net:80/PROBE. I följande PowerShell-exempel visas problemet.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -79,7 +79,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Om Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md)
 

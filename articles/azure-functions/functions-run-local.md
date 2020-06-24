@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
 ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276665"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697246"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -57,9 +57,9 @@ Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger 
 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installera [Node. js], som innehåller NPM.
-    - För version 2. x av verktygen stöds endast Node. js 8,5 och senare versioner.
-    - För version 3. x av verktygen stöds endast Node. js 10 och senare versioner.
+1. Installera [Node.js], som innehåller NPM.
+    - För version 2. x av verktygen stöds endast Node.js 8,5 och senare versioner.
+    - För version 3. x av verktygen stöds endast Node.js 10 och senare versioner.
 
 1. Installera paketet core tools:
 
@@ -157,7 +157,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
-Projekt katalogen Functions innehåller filerna [Host. JSON](functions-host-json.md) och [Local. Settings. JSON](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en Function-app i Azure. Mer information om mappstrukturen för functions finns i [guiden för Azure Functions utvecklare](functions-reference.md#folder-structure).
+Projekt katalogen Functions innehåller de filer som [host.jspå](functions-host-json.md) och [local.settings.jspå](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en Function-app i Azure. Mer information om mappstrukturen för functions finns i [guiden för Azure Functions utvecklare](functions-reference.md#folder-structure).
 
 Version 2. x kräver att du väljer ett standard språk för projektet när det initieras. I version 2. x, har alla funktioner som lagts till använda standard språk. I version 1. x anger du språket varje gången du skapar en funktion.
 
@@ -197,17 +197,17 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | Initierar ett [C#-projekt (klass bibliotek)](functions-dotnet-class-library.md). |
 | **`--csx`** | Initierar ett [C#-skript (. CSX)-projekt](functions-reference-csharp.md). Du måste ange `--csx` i efterföljande kommandon. |
-| **`--docker`** | Skapa en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime`. Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
-| **`--docker-only`** |  Lägger till en Dockerfile i ett befintligt projekt. Prompter för Worker-körning om detta inte anges eller anges i Local. Settings. JSON. Använd det här alternativet när du planerar att publicera ett befintligt projekt i en anpassad Linux-behållare. |
+| **`--docker`** | Skapa en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime` . Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
+| **`--docker-only`** |  Lägger till en Dockerfile i ett befintligt projekt. Prompter för Worker-körning om inget anges eller anges i local.settings.jspå. Använd det här alternativet när du planerar att publicera ett befintligt projekt i en anpassad Linux-behållare. |
 | **`--force`** | Initiera projektet även när det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
 | **`--java`**  | Initierar ett [Java-projekt](functions-reference-java.md). |
 | **`--javascript`**<br/>**`--node`**  | Initierar ett [JavaScript-projekt](functions-reference-node.md). |
 | **`--no-source-control`**<br/>**`-n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 2. x. |
 | **`--powershell`**  | Initierar ett [PowerShell-projekt](functions-reference-powershell.md). |
 | **`--python`**  | Initierar ett [python-projekt](functions-reference-python.md). |
-| **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true`skapas en lagrings plats. |
+| **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true` skapas en lagrings plats. |
 | **`--typescript`**  | Initierar ett [typescript-projekt](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds `csharp`är `dotnet`: `java`, `javascript`,`node` ,, (Java `powershell`script `python`), `typescript`,, och. När du inte har angett uppmanas du att välja din körning under initieringen. |
+| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är: `csharp` , `dotnet` ,, `java` `javascript` , `node` (Java Script), `powershell` , `python` , och `typescript` . När du inte har angett uppmanas du att välja din körning under initieringen. |
 
 > [!IMPORTANT]
 > Som standard skapar version 2. x av kärn verktygen Function app-projekt för .NET-körning som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
@@ -225,9 +225,9 @@ Värdena för funktionen app-inställningar kan också läsas i koden som miljö
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-När ingen giltig lagrings anslutnings sträng har angetts [`AzureWebJobsStorage`] för och emulatorn inte används visas följande fel meddelande:
+När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsStorage`] och emulatorn inte används visas följande fel meddelande:
 
-> Värde saknas för AzureWebJobsStorage i Local. Settings. JSON. Detta krävs för alla andra utlösare än HTTP. Du kan köra "FUNC Azure functionapp Fetch-app- \<Settings\>functionAppName" eller ange en anslutnings sträng i Local. Settings. JSON.
+> Värde saknas för AzureWebJobsStorage i local.settings.js. Detta krävs för alla andra utlösare än HTTP. Du kan köra "FUNC Azure functionapp Fetch-App-Settings \<functionAppName\> " eller ange en anslutnings sträng i local.settings.jspå.
 
 ### <a name="get-your-storage-connection-strings"></a>Hämta anslutnings strängar för lagring
 
@@ -266,7 +266,7 @@ Skapa en funktion genom att köra följande kommando:
 func new
 ```
 
-När du kör `func new` i version 2. x uppmanas du att välja en mall på standard språket för din Function-app. därefter uppmanas du också att välja ett namn för din funktion. I version 1. x uppmanas du också att välja språk.
+När du kör i version 2. x `func new` uppmanas du att välja en mall på standard språket för din Function-app. därefter uppmanas du också att välja ett namn för din funktion. I version 1. x uppmanas du också att välja språk.
 
 <pre>
 Select a language: Select a template:
@@ -345,7 +345,7 @@ npm start
 ---
 
 >[!NOTE]  
-> Version 1. x av Functions-körningen `host` kräver kommandot, som i följande exempel:
+> Version 1. x av Functions-körningen kräver `host` kommandot, som i följande exempel:
 >
 > ```
 > func host start
@@ -356,17 +356,17 @@ npm start
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Skapa inte aktuellt projekt innan det körs. Endast för dotNET-projekt. Standardvärdet är inställt på falskt. Stöds inte för version 1. x. |
-| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps`. Stöds inte för version 1. x. |
+| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps` . Stöds inte för version 1. x. |
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) stöds inte för version 1. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Stöds inte för version 1. x. |
-| **`--nodeDebugPort`**, **`-n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
-| **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Stöds inte för version 1. x. |
+| **`--nodeDebugPort`**, **`-n`** | Porten för Node.js fel söknings programmet som ska användas. Standard: ett värde från launch.jspå eller 5858. Endast version 1. x. |
+| **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert` . Stöds inte för version 1. x. |
 | **`--port`**, **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
-| **`--script-root`**, **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C#-klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filer i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
+| **`--script-root`**, **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C#-klass biblioteks projekt skapas host.jspå, local.settings.jspå och function.jspå filer i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0` . I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0` . Detta är roten i Function-appen när du kör i Azure. |
 | **`--timeout`**, **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
-| **`--useHttps`** | Bind till `https://localhost:{port}` i stället för `http://localhost:{port}`till. Som standard skapar det här alternativet ett betrott certifikat på din dator.|
+| **`--useHttps`** | Bind till i `https://localhost:{port}` stället för till `http://localhost:{port}` . Som standard skapar det här alternativet ett betrott certifikat på din dator.|
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
 
@@ -379,7 +379,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
 
 >[!IMPORTANT]
->När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook-trigger.md#authorization-keys).
+>När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"` . Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Skicka test data till en funktion
 
@@ -438,7 +438,7 @@ Om du vill skicka test data till administratörs slut punkten för en funktion m
 }
 ```
 
-`<trigger_input>` Värdet innehåller data i ett format som förväntas av funktionen. Följande spiral exempel är ett inlägg i en `QueueTriggerJS` funktion. I det här fallet är indatamängden en sträng som motsvarar det meddelande som förväntas finnas i kön.
+`<trigger_input>`Värdet innehåller data i ett format som förväntas av funktionen. Följande spiral exempel är ett inlägg i en `QueueTriggerJS` funktion. I det här fallet är indatamängden en sträng som motsvarar det meddelande som förväntas finnas i kön.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 ```bash
@@ -453,7 +453,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 #### <a name="using-the-func-run-command-version-1x-only"></a>Använda `func run` kommandot (endast version 1. x)
 
 >[!IMPORTANT]
-> `func run` Kommandot stöds endast i version 1. x av verktygen. Mer information finns i avsnittet [How to target Azure Functions runtime-versioner](set-runtime-version.md).
+> `func run`Kommandot stöds endast i version 1. x av verktygen. Mer information finns i avsnittet [How to target Azure Functions runtime-versioner](set-runtime-version.md).
 
 I version 1. x kan du också anropa en funktion direkt genom att använda `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar att köra en funktion med hjälp av fliken **test** i Azure Portal.
 
@@ -484,13 +484,13 @@ En projektmapp kan innehålla språkspecifika filer och kataloger som inte ska p
 
 ### <a name="deploy-project-files"></a><a name="project-file-deployment"></a>Distribuera projektfiler
 
-Om du vill publicera din lokala kod i en Function-app i Azure `publish` använder du kommandot:
+Om du vill publicera din lokala kod i en Function-app i Azure använder du `publish` kommandot:
 
 ```
 func azure functionapp publish <FunctionAppName>
 ```
 
-Det här kommandot publicerar till en befintlig Function-app i Azure. Du får ett fel meddelande om du försöker publicera till en `<FunctionAppName>` som inte finns i din prenumeration. Information om hur du skapar en Function-app från kommando tolken eller terminalfönstret med hjälp av Azure CLI finns i [skapa en Funktionsapp för Server lös körning](./scripts/functions-cli-create-serverless.md). Som standard använder detta kommando [fjärrversion](functions-deployment-technologies.md#remote-build) och distribuerar din app för [körning från distributions paketet](run-functions-from-deployment-package.md). Om du vill inaktivera det rekommenderade distributions läget `--nozip` använder du alternativet.
+Det här kommandot publicerar till en befintlig Function-app i Azure. Du får ett fel meddelande om du försöker publicera till en `<FunctionAppName>` som inte finns i din prenumeration. Information om hur du skapar en Function-app från kommando tolken eller terminalfönstret med hjälp av Azure CLI finns i [skapa en Funktionsapp för Server lös körning](./scripts/functions-cli-create-serverless.md). Som standard använder detta kommando [fjärrversion](functions-deployment-technologies.md#remote-build) och distribuerar din app för [körning från distributions paketet](run-functions-from-deployment-package.md). Om du vill inaktivera det rekommenderade distributions läget använder du `--nozip` alternativet.
 
 >[!IMPORTANT]
 > När du skapar en Function-app i Azure Portal, använder den version 2. x av funktions körning som standard. Om du vill att Function-appen ska använda version 1. x av körnings miljön följer du anvisningarna i [köra på version 1. x](functions-versions.md#creating-1x-apps).
@@ -500,8 +500,8 @@ Följande publicerings alternativ gäller för båda versionerna, 1. x och 2. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publicera inställningar i Local. Settings. JSON till Azure och du ombeds skriva över om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
-| **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över app- `--publish-local-settings -i` inställningar när används.|
+| **`--publish-local-settings -i`** |  Publicera inställningar i local.settings.jspå till Azure och ange överskrivning om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
+| **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över app-inställningar när `--publish-local-settings -i` används.|
 
 Följande publicerings alternativ stöds bara i version 2. x:
 
@@ -512,8 +512,8 @@ Följande publicerings alternativ stöds bara i version 2. x:
 | **`--list-included-files`** | Visar en lista över publicerade filer, som baseras på. funcignore-filen. |
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
-| **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
+| **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Bygg inte funktioner i .NET-klass bibliotek. |
@@ -521,7 +521,7 @@ Följande publicerings alternativ stöds bara i version 2. x:
 
 ### <a name="deploy-custom-container"></a>Distribuera anpassad behållare
 
-Med Azure Functions kan du distribuera ett funktions projekt i en [anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Anpassade behållare måste ha en Dockerfile. Om du vill skapa en app med en Dockerfile använder du alternativet--Dockerfile `func init`på.
+Med Azure Functions kan du distribuera ett funktions projekt i en [anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Anpassade behållare måste ha en Dockerfile. Om du vill skapa en app med en Dockerfile använder du alternativet--Dockerfile på `func init` .
 
 ```
 func deploy

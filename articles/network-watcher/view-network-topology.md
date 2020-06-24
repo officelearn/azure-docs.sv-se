@@ -6,17 +6,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840578"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737537"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologin för ett virtuellt Azure-nätverk
 
@@ -84,7 +84,7 @@ Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.m
 
 Du kan köra kommandona i de steg som följer:
 - I Azure Cloud Shell, genom att välja **prova** överst till höger om ett kommando. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt där vanliga Azure-verktyg förinstalleras och konfigureras för användning med ditt konto.
-- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn kräver den här artikeln Azure PowerShell `Az` -modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn kräver den här artikeln Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.md)som krävs.
 

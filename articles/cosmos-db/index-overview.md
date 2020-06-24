@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bea6d01a8363dd68cff33435335391e0fb0f76c7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849798"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118601"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -41,7 +41,7 @@ Anta till exempel följande objekt:
 
 Den representeras av följande träd:
 
-![Det föregående objektet representeras som ett träd](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="Det föregående objektet representeras som ett träd" border="false":::
 
 Observera hur matriser kodas i trädet: varje post i en matris får en mellanliggande nod som är märkt med indexet för posten i matrisen (0, 1 osv.).
 
@@ -181,7 +181,7 @@ De sökvägar som extraherades vid indexering av data gör det enkelt att söka 
 
 Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Frågans predikat (filtrering av objekt, där vilken plats som helst har "Frankrike" som land/region) matchar sökvägen som marker ATS i rött nedan:
 
-![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matcha en angiven sökväg inom ett träd" border="false":::
 
 > [!NOTE]
 > En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt `ORDER BY` behöver en fråga som order by flera egenskaper *alltid* ett sammansatt index.

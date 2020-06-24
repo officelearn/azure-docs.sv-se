@@ -1,7 +1,7 @@
 ---
-title: ta med fil
+title: inkludera fil
 titleSuffix: Azure
-description: ta med fil
+description: inkludera fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering

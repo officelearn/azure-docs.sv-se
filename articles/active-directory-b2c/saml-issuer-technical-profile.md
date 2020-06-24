@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229960"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203596"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-token utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -26,11 +26,11 @@ Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstok
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `None`. Ange **OutputTokenFormat** -elementet till `SAML2`.
+Namnattributet **för** **protokoll** elementet måste anges till `None` . Ange **OutputTokenFormat** -elementet till `SAML2` .
 
-I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
+I följande exempel visas en teknisk profil för `Saml2AssertionIssuer` :
 
-```XML
+```xml
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
   <Protocol Name="SAML2"/>
@@ -56,7 +56,7 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| IssuerUri | Nej | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
+| IssuerUri | No | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -64,8 +64,8 @@ CryptographicKeys-elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MetadataSigning | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata. |
-| SamlMessageSigning| Ja| Ange det X509-certifikat (RSA-nyckel uppsättning) som ska användas för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera `<samlp:Response>` svaret som skickas till den förlitande parten.|
+| MetadataSigning | Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata. |
+| SamlMessageSigning| Yes| Ange det X509-certifikat (RSA-nyckel uppsättning) som ska användas för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera svaret `<samlp:Response>` som skickas till den förlitande parten.|
 
 ## <a name="session-management"></a>Sessionshantering
 

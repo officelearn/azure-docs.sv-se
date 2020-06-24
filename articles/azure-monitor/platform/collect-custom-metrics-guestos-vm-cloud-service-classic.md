@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655812"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124476"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services 
 
@@ -46,7 +46,7 @@ Processen som beskrivs i den här artikeln fungerar bara för prestanda räknare
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
 
-Skapa en tjänst princip i din Azure Active Directory-klient genom att följa anvisningarna på [Använd Portal för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tänk på följande när du går igenom den här processen: 
+Skapa ett huvud namn för tjänsten i din Azure Active Directory klient genom att följa anvisningarna på [Använd Portal för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tänk på följande när du går igenom den här processen: 
 
 - Du kan ange valfri URL för inloggnings-URL: en.  
 - Skapa ny klient hemlighet för den här appen.  

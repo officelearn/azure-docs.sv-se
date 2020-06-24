@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c97645df5fb9183effa8f29f088376519404192d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212878"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -79,6 +79,8 @@ Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar di
 Du ger åtkomst till data planet genom att ange Key Vault åtkomst principer för ett nyckel valv. Om du vill ange dessa åtkomst principer måste en användare, grupp eller ett program ha `Contributor` behörighet till hanterings planet för nyckel valvet.
 
 Du beviljar en användare, grupp eller program åtkomst för att köra specifika åtgärder för nycklar eller hemligheter i ett nyckel valv. Key Vault stöder upp till 1 024 åtkomst princip poster för ett nyckel valv. Om du vill ge data plan åtkomst till flera användare skapar du en Azure AD-säkerhetsgrupp och lägger till användare i gruppen.
+
+Du kan se en fullständig lista över valv och hemliga åtgärder och förstå de åtgärder som tillåts när du konfigurerar åtkomst principer för nyckel valv genom att visa följande referens. [Referens för Key Vaults åtgärd](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>Key Vault åtkomst principer beviljar behörigheter separat till nycklar, hemligheter och certifikat. Du kan endast ge en användare åtkomst till nycklar och inte till hemligheter. Åtkomst behörigheter för nycklar, hemligheter och certifikat finns på valv nivån. Key Vault åtkomst principer stöder inte detaljerade behörigheter på objekt nivå som en speciell nyckel, hemlighet eller certifikat. Om du vill ange åtkomst principer för ett nyckel valv använder du [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs)eller [Key Vault hantering REST-API: er](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

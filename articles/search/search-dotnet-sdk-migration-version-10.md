@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d77b82b30411bd5b423f903c25392fd8e09e44
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73847513"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080952"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 10
 
-Om du använder version 9,0 eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera ditt program till att använda version 10.
+Om du använder version 9,0 eller äldre av [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 10.
 
 Azure Search får ett nytt namn till Azure Kognitiv sökning i version 10, men namn rymder och paket namn är oförändrade. Tidigare versioner av SDK (9,0 och tidigare) fortsätter att använda det tidigare namnet. Mer information om hur du använder SDK, inklusive exempel, finns i [så här använder du Azure kognitiv sökning från ett .NET-program](search-howto-dotnet-sdk.md).
 
-Version 10 lägger till flera funktioner och fel korrigeringar, vilket ger samma funktions nivå som den senaste versionen av REST API versionen `2019-05-06`. I de fall där en ändring bryter befintlig kod vägleder vi dig genom de [steg som krävs för att lösa problemet](#UpgradeSteps).
+Version 10 lägger till flera funktioner och fel korrigeringar, vilket ger samma funktions nivå som den senaste versionen av REST API versionen `2019-05-06` . I de fall där en ändring bryter befintlig kod vägleder vi dig genom de [steg som krävs för att lösa problemet](#UpgradeSteps).
 
 > [!NOTE]
 > Om du använder version 8,0-Preview eller äldre bör du först uppgradera till version 9 och sedan uppgradera till version 10. Instruktioner finns i [Uppgradera till Azure Search .NET SDK version 9](search-dotnet-sdk-migration-version-9.md) .
@@ -32,7 +32,7 @@ Version 10 lägger till flera funktioner och fel korrigeringar, vilket ger samma
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>Vad är nytt i version 10
-Version 10 av Azure Kognitiv sökning .NET SDK är riktad mot den senaste allmänt tillgängliga versionen av REST API`2019-05-06`() med de här uppdateringarna:
+Version 10 av Azure Kognitiv sökning .NET SDK är riktad mot den senaste allmänt tillgängliga versionen av REST API ( `2019-05-06` ) med de här uppdateringarna:
 
 * Introduktion av två nya kompetenser för [villkorliga](cognitive-search-skill-conditional.md) färdigheter och [text översättning](cognitive-search-skill-text-translation.md).
 * [Formaren kompetens](cognitive-search-skill-shaper.md) indata har omstruktureras för att hantera konsolidering från kapslade kontexter. Mer information finns i den här [exempel-JSON-definitionen](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -47,7 +47,7 @@ Version 10 av Azure Kognitiv sökning .NET SDK är riktad mot den senaste allmä
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
 
-1. Uppdatera din NuGet-referens `Microsoft.Azure.Search` för att använda antingen NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
+1. Uppdatera din NuGet-referens för att `Microsoft.Azure.Search` använda antingen NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
 
 2. När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. 
 
@@ -68,7 +68,7 @@ Det finns flera större ändringar i version 10 som kan kräva kod ändringar f�
 
 Definitionen av den [anpassade webb-API-kompetensen](cognitive-search-custom-skill-web-api.md) angavs felaktigt i version 9 och äldre. 
 
-Modellen för `WebApiSkill` angiven `HttpHeaders` som en objekt egenskap som _innehåller_ en ord lista. Om du skapar en färdigheter `WebApiSkill` med en konstruerad på det här sättet kan det leda till ett undantag eftersom REST API skulle anse att frågan är felaktigt utformad. Det här problemet har åtgärd ATS genom att `HttpHeaders` göra **en dictionary-egenskap på den** `WebApiSkill` översta nivån i själva modellen, som betraktas som en giltig begäran från REST API.
+Modellen för `WebApiSkill` angiven `HttpHeaders` som en objekt egenskap som _innehåller_ en ord lista. Om du skapar en färdigheter med en `WebApiSkill` konstruerad på det här sättet kan det leda till ett undantag eftersom REST API skulle anse att frågan är felaktigt utformad. Det här problemet har åtgärd ATS genom att göra `HttpHeaders` **en dictionary-egenskap på den översta nivån** i `WebApiSkill` själva modellen, som betraktas som en giltig begäran från REST API.
 
 Till exempel, om du tidigare försökte instansiera a `WebApiSkill` enligt följande:
 
@@ -109,12 +109,12 @@ var webApiSkill = new WebApiSkill(
 
 ## <a name="shaper-skill-allows-nested-context-consolidation"></a>Formaren-kunskaper tillåter kapslad kontext konsolidering
 
-Formaren-kunskaper kan nu tillåta inkapsling av inkapslade kontexter. För att aktivera den här ändringen har `InputFieldMappingEntry` vi ändrat så att den kan instansieras genom att bara `Source` ange en egenskap eller både `SourceContext` egenskaperna `Inputs` och.
+Formaren-kunskaper kan nu tillåta inkapsling av inkapslade kontexter. För att aktivera den här ändringen har vi ändrat `InputFieldMappingEntry` så att den kan instansieras genom att bara ange en `Source` egenskap eller både `SourceContext` `Inputs` egenskaperna och.
 
-Du behöver förmodligen inte göra några kod ändringar. Observera dock att endast en av dessa två kombinationer är tillåtna. Det innebär:
+Du behöver förmodligen inte göra några kod ändringar. Observera dock att endast en av dessa två kombinationer är tillåtna. Det innebär att du måste:
 
-- Att skapa `InputFieldMappingEntry` en där `Source` endast initieras är giltig.
-- Att skapa `InputFieldMappingEntry` en där `SourceContext` och `Inputs` är initierad är giltig.
+- Att skapa en `InputFieldMappingEntry` där endast `Source` initieras är giltig.
+- Att skapa en `InputFieldMappingEntry` där `SourceContext` och `Inputs` är initierad är giltig.
 - Alla andra kombinationer som inbegriper dessa tre egenskaper är ogiltiga.
 
 Om du vill börja använda den här nya funktionen måste du kontrol lera att alla klienter har uppdaterats för att först använda version 10 innan du utför den ändringen. I annat fall finns det en möjlighet att en uppdatering av en klient (med en äldre version av SDK) till formaren-kompetensen kan resultera i verifierings fel.
@@ -124,7 +124,7 @@ Om du vill börja använda den här nya funktionen måste du kontrol lera att al
 
 ## <a name="skills-can-be-identified-by-a-name"></a>Kunskaper kan identifieras med ett namn
 
-Varje färdighet i en färdigheter har nu en ny egenskap `Name`som kan initieras i din kod för att hjälpa till att identifiera kunskapen. Detta är valfritt – om inget anges (vilket är standard, om ingen explicit kod ändring gjorts), tilldelas den ett standard namn med det 1-baserade indexet för kunskapen i färdigheter, med prefixet #. Till exempel i följande färdigheter-definition (de flesta initierarna hoppades över för det kortfattat):
+Varje färdighet i en färdigheter har nu en ny egenskap `Name` som kan initieras i din kod för att hjälpa till att identifiera kunskapen. Detta är valfritt – om inget anges (vilket är standard, om ingen explicit kod ändring gjorts), tilldelas den ett standard namn med det 1-baserade indexet för kunskapen i färdigheter, med prefixet #. Till exempel i följande färdigheter-definition (de flesta initierarna hoppades över för det kortfattat):
 
 ```csharp
 var skillset = new Skillset()
@@ -139,9 +139,9 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`tilldelas ett namn `#1`, `WebApiSkill` tilldelas `#2`, tilldelas `ShaperSkill` `#3` , och så vidare.
+`SentimentSkill`tilldelas ett namn `#1` , tilldelas `WebApiSkill` `#2` , tilldelas, `ShaperSkill` `#3` och så vidare.
 
-Om du väljer att identifiera färdigheter med ett anpassat namn, måste du först uppdatera alla instanser av dina klienter till version 10 av SDK. I annat fall finns det en möjlighet att en klient som använder en äldre version av SDK `null` : n `Name` kan hamna i en kunskaps egenskap, vilket gör att klienten kan återgå till standard namngivnings schemat.
+Om du väljer att identifiera färdigheter med ett anpassat namn, måste du först uppdatera alla instanser av dina klienter till version 10 av SDK. I annat fall finns det en möjlighet att en klient som använder en äldre version av SDK `null` : n kan `Name` hamna i en kunskaps egenskap, vilket gör att klienten kan återgå till standard namngivnings schemat.
 
 ## <a name="details-about-errors-and-warnings"></a>Information om fel och varningar
 

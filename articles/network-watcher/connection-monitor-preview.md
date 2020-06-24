@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52d33e7292ebe7b27eede2b89aa605780f826392
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548107"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737622"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
 
@@ -402,9 +402,9 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
    
        Du kan öka detalj nivån från prenumerations nivån till andra nivåer i hierarkin:
 
-      **Prenumerations** > **resurs grupper** > **virtuella nätverk** > **Subnets**undernät > **med agenter**
+      **Prenumeration**  >  **Resurs grupper**  >  **Virtuella nätverk**  >  **Undernät**  >  **Virtuella datorer med agenter**
 
-      Du kan också ändra värdet för fältet **Gruppera efter** för att starta trädet från en annan nivå. Om du till exempel grupperar efter virtuellt nätverk ser du de virtuella datorer som har agenter i hierarkin **virtuella nätverk** > **undernät** > **med agenter**.
+      Du kan också ändra värdet för fältet **Gruppera efter** för att starta trädet från en annan nivå. Om du till exempel grupperar efter virtuellt nätverk ser du de virtuella datorer som har agenter i hierarkin **virtuella nätverk**  >  **undernät**  >  **med agenter**.
 
       ![Skärm bild av anslutnings övervakaren, som visar panelen Lägg till källor och fliken Azure-agenter](./media/connection-monitor-2-preview/add-azure-sources.png)
 
@@ -444,7 +444,7 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
 
     * **Namn** – ge test konfigurationen ett namn.
     * **Protokoll** – Välj TCP, ICMP eller http. Om du vill ändra HTTP till HTTPS väljer du **http** som protokoll och väljer **443** som port.
-        * **Skapa nätverks test konfiguration** – den här kryss rutan visas bara om du väljer **http** i fältet **protokoll** . Markera den här rutan om du vill skapa en annan test konfiguration som använder samma källor och mål som du har angett någon annan stans i konfigurationen. Den nyligen skapade test konfigurationen heter `<the name of your test configuration>_networkTestConfig`.
+        * **Skapa nätverks test konfiguration** – den här kryss rutan visas bara om du väljer **http** i fältet **protokoll** . Markera den här rutan om du vill skapa en annan test konfiguration som använder samma källor och mål som du har angett någon annan stans i konfigurationen. Den nyligen skapade test konfigurationen heter `<the name of your test configuration>_networkTestConfig` .
         * **Inaktivera traceroute** – det här fältet gäller för test grupper vars protokoll är TCP eller ICMP. Markera den här rutan om du vill stoppa källor från att upptäcka topologi och hitta hopp efter hopp.
     * **Målport** – du kan anpassa det här fältet med en valfri mål Port.
     * **Test frekvens** – Använd det här fältet för att välja hur ofta källor ska pinga mål på det protokoll och den port som du har angett. Du kan välja 30 sekunder, 1 minut, 5 minuter, 15 minuter eller 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer.  Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång under en 30-sekunders period.
@@ -573,7 +573,7 @@ Visa trender i sökrutan och procent andelen misslyckade kontroller för en ansl
 
 1. Ändra tidsintervallet för att visa mer data.
 1. Ändra vyn om du vill se källor, destinationer eller testkonfigurationer. 
-1. Välj en källa baserat på misslyckade tester och Undersök de fem främsta misslyckade testerna. Välj till exempel **Visa efter** > **källa** och **Visa efter** > **mål** för att undersöka relevanta tester i anslutnings övervakaren.
+1. Välj en källa baserat på misslyckade tester och Undersök de fem främsta misslyckade testerna. Välj till exempel **Visa efter**  >  **källa** och **Visa efter**  >  **mål** för att undersöka relevanta tester i anslutnings övervakaren.
 
    ![Skärm bild som visar prestanda mått för de fem främsta misslyckade testerna](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 

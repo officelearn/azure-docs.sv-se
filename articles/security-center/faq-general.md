@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324529"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783222"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -81,7 +81,7 @@ Azure Security Center samlar automatiskt in, analyserar och säkrar loggdata fr�
 
 
 ## <a name="why-did-secure-score-values-change"></a>Varför har säkra Poäng värden ändrats? <a name="secure-score-faq"></a>
-Från och med februari 2019 har Security Center justerat poängen för några få rekommendationer, så att det bättre passar deras allvarlighets grad. Till följd av den här ändringen kan det uppstå ändringar i övergripande säkra Poäng värden.  Mer information om säkra Poäng finns i [säker Poäng beräkning](security-center-secure-score.md).
+Från och med februari 2019 har Security Center justerat poängen för några få rekommendationer, så att det bättre passar deras allvarlighets grad. Till följd av den här ändringen kan det uppstå ändringar i övergripande säkra Poäng värden.  Mer information om säkra Poäng finns [i förbättrade säkra poäng i Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot som upptäckts och aviserats av Microsoft Security Response Center jämfört med Azure Security Center?

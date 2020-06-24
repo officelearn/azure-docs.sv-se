@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5728a8e254074cd96ae1f13cb053220f347e3983
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791045"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737639"
 ---
-# <a name="data-storage-optimization"></a>Optimering av data lagring
+# <a name="data-storage-optimization-for-apache-spark"></a>Data lagrings optimering för Apache Spark
 
 I den här artikeln beskrivs strategier för att optimera data lagring för effektiv Apache Spark jobb körning på Azure HDInsight.
 
@@ -54,13 +54,13 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
 
 När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azure Data Lake Storage som kluster standard lagring. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster. Så dina data tas inte bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
 
-| Butikstyp | Filsystem | Hastighet | Tillfälliga | Användnings fall |
+| Butikstyp | Filsystem | Hastighet | Tillfälliga | Användningsfall |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
-| Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
-| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
-| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
-| Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | Nej | Interaktivt 24/7-kluster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standard** | Yes | Tillfälligt kluster |
+| Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Yes | Tillfälligt kluster |
+| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Yes | Tillfälligt kluster |
+| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Yes | Tillfälligt kluster |
+| Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | No | Interaktivt 24/7-kluster |
 
 En fullständig beskrivning av lagrings alternativ finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
 

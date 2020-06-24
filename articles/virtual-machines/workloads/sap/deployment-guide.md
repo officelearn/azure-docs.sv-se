@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: a850f7ceaeb57678738084cb14f383b46c7dfe84
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 828615add9f24b5a2089e240bbf62647f34a25f0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660639"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207421"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -201,7 +201,6 @@ ms.locfileid: "84660639"
 [planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Uppgradera domäner)
 [planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Tillgänglighets uppsättningar i Azure)
 [planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Koncept för Microsoft Azure virtuella datorer)
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure-Premium Storage)
 [planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Flytta en virtuell dator från lokal plats till Azure med en icke-generaliserad disk)
 [planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Distribuera en virtuell dator med en kundspecifik avbildning)
 [planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk)
@@ -215,7 +214,6 @@ ms.locfileid: "84660639"
 [planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Enkel virtuell dator med SAP NetWeaver demo/utbildnings scenario)
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Koncept för molnbaserad distribution av SAP-instanser)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring-lösning för SAP)
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure-Premium Storage)
 [planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -443,7 +441,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
    * **Plats**: var den nya virtuella datorn ska distribueras. Om du vill ansluta den virtuella datorn till ditt lokala nätverk, se till att du väljer platsen för det virtuella nätverk som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure nätverk][planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 1. **Storlek**:
 
-     En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage][planning-guide-azure-premium-storage] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
+     En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md) i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
 1. **Inställningar**:
    * **Storage**
@@ -583,7 +581,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
    * **Plats**: var den nya virtuella datorn ska distribueras. Om du vill ansluta den virtuella datorn till ditt lokala nätverk, se till att du väljer platsen för det virtuella nätverk som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure nätverk][planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 1. **Storlek**:
 
-     En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage][planning-guide-azure-premium-storage] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
+     En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md) i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
 1. **Inställningar**:
    * **Storage**
@@ -1030,6 +1028,11 @@ Det nya VM-tillägget för SAP använder en hanterad identitet som tilldelats de
 
 Processen kommer att automatiseras i nästa version av Azure PowerShell (> 4.2.0). Vi kommer att uppdatera den här artikeln när den nya versionen är tillgänglig. Tills dess kan du installera tillägget manuellt genom att följa dessa steg.
 
+> [!NOTE]
+> Följande steg kräver ägar privilegier över resurs gruppen eller enskilda resurser (virtuell dator, data diskar osv.)
+
+1. Se till att använda SAP host agent 7,21 PL 47 eller högre.
+1. Se till att avinstallera den aktuella versionen av VM-tillägget för SAP. Det finns inte stöd för att installera båda versionerna av VM-tillägget för SAP på samma virtuella dator.
 1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
 1. Följ stegen i artikeln [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell][qs-configure-powershell-windows-vm] -artikeln för att aktivera en systemtilldelad hanterad identitet till den virtuella datorn. Användare tilldelade hanterade identiteter stöds inte av VM-tillägget för SAP. Du kan dock aktivera både en systemtilldelad och en tilldelad identitet.
     
@@ -1067,6 +1070,11 @@ Processen kommer att automatiseras i nästa version av Azure PowerShell (> 4.2.0
 
 Det nya VM-tillägget för SAP använder en hanterad identitet som tilldelats den virtuella datorn för att komma åt övervaknings-och konfigurations data för den virtuella datorn. Om du vill installera det nya Azure-tillägget för SAP med hjälp av Azure CLI måste du först tilldela en sådan identitet till den virtuella datorn och bevilja identitets åtkomst till alla resurser som används av den virtuella datorn, till exempel diskar och nätverks gränssnitt.
 
+> [!NOTE]
+> Följande steg kräver ägar privilegier över resurs gruppen eller enskilda resurser (virtuell dator, data diskar osv.)
+
+1. Se till att använda SAP host agent 7,21 PL 47 eller högre.
+1. Se till att avinstallera den aktuella versionen av VM-tillägget för SAP. Det finns inte stöd för att installera båda versionerna av VM-tillägget för SAP på samma virtuella dator.
 1. Installera Azure CLI 2,0 enligt beskrivningen i [Installera Azure cli 2,0][azure-cli-2].
 
 1. Logga in med ditt Azure-konto:
@@ -1420,7 +1428,7 @@ Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som
 
 AzureEnhancedMonitoring Windows-processen samlar in prestanda mått i Azure. Processen hämtar data från flera källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure Monitor.
 
-Om du felsöker med SAP NOTE [1999351]öppnar du ett SAP-kund support meddelande på komponenten BC-op-NT-AZR för Windows eller BC-op-LNX-AZR för en virtuell Linux-dator.
+Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet öppnar du ett SAP kund support meddelande på komponenten BC-op-NT-AZR för Windows eller BC-op-LNX-AZR för en virtuell Linux-dator. Anslut logg filen C: \\ packages plugin-program \\ \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; version>\\logapp.txt till incidenten.
 
 #### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Prestanda räknare för Azure visas inte alls
 
@@ -1442,7 +1450,7 @@ Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera oli
 
 En fullständig och aktuell lista över kända problem finns i SAP anmärkning [1999351], som innehåller ytterligare felsöknings information för Azure-tillägget för SAP.
 
-Om fel sökning med SAP NOTE [1999351] inte löser problemet, installerar du tillägget igen enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.
+Om fel sökning med SAP NOTE [1999351] inte löser problemet, installerar du tillägget igen enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator. Anslut logg filens/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux- &lt; version>/logapp.txt till incidenten.
 
 ## <a name="azure-extension-error-codes"></a>Fel koder för Azure-tillägg
 

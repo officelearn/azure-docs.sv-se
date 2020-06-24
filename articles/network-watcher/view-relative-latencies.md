@@ -6,18 +6,18 @@ documentationcenter: ''
 author: damendo
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 938315dac80ae51984851083753a9cb8f77662b2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521384"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737911"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativ svarstid till Azure-regioner från specifika platser
 
@@ -59,10 +59,10 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Den region som du anger i föregående kommando behöver inte vara samma som den region som du angav när du hämtade nätverks övervakaren. Föregående kommando kräver bara att du anger en befintlig nätverks övervakare. Nätverks bevakaren kan finnas i vilken region som helst. Om du anger värden för `-Country` och `-State`måste de vara giltiga. Värdena är Skift läges känsliga. Data är tillgängliga för ett begränsat antal länder/regioner, stater och städer. Kör kommandona i [Visa tillgängliga länder/regioner, tillstånd, städer och providers](#view-available) om du vill visa en lista över tillgängliga länder/regioner, städer och tillstånd som ska användas med föregående kommando. 
+> Den region som du anger i föregående kommando behöver inte vara samma som den region som du angav när du hämtade nätverks övervakaren. Föregående kommando kräver bara att du anger en befintlig nätverks övervakare. Nätverks bevakaren kan finnas i vilken region som helst. Om du anger värden för `-Country` och `-State` måste de vara giltiga. Värdena är Skift läges känsliga. Data är tillgängliga för ett begränsat antal länder/regioner, stater och städer. Kör kommandona i [Visa tillgängliga länder/regioner, tillstånd, städer och providers](#view-available) om du vill visa en lista över tillgängliga länder/regioner, städer och tillstånd som ska användas med föregående kommando. 
 
 > [!WARNING]
-> Du måste ange ett datum under de senaste 30 dagarna för `-StartTime` och `-EndTime`. Att ange ett tidigare datum innebär att inga data returneras.
+> Du måste ange ett datum under de senaste 30 dagarna för `-StartTime` och `-EndTime` . Att ange ett tidigare datum innebär att inga data returneras.
 
 Utdata från föregående kommando ser ut så här:
 
@@ -108,7 +108,7 @@ I returnerade utdata är värdet för **score** den relativa svars tiden i regio
 
 ## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Jämför relativa nätverks fördröjningar i Azure-regioner från en angiven plats
 
-Om du i stället för att ange den relativa svars tids fördröjningen mellan en bestämd plats `-Location`och en särskild Azure-region med, ville du fastställa den relativa svars tid för alla Azure-regioner från en särskild fysisk plats, kan du också göra det. Följande kommando hjälper dig till exempel att utvärdera vilken Azure-region som ska användas för att distribuera en tjänst i om dina primära användare är Comcast användare i Washington-tillstånd:
+Om du i stället för att ange den relativa svars tids fördröjningen mellan en bestämd plats och en särskild Azure-region med `-Location` , ville du fastställa den relativa svars tid för alla Azure-regioner från en särskild fysisk plats, kan du också göra det. Följande kommando hjälper dig till exempel att utvärdera vilken Azure-region som ska användas för att distribuera en tjänst i om dina primära användare är Comcast användare i Washington-tillstånd:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

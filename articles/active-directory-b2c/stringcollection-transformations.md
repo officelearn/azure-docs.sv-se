@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729708"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203256"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection-anspråk omvandlingar
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du kan använda anspråks omvandli
 
 Lägger till ett sträng anspråk till ett nytt unikt värde stringCollection-anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | objekt | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
 | InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
@@ -38,7 +38,7 @@ Använd den här anspråks omvandlingen för att lägga till en sträng till en 
 
 Följande påstående-omvandling lägger till **e-** **otherMails** för claimType.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -53,24 +53,24 @@ Följande påstående-omvandling lägger till **e-** **otherMails** för claimTy
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **samling**: ["someone@outlook.com"]
-  - **objekt**: "admin@contoso.com"
+  - **samling**: [" someone@outlook.com "]
+  - **objekt**: " admin@contoso.com "
 - Utgående anspråk:
-  - **samling**: ["someone@outlook.com", "admin@contoso.com"]
+  - **samling**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
 Lägger till en sträng parameter till ett nytt unikt värde stringCollection-anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
 | InputParameter | objekt | sträng | Det värde som ska läggas till i utgående anspråk. |
 | OutputClaim | samling | stringCollection | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, med det angivna värdet i indataparametern. |
 
-Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadressadmin@contoso.com() till i **otherMails** -anspråket.
+Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadress ( admin@contoso.com ) till i **otherMails** -anspråket.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -87,24 +87,24 @@ Använd den här anspråks omvandlingen för att lägga till ett sträng värde 
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **samling**: ["someone@outlook.com"]
+  - **samling**: [" someone@outlook.com "]
 - Indataparametrar
-  - **objekt**: "admin@contoso.com"
+  - **objekt**: " admin@contoso.com "
 - Utgående anspråk:
-  - **samling**: ["someone@outlook.com", "admin@contoso.com"]
+  - **samling**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
 Hämtar det första objektet från den angivna sträng samlingen.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | OutputClaim | extractedItem | sträng | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Det första objektet i samlingen. |
 
 I följande exempel läses **otherMails** -anspråket och det första objektet returneras till **e-** postanspråket.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -118,16 +118,16 @@ I följande exempel läses **otherMails** -anspråket och det första objektet r
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **samling**: ["someone@outlook.com", "someone@contoso.com"]
+  - **samling**: [" someone@outlook.com ", " someone@contoso.com "]
 - Utgående anspråk:
-  - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: " someone@outlook.com "
 
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
 Kontrollerar om en StringCollection-anspråks typ innehåller ett-element
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringCollection | Anspråks typen som ska genomsökas. |
 |InputParameter|objekt|sträng|Det värde som ska genomsökas.|
@@ -136,7 +136,7 @@ Kontrollerar om en StringCollection-anspråks typ innehåller ett-element
 
 Följande exempel kontrollerar om `roles` stringCollection-anspråks typen innehåller värdet **administratör**.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -163,7 +163,7 @@ Följande exempel kontrollerar om `roles` stringCollection-anspråks typen inneh
 
 Kontrollerar om en StringCollection-anspråks typ innehåller ett anspråks värde.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | Anspråks typen som ska genomsökas. |
 | InputClaim | objekt|sträng| Anspråks typen som innehåller värdet som ska genomsökas.|
@@ -172,7 +172,7 @@ Kontrollerar om en StringCollection-anspråks typ innehåller ett anspråks vär
 
 Följande exempel kontrollerar om `roles` stringCollection-anspråks typen innehåller värdet för `role` anspråks typen.
 
-```XML
+```xml
 <ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />

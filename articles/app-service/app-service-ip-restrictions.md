@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639271"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207132"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst
 
@@ -30,7 +30,7 @@ Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Ne
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Lägga till och redigera regler för åtkomst begränsning i portalen ##
 
-Om du vill lägga till en regel för åtkomst begränsning i appen använder du menyn för att öppna begränsningar för **nätverks**>**åtkomst** och klickar på **Konfigurera åtkomst begränsningar**
+Om du vill lägga till en regel för åtkomst begränsning i appen använder du menyn för att öppna begränsningar för **nätverks** > **åtkomst** och klickar på **Konfigurera åtkomst begränsningar**
 
 ![App Service nätverks alternativ](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -59,6 +59,10 @@ Med tjänst slut punkter kan du begränsa åtkomsten till de valda Azure-undern�
 Tjänst slut punkter kan inte användas för att begränsa åtkomsten till appar som körs i en App Service-miljön. När din app är i ett App Service-miljön, kan du kontrol lera åtkomsten till din app med IP-regler för åtkomst. 
 
 Med tjänst slut punkter kan du konfigurera din app med programgatewayer eller andra WAF-enheter. Du kan också konfigurera flera nivåer med säkra server delar. För ytterligare information om några av möjligheterna, läsa [nätverksfunktioner och App Service](networking-features.md) och [Application Gateway-integrering med tjänst slut punkter](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Tjänst slut punkter stöds för närvarande inte för webb program som använder IP SSL virtuell IP (VIP). 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Hantera regler för åtkomst begränsning
 

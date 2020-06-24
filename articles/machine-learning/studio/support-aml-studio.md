@@ -5,16 +5,16 @@ description: Få support och utbildning och ge feedback för Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: cd48e97f642402d1c7ff2ff71e7cee67be17f91d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 708f337ebc627f863f632a677a2186a9d7fe99f8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209442"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213184"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Få support och utbildning för Azure Machine Learning Studio (klassisk)
 
@@ -38,7 +38,7 @@ Kolla ut följande support resurser:
 
 + **Teknisk support för Azure-kunder**: [skicka och hantera support förfrågningar](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) via Azure Portal.
 
-+ **Användar forum**: Ställ frågor, besvara frågor och Anslut till andra användare i det [Azure Machine Learning Studio (klassiska) support forum på MSDN](https://aka.ms/aml-forum-studio).
++ **Användar forum**: Ställ frågor, besvara frågor och Anslut till andra användare i det [Azure Machine Learning Studio (klassiska) support forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
 
 + **Stack Overflow**: besök Azure Machine Learning community på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) taggade med "Azure-Machine-Learning".
 

@@ -3,30 +3,30 @@ title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854429"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117785"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
 Lär dig mer om viktiga funktioner i Azure Advisor och få svar på vanliga frågor.
 
 ## <a name="what-is-advisor"></a>Vad är Advisor?
-Advisor är en anpassad moln konsult som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
+Advisor är en anpassad moln konsult som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Den analyserar resurs konfigurationen och användningen av telemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnads effektivitet, prestanda, pålitlighet (tidigare kallat hög tillgänglighet) och säkerheten för dina Azure-resurser.
 
 Med Advisor kan du:
 * Få proaktiva, användbara och personligt anpassade rekommendationer. 
-* Förbättra prestanda, säkerhet och hög tillgänglighet för dina resurser när du identifierar möjligheter att minska dina totala Azure-utgifter.
+* Förbättra prestanda, säkerhet och tillförlitlighet för dina resurser när du identifierar möjligheter att minska dina totala Azure-utgifter.
 * Få rekommendationer med föreslagna åtgärder infogade.
 
 Du kan komma åt Advisor via [Azure Portal](https://aka.ms/azureadvisordashboard). Logga in på [portalen](https://portal.azure.com), leta upp **Advisor** i navigerings menyn eller Sök efter den på menyn **alla tjänster** .
 
 Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att Visa rekommendationer för vissa prenumerationer och resurs typer.  Rekommendationerna är uppdelade i fem kategorier: 
 
-* **Hög tillgänglighet**: för att säkerställa och förbättra kontinuiteten för affärs kritiska program. Mer information finns i [rekommendationer för rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md).
+* **Tillförlitlighet (tidigare kallat hög tillgänglighet)**: för att säkerställa och förbättra kontinuiteten för affärs kritiska program. Mer information finns i [rekommendationer för Advisor-tillförlitlighet](advisor-high-availability-recommendations.md).
 * **Säkerhet**: för att identifiera hot och sårbarheter som kan leda till säkerhets överträdelser. Mer information finns i [rekommendationer för säkerhets rekommendationer](advisor-security-recommendations.md).
 * **Prestanda**: för att förbättra program hastigheten. Mer information finns i [rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md).
 * **Kostnad**: för att optimera och minska dina totala Azure-utgifter. Mer information finns i [rekommendationer för Advisor-kostnader](advisor-cost-recommendations.md).
@@ -68,7 +68,7 @@ Klicka på **Skjut upp** länken om du vill skjuta upp eller stänga av en rekom
 Mer information om Advisor-rekommendationer finns i:
 
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+* [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)

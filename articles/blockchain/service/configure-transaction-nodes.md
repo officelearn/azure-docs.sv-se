@@ -2,14 +2,14 @@
 title: Konfigurera noder i Azure blockchain service Transactions
 description: Så här konfigurerar du Azure blockchain service Transaction Nodes
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876937"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212572"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
 
@@ -37,7 +37,7 @@ Så här lägger du till en Transaction-nod:
 
     | Inställningen | Beskrivning |
     |---------|-------------|
-    | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
+    | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Exempelvis `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
     | lösenordsinställning | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.
@@ -67,7 +67,7 @@ Så här beviljar du Azure AD Access Control till din slut punkt:
 
     ![Lägg till IAM-rollen](./media/configure-transaction-nodes/add-role.png)
 
-    | Inställningen | Action |
+    | Inställningen | Åtgärd |
     |---------|-------------|
     | Roll | Välj **ägare**, **deltagare**eller **läsare**.
     | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänstens huvud namn**.
@@ -89,7 +89,7 @@ Du kan visa en nodens grundläggande autentiserings slut punkts information i Az
 
 Användar namnet är namnet på noden och kan inte ändras.
 
-Om du vill använda webb adressen \<ersätter\> du lösen ordet med lösen ordet som angavs när noden etablerades. Du kan uppdatera lösen ordet genom att välja **Återställ lösen ord**.
+Om du vill använda URL: en ersätter du \<password\> med lösen ordet som angavs när noden etablerades. Du kan uppdatera lösen ordet genom att välja **Återställ lösen ord**.
 
 ### <a name="access-keys"></a>Åtkomstnycklar
 

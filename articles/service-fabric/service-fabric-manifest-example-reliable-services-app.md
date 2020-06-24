@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282359"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701106"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Följande är exempel på program-och tjänst manifest för ett Service Fabric program med en ASP.NET Core webb klient del och en tillstånds känslig backend-server. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest är baserade på [Service Fabric .net-snabb starts](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.
@@ -285,7 +285,7 @@ En program parameter som ska användas i det här manifestet. Parametervärdet k
 Importerar ett tjänst manifest som skapats av tjänste utvecklaren. Ett tjänst manifest måste importeras för varje komponent tjänst i programmet. Konfigurations åsidosättningar och principer kan deklareras för tjänst manifestet. Mer information finns i [service manifest import-element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef-element
-Importerar tjänst manifestet efter referens. För närvarande måste tjänst manifest filen (ServiceManifest. xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef-element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
+Importerar tjänst manifestet efter referens. För närvarande måste tjänst manifest filen (ServiceManifest.xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef-element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="resourceoverrides-element"></a>ResourceOverrides-element
 Anger åsidosättningar av resurser för slut punkter som har deklarerats i tjänst manifest resurser. Mer information finns i [ResourceOverrides-element](service-fabric-service-model-schema-elements.md#ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
@@ -312,7 +312,7 @@ Anger om en kod, en konfiguration eller ett data paket ska delas mellan tjänst 
 Ger åtkomst behörighet till ett huvud konto på en resurs (till exempel en slut punkt) som definierats i ett tjänst manifest. Normalt är det mycket användbart att kontrol lera och begränsa åtkomsten till tjänster till olika resurser för att minimera säkerhets riskerna. Detta är särskilt viktigt när programmet byggs från en samling tjänster från en Marketplace som har utvecklats av olika utvecklare. Mer information finns i [SecurityAccessPolicy-element](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
 
 ### <a name="runaspolicy-element"></a>Runas policy-element
-Anger det lokala användare eller lokala system konto som ett service kod paket ska köras som. Domän konton stöds på Windows Server-distributioner där Azure Active Directory är tillgängligt. Som standard körs program under det konto som Fabric. exe-processen körs under. Program kan också köras som andra konton, vilket måste deklareras i avsnittet säkerhets objekt. Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du också ange en SecurityAccessPolicy för att säkerställa att portarna som tilldelas dessa slut punkter är korrekt åtkomst – kontroll för det användar konto för RunAs som tjänsten kör under. För en HTTPS-slutpunkt måste du också definiera en EndpointBindingPolicy för att ange namnet på det certifikat som ska returneras till klienten. Mer information finns i [runas policy-element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
+Anger det lokala användare eller lokala system konto som ett service kod paket ska köras som. Domän konton stöds på Windows Server-distributioner där Azure Active Directory är tillgängligt. Som standard körs program under det konto som Fabric.exe processen körs under. Program kan också köras som andra konton, vilket måste deklareras i avsnittet säkerhets objekt. Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du också ange en SecurityAccessPolicy för att säkerställa att portarna som tilldelas dessa slut punkter är korrekt åtkomst – kontroll för det användar konto för RunAs som tjänsten kör under. För en HTTPS-slutpunkt måste du också definiera en EndpointBindingPolicy för att ange namnet på det certifikat som ska returneras till klienten. Mer information finns i [runas policy-element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
 ### <a name="defaultservices-element"></a>DefaultServices-element
 Deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Mer information finns i [DefaultServices-element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
@@ -385,7 +385,7 @@ En privilegie rad start punkt som som standard körs med samma autentiseringsupp
  Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement)
 
 ### <a name="program-element"></a>Program element
-Namnet på den körbara filen.  Till exempel "min setup. bat" eller "ServiceHost. exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Namnet på den körbara filen.  Till exempel "MySetup.bat" eller "MyServiceHost.exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="arguments-element"></a>Argument element
  Mer information finns i [argument element](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
@@ -405,7 +405,7 @@ Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tj
  Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage-element
-Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings.xml-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="resources-element"></a>Resurs element
 Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [Resources](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
@@ -438,13 +438,13 @@ Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tj
  Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="program-element"></a>Program element
-Namnet på den körbara filen.  Till exempel "min setup. bat" eller "ServiceHost. exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Namnet på den körbara filen.  Till exempel "MySetup.bat" eller "MyServiceHost.exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder-element
 Arbets katalogen för processen i kod paketet på den klusternod där programmet har distribuerats. Du kan ange tre värden: arbete (standard), CodePackage eller kodbas. CodeBase anger att arbets katalogen har angetts till den katalog där EXE definieras i kod paketet. CodePackage anger att arbets katalogen ska vara roten i kod paketet oavsett var EXE-filen definieras i katalogen med kod paketet. Arbets katalogen anges till en unik mapp som skapas på noden.  Den här mappen är samma för hela program instansen. Som standard anges arbets katalogen för alla processer i programmet till mappen program arbete. Det är här som processerna kan skriva data. Att skriva data i kod paketet eller kodbasen rekommenderas inte eftersom dessa mappar kan delas mellan olika program instanser och kan tas bort. Mer information finns i [WorkingFolder-element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage-element
-Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings.xml-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="datapackage-element"></a>DataPackage-element
 Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller statiska datafiler som ska användas av processen vid körning. Service Fabric kommer att återvinna alla EXEs och DLLHOSTs som anges i värd-och support paketen när något av de data paket som anges i tjänst manifestet uppgraderas. Mer information finns i [DataPackage-element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)

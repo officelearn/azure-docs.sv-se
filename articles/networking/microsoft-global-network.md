@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982810"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125829"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
 
@@ -38,7 +38,7 @@ Oavsett om du ansluter från London till Tokyo eller från Washington DC till Lo
 
 Om en användare i London försöker få åtkomst till en tjänst i Tokyo, kommer Internet trafiken till en av våra gränser i London, gå över Microsoft WAN via Frankrike, våra sökvägar mellan Europa och Indien, och sedan till Japan där tjänsten är värdbaserad. Svars trafiken är symmetrisk. Detta kallas ibland för [routning av kall potatis](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , vilket innebär att trafiken stannar på Microsoft-nätverket så länge som möjligt innan vi kan göra det.  
   
-Det innebär alltså all trafik när du använder Microsoft-tjänster? Ja, all trafik mellan data Center, inom Microsoft Azure eller mellan Microsoft-tjänster som Virtual Machines, Office 365, XBox, SQL-databaser, Storage och virtuella nätverk dirigeras i vårt globala nätverk och aldrig över det offentliga Internet, för att säkerställa optimala prestanda och integritet.  
+Det innebär alltså all trafik när du använder Microsoft-tjänster? Ja, all trafik mellan data Center, inom Microsoft Azure eller mellan Microsoft-tjänster som Virtual Machines, Microsoft 365, XBox, SQL-databaser, lagring och virtuella nätverk dirigeras i vårt globala nätverk och aldrig över det offentliga Internet, för att säkerställa optimala prestanda och integritet.  
  
 Stora investeringar i fiber kapacitet och varierande variation mellan vägar i Metro, land och undervattens är avgörande för att vi ska kunna upprätthålla konsekvent och hög service nivå samtidigt som den yttersta tillväxten av vårt moln och onlinetjänster. De senaste tilläggen till vårt globala nätverk är vår [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) undervattens-kabel, branschens första öppna rad system (OLS) över Subsea, mellan Bilbao, Spanien och Virginia strand, Virginia, USA, samt [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) mellan New York, USA och Dublin, Irland och [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) mellan Tokyo, Japan och Göteborg, USA, USA. 
  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243502"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124059"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet och kryptering i Azure
 Den här artikeln beskriver metod tips för data säkerhet och kryptering.
@@ -121,7 +121,7 @@ Du vill kontrol lera och skydda e-post, dokument och känsliga data som du delar
 
 Klassificeringen kan identifieras hela tiden, oavsett var data lagras eller vem den delas. Dessa etiketter kan vara visuella markeringar som sidhuvuden, sidfoter eller vattenstämplar. Metadata har lagts till för filer och e-postmeddelandens rubriker i klartext. Klartext garanterar att andra tjänster, till exempel lösningar för att förhindra data förlust, kan identifiera klassificeringen och vidta lämpliga åtgärder.
 
-Skydds tekniken använder Azure Rights Management (Azure RMS). Den här tekniken är integrerad med andra Microsoft-molntjänster och Microsoft-molnprogram, till exempel Office 365 och Azure Active Directory. Den här skyddstekniken använder kryptering, identitet och auktoriseringsprinciper. Skydd som tillämpas via Azure RMS hålls kvar med dokumenten och e-postmeddelandena, oberoende av platsen, i eller utanför din organisation, nätverk, fil servrar och program.
+Skydds tekniken använder Azure Rights Management (Azure RMS). Den här tekniken är integrerad med andra moln tjänster och program från Microsoft, till exempel Microsoft 365 och Azure Active Directory. Den här skyddstekniken använder kryptering, identitet och auktoriseringsprinciper. Skydd som tillämpas via Azure RMS hålls kvar med dokumenten och e-postmeddelandena, oberoende av platsen, i eller utanför din organisation, nätverk, fil servrar och program.
 
 Den här informations skydds lösningen ser till att du styr dina data, även när de delas med andra personer. Du kan också använda Azure RMS med dina egna affärs program och informations skydds lösningar från program varu leverantörer, oavsett om programmen och lösningarna är lokala eller i molnet.
 

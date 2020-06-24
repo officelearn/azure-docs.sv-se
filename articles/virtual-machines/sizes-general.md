@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: e1e4d3c896fadc60e4c0492691eaa1e0bb8e929a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1e9cce7adc6dbc9062dd133d690fbce92c3190fc
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678485"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783324"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
@@ -31,12 +31,13 @@ Generella storlekar för virtuella datorer ger balanserade förhållandet mellan
 
 - [DCv2-serien](dcv2-series.md) kan hjälpa till att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i det offentliga molnet. De här datorerna backas upp av den senaste generationen Intel XEON E-2288G-processor med SGX-teknik. Med Intel Turbo Boost-tekniken kan de här datorerna gå upp till 5,0 GHz. DCv2 Series-instanser gör det möjligt för kunder att skapa säkra enklaven-baserade program för att skydda sin kod och sina data medan den används.
 
-- [Dv2 och Dsv2-serien](dv2-dsv2-series.md) Virtuella datorer, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor och optimal konfiguration av processor till minne som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+- [Dv2 och Dsv2-serien](dv2-dsv2-series.md) Virtuella datorer, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor och optimal konfiguration av processor till minne som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på den andra generationen Intel® Xeon® platina 8272CL (överlappande sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
-- [Dv3 och Dsv3-serien](dv3-dsv3-series.md) De virtuella datorerna körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
+- [Dv3 och Dsv3-serien](dv3-dsv3-series.md) De virtuella datorerna körs på den andra generationen Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-Threading-konfiguration, vilket ger ett bättre värde för de flesta Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
 
-- [Ddv4 och Ddsv4-serien](ddv4-ddsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [DV4 och Dsv4-serien](dv4-dsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. DV4-och Dsv4 VM-serien är en ny kategori av virtuella datorer, som förlitar sig på fjärrdiskar och inte tillhandahåller tillfällig lokal lagring. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
 
+- [Ddv4 och Ddsv4-serien](ddv4-ddsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Ddv4-och Ddsv4 VM-serien är en ny kategori av virtuella datorer som innehåller temporära lokala data diskar. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
 
 ## <a name="other-sizes"></a>Andra storlekar
 

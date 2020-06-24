@@ -4,16 +4,16 @@ description: Ansluta till virtuella Windows-datorer med macOS-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79eaefb5cd8181bd471618761255bf38f464d735
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 024a1ab1a7fef58bd5fd8f9e7e0fc743a4ecee71
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614920"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213167"
 ---
 # <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
 
@@ -36,7 +36,7 @@ Så här prenumererar du på en feed:
 
 1. Välj **Lägg till arbets yta** på huvud sidan för att ansluta till tjänsten och hämta dina resurser.
 2. Ange feed-URL: en. Detta kan vara en URL eller en e-post adress:
-   - Om du använder en URL kan du använda den som din administratör fick. Normalt är <https://rdweb.wvd.microsoft.com>URL: en.
+   - Om du använder en URL kan du använda den som din administratör fick. Normalt är URL: en <https://rdweb.wvd.microsoft.com> .
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
 3. Välj **Lägg till**.
 4. Logga in med ditt användar konto när du uppmanas till det.

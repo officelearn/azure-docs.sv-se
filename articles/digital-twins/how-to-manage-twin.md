@@ -1,5 +1,5 @@
 ---
-title: Hantera en digital, dubbel
+title: Hantera en digital tvilling
 titleSuffix: Azure Digital Twins
 description: Se hur du hämtar, uppdaterar och tar bort enskilda dubbla och relationer.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d5731b16463f1f298f1ad633225fee95aa1a0bd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 9acea128313fc440834626dd3a99b117e4b25a8f
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612909"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735905"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala dubbla
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 

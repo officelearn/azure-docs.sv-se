@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce95e760dd9faf2130a81dff3f0611c27f99551d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851364"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118907"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Händelsebaserade arkitekturer utan server med Azure Cosmos DB och Azure Functions
 
 Azure Functions är det enklaste sättet att ansluta till [ändrings flödet](change-feed.md). Du kan skapa små reaktiva Azure Functions som aktive ras automatiskt vid varje ny händelse i din Azure Cosmos-behållares ändrings flöde.
 
-![Server lösa händelsebaserade funktioner som fungerar med Azure Functions utlösare för Cosmos DB](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Server lösa händelsebaserade funktioner som fungerar med Azure Functions utlösare för Cosmos DB" border="false":::
 
 Med [Azure Functions-utlösaren för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md)kan du utnyttja skalningen av [processen för byte](./change-feed-processor.md)och pålitlig händelse identifiering utan att behöva underhålla någon [arbets infrastruktur](./change-feed-processor.md). Fokusera bara på din Azure Function-logik utan att oroa dig över resten av pipeline för händelse-källa. Du kan till och med blanda utlösaren med andra [Azure Functions bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
@@ -30,7 +30,7 @@ Med [Azure Functions-utlösaren för Cosmos DB](../azure-functions/functions-bin
 Om du vill implementera ett Server lös händelsebaserat flöde måste du:
 
 * **Den övervakade behållaren**: den övervakade behållaren är den Azure Cosmos-behållare som övervakas, och den lagrar data som ändrings flödet genereras från. Eventuella infogningar, uppdateringar av den övervakade behållaren visas i behållarens ändrings flöde.
-* **Leasing container**: Lease-containern upprätthåller tillstånd för flera och dynamiska Azure Function-instanser i Server och möjliggör dynamisk skalning. Denna Lease-behållare kan skapas manuellt eller skapas automatiskt av Azure Functions-utlösaren för Cosmos DB. Om du vill skapa en låne container automatiskt anger du flaggan *CreateLeaseCollectionIfNotExists* i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Partitionerade leasing behållare måste ha en `/id` definition av partitionsnyckel.
+* **Leasing container**: Lease-containern upprätthåller tillstånd för flera och dynamiska Azure Function-instanser i Server och möjliggör dynamisk skalning. Denna Lease-behållare kan skapas manuellt eller skapas automatiskt av Azure Functions-utlösaren för Cosmos DB. Om du vill skapa en låne container automatiskt anger du flaggan *CreateLeaseCollectionIfNotExists* i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Partitionerade leasing behållare måste ha en definition av `/id` partitionsnyckel.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Skapa din Azure Functions-utlösare för Cosmos DB
 

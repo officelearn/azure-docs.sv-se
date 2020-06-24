@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42421f745759d9aee75b285c3fbc6ea7217ba5c0
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152592"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112709"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planera och hantera kostnader för Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Använd [Azure Cosmos DB kapacitets kalkylatorn](https://cosmos.azure.com/capaci
 
 Följande skärm bild visar data flödet och kostnads uppskattningen med hjälp av kapacitets Kalkylatorn:
 
-![Kostnads uppskattning i Azure Cosmos DB kapacitets kalkylator](./media/plan-manage-costs/capacity-calculator-cost-estimate.png)
+:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Kostnads uppskattning i Azure Cosmos DB kapacitets kalkylator":::
 
 ## <a name="review-estimated-costs-from-the-azure-portal"></a>Granska uppskattade kostnader från Azure Portal
 
@@ -41,7 +41,7 @@ När du skapar Azure Cosmos DB resurser från Azure Portal kan du se de uppskatt
 1. Skapa en ny behållare, till exempel en graf-behållare.
 1. Mata in det data flöde som krävs för din arbets belastning, till exempel 400 RU/s. När du har matat in data flöde svärdet kan du se pris beräkningen så som visas på följande skärm bild:
 
-   ![Kostnads uppskattning i Azure Portal](./media/plan-manage-costs/cost-estimate-portal.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Kostnads uppskattning i Azure Portal":::
 
 Om din Azure-prenumeration har en utgifts gräns hindrar Azure dig från att behöva spendera på ditt kredit belopp. När du skapar och använder Azure-resurser används dina krediter. När du når din kredit gräns inaktive ras de resurser som du har distribuerat för resten av fakturerings perioden. Du kan inte ändra kredit gränsen, men du kan ta bort den. Mer information om utgifts gränser finns i [utgifts gränsen för Azure](../billing/billing-spending-limit.md).
 
@@ -63,7 +63,7 @@ När du använder kostnads analys kan du Visa Azure Cosmos DB kostnader i grafer
 
 1. Om du vill begränsa kostnaderna för en enskild tjänst, till exempel Azure Cosmos DB, väljer du **Lägg till filter** och väljer sedan **tjänst namn**. Välj sedan **Azure Cosmos DB** i listan. Här är ett exempel som visar kostnader för just Azure Cosmos DB:
  
-   ![Övervaka kostnader med fönstret kostnads analys](./media/plan-manage-costs/cost-analysis-pane.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Övervaka kostnader med fönstret kostnads analys":::
 
 I föregående exempel visas den aktuella kostnaden för Azure Cosmos DB för månadens månad. Diagrammen innehåller också Azure Cosmos DB kostnader per plats och per resurs grupp.
 

@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/10/2020
+ms.openlocfilehash: b02ba8bd6e3ae858c9e3ded07776a8a83ede171a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849118"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212605"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -57,7 +57,7 @@ Menyn **erbjudande översikt** innehåller en lista med länkar för att utföra
 - Om erbjudandet är ett utkast till att ta bort utkast
 - Om erbjudandet är Live-Stop Sälj erbjudande
 - Om erbjudandet är i för hands version-Go-Live
-- Om du inte har slutfört Publisher-utloggning-Avbryt publicering
+- Om du inte har slutfört utgivar utloggning-Avbryt publicering
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -80,11 +80,11 @@ Följande kriterier måste vara uppfyllda för att kunna visa SaaS-erbjudanden (
 
 #### <a name="saas-pricing-and-billing-options"></a>Pris-och fakturerings alternativ för SaaS
 
-Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens avgifter som betalas av kunderna kostnaden för den infrastruktur som program varan distribueras på. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare ska paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. 
+Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens avgifter som betalas av kunderna kostnaden för den infrastruktur som program varan distribueras på. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare ska paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser.
 
 SaaS erbjuder stöd för månatlig eller årlig fakturering baserat på en fast avgift, per användare eller förbruknings avgifter med hjälp av den avgiftsbelagda fakturerings tjänsten. Microsofts kommersiella marknads plats fungerar på en byrå modell, där utgivare anger priser, Microsoft fakturerar kunder och Microsoft betalar intäkterna till utgivaren samtidigt som en byrå avgift debiteras.
 
-Detta är ett exempel på en uppdelning av kostnader och utbetalningar för att demonstrera byråns modell:
+Detta är ett exempel på en uppdelning av kostnader och utbetalningar för att demonstrera byråns modell (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
 
 |**Din licens kostnad**|**$100 per månad**|
 |:---|:---|
@@ -109,11 +109,11 @@ Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. O
 
 #### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*) där en utvärderings version kan utföras genom [en autentisering med hjälp av Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/saas-app`.
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*) där en utvärderings version kan utföras genom [en autentisering med hjälp av Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
 
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
@@ -124,7 +124,36 @@ Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Re
 
 #### <a name="example-marketplace-offer-listing"></a>Exempel på Marketplace-erbjudande
 
-![Exempel lista för Marketplace-erbjudanden med anteckningar](./media/marketplace-offer.svg)
+<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
+
+Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource:
+
+:::image type="content" source="media/example-appsource-saas.png" alt-text="Visar hur det här erbjudandet visas i Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Stor logo typ
+2. Kategorier
+3. Branscher
+4. Support adress (länk)
+5. Villkor för användning
+6. Sekretesspolicy
+7. Erbjudandets namn
+8. Sammanfattning
+9. Beskrivning
+10. Skärm bilder/videor
+11. Dokument
+
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Titel
+2. Beskrivning
+3. Användbara länkar
+4. Skärmbilder
 
 ## <a name="enable-a-test-drive"></a>Aktivera en testen het
 
@@ -199,7 +228,7 @@ Det finns två typer av ändringar som är tillgängliga för kommersiella Marke
 **Anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads plats** – börja med att välja **Lägg till anpassade ändrings villkor**. Du kan ange upp till 10 anpassade ändrings villkor per erbjudande.
 
 - **Anpassade ändrings villkor** – ange dina anpassade ändrings villkor i rutan anpassade ändrings villkor. Du kan ange ett obegränsat antal tecken i den här rutan. Endast kunder från klient-ID: n som du anger för de här anpassade villkoren visas med villkoren för anpassad ändring i erbjudandets inköps flöde i Azure Portal.  
-- **Klient-ID** (obligatoriskt) – varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > egenskaper. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com).
+- **Klient-ID** (obligatoriskt) – varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > egenskaper. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com)
 - **Beskrivning** (valfritt) – du kan också ange en egen beskrivning för klient-ID: t som hjälper dig att identifiera kunden som du är mål för med ändringen.
 
 #### <a name="terms-and-conditions"></a>Villkor
@@ -251,7 +280,7 @@ Det här fältet är obligatoriskt.
 
 #### <a name="files-and-images"></a>Filer och avbildningar
 
-- **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, vilket ger minst ett (1) och högst tre (3) dokument per erbjudande.
+- **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande, i PDF-format, för minst ett och upp till tre dokument per erbjudande.
 - **Avbildningar** (valfritt) – det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla Marketplace, vilket kräver följande pixel storlekar i PNG-format:
 
     - **Liten** (48 x 48, krävs)
@@ -260,7 +289,7 @@ Det här fältet är obligatoriskt.
     - **Bred** (255 x 115)
     - **Hjälte** (815 x 290)
 
-- **Skärm bilder** (krävs) – Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
+- **Skärm bilder** (krävs) – Lägg till högst fem skärm bilder som demonstrerar ditt erbjudande, med en storlek på 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
 >[!NOTE]
@@ -290,18 +319,26 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Den här sidan definierar den tekniska information (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det. Diagram som beskriver användningen av de insamlade fälten finns i dokumentationen för [API: er för SaaS-utförande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
-
-- **Landnings sidans URL** (krävs) – definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
-
-- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (till exempel SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \/ /Prod-1westus.Logic.Azure.com:443/Work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
-
-- **Azure AD-klient-ID** (krävs) – inuti Azure Portal kräver vi att du [skapar en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **ID för Azure AD-App** (krävs) – du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+Fliken **teknisk konfiguration** definierar de tekniska detaljer som används av Marketplace för att kommunicera med din SaaS-tjänst. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slut kunden om de väljer att förvärva och hantera dem. 
 
 >[!Note]
->Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
+>Du måste implementera integrering med [SaaS-API: er](./pc-saas-fulfillment-api-v2.md) innan du konfigurerar informationen i erbjudandets information.
+
+Diagram och detaljerade förklaringar som beskriver användningen av de insamlade fälten finns i dokumentationen för [API: erna](./pc-saas-fulfillment-api-v2.md).
+
+- **Landnings sidans URL** (krävs) – definiera SaaS-webbplats-URL: en (till exempel: `https://contoso.com/signup` ) som kunderna kommer att hamna på efter att ha skaffat ditt erbjudande från Marketplace och utlösa konfigurations processen från den nyligen skapade SaaS-prenumerationen.  URL: en kommer att anropas med parametern Marketplace Purchase Identification Identification som unikt identifierar den specifika kundens SaaS-köp.  Du måste byta denna token för motsvarande prenumerations information för SaaS med hjälp av [lösnings](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) -API: et.  Informationen och alla andra som du vill samla in bör användas som en del av en kundinteraktiv webb sida som skapats i din erfarenhet för att slutföra slut kund registreringen och aktivera köpet.  På den här sidan ska användaren registrera sig genom autentisering med ett klick genom att använda Azure Active Directory (Azure AD). <br> <br> Den här URL: en med parametern Marketplace för inköp av Marketplace kommer också att anropas när slutanvändaren startar hanterad SaaS-upplevelse från Azure Portal eller M365 administrations Center. Du bör hantera båda flödena när token tillhandahålls första gången efter köpet för nya kunder och när det tillhandahålls för befintlig kund hantering av sin SaaS. <br> <br> Landnings sidan du konfigurerar här bör vara igång 24/7. Detta är det enda sättet du får information om nya köp av dina SaaS-erbjudanden som görs i Marketplace, eller konfigurations förfrågningar för en aktiv prenumeration på ett erbjudande.
+
+- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig (till exempel SaaS-prenumerationen har avbrutits) måste du ange en anslutning-webhook-URL. Vi kommer att anropa denna URL för att meddela dig om evenemanget. <br> <br> Webhooken som du tillhandahåller bör vara igång 24/7 eftersom det är det enda sättet som du kommer att få information om uppdateringar om dina kunders SaaS prenumerationer som köpts via Marketplace.  Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. `https://prod-1westus.logic.azure.com:443/work` ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+
+- **Azure AD-klient-ID** (krävs) – inuti Azure Portal behöver vi [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+
+- **Azure AD App-ID** (krävs) – du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hämta värdet går du till din Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
+
+>[!Note]
+>ID för Azure AD-App är kopplat till ditt utgivar-ID i ditt partner Center-konto.  Kontrol lera att samma program-ID används i alla dina erbjudanden.
+
+>[!Note]
+>Om utgivaren har två eller flera olika konton i Partner Center, ska två eller flera olika Azure AD App-ID: n användas, var och en av kontona. Varje partner konto i Partner Center bör använda unikt Azure AD App-ID för alla SaaS-erbjudanden som publiceras via det här kontot.
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -350,7 +387,7 @@ Välj **Spara** innan du fortsätter.
 
 ##### <a name="pricing-model"></a>Prismodell
 
-**Fast** pris – ge åtkomst till ditt erbjudande med ett enkelt pris per månad eller årligt pris. Detta kallas ibland för platsbaserade priser. Med den här pris sättnings modellen kan du välja att definiera förmätnings planer som använder API: et för avläsning av program vara för att debitera kunder enligt andra enheter än standard enheter.  Mer information om avgiftsbelagd fakturering finns i [mäta fakturering med Marketplace-avläsning](./saas-metered-billing.md).
+**Fast** pris – ge åtkomst till ditt erbjudande med ett enkelt pris per månad eller årligt pris. Detta kallas ibland för platsbaserade priser. Med den här pris sättnings modellen kan du välja att definiera förmätnings planer som använder API: et för avläsning av program vara för att debitera kunder enligt andra enheter än standard enheter.  Mer information om avgiftsbelagd fakturering finns i [mäta fakturering med Marketplace-avläsning](./saas-metered-billing.md).  Du bör också använda det här alternativet om användnings beteendet är i burst för din SaaS-tjänst.  Vi rekommenderar inte kunden att ofta byta abonnemang på varje dag eller per timme.
 
 **Per användare** – aktivera åtkomst till ditt erbjudande med priset baserat på antalet användare som har åtkomst till erbjudandet eller har platser. Med den här användarbaserade modellen kan du ange det lägsta och högsta antalet användare som tillåts baserat på priset. På så sätt kan olika pris punkter konfigureras baserat på antalet användare genom att konfigurera flera planer.  Dessa fält är valfria. Om alternativet inte är markerat tolkas antalet användare som att de inte har en gräns (minst 1 och högst lika många som systemet kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
 
@@ -375,7 +412,7 @@ Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begr�
 
 #### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
-SaaS erbjudanden via den kommersiella marknads platsen gör att du kan tillhandahålla en månads kostnads fri utvärderings version när du säljer via Microsoft. För alla fakturerings modeller och villkor förutom mätnings planer stöds kostnads fria utvärderings versioner. Med det här alternativet kan kunder ha en låg barriär för att komma in genom en månads kostnads fri åtkomst.  Om du väljer att aktivera en kostnads fri utvärderings version för planer i ditt erbjudande kan kunden inte konvertera till en betald prenumeration innan den första en månads period slutar att gälla.  Under den här tiden kan kunder som köper erbjudandet prova över de planer som stöds och som har den kostnads fria utvärderings versionen aktive rad och konvertera mellan dem.  Konverteringen till en betald prenumeration görs automatiskt i slutet av perioden.
+Med SaaS erbjudanden via den kommersiella Marketplace kan du tillhandahålla en månads kostnads fri utvärderings version när du säljer via Microsoft. För alla fakturerings modeller och villkor förutom mätnings planer stöds kostnads fria utvärderings versioner. Med det här alternativet kan kunder ha en låg barriär för att komma in genom en månads kostnads fri åtkomst.  Om du väljer att aktivera en kostnads fri utvärderings version för planer i ditt erbjudande kan kunden inte konvertera till en betald prenumeration innan den första en månads period slutar att gälla.  Under den här tiden kan kunder som köper erbjudandet prova över de planer som stöds och som har den kostnads fria utvärderings versionen aktive rad och konvertera mellan dem.  Konverteringen till en betald prenumeration görs automatiskt i slutet av perioden.
 
 >[!NOTE]
 >Om kunden väljer att konvertera till en plan utan kostnads fria utvärderings versioner sker konverteringen, men den kostnads fria utvärderings versionen går förlorad omedelbart. När en kund börjar betala för en plan kan de inte längre få en kostnads fri utvärderings version på samma prenumeration igen, även om de konverteras till en SKU som stöder kostnads fria utvärderings versioner.
@@ -404,7 +441,7 @@ Välj **det här är en privat plan** för att göra din plan privat och endast 
 
 Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är unik och avgränsad från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
 
@@ -415,7 +452,14 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Exempel lista över planer i ett Marketplace-erbjudande
 
-![Exempel på Marketplace-plan lista med anteckningar](./media/marketplace-plan.svg)
+:::image type="content" source="media/marketplace-plan.png" alt-text="Exempel på Marketplace-plan med anteckningar.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Plan namn
+2. Beskrivning av plan
+
+<br>
 
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Moln lösnings leverantör (CSP) åter försäljare
 
@@ -434,7 +478,7 @@ Om det här är första gången du publicerar det här erbjudandet kan du:
     - **Ofullständig** – avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Du måste gå tillbaka till avsnittet och uppdatera det.
     - **Slutfört** – avsnittet är slutfört, alla data som krävs har angetts och det finns inga fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - Tillhandahåll test instruktioner till certifierings teamet för att se till att appen testas korrekt, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
-- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Du måste gå tillbaka till Partner Center och välja **Go-Live** för erbjudandet att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).
+- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Gå tillbaka till Partner Center och välj **Go-Live** för att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).
 
 ## <a name="next-step"></a>Nästa steg
 

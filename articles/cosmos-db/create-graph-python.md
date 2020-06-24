@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
 ms.custom: tracking-python
-ms.openlocfilehash: fd266dd4e75915c0710acce1a2a49f24049c4e9d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0f96cbd86921428a85aa69f3561252aeb7fd67b5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559870"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118227"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med python och Azure Portal
 
@@ -29,7 +29,7 @@ ms.locfileid: "84559870"
 
 I den här snabb starten skapar och hanterar du ett Azure Cosmos DB Gremlin (Graph) API-konto från Azure Portal och lägger till data med hjälp av en python-app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 - Installations program för [python 3.5 +](https://www.python.org/downloads/) inklusive [pip](https://pip.pypa.io/en/stable/installing/) -paketet.
 - [Python-drivrutin för Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
@@ -98,7 +98,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     Kopiera den första delen av URI-värdet.
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-python/keys.png)
+    :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
 2. Öppna filen *Connect.py* och i rad 104 klistrar du in URI-värdet `<YOUR_ENDPOINT>` i här:
 
@@ -172,21 +172,21 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
 1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren**, expanderar **exempel diagram**, väljer **diagram**och väljer sedan **Använd filter**. 
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
 
 2. Lägg märke till att tre nya användare läggs till i diagrammet i **resultat** listan. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
-   ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Nya hörn i grafen i datautforskaren på Azure Portal":::
 
 3. Vi ska nu lägga till några nya användare. Välj knappen **nytt hörn** för att lägga till data i diagrammet.
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
 
 4. Ange en etikett för *person*.
 
 5. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
 
-    nyckel|värde|Obs!
+    nyckel|värde|Kommentarer
     ----|----|----
     villkor|/pk| 
     id|ashley|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
@@ -204,7 +204,7 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
-    nyckel|värde|Obs!
+    nyckel|värde|Kommentarer
     ----|----|----
     villkor|/pk| 
     id|rakesh|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
@@ -219,15 +219,15 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
 12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan knappen Redigera bredvid **mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
-    ![Ändra mål för ett hörn i en graf](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ändra mål för ett hörn i en graf":::
 
 13. I rutan **mål** skriver du *Rakesh*och i rutan **kant etikett** skriver du *vet*och markerar sedan kryss rutan.
 
-    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren":::
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-    ![Två hörn anslutna i datautforskaren](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Två hörn anslutna i datautforskaren":::
 
 Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 

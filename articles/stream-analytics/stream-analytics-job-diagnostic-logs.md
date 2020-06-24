@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 4737b8f13a3a4a1e65c4c7812bd514f76a24d2e3
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127754"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119056"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
 
@@ -59,23 +59,23 @@ Aktivitets loggarna är aktiverat som standard och ger höga insikter om åtgär
 
 Det rekommenderas starkt att du aktiverar resurs loggar och skickar dem till Azure Monitor loggar. De är **inaktiverade** som standard. Gör så här för att aktivera dem:
 
-1.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning** **väljer du diagnostikloggar.** Välj sedan **Aktivera diagnostik**.
+1.  [Skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) om du inte redan har en. Vi rekommenderar att du har din Log Analytics arbets yta i samma region som ditt Stream Analytics-jobb.
+
+2.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning** **väljer du diagnostikloggar.** Välj sedan **Aktivera diagnostik**.
 
     ![Blad navigering till resurs loggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Skapa ett **namn** i **diagnostikinställningar** och markera kryss rutan bredvid **Skicka till Log Analytics**. Lägg sedan till en befintlig eller skapa en ny **Log Analytics-arbetsyta**. Markera kryss rutorna för **körning** och **redigering** under **logg**och **AllMetrics** under **mått**. Klicka på **Spara**. Vi rekommenderar att du använder en Log Analytics arbets yta i samma Azure-region som ditt Stream Analytics jobb för att förhindra ytterligare kostnader.
+2.  Ange ett **namn** i **namn på diagnostikinställningar** och markera kryss rutorna för att **köra** och **Redigera** under **logg**och **AllMetrics** under **mått**. Välj sedan **Skicka till Log Analytics** och välj din arbets yta. Klicka på **Spara**.
 
-    ![Inställningar för resurs loggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Inställningar för resurs loggar](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. När ditt Stream Analytics jobb startar dirigeras resurs loggar till Log Analytics-arbetsytan. Om du vill visa resurs loggar för ditt jobb väljer du **loggar** i avsnittet **övervakning** .
 
    ![Resurs loggar under övervakning](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics innehåller fördefinierade frågor som gör det enkelt att söka efter de loggar som du är intresse rad av. De tre kategorierna är **allmänna**, **indata-fel** och datafel för **utdata**. Om du till exempel vill visa en sammanfattning av alla fel i jobbet under de senaste 7 dagarna kan du välja att **köra** rätt fördefinierad fråga. 
+4. Stream Analytics innehåller fördefinierade frågor som gör det enkelt att söka efter de loggar som du är intresse rad av. Du kan välja valfri fördefinierad fråga i den vänstra rutan och sedan välja **Kör**. Resultatet av frågan visas i det nedre fönstret. 
 
-   ![Resurs loggar under övervakning](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
-
-   ![Resultat från loggar](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
+   ![Resurs loggar under övervakning](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Resurs loggs kategorier
 

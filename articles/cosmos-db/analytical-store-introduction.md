@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656656"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116034"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -44,7 +44,7 @@ Analytiska arbets belastningar inkluderar vanligt vis agg regeringar och sekvent
 
 Om dina operativa tabeller till exempel är i följande format:
 
-![Exempel på drift tabell](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Exempel på drift tabell" border="false":::
 
 Rad arkivet behåller ovanstående data i ett serialiserat format, per rad, på disken. Det här formatet möjliggör snabbare transaktionella läsningar, skrivningar och operativa frågor, till exempel "returnera information om Product1". Men eftersom data mängden växer stor och om du vill köra komplexa analys frågor på data kan det vara dyrt. Om du till exempel vill hämta "försäljnings trender för en produkt under kategorin" utrustning "i olika affär senheter och månader" måste du köra en komplex fråga. Stora genomsökningar i den här data uppsättningen kan bli dyra när det gäller data flöde och kan också påverka prestandan för transaktions arbets belastningar som påverkar dina real tids program och-tjänster.
 
@@ -52,7 +52,7 @@ Analys lager, som är en kolumn lagring, passar bättre för sådana frågor eft
 
 Följande bild visar transaktions rad lagring jämfört med analytisk kolumn lagring i Azure Cosmos DB:
 
-![Transaktions rad lagring vs analytisk kolumn lagring i Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Transaktions rad lagring vs analytisk kolumn lagring i Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Frikopplad prestanda för analytiska arbets belastningar
 
@@ -168,8 +168,8 @@ Mer information finns i följande dokument:
 
 * [Azure Synapse-länk för Azure Cosmos DB](synapse-link.md)
 
-* [Kom igång med Azure Synapse-länken för Azure Cosmos DB](configure-synapse-link.md)
+* [Kom igång med Azure Synapse Link för Azure Cosmos DB](configure-synapse-link.md)
 
 * [Vanliga frågor om Synapse-länk för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Azure Synapse-länk för Azure Cosmos DB användnings fall](synapse-link-use-cases.md)
+* [Användningsfall för Azure Synapse Link för Azure Cosmos DB](synapse-link-use-cases.md)

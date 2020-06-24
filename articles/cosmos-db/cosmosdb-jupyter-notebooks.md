@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 9152bdfa9575738c853521814938cd0d7ec25efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 53725e7d4c39405e7ba47f8915e7444ce6a2167a
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657370"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118457"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB (för hands version)
 
@@ -19,11 +19,11 @@ Jupyter Notebook är ett webb program med öppen källkod som gör att du kan sk
 
 Azure Cosmos DB inbyggda antecknings böcker för Jupyter är direkt integrerade i Azure Portal och dina Azure Cosmos DB-konton, vilket gör dem praktiska och enkla att använda. Utvecklare, data forskare, ingenjörer och analytiker kan använda välbekanta Jupyter Notebooks-upplevelse för att utföra data utforskning, data rensning, data transformationer, numeriska simuleringar, statistisk modellering, data visualisering och maskin inlärning.
 
-![Jupyter Notebooks-visualiseringar i Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter Notebooks-visualiseringar i Azure Cosmos DB":::
 
 Azure Cosmos DB stöder både C#-och python-anteckningsböcker för alla API: er, inklusive Core (SQL), Cassandra, Gremlin, Table och API för MongoDB. I antecknings boken kan du dra nytta av inbyggda kommandon och funktioner som gör det enkelt att skapa Azure Cosmos DB resurser, ladda upp data och fråga och visualisera dina data i Azure Cosmos DB. 
 
-![Stöd för Jupyter Notebooks i Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Stöd för Jupyter Notebooks i Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Fördelar med Jupyter-anteckningsböcker
 

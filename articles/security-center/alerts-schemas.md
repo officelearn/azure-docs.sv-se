@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062955"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126220"
 ---
 # <a name="security-alerts-schemas"></a>Säkerhets aviserings scheman
 
@@ -140,7 +140,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 ### <a name="the-data-model-of-the-schema"></a>Data modellen för schemat
 
-|Field|Beskrivning|
+|Fält|Beskrivning|
 |----|----|
 |**kanal**|Konstant, "åtgärd"|
 |**correlationId**|Azure Security Center aviserings-ID|
@@ -171,7 +171,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 ### <a name="ms-graph-api"></a>[MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph är gatewayen till data och information i Microsoft 365. Det ger en enhetlig programmerings modell som du kan använda för att få åtkomst till den fantastiska mängden data i Office 365, Windows 10 och Enterprise Mobility + Security. Använd stora mängder data i Microsoft Graph för att bygga appar för organisationer och konsumenter som interagerar med miljon tals användare.
+Microsoft Graph är gatewayen till data och information i Microsoft 365. Det ger en enhetlig programmerings modell som du kan använda för att få åtkomst till den fantastiska mängden data i Microsoft 365, Windows 10 och Enterprise Mobility + Security. Använd stora mängder data i Microsoft Graph för att bygga appar för organisationer och konsumenter som interagerar med miljon tals användare.
 
 Schemat och en JSON-representation för säkerhets varningar som skickas till MS Graph finns i [Microsoft Graph-dokumentationen](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

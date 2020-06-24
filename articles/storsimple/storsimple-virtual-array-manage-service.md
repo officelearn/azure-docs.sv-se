@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267461"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698945"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för StorSimple Virtual Array
 
@@ -73,7 +73,7 @@ Utför följande steg för att ta bort en tjänst.
 1. Gå till **Alla resurser**. Sök efter din StorSimple Enhetshanteraren-tjänst. Välj den tjänst som du vill ta bort.
    
     ![Välj den tjänst som ska tas bort](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Gå till instrument panelen för tjänsten för att se till att det inte finns några enheter anslutna till tjänsten. Om det inte finns några enheter som är registrerade med den här tjänsten visas även ett informations meddelande för-resultatet. Klicka på **ta bort**.
+2. Gå till instrument panelen för tjänsten för att se till att det inte finns några enheter anslutna till tjänsten. Om det inte finns några enheter som är registrerade med den här tjänsten visas även ett informations meddelande för-resultatet. Klicka på **Ta bort**.
    
     ![Ta bort tjänst](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 

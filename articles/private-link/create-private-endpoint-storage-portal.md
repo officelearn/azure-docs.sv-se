@@ -4,15 +4,15 @@ description: Lär dig hur du ansluter privat till ett lagrings konto i Azure med
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ccbb685ceb406fd7a52edf793b53d9e1c32630b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115115"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737333"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ansluta privat till ett lagringskonto med hjälp av privat Azure-slutpunkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -34,23 +34,23 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroup |
-| **\<virtuell-nätverks namn>** | myVirtualNetwork          |
-| **\<region namn>**          | USA, västra centrala      |
-| **\<IPv4-adress utrymme>**   | 10.1.0.0 \ 16          |
-| **\<under näts namn>**          | mySubnet        |
-| **\<undernät-adress – intervall>** | 10.1.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | USA, västra centrala      |
+| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **beräknings** > **virtuell dator**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **beräknings**  >  **virtuell dator**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -77,7 +77,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
@@ -94,11 +94,11 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 ## <a name="create-your-private-endpoint"></a>Skapa din privata slut punkt
 I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut punkt till det. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa ett resurs** > **lagrings** > **lagrings konto**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**.
 
 1. I **skapa lagrings konto – grunderna**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -116,12 +116,12 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 5. I **skapa ett lagrings konto – nätverk**väljer du **Lägg till privat slut punkt**. 
 6. I **skapa privat slut punkt**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    |Plats|Välj **WestCentralUS**.|
+    |Location|Välj **WestCentralUS**.|
     |Name|Ange *myPrivateEndpoint*.  |
     |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
@@ -155,7 +155,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 

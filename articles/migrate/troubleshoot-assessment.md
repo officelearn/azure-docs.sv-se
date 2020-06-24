@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 18158c867ba7a3307585eab0f950d15a6a12aa7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342637"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737452"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -105,7 +105,7 @@ Azure Migrate Server utvärderingen betraktar för närvarande endast operativ S
 
 Server Assessment samlar kontinuerligt in prestandadata för lokala datorer och använder dem för att rekommendera VM-SKU:n och disk-SKU:n i Azure. [Lär dig hur](concepts-assessment-calculation.md#calculate-sizing-performance-based) prestandabaserade data samlas in.
 
-## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combintion-of-reserved-instances-vm-uptime-and-discount-"></a>Varför visar min utvärdering en varning om att den har skapats med en ogiltig combintion av reserverade instanser, VM-drift tid och rabatt (%)?
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Varför visar min utvärdering en varning om att den har skapats med en ogiltig kombination av reserverade instanser, VM-drift tid och rabatt (%)?
 När du väljer reserverade instanser, rabatten (%) och egenskaperna för den virtuella datorns drift tid är inte tillämpliga. När utvärderingen skapades med en ogiltig kombination av dessa egenskaper inaktive ras knapparna redigera och beräkna om. Skapa en ny utvärdering. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="dependency-visualization-in-azure-government"></a>Beroende visualisering i Azure Government
@@ -132,15 +132,14 @@ För virtuella Linux-datorer måste du kontrol lera att installations kommandona
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme
 
-Även om Azure Migrate ger dig möjlighet att gå tillbaka till ett visst datum under den senaste månaden, är den längsta varaktigheten som du kan visualisera beroenden en timme.
+Med agent lös beroende analys kan du visualisera beroenden eller exportera dem i en karta under en varaktighet på upp till 30 dagar.
 
-Du kan t. ex. använda funktionen tids varaktighet i beroende kartan för att Visa beroenden för igår, men du kan bara visa dem under en timmes period.
-
-Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
+Med agent-baserad beroende analys, även om Azure Migrate låter dig gå tillbaka till ett visst datum under den senaste månaden, så är den maximala varaktigheten för vilken du kan visualisera beroendena en timme. Du kan t. ex. använda funktionen tids varaktighet i beroende kartan för att Visa beroenden för igår, men du kan bara visa dem under en timmes period. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Visualiserings beroenden för > 10-datorer
 
-I Azure Migrate Server utvärdering kan du [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
+I Azure Migrate Server utvärdering, med agent beroende analys, kan du [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
+
 
 ## <a name="machines-show-install-agent"></a>Datorer visar "installera agent"
 
@@ -151,6 +150,9 @@ När du har migrerat datorer med beroende visualisering aktive rad till Azure ka
 - Datorerna kan också ha en annan IP-adress, baserat på om du har bevarat den lokala IP-adressen eller inte.
 - Om både MAC-och IP-adresser skiljer sig från lokala datorer associerar Azure Migrate inte lokala datorer med Tjänstkarta beroende data. I det här fallet visas alternativet för att installera agenten i stället för att Visa beroenden.
 - Efter en testmigrering till Azure förblir lokala datorer aktiverade som förväntat. Likvärdiga datorer som är förändrade i Azure får en annan MAC-adress och kan förvärva olika IP-adresser. Om du inte blockerar utgående Azure Monitor logg trafik från dessa datorer, kommer Azure Migrate inte att associera de lokala datorerna med några Tjänstkarta beroende data, och därför visar alternativet att installera agenter i stället för att Visa beroenden.
+
+## <a name="dependencies-export-csv-shows-unknown-process"></a>Beroenden exportera CSV visar "okänd process"
+I en agent utan beroende analys, fångas process namnen på bästa möjliga villkor. I vissa fall, även om käll-och mål server namnen och mål porten har fångats, är det inte möjligt att fastställa process namnen i båda ändar av beroendet. I sådana fall markeras processen som "okänd process".
 
 
 ## <a name="capture-network-traffic"></a>Avbilda nätverks trafik

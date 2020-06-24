@@ -2,13 +2,13 @@
 title: Lagring av container avbildning
 description: Information om hur dina Docker-behållar avbildningar lagras i Azure Container Registry, inklusive säkerhet, redundans och kapacitet.
 ms.topic: article
-ms.date: 03/21/2018
-ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/18/2020
+ms.openlocfilehash: d51014e9e0769091aba42682cce3a6a01cfa19de
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683400"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214068"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Lagrings avbildnings lagring i Azure Container Registry
 
@@ -16,7 +16,7 @@ Alla fördelar med Azure Container Registry för [Basic, standard och Premium](c
 
 ## <a name="encryption-at-rest"></a>Kryptering vid vila
 
-Alla behållar avbildningar i registret är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den direkt när du eller dina program och tjänster hämtar avbildningen.
+Alla behållar avbildningar i registret är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den direkt när du eller dina program och tjänster hämtar avbildningen. Du kan också använda ytterligare ett krypterings lager med en [kundhanterad nyckel](container-registry-customer-managed-keys.md).
 
 ## <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
 
@@ -26,19 +26,11 @@ Azure använder ett Geo-redundant lagrings schema för att skydda mot förlust a
 
 För scenarier som kräver ännu mer hög tillgänglighets säkerhet kan du överväga att använda funktionen för [geo-replikering](container-registry-geo-replication.md) i Premium register. Geo-replikering hjälper till att förlora åtkomsten till registret i händelse av ett *totalt* regionalt haveri, inte bara ett lagrings haveri. Geo-replikering ger även andra fördelar, t. ex. nätverks nära avbildnings lagring för snabbare push-meddelanden och hämtningar i distribuerade utvecklings-eller distributions scenarier.
 
-## <a name="image-limits"></a>Bild gränser
+## <a name="scalable-storage"></a>Skalbar lagring
 
-I följande tabell beskrivs behållar avbildningen och lagrings gränserna för Azure Container register.
+Med Azure Container Registry kan du skapa så många databaser, bilder, lager eller taggar som du behöver, upp till [registrets lagrings gräns](container-registry-skus.md#service-tier-features-and-limits). 
 
-| Resurs | Gräns |
-| -------- | :---- |
-| Centrallager | Obegränsad |
-| Avbildningar | Obegränsad |
-| Skikt | Obegränsad |
-| Taggar | Obegränsad|
-| Storage | 5 TB |
-
-Ett stort antal databaser och taggar kan påverka prestanda för registret. Ta regelbundet bort oanvända databaser, taggar och avbildningar som en del av din rutin för register underhåll. Borttagna register resurser som Arkiv, bilder och taggar *kan inte* återställas efter borttagning. Mer information om hur du tar bort register resurser finns [i ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
+Ett stort antal databaser och taggar kan påverka prestanda för registret. Ta regelbundet bort oanvända databaser, taggar och avbildningar som en del av din rutin för register underhåll och om du vill kan du ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest. Borttagna register resurser som lagrings platser, bilder och taggar *kan inte* återställas efter borttagning. Mer information om hur du tar bort register resurser finns [i ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Lagringskostnad
 

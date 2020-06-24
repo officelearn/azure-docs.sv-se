@@ -1,55 +1,66 @@
 ---
-title: Förbättra drifts excellencyen för dina Azure-prenumerationer med Azure Advisor
-description: Använd Advisor för att optimera och få vuxen drifts kvalitet för dina Azure-prenumerationer
+title: Förbättra drift excellency med Advisor
+description: Använd Azure Advisor för att optimera och mogna din operativa kompetens för dina Azure-prenumerationer.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 861b12c2267ffa89985ff11357de92da5a4ac870
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658448"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125403"
 ---
-# <a name="achieve-operational-excellence-with-azure-advisor"></a>Få drifts expert med Azure Advisor
+# <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Få drifts kvalitet genom att använda Azure Advisor
 
-Azure Advisor operativa rekommendationer hjälper kunden med process-och arbets flödes effektivitet, resurs hantering och bästa metoder för distribution. Du kan få de här rekommendationerna från Advisor på fliken **användnings expert** på instrument panelen för Advisor.
+Rekommendationer för drifts rekommendationer i Azure Advisor kan hjälpa dig med: 
+- Process-och arbets flödes effektivitet.
+- Resurs hantering.
+- Metod tips för distribution. 
 
-## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Skapa Azure Service Health aviseringar för att bli informerad när Azure-problem påverkar dig
+Du kan få de här rekommendationerna på fliken **användnings expert** på instrument panelens instrument panel.
 
-Vi rekommenderar att du konfigurerar Azure Service Health aviseringar för att bli informerad när problem med Azure-tjänsten påverkar dig. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnads fri tjänst som ger personlig vägledning och support när du påverkas av ett problem med en Azure-tjänst. Advisor identifierar prenumerationer som inte har konfigurerade varningar och rekommenderar att du skapar en.
+## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-problems-affect-you"></a>Skapa Azure Service Health aviseringar för att bli informerad när Azure-problem påverkar dig
+
+Vi rekommenderar att du konfigurerar Azure Service Health aviseringar så att du får ett meddelande när Azure-tjänstens problem påverkar dig. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnads fri tjänst som ger personlig vägledning och support när du påverkas av ett problem med Azure-tjänsten. Advisor identifierar prenumerationer som inte har konfigurerade varningar och rekommenderar att du konfigurerar dem.
 
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen överskrids
+## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen uppnås
 
-En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När gränsen har nåtts kan du inte skapa fler lagrings konton i samma region/prenumerations kombination. Advisor kontrollerar dina prenumerations-och ytbehandlings rekommendationer för att du ska kunna utforma färre lagrings konton för alla som är nära att nå Max gränsen.
+En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När du har nått gränsen kan du inte skapa lagrings konton i denna region/prenumerations kombination. Advisor kontrollerar dina prenumerationer och ger rekommendationer för att utforma för färre lagrings konton för regioner/prenumerationer som är nära att nå gränsen.
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Se till att du har åtkomst till Azure Cloud-experter när du behöver det
 
-När du kör en verksamhets kritisk arbets belastning är det viktigt att ha till gång till teknisk support vid behov. Advisor identifierar potentiella affärs kritiska prenumerationer som inte har teknisk support som ingår i support avtalet och rekommenderar att du uppgraderar till ett alternativ som omfattar teknisk support.
+När du kör en verksamhets kritisk arbets belastning är det viktigt att ha till gång till teknisk support när du behöver den. Advisor identifierar potentiella affärs kritiska prenumerationer som inte har teknisk support som ingår i support avtalet. Vi rekommenderar att du uppgraderar till ett alternativ som omfattar teknisk support.
 
-## <a name="delete-and-recreate-your-pool-to-remove-a-deprecated-internal-component"></a>Ta bort och återskapa poolen för att ta bort en inaktuell intern komponent
+## <a name="delete-and-re-create-your-pool-to-remove-a-deprecated-internal-component"></a>Ta bort och återskapa poolen för att ta bort en inaktuell intern komponent
 
-Poolen använder en inaktuell intern komponent. Ta bort och återskapa poolen för bättre stabilitet och prestanda.
+Om poolen använder en inaktuell intern komponent tar du bort och återskapar poolen för bättre stabilitet och prestanda.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltiga logg aviserings regler
 
-Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Loggaviseringsregler skapas i Azure Monitor och används för att köra analysfrågor enligt angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analysfrågorna kan bli ogiltiga med tiden om något ändras i de resurser, tabeller eller kommandon som det hänvisas till. Advisor rekommenderar att du korrigerar frågan i aviserings regeln för att förhindra att den automatiskt inaktive ras och att övervaknings täckningen för dina resurser i Azure används. [Läs mer om fel sökning av aviserings regler](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Du kan skapa logg aviserings regler i Azure Monitor och använda dem för att köra Analytics-frågor vid angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analys frågor kan bli ogiltiga över tid på grund av ändringar i refererade resurser, tabeller eller kommandon. Advisor rekommenderar att du korrigerar frågan i varnings regeln för att förhindra att den automatiskt inaktive ras och säkerställer övervakningen av dina resurser i Azure. [Läs mer om fel sökning av aviserings regler.](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="follow-best-practices-using-azure-policy"></a>Följ bästa praxis med Azure Policy
+## <a name="use-azure-policy-recommendations"></a>Använd Azure Policy rekommendationer
 
-Azure Policy är en tjänst i Azure som används till att skapa, tilldela och hantera principer. Dessa principer tillämpar olika regler och effekter för dina resurser. Nedan visas Azure Policy rekommendationer som hjälper dig att uppnå drifts excellency: 
-1. Hantera Taggar med Azure Policy: den här principen lägger till eller ersätter den angivna taggen och värdet när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. Detta ändrar inte heller Taggar i resurs grupper.
-2. Framtvinga krav på Geo-kompatibilitet med hjälp av Azure Policy: med principen kan du begränsa vilka platser som organisationen kan ange när resurser distribueras. 
-3. Ange tillåtna SKU: er för virtuella datorer för distributioner: med den här principen kan du ange en uppsättning virtuella dator-SKU: er som din organisation kan distribuera.
-4. Tillämpa ”Granska virtuella datorer som inte använder hanterade diskar” med Azure Policy
-5. Använd Ärv en tagg från resurs grupper med hjälp av Azure Policy: principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resurs gruppen när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd.
+Azure Policy är en tjänst i Azure som du kan använda för att skapa, tilldela och hantera principer. Dessa principer tillämpar regler och effekter på dina resurser. Följande Azure Policy rekommendationer kan hjälpa dig att uppnå operativa excellency: 
+
+**Hantera taggar.** Den här principen lägger till eller ersätter den angivna taggen och värdet när en resurs skapas eller uppdateras. Du kan åtgärda befintliga resurser genom att utlösa en reparations uppgift. Den här principen ändrar inte Taggar i resurs grupper.
+
+**Framtvinga krav på Geo-efterlevnad.** Med den här principen kan du begränsa vilka platser som organisationen kan ange när den distribuerar resurser. 
+
+**Ange tillåtna SKU: er för virtuella datorer för distributioner.** Med den här principen kan du ange en uppsättning-SKU:er för virtuella datorer som din organisation kan distribuera.
+
+**Framtvinga *granskning av virtuella datorer som inte använder hanterade diskar*.**
+
+**Aktivera *Ärv en tagg från resurs grupper*.** Den här principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resursgruppen när en resurs skapas eller uppdateras. Du kan åtgärda befintliga resurser genom att utlösa en reparations uppgift.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
-* [Komma igång](advisor-get-started.md)
-* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Kom igång](advisor-get-started.md)
+* [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
-* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+* [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)

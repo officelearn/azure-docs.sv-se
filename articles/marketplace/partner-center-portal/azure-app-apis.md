@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 1df921f26c88d29d5053914e8ccc89b9ac0f1bae
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770065"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126050"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-överförings-API till att publicera Azure-appar i Partner Center
 
@@ -29,7 +29,7 @@ Det finns några programmerings resurser som du behöver för att kunna använda
 
 Innan du börjar skriva kod som anropar API: t för partner Center-sändning kontrollerar du att du har slutfört följande krav.
 
-- Du (eller din organisation) måste ha en Azure AD-katalog och du måste ha [Global administratörs](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörighet för katalogen. Om du redan använder Office 365 eller andra företags tjänster från Microsoft har du redan Azure AD-katalogen. Annars kan du [skapa en ny Azure AD i Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) utan extra kostnad.
+- Du (eller din organisation) måste ha en Azure AD-katalog och du måste ha [Global administratörs](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörighet för katalogen. Om du redan använder Microsoft 365 eller andra företags tjänster från Microsoft har du redan Azure AD-katalogen. Annars kan du [skapa en ny Azure AD i Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) utan extra kostnad.
 
 - Du måste [associera ett Azure AD-program med ditt partner Center-konto](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) och hämta klient-ID, klient-ID och nyckel. Du behöver dessa värden för att få en Azure AD-åtkomsttoken, som du kommer att använda i anrop till Microsoft Store sändnings-API: et.
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: d60885f7dbcd090e4f2172015787bc34d4ee7bcf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832511"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100014"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -21,7 +21,7 @@ Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-res
 
 I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till användare, grupper och program i Automation-kontoomfånget. Följande är de inbyggda roller som stöds av ett Automation-konto:
 
-| **Roll** | **Beskrivning** |
+| **Role** | **Beskrivning** |
 |:--- |:--- |
 | Ägare |Ägar rollen ger till gång till alla resurser och åtgärder i ett Automation-konto, inklusive att ge åtkomst till andra användare, grupper och program för att hantera Automation-kontot. |
 | Deltagare |Med deltagarrollen kan du hantera allt, men du kan inte ändra andra användares åtkomstbehörighet till ett Automation-konto. |
@@ -43,7 +43,7 @@ I följande tabeller beskrivs de angivna behörigheterna för varje roll. Detta 
 
 En ägare kan hantera allt, inklusive åtkomst. Följande tabell visar de behörigheter som har beviljats för rollen:
 
-|Åtgärder|Description|
+|Åtgärder|Beskrivning|
 |---|---|
 |Microsoft. Automation/automationAccounts/|Skapa och hantera resurser av alla typer.|
 
@@ -254,7 +254,7 @@ I följande avsnitt beskrivs minimi kraven för de behörigheter som krävs för
 
 Uppdaterings hanteringen når över flera tjänster för att tillhandahålla tjänsten. I följande tabell visas de behörigheter som krävs för att hantera distributioner av uppdaterings hantering:
 
-|**Resurs**  |**Roll**  |**Omfång**  |
+|**Resurs**  |**Role**  |**Omfång**  |
 |---------|---------|---------|
 |Automation-konto     | Log Analytics Contributor       | Automation-konto        |
 |Automation-konto    | Virtuell datordeltagare        | Resurs grupp för kontot        |
@@ -283,7 +283,7 @@ I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via
 
 3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
-   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Lägg till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
    Nu bör du se användaren som har lagts till på sidan användare med den valda rollen tilldelad.
 
@@ -404,7 +404,7 @@ $userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from 
 $aa = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
 
 # Get the Runbook resource
-$rb = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+$rb = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$rbName"
 
 # The Automation Job Operator role only needs to be run once per user.
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId

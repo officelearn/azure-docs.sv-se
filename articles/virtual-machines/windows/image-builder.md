@@ -3,28 +3,33 @@ title: Skapa en virtuell Windows-dator med Azure Image Builder (för hands versi
 description: Skapa en virtuell Windows-dator med Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 07/31/2019
+ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 269b2f4674f2c99fc438c1a7be65e5660ca58d08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa1f6bcc6c91a493225726bc0df60d2d0b4a1e3
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869498"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119196"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>För hands version: skapa en virtuell Windows-dator med Azure Image Builder
 
 Den här artikeln visar hur du kan skapa en anpassad Windows-avbildning med hjälp av Image Builder för Azure VM. I exemplet i den här artikeln används [anpassningar](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) för att anpassa avbildningen:
 - PowerShell (ScriptUri) – Hämta och kör ett [PowerShell-skript](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows-omstart – startar om den virtuella datorn.
-- PowerShell (infogat) – kör ett speciellt kommando. I det här exemplet skapar den en katalog på den virtuella datorn `mkdir c:\\buildActions`med hjälp av.
-- Fil – Kopiera en fil från GitHub till den virtuella datorn. I det här [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) exemplet kopieras `c:\buildArtifacts\index.html` index.MD till på den virtuella datorn.
+- PowerShell (infogat) – kör ett speciellt kommando. I det här exemplet skapar den en katalog på den virtuella datorn med hjälp av `mkdir c:\\buildActions` .
+- Fil – Kopiera en fil från GitHub till den virtuella datorn. I det här exemplet kopieras [index.MD](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) till `c:\buildArtifacts\index.html` på den virtuella datorn.
+- buildTimeoutInMinutes – öka en Bygg tid för att tillåta längre versioner av versioner. standardvärdet är 240 minuter, och du kan öka Bygg tiden för att kunna köra versioner längre.
+- vmProfile – ange en vmSize och nätverks egenskaper
+- osDiskSizeGB – du kan öka bild storleken
+- identitet – tillhandahåller en identitet för Azure Image Builder som ska användas under versionen
 
-Du kan också ange en `buildTimeoutInMinutes`. Standardvärdet är 240 minuter, och du kan öka Bygg tiden för att kunna köra versioner längre.
 
-Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateWin. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
+Du kan också ange en `buildTimeoutInMinutes` . Standardvärdet är 240 minuter, och du kan öka Bygg tiden för att kunna köra versioner längre.
+
+Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateWin.jspå](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
 > [!IMPORTANT]
@@ -50,7 +55,8 @@ Kontrol lera registreringen.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -58,9 +64,11 @@ Om de inte säger att de är registrerade kör du följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
+
 
 ## <a name="set-variables"></a>Ange variabler
 
@@ -80,7 +88,7 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med hjälp av `az account show | grep id` .
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -93,18 +101,41 @@ Den här resurs gruppen används för att lagra bild konfigurations mal len arte
 az group create -n $imageResourceGroup -l $location
 ```
 
-## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resurs gruppen
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Skapa en användardefinierad identitet och ange behörigheter för resurs gruppen
+Image Builder använder den [användar identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) som tillhandahölls för att mata in avbildningen i resurs gruppen. I det här exemplet ska du skapa en Azure-roll definition som innehåller detaljerade åtgärder för att distribuera avbildningen. Roll definitionen tilldelas sedan till användar identiteten.
 
-Ge avbildnings verktyget deltagare behörighet att skapa avbildningen i resurs gruppen. Utan detta fungerar inte avbildnings versionen. 
+## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>Skapa användare som tilldelats hanterad identitet och bevilja behörigheter 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $idenityName
 
-`--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
+# get identity id
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
 
-```azurecli-interactive
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# download preconfigured role definition example
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
+    --assignee $imgBuilderCliId \
+    --role $imageRoleDefName \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
+
 
 
 ## <a name="download-the-image-configuration-template-example"></a>Hämta exempel på en mall för avbildnings konfiguration
@@ -119,18 +150,19 @@ sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
 
 ```
 
-Du kan ändra det här exemplet i terminalen med hjälp av en text `vi`redigerare som.
+Du kan ändra det här exemplet i terminalen med hjälp av en text redigerare som `vi` .
 
 ```azurecli-interactive
-vi helloImageTemplateLinux.json
+vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan använda `latest`.
-> Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras till, måste du [ange behörigheterna](#set-permissions-on-the-resource-group) för resurs gruppen.
+> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan använda `latest` .
+> Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras till, måste du [ange behörigheterna](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) för resurs gruppen.
  
 ## <a name="create-the-image"></a>Skapa avbildningen
 
@@ -145,7 +177,7 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-När det är klart returneras ett meddelande till konsolen och du kan skapa en `Image Builder Configuration Template` i. `$imageResourceGroup` Du kan se den här resursen i resurs gruppen i Azure Portal om du aktiverar Visa dolda typer.
+När det är klart returneras ett meddelande till konsolen och du kan skapa en `Image Builder Configuration Template` i `$imageResourceGroup` . Du kan se den här resursen i resurs gruppen i Azure Portal om du aktiverar Visa dolda typer.
 
 I bakgrunden skapar Image Builder också en resurs grupp för mellanlagring i din prenumeration. Den här resurs gruppen används för avbildnings versionen. Formatet är i följande format:`IT_<DestinationResourceGroup>_<TemplateName>`
 
@@ -181,7 +213,7 @@ Om du stöter på några fel kan du läsa följande [fel söknings](https://gith
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa den virtuella datorn med den avbildning som du har skapat. Ersätt * \<Password>* med ditt eget lösen ord för `aibuser` den virtuella datorn.
+Skapa den virtuella datorn med den avbildning som du har skapat. Ersätt *\<password>* med ditt eget lösen ord för `aibuser` på den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
@@ -216,6 +248,18 @@ az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateWin01
+```
+
+### <a name="delete-the-role-assignment-role-definition-and-user-identity"></a>Ta bort roll tilldelningen, roll definitionen och användar identiteten.
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
 ```
 
 ### <a name="delete-the-image-resource-group"></a>Ta bort avbildnings resurs gruppen

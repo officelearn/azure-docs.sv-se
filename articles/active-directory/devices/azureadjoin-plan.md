@@ -4,19 +4,19 @@ description: Förklarar de steg som krävs för att implementera Azure AD-anslut
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17e6660548084d64fce38617ba4e80ccf197f3d3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672686"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253077"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -104,7 +104,7 @@ Azure AD-anslutning:
 
 - Gäller endast för Windows 10-enheter. 
 - Gäller inte tidigare versioner av Windows eller andra operativ system. Om du har Windows 7/8.1-enheter måste du uppgradera till Windows 10 för att distribuera Azure AD Join.
-- Stöds inte på enheter med TPM i FIPS-läge.
+- Stöds för FIPS-kompatibla TPM 2,0 men stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med Azure AD Join. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp.
  
 **Rekommendation:** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
 
@@ -185,6 +185,8 @@ Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på dato
 
 Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att värddatorn antingen är Azure AD-ansluten eller hybrid Azure AD-ansluten. Fjärr skrivbord från en frånkopplad eller icke-Windows-enhet stöds inte. Mer information finns i [ansluta till en fjärran sluten Azure AD-ansluten dator](/windows/client-management/connect-to-remote-aadj-pc)
 
+Genom att starta Windows 10 2004-uppdateringen kan användare ALO använda fjärr skrivbord från en Azure AD-registrerad Windows 10-enhet till en Azure AD-ansluten enhet. 
+
 ## <a name="understand-your-provisioning-options"></a>Förstå dina etablerings alternativ
 
 Du kan etablera Azure AD Join med hjälp av följande metoder:
@@ -200,8 +202,8 @@ Här är en jämförelse av dessa tre metoder
 | Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
 | Kräv IT-ansträngning | Inga | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
-| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbar | Inga |
-| Kräv enhets-OEM-support | Inga | Ja | Inga |
+| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbar | No |
+| Kräv enhets-OEM-support | Inga | Yes | Inga |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
@@ -217,7 +219,7 @@ Välj distributions metod eller-metoder genom att granska tabellen ovan och gran
 
 ## <a name="configure-your-device-settings"></a>Konfigurera enhets inställningar
 
-Med Azure Portal kan du styra distributionen av Azure AD-anslutna enheter i din organisation. Om du vill konfigurera de relaterade inställningarna väljer `Devices > Device settings`du på **sidan Azure Active Directory**.
+Med Azure Portal kan du styra distributionen av Azure AD-anslutna enheter i din organisation. Om du vill konfigurera de relaterade inställningarna väljer du på **sidan Azure Active Directory** `Devices > Device settings` .
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Användare kan ansluta enheter till Azure AD
 
@@ -243,7 +245,7 @@ Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga ti
 
 **Så här lägger du till en MDM-Provider**:
 
-1. På **sidan Azure Active Directory**går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)`. 
+1. På **sidan Azure Active Directory**går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)` . 
 1. Klicka på **Lägg till program**.
 1. Välj MDM-providern i listan.
 
@@ -295,8 +297,8 @@ Du kan använda den här implementeringen för att [kräva hanterade enheter fö
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anslut en ny Windows 10-enhet med Azure AD under en första körning](azuread-joined-devices-frx.md)
-> [ansluta din arbets enhet till din organisations nätverk](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Anslut en ny Windows 10-enhet med Azure AD under en första körning](azuread-joined-devices-frx.md) 
+>  [Anslut din arbets enhet till din organisations nätverk](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

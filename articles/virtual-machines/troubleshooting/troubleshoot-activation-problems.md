@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 820fe016d630e63660368c9065acbcda9b514921
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858607"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736942"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka aktiveringsproblem med virtuella Azure Windows-datorer
 
@@ -92,7 +92,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
 4. Kontrollera att du är ansluten till KMS-servern med hjälp av Psping. Växla till den mapp där du extraherade Pstools.zip-nedladdningen och kör sedan följande:
   
     ```
-    \psping.exe kms.core.windows.net:1688
+    .\psping.exe kms.core.windows.net:1688
     ```
    Se till att du ser på den andra raden av utdata: skickat = 4, mottaget = 4, förlorat = 0 (0% förlust).
 

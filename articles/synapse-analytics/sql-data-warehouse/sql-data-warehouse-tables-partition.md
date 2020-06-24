@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742685"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213932"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionerings tabeller i Synapse SQL-pool
 
@@ -157,7 +157,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 ```
 
-Följande fråga hittar antalet rader genom att `sys.partitions` använda vyn katalog:
+Följande fråga hittar antalet rader genom att använda `sys.partitions` vyn katalog:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Allt som återstår är att justera data till de nya gränserna med `CTAS`och sedan växla tillbaka data till huvud tabellen.
+Allt som återstår är att justera data till de nya gränserna med `CTAS` och sedan växla tillbaka data till huvud tabellen.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -237,7 +237,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Läs in nya data i partitioner som innehåller data i ett steg
 
-Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  Om du vill ta bort befintliga data i en partition måste `ALTER TABLE` du använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I Synapse SQL-poolen stöds `TRUNCATE_TARGET` alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
+Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  Om du vill ta bort befintliga data i en partition måste du `ALTER TABLE` använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I Synapse SQL-poolen `TRUNCATE_TARGET` stöds alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655828"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124553"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Skicka gäst operativ systemets mått till Azure Monitor Metrics-databasen för en virtuell Windows-dator (klassisk)
 
@@ -48,7 +48,7 @@ Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Skapa en tjänst princip i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvud namn för tjänsten](../../active-directory/develop/howto-create-service-principal-portal.md). Tänk på följande när du går igenom den här processen: 
+Skapa ett huvud namn för tjänsten i din Azure Active Directory klient genom att följa anvisningarna i [skapa ett huvud namn för tjänsten](../../active-directory/develop/howto-create-service-principal-portal.md). Tänk på följande när du går igenom den här processen: 
 - Skapa ny klient hemlighet för den här appen.
 - Spara nyckeln och klient-ID: t för användning i senare steg.
 

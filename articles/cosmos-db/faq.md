@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834921"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213099"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Först måste du registrera dig för en Azure-prenumeration. När du har registr
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Kan jag komma åt några färdiga exempel för att få en första start?
 
-Exempel på SQL API [.net](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node. js](sql-api-nodejs-samples.md)och [python](sql-api-python-samples.md) SDK: er finns på GitHub.
+Exempel på SQL API [.net](sql-api-dotnet-samples.md)-, [Java](https://github.com/Azure/azure-documentdb-java)-, [Node.js](sql-api-nodejs-samples.md)-och [python](sql-api-python-samples.md) SDK: er finns på GitHub.
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>Stöder SQL-API-databasen schema fria data?
 
@@ -152,7 +152,7 @@ Ja, SQL-API: et stöder transaktioner mellan dokument, uttryckt som JavaScript-l
 
 En behållare är en grupp med dokument och deras associerade JavaScript-programlogik. En behållare är en fakturerbar entitet där [kostnaden](performance-levels.md) bestäms av data flödet och det använda lagrings utrymmet. Behållare kan omfatta en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller data flöde.
 
-* För SQL API mappar en behållare till en behållare.
+* För SQL API kallas resursen för en behållare.
 * För Cosmos DB s API för MongoDB-konton mappar en behållare till en samling.
 * För Cassandra-och Tabell-API-konton mappar en behållare till en tabell.
 * För Gremlin-API-konton mappar en behållare till en graf.

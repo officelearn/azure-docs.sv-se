@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 03/18/2020
-ms.openlocfilehash: e61bc750a06fb041e97def842e81fd62b614fcf6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/10/2020
+ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982164"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735207"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
 
@@ -37,13 +37,13 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure Portal](https://portal.azure.com). 
-1. Från Azure Portal-menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
+1. Från Azure Portal-menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
 
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel ** &lt;dittnamn&gt;ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel ** &lt; dittnamn &gt; ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/doc-common-process/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -90,7 +90,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 
 1. Gör följande på sidan för att **välja indatafil eller -mapp**:
 
-   a. Klicka på **Bläddra** för att navigera till mappen **adftutorial/indata** , välj filen **EMP. txt** och klicka sedan på **Välj**. 
+   a. Klicka på **Bläddra** för att navigera till mappen **adftutorial/indata** , Välj **emp.txt** -filen och klicka sedan på **Välj**. 
 
    d. Markera kryss rutan **binär kopia** om du vill kopiera filen som den är och välj sedan **Nästa**. 
 

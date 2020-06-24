@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: be9e396a778b81e730906e4a6971505e164dfa43
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 06/11/2020
+ms.openlocfilehash: 48e23aa8cf20dd1225d3d7774d9703b960e0155a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636724"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737894"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -32,6 +32,9 @@ Funktionen Läs replik använder PostgreSQL asynkron replikering. Funktionen är
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
+
+>[!NOTE]
+> Basic-nivå servrar stöder bara replikering med samma region.
 
 Du kan ha en huvud server i valfri [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner. I bilden nedan visas vilka replik regioner som är tillgängliga beroende på din huvud region.
 
@@ -142,7 +145,7 @@ När du har valt att du vill redundansväxla till en replik,
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
@@ -171,6 +174,9 @@ PostgreSQL kräver att värdet för `max_connections` parametern på Läs replik
 Om du försöker uppdatera de Server värden som beskrivs ovan, men inte följer gränserna, får du ett fel meddelande.
 
 Brand Väggs regler, regler för virtuella nätverk och parameter inställningar ärvs inte från huvud servern till repliken när repliken skapas eller efteråt.
+
+### <a name="basic-tier"></a>Basic-nivå
+Basic-nivå servrar stöder bara replikering med samma region.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [Postgresql kräver](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) att värdet för `max_prepared_transactions` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. Om du vill ändra `max_prepared_transactions` i huvud repliken måste du först ändra den på replikerna.

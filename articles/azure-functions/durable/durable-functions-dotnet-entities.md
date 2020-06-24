@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278134"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125488"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
 
@@ -31,7 +31,7 @@ Den här artikeln fokuserar främst på den klassbaserade syntaxen, eftersom vi 
  
 ## <a name="defining-entity-classes"></a>Definiera enhets klasser
 
-Följande exempel är en `Counter` implementering av en entitet som lagrar ett enda värde av typen heltal, och erbjuder fyra åtgärder `Add`, `Reset`, `Get`och. `Delete`
+Följande exempel är en implementering av en `Counter` entitet som lagrar ett enda värde av typen heltal, och erbjuder fyra åtgärder `Add` , `Reset` , `Get` och `Delete` .
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -67,10 +67,10 @@ public class Counter
 }
 ```
 
-`Run` Funktionen innehåller den standard som krävs för att använda den klassbaserade syntaxen. Det måste vara en *statisk* Azure-funktion. Den körs en gång för varje åtgärds meddelande som bearbetas av entiteten. När `DispatchAsync<T>` anropas och entiteten inte redan finns i minnet, konstrueras ett objekt av typen `T` och fyller i fälten från den senast beständiga JSON som finns i lagrings utrymmet (om det finns några). Sedan anropas metoden med det matchande namnet.
+`Run`Funktionen innehåller den standard som krävs för att använda den klassbaserade syntaxen. Det måste vara en *statisk* Azure-funktion. Den körs en gång för varje åtgärds meddelande som bearbetas av entiteten. När `DispatchAsync<T>` anropas och entiteten inte redan finns i minnet, konstrueras ett objekt av typen `T` och fyller i fälten från den senast beständiga JSON som finns i lagrings utrymmet (om det finns några). Sedan anropas metoden med det matchande namnet.
 
 > [!NOTE]
-> Statusen för en klassbaserade entitet **skapas implicit** innan enheten bearbetar en åtgärd och kan tas **bort explicit** i en åtgärd genom att anropa `Entity.Current.DeleteState()`.
+> Statusen för en klassbaserade entitet **skapas implicit** innan enheten bearbetar en åtgärd och kan tas **bort explicit** i en åtgärd genom att anropa `Entity.Current.DeleteState()` .
 
 ### <a name="class-requirements"></a>Klass krav
  
@@ -82,14 +82,14 @@ Enhets klasser är POCOs (vanliga gamla CLR-objekt) som inte kräver några sär
 Dessutom måste alla metoder som är avsedda att anropas som en åtgärd uppfylla ytterligare krav:
 
 - En åtgärd måste ha högst ett argument och får inte ha några Överlagrings-eller generiska typ argument.
-- En åtgärd som är avsedd att anropas från ett dirigering med ett gränssnitt måste `Task` returnera `Task<T>`eller.
+- En åtgärd som är avsedd att anropas från ett dirigering med ett gränssnitt måste returnera `Task` eller `Task<T>` .
 - Argument och retur värden måste vara serialiserbara värden eller objekt.
 
 ### <a name="what-can-operations-do"></a>Vad kan åtgärder göra?
 
 Alla entitets åtgärder kan läsa och uppdatera enhetens tillstånd, och ändringar i statusen sparas automatiskt till lagringen. Dessutom kan åtgärder utföra externa I/O eller andra beräkningar inom de allmänna gränser som är gemensamma för alla Azure Functions.
 
-Åtgärder har också till gång till funktioner som tillhandahålls `Entity.Current` av kontexten:
+Åtgärder har också till gång till funktioner som tillhandahålls av `Entity.Current` kontexten:
 
 * `EntityName`: namnet på entiteten som körs för tillfället.
 * `EntityKey`: nyckeln för entiteten som körs för tillfället.
@@ -103,9 +103,9 @@ Vi kan till exempel ändra entiteten Counter så att den startar en dirigering n
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -153,7 +153,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> Objektet som returnerades `ReadEntityStateAsync` av är bara en lokal kopia, det vill säga en ögonblicks bild av enhets statusen från en tidigare tidpunkt. I synnerhet kan det vara inaktuellt, och om du ändrar det här objektet påverkas inte den faktiska entiteten. 
+> Objektet som returnerades av `ReadEntityStateAsync` är bara en lokal kopia, det vill säga en ögonblicks bild av enhets statusen från en tidigare tidpunkt. I synnerhet kan det vara inaktuellt, och om du ändrar det här objektet påverkas inte den faktiska entiteten. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity"></a>Exempel: Orchestration First Signals och anropar sedan entiteten
 
@@ -203,7 +203,7 @@ Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en 
 
 ### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter `TEntityInterface`som implementerar. Ett exempel:
+Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface` . Ett exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,11 +218,11 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-I det här exemplet är `proxy` parametern en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Delete` en signal.
+I det här exemplet `proxy` är parametern en dynamiskt genererad instans av `ICounter` , som internt översätter anropet till `Delete` en signal.
 
 > [!NOTE]
-> `SignalEntityAsync` API: erna kan endast användas för enkelriktade åtgärder. Även om en åtgärd returnerar `Task<T>`, kommer värdet för `T` parametern alltid vara null eller `default`, inte det faktiska resultatet.
-Det är till exempel inte meningsfullt att signalera `Get` åtgärden, eftersom inget värde returneras. Klienter kan i stället använda antingen `ReadStateAsync` för att få åtkomst till räknarens tillstånd direkt, eller så kan starta en Orchestrator `Get` -funktion som anropar åtgärden. 
+> `SignalEntityAsync`API: erna kan endast användas för enkelriktade åtgärder. Även om en åtgärd returnerar `Task<T>` , kommer värdet för `T` parametern alltid vara null eller `default` , inte det faktiska resultatet.
+Det är till exempel inte meningsfullt att signalera `Get` åtgärden, eftersom inget värde returneras. Klienter kan i stället använda antingen `ReadStateAsync` för att få åtkomst till räknarens tillstånd direkt, eller så kan starta en Orchestrator-funktion som anropar `Get` åtgärden. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Exempel: dirigerar första signaler och anropar sedan entitet via proxy
 
@@ -246,7 +246,7 @@ public static async Task<int> Run(
 }
 ```
 
-Implicit, alla åtgärder som returnerar `void` signaleras och alla åtgärder som returnerar `Task` eller `Task<T>` anropas. En kan ändra det här standard beteendet, och signal åtgärder även om de returnerar uppgiften, genom `SignalEntity<IInterfaceType>` att använda metoden explicit.
+Implicit, alla åtgärder som returnerar `void` signaleras och alla åtgärder som returnerar `Task` eller `Task<T>` anropas. En kan ändra det här standard beteendet, och signal åtgärder även om de returnerar uppgiften, genom att använda `SignalEntity<IInterfaceType>` metoden explicit.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>Kortare alternativ för att ange målet
 
@@ -257,7 +257,7 @@ context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-Om endast enhets nyckeln har angetts och det inte går att hitta en unik implementering vid `InvalidOperationException` körning, utlöses. 
+Om endast enhets nyckeln har angetts och det inte går att hitta en unik implementering vid körning, `InvalidOperationException` utlöses. 
 
 ### <a name="restrictions-on-entity-interfaces"></a>Begränsningar för enhets gränssnitt
 
@@ -267,12 +267,12 @@ Vi tillämpar också vissa ytterligare regler:
 * Enhets gränssnitt får bara definiera metoder.
 * Enhets gränssnitt får inte innehålla generiska parametrar.
 * Enhets gränssnitts metoder får inte ha mer än en parameter.
-* Entitets gränssnitts metoder `void`måste `Task`returnera, eller`Task<T>` 
+* Entitets gränssnitts metoder måste returnera `void` , `Task` eller`Task<T>` 
 
-Om någon av dessa regler överträds utlöses `InvalidOperationException` en vid körning när gränssnittet används som ett typ argument till `SignalEntity` eller. `CreateProxy` I undantags meddelandet förklaras vilken regel som har brutits.
+Om någon av dessa regler överträds `InvalidOperationException` utlöses en vid körning när gränssnittet används som ett typ argument till `SignalEntity` eller `CreateProxy` . I undantags meddelandet förklaras vilken regel som har brutits.
 
 > [!NOTE]
-> Gränssnitts metoder `void` som returneras kan bara signaleras (envägs), inte anropas (dubbelriktat). Gränssnitts metoder `Task` returnerar `Task<T>` eller kan antingen anropas eller signaleras. Om den anropas, returnerar de resultatet av åtgärden eller återskapar undantag som har utlösts av åtgärden. Men när en signal skickas returnerar de inte det faktiska resultatet eller undantaget från åtgärden, utan bara standardvärdet.
+> Gränssnitts metoder som returneras `void` kan bara signaleras (envägs), inte anropas (dubbelriktat). Gränssnitts metoder returnerar `Task` eller `Task<T>` kan antingen anropas eller signaleras. Om den anropas, returnerar de resultatet av åtgärden eller återskapar undantag som har utlösts av åtgärden. Men när en signal skickas returnerar de inte det faktiska resultatet eller undantaget från åtgärden, utan bara standardvärdet.
 
 ## <a name="entity-serialization"></a>Enhets serialisering
 
@@ -331,11 +331,11 @@ public class Counter
 }
 ```
 
-Som standard lagras *inte* namnet på klassen som en del av JSON-representationen: det vill säga att vi använder `TypeNameHandling.None` standardinställningen. Det här standard beteendet kan åsidosättas `JsonObject` med `JsonProperty` eller-attribut.
+Som standard lagras *inte* namnet på klassen som en del av JSON-representationen: det vill säga att vi använder `TypeNameHandling.None` standardinställningen. Det här standard beteendet kan åsidosättas med `JsonObject` eller- `JsonProperty` attribut.
 
 ### <a name="making-changes-to-class-definitions"></a>Göra ändringar i klass definitioner
 
-En del Försiktighet krävs när du gör ändringar i en klass definition efter att ett program har körts, eftersom det inte längre är säkert att det lagrade JSON-objektet matchar den nya klass definitionen. Det är ofta möjligt att hantera korrekt ändring av data format så länge en som är en förståelse för deserialiseringen som används av `JsonConvert.PopulateObject`.
+En del Försiktighet krävs när du gör ändringar i en klass definition efter att ett program har körts, eftersom det inte längre är säkert att det lagrade JSON-objektet matchar den nya klass definitionen. Det är ofta möjligt att hantera korrekt ändring av data format så länge en som är en förståelse för deserialiseringen som används av `JsonConvert.PopulateObject` .
 
 Här följer några exempel på ändringar och deras inverkan:
 
@@ -345,7 +345,7 @@ Här följer några exempel på ändringar och deras inverkan:
 1. Om typen för en egenskap ändras så att den inte längre kan avserialiseras från den lagrade JSON-filen genereras ett undantag.
 1. Om typen för en egenskap ändras, men den fortfarande kan avserialiseras från den lagrade JSON-filen, kommer den att göra det.
 
-Det finns många tillgängliga alternativ för att anpassa beteendet för Json.NET. Om du till exempel vill framtvinga ett undantag om den lagrade JSON-filen innehåller ett fält som inte finns i klassen, anger du `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`attributet. Det är också möjligt att skriva anpassad kod för deserialisering som kan läsa JSON som lagras i godtyckligt format.
+Det finns många tillgängliga alternativ för att anpassa beteendet för Json.NET. Om du till exempel vill framtvinga ett undantag om den lagrade JSON-filen innehåller ett fält som inte finns i klassen, anger du attributet `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)` . Det är också möjligt att skriva anpassad kod för deserialisering som kan läsa JSON som lagras i godtyckligt format.
 
 ## <a name="entity-construction"></a>Enhets konstruktion
 
@@ -353,7 +353,7 @@ Ibland vill vi utöva mer kontroll över hur enhets objekt konstrueras. Nu beskr
 
 ### <a name="custom-initialization-on-first-access"></a>Anpassad initiering vid första åtkomst
 
-Ibland behöver vi utföra vissa särskilda initieringar innan de skickar en åtgärd till en entitet som aldrig har använts, eller som har tagits bort. Om du vill ange det här beteendet kan du lägga till `DispatchAsync`ett villkor före:
+Ibland behöver vi utföra vissa särskilda initieringar innan de skickar en åtgärd till en entitet som aldrig har använts, eller som har tagits bort. Om du vill ange det här beteendet kan du lägga till ett villkor före `DispatchAsync` :
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -369,7 +369,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="bindings-in-entity-classes"></a>Bindningar i entitets klasser
 
-Till skillnad från vanliga funktioner har klass metoder för entiteter inte direkt åtkomst till indata-och utgående bindningar. I stället måste bindnings data samlas in i deklarationen för ingångs punkt funktionen och sedan `DispatchAsync<T>` skickas till-metoden. Alla objekt som skickas `DispatchAsync<T>` till skickas automatiskt till konstruktorn för entity-klassen som ett argument.
+Till skillnad från vanliga funktioner har klass metoder för entiteter inte direkt åtkomst till indata-och utgående bindningar. I stället måste bindnings data samlas in i deklarationen för ingångs punkt funktionen och sedan skickas till- `DispatchAsync<T>` metoden. Alla objekt som skickas till `DispatchAsync<T>` skickas automatiskt till konstruktorn för entity-klassen som ett argument.
 
 I följande exempel visas hur en `CloudBlobContainer` referens från [BLOB-databindningen](../functions-bindings-storage-blob-input.md) kan göras tillgänglig för en klass baserad entitet.
 
@@ -450,7 +450,7 @@ public class HttpEntity
 > Undvik problem med serialisering genom att undanta fält som är avsedda att lagra inmatade värden från serialiseringen.
 
 > [!NOTE]
-> Till skillnad från när du använder konstruktorn för att använda konstruktorn i vanliga .NET-Azure Functions, *måste* funktions plats metoden Functions för klassbaserade entiteter deklareras `static`. Om du deklarerar en icke-statisk funktions start punkt kan det orsaka konflikter mellan den normala Azure Functions objekt initieraren och den varaktiga entitetens objekt initierare.
+> Till skillnad från när du använder konstruktorn för att använda konstruktorn i vanliga .NET-Azure Functions, *måste* funktions plats metoden Functions för klassbaserade entiteter deklareras `static` . Om du deklarerar en icke-statisk funktions start punkt kan det orsaka konflikter mellan den normala Azure Functions objekt initieraren och den varaktiga entitetens objekt initierare.
 
 ## <a name="function-based-syntax"></a>Function-baserad syntax
 
@@ -482,7 +482,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>Entitetens kontext objekt
 
-Entitet-/regionsspecifika funktioner kan nås via ett kontext objekt av typen `IDurableEntityContext`. Detta kontext objekt är tillgängligt som en parameter för entitet-funktionen och via den asynkrona lokala egenskapen `Entity.Current`.
+Entitet-/regionsspecifika funktioner kan nås via ett kontext objekt av typen `IDurableEntityContext` . Detta kontext objekt är tillgängligt som en parameter för entitet-funktionen och via den asynkrona lokala egenskapen `Entity.Current` .
 
 Följande medlemmar ger information om den aktuella åtgärden och gör det möjligt för oss att ange ett retur värde. 
 
@@ -500,7 +500,7 @@ Följande medlemmar hanterar status för entiteten (skapa, läsa, uppdatera, ta 
 * `SetState(arg)`: skapar eller uppdaterar status för entiteten.
 * `DeleteState()`: tar bort status för entiteten, om den finns. 
 
-Om det tillstånd som returneras `GetState` av är ett objekt, kan det ändras direkt av program koden. Du behöver inte anropa `SetState` igen i slutet (men inte heller någon skada). Om `GetState<TState>` anropas flera gånger måste samma typ användas.
+Om det tillstånd som returneras av `GetState` är ett objekt, kan det ändras direkt av program koden. Du behöver inte anropa `SetState` igen i slutet (men inte heller någon skada). Om `GetState<TState>` anropas flera gånger måste samma typ användas.
 
 Slutligen används följande medlemmar för att signalera andra entiteter eller starta nya dirigeringar:
 

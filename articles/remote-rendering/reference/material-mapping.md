@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680393"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783018"
 ---
 # <a name="material-mapping-for-model-formats"></a>Materialmappning för modellformat
 
@@ -43,18 +43,17 @@ Följande tabell visar mappningen:
 |   emissiveFactor    |   -                        |
 |   emissiveTexture   |   -                        |
 
-Varje textur i glTF kan ha ett `texCoord` värde som också stöds i Azure-fjärråter givnings material.
+Varje textur i glTF kan ha ett `texCoord` värde som också stöds i Azure-Fjärråter givnings material.
 
 ### <a name="embedded-textures"></a>Inbäddade texturer
 
-Texturer som är inbäddade i * \*. bin* -eller * \*. GLB* -filer stöds.
+Texturer som är inbäddade i * \* . bin* -eller * \* . GLB* -filer stöds.
 
 ### <a name="supported-gltf-extension"></a>GlTF-tillägg som stöds
 
 Förutom bas funktions uppsättningen stöder Azure-fjärråter givning följande glTF-tillägg:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): motsvarar [färg material](../overview/features/color-materials.md). För *emissive* material rekommenderar vi att du använder det här tillägget.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): i stället för metallisk – tuffa strukturer kan du tillhandahålla diffuse-spegel-glossiness texturer. Implementeringen av Azure-fjärrrenderingen följer direkt konverterings formlerna från tillägget.
 
@@ -102,10 +101,10 @@ Mappningen ovan är den mest komplexa delen av material omvandlingen, på grund 
 Vissa definitioner som används nedan:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Röd ∗ 0,2125 + `Specular`. Grönt ∗ 0,7154 + `Specular`. Blå ∗ 0,0721
-* `DiffuseBrightness`= 0,299 * `Diffuse`. Röd<sup>2</sup> + 0,587 * `Diffuse`. Grön<sup>2</sup> + 0,114 * `Diffuse`. Blå<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular`. Röd<sup>2</sup> + 0,587 * `Specular`. Grön<sup>2</sup> + 0,114 * `Specular`. Blå<sup>2</sup>
-* `SpecularStrength`= Max (`Specular`. Röd, `Specular`. Grönt, `Specular`. Blåskärm
+* `SpecularIntensity` = `Specular`. Röd ∗ 0,2125 + `Specular` . Grönt ∗ 0,7154 + `Specular` . Blå ∗ 0,0721
+* `DiffuseBrightness`= 0,299 * `Diffuse` . Röd<sup>2</sup> + 0,587 * `Diffuse` . Grön<sup>2</sup> + 0,114 * `Diffuse` . Blå<sup>2</sup>
+* `SpecularBrightness`= 0,299 * `Specular` . Röd<sup>2</sup> + 0,587 * `Specular` . Grön<sup>2</sup> + 0,114 * `Specular` . Blå<sup>2</sup>
+* `SpecularStrength`= Max ( `Specular` . Röd, `Specular` . Grönt, `Specular` . Blåskärm
 
 SpecularIntensity-formeln hämtas [härifrån](https://en.wikipedia.org/wiki/Luma_(video)).
 Formeln för ljus styrka beskrivs i den här [specifikationen](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
@@ -139,10 +138,10 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`beräknas från `Diffuse`, `Specular`och. `Metalness`
+`Albedo`beräknas från `Diffuse` , `Specular` och `Metalness` .
 
 Som det beskrivs i avsnittet Metallhet, dielectric ytorna runt 4% av ljuset.  
-Idén här är att du linjärt `Dielectric` interpolerar `Metal` mellan och `Metalness` färger med värde som en faktor. Om det är något `0.0`som är så är det, beroende på speglad kvalitet, antingen en mörk färg (om spegeln är hög) eller om diffusionen inte ändras (om det inte finns någon spegel). Om metal är ett stort värde försvinner den diffusa färgen för att spegla färg.
+Idén här är att du linjärt interpolerar mellan `Dielectric` och `Metal` färger med `Metalness` värde som en faktor. Om det är något som är `0.0` så är det, beroende på speglad kvalitet, antingen en mörk färg (om spegeln är hög) eller om diffusionen inte ändras (om det inte finns någon spegel). Om metal är ett stort värde försvinner den diffusa färgen för att spegla färg.
 
 ```Cpp
 dielectricSpecularReflectance = 0.04
@@ -156,22 +155,22 @@ AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 
 `AlbedoRGB`har beräknats av formeln ovan, men alfa kanalen kräver ytterligare beräkningar. FBX-formatet är vagt om genomskinlighet och har många sätt att definiera det. Olika innehålls verktyg använder olika metoder. Tanken här är att förena dem till en formel. Det gör vissa till gångar felaktigt visade som transparenta, men om de inte skapas på ett vanligt sätt.
 
-Detta beräknas från `TransparentColor`, `TransparencyFactor`,: `Opacity`
+Detta beräknas från `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Om `Opacity` är definierat använder du den direkt: `AlbedoAlpha`  =  `Opacity` annars  
-Om `TransparencyColor` är definierat `AlbedoAlpha` = 1,0-((`TransparentColor`. Röd + `TransparentColor`. Grön + `TransparentColor`. Blå)/3,0) Else  
-Om `TransparencyFactor`, sedan `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Om `TransparencyColor` är definierat `AlbedoAlpha` = 1,0-(( `TransparentColor` . Röd + `TransparentColor` . Grön + `TransparentColor` . Blå)/3,0) Else  
+Om `TransparencyFactor` , sedan `AlbedoAlpha` = 1,0-`TransparencyFactor`
 
-Den slutliga `Albedo` färgen har fyra kanaler som kombinerar `AlbedoRGB` med. `AlbedoAlpha`
+Den slutliga `Albedo` färgen har fyra kanaler som kombinerar `AlbedoRGB` med `AlbedoAlpha` .
 
 ### <a name="summary"></a>Sammanfattning
 
-För att kunna sammanfatta här `Albedo` är det mycket nära originalet `Diffuse`, om `Specular` det är nära noll. Annars kommer ytan att se ut som en metallisk yta och förlora den diffusa färgen. Ytan kommer att se mer snyggare ut och `ShininessExponent` reflekteras om den `Specular` är tillräckligt stor och är ljus. I annat fall ser ytan grovt ut och knappt reflekterar miljön.
+För att kunna sammanfatta här är `Albedo` det mycket nära originalet `Diffuse` , om `Specular` det är nära noll. Annars kommer ytan att se ut som en metallisk yta och förlora den diffusa färgen. Ytan kommer att se mer snyggare ut och reflekteras om den `ShininessExponent` är tillräckligt stor och `Specular` är ljus. I annat fall ser ytan grovt ut och knappt reflekterar miljön.
 
 ### <a name="known-issues"></a>Kända problem
 
 * Den aktuella formeln fungerar inte bra för enkel färg geometri. Om `Specular` är tillräckligt ljus blir alla Geometries reflekterande metallisk ytor utan färg. Lösningen här är att sänka `Specular` till 30% från originalet eller att använda konverterings inställningen [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* PBR-material har nyligen lagts `Maya` till `3DS Max` i och skapa innehålls verktyg. De använder anpassade användardefinierade egenskaper för svart ruta för att skicka den till FBX. Azure Remote rendering läser inte dessa ytterligare egenskaper eftersom de inte är dokumenterade och formatet är stängd-källa.
+* PBR-material har nyligen lagts till i `Maya` och `3DS Max` skapa innehålls verktyg. De använder anpassade användardefinierade egenskaper för svart ruta för att skicka den till FBX. Azure Remote rendering läser inte dessa ytterligare egenskaper eftersom de inte är dokumenterade och formatet är stängd-källa.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,11 +9,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284036"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704530"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -29,7 +29,7 @@ Här är princip typerna för återförsök:
 
 | Typ | Beskrivning |
 |------|-------------|
-| **Standardvärde** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
+| **Standard** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från ett exponentiellt växande intervall innan nästa förfrågan skickas. |
 | **Fast intervall**  | Den här principen väntar det angivna intervallet innan nästa förfrågan skickas. |
 | **Inga**  | Skicka inte begäran igen. |
@@ -71,8 +71,8 @@ Eller så kan du manuellt ange principen för återförsök i `inputs` avsnittet
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill `default`använda `none`: `fixed`,, eller`exponential` |
-| <*retry-intervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi `PT5S` intervallet är och det maximala `PT1D`intervallet är. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. |
+| <*återförsök-princip-typ*> | Sträng | Den princip typ för återförsök som du vill använda: `default` , `none` , `fixed` eller`exponential` |
+| <*retry-intervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D` . När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. |
 | <*försök-försök*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 |
 ||||
 
@@ -88,7 +88,7 @@ Här är mer information om de olika princip typerna.
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>Standardvärde
+### <a name="default"></a>Standard
 
 Om du inte anger en princip för återförsök använder åtgärden standard principen, vilket faktiskt är en [exponentiell intervall princip](#exponential-interval) som skickar upp till fyra återförsök med exponentiellt ökande intervall som skalas med 7,5 sekunder. Intervallet är ett tak mellan 5 och 45 sekunder.
 
@@ -114,11 +114,11 @@ Om du inte anger en princip för återförsök använder åtgärden standard pri
 
 ### <a name="none"></a>Inga
 
-Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade förfrågningar igen, anger du <`none` *återförsök-princip-typ*> till.
+Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade förfrågningar igen, anger du <*återförsök-princip-typ*> till `none` .
 
 ### <a name="fixed-interval"></a>Fast intervall
 
-Om du vill ange att åtgärden eller utlösaren ska vänta det angivna intervallet innan du skickar nästa begäran, anger du <*återförsök-princip-typ*> till `fixed`.
+Om du vill ange att åtgärden eller utlösaren ska vänta det angivna intervallet innan du skickar nästa begäran, anger du <*återförsök-princip-typ*> till `fixed` .
 
 *Exempel*
 
@@ -143,7 +143,7 @@ Den här principen för återförsök försöker hämta de senaste nyheterna tv�
 
 ### <a name="exponential-interval"></a>Exponentiellt intervall
 
-Om du vill ange att åtgärden eller utlösaren ska vänta ett slumpmässigt intervall innan nästa förfrågan skickas, anger du <*återförsök-princip-typ*> till `exponential`. Det slumpmässiga intervallet väljs från ett exponentiellt växande intervall. Alternativt kan du åsidosätta standard minimi-och Max intervallen genom att ange egna minsta och högsta intervall.
+Om du vill ange att åtgärden eller utlösaren ska vänta ett slumpmässigt intervall innan nästa förfrågan skickas, anger du <*återförsök-princip-typ*> till `exponential` . Det slumpmässiga intervallet väljs från ett exponentiellt växande intervall. Alternativt kan du åsidosätta standard minimi-och Max intervallen genom att ange egna minsta och högsta intervall.
 
 **Slumpmässiga variabel intervall**
 
@@ -162,9 +162,9 @@ I den här tabellen visas hur Logic Apps genererar en enhetlig slumpmässig vari
 
 ## <a name="catch-and-handle-failures-by-changing-run-after-behavior"></a>Fånga och hantera problem genom att ändra "kör efter"-beteende
 
-När du lägger till åtgärder i Logic App Designer, deklarerar du implicit den ordning som ska användas för att köra dessa åtgärder. När en åtgärd har slutförts markeras åtgärden med en status `Succeeded`som, `Failed` `Skipped`, eller. `TimedOut` I varje åtgärds definition anger `runAfter` egenskapen den föregående åtgärden som måste slutföras först och de statusar som tillåts för den föregående aktiviteten innan den efterföljande åtgärden kan köras. Som standard körs en åtgärd som du lägger till i designern bara när den föregående aktiviteten har slutförts med `Succeeded` status.
+När du lägger till åtgärder i Logic App Designer, deklarerar du implicit den ordning som ska användas för att köra dessa åtgärder. När en åtgärd har slutförts markeras åtgärden med en status som `Succeeded` ,, `Failed` `Skipped` eller `TimedOut` . I varje åtgärds definition `runAfter` anger egenskapen den föregående åtgärden som måste slutföras först och de statusar som tillåts för den föregående aktiviteten innan den efterföljande åtgärden kan köras. Som standard körs en åtgärd som du lägger till i designern bara när den föregående aktiviteten har slutförts med `Succeeded` status.
 
-När en åtgärd genererar ett ohanterat fel eller undantag, markeras `Failed`åtgärden och eventuella efterföljande åtgärder markeras. `Skipped` Om det här beteendet inträffar för en åtgärd som har parallella grenar, följer Logic Appss motorn de andra grenarna för att fastställa deras slut för ande status. Om en gren till exempel slutar med en `Skipped` åtgärd, baseras den här grenens slut för ande status på den överhoppade åtgärdens föregående status. När Logic app-körningen är klar, fastställer motorn hela körningens status genom att utvärdera alla gren statusar. Om en gren slutar fungera markeras `Failed`hela körningen av Logic app.
+När en åtgärd genererar ett ohanterat fel eller undantag, markeras åtgärden `Failed` och eventuella efterföljande åtgärder markeras `Skipped` . Om det här beteendet inträffar för en åtgärd som har parallella grenar, följer Logic Appss motorn de andra grenarna för att fastställa deras slut för ande status. Om en gren till exempel slutar med en `Skipped` åtgärd, baseras den här grenens slut för ande status på den överhoppade åtgärdens föregående status. När Logic app-körningen är klar, fastställer motorn hela körningens status genom att utvärdera alla gren statusar. Om en gren slutar fungera markeras hela körningen av Logic app `Failed` .
 
 ![Exempel som visar hur körnings status utvärderas](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
@@ -174,7 +174,7 @@ För att se till att en åtgärd fortfarande kan köras trots dess föregångare
 
 ### <a name="customize-run-after-behavior"></a>Anpassa "kör efter"-beteende
 
-Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när den föregående personens status är antingen `Succeeded`, `Failed` `Skipped` `TimedOut`, eller någon av dessa status värden. Om du till exempel vill skicka ett e-postmeddelande när `Add_a_row_into_a_table` den föregående åtgärden i `Failed`Excel Online är `Succeeded`markerad, i stället för, ändrar du beteendet "kör efter" genom att följa antingen steg:
+Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när den föregående personens status är antingen `Succeeded` , `Failed` , `Skipped` `TimedOut` eller någon av dessa status värden. Om du till exempel vill skicka ett e-postmeddelande när den föregående åtgärden i Excel Online `Add_a_row_into_a_table` är markerad `Failed` , i stället för `Succeeded` , ändrar du beteendet "kör efter" genom att följa antingen steg:
 
 * I designvyn väljer du knappen med ellipser (**...**) och väljer sedan **Konfigurera kör efter**.
 
@@ -188,7 +188,7 @@ Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när d
 
   ![Ändra "kör efter"-beteende till "har misslyckats"](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
 
-  Om du vill ange att åtgärden ska köras om den föregående åtgärden har `Failed`marker `Skipped` ATS `TimedOut`som eller väljer du de andra statusvärdena:
+  Om du vill ange att åtgärden ska köras om den föregående åtgärden har marker ATS som `Failed` `Skipped` eller `TimedOut` väljer du de andra statusvärdena:
 
   ![Ändra "kör efter"-beteendet till att ha någon annan status](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
 
@@ -208,7 +208,7 @@ Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när d
   }
   ```
 
-  I det här exemplet ändrar du `runAfter` egenskapen från `Succeeded` till `Failed`:
+  I det här exemplet ändrar du `runAfter` egenskapen från `Succeeded` till `Failed` :
 
   ```json
   "Send_an_email_(V2)": {
@@ -235,7 +235,7 @@ Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när d
   }
   ```
 
-  Om du vill ange att åtgärden ska köras om den föregående åtgärden har `Failed`marker `Skipped` ATS `TimedOut`som eller lägger du till de andra statusvärdena:
+  Om du vill ange att åtgärden ska köras om den föregående åtgärden har marker ATS som `Failed` `Skipped` eller `TimedOut` lägger du till de andra statusvärdena:
 
   ```json
   "runAfter": {
@@ -249,13 +249,13 @@ Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när d
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>Utvärdera åtgärder med omfattningar och deras resultat
 
-Precis som när du kör steg efter enskilda åtgärder `runAfter` med egenskapen, kan du gruppera åtgärder tillsammans i ett [omfång](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Du kan använda omfattningar när du vill gruppera åtgärder logiskt, utvärdera Omfattningens sammanställda status och utföra åtgärder baserat på denna status. När alla åtgärder i en omfattning har slutförts, får själva omfattningen sin egen status.
+Precis som när du kör steg efter enskilda åtgärder med `runAfter` egenskapen, kan du gruppera åtgärder tillsammans i ett [omfång](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Du kan använda omfattningar när du vill gruppera åtgärder logiskt, utvärdera Omfattningens sammanställda status och utföra åtgärder baserat på denna status. När alla åtgärder i en omfattning har slutförts, får själva omfattningen sin egen status.
 
-Om du vill kontrol lera Omfattningens status kan du använda samma villkor som du använder för att kontrol lera appens körnings status, till `Succeeded`exempel `Failed`, och så vidare.
+Om du vill kontrol lera Omfattningens status kan du använda samma villkor som du använder för att kontrol lera appens körnings status, till exempel, `Succeeded` `Failed` och så vidare.
 
-Som standard markeras `Succeeded`omfångets status som standard när alla åtgärder i omfånget lyckas. Om den slutliga åtgärden i ett omfång resulterar i `Failed` eller `Aborted`, markeras `Failed`omfångets status.
+Som standard markeras omfångets status som standard när alla åtgärder i omfånget lyckas `Succeeded` . Om den slutliga åtgärden i ett omfång resulterar i `Failed` eller `Aborted` , markeras omfångets status `Failed` .
 
-Om du vill fånga undantag `Failed` i ett omfång och köra åtgärder som hanterar dessa fel kan du använda `runAfter` egenskapen för den `Failed` omfattningen. På så sätt kan du, om *några* åtgärder i omfånget Miss lyckas `runAfter` , och du använder egenskapen för den omfattningen, skapa en enskild åtgärd för att fånga upp felen.
+Om du vill fånga undantag i ett `Failed` omfång och köra åtgärder som hanterar dessa fel kan du använda `runAfter` egenskapen för den `Failed` omfattningen. På så sätt kan du, om *några* åtgärder i omfånget Miss lyckas, och du använder `runAfter` egenskapen för den omfattningen, skapa en enskild åtgärd för att fånga upp felen.
 
 Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md).
 
@@ -265,9 +265,9 @@ Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/l
 
 Även om det är praktiskt att fånga fel från ett omfång, kan du också behöva kontext för att förstå exakt vilka åtgärder som misslyckats plus eventuella fel eller status koder som returnerades.
 
-[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) Funktionen ger kontext om resultatet från alla åtgärder i ett omfång. `result()` Funktionen accepterar en enda parameter, som är omfångets namn och returnerar en matris som innehåller alla åtgärds resultat inom det omfånget. Dessa åtgärds objekt innehåller samma attribut som `actions()` objektet, till exempel start tid, slut tid, status, indata, korrelations-ID och utdata. Om du vill skicka kontext för åtgärder som misslyckats inom ett omfång kan du enkelt para ihop `@result()` ett uttryck med `runAfter` egenskapen.
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)Funktionen ger kontext om resultatet från alla åtgärder i ett omfång. `result()`Funktionen accepterar en enda parameter, som är omfångets namn och returnerar en matris som innehåller alla åtgärds resultat inom det omfånget. Dessa åtgärds objekt innehåller samma attribut som `actions()` objektet, till exempel start tid, slut tid, status, indata, korrelations-ID och utdata. Om du vill skicka kontext för åtgärder som misslyckats inom ett omfång kan du enkelt para ihop ett `@result()` uttryck med `runAfter` egenskapen.
 
-Om du vill köra en åtgärd för varje åtgärd i ett omfång som `Failed` har ett resultat, och för att filtrera matrisen med resultat nedåt till de misslyckade åtgärderna, `@result()` kan du koppla ett uttryck med en [**filter mat ris**](logic-apps-perform-data-operations.md#filter-array-action) åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -slinga. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med `For_each` hjälp av slingan.
+Om du vill köra en åtgärd för varje åtgärd i ett omfång som har ett `Failed` resultat, och för att filtrera matrisen med resultat nedåt till de misslyckade åtgärderna, kan du koppla ett `@result()` uttryck med en [**filter mat ris**](logic-apps-perform-data-operations.md#filter-array-action) åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -slinga. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med hjälp av `For_each` slingan.
 
 Här är ett exempel, följt av en detaljerad förklaring, som skickar en HTTP POST-begäran med svars texten för åtgärder som misslyckats inom omfånget "My_Scope":
 
@@ -314,19 +314,19 @@ Här är en detaljerad genom gång som beskriver vad som händer i det här exem
 
 1. För att få resultatet från alla åtgärder i "My_Scope" använder **filter mat ris** åtgärden detta filter uttryck:`@result('My_Scope')`
 
-1. Villkoret för **filter mat ris** är `@result()` ett objekt som har en status som `Failed`är lika med. Det här villkoret filtrerar matrisen som innehåller alla åtgärds resultat från "My_Scope" ned till en matris med endast misslyckade åtgärds resultat.
+1. Villkoret för **filter mat ris** är ett `@result()` objekt som har en status som är lika med `Failed` . Det här villkoret filtrerar matrisen som innehåller alla åtgärds resultat från "My_Scope" ned till en matris med endast misslyckade åtgärds resultat.
 
 1. Utför en `For_each` loop-åtgärd på *filtrerade mat ris* utdata. Det här steget utför en åtgärd för varje misslyckat åtgärds resultat som tidigare har filtrerats.
 
    Om en enskild åtgärd i omfånget Miss lyckas körs åtgärderna i `For_each` slingan bara en gång. Flera misslyckade åtgärder orsakar en åtgärd per fel.
 
-1. Skicka ett HTTP-inlägg på `For_each` objektets svars text, vilket `@item()['outputs']['body']` är uttrycket.
+1. Skicka ett HTTP-inlägg på `For_each` objektets svars text, vilket är `@item()['outputs']['body']` uttrycket.
 
-   `@result()` Objekt formen är samma som `@actions()` formen och kan parsas på samma sätt.
+   `@result()`Objekt formen är samma som `@actions()` formen och kan parsas på samma sätt.
 
-1. Inkludera två anpassade huvuden med det misslyckade åtgärds`@item()['name']`namnet () och klient spårnings-ID`@item()['clientTrackingId']`: t för misslyckad körning ().
+1. Inkludera två anpassade huvuden med det misslyckade åtgärds namnet ( `@item()['name']` ) och klient spårnings-ID: t för misslyckad körning ( `@item()['clientTrackingId']` ).
 
-För referens är här ett exempel på ett `@result()` enda objekt som visar egenskaperna `name`, `body`och `clientTrackingId` som är parsade i föregående exempel. Utanför en `For_each` åtgärd `@result()` returnerar en matris med dessa objekt.
+För referens är här ett exempel på ett enda `@result()` objekt `name` som visar `body` egenskaperna, och `clientTrackingId` som är parsade i föregående exempel. Utanför en `For_each` åtgärd `@result()` returnerar en matris med dessa objekt.
 
 ```json
 {
@@ -358,7 +358,7 @@ För referens är här ett exempel på ett `@result()` enda objekt som visar ege
 }
 ```
 
-Om du vill utföra olika mönster för undantags hantering kan du använda de uttryck som tidigare beskrivits i den här artikeln. Du kan välja att köra en enskild undantags hanterings åtgärd utanför den omfattning som godkänner hela den filtrerade matrisen med fel och ta `For_each` bort åtgärden. Du kan också inkludera andra användbara egenskaper från `\@result()` svaret enligt beskrivningen ovan.
+Om du vill utföra olika mönster för undantags hantering kan du använda de uttryck som tidigare beskrivits i den här artikeln. Du kan välja att köra en enskild undantags hanterings åtgärd utanför den omfattning som godkänner hela den filtrerade matrisen med fel och ta bort `For_each` åtgärden. Du kan också inkludera andra användbara egenskaper från `\@result()` svaret enligt beskrivningen ovan.
 
 ## <a name="set-up-azure-monitor-logs"></a>Konfigurera Azure Monitor loggar
 

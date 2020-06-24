@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 640884168aef13ef3a8d751c211bf16756ff350f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 5b80a0b03959ec3fba90ed21e291c1fd021916c2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417896"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119298"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvens nivåer i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Azure Cosmos DB närmar sig data konsekvens som ett spektrum av alternativ i st�
 
 Med Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvens nivåer i konsekvens spektrumet. Dessa nivåer omfattar *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix*och *eventuell* konsekvens. Nivåerna är väl definierade och intuitiva och kan användas för vissa verkliga scenarier. Varje nivå ger till [gång till tillgänglighets-och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av service avtal. Följande bild visar olika konsekvens nivåer som ett spektrum.
 
-![Konsekvent som ett spektrum](./media/consistency-levels/five-consistency-levels.png)
+:::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Konsekvent som ett spektrum" border="false" :::
 
 Konsekvens nivåerna är regions oberoende och garanteras för alla åtgärder oavsett vilken region läsningen och skrivningen betjänas, antalet regioner som associeras med ditt Azure Cosmos-konto eller om ditt konto har kon figurer ATS med en eller flera Skriv regioner.
 
@@ -43,9 +43,9 @@ Semantiken för de fem konsekvens nivåerna beskrivs här:
 
   Följande bild illustrerar en stark konsekvens med noter. När data har skrivits till regionen "USA, västra 2" och du läser data från andra regioner får du det senaste värdet:
 
-  ![video](media/consistency-levels/strong-consistency.gif)
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="video":::
 
-- **Begränsad föråldrad**: läsningarna garanteras för att respektera den konsekventa prefix-garantin. Läsningarna kan vänta efter skrivningar med de flesta *"K"* -versioner (det vill säga "uppdateringar") för ett objekt eller med *"T"* -tidsintervallet. Med andra ord kan "föråldrad" konfigureras på två sätt när du väljer begränsat inaktuellitet:
+- **Begränsad föråldrad**: läsningarna garanteras för att respektera den konsekventa prefix-garantin. Läsningarna kan vara sena efter skrivningar med de flesta *"K"* -versioner (det vill säga "uppdateringar") för ett objekt eller med *"T"* tidsintervall, beroende på vilken som uppnås först. Med andra ord kan "föråldrad" konfigureras på två sätt när du väljer begränsat inaktuellitet:
 
 - Antalet versioner (*KB*) av objektet
 - Tidsintervallet (*T*) som läsningarna kan vara i vänte tiden bakom skrivningar
@@ -61,7 +61,7 @@ I inaktuella fönster har den begränsade inaktuellaheten följande konsekvens g
 
   Begränsad inaktuellhet väljs ofta av globalt distribuerade program som förväntar sig låga Skriv fördröjningar men kräver total global order garanti. Begränsat föråldrat är bra för program som har grupp samarbete och delning, aktie kurser, publicera-prenumeration/kö osv. Följande bild illustrerar den begränsade inaktuella konsekvensen med noter. Efter att data har skrivits till regionen "USA, västra 2", läser regionerna "USA, östra 2" och "Australien, östra" det skrivna värdet baserat på den konfigurerade maximala fördröjnings tiden eller maximalt antal åtgärder:
 
-  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="video":::
 
 - **Session**: inom ett enda klient-sessions-läsningar garanteras att det följer konsekventa prefix, enkla och enkla Skriv åtgärder, enkla Skriv åtgärder, säkerhets garantier för Skriv åtgärder. Detta förutsätter en enskild "skribent"-session eller delar sessionstoken för flera skrivare.
 
@@ -74,7 +74,7 @@ Klienter utanför sessionen som utför skrivningar får följande garantier:
 
   Konsekvens av sessionen är den mest använda konsekvens nivån för både en region och globalt distribuerade program. Det ger Skriv fördröjning, tillgänglighet och Läs data flöde som är jämförbar med eventuell konsekvens, men som även ger konsekvens garantier som passar de program som är skrivna för att köras i kontexten för en användare. Följande bild illustrerar konsekvensen i sessionen med noter. "Västra USA 2 Writer" och "västra USA 2-läsaren" använder samma session (session A) så att båda läser samma data samtidigt. Regionen "Australien, östra" använder "session B", så den tar emot data senare, men i samma ordning som skrivarna.
 
-  ![video](media/consistency-levels/session-consistency.gif)
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="video":::
 
 - **Konsekvent prefix**: uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
 
@@ -89,12 +89,12 @@ Nedan visas konsekvens garantier för konsekvent prefix:
 
 Följande bild illustrerar konsekvens för konsekvens med noter. I alla regioner ser läsningarna aldrig ut ur ordning skrivningar:
 
-  ![video](media/consistency-levels/consistent-prefix.gif)
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="video":::
 
 - **Eventuell**: det finns ingen beställnings garanti för läsningar. I avsaknad av eventuella ytterligare skrivningar konvergerar replikerna slutligen.  
 Eventuell konsekvens är den svagaste typen av konsekvens eftersom en klient kan läsa värdena som är äldre än de som har lästs tidigare. Eventuell konsekvens är idealisk där programmet inte kräver några ordnings garantier. I exemplen ingår antalet retweetar, gillar eller icke-trådade kommentarer. Följande bild illustrerar den slutliga konsekvensen med noter.
 
-  ![video](media/consistency-levels/eventual-consistency.gif)
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="video":::
 
 ## <a name="additional-reading"></a>Ytterligare läsning
 

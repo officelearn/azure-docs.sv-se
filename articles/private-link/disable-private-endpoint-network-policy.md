@@ -4,15 +4,15 @@ description: Lär dig hur du inaktiverar nätverks principer för privata slut p
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4c04033f3fb5ff523f0d80bb6c978955f4c9ec2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453025"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737520"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>Inaktivera nätverks principer för privata slut punkter
 

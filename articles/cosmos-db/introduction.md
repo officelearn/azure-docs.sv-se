@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80983032"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118584"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/co
 > [!div class="nextstepaction"]
 > [Prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/)
 
-![Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal](./media/introduction/azure-cosmos-db.png)
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal" border="false":::
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -48,7 +48,7 @@ Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med 
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 
-När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBS protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens alternativ](consistency-levels.md) - *stark*, *begränsad föråldring*, *session*, *konsekvent prefix*och *eventuell* , för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
+När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBS protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens alternativ](consistency-levels.md)  -  *stark*, *begränsad föråldring*, *session*, *konsekvent prefix*och *eventuell* , för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 

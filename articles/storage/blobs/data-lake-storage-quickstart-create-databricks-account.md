@@ -6,14 +6,14 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/17/2020
+ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: b6dd1aab4c0ce6c656600d7cc7c71233d256aa0b
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 6c44588f3c95e4707813143c216823323d8183da
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780546"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782980"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Snabb start: analysera data med Databricks
 
@@ -34,7 +34,7 @@ I den här snabb starten kör du ett Apache Spark jobb med Azure Databricks för
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -60,7 +60,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. I Azure-portalen går du till Databricks-arbetsytan som du skapade. Välj sedan **Starta arbetsyta**.
 
-2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt** > **kluster**från portalen.
+2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt**  >  **kluster**från portalen.
 
     ![Databricks på Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks på Azure")
 

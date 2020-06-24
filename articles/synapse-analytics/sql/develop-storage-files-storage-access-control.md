@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
-ms.date: 04/15/2020
+ms.subservice: sql
+ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7df4d917ce25d644003a60b34bc0683ea75299f3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835843"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204888"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -29,7 +29,18 @@ Den här artikeln beskriver de typer av autentiseringsuppgifter som du kan anvä
 En användare som har loggat in på en SQL-resurs på begäran måste ha behörighet att komma åt och fråga filerna i Azure Storage om filerna inte är offentligt tillgängliga. Du kan använda tre typer av autentisering för att komma åt icke-offentlig lagring – [användar identitet](?tabs=user-identity), [delad åtkomst-signatur](?tabs=shared-access-signature)och [hanterad identitet](?tabs=managed-identity).
 
 > [!NOTE]
-> [Azure AD-vidarekoppling](#force-azure-ad-pass-through) är standard beteendet när du skapar en arbets yta. Om du använder det behöver du inte skapa autentiseringsuppgifter för varje lagrings konto som nås med hjälp av Azure AD-inloggningar. Du kan [inaktivera det här beteendet](#disable-forcing-azure-ad-pass-through).
+> **Azure AD-vidarekoppling** är standard beteendet när du skapar en arbets yta.
+
+### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
+
+**Användar identitet**, som även kallas "Azure AD-vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som loggade in på begäran används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen nedan, stöds den inte för SQL-användargruppen.
+
+> [!IMPORTANT]
+> Du måste ha rollen som ägare/deltagare/läsare för Storage BLOB-rollen för att kunna använda din identitet för att komma åt data.
+> Även om du är ägare till ett lagrings konto behöver du fortfarande lägga till dig själv i en av lagrings BLOB-datarollerna.
+>
+> Läs mer om åtkomst kontroll i Azure Data Lake Store Gen2 genom att granska [åtkomst kontrollen i Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artikeln.
+>
 
 ### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
@@ -43,49 +54,6 @@ Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> sig
 > SAS-token:? sa = 2018-03-28&SS = bfqt&SRT = SCO&SP = rwdlacup&se = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&sig = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
 Du måste skapa en databas-eller Server begränsad autentiseringsuppgift för att aktivera åtkomst med SAS-token.
-
-### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
-
-**Användar identitet**, som även kallas "vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som loggade in på begäran används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen ovan stöds det inte för SQL-användargruppen.
-
-> [!IMPORTANT]
-> Du måste ha rollen som ägare/deltagare/läsare för Storage BLOB-rollen för att kunna använda din identitet för att komma åt data.
-> Även om du är ägare till ett lagrings konto behöver du fortfarande lägga till dig själv i en av lagrings BLOB-datarollerna.
->
-> Läs mer om åtkomst kontroll i Azure Data Lake Store Gen2 genom att granska [åtkomst kontrollen i Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artikeln.
->
-
-Du måste uttryckligen aktivera Azure AD-direktautentisering för att ge Azure AD-användare åtkomst till lagrings utrymme med hjälp av sina identiteter.
-
-#### <a name="force-azure-ad-pass-through"></a>Tvinga Azure AD-vidarekoppling
-
-Att tvinga fram en Azure AD-vidarekoppling är ett standard beteende som uppnås av ett särskilt INLOGGNINGs namn, `UserIdentity` som skapas automatiskt under etablering av Azure Synapse-arbetsytan. Den tvingar användningen av ett Azure AD-vidarekoppling för varje fråga om varje Azure AD-inloggning, vilket sker trots att andra autentiseringsuppgifter finns.
-
-> [!NOTE]
-> Azure AD-vidarekoppling är ett standard beteende. Du behöver inte skapa autentiseringsuppgifter för varje lagrings konto som används av AD-inloggningar.
-
-Om du har [inaktiverat tvinga fram Azure AD-vidarekoppling för varje fråga](#disable-forcing-azure-ad-pass-through)och vill aktivera det igen kör du:
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
-Om du vill aktivera en Azure AD-vidarekoppling för en viss användare kan du bevilja referens behörighet för autentiseringsuppgifter `UserIdentity` till den specifika användaren. I följande exempel kan du tvinga fram en Azure AD-vidarekoppling för en user_name:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
-```
-
-#### <a name="disable-forcing-azure-ad-pass-through"></a>Inaktivera tvingande Azure AD-vidarekoppling
-
-Du kan inaktivera [Tvingad Azure AD-vidarekoppling för varje fråga](#force-azure-ad-pass-through). Du inaktiverar den genom att släppa `Userdentity` autentiseringsuppgiften med:
-
-```sql
-DROP CREDENTIAL [UserIdentity];
-```
-
-Om du vill återaktivera det igen läser du avsnittet om [Azure AD-vidarekoppling](#force-azure-ad-pass-through) .
 
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
@@ -152,7 +120,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 Autentiseringsuppgifter för Server omfång används när SQL login-anrop `OPENROWSET` fungerar utan `DATA_SOURCE` att läsa filer på vissa lagrings konton. Namnet på serverns begränsade autentiseringsuppgifter **måste** matcha URL: en för Azure Storage. Du lägger till en autentiseringsuppgift genom att köra [skapa autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste ange ett namn argument för AUTENTISERINGSUPPGIFTER. Den måste matcha antingen en del av sökvägen eller hela sökvägen till data i lagringen (se nedan).
 
 > [!NOTE]
-> Argumentet FOR CRYPTOGRAPHIC PROVIDER stöds inte.
+> `FOR CRYPTOGRAPHIC PROVIDER`Argumentet stöds inte.
 
 Namnet på Server nivåns AUTENTISERINGSUPPGIFTER måste matcha den fullständiga sökvägen till lagrings kontot (och eventuellt container) i följande format: `<prefix>://<storage_account_path>/<storage_path>` . Lagrings konto Sök vägar beskrivs i följande tabell:
 
@@ -162,10 +130,13 @@ Namnet på Server nivåns AUTENTISERINGSUPPGIFTER måste matcha den fullständig
 | Azure Data Lake Storage Gen1 | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>. dfs.core.windows.net              |
 
-> [!NOTE]
-> Det finns särskilda AUTENTISERINGSUPPGIFTER på server nivå `UserIdentity` som [tvingar fram Azure AD-vidarekoppling](?tabs=user-identity#force-azure-ad-pass-through).
-
 Autentiseringsuppgifter för Server omfång ger åtkomst till Azure Storage med följande autentiseringstyper:
+
+### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
+
+Azure AD-användare kan komma åt alla filer i Azure Storage om de har `Storage Blob Data Owner` , `Storage Blob Data Contributor` eller- `Storage Blob Data Reader` rollen. Azure AD-användare behöver inte autentiseringsuppgifter för att komma åt lagringen. 
+
+SQL-användare kan inte använda Azure AD-autentisering för åtkomst till lagring.
 
 ### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
@@ -180,15 +151,6 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
-
-Följande skript skapar en autentiseringsuppgift på server nivå som gör det möjligt för användaren att personifiera med hjälp av Azure AD-identitet.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer i Azure Storage med hjälp av arbets ytans hanterade identitet.
@@ -200,16 +162,8 @@ WITH IDENTITY='Managed Identity'
 
 ### <a name="public-access"></a>[Offentlig åtkomst](#tab/public-access)
 
-Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer på offentligt tillgängliga Azure-lagring. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa offentligt tillgängliga filer på Azure Storage som matchar URL: en med namnet på autentiseringsuppgiften.
+Databasens begränsade autentiseringsuppgifter krävs inte för att tillåta åtkomst till offentligt tillgängliga filer. Skapa [data källa utan databasens begränsade autentiseringsuppgifter](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) för att få åtkomst till offentligt tillgängliga filer i Azure Storage.
 
-Du måste ha Exchange <*mystorageaccountname* -> med det faktiska lagrings konto namnet och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = '';
-GO
-```
 ---
 
 ## <a name="database-scoped-credential"></a>Autentiseringsuppgifter för databas omfattning
@@ -218,23 +172,20 @@ Autentiseringsuppgifter för databasens omfattning används när en huvud anrops
 
 Autentiseringsuppgifter för databasens omfång ger åtkomst till Azure Storage med följande autentiseringstyper:
 
+### <a name="azure-ad-identity"></a>[Azure AD-identitet](#tab/user-identity)
+
+Azure AD-användare kan komma åt alla filer i Azure Storage om de har minst `Storage Blob Data Owner` , `Storage Blob Data Contributor` eller `Storage Blob Data Reader` roll. Azure AD-användare behöver inte autentiseringsuppgifter för att komma åt lagringen.
+
+SQL-användare kan inte använda Azure AD-autentisering för åtkomst till lagring.
+
 ### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
 Följande skript skapar en autentiseringsuppgift som används för att komma åt filer på lagrings platsen med SAS-token som anges i autentiseringsuppgiften.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-### <a name="azure-ad-identity"></a>[Azure AD-identitet](#tab/user-identity)
-
-Följande skript skapar en databas-begränsad autentiseringsuppgift som används av en [extern tabell](develop-tables-external-tables.md) och `OPENROWSET` funktioner som använder data källa med autentiseringsuppgifter för att komma åt lagringsfiler med sin egen Azure AD-identitet.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
-WITH IDENTITY = 'User Identity';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -272,14 +223,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 Använd följande skript för att skapa en tabell som har åtkomst till offentligt tillgängliga data källor.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 Databas användaren kan läsa innehållet i filerna från data källan med hjälp av en extern tabell eller en [OpenRowSet](develop-openrowset.md) -funktion som refererar till data källan:
@@ -287,7 +241,9 @@ Databas användaren kan läsa innehållet i filerna från data källan med hjäl
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -300,13 +256,13 @@ GO
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
-GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -316,13 +272,14 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
---,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 

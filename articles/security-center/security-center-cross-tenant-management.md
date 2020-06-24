@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919489"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782820"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
 
@@ -46,7 +46,7 @@ Klicka på filter ikonen i det övre meny fältet och välj prenumerationer frå
 Vyer och åtgärder är i princip samma. Här följer några exempel:
 
 - **Hantera säkerhets principer**: från en vy, hantera säkerhets position för många resurser med [principer](tutorial-security-policy.md), vidta åtgärder med säkerhets rekommendationer och samla in och hantera säkerhetsrelaterade data.
-- **Förbättra position för säker Poäng och efterlevnad**: visning av flera klienter gör att du kan visa den övergripande säkerhets position för alla klienter och var och hur du bäst förbättrar den [säkra poängen](security-center-secure-score.md) och [efterlevnaden position](security-center-compliance-dashboard.md) för var och en av dem.
+- **Förbättra position för säker Poäng och efterlevnad**: visning av flera klienter gör att du kan visa den övergripande säkerhets position för alla klienter och var och hur du bäst förbättrar den [säkra poängen](secure-score-security-controls.md) och [efterlevnaden position](security-center-compliance-dashboard.md) för var och en av dem.
 - **Åtgärda rekommendationer**: övervaka och reparera en [rekommendation](security-center-recommendations.md) för många resurser från olika klienter på en gång. Du kan sedan omedelbart ta itu över de säkerhets risker som visar den högsta risken för alla klienter.
 - **Hantera aviseringar**: identifiera [aviseringar](security-center-alerts-overview.md) i de olika klient organisationerna. Vidta åtgärder för resurser som inte är kompatibla med åtgärds bara [steg](security-center-managing-and-responding-alerts.md).
 

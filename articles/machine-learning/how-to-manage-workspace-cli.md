@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9131ce9b211a33fe45ef571f3a274b4ddc81739f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/19/2020
+ms.openlocfilehash: f22ef4d1ebd9c4d3c226556c4ef28a873edd80ea
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430391"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119281"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster eller-entiteter:
 
 > [!IMPORTANT]
-> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp.
+> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp. När du kopplar ditt eget lagrings konto ser du till att både Azure blob-och Azure-filfunktioner är aktiverade och att hierarkiskt namn område (ADLS gen 2) är inaktiverat. Du kan alltid ansluta ditt eget lagrings konto senare när arbets ytan har skapats som data lager.
 
 | Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Mer information finns i [AZ ml-arbetsytan resurs](https://docs.microsoft.com/cli
 
 ## <a name="sync-keys-for-dependent-resources"></a>Synkronisera nycklar för beroende resurser
 
-Om du ändrar åtkomst nycklar för en av resurserna som används av din arbets yta, använder du följande kommando för att synkronisera de nya nycklarna med arbets ytan:
+Om du ändrar åtkomst nycklar för en av resurserna som används av din arbets yta tar det ungefär en timme innan arbets ytan synkroniseras med den nya nyckeln. Om du vill tvinga arbets ytan att synkronisera de nya nycklarna direkt använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

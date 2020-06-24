@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254734"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699030"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Använd webb gränssnittet för att administrera din virtuella StorSimple-matris
 ![konfigurations process flöde](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -40,7 +40,7 @@ En krypterings nyckel för tjänst data genereras när du registrerar din först
 Om du har felplacerat krypterings nyckeln för tjänst data och behöver hämta den utför du följande steg i det lokala webb gränssnittet för den enhet som är registrerad i tjänsten.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Hämta krypterings nyckeln för tjänst data
-1. Anslut till det lokala webb gränssnittet. Gå till inställningar för **konfigurations** > **moln**.
+1. Anslut till det lokala webb gränssnittet. Gå till inställningar för **konfigurations**  >  **moln**.
 2. Klicka på **Hämta krypterings nyckel för tjänst data**längst ned på sidan. En nyckel visas. Kopiera och spara den här nyckeln.
    
     ![Hämta krypterings nyckel för tjänst data 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +49,7 @@ Om du har felplacerat krypterings nyckeln för tjänst data och behöver hämta 
 I vissa fall när du konfigurerar enheten via det lokala webb gränssnittet kan du stöta på fel. För att diagnostisera och felsöka sådana fel kan du köra diagnostiktest.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Köra de diagnostiska testerna
-1. I det lokala webb gränssnittet går du till **Felsöka** > **diagnostiska tester**.
+1. I det lokala webb gränssnittet går du till **Felsöka**  >  **diagnostiska tester**.
    
     ![Kör diagnostik 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Klicka på **Kör diagnostiska tester**längst ned på sidan. Detta kommer att initiera tester för att diagnostisera eventuella problem med nätverks-, enhets-, webbproxy-, tids-eller moln inställningar. Du får ett meddelande om att enheten kör tester.
@@ -61,7 +61,7 @@ I vissa fall när du konfigurerar enheten via det lokala webb gränssnittet kan 
 Ett logg paket består av alla relevanta loggar som kan hjälpa Microsoft Support med fel sökning av eventuella enhets problem. I den här versionen kan ett logg paket genereras via det lokala webb gränssnittet.
 
 #### <a name="to-generate-the-log-package"></a>Så här genererar du logg paketet
-1. I det lokala webb gränssnittet går du till **Felsöka** > **system loggar**.
+1. I det lokala webb gränssnittet går du till **Felsöka**  >  **system loggar**.
    
     ![Generera logg paket 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. Klicka på **Skapa logg paket**längst ned på sidan. Ett paket av system loggarna kommer att skapas. Detta tar några minuter.
@@ -80,7 +80,7 @@ Ett logg paket består av alla relevanta loggar som kan hjälpa Microsoft Suppor
 Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webb gränssnittet. Du rekommenderas att innan du startar om, ta volymerna eller resurserna offline på värden och sedan på enheten. Detta minimerar risken för skadade data. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Stänga av den virtuella enheten
-1. I det lokala webb gränssnittet går du till **underhålls** > **energi inställningar**.
+1. I det lokala webb gränssnittet går du till **underhålls**  >  **energi inställningar**.
 2. Klicka på **Avsluta**längst ned på sidan.
    
     ![enhets avstängning 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +95,7 @@ Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala
     Enheten kommer nu att stängas av. Om du vill starta enheten måste du göra det via Hyper-V Manager.
 
 #### <a name="to-restart-your-virtual-device"></a>Starta om den virtuella enheten
-1. I det lokala webb gränssnittet går du till **underhålls** > **energi inställningar**.
+1. I det lokala webb gränssnittet går du till **underhålls**  >  **energi inställningar**.
 2. Klicka på **starta om**längst ned på sidan.
    
     ![omstart av enhet](./media/storsimple-ova-web-ui-admin/image36.png)

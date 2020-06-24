@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744665"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119502"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse-länk för Azure Cosmos DB: i nära real tids analys användnings fall
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
 
 [Azure Synapse-länken](synapse-link.md) för Azure Cosmos DB är en inbyggd hybrid transaktions-och analys bearbetnings funktion (HTAP) i molnet som gör det möjligt att köra nära real tids analys över drift data. Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
@@ -34,7 +34,7 @@ Tillverkare integreras med molnbaserade tekniker för att ta bort begränsningar
 
 Följande arkitektur visar kraften i att använda Azure Cosmos DB som den molnbaserade operativa databasen och Synapse-länken i tillhandahållar kedje analys:
 
-![Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys ](./media/synapse-link-use-cases/supply-chain-analytics.png)
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys" border="false":::
 
 Baserat på tidigare arkitektur kan du uppnå följande användnings fall med Synapse-länken för Azure Cosmos DB:
 
@@ -70,7 +70,7 @@ Nedan följer några rikt linjer för data integrering för batch & strömma dat
 
 Detaljister idag måste bygga säkra och skalbara e-handelslösningar som uppfyller kraven för både kunder och företag. Dessa e-handelslösningar behöver engagera kunder genom anpassade produkter och erbjudanden, bearbeta transaktioner snabbt och säkert och fokusera på uppfyllelse och kund tjänst. Azure Cosmos DB tillsammans med den senaste Synapse-länken för Azure Cosmos DB gör det möjligt för åter försäljare att skapa anpassade rekommendationer för kunder i real tid. De använder konsekvens inställningar med låg latens och justerbara för omedelbara insikter som du ser i följande arkitektur:
 
-![Azure Synapse-länk för Azure Cosmos DB i real tids anpassning](./media/synapse-link-use-cases/real-time-personalization.png)
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i real tids anpassning" border="false":::
 
 Synapse-länk för Azure Cosmos DB användnings fall:
 
@@ -82,7 +82,7 @@ Industriella IOT-innovationer har drastiskt minskat drift stopp i maskiner och �
 
 Följande är en arkitektur som utnyttjar molnets inbyggda HTAP-funktioner i Azure Synapse-länken för Azure Cosmos DB i förutsägbart underhåll av IoT:
 
-![Azure Synapse-länk för Azure Cosmos DB i förutsägande underhåll i IOT](./media/synapse-link-use-cases/iot-predictive-maintenance.png)
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i förutsägande underhåll i IOT" border="false" :::
 
 Synapse-länk för Azure Cosmos DB användnings fall:
 
@@ -104,7 +104,7 @@ I följande lista visas en översikt över de olika arbets belastnings mönster 
 
 Med Azure dataSynapses-länken kan Azure Cosmos DB inte bara driva transaktions arbets belastningar utan även utföra analytiska arbets belastningar i nära real tid över historiska drift data. Det sker utan ETL-krav och garanterad prestanda isolering från transaktions arbets belastningar.
 
-Följande bild visar arbets belastnings mönster med Azure Cosmos DB: ![ Azure Synapse-länk för Azure Cosmos DB arbets belastnings mönster](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
+Följande bild visar arbets belastnings mönster med Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse-länk för Azure Cosmos DB arbets belastnings mönster" border="false":::
 
 Låt oss ta ett exempel på ett e-handelsföretags CompanyXYZ med globala åtgärder i 20 länder/regioner för att illustrera fördelarna med att välja Azure Cosmos DB som enkel real tids databas med både transaktions-och analys krav för en inventerings hanterings plattform.
 
@@ -138,7 +138,7 @@ Mer information finns i följande dokument:
 
 * [Arbeta med Azure Synapse-länk för Azure Cosmos DB](configure-synapse-link.md)
 
-* [Vanliga frågor och svar om Azure Synapse-länken för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
 * [Apache Spark i Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 

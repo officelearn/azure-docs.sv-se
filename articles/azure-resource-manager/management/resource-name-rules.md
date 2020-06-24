@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 5baf9ce63442ee60d212362df92a44d0fa2723fa
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7d5a7d82aceae6902ad953e314434f1a3736a5e1
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610312"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117547"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -343,7 +343,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | labb/formler | test | 1–80 | Alfanumeriska tecken, under streck, bindestreck och parenteser. |
 > | labb/virtualmachines | test | 1-15 (Windows)<br>1-64 (Linux) | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. Får inte vara alla siffror. |
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
@@ -524,7 +524,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck<br><br>Börja med en bokstav. Sluta med alfanumeriska tecken. |
 > | namnrymder/AuthorizationRules | namnområde | 1-256 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
 > | namnrymder/notificationHubs | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
 > | namnrymder/notificationHubs/AuthorizationRules | Notification Hub | 1-256 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
@@ -542,7 +542,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744036"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212351"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Arbets belastnings prioritet för Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Utöver det grundläggande prioritets scenario som beskrivs ovan med försäljni
 
 Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden. Aktiviteter som [partitions växling](sql-data-warehouse-tables-partition.md) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver utökade lås.  Utan arbets belastnings prioritet optimerar Synapse SQL-poolen i Azure Synapse för data flödet. Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare. När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
-Ta följande som exempel:
+Se följande exempel:
 
 - Q1 körs aktivt och väljer data från SalesFact.
 - K2 i kö väntar på att Q1 ska slutföras.  Den skickades vid 9 och försöker att byta ny data till SalesFact.

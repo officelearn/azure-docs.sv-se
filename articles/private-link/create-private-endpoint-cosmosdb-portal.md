@@ -3,21 +3,21 @@ title: Ansluta till ett Azure Cosmos-konto med Azures privata länk
 description: Lär dig hur du säkert får åtkomst till Azure Cosmos-kontot från en virtuell dator genom att skapa en privat slut punkt.
 author: malopMSFT
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252601"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737724"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Ansluta privat till ett Azure Cosmos-konto med Azure Private Link
 
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
 
-I den här artikeln får du lära dig hur du skapar en virtuell dator i ett virtuellt Azure-nätverk och ett Azure Cosmos-konto med en privat slut punkt med hjälp av Azure Portal. Sedan kan du på ett säkert sätt komma åt Azure Cosmos-kontot från den virtuella datorn.
+I den här artikeln får du lära dig att skapa en virtuell dator i ett virtuellt Azure-nätverk och ett Azure Cosmos-konto med en privat slutpunkt via Azure-portalen. Sedan har du säker åtkomst till Azure Cosmos-kontot från den virtuella datorn.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -33,22 +33,22 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroup|
-| **\<virtuell-nätverks namn>** | myVirtualNetwork         |
-| **\<region namn>**          | USA, västra centrala     |
-| **\<IPv4-adress utrymme>**   | 10.1.0.0 \ 16          |
-| **\<under näts namn>**          | mySubnet        |
-| **\<undernät-adress – intervall>** | 10.1.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroup|
+| **\<virtual-network-name>** | myVirtualNetwork         |
+| **\<region-name>**          | USA, västra centrala     |
+| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **beräknings** > **virtuell dator**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **beräknings**  >  **virtuell dator**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -75,7 +75,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
@@ -114,7 +114,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -126,7 +126,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp av den privata slut punkten. 
 
-1. Om du vill inkludera IP-adressen och DNS-mappningen loggar du *myVM*in på den virtuella `c:\Windows\System32\Drivers\etc\hosts` datorn myVM, öppnar filen och inkluderar DNS-informationen från föregående steg i följande format:
+1. Om du vill inkludera IP-adressen och DNS-mappningen loggar du in på den virtuella datorn *myVM*, öppnar `c:\Windows\System32\Drivers\etc\hosts` filen och inkluderar DNS-informationen från föregående steg i följande format:
 
    [Privat IP-adress] [Konto slut punkt]. Documents. Azure. com
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1755d6808183887ca428f227272c3923d4bae21f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848795"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213862"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -92,9 +92,9 @@ Det finns två typer av Azure-programplaner: Solution-mallar och hanterade progr
 
 Alla Azure-program inkluderar minst två filer i rotmappen för ett `.zip` Arkiv:
 
-* En Resource Manager-mallfil med namnet [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Den här mallen definierar de resurser som ska distribueras till kundens Azure-prenumeration.  Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
+* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Den här mallen definierar de resurser som ska distribueras till kundens Azure-prenumeration. Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
 
-* En definition av användar gränssnitt för att skapa Azure-program med namnet [createUiDefinition. JSON](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
 
 Alla nya Azure-programerbjudanden måste innehålla en [Azure-partner kund användnings-GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
 
@@ -161,12 +161,39 @@ Välj minst en och upp till tre kategorier för att placera ditt erbjudande i l�
 
 ## <a name="offer-listing"></a>Erbjudande lista
 
-På den här sidan kan du hantera kopian och avbildningarna för ditt erbjudande på ditt kommersiella Marketplace. 
+På den här sidan kan du hantera kopian och avbildningarna för ditt erbjudande på ditt kommersiella Marketplace.
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
 > [!NOTE]
 > Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder och användnings villkor) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
+
+Här är ett exempel på hur information om erbjudandet visas på Azure Marketplace (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
+
+:::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Logotyp
+2. Kategorier
+3. Support adress (länk)
+4. Villkor för användning
+5. Sekretess policy adress (länk)
+6. Erbjudandets namn
+7. Sammanfattning
+8. Beskrivning
+9. Skärm bilder/videor
+
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Titel
+2. Beskrivning
+3. Användbara länkar
+4. Skärmbilder
 
 #### <a name="name"></a>Name
 
@@ -265,7 +292,7 @@ Välj **Spara utkast** innan du fortsätter.
 
 Den tekniska konfigurationen definierar information (klient-ID och app-ID) som används för att identifiera din tjänst, vilket genererar Mät händelser för ett hanterat program med hjälp av [API: er för avläsning av tjänst](./marketplace-metering-service-apis.md).  Ange den identitet som din tjänst ska använda när du avger Mät händelser.
 
-* **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure AD-klient-ID** (krävs): i Azure Portal måste du [skapa en Azure Active Directory-app (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 * **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
 >[!Note]
@@ -421,8 +448,8 @@ På den här fliken kan du redigera utkast versionen av din tekniska konfigurati
 
 Alla paket för Azure-programplanen måste innehålla de här två filerna i rotmappen för ett `.zip` Arkiv:
 
-* En Resource Manager-mallfil med namnet [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Den här mallen automatiserar distributionen av resurser till Azure-prenumerationen för kunder.  Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
-* En definition av användar gränssnitt för att skapa Azure-program med namnet [createUiDefinition. JSON](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Den här mallen automatiserar distributionen av resurser till Azure-prenumerationen för kunder.  Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
+* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
 Högsta antal fil storlekar som stöds är:
 
@@ -511,7 +538,7 @@ Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhe
 
 Om du vill tillåta att test enheten distribueras åt dig skapar du och tillhandahåller en separat, unik Azure-prenumeration (krävs inte för Power BI test enheter).
 
-* **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (t. ex. "a83645ac-1234-5AB6-6789-1h234g764ghty").
+* **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
 * **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
 * **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på vänster-navigerings menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
@@ -531,7 +558,7 @@ Beskriv test enhets upplevelsen.
 * **Videor: Lägg till videor** (valfritt) – videor kan laddas upp till YouTube eller Vimeo och refereras till med en länk och miniatyr bild (533 x 324 bild punkter) så att en kund kan visa en genom gång av information för att hjälpa dem att bättre förstå test enheten, inklusive hur du kan använda funktionerna i ditt erbjudande och förstå scenarier som fokuserar på deras fördelar.
   * **Namn** (obligatoriskt)
   * **Adress** (YouTube eller Vimeo, krävs)
-  * **Miniatyr** bild (bild filen måste vara i PNG-format och 533 x 324 BPT).
+  * **Miniatyr** bild (bild filen måste vara i PNG-format och 533 x 324 pixlar).
 
 Välj **Spara utkast** innan du fortsätter.
 

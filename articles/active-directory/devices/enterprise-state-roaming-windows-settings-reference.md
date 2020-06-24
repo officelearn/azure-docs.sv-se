@@ -4,19 +4,19 @@ description: Inställningar som kommer att roamas eller säkerhets kopie ras i W
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672630"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252975"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 
@@ -26,12 +26,12 @@ Följande är en lista över de inställningar som kommer att roamas eller säke
 
 I följande tabell finns en sammanfattning av de enheter och konto typer som stöds av ramverket för synkronisering, säkerhets kopiering och återställning i Windows 10.
 
-| Konto typ och åtgärd | skrivbords- | Mobil |
+| Konto typ och åtgärd | Skrivbord | Mobilt |
 | --- | --- | --- |
-| Azure Active Directory: synkronisera |Ja |Inga |
+| Azure Active Directory: synkronisera |Yes |No |
 | Azure Active Directory: säkerhets kopiering/återställning |Inga |Inga |
 | Microsoft-konto: synkronisera |Ja |Ja |
-| Microsoft-konto: säkerhets kopiering/återställning |Inga |Ja |
+| Microsoft-konto: säkerhets kopiering/återställning |No |Yes |
 
 ## <a name="what-is-backup"></a>Vad är säkerhets kopiering?
 
@@ -69,13 +69,13 @@ I följande tabell refererar andra poster i kolumnen inställnings grupp till in
 Interna poster i kolumnen Settings Group avser inställningar och appar som bara kan inaktive ras från synkronisering i själva appen eller genom att inaktivera synkronisering för hela enheten med hantering av mobila enheter (MDM) eller grupprincip inställningar.
 Inställningar som inte är roaming eller synkronisering tillhör inte någon grupp.
 
-| Inställningar | skrivbords- | Mobil | Grupp |
+| Inställningar | Skrivbord | Mobilt | Grupp |
 | --- | --- | --- | --- |
 | **Konton**: konto bild |sync |X |Tema |
 | **Konton**: andra konto inställningar |X |X | |
 | **Avancerat mobilt bred band**: nätverks namn för Internet anslutnings delning (möjliggör automatisk identifiering av mobila Wi-Fi-hotspots via Bluetooth) |X |X |Lösenord |
 | **AppData**: enskilda appar kan synkronisera data |Synkronisera säkerhets kopia |Synkronisera säkerhets kopia |inhemska |
-| **Applistan**: lista över installerade appar |X |säkerhetskopiering |Annat |
+| **Applistan**: lista över installerade appar |X |säkerhetskopiering |Övrigt |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
 | **Kommando tolk**: kommando tolkens standardinställningar |sync |X |inhemska |
 | **Autentiseringsuppgifter**: Lås för autentiseringsuppgifter |sync |sync |password |

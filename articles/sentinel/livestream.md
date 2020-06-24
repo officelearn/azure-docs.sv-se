@@ -9,25 +9,20 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2019
+ms.date: 06/14/2020
 ms.author: yelevin
-ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582134"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783171"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Använd jakt liveström i Azure Sentinel för att identifiera hot
-
-> [!IMPORTANT]
-> Jakt liveström i Azure Sentinel är för närvarande en offentlig för hands version och kan gradvis lanseras till klienter.
-> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Använd jakt liveström för att skapa interaktiva sessioner som gör det möjligt att testa nyligen skapade frågor när händelser inträffar, få meddelanden från sessionerna när en matchning hittas och starta undersökningar vid behov. Du kan snabbt skapa en liveström-session med valfri Log Analytics fråga.
 
@@ -48,42 +43,42 @@ Använd jakt liveström för att skapa interaktiva sessioner som gör det möjli
 
 Du kan skapa en liveström-session från en befintlig jakt fråga eller skapa din session från grunden.
 
-1. I Azure Portal går du till **kontroll** > **Threat Management** > **jakt**.
+1. I Azure Portal går du till **kontroll**  >  **Threat Management**  >  **jakt**.
 
-2. Så här skapar du en liveström-session från en jakt fråga:
+1. Så här skapar du en liveström-session från en jakt fråga:
     
     1. På fliken **frågor** letar du reda på den jakt fråga som du vill använda.
-    2. Högerklicka på frågan och välj **Lägg till i liveström**. Ett exempel:
+    1. Högerklicka på frågan och välj **Lägg till i liveström**. Ett exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-from-query.png)
 
-3. Så här skapar du en liveström-session från grunden: 
+1. Så här skapar du en liveström-session från grunden: 
     
     1. Välj fliken **liveström**
-    2. Välj **gå till liveström**.
+    1. Klicka på **+ ny liveström**.
     
-4. I fönstret **liveström** :
+1. I fönstret **liveström** :
     
     - Om du har startat liveström från en fråga granskar du frågan och gör de ändringar du vill göra.
     - Om du startade liveström från grunden skapar du din fråga. 
 
-5. Välj **spela upp** från kommando fältet.
+1. Välj **spela upp** från kommando fältet.
     
     Statusfältet under kommando fältet visar om din liveström-session körs eller har pausats. I följande exempel körs sessionen:
     
     > [!div class="mx-imgBorder"]
     > ![Skapa liveström-session från Azure Sentinel-jakt](./media/livestream/livestream-session.png)
 
-6. Välj **Spara** i kommando fältet.
+1. Välj **Spara** i kommando fältet.
     
     Om du inte väljer **pausa**fortsätter sessionen att köras tills du är utloggad från Azure Portal.
 
 ## <a name="view-your-livestream-sessions"></a>Visa dina liveström-sessioner
 
-1. I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **liveström** .
+1. I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **liveström** .
 
-2. Välj den liveström-session som du vill visa eller redigera. Ett exempel:
+1. Välj den liveström-session som du vill visa eller redigera. Ett exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Skapa liveström-session från Azure Sentinel jakt-fråga](./media/livestream/livestream-tab.png)

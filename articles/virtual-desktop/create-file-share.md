@@ -4,16 +4,16 @@ description: Konfigurera en FSLogix profil behållare på en Azure-filresurs i e
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4723c2a8fa66e4ed2c4b40975179d7d4d2b281d6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484646"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208390"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -43,7 +43,7 @@ Så här konfigurerar du ett lagrings konto:
     - Ange ett unikt namn för lagringskontot.
     - För **plats**rekommenderar vi att du väljer samma plats som Windows-adresspoolen för virtuella skriv bord.
     - För **Prestanda** väljer du **Standard**. (Beroende på dina IOPS-krav. Mer information finns i [lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](store-fslogix-profile.md).)
-    - För **Kontotyp**väljer du **StorageV2** eller **FileStorage**.
+    - För **Kontotyp**väljer du **StorageV2** eller **FileStorage** (endast tillgängligt om prestanda nivån är Premium).
     - För **replikering**väljer du **lokalt REDUNDANT lagring (LRS)**.
 
 5. När du är klar väljer du **Granska + skapa**och väljer sedan **skapa**.
@@ -78,7 +78,7 @@ Därefter måste du aktivera autentisering med Active Directory (AD). Om du vill
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Tilldela Azure RBAC-behörigheter till virtuella Windows-skrivbordet användare
 
-Alla användare som behöver ha FSLogix profiler som lagras på lagrings kontot måste tilldelas rollen lagrings fil data SMB Share Contributor. 
+Alla användare som behöver ha FSLogix profiler som lagras på lagrings kontot måste tilldelas rollen lagrings fil data SMB Share Contributor.
 
 Användare som loggar in på Windows-värdarna för virtuella skriv bord måste ha åtkomst behörighet för att få åtkomst till fil resursen. Att bevilja åtkomst till en Azure-filresurs omfattar konfigurering av behörigheter både på resurs nivå och på NTFS-nivå, ungefär som en traditionell Windows-resurs.
 
@@ -98,7 +98,7 @@ Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
 4. Välj **Lägg till en roll tilldelning**.
 
 5. På fliken **Lägg till roll tilldelning** väljer du **Storage File data SMB resurs upphöjt bidrags givare** för administratörs kontot.
-   
+
      Följ samma instruktioner om du vill tilldela användar behörigheter för sina FSLogix-profiler. Men när du går till steg 5, väljer du **Storage File data SMB Share Contributor** i stället.
 
 6. Välj **Spara**.
@@ -126,7 +126,7 @@ Så här hämtar du UNC-sökvägen:
 
 5. När du har kopierat URI: n, gör du följande saker för att ändra den till UNC:
 
-    - Ta bort `https://`
+    - Ta bort `https://` och Ersätt med`\\`
     - Ersätt snedstrecket `/` med ett omvänt snedstreck `\` .
     - Lägg till namnet på fil resursen som du skapade i [skapa en Azure-filresurs](#create-an-azure-file-share) i slutet av UNC-filen.
 
@@ -157,7 +157,7 @@ Så här konfigurerar du NTFS-behörigheter:
      ```
 
 3. Kör följande cmdlet för att granska åtkomst behörigheterna till Azure-fil resursen:
-    
+
     ```powershell
     icacls <mounted-drive-letter>:
     ```
@@ -167,7 +167,7 @@ Så här konfigurerar du NTFS-behörigheter:
     Både *NT Instans\Autentiserade-användare* och *BUILTIN\Users* har vissa behörigheter som standard. Dessa standard behörigheter gör att dessa användare kan läsa andra användares profil behållare. Behörigheterna som beskrivs i [Konfigurera lagrings behörigheter för användning med profil behållare och Office-behållare](/fslogix/fslogix-storage-config-ht) låter dock inte användarna läsa de andra "profil behållarna.
 
 4. Kör följande cmdlets för att låta dina Windows-användare av virtuella skriv bord skapa egna profil behållare samtidigt som du blockerar åtkomsten till deras profil behållare från andra användare.
-     
+
      ```powershell
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
@@ -187,7 +187,7 @@ Så här konfigurerar du NTFS-behörigheter:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Välj **Tillämpa**.
+5. Välj **Använd**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurera FSLogix på en session som är värd för virtuella datorer
 

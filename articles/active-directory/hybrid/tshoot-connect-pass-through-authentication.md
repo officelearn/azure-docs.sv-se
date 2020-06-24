@@ -16,12 +16,12 @@ ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: f297cec0e5f88461d61b14974b57992f847f6e1c
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60456175"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051976"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -52,13 +52,40 @@ Om användaren inte kan logga in med hjälp av direktautentisering kan de se nå
 |AADSTS80005|Verifieringen påträffade en oförutsägbar WebException|Ett tillfälligt fel. Gör om begäran. Kontakta Microsoft-supporten om den fortsätter att fungera.
 |AADSTS80007|Ett fel uppstod vid kommunikation med Active Directory|Mer information finns i agent loggarna och kontrol lera att Active Directory fungerar som förväntat.
 
+### <a name="users-get-invalid-usernamepassword-error"></a>Användare får ett ogiltigt användar namn/lösen ord 
+
+Detta kan inträffa när en användares lokala UserPrincipalName (UPN) skiljer sig från användarens moln-UPN.
+
+För att bekräfta att detta är problemet, måste du först testa att direktautentisering fungerar korrekt:
+
+
+1. Skapa ett test konto.  
+2. Importera PowerShell-modulen på agent datorn:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Kör PowerShell-kommandot anropa: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. När du uppmanas att ange autentiseringsuppgifter anger du samma användar namn och lösen ord som används för att logga in på ( https://login.microsoftonline.com) .
+
+Om du får samma användar namn/lösen ord-fel innebär det att direktautentisering fungerar som den ska och att problemet kan vara att det lokala UPN: et inte är dirigerbart. Mer information finns i [Konfigurera alternativt inloggnings-ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
+
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Orsaker till inloggnings försök i Azure Active Directory administrations Center (kräver Premium-licens)
 
 Om din klient har en Azure AD Premium licens som är kopplad till den, kan du också titta på [inloggnings aktivitets rapporten](../reports-monitoring/concept-sign-ins.md) i [Azure Active Directory administrations centret](https://aad.portal.azure.com/).
 
 ![Rapporten Azure Active Directory administrations center-inloggnings program](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Navigera till **Azure Active Directory** -> **inloggningar** i [Azure Active Directory administrations Center](https://aad.portal.azure.com/) och klicka på en enskild användares inloggnings aktivitet. Leta efter fältet **fel kod för inloggning** . Mappa värdet i det fältet till en felorsak och lösning med hjälp av följande tabell:
+Navigera till **Azure Active Directory**  ->  **inloggningar** i [Azure Active Directory administrations Center](https://aad.portal.azure.com/) och klicka på en enskild användares inloggnings aktivitet. Leta efter fältet **fel kod för inloggning** . Mappa värdet i det fältet till en felorsak och lösning med hjälp av följande tabell:
 
 |Felkod för inloggning|Orsak till inloggnings försök|Lösning
 | --- | --- | ---
@@ -123,7 +150,7 @@ Beroende på vilken typ av problem du kan ha måste du titta på olika platser f
 
 ### <a name="azure-ad-connect-logs"></a>Azure AD Connect loggar
 
-Om du har fel som rör installationen kontrollerar du Azure AD Connect loggarna på **\*%programdata%\AADConnect\trace-. log**.
+Om du har fel som rör installationen kontrollerar du Azure AD Connect loggarna på **%programdata%\AADConnect\trace- \* . log**.
 
 ### <a name="authentication-agent-event-logs"></a>Händelse loggar för Authentication agent
 
@@ -133,7 +160,7 @@ För detaljerad analys aktiverar du loggen "session" (Högerklicka i Loggboken p
 
 ### <a name="detailed-trace-logs"></a>Detaljerade spårnings loggar
 
-Felsök användar inloggnings fel genom att leta efter spårnings loggar på **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace\\**. Dessa loggar innehåller orsaker till varför en speciell användar inloggning misslyckades med hjälp av funktionen för direkt autentisering. De här felen mappas också till de inloggnings fel orsaker som visas i tabellen närmast föregående fel orsaken till inloggningen. Följande är en exempel logg post:
+Felsök användar inloggnings fel genom att leta efter spårnings loggar på **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace \\ **. Dessa loggar innehåller orsaker till varför en speciell användar inloggning misslyckades med hjälp av funktionen för direkt autentisering. De här felen mappas också till de inloggnings fel orsaker som visas i tabellen närmast föregående fel orsaken till inloggningen. Följande är en exempel logg post:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

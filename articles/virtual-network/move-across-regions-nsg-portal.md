@@ -3,15 +3,15 @@ title: Flytta Azures nätverks säkerhets grupp (NSG) till en annan Azure-region
 description: Använd Azure Resource Manager mall för att flytta Azures nätverks säkerhets grupp från en Azure-region till en annan med hjälp av Azure Portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: dce267178c3caf813ccdcac4bba86ccfde3f3421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647194"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689324"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Flytta Azures nätverks säkerhets grupp (NSG) till en annan region med hjälp av Azure Portal
 
@@ -41,11 +41,11 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportera mallen och distribuera från portalen
 
-1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com)  >  **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller käll-NSG och klicka på den.
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj **Settings**  >  **Exportera mall**för > inställningar.
 4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
+5. Klicka på **mall**  >  **Redigera parametrar** för att öppna **parameters.jspå** filen i redigeraren online.
 6. Om du vill redigera parametern för NSG-namnet ändrar du egenskapen **Value** under **parametrar**:
 
     ```json
@@ -64,7 +64,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
+9.  Klicka på **mall**  >  **Redigera mall** för att öppna **template.jspå** filen i redigeraren online.
 
 10. Om du vill redigera mål regionen där NSG-konfigurationen och säkerhets reglerna ska flyttas ändrar du egenskapen **location** under **resurser** i online-redigeraren:
 
@@ -84,11 +84,11 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
     ```
 
-11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** = **, centrala.**
+11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA**  =  **, centrala**.
 
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i filen **Template. JSON** :
+    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i **template.jspå** filen:
 
         ```json
            "resources": [
@@ -124,7 +124,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
         ```
 
-      Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG, måste du också redigera anpassade regel typer i slutet av filen **Template. JSON** i formatet i exemplet nedan:
+      Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG måste du också redigera anpassade regel typer i slutet av **template.jspå** filen i formatet i exemplet nedan:
 
       ```json
            {
@@ -153,11 +153,11 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 13. Klicka på **Spara** i redigeraren online.
 
-14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där mål-NSG ska distribueras.
+14. Klicka på **grundläggande**  >  **prenumeration** för att välja den prenumeration där mål-NSG ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för mål-NSG.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga NSG.
+15. Klicka på **grundläggande**  >  **resurs grupp** för att välja den resurs grupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för mål-NSG.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga NSG.
 
-16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att NSG ska distribueras.
+16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att NSG ska distribueras.
 
 17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.
 

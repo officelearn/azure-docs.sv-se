@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780516"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751490"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
@@ -54,12 +54,19 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 1. Identifiera namnet på ServiceNow-instansen. Du kan hitta instans namnet i den URL som du använder för att få åtkomst till ServiceNow. I exemplet nedan är instans namnet dev35214.
 
-![ServiceNow-instans](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow-instans](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Hämta autentiseringsuppgifter för en administratör i ServiceNow. Navigera till användar profilen i ServiceNow och kontrol lera att användaren har administratörs rollen. 
 
-![ServiceNow-administratörs roll](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![ServiceNow-administratörs roll](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Kontrol lera att följande inställningar är **inaktiverade** i ServiceNow:
+
+   1. Välj **säkerhets**  >  **Inställningar**för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden**.
+   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden**.
+     
+   > [!IMPORTANT]
+   > Om den här inställningen är *aktive rad*kommer etablerings motorn inte att kunna kommunicera med ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till ServiceNow från Azure AD-programgalleriet
 
@@ -142,6 +149,14 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 * **EntryJoiningPropertyValueIsMissing:** Granska dina [mappningar av attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) för att identifiera matchande attribut. Det här värdet måste finnas på den användare eller grupp som du försöker etablera. 
 * Granska [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) för att förstå eventuella krav eller begränsningar (till exempel format för att ange landskod för en användare)
 * Etablerings begär Anden skickas som standard till https://{ditt-instance-Name}. service-nu. com/{Table-Name}. Om du behöver en anpassad klient-URL kan du ange hela URL: en i fältet instans namn.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Det här felet indikerar ett problem som kommunicerar med ServiceNow-instansen. Kontrol lera att följande inställningar är inaktiverade i ServiceNow för att kontrol lera att följande inställningar är *inaktiverade* :
+   
+   1. Välj **säkerhets**  >  **Inställningar**för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden**.
+   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden**.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

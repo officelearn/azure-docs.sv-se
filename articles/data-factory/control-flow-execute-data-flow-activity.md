@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735393"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726981"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -54,12 +54,12 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
-integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. Det finns endast stöd för integrerings körningar av automatisk lösning för regioner. | IntegrationRuntimeReference | Inga
-Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Inga
-Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga
+data flöde | Referens till det data flöde som körs | DataFlowReference | Yes
+integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | No
+Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | No
+Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | No
 mellanlagring. linkedService | Om du använder en SQL DW-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en SQL DW
 mellanlagring. folderPath | Om du använder en SQL DW-källa eller mottagare, är mappsökvägen i Blob Storage-kontot som används för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till en SQL DW
 
@@ -75,7 +75,7 @@ Egenskaperna Core count och Compute Type kan ställas in dynamiskt så att de an
 
 ### <a name="data-flow-integration-runtime"></a>Integration runtime för data flöde
 
-Välj vilken Integration Runtime som ska användas för körningen av data flödes aktiviteten. Som standard använder Data Factory automatisk lösning för Azure integration runtime med fyra arbets kärnor och inget TTL-värde (Time to Live). Denna IR har en generell beräknings typ och körs i samma region som din fabrik. Du kan skapa dina egna Azure-integrerings körningar som definierar specifika regioner, beräknings typ, antal kärnor och TTL för din data flödes aktivitets körning. För närvarande stöds endast integrerings körningar av automatisk matchning av region i data flödes aktiviteten.
+Välj vilken Integration Runtime som ska användas för körningen av data flödes aktiviteten. Som standard använder Data Factory automatisk lösning för Azure integration runtime med fyra arbets kärnor och inget TTL-värde (Time to Live). Denna IR har en generell beräknings typ och körs i samma region som din fabrik. Du kan skapa dina egna Azure-integrerings körningar som definierar specifika regioner, beräknings typ, antal kärnor och TTL för din data flödes aktivitets körning.
 
 För pipeline-körningar är klustret ett jobb kluster, vilket tar flera minuter att starta innan körningen börjar. Om du inte anger något TTL-värde krävs den här start tiden för varje pipeline-körning. Om du anger ett TTL-värde förblir en varm klustrad pool aktiv under den tid som anges efter den senaste körningen, vilket leder till kortare start tider. Om du till exempel har en TTL på 60 minuter och kör ett data flöde på den en gång i timmen förblir anslutningspoolen aktiv. Mer information finns i [Azure integration runtime](concepts-integration-runtime.md).
 
@@ -148,12 +148,12 @@ Data flödes aktiviteten matar ut mått för antalet rader som skrivs till varje
 }
 ```
 
-Om du till exempel vill komma till antalet rader som skrivs till en mottagare med namnet "sink1" i en aktivitet med namnet "dataflowActivity `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`" använder du.
+Om du till exempel vill komma till antalet rader som skrivs till en mottagare med namnet "sink1" i en aktivitet med namnet "dataflowActivity" använder du `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten` .
 
-Om du vill hämta antalet rader från en källa med namnet "source1" som användes i denna mottagare använder `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`du.
+Om du vill hämta antalet rader från en källa med namnet "source1" som användes i denna mottagare använder du `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead` .
 
 > [!NOTE]
-> Om en Sink har noll rader skrivna visas den inte i mått. Förekomst kan verifieras med hjälp `contains` av funktionen. Kontrollerar till exempel `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` om några rader skrevs till sink1.
+> Om en Sink har noll rader skrivna visas den inte i mått. Förekomst kan verifieras med hjälp av `contains` funktionen. Kontrollerar till exempel `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` om några rader skrevs till sink1.
 
 ## <a name="next-steps"></a>Nästa steg
 

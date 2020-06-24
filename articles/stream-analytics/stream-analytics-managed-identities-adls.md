@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254383"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712385"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autentisera Stream Analytics för att Azure Data Lake Storage Gen1 med hanterade identiteter
 
@@ -66,7 +66,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för ett Azure
 
 ## <a name="stream-analytics-tools-for-visual-studio"></a>Stream Analytics verktyg för Visual Studio
 
-1. I JobConfig. JSON anger du **Använd systemtilldelad identitet** till **True**.
+1. I JobConfig.jspå anger du **Använd systemtilldelad identitet** till **True**.
 
    ![Stream Analytics hanterade identiteter för jobb konfiguration](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 

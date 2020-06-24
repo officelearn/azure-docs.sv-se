@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f2a5ad78ecf4bf02e84b9bf2e37fea13c708e072
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143102"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987607"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Skicka relaterade meddelanden i ordning med en sekventiell konvojmönster i Azure Logic Apps med Azure Service Bus
 
@@ -27,11 +27,11 @@ Den här artikeln visar hur du skapar en logisk app som implementerar det här m
 
 * Läs och bearbeta alla meddelanden från samma session i kön under den aktuella arbets flödes körningen.
 
-Information om hur du granskar mallens JSON-fil finns i [GitHub: Service-Bus-sessions. JSON](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
+Information om hur du granskar mallens JSON-fil finns i [GitHub: service-bus-sessions.jspå](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
 Mer information finns i [sekventiella konvojmönster-mönster – design mönster för Azure Architecture-molnet](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -144,7 +144,7 @@ Här är flödet på den översta nivån i `Try` [omfattnings åtgärden](../log
 
 #### <a name="branch-1-complete-initial-message-in-queue"></a>Gren #1: Slutför inledande meddelande i kö
 
-| Name | Description |
+| Name | Beskrivning |
 |------|-------------|
 | `Complete initial message in queue` | Detta Service Bus åtgärd markerar ett meddelande som har hämtats som slutfört och tar bort meddelandet från kön för att förhindra ombearbetning. Mer information finns i [hantera det inledande meddelandet](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | Detta [ **tills** loopen](../logic-apps/logic-apps-control-flow-loops.md#until-loop) fortsätter att hämta meddelanden när det finns meddelanden eller tills en timme skickas. Mer information om åtgärderna i den här slingan finns [när det finns fler meddelanden för sessionen i kön](#while-more-messages-for-session). |
@@ -168,7 +168,7 @@ Här är flödet på den översta nivån i `Catch` omfattnings åtgärden när i
 
 ![Åtgärds arbets flöde för "catch"-omfattning](./media/send-related-messages-sequential-convoy/catch-scope-action.png)
 
-| Name | Description |
+| Name | Beskrivning |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Den här Service Bus åtgärden stänger sessionen i kön så att det inte går att öppna det. Mer information finns i [Stäng en session i en kö och sluta fungera](#close-session-fail). |
 | **`Find failure msg from 'Try' block`** | Den här [ **filter mat ris** åtgärden](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) skapar en matris från indata och utdata från alla åtgärder i `Try` omfånget baserat på de angivna kriterierna. I det här fallet returnerar den här åtgärden utdata från de åtgärder som resulterade i `Failed` status. Mer information finns i [hitta felmeddelande från try-block](#find-failure-message). |
@@ -249,7 +249,7 @@ Detta [ **tills** loopen](../logic-apps/logic-apps-control-flow-loops.md#until-l
 1. I åtgärds Service Bus kan du **Hämta ytterligare meddelanden från sessionen**, ange namnet på Service Bus kön. Annars behåller du alla andra standard egenskaps värden i åtgärden.
 
    > [!NOTE]
-   > Som standard är det maximala antalet meddelanden som är inställt på `175` , men den här gränsen påverkas av egenskapen meddelande storlek och maximal meddelande storlek i Service Bus. För närvarande är den här gränsen 256 KB för standard och 1 MB för Premium.
+   > Som standard är det maximala antalet meddelanden som är inställt på `175` , men den här gränsen påverkas av egenskapen meddelande storlek och maximal meddelande storlek i Service Bus. Mer information finns i [meddelande storleken för en kö](../service-bus-messaging/service-bus-quotas.md).
 
    ![Service Bus åtgärd – "Hämta ytterligare meddelanden från sessionen"](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
 

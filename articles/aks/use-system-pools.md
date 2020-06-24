@@ -3,17 +3,18 @@ title: Använda pooler för system-noder i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar och hanterar system-nodkonfigurationer i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/18/2020
+ms.author: mlearned
+ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125255"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052660"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
-I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod. 
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod.
 
 > [!Important]
 > Om du kör en pool med en enda pool för AKS-klustret i en produktions miljö rekommenderar vi att du använder minst tre noder för Node-poolen.
@@ -29,7 +30,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
 * AKS-klustret måste ha skapats med skalnings uppsättningar för virtuella datorer som VM-typ.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-Node-pooler måste längden vara mellan 1 och 12 tecken. För Windows Node-pooler måste längden vara mellan 1 och 6 tecken.
-* En API-version på 2020-03-01 eller större måste användas för att ange ett läge för Node-poolen.
+* En API-version på 2020-03-01 eller större måste användas för att ange ett läge för Node-poolen. Kluster som skapats på API-versioner som är äldre än 2020-03-01 innehåller bara pooler för användar-noder, men kan migreras så att de innehåller system-nodkonfigurationer genom att följa [stegen i uppdaterings läget](#update-existing-cluster-system-and-user-node-pools).
 * Läget för en Node-pool är en obligatorisk egenskap och måste anges explicit när du använder ARM-mallar eller direkta API-anrop.
 
 ## <a name="system-and-user-node-pools"></a>Pooler för system-och användar-noder
@@ -115,7 +116,10 @@ Ett läge av typen **system** har definierats för system-nodkonfigurationer och
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Uppdatera system-och användar-nodens pooler
+## <a name="update-existing-cluster-system-and-user-node-pools"></a>Uppdatera befintliga kluster system och pooler för användar-noder
+
+> [!NOTE]
+> En API-version på 2020-03-01 eller större måste användas för att ange ett system Node pool-läge. Kluster som skapats på API-versioner som är äldre än 2020-03-01 innehåller bara pooler för användar-noder som ett resultat. Om du vill ta emot funktionaliteten för systemnode-pooler och fördelar med äldre kluster uppdaterar du läget för befintliga nodkonfigurationer med följande kommandon i den senaste versionen av Azure CLI.
 
 Du kan ändra lägen för både system-och användar-Node-pooler. Du kan bara ändra en adresspool för systemet till en adresspool om det redan finns en adresspool i AKS-klustret.
 

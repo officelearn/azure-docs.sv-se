@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Lär dig hur du skapar en virtuell nätverks-peering mellan virtuella nätverk som skapats via Resource Manager som finns i olika Azure-prenumerationer i samma eller en annan Azure Active Directory klient organisation.
 services: virtual-network
 documentationcenter: ''
-author: anavinahar
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: anavin
-ms.openlocfilehash: 242115ae454340fd0a8439b7b3c79b713409acc2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.author: kumud
+ms.openlocfilehash: 26d82d4381649bc86950b1898c5c5351a97ec697
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774472"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688821"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Skapa ett virtuellt nätverk peering – Resource Manager, olika prenumerationer och Azure Active Directory klienter
 
@@ -246,7 +246,7 @@ I den här självstudien används olika konton för varje prenumeration. Om du a
 ## <a name="create-peering---resource-manager-template"></a><a name="template"></a>Skapa peering – Resource Manager-mall
 
 1. För att skapa ett virtuellt nätverk och tilldela lämpliga [behörigheter](virtual-network-manage-peering.md#permissions), slutför du stegen i avsnitten [Portal](#portal), [Azure CLI](#cli)eller [PowerShell](#powershell) i den här artikeln.
-2. Spara texten som följer efter en fil på den lokala datorn. Ersätt `<subscription ID>` med användare a prenumerations-ID. Du kan till exempel spara filen som vnetpeeringA. JSON.
+2. Spara texten som följer efter en fil på den lokala datorn. Ersätt `<subscription ID>` med användare a prenumerations-ID. Du kan till exempel spara filen som vnetpeeringA.jspå.
 
    ```json
    {

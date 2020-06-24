@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276405"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687505"
 ---
 # <a name="extended-geojson-geometries"></a>Utökat interjson-Geometries
 
@@ -35,21 +35,21 @@ Den här artikeln innehåller en detaljerad förklaring av hur Azure Maps utöka
 
 ## <a name="circle"></a>Cirkel
 
-`Circle` Geometrin stöds inte av den GEOMETRISKa [JSON-specifikationen][1]. Vi använder ett `GeoJSON Point Feature` objekt för att representera en cirkel.
+`Circle`Geometrin stöds inte av den geometriska [JSON-specifikationen][1]. Vi använder ett `GeoJSON Point Feature` objekt för att representera en cirkel.
 
 En `Circle` geometri som representeras med hjälp av `GeoJSON Feature` objektet __måste__ innehålla följande koordinater och egenskaper:
 
 - Centrera
 
-    Cirkelns mitt punkt representeras med `GeoJSON Point` ett objekt.
+    Cirkelns mitt punkt representeras med ett `GeoJSON Point` objekt.
 
-- Radie
+- Radius
 
-    Cirkelns `radius` egenskaper representeras `GeoJSON Feature`med hjälp av egenskaperna. RADIUS-värdet är i _meter_ och måste vara av typen `double`.
+    Cirkelns `radius` Egenskaper representeras med hjälp av `GeoJSON Feature` egenskaperna. RADIUS-värdet är i _meter_ och måste vara av typen `double` .
 
 - Undertyp
 
-    Cirkel geometrin måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature`egenskaperna och dess värde måste vara en _cirkel_
+    Cirkel geometrin måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature` egenskaperna och dess värde måste vara en _cirkel_
 
 #### <a name="example"></a>Exempel
 
@@ -71,7 +71,7 @@ Så här kommer du att representera en cirkel med ett `GeoJSON Feature` objekt. 
 
 ## <a name="rectangle"></a>Rektangel
 
-`Rectangle` Geometrin stöds inte av den GEOMETRISKa [JSON-specifikationen][1]. Vi använder ett `GeoJSON Polygon Feature` objekt för att representera en rektangel. Tillägget Rectangle används främst av Web SDK: s verktyg för rit verktyg.
+`Rectangle`Geometrin stöds inte av den geometriska [JSON-specifikationen][1]. Vi använder ett `GeoJSON Polygon Feature` objekt för att representera en rektangel. Tillägget Rectangle används främst av Web SDK: s verktyg för rit verktyg.
 
 En `Rectangle` geometri som representeras med hjälp av `GeoJSON Polygon Feature` objektet __måste__ innehålla följande koordinater och egenskaper:
 
@@ -81,7 +81,7 @@ En `Rectangle` geometri som representeras med hjälp av `GeoJSON Polygon Feature
 
 - Undertyp
 
-    Rektangelns geometri måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature`egenskaperna och dess värde ska vara en _rektangel_
+    Rektangelns geometri måste också innehålla `subType` egenskapen. Den här egenskapen måste vara en del av `GeoJSON Feature` egenskaperna och dess värde ska vara en _rektangel_
 
 ### <a name="example"></a>Exempel
 

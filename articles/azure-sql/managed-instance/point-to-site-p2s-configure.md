@@ -3,7 +3,7 @@ title: Konfigurera punkt-till-plats-anslutning med SSMS
 titleSuffix: Azure SQL Managed Instance
 description: Anslut till en Azure SQL-hanterad instans med hjälp av SQL Server Management Studio (SSMS) med en punkt-till-plats-anslutning från en lokal klient dator.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,19 +12,19 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: debe32bc39840573620bba5280b6e05b94f3edb6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220921"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708671"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL-hanterad instans från den lokala platsen
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här snabb starten visar hur du ansluter till en Azure SQL-hanterad instans med [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) från en lokal klient dator över en punkt-till-plats-anslutning. Information om punkt-till-plats-anslutningar finns i [om punkt-till-plats-VPN](../../vpn-gateway/point-to-site-about.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten:
 
@@ -71,7 +71,7 @@ Den här snabbstarten:
 
     ![Ladda ned VPN-klient](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. Extrahera filerna från zip-filen på den lokala klient datorn och öppna sedan mappen med de extraherade filerna.
-5. Öppna mappen **WindowsAmd64** och öppna filen **VpnClientSetupAmd64. exe** .
+5. Öppna mappen **WindowsAmd64** och öppna filen **VpnClientSetupAmd64.exe** .
 6. Om du får ett **Windows-skyddat dator** meddelande klickar du på **mer info** och sedan på **kör ändå**.
 
     ![Installera VPN-klient](./media/point-to-site-p2s-configure/vpn-client-defender.png)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6555a1718acb0574640e7b7d5d4d47d84b8a72d0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297658"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711059"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1,0
 
@@ -27,13 +27,13 @@ AMQP 1,0-support finns i Service Bus-paket version 2,1 eller senare. Du kan se t
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Konfigurera .NET-program för att använda AMQP 1,0
 
-Som standard kommunicerar Service Bus .NET-klient biblioteket med Service Bus-tjänsten med hjälp av ett dedikerat SOAP-baserat protokoll. Om du vill använda AMQP 1,0 i stället för standard protokollet måste du uttryckligen konfigurera den Service Bus anslutnings strängen, enligt beskrivningen i nästa avsnitt. Förutom den här ändringen förblir program koden oförändrad när du använder AMQP 1,0.
+Som standard kommunicerar Service Bus .NET-klient biblioteket med Service Bus-tjänsten med hjälp av AMQP-protokollet. Du kan också uttryckligen ange AMQP som transport typ, vilket visas i följande avsnitt. 
 
 I den aktuella versionen finns det några API-funktioner som inte stöds när du använder AMQP. Dessa funktioner som inte stöds visas i avsnittet [beteende skillnader](#behavioral-differences). Några av de avancerade konfigurations inställningarna har också en annan betydelse när du använder AMQP.
 
-### <a name="configuration-using-appconfig"></a>Konfiguration med app. config
+### <a name="configuration-using-appconfig"></a>Konfiguration med App.config
 
-Det är en bra idé för program att använda konfigurations filen app. config för att lagra inställningar. För Service Bus-program kan du använda app. config för att lagra Service Bus anslutnings sträng. Ett exempel på en app. config-fil är följande:
+Det är en bra idé för program att använda App.config konfigurations filen för att lagra inställningar. För Service Bus-program kan du använda App.config för att lagra Service Bus anslutnings strängen. Ett exempel på en App.config fil är följande:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -51,7 +51,7 @@ Värdet för `Microsoft.ServiceBus.ConnectionString` inställningen är den Serv
 
 Var `namespace` och `SAS key` en som hämtas från [Azure Portal][Azure portal] när du skapar ett Service Bus namn område. Mer information finns i [skapa ett Service Bus-namnområde med hjälp av Azure Portal][Create a Service Bus namespace using the Azure portal].
 
-När du använder AMQP lägger du till anslutnings strängen `;TransportType=Amqp`med. Den här notationen instruerar klient biblioteket att göra anslutningen till Service Bus med AMQP 1,0.
+När du använder AMQP lägger du till anslutnings strängen med `;TransportType=Amqp` . Den här notationen instruerar klient biblioteket att göra anslutningen till Service Bus med AMQP 1,0.
 
 ## <a name="message-serialization"></a>Meddelande serialisering
 
@@ -86,10 +86,10 @@ För att under lätta samverkan med non-.NET-klienter använder du bara .NET-typ
 | Uri |Beskrivnings sträng (se följande tabell) |AMQP-värde |
 | DateTimeOffset |Beskrivet långt (se följande tabell) |AMQP-värde |
 | TimeSpan |Beskrivet långt (se följande) |AMQP-värde |
-| Strömma |binary |AMQP-data (kan vara flera). Data avsnitten innehåller rå byte som lästs från Stream-objektet. |
+| Dataström |binary |AMQP-data (kan vara flera). Data avsnitten innehåller rå byte som lästs från Stream-objektet. |
 | Annat objekt |binary |AMQP-data (kan vara flera). Innehåller den serialiserade binärfilen för det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
-| .NET-typ | Mappad AMQP-beskrivande typ | Obs! |
+| .NET-typ | Mappad AMQP-beskrivande typ | Kommentarer |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI. AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset. UtcTicks |
@@ -100,7 +100,7 @@ För att under lätta samverkan med non-.NET-klienter använder du bara .NET-typ
 Det finns vissa små skillnader i hur Service Bus .NET API fungerar när du använder AMQP, jämfört med standard protokollet:
 
 * Egenskapen [OperationTimeout][OperationTimeout] ignoreras.
-* `MessageReceiver.Receive(TimeSpan.Zero)`implementeras som `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* `MessageReceiver.Receive(TimeSpan.Zero)`implementeras som `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` .
 * Att slutföra meddelanden genom att låsa tokens kan bara utföras av de meddelande mottagare som ursprungligen tog emot meddelandena.
 
 ## <a name="control-amqp-protocol-settings"></a>Kontrol lera AMQP-protokoll inställningar
@@ -109,7 +109,7 @@ Det finns vissa små skillnader i hur Service Bus .NET API fungerar när du anv�
 
 * **[MessageReceiver. PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: styr den inledande kredit som tillämpas på en länk. Standardvärdet är 0.
 * **[MessagingFactorySettings. AmqpTransportSettings. MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: styr den maximala storleken för AMQP som erbjuds under förhandlingen vid anslutnings tillfället. Standardvärdet är 65 536 byte.
-* **[MessagingFactorySettings. AmqpTransportSettings. BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: om överföringar är batchable fastställer det här värdet den maximala fördröjningen för att skicka dispositioner. Ärvs av avsändare/mottagare som standard. Enskild avsändare/mottagare kan åsidosätta standardvärdet, vilket är 20 millisekunder.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: om överföringar är batchable fastställer det här värdet den maximala fördröjningen för att skicka dispositioner. Ärvs av avsändare/mottagare som standard. Enskild avsändare/mottagare kan åsidosätta standardvärdet, vilket är 20 millisekunder.
 * **[MessagingFactorySettings. AmqpTransportSettings. UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: styr om AMQP anslutningar upprättas via en TLS-anslutning. Standardvärdet är **True**.
 
 ## <a name="next-steps"></a>Nästa steg

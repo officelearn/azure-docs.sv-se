@@ -3,12 +3,12 @@ title: Slutför en haveri beredskap för virtuella datorer
 description: Den här artikeln visar hur du utför en haveri beredskap för virtuella datorer med hjälp av AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148165"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749955"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Slutför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 
@@ -152,7 +152,7 @@ Följande åtgärder i haveri beredskap omfattas av dessa API: er.
 
 - Skydda
 
-- Återställ
+- Återställa
 
 - Testa återställning
 

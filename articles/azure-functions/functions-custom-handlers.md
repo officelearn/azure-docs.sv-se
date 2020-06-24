@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995878"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052581"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions anpassade hanterare (förhands granskning)
 
@@ -37,14 +37,14 @@ I följande diagram visas relationen mellan Functions-värden och en webb server
 - Webb servern kör den enskilda funktionen och returnerar en [svars nytto Last](#response-payload) till Functions-värden.
 - Functions-värden skickar svaret som en utgående data bindning till målet.
 
-En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *Host. JSON* -och *Function. JSON* -filer enligt några konventioner.
+En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *host.jspå* och *function.jspå* filer enligt några konventioner.
 
 ## <a name="application-structure"></a>Program struktur
 
 Om du vill implementera en anpassad hanterare behöver du följande aspekter av ditt program:
 
-- En *Host. JSON* -fil i appens rot
-- En *Function. JSON* -fil för varje funktion (inuti en mapp som matchar funktions namnet)
+- En *host.jspå* filen i roten för din app
+- En *function.jspå* fil för varje funktion (inuti en mapp som matchar funktions namnet)
 - Ett kommando, ett skript eller en körbar fil som kör en webb server
 
 Följande diagram visar hur dessa filer ser ut i fil systemet för en funktion med namnet "order".
@@ -58,9 +58,9 @@ Följande diagram visar hur dessa filer ser ut i fil systemet för en funktion m
 
 ### <a name="configuration"></a>Konfiguration
 
-Programmet konfigureras via *Host. JSON* -filen. Den här filen visar de funktioner som är värdar för att skicka begär Anden genom att peka på en webb server som kan bearbeta HTTP-händelser.
+Programmet konfigureras via *host.jsi* filen. Den här filen visar de funktioner som är värdar för att skicka begär Anden genom att peka på en webb server som kan bearbeta HTTP-händelser.
 
-En anpassad hanterare definieras genom att konfigurera *Host. JSON* -filen med information om hur du kör webb servern via `httpWorker` avsnittet.
+En anpassad hanterare definieras genom att konfigurera *host.jspå* filen med information om hur du kör webb servern via `httpWorker` avsnittet.
 
 ```json
 {
@@ -75,7 +75,7 @@ En anpassad hanterare definieras genom att konfigurera *Host. JSON* -filen med i
 
 `httpWorker`Avsnittet pekar på ett mål som definieras av `defaultExecutablePath` . Körnings målet kan antingen vara ett kommando, en körbar fil eller en fil där webb servern är implementerad.
 
-För skriptbaserade appar `defaultExecutablePath` pekar du på skript språkets körning och `defaultWorkerPath` pekar på skript filens plats. I följande exempel visas hur en JavaScript-app i Node. js konfigureras som en anpassad hanterare.
+För skriptbaserade appar `defaultExecutablePath` pekar du på skript språkets körning och `defaultWorkerPath` pekar på skript filens plats. I följande exempel visas hur en JavaScript-app i Node.js konfigureras som en anpassad hanterare.
 
 ```json
 {
@@ -107,15 +107,15 @@ Du kan också skicka argument med hjälp av `arguments` matrisen:
 Argument krävs för många fel söknings installationer. Mer information finns i avsnittet [fel sökning](#debugging) .
 
 > [!NOTE]
-> *Host. JSON* -filen måste finnas på samma nivå i katalog strukturen som den webb server som körs. Vissa språk och verktygs kedjor kanske inte placerar filen i program roten som standard.
+> *host.jspå* filen måste finnas på samma nivå i katalog strukturen som den webb server som körs. Vissa språk och verktygs kedjor kanske inte placerar filen i program roten som standard.
 
 #### <a name="bindings-support"></a>Stöd för bindningar
 
-Standard utlösare tillsammans med indata-och utgående bindningar är tillgängliga genom att referera till [tilläggs paket](./functions-bindings-register.md) i *Host. JSON* -filen.
+Standard utlösare tillsammans med indata-och utgående bindningar är tillgängliga genom att referera till [tilläggs paket](./functions-bindings-register.md) i *host.jsi* filen.
 
 ### <a name="function-metadata"></a>Function-metadata
 
-När den används med en anpassad hanterare skiljer sig innehållet i *Function. JSON* inte från hur du definierar en funktion under en annan kontext. Det enda kravet är att *Function. JSON* -filer måste finnas i en mapp med namnet som matchar funktions namnet.
+När den används med en anpassad hanterare är *function.jsi* innehållet inte annorlunda än hur du definierar en funktion under någon annan kontext. Det enda kravet är att *function.jspå* filer måste finnas i en mapp med namnet som matchar funktions namnet.
 
 ### <a name="request-payload"></a>Begär nytto Last
 
@@ -125,11 +125,11 @@ En annan typ av funktion som innehåller antingen indata, utgående bindningar e
 
 Följande kod representerar en nytto last för begäran. Nytto lasten innehåller en JSON-struktur med två medlemmar: `Data` och `Metadata` .
 
-`Data`Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *Function. JSON* -filen.
+`Data`Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *function.jsi* filen.
 
 `Metadata`Medlemmen inkluderar [metadata som genereras från händelse källan](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
-De bindningar som definierats i följande *funktion. JSON* -fil:
+De bindningar som definierats i följande *function.jspå* filen:
 
 ```json
 {
@@ -181,18 +181,18 @@ Efter konvention formateras funktions svaren som nyckel/värde-par. Nycklar som 
 
 | <nobr>Nytto Last nyckel</nobr>   | Datatyp | Kommentarer                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Innehåller svars värden som definieras av `bindings` matrisen *Function. JSON* -filen.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för Blob Storage med namnet BLOB, `Outputs` innehåller en nyckel med namnet `blob` , som är inställd på blobens värde. |
+| `Outputs`     | JSON      | Innehåller svars värden som definieras av `bindings` matrisen *function.jspå* fil.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för Blob Storage med namnet BLOB, `Outputs` innehåller en nyckel med namnet `blob` , som är inställd på blobens värde. |
 | `Logs`        | matris     | Meddelanden visas i loggarna Functions-anrop.<br /><br />När du kör i Azure visas meddelanden i Application Insights. |
-| `ReturnValue` | sträng    | Används för att tillhandahålla ett svar när utdata har kon figurer ATS som `$return` i *Function. JSON* -filen. |
+| `ReturnValue` | sträng    | Används för att tillhandahålla ett svar när utdata har kon figurer ATS som `$return` i *function.jsi* filen. |
 
 Se [exemplet för en exempel nytto Last](#bindings-implementation).
 
 ## <a name="examples"></a>Exempel
 
-Anpassade hanterare kan implementeras på alla språk som stöder HTTP-händelser. Även om Azure Functions [har fullt stöd för Java Script och Node. js](./functions-reference-node.md)visar följande exempel hur du implementerar en anpassad hanterare med hjälp av Java Script i Node. js i instruktions syfte.
+Anpassade hanterare kan implementeras på alla språk som stöder HTTP-händelser. Även om Azure Functions [har fullt stöd för Java Script och Node.js](./functions-reference-node.md), visar följande exempel hur du implementerar en anpassad hanterare med hjälp av java script i Node.js i syfte att få instruktioner.
 
 > [!TIP]
-> När du är en guide för att lära dig hur du implementerar en anpassad hanterare på andra språk kan även de Node. js-baserade exempel som visas här vara användbara om du vill köra en Functions-app i en version av Node. js som inte stöds.
+> När du är en guide för att lära dig hur du implementerar en anpassad hanterare på andra språk kan de Node.js-baserade exemplen som visas här också vara användbara om du vill köra en Functions-app i en version av Node.js som inte stöds.
 
 ## <a name="http-only-function"></a>Funktionen endast HTTP
 
@@ -213,7 +213,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementering
 
-I en mapp med namnet *http*konfigurerar *Function. JSON* -filen http-utlöst funktion.
+I en mapp med namnet *http*konfigureras den http-utlösta funktionen i filen *function.js* .
 
 ```json
 {
@@ -235,7 +235,7 @@ I en mapp med namnet *http*konfigurerar *Function. JSON* -filen http-utlöst fun
 
 Funktionen har kon figurer ATS för att acceptera både- `GET` och- `POST` begär Anden och resultatvärdet anges via ett argument med namnet `res` .
 
-I roten av appen är *Host. JSON* -filen konfigurerad att köra Node. js och peka `server.js` filen.
+I appens rot är *host.jspå* filen konfigurerad att köra Node.js och peka `server.js` filen.
 
 ```json
 {
@@ -249,7 +249,7 @@ I roten av appen är *Host. JSON* -filen konfigurerad att köra Node. js och pek
 }
 ```
 
-Filen *Server. js* implementerar en webb server och http-funktion.
+Filen *server.js* -filen implementerar en webb server och http-funktion.
 
 ```javascript
 const express = require("express");
@@ -302,7 +302,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementering
 
-I en mapp med namnet *order*konfigurerar *Function. JSON* -filen http-utlöst funktion.
+I en mapp med namnet *order*konfigurerar *function.js* filen för http-utlöst funktion.
 
 ```json
 {
@@ -333,7 +333,7 @@ I en mapp med namnet *order*konfigurerar *Function. JSON* -filen http-utlöst fu
 
 Den här funktionen definieras som en [http-utlöst funktion](./functions-bindings-http-webhook-trigger.md) som returnerar ett [http-svar](./functions-bindings-http-webhook-output.md) och matar ut ett [kö lagrings](./functions-bindings-storage-queue-output.md) meddelande.
 
-I roten av appen är *Host. JSON* -filen konfigurerad att köra Node. js och peka `server.js` filen.
+I appens rot är *host.jspå* filen konfigurerad att köra Node.js och peka `server.js` filen.
 
 ```json
 {
@@ -347,7 +347,7 @@ I roten av appen är *Host. JSON* -filen konfigurerad att köra Node. js och pek
 }
 ```
 
-Filen *Server. js* implementerar en webb server och http-funktion.
+Filen *server.js* -filen implementerar en webb server och http-funktion.
 
 ```javascript
 const express = require("express");
@@ -388,7 +388,7 @@ När `POST` förfrågningar skickas till den här funktionen exponeras data geno
 - Begär ande texten är tillgänglig via`req.body`
 - De data som publiceras till funktionen är tillgängliga via`req.body.Data.req.Body`
 
-Funktionens svar är formaterat i ett nyckel/värde-par där `Outputs` medlemmen innehåller ett JSON-värde där nycklarna matchar de utdata som definieras i *Function. JSON* -filen.
+Funktionens svar är formaterat i ett nyckel/värde-par där `Outputs` medlemmen innehåller ett JSON-värde där nycklarna matchar utdata som definieras i *function.jsi* filen.
 
 Genom att ange ett värde `message` som motsvarar det meddelande som kom från begäran, och `res` till det förväntade http-svaret, skickar den här funktionen ett meddelande till Queue Storage och returnerar ett HTTP-svar.
 
@@ -396,7 +396,7 @@ Genom att ange ett värde `message` som motsvarar det meddelande som kom från b
 
 Om du vill felsöka appen anpassad hanterare för funktioner måste du lägga till lämpliga argument för språket och körnings miljön för att aktivera fel sökning.
 
-Om du till exempel vill felsöka ett Node. js-program `--inspect` skickas flaggan som ett argument i *Host. JSON* -filen.
+Om du till exempel vill felsöka ett Node.js-program, `--inspect` skickas flaggan som ett argument i *host.js* filen.
 
 ```json
 {
@@ -412,7 +412,7 @@ Om du till exempel vill felsöka ett Node. js-program `--inspect` skickas flagga
 ```
 
 > [!NOTE]
-> Konfigurationen för fel sökning är en del av din *Host. JSON* -fil, vilket innebär att du kan behöva ta bort vissa argument innan du distribuerar till produktion.
+> Konfigurationen för fel sökning är en del av din *host.jsi* filen, vilket innebär att du kan behöva ta bort vissa argument innan du distribuerar till produktion.
 
 Med den här konfigurationen kan du starta funktionens värd process med hjälp av följande kommando:
 
@@ -422,11 +422,11 @@ func host start
 
 När processen har startats kan du koppla en fel sökare och trycka på Bryt punkter.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
-Följande exempel är en exempel konfiguration som visar hur du kan konfigurera din *Launch. JSON* -fil för att ansluta din app till Visual Studio Code debugger.
+Följande exempel är en exempel konfiguration som visar hur du kan konfigurera din *launch.jspå* en fil för att ansluta din app till Visual Studio Code-felsökaren.
 
-Det här exemplet är för Node. js, så du kan behöva ändra det här exemplet för andra språk eller körningar.
+Det här exemplet är för Node.js, så du kan behöva ändra det här exemplet för andra språk eller körningar.
 
 ```json
 {
@@ -447,9 +447,14 @@ Det här exemplet är för Node. js, så du kan behöva ändra det här exemplet
 
 En anpassad hanterare kan distribueras till nästan alla Azure Functions värd alternativ (se [begränsningar](#restrictions)). Om din hanterare kräver anpassade beroenden (till exempel språk körning) kan du behöva använda en [anpassad behållare](./functions-create-function-linux-custom-image.md).
 
+Om du vill distribuera en app för anpassad hanterare med Azure Functions Core Tools kör du följande kommando.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## <a name="restrictions"></a>Begränsningar
 
-- Anpassade hanterare stöds inte i Linux-förbruknings planer.
 - Webb servern måste starta inom 60 sekunder.
 
 ## <a name="samples"></a>Exempel

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274780"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689018"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
 Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp fylls med datorer antingen med en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en logg fråga begränsas resultatet till poster som matchar datorerna i gruppen.
@@ -26,13 +26,13 @@ Du kan skapa en dator grupp i Azure Monitor med någon av metoderna i följande 
 | Logg fråga |Skapa en logg fråga som returnerar en lista med datorer. |
 | Loggsöknings-API |Använd API för loggs ökning för att program mässigt skapa en dator grupp baserat på resultatet av en logg fråga. |
 | Active Directory |Sök automatiskt efter grupp medlemskap för alla agent datorer som är medlemmar i en Active Directory domän och skapa en grupp i Azure Monitor för varje säkerhets grupp. (Endast Windows-datorer)|
-| Konfigurationshanteraren | Importera samlingar från Microsoft Endpoint Configuration Manager och skapa en grupp i Azure Monitor för var och en. |
+| Configuration Manager | Importera samlingar från Microsoft Endpoint Configuration Manager och skapa en grupp i Azure Monitor för var och en. |
 | Windows Server Update Services |Skanna automatiskt WSUS-servrar eller klienter för mål grupper och skapa en grupp i Azure Monitor för var och en. |
 
 ### <a name="log-query"></a>Logg fråga
 Dator grupper som skapas från en logg fråga innehåller alla datorer som returneras av en fråga som du definierar.  Den här frågan körs varje gång dator gruppen används så att eventuella ändringar sedan gruppen skapades visas.  
 
-Du kan använda valfri fråga för en dator grupp, men den måste returnera en distinkt uppsättning datorer med hjälp `distinct Computer`av.  Följande är en typisk exempel fråga som du kan använda som en dator grupp.
+Du kan använda valfri fråga för en dator grupp, men den måste returnera en distinkt uppsättning datorer med hjälp av `distinct Computer` .  Följande är en typisk exempel fråga som du kan använda som en dator grupp.
 
     Heartbeat | where Computer contains "srv" | distinct Computer
 
@@ -74,7 +74,7 @@ Du konfigurerar Azure Monitor att importera WSUS-grupper från **Avancerade inst
 
 När grupper har importer ATS visar menyn hur många datorer med grupp medlemskap som har identifierats och hur många grupper som importer ATS.  Du kan klicka på någon av dessa länkar om du vill returnera **ComputerGroup** -posterna med den här informationen.
 
-### <a name="configuration-manager"></a>Konfigurationshanteraren
+### <a name="configuration-manager"></a>Configuration Manager
 När du konfigurerar Azure Monitor för att importera Configuration Manager samlings medlemskap skapas en dator grupp för varje samling.  Information om samlings medlemskap hämtas var 3: e timme för att dator grupperna ska vara aktuella. 
 
 Innan du kan importera Configuration Manager samlingar måste du [ansluta Configuration Manager till Azure Monitor](collect-sccm.md).  
@@ -127,7 +127,7 @@ En post skapas i arbets ytan Log Analytics för varje dator grupp medlemskap som
 | `GroupFullName` |Fullständig sökväg till gruppen inklusive källa och käll namn. |
 | `GroupSource` |Källan som gruppen samlades in från. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Namnet på den källa som gruppen samlades in från.  För Active Directory är detta domän namnet. |
-| `ManagementGroupName` |Namnet på hanteringsgruppen för SCOM-agenter.  För andra agenter är detta AOI-\<arbetsyte-ID\> |
+| `ManagementGroupName` |Namnet på hanteringsgruppen för SCOM-agenter.  För andra agenter är detta AOI-\<workspace ID\> |
 | `TimeGenerated` |Datum och tid då dator gruppen skapades eller uppdaterades. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631247"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208407"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbets belastning i Azure Synapse Analytics
 
-Tekniker för att analysera din Synapse SQL-arbetsbelastning i Azure Synapse Analytics.
+Tekniker för att analysera din Synapse SQL-arbetsbelastning i Azure Synapse Analytics. 
 
 ## <a name="resource-classes"></a>Resursklasser
 
@@ -41,7 +41,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-Roller för arbets belastnings hantering kan `sys.database_principals`visas med.
+Roller för arbets belastnings hantering kan visas med `sys.database_principals` .
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -70,7 +70,7 @@ Synapse SQL har följande vänte typer:
 * **DmsConcurrencyResourceType**: väntar på data förflyttnings åtgärder.
 * **BackupConcurrencyResourceType**: det här väntar indikerar att en databas säkerhets kopie ras. Det maximala värdet för den här resurs typen är 1. Om flera säkerhets kopieringar har begärts samtidigt, den andra kön. I allmänhet rekommenderar vi att du tar en stund mellan flera ögonblicks bilder på 10 minuter.
 
-`sys.dm_pdw_waits` DMV kan användas för att se vilka resurser en begäran väntar på.
+`sys.dm_pdw_waits`DMV kan användas för att se vilka resurser en begäran väntar på.
 
 ```sql
 SELECT  w.[wait_id]
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV visar wait-information för en specifik fråga. Resursens vänte tid mäter den tid som väntar på att resurser ska tillhandahållas. Vänte tiden för signalen är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till processorn.
+`sys.dm_pdw_resource_waits`DMV visar wait-information för en specifik fråga. Resursens vänte tid mäter den tid som väntar på att resurser ska tillhandahållas. Vänte tiden för signalen är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till processorn.
 
 ```sql
 SELECT  [session_id]
@@ -126,7 +126,7 @@ WHERE    [session_id] <> SESSION_ID()
 ;
 ```
 
-Du kan också använda DMV `sys.dm_pdw_resource_waits` -beräkningen av hur många samtidiga samtidiga platser som har beviljats.
+Du kan också använda `sys.dm_pdw_resource_waits` DMV-beräkningen av hur många samtidiga samtidiga platser som har beviljats.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots
@@ -137,7 +137,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-`sys.dm_pdw_wait_stats` DMV kan användas för historisk trend analys av väntande.
+`sys.dm_pdw_wait_stats`DMV kan användas för historisk trend analys av väntande.
 
 ```sql
 SELECT   w.[pdw_node_id]

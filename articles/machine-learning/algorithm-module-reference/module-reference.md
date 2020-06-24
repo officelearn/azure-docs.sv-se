@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: e27370c2015c4679dafa5a79a820b4c984a35ec1
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 53069f24a18bac1f5c0c226ddcc3a79494c93edb
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449727"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809314"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
@@ -52,12 +52,12 @@ Hjälp med att välja algoritmer finns i
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
 | Modell träning | Kör data via algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md) <br/> [Träna Pytorch-modell](train-pytorch-model.md) <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
-| Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Bild modell för Poäng](score-image-model.md) <br/> [Poängmodell](score-model.md) |
+| Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Bildpoängmodell](score-image-model.md) <br/> [Poängmodell](score-model.md) |
 | Python-språk | Skriv kod och bädda in den i en modul för att integrera python med din pipeline. | [Skapa Python-modell](create-python-model.md) <br/> [Köra Python-skript](execute-python-script.md) |
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Köra R-skript](execute-r-script.md) |
 | Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. |  [Konvertera Word till vektor](convert-word-to-vector.md) <br/> [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) |
-| Visuellt innehåll | Moduler för för bearbetning av bild data och bild igenkänning. |  [Använd avbildnings omvandling](apply-image-transformation.md) <br/> [Konvertera till avbildnings katalog](convert-to-image-directory.md) <br/> [Omvandling av init-avbildning](init-image-transformation.md) <br/> [Dela till avbildnings katalog](split-to-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
-| Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) |
+| Visuellt innehåll | Moduler för för bearbetning av bild data och bild igenkänning. |  [Använda bildtransformering](apply-image-transformation.md) <br/> [Konvertera till bildkatalog](convert-to-image-directory.md) <br/> [Initiera bildtransformering](init-image-transformation.md) <br/> [Dela bildkatalog](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Bedöma modulen Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) <br/> [Träna modulen Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelseidentifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelseidentifieringsmodell](train-anomaly-detection-model.md) |
 
 

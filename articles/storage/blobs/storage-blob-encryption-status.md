@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74707585"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809094"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Kontrol lera krypterings statusen för en BLOB
 
@@ -98,4 +98,4 @@ Mer information om hur du använder AzCopy för att kopiera BLOB-data finns i [�
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Storage kryptering för vilande data](../common/storage-service-encryption.md)
+[Azure Storage-kryptering av vilande data](../common/storage-service-encryption.md)

@@ -9,19 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f91df2e4b76e2a85705100fa5626877b9a86312d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282931"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752579"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portalen](search-manage.md)
+> * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
@@ -98,9 +98,9 @@ En Sök tjänst som har fler repliker kan belastningsutjämna förfrågningar om
 Även om frågans data flöde går upp när du lägger till repliker, så är det inte exakt dubbelt eller tredubbla när du lägger till repliker till din tjänst. Alla Sök program omfattas av externa faktorer som kan impinge på frågans prestanda. Komplexa frågor och nätverks fördröjning är två faktorer som bidrar till variationer i svars tider för frågor.
 
 ### <a name="add-partitions"></a>Lägg till partitioner
-De flesta tjänst program har ett inbyggt behov av fler repliker snarare än partitioner. I de fall där det krävs ett ökat antal dokument kan du lägga till partitioner om du har registrerat dig för standard tjänsten. Basic-nivån tillhandahåller inga ytterligare partitioner.
+Det är vanligare att lägga till repliker, men när lagringen är begränsad kan du lägga till partitioner för att få mer kapacitet. Den nivå där du etablerade tjänsten avgör om partitioner kan läggas till. Basic-nivån är låst på en partition. Standard-nivåer och högre stöder ytterligare partitioner.
 
-På standard-nivån läggs partitioner till i multipler av 12 (särskilt, 1, 2, 3, 4, 6 eller 12). Detta är en artefakt av horisontell partitionering. Ett index skapas i 12 Shards, som kan lagras på en partition eller vara jämnt indelat i 2, 3, 4, 6 eller 12 partitioner (en Shard per partition).
+Partitioner läggs till i multipler av 12 (särskilt, 1, 2, 3, 4, 6 eller 12). Detta är en artefakt av horisontell partitionering. Ett index skapas i 12 Shards, som kan lagras på en partition eller vara jämnt indelat i 2, 3, 4, 6 eller 12 partitioner (en Shard per partition).
 
 ### <a name="remove-replicas"></a>Ta bort repliker
 Efter perioder med hög fråga-volymer kan du använda skjutreglaget för att minska antalet repliker när Sök frågan läses in har normaliserats (till exempel efter att försäljningen är över). Det finns inga ytterligare steg som krävs för din del. Om du sänker antalet repliker överlämnas virtuella datorer i data centret. Dina frågor och data inmatnings åtgärder kommer nu att köras på färre virtuella datorer än tidigare. Minimi kravet är en replik.

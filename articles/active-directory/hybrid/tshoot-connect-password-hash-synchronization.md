@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253551"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690752"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka synkronisering av lösenordshash med Azure AD Connect-synkronisering
 
@@ -60,7 +60,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras:
 
 1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
-2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 
 3. Starta guiden Azure AD Connect.
 
@@ -143,7 +143,7 @@ Så här felsöker du problem för ett bestämt användar objekt:
 
 1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
-2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 
 3. Starta guiden Azure AD Connect.
 
@@ -196,7 +196,7 @@ Som standard lagrar Azure AD Connect resultatet av lösen ord för hash-synkroni
 Du kan använda `Invoke-ADSyncDiagnostics` cmdleten för att ta reda på varför inga lösen ord synkroniseras.
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` Cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
+> `Invoke-ADSyncDiagnostics`Cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Kör diagnostik-cmdleten
 
@@ -204,7 +204,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras:
 
 1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
-2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 
 3. Kör `Import-Module ADSyncDiagnostics`.
 
@@ -217,7 +217,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras:
 Du kan använda `Invoke-ADSyncDiagnostics` cmdleten för att avgöra varför ett objekt inte synkroniserar lösen ord.
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` Cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
+> `Invoke-ADSyncDiagnostics`Cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Kör diagnostik-cmdleten
 
@@ -225,7 +225,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras för en använd
 
 1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
-2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 
 3. Kör `Import-Module ADSyncDiagnostics`.
 

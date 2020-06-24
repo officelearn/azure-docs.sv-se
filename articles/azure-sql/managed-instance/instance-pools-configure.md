@@ -3,7 +3,7 @@ title: Distribuera SQL-hanterad instans till en instans-pool
 titleSuffix: Azure SQL Managed Instance
 description: Den här artikeln beskriver hur du skapar och hanterar Azure SQL Managed instance Pools (för hands version).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 569b1fd964665e3efec87adebd5f9a76de01f381
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659645"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708815"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuera en hanterad Azure SQL-instans till en instans-pool
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,11 +30,11 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 |Kommando|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Skapa en instans-pool|Nej|Yes|
-|Uppdatera en instans-pool (begränsat antal egenskaper)|Nej |Yes |
-|Kontrol lera användning och egenskaper för en instans pool|Nej|Yes |
-|Ta bort en instans-pool|Nej|Yes|
-|Skapa en hanterad instans i en instans-pool|Nej|Yes|
+|Skapa en instans-pool|Inga|Yes|
+|Uppdatera en instans-pool (begränsat antal egenskaper)|Inga |Yes |
+|Kontrol lera användning och egenskaper för en instans pool|Inga|Yes |
+|Ta bort en instans-pool|Inga|Yes|
+|Skapa en hanterad instans i en instans-pool|Inga|Yes|
 |Uppdatera resursanvändningen för en hanterad instans|Ja |Ja|
 |Kontrol lera användning och egenskaper för en hanterad instans|Ja|Ja|
 |Ta bort en hanterad instans från poolen|Ja|Ja|
@@ -43,7 +43,7 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/module/az.sql/):
 
-|Cmdlet |Description |
+|Cmdlet |Beskrivning |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Skapar en SQL-hanterad instans-pool. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returnerar information om en instans-pool. |

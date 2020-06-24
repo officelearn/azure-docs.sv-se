@@ -9,25 +9,25 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896366"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687811"
 ---
 # <a name="test-vm-network-latency"></a>Testa svarstid för VM-nätverk
 
-För att uppnå de mest exakta resultaten kan du mäta din nätverks fördröjning för din virtuella Azure-dator (VM) med ett verktyg som har utformats för uppgiften. Offentligt tillgängliga verktyg som SockPerf (för Linux) och latte. exe (för Windows) kan isolera och mäta nätverks fördröjningar och utesluta andra typer av svars tider, till exempel program svars tid. Dessa verktyg fokuserar på den typ av nätverks trafik som påverkar program prestanda (dvs. Transmission Control Protocol [TCP] och UDP]-trafik (User Datagram Protocol)). 
+För att uppnå de mest exakta resultaten kan du mäta din nätverks fördröjning för din virtuella Azure-dator (VM) med ett verktyg som har utformats för uppgiften. Offentligt tillgängliga verktyg som SockPerf (för Linux) och latte.exe (för Windows) kan isolera och mäta nätverks fördröjningar och utesluta andra typer av svars tider, till exempel program svars tid. Dessa verktyg fokuserar på den typ av nätverks trafik som påverkar program prestanda (dvs. Transmission Control Protocol [TCP] och UDP]-trafik (User Datagram Protocol)). 
 
 Andra vanliga anslutnings verktyg, till exempel ping, kan mäta svars tider, men deras resultat kanske inte representerar nätverks trafiken som används i verkliga arbets belastningar. Det beror på att de flesta av dessa verktyg använder Internet Control Message Protocol (ICMP), som kan behandlas annorlunda än program trafik och vars resultat inte kan tillämpas på arbets belastningar som använder TCP och UDP. 
 
-För korrekt testning av nätverks fördröjning av de protokoll som används av de flesta program, SockPerf (för Linux) och latte. exe (för Windows) ger de mest relevanta resultaten. I den här artikeln beskrivs båda dessa verktyg.
+För korrekt testning av nätverks fördröjning av de protokoll som används av de flesta program, SockPerf (för Linux) och latte.exe (för Windows) ger de mest relevanta resultaten. I den här artikeln beskrivs båda dessa verktyg.
 
 ## <a name="overview"></a>Översikt
 
@@ -45,7 +45,7 @@ Du kan använda den här metoden för att mäta nätverks fördröjningen mellan
 ### <a name="tools-for-testing"></a>Verktyg för testning
 Du kan mäta svars tiden med två olika verktygs alternativ:
 
-* För Windows-baserade system: [latte. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* För Windows-baserade system: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * För Linux-baserade system: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Genom att använda dessa verktyg kan du se till att endast leverans tider för TCP-eller UDP-nyttolasten mäts och inte ICMP (ping) eller andra paket typer som inte används av program och inte påverkar deras prestanda.
@@ -69,29 +69,29 @@ Tänk på följande rekommendationer när du analyserar test resultaten:
 
 ## <a name="test-vms-that-are-running-windows"></a>Testa virtuella datorer som kör Windows
 
-### <a name="get-latteexe-onto-the-vms"></a>Hämta latte. exe på de virtuella datorerna
+### <a name="get-latteexe-onto-the-vms"></a>Hämta latte.exe på de virtuella datorerna
 
-Ladda ned den [senaste versionen av latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Ladda ned den [senaste versionen av latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Överväg att lägga till latte. exe i en separat mapp, till exempel *c:\Tools*.
+Överväg att lägga latte.exe i en separat mapp, till exempel *c:\Tools*.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Tillåt latte. exe via Windows Defender-brandväggen
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Tillåt latte.exe via Windows Defender-brandväggen
 
-På *mottagaren*skapar du en Tillåt-regel på Windows Defender-brandväggen så att latte. exe-trafiken kan komma. Det är enklast att tillåta hela latte. exe-programmet efter namn i stället för att tillåta vissa TCP-portar inkommande.
+På *mottagaren*skapar du en Tillåt-regel på Windows Defender-brandväggen så att latte.exe trafiken kan komma. Det är enklast att tillåta hela latte.exe program efter namn istället för att tillåta vissa TCP-portar inkommande.
 
-Tillåt latte. exe via Windows Defender-brandväggen genom att köra följande kommando:
+Tillåt latte.exe via Windows Defender-brandväggen genom att köra följande kommando:
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-Om du till exempel har kopierat latte. exe till mappen *c:\Tools* , är detta kommandot:
+Om du till exempel har kopierat latte.exe till mappen *c:\Tools* , är detta kommandot:
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Kör svars tids test
 
-* På *mottagaren*startar du latte. exe (kör den från cmd-fönstret, inte från PowerShell):
+* På *mottagaren*startar du latte.exe (kör den från cmd-fönstret, inte från PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +105,13 @@ Om du till exempel har kopierat latte. exe till mappen *c:\Tools* , är detta ko
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* På *avsändaren*startar du latte. exe (kör den från cmd-fönstret, inte från PowerShell):
+* På *avsändaren*startar du latte.exe (kör den från cmd-fönstret, inte från PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Det resulterande kommandot är detsamma som på mottagaren, förutom vid tillägg av&nbsp;*-c* för att indikera att detta är *klienten*eller *avsändaren*:
+    Det resulterande kommandot är detsamma som på mottagaren, förutom vid tillägg av &nbsp; *-c* för att indikera att detta är *klienten*eller *avsändaren*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 

@@ -4,15 +4,15 @@ description: Steg för att annonsera anpassade vägar till dina punkt-till-plats
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756896"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987580"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annonsera anpassade vägar för P2S VPN-klienter
 
@@ -22,7 +22,7 @@ Du kanske vill annonsera anpassade vägar till alla VPN-klienter från punkt til
 
 ## <a name="to-advertise-custom-routes"></a>Annonsera anpassade vägar
 
-Om du vill annonsera anpassade vägar använder `Set-AzVirtualNetworkGateway cmdlet`du. I följande exempel visas hur du annonserar IP-adressen för [contoso Storage Account-tabeller](https://contoso.table.core.windows.net).
+Om du vill annonsera anpassade vägar använder du `Set-AzVirtualNetworkGateway cmdlet` . I följande exempel visas hur du annonserar IP-adressen för [contoso Storage Account-tabeller](https://contoso.table.core.windows.net).
 
 1. Pinga *contoso.Table.Core.Windows.net* och anteckna IP-adressen. Ett exempel:
 

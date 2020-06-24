@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243944"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690039"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Data modell referens för Azure API Management-mall
 I det här avsnittet beskrivs entitets-och typ representationer för vanliga objekt som används i data modellerna för utvecklares Portal mallar i Azure API Management.  
@@ -47,7 +47,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Meny alternativ för åtgärd](#MenuItem)  
 -   [Sidindelning](#Paging)  
 -   [ProfileServiceApplicationProxy](#Parameter)  
--   [Momsproduktbokföringsmallar](#Product)  
+-   [Produkt](#Product)  
 -   [Leverantör](#Provider)  
 -   [Bilden](#Representation)  
 -   [Prenumeration](#Subscription)  
@@ -57,32 +57,32 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Användar registrering](#UserSignUp)  
   
 ##  <a name="api"></a><a name="API"></a>Application  
- `API` Entiteten har följande egenskaper:  
+ `API`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`id`|sträng|Resurs-ID. Identifierar unikt API i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
 |`name`|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`description`|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
 |`serviceUrl`|sträng|Absolut URL för backend-tjänsten som implementerar detta API.|  
 |`path`|sträng|En relativ URL som unikt identifierar detta API och alla dess resurs Sök vägar inom API Management tjänst instansen. Den läggs till i API-slutpunktens bas-URL som anges när tjänst instansen skapas för att bilda en offentlig URL för detta API.|  
-|`protocols`|matris med tal|Beskriver på vilka protokoll som åtgärderna i detta API kan anropas. Tillåtna värden är `1 - http` och `2 - https`, eller både och.|  
+|`protocols`|matris med tal|Beskriver på vilka protokoll som åtgärderna i detta API kan anropas. Tillåtna värden är `1 - http` och `2 - https` , eller både och.|  
 |`authenticationSettings`|[Autentiseringsinställningar för verifiering av Server](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
 |`subscriptionKeyParameterNames`|objekt|Valfri egenskap som kan användas för att ange anpassade namn för fråge-och/eller rubrik parametrar som innehåller prenumerations nyckeln. När den här egenskapen finns måste den innehålla minst en av de två följande egenskaperna.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="api-summary"></a><a name="APISummary"></a>API-Sammanfattning  
- `API summary` Entiteten har följande egenskaper:  
+ `API summary`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`id`|sträng|Resurs-ID. Identifierar unikt API i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
 |`name`|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`description`|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
   
 ##  <a name="application"></a><a name="Application"></a>Applicering  
- `application` Entiteten har följande egenskaper:  
+ `application`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Programmets unika identifierare.|  
 |`Title`|sträng|Programmets rubrik.|  
@@ -98,9 +98,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Icon`|[Bilaga](#Attachment)|Ikonen för programmet.|  
   
 ##  <a name="attachment"></a><a name="Attachment"></a>Lage  
- `attachment` Entiteten har följande egenskaper:  
+ `attachment`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`UniqueId`|sträng|Den unika identifieraren för den bifogade filen.|  
 |`Url`|sträng|Resursens URL.|  
@@ -109,11 +109,11 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
   
 ##  <a name="code-sample"></a><a name="Sample"></a>Kod exempel  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`title`|sträng|Åtgärdens namn.|  
 |`snippet`|sträng|Den här egenskapen är föråldrad och ska inte användas.|  
-|`brush`|sträng|Vilken kod syntax som färgmall ska användas när kod exemplet visas. Tillåtna värden är `plain`, `php`, `java` `xml` `objc` `python`,,,, och `csharp` `ruby`|  
+|`brush`|sträng|Vilken kod syntax som färgmall ska användas när kod exemplet visas. Tillåtna värden är,,,,,, `plain` `php` `java` `xml` `objc` `python` `ruby` och `csharp` .|  
 |`template`|sträng|Namnet på den här exempel mal len för kod.|  
 |`body`|sträng|En plats hållare för kod exempel delen av kodfragmentet.|  
 |`method`|sträng|Åtgärdens HTTP-metod.|  
@@ -125,7 +125,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`parameters`|Samling av [parameter](#Parameter) enheter.|Parametrar som har definierats för den här åtgärden.|  
   
 ##  <a name="comment"></a><a name="Comment"></a>Kommentar  
- `API` Entiteten har följande egenskaper:  
+ `API`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
@@ -135,9 +135,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`PostedOn`|DateTime|Datum och tid då kommentaren publicerades.|  
   
 ##  <a name="issue"></a><a name="Issue"></a>Ge  
- `issue` Entiteten har följande egenskaper.  
+ `issue`Entiteten har följande egenskaper.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Den unika identifieraren för problemet.|  
 |`ApiID`|sträng|ID: t för API: et som det här problemet rapporterades för.|  
@@ -151,17 +151,17 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Services`|Samling av [API](#API) -entiteter.|API: er som prenumererar på av användaren som har arkiverat problemet.|  
   
 ##  <a name="filtering"></a><a name="Filtering"></a>Statisk  
- `filtering` Entiteten har följande egenskaper:  
+ `filtering`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Pattern`|sträng|Den aktuella Sök termen; eller `null` om det inte finns någon sökterm.|  
 |`Placeholder`|sträng|Texten som ska visas i sökrutan när det inte finns någon angiven sökterm.|  
   
 ##  <a name="header"></a><a name="Header"></a>Sidfot  
- I det här avsnittet `parameter` beskrivs åter givningen.  
+ I det här avsnittet beskrivs `parameter` åter givningen.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|-----------------|----------|  
 |`name`|sträng|Parameternamn.|  
 |`description`|sträng|Parameter beskrivning.|  
@@ -172,9 +172,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`readOnly`|boolean|Om rubriken är skrivskyddad.|  
   
 ##  <a name="http-request"></a><a name="HTTPRequest"></a>HTTP-begäran  
- I det här avsnittet `request` beskrivs åter givningen.  
+ I det här avsnittet beskrivs `request` åter givningen.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`description`|sträng|Beskrivning av åtgärds förfrågan.|  
 |`headers`|matris med [huvud](#Header) enheter.|Begärandehuvuden.|  
@@ -182,7 +182,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`representations`|Representation av [representation](#Representation)|Samling av representationer av åtgärds begär Anden.|  
   
 ##  <a name="http-response"></a><a name="HTTPResponse"></a>HTTP-svar  
- I det här avsnittet `response` beskrivs åter givningen.  
+ I det här avsnittet beskrivs `response` åter givningen.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
@@ -191,14 +191,14 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`representations`|Representation av [representation](#Representation)|Samling av representationer av åtgärds svar.|  
   
 ##  <a name="operation"></a><a name="Operation"></a>Reparation  
- `operation` Entiteten har följande egenskaper:  
+ `operation`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`id`|sträng|Resurs-ID. Identifierar en unik åtgärd i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `apis/{aid}/operations/{id}` där `{aid}` är en API-identifierare och `{id}` är ett åtgärds-ID. Den här egenskapen är skrivskyddad.|  
 |`name`|sträng|Åtgärdens namn. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`description`|sträng|Beskrivning av åtgärden. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
-|`scheme`|sträng|Beskriver på vilka protokoll som åtgärderna i detta API kan anropas. Tillåtna värden är `http`, `https`, eller både `http` och `https`.|  
+|`scheme`|sträng|Beskriver på vilka protokoll som åtgärderna i detta API kan anropas. Tillåtna värden är `http` , `https` , eller både `http` och `https` .|  
 |`uriTemplate`|sträng|Relativ URL-mall som identifierar mål resursen för den här åtgärden. Kan innehålla parametrar. Exempel: `customers/{cid}/orders/{oid}/?date={date}`|  
 |`host`|sträng|Den API Management Gateway-URL som är värd för API: et.|  
 |`httpMethod`|sträng|HTTP-metod för åtgärd.|  
@@ -206,9 +206,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`responses`|matris med [http-svar](#HTTPResponse)|Matris med åtgärder för [http-svar](#HTTPResponse) .|  
   
 ##  <a name="operation-menu"></a><a name="Menu"></a>Åtgärds meny  
- `operation menu` Entiteten har följande egenskaper:  
+ `operation menu`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`ApiId`|sträng|ID för aktuellt API.|  
 |`CurrentOperationId`|sträng|ID för den aktuella åtgärden.|  
@@ -216,16 +216,16 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`MenuItems`|Samling av [Åtgärds meny alternativ](#MenuItem) enheter.|Åtgärder för aktuellt API.|  
   
 ##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Meny alternativ för åtgärd  
- `operation menu item` Entiteten har följande egenskaper:  
+ `operation menu item`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Åtgärdens ID.|  
 |`Title`|sträng|Åtgärdens beskrivning.|  
 |`HttpMethod`|sträng|Åtgärdens http-metod.|  
   
 ##  <a name="paging"></a><a name="Paging"></a>Växlings  
- `paging` Entiteten har följande egenskaper:  
+ `paging`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
@@ -236,9 +236,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`PageCount`|nummer|Antalet resultat sidor.|  
   
 ##  <a name="parameter"></a><a name="Parameter"></a>ProfileServiceApplicationProxy  
- I det här avsnittet `parameter` beskrivs åter givningen.  
+ I det här avsnittet beskrivs `parameter` åter givningen.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|-----------------|----------|  
 |`name`|sträng|Parameternamn.|  
 |`description`|sträng|Parameter beskrivning.|  
@@ -249,9 +249,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`typeName`|sträng|Parameter typ.|  
   
 ##  <a name="product"></a><a name="Product"></a>Momsproduktbokföringsmallar  
- `product` Entiteten har följande egenskaper:  
+ `product`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Resurs-ID. Identifierar produkten unikt i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är ett produkt-ID. Den här egenskapen är skrivskyddad.|  
 |`Title`|sträng|Namn på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -262,7 +262,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`MultipleSubscriptionsCount`|nummer|Maximalt antal prenumerationer för den här produkten som en användare får ha på samma gång.|  
   
 ##  <a name="provider"></a><a name="Provider"></a>CSP  
- `provider` Entiteten har följande egenskaper:  
+ `provider`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
@@ -271,17 +271,17 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Caption`|sträng|Leverantörens visnings namn.|  
   
 ##  <a name="representation"></a><a name="Representation"></a>Bilden  
- I det här avsnittet `representation`beskrivs en.  
+ I det här avsnittet beskrivs en `representation` .  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
-|`contentType`|sträng|Anger en registrerad eller anpassad innehålls typ för den här presentationen, till exempel `application/xml`.|  
+|`contentType`|sträng|Anger en registrerad eller anpassad innehålls typ för den här presentationen, till exempel `application/xml` .|  
 |`sample`|sträng|Ett exempel på representationen.|  
   
 ##  <a name="subscription"></a><a name="Subscription"></a>Prenumerera  
- `subscription` Entiteten har följande egenskaper:  
+ `subscription`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Resurs-ID. Identifierar en unik prenumeration i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
 |`ProductId`|sträng|Produkt resurs identifieraren för den påbörjade produkten. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är ett produkt-ID.|  
@@ -290,12 +290,12 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`ProductDetailsUrl`|sträng|Relativ URL till produkt information.|  
 |`state`|sträng|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> - `0 - suspended`– prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br /><br /> - `1 - active`– prenumerationen är aktiv.<br /><br /> - `2 - expired`– prenumerationen har nått sitt förfallo datum och inaktiverades.<br /><br /> - `3 - submitted`– prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected`– prenumerations förfrågan har nekats av en administratör.<br /><br /> - `5 - cancelled`– prenumerationen har avbrutits av utvecklaren eller administratören.|  
 |`DisplayName`|sträng|Visnings namn för prenumerationen.|  
-|`CreatedDate`|dateTime|Det datum då prenumerationen skapades, i ISO 8601-format `2014-06-24T16:25:00Z`:.|  
+|`CreatedDate`|dateTime|Det datum då prenumerationen skapades, i ISO 8601-format: `2014-06-24T16:25:00Z` .|  
 |`CanBeCancelled`|boolean|Om prenumerationen kan avbrytas av den aktuella användaren.|  
 |`IsAwaitingApproval`|boolean|Om prenumerationen väntar på godkännande.|  
-|`StartDate`|dateTime|Prenumerationens start datum, i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|`ExpirationDate`|dateTime|Prenumerationens förfallo datum i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|`NotificationDate`|dateTime|Meddelande datumet för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
+|`StartDate`|dateTime|Prenumerationens start datum, i ISO 8601-format: `2014-06-24T16:25:00Z` .|  
+|`ExpirationDate`|dateTime|Prenumerationens förfallo datum i ISO 8601-format: `2014-06-24T16:25:00Z` .|  
+|`NotificationDate`|dateTime|Meddelande datumet för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z` .|  
 |`primaryKey`|sträng|Primär prenumerations nyckel. Maximal längd är 256 tecken.|  
 |`secondaryKey`|sträng|Sekundär prenumerations nyckel. Maximal längd är 256 tecken.|  
 |`CanBeRenewed`|boolean|Om prenumerationen kan förnyas av den aktuella användaren.|  
@@ -305,17 +305,17 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`RenewUrl`|sträng|Den relativa URL: en för att förnya prenumerationen.|  
   
 ##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Prenumerations Sammanfattning  
- `subscription summary` Entiteten har följande egenskaper:  
+ `subscription summary`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Id`|sträng|Resurs-ID. Identifierar en unik prenumeration i den aktuella API Management tjänst instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
 |`DisplayName`|sträng|Prenumerationens visnings namn|  
   
 ##  <a name="user-account-info"></a><a name="UserAccountInfo"></a>Användar konto information  
- `user account info` Entiteten har följande egenskaper:  
+ `user account info`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`FirstName`|sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`LastName`|sträng|Efter namn. Får inte vara tomt. Maximal längd är 100 tecken.|  
@@ -326,9 +326,9 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`IsBasicAccount`|boolean|Sant om det här kontot registrerades med e-post och lösen ord; falskt om kontot registrerades med en provider.|  
   
 ##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Användar inloggning  
- `user sign in` Entiteten har följande egenskaper:  
+ `user sign in`Entiteten har följande egenskaper:  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap|Typ|Description|  
 |--------------|----------|-----------------|  
 |`Email`|sträng|E-postadress. Får inte vara tom och måste vara unikt inom tjänst instansen. Maximal längd är 254 tecken.|  
 |`Password`|sträng|Användar kontots lösen ord.|  
@@ -344,7 +344,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`UserRegistrationTermsEnabled`|boolean|Om villkor är aktiverade.|  
   
 ##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Användar registrering  
- `user sign up` Entiteten har följande egenskaper:  
+ `user sign up`Entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  

@@ -1,5 +1,5 @@
 ---
-title: Hantera slut punkter och vägar
+title: Hantera slutpunkter och vägar
 titleSuffix: Azure Digital Twins
 description: Se hur du konfigurerar och hanterar slut punkter och händelse vägar för Azure Digitals dubbla data.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a6549f4436fe1bd6a7ab27d942621ccaaf93cff7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612944"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725689"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Hantera slut punkter och vägar i digitala Azure-dubbla
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 I Azure Digitals dubbla, kan du dirigera [händelse meddelanden](how-to-interpret-event-data.md) till underordnade tjänster eller ansluta till beräknings resurser. Detta görs genom att först konfigurera **slut punkter** som kan ta emot händelserna, följt av de [**händelse vägar**](concepts-route-events.md) som anger vilka händelser som genererats av Azure Digitals-meddelanden som levereras till vilka slut punkter.
 

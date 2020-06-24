@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: ddcfea684a22c9ad06197086b3e74700df755da1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025058"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707999"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API
 
@@ -30,13 +30,16 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="create-a-read-replica"></a>Skapa en Läs replik
 
+> [!IMPORTANT]
+> När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
+
 Du kan skapa en Läs replik server med följande kommando:
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica create` Kommandot kräver följande parametrar:
+`az mariadb server replica create`Kommandot kräver följande parametrar:
 
 | Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -44,7 +47,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
 | source-server | mydemoserver | Namnet eller ID: t för den befintliga huvud server som ska replikeras från. |
 
-Använd parametern om du vill skapa en skrivskyddad replik `--location` av en kors region. 
+Använd parametern om du vill skapa en skrivskyddad replik av en kors region `--location` . 
 
 CLI-exemplet nedan skapar repliken i USA, västra.
 
@@ -66,7 +69,7 @@ Om du vill visa alla repliker för en specifik huvud server kör du följande ko
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica list` Kommandot kräver följande parametrar:
+`az mariadb server replica list`Kommandot kräver följande parametrar:
 
 | Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -84,7 +87,7 @@ Replikering till en Läs replik Server kan stoppas med hjälp av följande komma
 az mariadb server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica stop` Kommandot kräver följande parametrar:
+`az mariadb server replica stop`Kommandot kräver följande parametrar:
 
 | Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |

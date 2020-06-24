@@ -5,18 +5,18 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 06/07/2020
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: b8ff58e830d9ca992db4461ee5c75659120c89c1
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 34535cda82ba039ace98b6055e8f7096c5454fda
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629590"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207880"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
-Innan du börjar den här artikeln ser du till att du har slutfört föregående artikel, [tilldelar behörigheter på resurs nivå till en identitet](storage-files-identity-ad-ds-assign-permissions.md). För att se till att dina behörigheter på resurs nivå är på plats.
+Innan du börjar den här artikeln ser du till att du har slutfört föregående artikel, [tilldelar behörigheter på resurs nivå till en identitet](storage-files-identity-ad-ds-assign-permissions.md) för att se till att dina behörigheter på resurs nivå är på plats.
 
 När du har tilldelat behörigheter på resurs nivå med RBAC måste du konfigurera lämpliga Windows-ACL: er på rot-, katalog-eller filnivå, så att du kan dra nytta av detaljerad åtkomst kontroll. Tänk på RBAC-behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. Även om Windows ACL: er använder en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå. Behörigheter för både delnings-och fil-/katalog nivå tillämpas när en användare försöker få åtkomst till en fil/katalog, så om det finns en skillnad mellan någon av dem kommer bara den mest restriktiva att tillämpas. Om en användare till exempel har Läs-/Skriv behörighet på filnivå, men bara läser på resurs nivå, kan de bara läsa filen. Samma sak gäller om den har återförts och en användare hade Läs-/Skriv behörighet på delnings nivå, men bara läst på filnivå, de kan fortfarande bara läsa filen.
 
@@ -73,7 +73,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 1. I fönstret prompt för att lägga till nya användare anger du det användar namn som du vill bevilja behörigheter i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 1.    Välj **OK**.
 1.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-1.    Välj **Tillämpa**.
+1.    Välj **Använd**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurera Windows ACL: er med icacls
 

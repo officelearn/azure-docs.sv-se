@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658398"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210192"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra överanpassning och obalanserade data med automatiserad maskin inlärning
 
@@ -79,11 +79,9 @@ Med automatisk ML implementeras även explicita **begränsningar för modell kom
 
 Obalanserade data finns vanligt vis i data om klassificerings scenarier för maskin inlärning och refererar till data som innehåller ett oproportionerligt förhållande mellan observationerna i varje klass. Den här obalansen kan leda till en felaktigt uppfattad positiv effekt av en modells exakthet, eftersom indatan har en förskjutning mot en klass, vilket resulterar i att den tränade modellen imiterar den bias. 
 
-Eftersom klassificerings algoritmer ofta utvärderas efter precision, är det ett bra sätt att kontrol lera om en modells precisions Poäng är ett bra sätt att identifiera om den har påverkats av obalanserade data. Har den verkligen hög exakthet eller verkligen låg precision för vissa klasser?
-
 Dessutom genererar automatiserade ML-körningar följande diagram automatiskt, som kan hjälpa dig att förstå rätthet i klassificeringen av din modell och identifiera modeller som kan påverkas av data som är fördelade.
 
-Diagram| Description
+Diagram| Beskrivning
 ---|---
 [Förvirring mat ris](how-to-understand-automated-ml.md#confusion-matrix)| Utvärderar de korrekt klassificerade etiketterna mot de faktiska etiketterna i data. 
 [Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-chart)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 
@@ -91,17 +89,19 @@ Diagram| Description
 
 ## <a name="handle-imbalanced-data"></a>Hantera förbalanserade data 
 
-Som en del av målet att förenkla arbets flödet för Machine Learning har automatiserad ML byggts med funktioner som hjälper dig att hantera obalanserade data, till exempel 
+Som en del av målet att förenkla arbets flödet för Machine Learning **har automatiserad ml byggts med funktioner** som hjälper dig att hantera obalanserade data, till exempel 
 
-- En **Vikt kolumn**: automatisk ml stöder en viktad kolumn som indata, vilket gör att rader i data kan viktas upp eller ned, vilket kan göra en klass mer eller mindre viktig.
+- En **Vikt kolumn**: automatisk ml har stöd för en kolumn med vikter som indata, vilket gör att rader i data kan viktas upp eller ned, vilket kan användas för att göra en klass mer eller mindre viktig.
 
 - Algoritmerna som används av automatiserad ML kan hantera obalans på upp till 20:1 korrekt, vilket innebär att den vanligaste klassen kan ha 20 gånger fler rader i data än den minsta gemensamma klassen.
 
-Följande tekniker är ytterligare alternativ för att hantera sambalanserade data utanför automatiserad ML. 
+- Använd ett prestanda mått som fungerar bättre med obalanserade data. AUC_weighted är till exempel ett primärt mått som beräknar bidraget för varje klass baserat på det relativa antalet prover som representerar klassen, och därför är mer robust mot obalans.
+
+Följande tekniker är ytterligare alternativ för att hantera sambalanserade data **utanför automatiserad ml**. 
 
 - Omsampling till till och med klassen obalans, antingen genom att ta sampling av de mindre klasserna eller nedåt, och samtidigt ta bort de större klasserna. Dessa metoder kräver expertis för att bearbeta och analysera.
 
-- Använd ett prestanda mått som fungerar bättre med obalanserade data. Till exempel är F1-poängen ett viktat medelvärde för precision och åter kallelse. Precision mäter en klassificerares exakta värde – låg precision visar ett stort antal falska positiva identifieringar--, samtidigt som åtgärdar mått för en klassificerares komplettahet – låg återkallning anger ett stort antal falska negativa värden. 
+- Granska prestanda mått för obalanserade data. Till exempel är F1-poängen ett viktat medelvärde för precision och åter kallelse. Precision mäter en klassificerares exakta värde – låg precision visar ett stort antal falska positiva identifieringar--, samtidigt som åtgärdar mått för en klassificerares komplettahet – låg återkallning anger ett stort antal falska negativa värden.
 
 ## <a name="next-steps"></a>Nästa steg
 

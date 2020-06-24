@@ -5,12 +5,12 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure-diskar i 
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208150"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751361"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes service (AKS) dynamiskt
 
@@ -38,7 +38,11 @@ Varje AKS-kluster innehåller två i förväg skapade lagrings klasser som båda
 * Den *hanterade Premium Storage-* klassen tillhandahåller en Premium Azure-disk.
     * Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Om AKS-noderna i klustret använder Premium Storage väljer du den *hanterade-Premium-* klassen.
     
-Dessa standard lagrings klasser låter dig inte uppdatera volym storleken när den har skapats. Om du vill aktivera den här funktionen lägger du till *allowVolumeExpansion: true* -raden till en av standard lagrings klasserna eller skapar en egen anpassad lagrings klass. Du kan redigera en befintlig lagrings klass med `kubectl edit sc` hjälp av kommandot. Mer information om lagrings klasser och hur du skapar egna finns i [lagrings alternativ för program i AKS][storage-class-concepts].
+Om du använder en av standard lagrings klasserna kan du inte uppdatera volym storleken när lagrings klassen har skapats. Om du vill kunna uppdatera volym storleken när en lagrings klass har skapats lägger du till den `allowVolumeExpansion: true` i en av standard lagrings klasserna, eller så kan du skapa en egen anpassad lagrings klass. Du kan redigera en befintlig lagrings klass med hjälp av `kubectl edit sc` kommandot. 
+
+Om du till exempel vill använda en disk med storlek 4 TiB måste du skapa en lagrings klass som definierar `cachingmode: None` eftersom [diskcachelagring inte stöds för disk 4 TIB och större](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+
+Mer information om lagrings klasser och hur du skapar en egen lagrings klass finns i [lagrings alternativ för program i AKS][storage-class-concepts].
 
 Använd kommandot [kubectl get SC][kubectl-get] för att se de i förväg skapade lagrings klasserna. I följande exempel visas de för hands skapa lagrings klasser som är tillgängliga i ett AKS-kluster:
 
@@ -57,7 +61,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 Ett permanent volym anspråk (PVC) används för att automatiskt etablera lagring baserat på en lagrings klass. I det här fallet kan en PVC använda en av de i förväg skapade lagrings klasserna för att skapa en standard-eller Premium Azure-hanterad disk.
 
-Skapa en fil med `azure-premium.yaml`namnet och kopiera i följande manifest. Anspråket begär en disk `azure-managed-disk` med namnet *5 GB* som är i storlek med *ReadWriteOnce* -åtkomst. Lagrings klassen för *Managed Premium* har angetts som lagrings klass.
+Skapa en fil med namnet `azure-premium.yaml` och kopiera i följande manifest. Anspråket begär en disk med namnet `azure-managed-disk` *5 GB* som är i storlek med *ReadWriteOnce* -åtkomst. Lagrings klassen för *Managed Premium* har angetts som lagrings klass.
 
 ```yaml
 apiVersion: v1
@@ -86,9 +90,9 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Använd beständig volym
 
-När beständiga volym anspråk har skapats och disken har etablerats kan du skapa en POD med åtkomst till disken. Följande manifest skapar en grundläggande NGINX-Pod som använder det beständiga volym anspråket med namnet *Azure-hanterad disk* för att montera Azure `/mnt/azure`-disken på sökvägen. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+När beständiga volym anspråk har skapats och disken har etablerats kan du skapa en POD med åtkomst till disken. Följande manifest skapar en grundläggande NGINX-Pod som använder det beständiga volym anspråket med namnet *Azure-hanterad disk* för att montera Azure-disken på sökvägen `/mnt/azure` . För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
 
-Skapa en fil med `azure-pvc-disk.yaml`namnet och kopiera i följande manifest.
+Skapa en fil med namnet `azure-pvc-disk.yaml` och kopiera i följande manifest.
 
 ```yaml
 kind: Pod
@@ -123,7 +127,7 @@ $ kubectl apply -f azure-pvc-disk.yaml
 pod/mypod created
 ```
 
-Nu har du en igång-Pod med Azure-disken monterad i `/mnt/azure` katalogen. Den här konfigurationen kan ses när du inspekterar din POD `kubectl describe pod mypod`via, som du ser i följande komprimerade exempel:
+Nu har du en igång-Pod med Azure-disken monterad i `/mnt/azure` katalogen. Den här konfigurationen kan ses när du inspekterar din POD via `kubectl describe pod mypod` , som du ser i följande komprimerade exempel:
 
 ```console
 $ kubectl describe pod mypod
@@ -194,7 +198,7 @@ Om du vill använda den återställda disken med en POD anger du ID för disken 
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Skapa ett Pod-manifest `azure-restored.yaml` med namnet och ange disk-URI: n som hämtades i föregående steg. I följande exempel skapas en grundläggande NGINX-webbserver med den återställda disken monterad som en volym på */mnt/Azure*:
+Skapa ett Pod-manifest med namnet `azure-restored.yaml` och ange disk-URI: n som hämtades i föregående steg. I följande exempel skapas en grundläggande NGINX-webbserver med den återställda disken monterad som en volym på */mnt/Azure*:
 
 ```yaml
 kind: Pod

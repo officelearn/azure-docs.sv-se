@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 06/17/2020
 ms.author: aschhab
-ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff216cba76a0b6eecd4879b9ce3aefc131161b9d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260948"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987767"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
@@ -31,11 +31,13 @@ Varje partitionerad kö eller ett ämne består av flera partitioner. Varje part
 
 När en klient vill ta emot ett meddelande från en partitionerad kö, eller från en prenumeration till ett partitionerat ämne, kan Service Bus fråga alla partitioner efter meddelanden och sedan returnera det första meddelandet som hämtas från alla meddelande arkiv till mottagaren. Service Bus cachelagrar de andra meddelandena och returnerar dem när de får ytterligare mottagnings begär Anden. En mottagar klient känner inte till partitionering. Klientens beteende för en partitionerad kö eller ett ämne (till exempel läsa, slutför, skjut, obeställbara meddelanden kön, för hämtning) är identiskt med beteendet för en vanlig entitet.
 
+Gransknings åtgärden på en icke-partitionerad enhet returnerar alltid det äldsta meddelandet, men inte på en partitionerad enhet. I stället returnerar den det äldsta meddelandet i en av de partitioner vars Message Broker svarade först. Det finns ingen garanti för att det returnerade meddelandet är den äldsta i alla partitioner. 
+
 Det kostar inget extra att skicka ett meddelande till eller ta emot ett meddelande från en partitionerad kö eller ett ämne.
 
 ## <a name="enable-partitioning"></a>Aktivera partitionering
 
-Om du vill använda partitionerade köer och ämnen med Azure Service Bus använder du Azure SDK version 2,2 eller senare, eller `api-version=2013-10` anger eller senare i http-begärandena.
+Om du vill använda partitionerade köer och ämnen med Azure Service Bus använder du Azure SDK version 2,2 eller senare, eller anger `api-version=2013-10` eller senare i HTTP-begärandena.
 
 ### <a name="standard"></a>Standard
 

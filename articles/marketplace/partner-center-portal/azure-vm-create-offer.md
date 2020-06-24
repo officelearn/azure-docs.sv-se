@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 7d32e4100d00a4ecff9f8bd5017d8bc5ab74105e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847930"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752430"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -63,7 +63,7 @@ Ditt tekniska team bör ha en grundläggande förståelse och erfarenhet av föl
 2. I det vänstra fönstret väljer du **kommersiell Marketplace**-  >  **Översikt**.
 3. På sidan **Översikt** väljer du **nytt erbjudande**för  >  **Azure virtuell dator**.
 
-    ![Skärm bild som visar meny alternativ för det vänstra fönstret och knappen "nytt erbjudande".](./media/new-offer-azure-vm.png)
+    ![Skärm bild som visar meny alternativ för det vänstra fönstret och knappen "nytt erbjudande".](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > När ditt erbjudande har publicerats visas alla ändringar som du gör i Partner Center på Azure Marketplace först när du har publicerat om erbjudandet. Se till att alltid publicera om ett erbjudande när du har gjort ändringar i det.
@@ -171,7 +171,7 @@ Du måste ange villkor för erbjudandet till dina kunder. Du kan välja mellan t
 På sidan **erbjudande lista** definierar du erbjudande information, till exempel erbjudande namn, beskrivning, länkar och kontakter.
 
 > [!NOTE]
-> Ditt erbjudande som visar innehåll, till exempel beskrivning, dokument, skärm bilder och användnings villkor, behöver inte vara på engelska, så länge som erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på \< andra språk än engelska>." Du kan också ange en URL för att länka till en plats som erbjuder innehåll på ett annat språk än det som används i innehålls listan för erbjudandet.
+> Ditt erbjudande som visar innehåll, till exempel beskrivning, dokument, skärm bilder och användnings villkor, behöver inte vara på engelska, så länge som erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt i \<non-English language> ". Du kan också ange en URL för att länka till en plats som erbjuder innehåll på ett annat språk än det som används i innehålls listan för erbjudandet.
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
@@ -237,8 +237,8 @@ Ange kontakt information för Microsoft som ska användas när det finns problem
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder gör att ditt bidrag avvisas.
 
->[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar *https://upload.xboxlive.com* tjänsten som används av Partner Center.
+>[!NOTE]
+>Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
 #### <a name="azure-marketplace-logos"></a>Logo typer för Azure Marketplace
 
@@ -514,32 +514,73 @@ Den här sidan innehåller också länkar som hjälper dig att arbeta med erbjud
 
 ## <a name="marketplace-examples"></a>Marketplace-exempel
 
-I följande exempel visas hur erbjudandet visas på Azure Marketplace.
+Här är ett exempel på hur information om erbjudandet visas på Azure Marketplace:
 
-### <a name="azure-marketplace-offer-details"></a>Information om Azure Marketplace-erbjudanden
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
-![Exempel på sidan erbjudande om Azure Marketplace](media/avm-create1.png)
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-### <a name="azure-marketplace-search-results"></a>Sök Resultat för Azure Marketplace
+1. Stor logo typ
+2. Pris
+3. Kategorier
+4. Villkor
+5. Sekretess policy adress (länk)
+6. Erbjudandets namn
+7. Beskrivning
+8. Användbara länkar
+9. Skärm bilder/videor
 
-![Exempel på sidan Sök information för Azure Marketplace](media/avm-create2.png)
+<br>Här är ett exempel på hur information om erbjudandet visas i Sök resultaten för Azure Marketplace:
 
-### <a name="azure-marketplace-plan-details"></a>Information om Azure Marketplace-prenumeration
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas i Sök resultaten för Azure Marketplace.":::
 
-![Exempel på Azure Marketplace-prenumerations information](media/avm-create3.png)
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-### <a name="azure-portal-offer-details"></a>Information om Azure Portal erbjudande
+1. Liten logo typ
+2. Erbjudandets namn
+3. Sammanfattning av Sök Resultat
+4. Utvärdering
 
-![Exempel på sidan information om Azure Portal erbjudande](media/avm-create4.png)
+<br>Här är ett exempel på Azure Marketplace-plan information:
 
-### <a name="azure-portal-search-results"></a>Azure Portal Sök Resultat
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Visar information om Azure Marketplace-planer.":::
 
-![Exempel på sidan Azure Portal Sök Resultat](media/avm-create5.png)
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-### <a name="azure-portal-plan-details"></a>Information om Azure Portals plan
+1. Planera namn och sammanfattning
+2. Rekommendera VM-storlekar
+3. Planera priser
 
-![Exempel på sidan information om Azure Portal plan](media/avm-create6.png)
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 
-## <a name="next-steps"></a>Nästa steg
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Name
+2. Beskrivning
+3. Användbara länkar
+4. Skärm bilder/videor
+
+<br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal Sök Resultat:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal Sök resultat.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Liten logo typ
+2. Erbjudandets namn
+3. Sammanfattning av Sök Resultat
+
+<br>Här är ett exempel på Azure Portal Plans information:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Visar Azure Portal Plans information.":::
+
+#### <a name="call-out-descriptions"></a>Beskrivningar av anrop
+
+1. Plan namn
+2. Beskrivning av plan
+
+## <a name="next-step"></a>Nästa steg
 
 - [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

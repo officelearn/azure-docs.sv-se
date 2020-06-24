@@ -4,22 +4,22 @@ description: Steg för att ansluta klassiska virtuella nätverk till Resource Ma
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152031"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987679"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributions modeller med hjälp av portalen
 
 Den här artikeln visar hur du ansluter klassiska virtuella nätverk till Resource Manager-virtuella nätverk så att resurserna som finns i de separata distributions modellerna kan kommunicera med varandra. Stegen i den här artikeln använder främst Azure Portal, men du kan också skapa den här konfigurationen med hjälp av PowerShell genom att välja artikeln i den här listan.
 
 > [!div class="op_single_selector"]
-> * [Portalen](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
@@ -84,7 +84,7 @@ I följande tabell visas ett exempel på hur virtuella nätverk och lokala plats
 
 I det här avsnittet skapar du det klassiska VNet, det lokala nätverket (lokal plats) och den virtuella Nätverksgatewayen. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna, eller Använd [exempel](#values) värden.
 
-### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"> </a>skapa ett klassiskt VNet
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> skapa ett klassiskt VNet
 
 Om du inte har ett klassiskt VNet och kör dessa steg som en övning, kan du skapa ett VNet med hjälp av [den här artikeln](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och [exemplet](#values) inställnings värden ovan.
 
@@ -96,7 +96,7 @@ Om du redan har ett VNet med en VPN-gateway kontrollerar du att gatewayen är dy
 4. Leta upp Virtual Network från den returnerade listan och klicka på den för att öppna sidan Virtual Network. 
 5. På sidan virtuellt nätverk väljer du klassisk för att skapa ett klassiskt VNet. Om du använder standardvärdet så kommer du att få ett Resource Manager VNet i stället.
 
-### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>konfigurera den lokala platsen
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> Konfigurera den lokala platsen
 
 1. Navigera till **alla resurser** och leta upp **ClassicVNet** i listan.
 2. Klicka på **Gateway** i avsnittet **Inställningar** på menyn och klicka sedan på banderollen för att skapa en gateway.

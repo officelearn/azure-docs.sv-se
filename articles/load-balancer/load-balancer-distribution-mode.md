@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5dfcc84530597fc41c547a78478dcee4a4ad803
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023539"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808498"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurera distributions läget för Azure Load Balancer
 
@@ -179,7 +179,7 @@ Använd den klassiska Azure-distributions modellen för att ändra en befintlig 
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Som tidigare beskrivits ställer `LoadBalancerDistribution` du in elementet på sourceIP för två tuple-tillhörighet, sourceIPProtocol för par med tre tupler eller ingen för ingen tillhörighet (5 tuple tillhörighet).
+Som tidigare beskrivits ställer du in `LoadBalancerDistribution` elementet på sourceIP för två tuple-tillhörighet, sourceIPProtocol för par med tre tupler eller ingen för ingen tillhörighet (5 tuple tillhörighet).
 
 #### <a name="response"></a>Svar
 

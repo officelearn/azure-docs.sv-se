@@ -4,27 +4,26 @@ description: Du kan hantera DNS-zoner med hjälp av Azure Portal. Den här artik
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
-ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936785"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689171"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hantera DNS-zoner i Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Portalen](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Klassisk Azure CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Klassisk Azure-CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du kan också hantera dina DNS-zoner med plattforms oberoende [Azure CLI](dns-operations-dnszones-cli.md) eller Azure [PowerShell](dns-operations-dnszones.md).
@@ -51,7 +50,7 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du
 
 ## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-I Azure Portal navigerar du till **fler tjänster** > **nätverk** > **DNS-zoner**. Varje DNS-zon är en egen resurs, och information som antal post uppsättningar och namnservrar visas i den här vyn. Kolumn **namns servrarna** är inte i standardvyn. Om du vill lägga till det klickar du på **kolumner**, väljer **namnservrar**och klickar sedan på **Slutför**.
+I Azure Portal navigerar du till **fler tjänster**  >  **nätverk**  >  **DNS-zoner**. Varje DNS-zon är en egen resurs, och information som antal post uppsättningar och namnservrar visas i den här vyn. Kolumn **namns servrarna** är inte i standardvyn. Om du vill lägga till det klickar du på **kolumner**, väljer **namnservrar**och klickar sedan på **Slutför**.
 
 ![lista DNS-zoner](./media/dns-operations-dnszones-portal/listzones.png)
 

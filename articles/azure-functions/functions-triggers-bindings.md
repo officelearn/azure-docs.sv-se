@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276509"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687658"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Utlösare och bindningar i Azure Functions
 
@@ -44,13 +44,13 @@ Utlösare och bindningar definieras på olika sätt beroende på utvecklings met
 | Plattform | Utlösare och bindningar konfigureras av... |
 |-------------|--------------------------------------------|
 | C#-klass bibliotek | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;metoder och parametrar för dekorera med C#-attribut |
-| Alla andra (inklusive Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uppdaterar [Function. JSON](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| Alla andra (inklusive Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uppdatera [function.jspå](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
 Portalen innehåller ett användar gränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att öppna den **avancerade redigeraren** som är tillgänglig via fliken **integrera** i din funktion.
 
-I .NET definierar parameter typen data typen för indata. Använd `string` till exempel för att binda till texten i en Queue-utlösare, en byte mat ris som ska läsas som binär och en anpassad typ för deserialisering till ett objekt.
+I .NET definierar parameter typen data typen för indata. Använd till exempel för `string` att binda till texten i en Queue-utlösare, en byte mat ris som ska läsas som binär och en anpassad typ för deserialisering till ett objekt.
 
-För språk som är dynamiskt skrivna, till exempel Java Script, `dataType` använder du egenskapen i *Function. JSON* -filen. Om du till exempel vill läsa innehållet i en HTTP-begäran i binärt format `dataType` , `binary`ange till:
+För språk som är dynamiskt skrivna, till exempel Java Script, använder du `dataType` egenskapen i *function.jsi* filen. Om du till exempel vill läsa innehållet i en HTTP-begäran i binärt format, ange `dataType` till `binary` :
 
 ```json
 {
@@ -61,15 +61,15 @@ För språk som är dynamiskt skrivna, till exempel Java Script, `dataType` anv�
 }
 ```
 
-Andra alternativ för `dataType` är `stream` och `string`.
+Andra alternativ för `dataType` är `stream` och `string` .
 
 ## <a name="binding-direction"></a>Bindnings riktning
 
-Alla utlösare och bindningar `direction` har en egenskap i filen [Function. JSON](./functions-reference.md) :
+Alla utlösare och bindningar har en `direction` egenskap i [function.jspå](./functions-reference.md) filen:
 
 - För utlösare är riktningen alltid`in`
-- Indata och utgående bindningar `in` använder och`out`
-- Vissa bindningar har stöd för en `inout`speciell riktning. Om du använder `inout`är det bara **avancerad redigerare** som är tillgänglig via fliken **integrera** i portalen.
+- Indata och utgående bindningar använder `in` och`out`
+- Vissa bindningar har stöd för en speciell riktning `inout` . Om du använder `inout` är det bara **avancerad redigerare** som är tillgänglig via fliken **integrera** i portalen.
 
 När du använder [attribut i ett klass bibliotek](functions-dotnet-class-library.md) för att konfigurera utlösare och bindningar, anges riktningen i en attributhierarki eller härleds från parameter typen.
 

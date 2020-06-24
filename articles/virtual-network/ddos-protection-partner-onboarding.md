@@ -5,15 +5,15 @@ ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
 mms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: kumud
-ms.openlocfilehash: 39cb2f90b49725c78746df69505fad7160e1db92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8136ea2a567ac823f03941ebd4a67bed043ada07
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849687"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689359"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Samar beta med Azure DDoS Protection standard
 I den här artikeln beskrivs de partner möjligheter som är aktiverade i Azure DDoS Protection standard. Den här artikeln är utformad för att hjälpa produkt chefer och affärs utvecklings roller att förstå investerings Sök vägarna och tillhandahålla inblick i de sammanställnings värdena.

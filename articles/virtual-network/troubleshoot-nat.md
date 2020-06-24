@@ -9,23 +9,23 @@ manager: KumudD
 ms.service: virtual-network
 Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.devlang: na
-ms.topic: overview
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698089"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688289"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka Azure Virtual Network NAT-anslutning
 
 Den här artikeln hjälper administratörer att diagnostisera och lösa anslutnings problem när de använder Virtual Network NAT.
 
-## <a name="problems"></a>Formulärcachen
+## <a name="problems"></a>Problem
 
 * [SNAT-belastning](#snat-exhaustion)
 * [ICMP-Ping fungerar inte](#icmp-ping-is-failing)
@@ -130,7 +130,7 @@ Granska avsnittet om [SNAT-inblåsning](#snat-exhaustion) i den här artikeln.
 
 Azure övervakar och arbetar med sin infrastruktur med gott om service. Tillfälliga fel kan uppstå, det finns ingen garanti för att överföringen är förlustfri.  Använd design mönster som tillåter SYN återöverföringar för TCP-program. Använd anslutnings-timeout tillräckligt stor för att tillåta TCP-dataöverföring för att minska den tillfälliga påverkan som orsakas av ett förlorat SYN-paket.
 
-_**Lösning:**_
+_**Lösa**_
 
 * Sök efter [SNAT-belastning](#snat-exhaustion).
 * Konfigurations parametern i en TCP-stack som styr SYN återöverförings beteendet kallas RTO ([timeout för återöverföring](https://tools.ietf.org/html/rfc793)). RTO-värdet är justerbart, men vanligt vis 1 sekund eller högre som standard med exponentiella säkerhets kopieringar.  Om programmets anslutnings-timeout är för kort (till exempel 1 sekund) kan du se sporadisk tids gräns för anslutning.  Öka tids gränsen för program anslutningen.
@@ -155,7 +155,7 @@ Föregående avsnitt gäller, tillsammans med Internet slut punkten som kommunik
 
 Paket som samlas in på källan och målet (om det är tillgängligt) måste vanligt vis ta reda på vad som sker.
 
-_**Lösning:**_
+_**Lösa**_
 
 * Sök efter [SNAT-belastning](#snat-exhaustion). 
 * Verifiera anslutningen till en slut punkt i samma region eller någon annan stans för jämförelse.  
@@ -171,7 +171,7 @@ En möjlig orsak är att TCP-anslutningen har nått tids gränsen för inaktivit
 
 TCP-återställning genereras inte på den offentliga sidan av NAT-gatewayens resurser. TCP-återställning på mål sidan genereras av den virtuella käll datorn, inte NAT-gateway-resursen.
 
-_**Lösning:**_
+_**Lösa**_
 
 * Granska [design mönster](#design-patterns) rekommendationer.  
 * Öppna ett support ärende om du behöver ytterligare fel sökning.
@@ -188,7 +188,7 @@ Du kan ange intresse för ytterligare funktioner via [Virtual Network NAT UserVo
 
 Du konfigurerar NAT-gateway, IP-adress (er) som ska användas och vilket undernät som ska använda en NAT-gateway-resurs. Men anslutningar från virtuella dator instanser som fanns innan NAT-gatewayen distribuerades använder inte IP-adressen (ES).  De verkar använda IP-adress (er) som inte används med NAT gateway-resursen.
 
-_**Lösning:**_
+_**Lösa**_
 
 [Virtual Network NAT](nat-overview.md) ersätter den utgående anslutningen för under nätet som den är konfigurerad på. När du övergår från standard SNAT eller belastningsutjämnaren utgående SNAT till att använda NAT-gatewayer börjar nya anslutningar omedelbart använda de IP-adresser som är associerade med NAT-gateway-resursen.  Men om en virtuell dator fortfarande har en upprättad anslutning under växeln till NAT gateway-resurs fortsätter anslutningen att använda den gamla SNAT-IP-adressen som tilldelades när anslutningen upprättades.  Se till att du verkligen upprättar en ny anslutning i stället för att återanvända en anslutning som redan funnits på grund av att operativ systemet eller webbläsaren cachelagrade anslutningarna i en anslutningspool.  När du använder _sväng_ i PowerShell ska du till exempel se till att ange parametern _-DisableKeepalive_ för att tvinga en ny anslutning.  Om du använder en webbläsare kan anslutningarna också placeras i pooler.
 

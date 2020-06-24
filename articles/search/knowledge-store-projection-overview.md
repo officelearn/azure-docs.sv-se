@@ -1,5 +1,5 @@
 ---
-title: Projektioner i ett kunskaps lager (för hands version)
+title: Projektions-koncept (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning. Kunskaps lagret är för närvarande en offentlig för hands version.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 894fc6efc99eb7fcc17f2199270c08bc3cee8e8e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942979"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750318"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projektioner i ett kunskaps lager i Azure Kognitiv sökning
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Kunskaps lager "projektioner" i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
 > Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
@@ -69,7 +69,7 @@ Du kan projicera ett enskilt dokument i ditt index i flera tabeller och bevara r
 
 ### <a name="defining-a-table-projection"></a>Definiera en tabell projektion
 
-När du definierar en tabell projektion i färdigheter `knowledgeStore` -elementet, börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera.
+När du definierar en tabell projektion i `knowledgeStore` färdigheter-elementet, börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera.
 
 Varje tabell kräver tre egenskaper:
 

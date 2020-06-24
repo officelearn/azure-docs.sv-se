@@ -5,15 +5,15 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834578"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987121"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -292,7 +292,7 @@ När du skapar ytterligare anslutningar är det viktigt att se till att IP-adres
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Steg 7 – Skapa och konfigurera TestVNet5
 
-Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Om du vill växla mellan `az account list --all` prenumerationer använder du för att lista de prenumerationer som `az account set --subscription <subscriptionID>` är tillgängliga för ditt konto och använder för att växla till den prenumeration som du vill använda.
+Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Om du vill växla mellan prenumerationer använder du för att `az account list --all` lista de prenumerationer som är tillgängliga för ditt konto och använder `az account set --subscription <subscriptionID>` för att växla till den prenumeration som du vill använda.
 
 1. Kontrollera att du är ansluten till prenumeration 5 och sedan skapa en resursgrupp.
 
@@ -331,7 +331,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Steg 8 – Skapa anslutningarna
 
-Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Om du vill växla mellan `az account list --all` prenumerationer använder du för att lista de prenumerationer som `az account set --subscription <subscriptionID>` är tillgängliga för ditt konto och använder för att växla till den prenumeration som du vill använda.
+Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Om du vill växla mellan prenumerationer använder du för att `az account list --all` lista de prenumerationer som är tillgängliga för ditt konto och använder `az account set --subscription <subscriptionID>` för att växla till den prenumeration som du vill använda.
 
 1. **[Prenumeration 1]** Logga in och anslut till Prenumeration 1. Kör följande kommando för att hämta namn och ID för gatewayen från utdata:
 

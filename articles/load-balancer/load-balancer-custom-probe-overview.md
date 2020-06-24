@@ -8,18 +8,18 @@ author: asudbring
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477014"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809415"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -118,7 +118,7 @@ Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration 
       },
 ```
 
-### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a> Http/https-avsökning
+### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a>Http/https-avsökning
 
 >[!NOTE]
 >HTTPS-avsökning är endast tillgänglig för [standard Load Balancer](load-balancer-standard-overview.md).
@@ -130,7 +130,7 @@ HTTP/HTTPS-avsökningar kan också vara användbara för att implementera din eg
 > [!NOTE] 
 > HTTPS-avsökningen kräver att certifikat används baserat på att det finns en minsta signatur-hash för SHA256 i hela kedjan.
 
-Om du använder Cloud Services och har webb roller som använder W3wp. exe, kan du också få automatisk övervakning av din webbplats. Felen i din webbplats kod returnerar en status som inte är 200 till belastningsutjämnaren för belastnings utjämning.
+Om du använder Cloud Services och har webb roller som använder w3wp.exe, kan du också få automatisk övervakning av din webbplats. Felen i din webbplats kod returnerar en status som inte är 200 till belastningsutjämnaren för belastnings utjämning.
 
 En HTTP/HTTPS-avsökning Miss lyckas när:
 * Avsöknings slut punkten returnerar en HTTP-svarskod som inte är 200 (till exempel 403, 404 eller 500). Hälso avsökningen markeras omedelbart. 
@@ -175,7 +175,7 @@ Om gäst agenten inte svarar med HTTP 200 OK markerar belastnings Utjämnings in
 
 Om gäst agenten svarar med en HTTP 200 skickar belastningsutjämnaren nya flöden till den instansen igen.
 
-När du använder en webb roll körs webbplats koden vanligt vis i W3wp. exe, som inte övervakas av Azure-infrastrukturen eller gäst agenten. Felen i W3wp. exe (till exempel HTTP 500-svar) rapporteras inte till gäst agenten. Därför tar belastningsutjämnaren inte den instansen från rotationen.
+När du använder en webb roll körs webbplats koden vanligt vis i w3wp.exe, som inte övervakas av Azure-infrastrukturen eller gäst agenten. Felen i w3wp.exe (till exempel HTTP 500-svar) rapporteras inte till gäst agenten. Därför tar belastningsutjämnaren inte den instansen från rotationen.
 
 <a name="health"></a>
 ## <a name="probe-up-behavior"></a><a name="probehealth"></a>Avsöknings beteende

@@ -1,5 +1,5 @@
 ---
-title: Introduktion till kunskaps lager (för hands version)
+title: Koncept för kunskaps lagring (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen är en allmänt tillgänglig förhandsversion.
 author: HeidiSteen
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a8f7aa18598dba41b33ea4964bd2967a8c2670ac
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858793"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752991"
 ---
-# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduktion till kunskaps lager i Azure Kognitiv sökning
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Kunskaps lager i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
 > Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
@@ -55,7 +55,7 @@ Räknat, fördelarna med kunskaps lager inkluderar följande:
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
 
 
-Det fysiska uttrycket för ett kunskaps lager har ledas genom `projections` en `knowledgeStore` definitions element i en färdigheter. Projektionen definierar en struktur för utdata så att den matchar den avsedda användningen.
+Det fysiska uttrycket för ett kunskaps lager har ledas genom en `projections` `knowledgeStore` definitions element i en färdigheter. Projektionen definierar en struktur för utdata så att den matchar den avsedda användningen.
 
 Projektioner kan ledas som tabeller, objekt eller filer.
 
@@ -77,11 +77,11 @@ Projektioner kan ledas som tabeller, objekt eller filer.
 
 Den typ av projektion som du anger i den här strukturen avgör vilken typ av lagring som används av kunskaps lagret.
 
-+ Table Storage används när du definierar `tables`. Definiera en tabell projektion när du behöver rapporterings strukturer i tabell form för indata till analys verktyg eller exportera som data ramar till andra data lager. Du kan ange flera `tables` för att hämta en delmängd eller ett tvärsnitt av de omfattande dokumenten. I samma projektions grupp bevaras tabell relationer så att du kan arbeta med alla.
++ Table Storage används när du definierar `tables` . Definiera en tabell projektion när du behöver rapporterings strukturer i tabell form för indata till analys verktyg eller exportera som data ramar till andra data lager. Du kan ange flera `tables` för att hämta en delmängd eller ett tvärsnitt av de omfattande dokumenten. I samma projektions grupp bevaras tabell relationer så att du kan arbeta med alla.
 
-+ Blob Storage används när du definierar `objects` eller. `files` Den fysiska representationen `object` av en är en hierarkisk JSON-struktur som representerar ett berikat dokument. En `file` är en avbildning som extraheras från ett dokument, överfördes till Blob Storage.
++ Blob Storage används när du definierar `objects` eller `files` . Den fysiska representationen av en `object` är en hierarkisk JSON-struktur som representerar ett berikat dokument. En `file` är en avbildning som extraheras från ett dokument, överfördes till Blob Storage.
 
-Ett enda projektions objekt innehåller en uppsättning `tables`, `objects`, `files`och för många scenarier. det kan vara tillräckligt med att skapa en projektion. 
+Ett enda projektions objekt innehåller en uppsättning `tables` , `objects` , `files` och för många scenarier. det kan vara tillräckligt med att skapa en projektion. 
 
 Det är dock möjligt att skapa flera uppsättningar av `table` - `object` - `file` projektioner, och du kan göra det om du vill ha olika data relationer. I en mängd är data relaterade, förutsatt att dessa relationer finns och kan identifieras. Om du skapar ytterligare uppsättningar är dokumenten i varje grupp aldrig relaterade. Ett exempel på hur du kan använda flera projektions grupper kan vara om du vill att samma data ska användas med ditt online-system och det måste vara representerat på ett särskilt sätt. du vill även att samma data ska användas i en pipeline för data vetenskap som är representerad annorlunda.
 
@@ -103,7 +103,7 @@ Det är dock möjligt att skapa flera uppsättningar av `table` - `object` - `fi
 
 ## <a name="how-to-create-a-knowledge-store"></a>Så här skapar du ett kunskaps lager
 
-Om du vill skapa kunskaps lager använder du portalen eller för hands`api-version=2019-05-06-Preview`versionen REST API ().
+Om du vill skapa kunskaps lager använder du portalen eller för hands versionen REST API ( `api-version=2019-05-06-Preview` ).
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 

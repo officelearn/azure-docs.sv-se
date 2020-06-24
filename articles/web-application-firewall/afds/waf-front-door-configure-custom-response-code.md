@@ -1,36 +1,52 @@
 ---
-title: Konfigurera ett anpassat svar för WAF med Azures frontend-dörr
-description: Lär dig hur du konfigurerar en anpassad svarskod och ett meddelande när en begäran blockeras av brand vägg för webbaserade program (WAF).
+title: Konfigurera anpassade svar för brand vägg för webbaserade program (WAF) med Azures front dörr
+description: Lär dig hur du konfigurerar en anpassad svarskod och ett meddelande när WAF blockerar en begäran.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14e4ccdf17647823dc9e1005c1c68a9f1f217b9e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185346"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726399"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Konfigurera ett anpassat svar för Azure Web Application-brandvägg
+# <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurera ett anpassat svar för brand vägg för Azure-webbprogram (WAF)
 
-Som standard när Azure WebApplication-brandväggen (WAF) med Azures frontend-enhet blockerar en begäran på grund av en matchad regel returneras en 403-status kod med **begäran blockerat** meddelande. Den här artikeln beskriver hur du konfigurerar en anpassad svars status kod och ett svarsmeddelande när en begäran blockeras av WAF.
+Som standard när WAF blockerar en begäran på grund av en matchad regel returneras en 403-status kod med meddelandet **blockerad** . Standard meddelandet innehåller även en spårnings referens sträng som kan användas för att länka till [logg poster](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) för begäran.  Du kan konfigurera en anpassad svars status kod och ett anpassat meddelande med referens sträng för ditt användnings fall. Den här artikeln beskriver hur du konfigurerar en anpassad svars sida när en begäran blockeras av WAF.
 
-## <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
+## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Konfigurera anpassad svars status kod och meddelande Använd Portal
+
+Du kan konfigurera en anpassad svars status kod och-brödtext under "princip inställningar" från WAF-portalen.
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Princip inställningar för WAF":::
+
+I exemplet ovan sparade vi svars koden som 403 och konfigurerade ett kort "kontakta oss"-meddelande som visas i bilden nedan:
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exempel på anpassat svar":::
+
+{{Azure-ref}} infogar den unika referens strängen i svars texten. Värdet matchar fältet TrackingReference i-och- `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` loggarna.
+
+## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Konfigurera anpassad svars status kod och meddelande Använd PowerShell
+
+### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
+
 Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
 
 Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ansluta till Azure med en interaktiv dialog ruta för inloggning
+
 ```
 Connect-AzAccount
 Install-Module -Name Az
+
 ```
 Kontrol lera att du har den aktuella versionen av PowerShellGet installerad. Kör kommandot nedan och öppna PowerShell igen.
-
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
@@ -40,17 +56,17 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-I Azure allokerar du relaterade resurser till en resursgrupp. I det här exemplet skapar du en resurs grupp med hjälp av [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
+I Azure allokerar du relaterade resurser till en resursgrupp. Här skapar vi en resurs grupp med hjälp av [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
 ```
 
-## <a name="create-a-new-waf-policy-with-custom-response"></a>Skapa en ny WAF-princip med anpassat svar 
+### <a name="create-a-new-waf-policy-with-custom-response"></a>Skapa en ny WAF-princip med anpassat svar 
 
-Nedan visas ett exempel på hur du skapar en ny WAF-princip med anpassad svars status kod inställd på 405 och meddelandet till **du är blockerad.** använder [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Nedan visas ett exempel på hur du skapar en ny WAF-princip med anpassad svars status kod inställd på 405 och meddelande till **du är blockerad.** Använd [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
 
 ```azurepowershell
 # WAF policy setting
@@ -80,7 +96,7 @@ Update-AzFrontDoorFireWallPolicy `
 Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
--CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"
+-CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349950"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208560"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Installations guide för striims Azure SQL DW Marketplace
 
@@ -30,7 +30,7 @@ Konfigurera den virtuella datorn Striims med angivna egenskaper, med Striims klu
 
 ![Konfigurera Striims][configure]
 
-När du har distribuerat klickar \<du på namn på virtuell dator>-masternode i Azure Portal klickar du på Anslut och kopierar inloggningen med lokalt lokalt konto för virtuell dator 
+När du har distribuerat klickar \<VM Name> du på masternode i Azure Portal, klickar på Anslut och kopierar inloggningen med hjälp av lokalt konto för virtuell dator 
 
 ![Anslut Striims till SQL Data Warehouse][connect]
 
@@ -56,7 +56,7 @@ Kör följande kommandon för att flytta JDBC jar-filen till Striims-lib-katalog
 
 ![Starta Striims-klustret][start-striim]
 
-Öppna din favorit webbläsare och gå till \<DNS-namnet>:9080
+Öppna din favorit webbläsare och gå till \<DNS Name> : 9080
 
 ![Gå till inloggnings skärmen][navigate]
 

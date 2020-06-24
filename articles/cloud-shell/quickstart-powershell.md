@@ -10,11 +10,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
 ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273012"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686026"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabb start för PowerShell i Azure Cloud Shell
 
@@ -55,7 +55,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ## <a name="navigate-azure-resources"></a>Navigera i Azure-resurser
 
- 1. Visa en lista över alla `Azure` dina prenumerationer från enheten
+ 1. Visa en lista över alla dina prenumerationer från `Azure` enheten
 
     ```azurepowershell-interactive
     PS Azure:\> dir
@@ -114,7 +114,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> Du kan se att det går att visa objekten mycket `dir`snabbare när du skriver Cloud Shell.
+> Du kan se att det går `dir` att visa objekten mycket snabbare när du skriver Cloud Shell.
 > Detta beror på att de underordnade objekten cachelagras i minnet för en bättre användar upplevelse.
 Du kan dock alltid använda `dir -Force` för att hämta nya data.
 
@@ -176,7 +176,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Se [Felsöka fjärrhantering av virtuella Azure-datorer](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Förutsatt att du har en virtuell dator, MyVM1, ska vi `Invoke-AzVMCommand` använda för att anropa ett PowerShell-skript block på fjärrdatorn.
+  Förutsatt att du har en virtuell dator, MyVM1, ska vi använda `Invoke-AzVMCommand` för att anropa ett PowerShell-skript block på fjärrdatorn.
 
   ```azurepowershell-interactive
   Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
@@ -254,7 +254,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-Om du vill autentisera till servrar eller virtuella datorer med SSH genererar du det offentliga privata nyckel paret i Cloud Shell och publicerar den offentliga `authorized_keys` nyckeln på fjärrdatorn, till `/home/user/.ssh/authorized_keys`exempel.
+Om du vill autentisera till servrar eller virtuella datorer med SSH genererar du det offentliga privata nyckel paret i Cloud Shell och publicerar den offentliga nyckeln på `authorized_keys` fjärrdatorn, till exempel `/home/user/.ssh/authorized_keys` .
 
 > [!NOTE]
 > Du kan skapa privata SSH-offentliga nycklar med `ssh-keygen` och publicera dem `$env:USERPROFILE\.ssh` i Cloud Shell.
@@ -262,7 +262,7 @@ Om du vill autentisera till servrar eller virtuella datorer med SSH genererar du
 ### <a name="using-ssh"></a>Använda SSH
 
 Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) för att skapa en ny VM-konfiguration med hjälp av Azure PowerShell-cmdletar.
-Innan `New-AzVM` du ansluter till för att starta distributionen lägger du till en offentlig SSH-nyckel i VM-konfigurationen.
+Innan du ansluter till `New-AzVM` för att starta distributionen lägger du till en offentlig SSH-nyckel i VM-konfigurationen.
 Den nyskapade virtuella datorn innehåller den offentliga nyckeln på `~\.ssh\authorized_keys` platsen och aktiverar därmed en kostnads fri SSH-session med autentiseringsuppgifter till den virtuella datorn.
 
 ```azurepowershell-interactive
@@ -308,7 +308,7 @@ Get-Help Get-AzVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>Använd Azure Files för att lagra dina data
 
-Du kan skapa ett skript, t `helloworld.ps1`. ex. och spara det `clouddrive` i för att använda det i en Shell-session.
+Du kan skapa ett skript, t. ex. `helloworld.ps1` och spara det i `clouddrive` för att använda det i en Shell-session.
 
 ```azurepowershell-interactive
 cd $HOME\clouddrive
@@ -321,12 +321,12 @@ code .\helloworld.ps1
 Hello World!
 ```
 
-Nästa gång du använder PowerShell i Cloud Shell, finns `helloworld.ps1` filen under `$HOME\clouddrive` katalogen som monterar din Azure Files-resurs.
+Nästa gång du använder PowerShell i Cloud Shell, `helloworld.ps1` finns filen under `$HOME\clouddrive` katalogen som monterar din Azure Files-resurs.
 
 ## <a name="use-custom-profile"></a>Använd anpassad profil
 
-Du kan anpassa din PowerShell-miljö genom att skapa PowerShell-profil (er `profile.ps1` ) – `Microsoft.PowerShell_profile.ps1`(eller).
-Spara den under `$profile.CurrentUserAllHosts` (eller `$profile.CurrentUserAllHosts`), så att den kan läsas in i varje PowerShell i Cloud Shell-sessionen.
+Du kan anpassa din PowerShell-miljö genom att skapa PowerShell-profil (er) – `profile.ps1` (eller `Microsoft.PowerShell_profile.ps1` ).
+Spara den under `$profile.CurrentUserAllHosts` (eller `$profile.CurrentUserAllHosts` ), så att den kan läsas in i varje PowerShell i Cloud Shell-sessionen.
 
 Information om hur du skapar en profil finns i [om profiler][profile].
 

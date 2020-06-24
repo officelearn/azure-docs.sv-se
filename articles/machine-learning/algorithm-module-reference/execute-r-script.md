@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983575"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751748"
 ---
-# <a name="execute-r-script"></a>Köra R-skript
+# <a name="execute-r-script-module"></a>Kör R-skript-modul
 
-Den här artikeln beskriver hur du använder modulen **Kör r-skript** för att köra r-kod i pipelinen Azure Machine Learning designer (för hands version).
+Den här artikeln beskriver hur du använder modulen kör R-skript för att köra R-kod i pipelinen Azure Machine Learning designer (för hands version).
 
-Med R kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel: 
+Med R kan du utföra uppgifter som befintliga moduler inte stöder för närvarande, till exempel: 
 - Skapa anpassade data transformationer
 - Använd dina egna mått för att utvärdera förutsägelser
 - Bygg modeller med algoritmer som inte har implementerats som fristående moduler i designern
@@ -31,9 +31,9 @@ Azure Machine Learning designer använder CRAN-distributionen (omfattande R Arch
 
 ## <a name="supported-r-packages"></a>R-paket som stöds
 
-R-miljön är förinstallerad med över 100-paket. En fullständig lista finns i avsnittet [förinstallerade R-paket](#pre-installed-r-packages).
+R-miljön förinstalleras med fler än 100-paket. En fullständig lista finns i avsnittet [förinstallerade R-paket](#preinstalled-r-packages).
 
-Du kan också lägga till följande kod i valfri **execute R-skript** -modul och se de installerade paketen.
+Du kan också lägga till följande kod i valfri EXECUTE R script-modul för att se de installerade paketen.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -43,23 +43,23 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 > [!NOTE]
-> Om pipelinen innehåller flera exekvera R-skript moduler och behöver samma paket som inte finns i den förinstallerade listan, måste du installera paketen i varje modul. 
+> Om din pipeline innehåller flera exekvera R-skript moduler som behöver paket som inte finns i den förinstallerade listan, installerar du paketen i varje modul. 
 
 ## <a name="installing-r-packages"></a>Installera R-paket
-Om du vill installera ytterligare R-paket `install.packages()` använder du-metoden. Paket installeras för varje **execute r-skript** -modul och delas inte mellan andra **Kör r-skript** moduler.
+Om du vill installera ytterligare R-paket använder du- `install.packages()` metoden. Paket installeras för varje EXECUTE R-skript-modul. De delas inte över andra kör R-skript moduler.
 
 > [!NOTE]
-> Ange CRAN-lagringsplatsen när du installerar paket som`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+> Ange CRAN-lagringsplatsen när du installerar paket, till exempel `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 Det här exemplet visar hur du installerar Zoo:
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -76,21 +76,21 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > Kontrol lera att paketet redan finns innan du installerar det för att undvika upprepad installation. Som `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` i ovanstående exempel kod. Upprepade installationer kan orsaka timeout för webb tjänst begär Anden.     
+ > Innan du installerar ett paket kontrollerar du om det redan finns så att du inte upprepar en installation. Upprepade installationer kan orsaka timeout för webb tjänst begär Anden.     
 
-## <a name="upload-files"></a>Överföra filer
-**Execute R-skriptet** stöder överföring av filer med hjälp av Azure Machine Learning R SDK.
+## <a name="uploading-files"></a>Laddar upp filer
+Kör R-skript-modulen stöder överföring av filer med hjälp av Azure Machine Learning R SDK.
 
-I följande exempel visas hur du överför en avbildnings fil i **skriptet kör R**:
+Följande exempel visar hur du överför en bildfil i kör R-skript:
 ```R
 
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -114,49 +114,44 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra panelen i modulen
+När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra panelen i modulen.
 
 > [!div class="mx-imgBorder"]
-> ![Överförd bild](media/module/upload-image-in-r-script.png)
+> ![Förhands granskning av Uppladdad bild](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
-**Skriptet kör R-skript** innehåller exempel kod som du kan använda som utgångs punkt. Konfigurera modulen **Kör R-skript** genom att ange en uppsättning indata och kod att köra.
+Skriptet kör R-skript innehåller exempel kod som du kan använda som utgångs punkt. Om du vill konfigurera modulen kör R-skript anger du en uppsättning indata och kod att köra.
 
-![R-modul](media/module/execute-r-script.png)
+![Diagram över indata för en R-modul](media/module/execute-r-script.png)
 
 Data uppsättningar som lagras i designern konverteras automatiskt till en R data-ram när de läses in med den här modulen.
 
-1.  Lägg till modulen **Kör R-skript** i din pipeline.
+1.  Lägg till modulen **Kör R-skript** i din pipeline.  
 
-  
+1. Anslut alla indata som skriptet behöver. Indata är valfria och kan innehålla data och ytterligare R-kod.
 
-1. Anslut alla indata som behövs för skriptet. Indata är valfria och kan innehålla data och ytterligare R-kod.
+    * **Dataset1**: referera till första inmataren som `dataframe1` . Data uppsättningen för indata måste formateras som en CSV-, TSV-eller ARFF-fil. Eller så kan du ansluta en Azure Machine Learning data uppsättning.
 
-    * **Dataset1**: referera till första inmataren som `dataframe1`. Data uppsättningen för indata måste formateras som en CSV-, TSV-ARFF eller så kan du ansluta en Azure Machine Learning data uppsättning.
+    * **Dataset2**: referera till den andra indatamängden som `dataframe2` . Den här data uppsättningen måste också formateras som en CSV-, TSV-eller ARFF-fil eller som en Azure Machine Learning data uppsättning.
 
-    * **Dataset2**: referera till den andra indatamängden som `dataframe2`. Den här data uppsättningen måste också formateras som en CSV-, TSV-, ARFF-fil eller som en Azure Machine Learning data uppsättning.
-
-    * **Skript paket**: den tredje indatamängden accepterar zip-filer. Den zippade filen kan innehålla flera filer och flera filtyper.
+    * **Skript paket**: den tredje indatamängden accepterar. zip-filer. En zippad fil kan innehålla flera filer och flera filtyper.
 
 1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 
     > [!NOTE]
-    > Var noga med att skriva skriptet och se till att det inte finns något syntaxfel, till exempel att använda variabler som inte har deklarerats eller som inte har importer ATS eller som inte har importer ATS. Betala också extra uppmärksamhet för listan förinstallerat paket i slutet av det här dokumentet. Om du vill använda paket som inte finns i listan installerar du dem i skriptet, till exempel`install.packages("zoo",repos = "http://cran.us.r-project.org")`
-    
-    > [!NOTE]
-    > Funktioner som är beroende av begäran om x11-biblioteket som "View" stöds inte eftersom begäran om x11-biblioteket inte är förinstallerat.
+    > Var försiktig när du skriver skriptet. Se till att det inte finns några syntaxfel, till exempel att använda variabler som inte har deklarerats eller ej importerade moduler eller funktioner. Betala extra uppmärksamhet för den förinstallerade paket listan i slutet av den här artikeln. Om du vill använda paket som inte finns i listan installerar du dem i skriptet. Ett exempel är `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
     
     För att hjälpa dig att komma igång fylls text rutan **R-skript** i förväg med exempel kod, som du kan redigera eller ersätta.
     
     ```R
     # R version: 3.5.1
-    # The script MUST contain a function named azureml_main
+    # The script MUST contain a function named azureml_main,
     # which is the entry point for this module.
 
-    # Please note that functions dependant on X11 library
-    # such as "View" are not supported because X11 library
-    # is not pre-installed.
+    # Note that functions dependent on the X11 library,
+    # such as "View," are not supported because the X11 library
+    # is not preinstalled.
     
     # The entry point function MUST have two input arguments.
     # If the input port is not connected, the corresponding
@@ -166,7 +161,7 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
     azureml_main <- function(dataframe1, dataframe2){
     print("R script run.")
 
-    # If a zip file is connected to the third input port, it is
+    # If a .zip file is connected to the third input port, it's
     # unzipped under "./Script Bundle". This directory is added
     # to sys.path.
 
@@ -175,46 +170,44 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
     }
     ```
 
- * Skriptet måste innehålla en funktion med namnet `azureml_main`, som är start punkten för den här modulen.
+    Start punkt funktionen måste innehålla indataargument `Param<dataframe1>` och `Param<dataframe2>` , även om dessa argument inte används i funktionen.
 
- * Start punkt funktionen måste ha två indataargument: `Param<dataframe1>` och `Param<dataframe2>`, även om dessa två argument inte används i funktionen.
-
-   > [!NOTE]
-    > De data som skickas till modulen **Kör R-skript** refereras till `dataframe1` som `dataframe2`och, som skiljer sig från Azure Machine Learning designer (design referensen `dataset1`som `dataset2`,). Kontrol lera att indata är korrekt referneced i skriptet.  
+    > [!NOTE]
+    > De data som skickas till modulen kör R-skript refereras till som `dataframe1` och `dataframe2` , som skiljer sig från Azure Machine Learning designer (design referensen som `dataset1` , `dataset2` ). Se till att indata är korrekt refererade i skriptet.  
  
     > [!NOTE]
-    >  Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
+    > Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
 
-1.  **Slumpmässigt utsäde**: Ange ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
+1.  För **slumpmässigt utsäde**anger du ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
 
 1. Skicka pipelinen.  
 
 ## <a name="results"></a>Resultat
 
-**Kör R-skriptets** moduler kan returnera flera utdata, men de måste anges som R-databildor. Data ramar konverteras automatiskt till data uppsättningar i designern för kompatibilitet med andra moduler.
+Kör R-skript moduler kan returnera flera utdata, men de måste tillhandahållas som R data-ramar. Data ramar konverteras automatiskt till data uppsättningar i designern för kompatibilitet med andra moduler.
 
 Standard meddelanden och fel från R returneras till modulens logg.
 
-Om du behöver skriva ut resultaten i R-skriptet kan du hitta de utskrifts resultat som finns i fliken **70_driver_log** under **utdata + loggar** på den högra panelen i modulen.
+Om du behöver skriva ut resultaten i R-skriptet kan du hitta de utskrifts resultat som visas i **70_driver_log** under fliken **utdata + loggar** i den högra panelen i modulen.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
-Det finns många sätt som du kan använda för att utöka din pipeline med hjälp av anpassat R-skript.  Det här avsnittet innehåller exempel kod för vanliga uppgifter.
+Det finns många sätt att utöka din pipeline med anpassade R-skript. Det här avsnittet innehåller exempel kod för vanliga uppgifter.
 
 
-### <a name="add-r-script-as-an-input"></a>Lägg till R-skript som inmatade
+### <a name="add-an-r-script-as-an-input"></a>Lägg till ett R-skript som inmatade
 
-Modulen **Kör R-skript** stöder godtyckliga r-skriptfiler som indata. För att göra det måste de överföras till din arbets yta som en del av ZIP-filen.
+Modulen kör R-skript stöder godtyckliga R-skriptfiler som indata. Om du vill använda dem måste du överföra dem till din arbets yta som en del av. zip-filen.
 
-1. Om du vill ladda upp en ZIP-fil som innehåller R-kod till din arbets yta går du till till gångs sidan för **data uppsättningar** , klickar på **skapa data uppsättning**och väljer sedan alternativet **från lokal fil** och alternativet **fil** data mängd typ.  
+1. Om du vill ladda upp en zip-fil som innehåller R-koden till din arbets yta går du till till gångs sidan för **data uppsättningar** . Välj **skapa data uppsättning**och välj sedan alternativet **från lokal fil** och **fil** data uppsättnings typ.  
 
-1. Kontrol lera att den zippade filen är tillgänglig i listan **mina data uppsättningar** under **data uppsättnings** kategori i det vänstra modul trädet.
+1. Kontrol lera att den zippade filen är tillgänglig i listan **mina data uppsättningar** under kategorin **data uppsättningar** i det vänstra modul trädet.
 
 1.  Anslut data uppsättningen till **skript paketets** indataport.
 
-1. Alla filer som finns i ZIP-filen är tillgängliga under pipelinens körnings tid. 
+1. Alla filer i zip-filen är tillgängliga under körningen av pipelinen. 
 
-    Om skript paket filen innehåller en katalog struktur bevaras strukturen. Du måste dock ändra koden för att lägga Directory **./script-paketet** till sökvägen.
+    Om skript paket filen innehåller en katalog struktur bevaras strukturen. Men du måste ändra koden för att lägga Directory **./script-paketet** till sökvägen.
 
 ### <a name="process-data"></a>Bearbeta data
 
@@ -222,12 +215,12 @@ I följande exempel visas hur du skalar och normaliserar indata:
 
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -236,17 +229,17 @@ I följande exempel visas hur du skalar och normaliserar indata:
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-  # If a zip file is connected to the third input port, it is
+  # If a .zip file is connected to the third input port, it's
   # unzipped under "./Script Bundle". This directory is added
   # to sys.path.
   series <- dataframe1$width
-  # find the maximum and minimum values of width column in dataframe1
+  # Find the maximum and minimum values of the width column in dataframe1
   max_v <- max(series)
   min_v <- min(series)
-  # calculate the scale and bias
+  # Calculate the scale and bias
   scale <- max_v - min_v
   bias <- min_v / dis
-  # apply min-max normalizing
+  # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
   # Return datasets as a Named List
@@ -254,12 +247,12 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Läs en ZIP-fil som indata
+### <a name="read-a-zip-file-as-input"></a>Läs en. zip-fil som indata
 
-Det här exemplet visar hur du använder en data uppsättning i en ZIP-fil som indata för modulen **Kör R-skript** .
+Det här exemplet visar hur du använder en data uppsättning i en. zip-fil som indata för modulen kör R-skript.
 
-1. Skapa data filen i CSV-format och ge den namnet "min datafile. csv".
-1. Skapa en ZIP-fil och Lägg till CSV-filen i arkivet.
+1. Skapa data filen i CSV-format och ge den namnet **mydatafile.csv**.
+1. Skapa en zip-fil och Lägg till CSV-filen i arkivet.
 1. Ladda upp den zippade filen till din Azure Machine Learning-arbetsyta. 
 1. Anslut den resulterande data uppsättningen till **ScriptBundle** -indata för modulen **Kör R-skript** .
 1. Använd följande kod för att läsa CSV-data från den zippade filen.
@@ -292,9 +285,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>Pass R-objekt mellan exekvera R-skript moduler
 
-Du kan skicka R-objekt mellan instanser av modulen **Kör R-skript** med hjälp av funktionen för intern serialisering. Det här exemplet förutsätter att du vill flytta R-objektet `A` med namnet mellan två **köra r-skript** moduler.
+Du kan skicka R-objekt mellan instanser av modulen kör R-skript med hjälp av funktionen för intern serialisering. Det här exemplet förutsätter att du vill flytta R-objektet med namnet `A` mellan två köra r-skript moduler.
 
-1. Lägg till den första **körningen av R-skriptkommando** i pipelinen och skriv följande kod i text rutan R- **skript** för att skapa ett serialiserat `A` objekt som en kolumn i modulens utgående data tabell:  
+1. Lägg till den första **köra R-skriptfilen** i din pipeline. Ange sedan följande kod i text rutan **R-skript** för att skapa ett serialiserat objekt `A` som en kolumn i modulens utgående data tabell:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -308,7 +301,7 @@ Du kan skicka R-objekt mellan instanser av modulen **Kör R-skript** med hjälp 
     }
     ```
 
-    Den explicita konverteringen till Integer-typ görs eftersom funktionen serialize matar ut data i R `Raw` -formatet, vilket inte stöds av designern.
+    Den explicita konverteringen till Integer-typ görs eftersom serialiserings funktionen matar ut data i R `Raw` -formatet, som designer inte stöder.
 
 1. Lägg till en andra instans av modulen **Kör R-skript** och Anslut den till utdataporten för den föregående modulen.
 
@@ -323,9 +316,9 @@ Du kan skicka R-objekt mellan instanser av modulen **Kör R-skript** med hjälp 
     }
     ```
 
-## <a name="pre-installed-r-packages"></a>Förinstallerade R-paket
+## <a name="preinstalled-r-packages"></a>Förinstallerade R-paket
 
-Den aktuella listan över förinstallerade R-paket som är tillgängliga för användning:
+Följande förinstallerade R-paket är tillgängliga för närvarande:
 
 |              |            | 
 |--------------|------------| 
@@ -339,7 +332,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | bindr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
-| start         | 1.3 – 22     | 
+| boot         | 1.3 – 22     | 
 | broom        | 0.5.2      | 
 | callr        | 3.2.0      | 
 | cirkumflex        | 6.0 – 84     | 
@@ -361,7 +354,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| utvärdera     | 0.14       | 
+| evaluate     | 0.14       | 
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
@@ -437,7 +430,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
-| rstudioapi   | 0,1        | 
+| rstudioapi   | 0.1        | 
 | rvest        | 0.3.4      | 
 | scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 
@@ -457,7 +450,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | tidyverse    | 1.2.1      | 
 | timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
-| verktyg        | 3.5.1      | 
+| tools        | 3.5.1      | 
 | tseries      | 0,10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 

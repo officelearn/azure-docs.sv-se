@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: 716d40a0b86ec3385f236a3d81f651d24a36845a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342126"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809483"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -98,7 +98,7 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
     > [!WARNING]
     > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.
 
--    Utför en GET-åtgärd på din front dörr med API-versionen `2020-01-01` eller högre. Leta efter fält i API-anropet `frontdoorID` . Filtrera på det inkommande huvudet "**X-Azure-FDID**" som skickas av front dörren till Server delen med värdet som fältet `frontdoorID` . 
+-    Utför en GET-åtgärd på din front dörr med API-versionen `2020-01-01` eller högre. Leta efter fält i API-anropet `frontdoorID` . Filtrera på det inkommande huvudet "**X-Azure-FDID**" som skickas av front dörren till Server delen med värdet som fältet `frontdoorID` . Du kan också hitta `Front Door ID` ett värde under avsnittet Översikt från Portal sidan front dörr. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Kan anycast-IP-förändring under hela front dörren?
 

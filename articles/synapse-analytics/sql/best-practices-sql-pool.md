@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5ad2867ffdea512348002d03ec742af42b535b31
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834993"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750214"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Metod tips för SQL-pooler i Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO. CTAS ko
 
 För att maximera data flödet när du använder gzip-textfiler kan du dela upp filer i 60 eller fler filer för att maximera din belastnings parallellt. För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data. Ytterligare information för ämnen som är relevanta för det här avsnittet finns i följande artiklar:
 
-- [Läs in data](data-loading-overview.md)
+- [Läsa in data](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Guide for using PolyBase](data-loading-best-practices.md) (Guide för att använda PolyBase)
 - [Inläsnings mönster och strategier för Azure SQL-poolen](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Läs in data med Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272765"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707658"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problem med region servrar i Azure HDInsight
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ### <a name="issue"></a>Problem
 
-När du `hbase hbck` kör kommandot visas ett fel meddelande som liknar:
+När `hbase hbck` du kör kommandot visas ett fel meddelande som liknar:
 
 ```
 multiple regions being unassigned or holes in the chain of regions
@@ -42,9 +42,9 @@ Korrigera tilldelningarna. Följ stegen nedan för att återställa de otilldela
 
 1. Kör `hbase zkcli` kommando för att ansluta till ZooKeeper-gränssnittet.
 
-1. Kör `rmr /hbase/regions-in-transition` eller `rmr /hbase-unsecure/regions-in-transition` -kommando.
+1. Kör `rmr /hbase/regions-in-transition` eller- `rmr /hbase-unsecure/regions-in-transition` kommando.
 
-1. Avsluta Zookeeper-gränssnittet med `exit` hjälp av kommandot.
+1. Avsluta Zookeeper-gränssnittet med hjälp av `exit` kommandot.
 
 1. Öppna Apache Ambari-ANVÄNDARGRÄNSSNITTET och starta om tjänsten Active HBase Master.
 
@@ -62,7 +62,7 @@ Det gick inte att starta region servrarna.
 
 Flera delnings WAL kataloger.
 
-1. Hämta lista över aktuella WALs: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Hämta lista över aktuella WALs: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` .
 
 1. Granska `wals.out` filen. Om det finns för många delnings kataloger (från och med * delning), fungerar inte region servern på grund av dessa kataloger.
 
@@ -72,11 +72,11 @@ Flera delnings WAL kataloger.
 
 1. Kör `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` för att hämta en ny lista över WALs.
 
-1. Flytta *-delnings katalogerna till en tillfällig mapp, `splitWAL`och ta bort *-delnings katalogerna.
+1. Flytta *-delnings katalogerna till en tillfällig mapp, `splitWAL` och ta bort *-delnings katalogerna.
 
 1. Kör `hbase zkcli` kommando för att ansluta till Zookeeper-gränssnittet.
 
-1. Kör `rmr /hbase-unsecure/splitWAL`.
+1. Kör `rmr /hbase-unsecure/splitWAL` .
 
 1. Starta om HBase-tjänsten.
 

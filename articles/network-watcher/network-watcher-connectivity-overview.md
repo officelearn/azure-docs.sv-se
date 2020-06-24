@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283282"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708951"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
 
 Funktionen för att felsöka anslutningar i Network Watcher ger möjlighet att kontrol lera en direkt TCP-anslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerat domän namn (FQDN), URI eller IPv4-adress. Nätverks scenarier är komplexa, de implementeras med hjälp av nätverks säkerhets grupper, brand väggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör fel sökning av anslutnings problem. Network Watcher bidrar till att minska tiden för att hitta och identifiera anslutnings problem. Resultaten som returneras kan ge insikter om ett anslutnings problem på grund av ett plattforms-eller användar konfigurations problem. Anslutningen kan kontrol leras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md)och [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du `AzureNetworkWatcherExtension` felsöker från har VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="response"></a>Svar
 
@@ -46,7 +46,7 @@ I följande tabell visas de egenskaper som returneras när fel sökning av anslu
 |Hopp []. Åtgärder | En samling problem som påträffades under kontrollen vid det hoppet. Om det inte fanns några problem är värdet tomt.|
 |Hopp []. Problem []. Kommer | Vid det aktuella hoppet, där problemet uppstod. Möjliga värden:<br/> **Inkommande** – problem finns på länken från föregående hopp till det aktuella hoppet<br/>**Utgående** – problem är på länken från det aktuella hoppet till nästa hopp<br/>**Lokalt** problem är på det aktuella hoppet.|
 |Hopp []. Problem []. Allvarlighets grad | Problemets allvarlighets grad har upptäckts. Möjliga värden är **fel** och **Varning**. |
-|Hopp []. Problem []. Bastyp |Typ av problem som hittats. Möjliga värden: <br/>**REGISTRERA**<br/>**Minnesoptimerade**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hopp []. Problem []. Bastyp |Typ av problem som hittats. Möjliga värden: <br/>**Processor**<br/>**Minne**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hopp []. Problem []. Edit |Information om problemet som har hittats.|
 |Hopp []. Problem []. Kontext []. nyckel |Nyckel för nyckel värdes paret som returneras.|
 |Hopp []. Problem []. Kontext []. värde |Värdet för nyckel värdes paret som returnerades.|
@@ -72,7 +72,7 @@ Följande är ett exempel på ett problem som finns på ett hopp.
 
 Fel sökning av anslutning returnerar fel typer om anslutningen. I följande tabell visas en lista över de aktuella fel typerna som returneras.
 
-|Typ  |Beskrivning  |
+|Typ  |Description  |
 |---------|---------|
 |Processor     | Hög CPU-användning.       |
 |Minne     | Hög minnes användning.       |

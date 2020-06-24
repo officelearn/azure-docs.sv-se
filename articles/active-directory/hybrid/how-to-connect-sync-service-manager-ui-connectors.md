@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261052"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690735"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Använda kopplingar med Azure AD Connect Sync-Service Manager
 
@@ -88,7 +88,7 @@ Lös problemet genom att uppdatera AD DS-användarkontot med följande:
 5. I popup-dialogrutan väljer du Anslut till Active Directory skog:
 6. Skogs namnet anger motsvarande lokal AD.
 7. Användar namnet anger det AD DS-konto som används för synkronisering.
-8. Ange det nya lösen ordet för AD DS-kontot i text rutan ![lösen ord Azure AD Connect verktyget Sync Encryption Key](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
+8. Ange det nya lösen ordet för AD DS-kontot i text rutan lösen ord ![ Azure AD Connect verktyget Sync Encryption Key](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Klicka på OK för att spara det nya lösen ordet och starta om synkroniseringstjänsten för att ta bort det gamla lösen ordet från cacheminnet.
 
 

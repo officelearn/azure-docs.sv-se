@@ -4,15 +4,15 @@ description: Anslut ett VNet i en annan region till din virtuella WAN-hubb.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c06ec1d93dcda5d171099943c287a9e4f43bc1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73588231"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750569"
 ---
 # <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Konfigurera global VNet-peering (VNet i flera regioner) för virtuellt WAN
 
@@ -27,7 +27,7 @@ Kontrol lera att du har uppfyllt följande kriterier:
 
 ## <a name="register-this-feature"></a><a name="register"></a>Registrera funktionen
 
-Du kan registrera dig för den här funktionen med hjälp av PowerShell. Om du väljer "prova" från exemplet nedan öppnas Azure Cloud-Shell och du behöver inte installera PowerShell-cmdlets lokalt på datorn. Om det behövs kan du ändra prenumerationer med hjälp av cmdleten Select- <subid>AzSubscription-SubscriptionId.
+Du kan registrera dig för den här funktionen med hjälp av PowerShell. Om du väljer "prova" från exemplet nedan öppnas Azure Cloud-Shell och du behöver inte installera PowerShell-cmdlets lokalt på datorn. Om det behövs kan du ändra prenumerationer med hjälp av cmdleten Select-AzSubscription-SubscriptionId <subid> .
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network

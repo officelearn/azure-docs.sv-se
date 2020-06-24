@@ -4,11 +4,11 @@ description: Azure Service Fabric accepterar Docker-format för att göra det en
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282463"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691296"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker skapa distributions stöd i Azure Service Fabric (för hands version)
 
@@ -24,7 +24,7 @@ Om du vill använda den här för hands versionen skapar du klustret med version
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Distribuera en Docker-filfil på Service Fabric
 
-Följande kommandon skapar ett Service Fabric-program (med `fabric:/TestContainerApp`namnet) som du kan övervaka och hantera precis som andra Service Fabric program. Du kan använda det angivna program namnet för hälso frågor.
+Följande kommandon skapar ett Service Fabric-program (med namnet `fabric:/TestContainerApp` ) som du kan övervaka och hantera precis som andra Service Fabric program. Du kan använda det angivna program namnet för hälso frågor.
 Service Fabric identifierar "DeploymentName" som identifierare för Skriv distributionen.
 
 ### <a name="use-powershell"></a>Använd PowerShell
@@ -35,7 +35,7 @@ Skapa en Service Fabric skapa en distribution från en filen Docker. YML-fil gen
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`och `RegistryPassword` se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
+`RegistryUserName`och `RegistryPassword` Se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
@@ -135,9 +135,9 @@ Ange antingen http-eller HTTPS-protokollet i avsnittet portar som ska användas 
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName-beräkning
 
-Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är `<ServiceName>` DNS-namnet som registreras av Service Fabric (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
+Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är DNS-namnet som registreras av Service Fabric `<ServiceName>` (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
 
-Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` är det registrerade DNS-namnet.
+Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp` , är `<ServiceName>.MyComposeApp.SampleApp` det registrerade DNS-namnet.
 
 ## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Skriv distribution (instans definition) jämfört med Service Fabric app Model (typ definition)
 

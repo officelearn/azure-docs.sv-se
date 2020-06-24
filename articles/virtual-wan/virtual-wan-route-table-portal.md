@@ -4,16 +4,16 @@ description: Väg tabell för virtuell WAN-hubb som styr trafik till en virtuell
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 740a2174933e37e2737de0daa56e4b1670ecf55f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b22b751880cda91734ce0c322b19702e0ac9840d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773176"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752964"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Skapa en virtuell WAN Hub-routningstabell för NVA: Azure Portal
 
@@ -34,7 +34,7 @@ Kontrol lera att du har uppfyllt följande kriterier:
     *  Det virtuella NVA-nätverket kan ha ett eller flera virtuella nätverk som är anslutna till det. I den här artikeln hänvisar vi till det virtuella NVA-nätverket som ett ' indirekt eker VNet '. Dessa virtuella nätverk kan anslutas till NVA VNet med hjälp av VNet-peering. Länkarna för VNet-peering visas med svarta pilar i bilden ovan mellan VNet 1, VNet 2 och NVA VNet.
 *  Du har skapat två virtuella nätverk. De kommer att användas som ekrar virtuella nätverk.
 
-    * Adress utrymmen för VNet-ekrar: VNet1:10.0.2.0/24 och VNet2:10.0.3.0/24. Om du behöver information om hur du skapar ett virtuellt nätverk kan du läsa [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md).
+    * Adress utrymmen för VNet-ekrar: VNet1:10.0.2.0/24 och VNet2:10.0.3.0/24. Om du behöver information om hur du skapar ett virtuellt nätverk kan du läsa [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md). Se till att det finns UDR i VNET1 och 2 som pekar på NVA.
 
     * Se till att det inte finns några virtuella nätverksgateway i någon av virtuella nätverk.
 

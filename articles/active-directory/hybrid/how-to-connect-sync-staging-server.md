@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261026"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690633"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: mellanlagrings Server och haveri beredskap
 Med en server i mellanlagrings läge kan du göra ändringar i konfigurationen och förhandsgranska ändringarna innan du gör servern aktiv. Du kan också köra fullständig import och fullständig synkronisering för att kontrol lera att alla ändringar förväntas innan du gör dessa ändringar i produktions miljön.
@@ -74,18 +74,18 @@ Nu har du mellanlagrat export ändringar till Azure AD och lokala AD (om du anv�
 #### <a name="verify"></a>Verifiera
 1. Starta en kommando tolk och gå till`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen kan hittas i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
-3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i% temp% med namnet export. csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
+3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i% temp% med namnet export.csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 4. Gör nödvändiga ändringar i data eller konfiguration och kör de här stegen igen (importera och synkronisera och verifiera) tills ändringarna som ska exporteras förväntas.
 
-**Förstå export. csv-filen** De flesta av filerna är själv för klar Ande. Några förkortningar för att förstå innehållet:
+**Förstå export.csv-filen** De flesta av filerna är själv för klar Ande. Några förkortningar för att förstå innehållet:
 * OMODT – typ av objekt ändring. Anger om åtgärden på en objekt nivå är en Lägg till, uppdatera eller ta bort.
 * AMODT – ändrings typ för attribut. Anger om åtgärden på en attribut-nivå är en Lägg till, uppdatera eller ta bort.
 
-**Hämta vanliga identifierare** Export. csv-filen innehåller alla ändringar som ska exporteras. Varje rad motsvarar en ändring av ett objekt i kopplings utrymmet och objektet identifieras av attributet DN. Attributet DN är en unik identifierare som tilldelats ett objekt i anslutnings utrymmet. När du har många rader/ändringar i export. csv för att analysera, kan det vara svårt att ta reda på vilka objekt som ändringarna endast gäller baserat på DN-attributet. För att förenkla processen med att analysera ändringarna använder du PowerShell-skriptet csanalyzer. ps1. Skriptet hämtar vanliga identifierare (till exempel displayName, userPrincipalName) för objekten. Använda skriptet:
-1. Kopiera PowerShell-skriptet från avsnittet [CSAnalyzer](#appendix-csanalyzer) till en fil med namnet `csanalyzer.ps1`.
+**Hämta vanliga identifierare** export.csv-filen innehåller alla ändringar som ska exporteras. Varje rad motsvarar en ändring av ett objekt i kopplings utrymmet och objektet identifieras av attributet DN. Attributet DN är en unik identifierare som tilldelats ett objekt i anslutnings utrymmet. När du har många rader/ändringar i export.csv att analysera, kan det vara svårt för dig att ta reda på vilka objekt som ändringarna endast gäller baserat på attributet DN. Använd csanalyzer.ps1 PowerShell-skriptet för att förenkla processen med att analysera ändringarna. Skriptet hämtar vanliga identifierare (till exempel displayName, userPrincipalName) för objekten. Använda skriptet:
+1. Kopiera PowerShell-skriptet från avsnittet [CSAnalyzer](#appendix-csanalyzer) till en fil med namnet `csanalyzer.ps1` .
 2. Öppna ett PowerShell-fönster och bläddra till den mapp där du skapade PowerShell-skriptet.
 3. Kör: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-4. Nu har du en fil med namnet **processedusers1. csv** som kan undersökas i Microsoft Excel. Observera att filen innehåller en mappning från DN-attributet till vanliga identifierare (till exempel displayName och userPrincipalName). För närvarande ingår inte de faktiska attributändringar som ska exporteras.
+4. Nu har du en fil med namnet **processedusers1.csv** som kan undersökas i Microsoft Excel. Observera att filen innehåller en mappning från DN-attributet till vanliga identifierare (till exempel displayName och userPrincipalName). För närvarande ingår inte de faktiska attributändringar som ska exporteras.
 
 #### <a name="switch-active-server"></a>Växla aktiv server
 1. Stäng av servern (DirSync/FIM/Azure AD Sync) på den aktiva servern så att den inte exporteras till Azure AD eller Ställ in den i mellanlagrings läge (Azure AD Connect).

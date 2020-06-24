@@ -1,7 +1,7 @@
 ---
 title: Återställa en databas från en säkerhets kopia
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Lär dig mer om återställning av tidpunkter, vilket gör att du kan återställa en Azure SQL Database-eller Azure SQL-hanterad instans databas upp till 35 dagar.
+description: Lär dig mer om återställning av tidpunkter, vilket gör att du kan återställa en databas i Azure SQL Database eller en instans i Azure SQL-hanterad instans upp till 35 dagar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 45981322eed2828bc2beb12a8cf16b29fba7b918
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 848b8afa6070cb8b0141602f3bb62f24868a9d64
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046567"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718630"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Om du har konfigurerat [långsiktig kvarhållning av säkerhets kopia](long-term
 > [!IMPORTANT]
 > Du kan inte skriva över en befintlig databas under återställningen.
 
-När du använder standard-eller premium-tjänst nivåerna kan databas återställningen medföra en extra lagrings kostnad. Den extra kostnaden uppkommer när den återställda databasens maximala storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ställa in den maximala databas storleken på den inkluderade mängden.
+När du använder standard-eller premium-tjänst nivån kan databas återställningen medföra en extra lagrings kostnad. Den extra kostnaden uppkommer när den återställda databasens maximala storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ställa in den maximala databas storleken på den inkluderade mängden.
 
 ## <a name="recovery-time"></a>Återställnings tid
 
@@ -47,7 +47,7 @@ När du använder standard-eller premium-tjänst nivåerna kan databas återstä
 - Nätverks bandbredden om återställningen är till en annan region.
 - Antalet samtidiga återställnings begär Anden som bearbetas i mål regionen.
 
-För en stor eller mycket aktiv databas kan återställningen ta flera timmar. Om det finns ett långvarigt avbrott i en region, är det möjligt att ett stort antal geo-återställnings begär Anden kommer att initieras för haveri beredskap. När det finns många begär Anden kan återställnings tiden för enskilda databaser öka. De flesta databas återställningar har slutförts på mindre än 12 timmar.
+För en stor eller mycket aktiv databas kan återställningen ta flera timmar. Om det finns ett långvarigt avbrott i en region, är det möjligt att ett stort antal geo-återställnings begär Anden kommer att initieras för haveri beredskap. När det finns många begär Anden kan återställnings tiden för enskilda databaser öka. De flesta databas återställningar slutförs på mindre än 12 timmar.
 
 För en enskild prenumeration finns det begränsningar för antalet samtidiga återställnings begär Anden. Dessa begränsningar gäller för valfri kombination av återställningar av tidpunkter, geo-Restore och återställningar från säkerhets kopia med långsiktig kvarhållning.
 
@@ -60,13 +60,15 @@ För en enskild prenumeration finns det begränsningar för antalet samtidiga å
 Det finns inte någon inbyggd metod för att återställa hela servern. Ett exempel på hur du utför den här uppgiften finns [Azure SQL Database: fullständig Server återställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Om du vill återställa med hjälp av automatiska säkerhets kopieringar måste du vara medlem i rollen SQL Server deltagar roll eller SQL-hanterad instans deltagare (beroende på återställnings målet) i prenumerationen eller vara prenumerations ägare. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST API. Du kan inte använda Transact-SQL.
+> Om du vill återställa med hjälp av automatiska säkerhets kopieringar måste du vara medlem i rollen SQL Server deltagar roll eller SQL-hanterad instans deltagare (beroende på återställnings målet) i prenumerationen eller så måste du vara prenumerations ägare. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST API. Du kan inte använda Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-Du kan återställa en fristående, poolad eller instans databas till en tidigare tidpunkt med hjälp av Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases). Begäran kan ange valfri tjänst nivå eller beräknings storlek för den återställda databasen. Se till att du har tillräckligt med resurser på den server som du återställer databasen till. När du är klar skapar återställningen en ny databas på samma server som den ursprungliga databasen. Den återställda databasen debiteras enligt normal taxa, baserat på tjänst nivå och beräknings storlek. Du debiteras inte förrän databas återställningen är klar.
+Du kan återställa en fristående, poolad eller instans databas till en tidigare tidpunkt med hjälp av Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases). Begäran kan ange valfri tjänst nivå eller beräknings storlek för den återställda databasen. Se till att du har tillräckligt med resurser på den server som du återställer databasen till. 
 
-Du återställer vanligt vis en databas till en tidigare tidpunkt för återställnings syfte. Du kan hantera den återställda databasen som en ersättning för den ursprungliga databasen eller använda den som en data källa för att uppdatera den ursprungliga databasen.
+När du är klar skapar återställningen en ny databas på samma server som den ursprungliga databasen. Den återställda databasen debiteras enligt normal taxa, baserat på tjänst nivå och beräknings storlek. Du debiteras inte förrän databas återställningen är klar.
+
+Du återställer vanligt vis en databas till en tidigare tidpunkt för återställnings syfte. Du kan behandla den återställda databasen som en ersättning för den ursprungliga databasen eller använda den som en data källa för att uppdatera den ursprungliga databasen.
 
 - **Databas utbyte**
 
@@ -82,7 +84,7 @@ Du kan återställa en enskild databas eller instans databas till en tidpunkt fr
 
 #### <a name="sql-database"></a>SQL Database
 
-Om du vill återställa en enskild databas eller en mellanliggande databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från.
+Om du vill återställa en enskild databas eller en samlad databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från.
 
   ![Skärm bild av alternativ för databas återställning](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
@@ -100,7 +102,7 @@ Om du vill återställa en hanterad instans databas till en tidpunkt genom att a
 Du kan återställa en borttagen databas till borttagnings tiden, eller en tidigare tidpunkt, på samma server eller samma hanterade instans. Du kan göra detta via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [rest (CreateMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du återställer en borttagen databas genom att skapa en ny databas från säkerhets kopian.
 
 > [!IMPORTANT]
-> Om du tar bort en server eller en hanterad instans, tas alla dess databaser också bort och kan inte återställas. Du kan inte återställa en borttagen Server eller hanterad instans.
+> Om du tar bort en server eller en hanterad instans tas alla dess databaser också bort och kan inte återställas. Du kan inte återställa en borttagen Server eller hanterad instans.
 
 ### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Återställningen av databasen har tagits bort med hjälp av Azure Portal
 
@@ -116,7 +118,7 @@ Om du vill återställa en enskild eller fristående borttagen databas till bort
 
 Om du vill återställa en hanterad databas med hjälp av Azure Portal öppnar du översikts sidan för hanterade instanser och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
-  ![Skärm bild av Återställ borttagen Azure SQL-instans databas](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+  ![Skärm bild av återställning borttagen Azure SQL-hanterad instans databas](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Borttagen databas återställning med hjälp av PowerShell
 
@@ -124,7 +126,7 @@ Använd följande exempel skript för att återställa en borttagen databas för
 
 #### <a name="sql-database"></a>SQL Database
 
-Ett exempel på PowerShell-skript som visar hur du återställer en borttagen databas i Azure SQL Database finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/restore-database-powershell.md).
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen databas i Azure SQL Database finns i [återställa en databas med hjälp av PowerShell](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 
@@ -147,7 +149,7 @@ Från Azure Portal skapar du en ny databas för enkel eller hanterad instans och
 
 #### <a name="sql-database"></a>SQL Database
 
-Om du vill geo-återställa en enskild SQL-databas från Azure Portal i den region och server du väljer, följer du dessa steg:
+Om du vill geo-återställa en enskild databas från Azure Portal i den region och server du väljer, följer du dessa steg:
 
 1. Från **instrument panelen**väljer du **Lägg till**  >  **skapa SQL Database**. Ange den information som krävs på fliken **grundläggande** .
 2. Välj **ytterligare inställningar**.
@@ -175,7 +177,7 @@ Slutför processen med att skapa en ny databas. När du skapar instans databasen
 
 #### <a name="sql-database"></a>SQL Database
 
-Ett PowerShell-skript som visar hur du utför geo-återställning för en enskild SQL-databas finns i [använda PowerShell för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt](scripts/restore-database-powershell.md).
+Ett PowerShell-skript som visar hur du utför geo-återställning för en enskild databas finns i [använda PowerShell för att återställa en enskild databas till en tidigare tidpunkt](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 
@@ -186,9 +188,13 @@ Ett PowerShell-skript som visar hur du utför geo-återställning för en hanter
 Du kan inte utföra en tidpunkts återställning på en geo-sekundär databas. Du kan bara göra det på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns i [återställa från ett avbrott](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Geo-återställning är den mest grundläggande katastrof återställnings lösningen som finns i SQL Database och SQL-hanterad instans. Den förlitar sig på automatiskt skapade geo-replikerade säkerhets kopior med återställnings punkt mål (återställnings punkt mål) som är lika med 1 timme och den beräknade återställnings tiden på upp till 12 timmar Det garanterar inte att mål regionen har kapaciteten att återställa dina databaser efter ett regionalt avbrott, eftersom en kraftig ökning av efter frågan är sannolik. Om ditt program använder relativt små databaser och inte är kritiskt för verksamheten, är geo-återställning en lämplig lösning för katastrof återställning. För verksamhets kritiska program som kräver stora databaser och som måste garantera affärs kontinuitet, använder du [grupper för automatisk redundans](auto-failover-group-overview.md). Det erbjuder ett mycket lägre drift-och återställnings mål och kapaciteten är alltid garanterad. Mer information om val av affärs kontinuitet finns i [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+> Geo-återställning är den mest grundläggande katastrof återställnings lösningen som finns i SQL Database och SQL-hanterad instans. Den förlitar sig på automatiskt skapade geo-replikerade säkerhets kopior med ett återställnings punkt mål (återställnings punkt mål) som är lika med 1 timme och en beräknad återställnings tid på upp till 12 Det garanterar inte att mål regionen har kapaciteten att återställa dina databaser efter ett regionalt avbrott, eftersom en kraftig ökning av efter frågan är sannolik. Om programmet använder relativt små databaser och inte är kritiskt för verksamheten, är geo-Restore en lämplig lösning för katastrof återställning. 
+>
+> För verksamhets kritiska program som kräver stora databaser och som måste garantera affärs kontinuitet, använder du [grupper för automatisk redundans](auto-failover-group-overview.md). Det erbjuder ett mycket lägre drift-och återställnings mål och kapaciteten är alltid garanterad. 
+>
+> Mer information om val av affärs kontinuitet finns i [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
-## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Utföra återställning program mässigt med hjälp av automatiska säkerhets kopieringar
+## <a name="programmatic-recovery-using-automated-backups"></a>Program återställning med automatiserade säkerhets kopieringar
 
 Du kan också använda Azure PowerShell eller REST API för återställning. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga.
 
@@ -196,7 +202,7 @@ Du kan också använda Azure PowerShell eller REST API för återställning. I f
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av SQL Database-och SQL-hanterad instans, men all framtida utveckling är för AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i gott grad identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av SQL Database-och SQL-hanterad instans, men all framtida utveckling är för AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i Azure Resource Manager modulerna är i ett bra GRADS identiska.
 
 #### <a name="sql-database"></a>SQL Database
 
@@ -207,10 +213,10 @@ Information om hur du återställer en fristående databas eller en databas finn
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Hämtar en eller flera databaser. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Hämtar en borttagen databas som du kan återställa. |
   | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) |Hämtar en geo-redundant säkerhetskopia av en databas. |
-  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Återställer en SQL-databas. |
+  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Återställer en databas. |
 
   > [!TIP]
-  > Ett exempel på ett PowerShell-skript som visar hur du utför en tidpunkts återställning av en databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/restore-database-powershell.md).
+  > Ett exempel på ett PowerShell-skript som visar hur du utför en tidpunkts återställning av en databas finns i [återställa en databas med hjälp av PowerShell](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 

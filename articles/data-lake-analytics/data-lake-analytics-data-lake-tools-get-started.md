@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260350"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707794"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio
 
@@ -55,11 +55,11 @@ För den här självstudien krävs att Data Lake Tools för Visual Studio har in
 
 1. Öppna Visual Studio.
 
-1. Öppna **Server Explorer** genom att välja **Visa** > **Server Explorer**.
+1. Öppna **Server Explorer** genom att välja **Visa**  >  **Server Explorer**.
 
 1. Högerklicka på **Azure**och välj sedan **Anslut till Microsoft Azure prenumeration**. Följ anvisningarna i **Logga in på ditt konto**.
 
-1. I **Server Explorer**väljer du **Azure** > **data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas.
+1. I **Server Explorer**väljer du **Azure**  >  **data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas.
 
 ## <a name="write-your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
@@ -82,7 +82,7 @@ OUTPUT @a
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Skicka ett Data Lake Analytics-jobb
 
-1. I Visual Studio väljer du **fil** > **nytt** > **projekt**.
+1. I Visual Studio väljer du **fil**  >  **nytt**  >  **projekt**.
 
 1. Välj typen **U-SQL-projekt** och välj sedan **Nästa**. I **Konfigurera det nya projektet**väljer du **skapa**.
 
@@ -112,7 +112,7 @@ Om du vill se senaste jobb status och uppdatera skärmen väljer du **Uppdatera*
 
 ## <a name="check-job-status"></a>Kontrollera jobbstatus
 
-1. I **Server Explorer**väljer du **Azure** > **data Lake Analytics**.
+1. I **Server Explorer**väljer du **Azure**  >  **data Lake Analytics**.
 
 1. Expandera Data Lake Analytics-kontonamnet.
 

@@ -1,5 +1,5 @@
 ---
-title: Fråga det dubbla diagrammet
+title: Fråga tvillingdiagrammet
 titleSuffix: Azure Digital Twins
 description: Mer information finns i så här frågar du efter information i Azure Digitals dubbla diagram.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 8788dcc1ec09580aa0da7c68665433dfe4a1d563
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612882"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725592"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Den här artikeln går djupgående om att använda [Azures digitala dubbla informations frågor](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
 

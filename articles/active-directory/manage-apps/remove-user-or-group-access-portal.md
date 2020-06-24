@@ -3,25 +3,25 @@ title: Ta bort användar-eller grupp tilldelningar från en app i Azure AD
 description: Så här tar du bort åtkomst tilldelningen för en användare eller grupp från en företags app i Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: a09b3307403cb78da3bd22f3cc85bd75d7ebd858
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275868"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763065"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp tilldelning från en företags app i Azure Active Directory
 
@@ -44,7 +44,7 @@ Det är enkelt att ta bort en användare eller en grupp från tilldelad åtkomst
 1. Öppna en upphöjd kommando tolk i Windows PowerShell.
 
    > [!NOTE]
-   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD` ). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
 
 1. Kör `Connect-AzureAD` och logga in med ett globalt administratörs användar konto.
 1. Använd följande skript för att ta bort en användare och roll från ett program:

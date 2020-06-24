@@ -11,18 +11,18 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b941b81feb54ae6eed0333a9dcb4863cc885686
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66730038"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688145"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av PowerShell
 
@@ -35,7 +35,7 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 * Distribuera virtuella datorer (VM) i ett undernät
 * Testa trafikfilter
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -277,7 +277,7 @@ Använd följande kommando för att installera Microsoft IIS på den virtuella d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa välkomst skärmen i IIS genom att öppna en webbläsare och gå till http\/:/myVmWeb.
+När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa välkomst skärmen i IIS genom att öppna en webbläsare och gå till http: \/ /myVmWeb.
 
 Koppla från den virtuella datorn *myVmMgmt*.
 

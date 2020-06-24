@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 54c4a673e654a0244183a84ffa841d553ae6db51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106261"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688628"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
 
@@ -158,7 +158,7 @@ az network nic create \
 ```
 
 ### <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och koppla NÄTVERKSKORTet
-När du skapar den virtuella datorn anger du det nätverkskort som du `--nics`skapade med. Välj en storlek och distribution som visas i ett [snabbare nätverk i Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+När du skapar den virtuella datorn anger du det nätverkskort som du skapade med `--nics` . Välj en storlek och distribution som visas i ett [snabbare nätverk i Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS-avbildningen och en storlek som har stöd för accelererat nätverk (*Standard_DS4_v2*):
 
@@ -192,7 +192,7 @@ När den virtuella datorn har skapats returneras utdata som liknar följande exe
 
 ### <a name="confirm-that-accelerated-networking-is-enabled"></a>Bekräfta att accelererat nätverk har Aktiver ATS
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt `<your-public-ip-address>` med den offentliga IP-adress som tilldelats den virtuella datorn som du skapade och Ersätt *azureuser* om du använde ett annat värde `--admin-username` för när du skapade den virtuella datorn.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt `<your-public-ip-address>` med den offentliga IP-adress som tilldelats den virtuella datorn som du skapade och Ersätt *azureuser* om du använde ett annat värde för `--admin-username` när du skapade den virtuella datorn.
 
 ```bash
 ssh azureuser@<your-public-ip-address>
@@ -206,7 +206,7 @@ Från bash-gränssnittet anger `uname -r` och bekräftar du att kernel-versionen
 * **CentOS**: 7.4.20171206
 
 
-Bekräfta att Mellanox VF-enheten exponeras för den virtuella datorn `lspci` med kommandot. De utdata som returneras liknar följande utdata:
+Bekräfta att Mellanox VF-enheten exponeras för den virtuella datorn med `lspci` kommandot. De utdata som returneras liknar följande utdata:
 
 ```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)

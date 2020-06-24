@@ -11,18 +11,18 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a9ae1b847d3f31a2cd4c01f9ecb61e39e950ffe
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185543"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688168"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Begränsa nätverks åtkomsten till PaaS resurser med tjänst slut punkter för virtuella nätverk med hjälp av PowerShell
 
@@ -37,7 +37,7 @@ Med tjänstslutpunkter för virtuellt nätverk kan du begränsa nätverksåtkoms
 * Bekräfta åtkomst till en resurs från ett undernät
 * Bekräfta att åtkomst nekas för en resurs från ett undernät och internet
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -299,7 +299,7 @@ mstsc /v:<publicIpAddress>
 
 En RDP-fil (Remote Desktop Protocol) skapas och laddas ned till datorn. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. Välj **OK**. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
-På den virtuella datorn *myVmPrivate* mappar du Azure-fildelningen till enhet Z med PowerShell. Innan du kör kommandona som följer ersätter `<storage-account-key>` du `<storage-account-name>` och med värden från du angav eller hämtade i [skapa ett lagrings konto](#create-a-storage-account).
+På den virtuella datorn *myVmPrivate* mappar du Azure-fildelningen till enhet Z med PowerShell. Innan du kör kommandona som följer ersätter `<storage-account-key>` `<storage-account-name>` du och med värden från du angav eller hämtade i [skapa ett lagrings konto](#create-a-storage-account).
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -344,7 +344,7 @@ Ersätt `<publicIpAddress>` i följande kommando med den offentliga IP-adressen 
 mstsc /v:<publicIpAddress>
 ```
 
-På den virtuella datorn *myVmPublic* försöker du mappa Azure-filresursen till enhet Z. Innan du kör kommandona som följer ersätter `<storage-account-key>` du `<storage-account-name>` och med värden från du angav eller hämtade i [skapa ett lagrings konto](#create-a-storage-account).
+På den virtuella datorn *myVmPublic* försöker du mappa Azure-filresursen till enhet Z. Innan du kör kommandona som följer ersätter `<storage-account-key>` `<storage-account-name>` du och med värden från du angav eller hämtade i [skapa ett lagrings konto](#create-a-storage-account).
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force

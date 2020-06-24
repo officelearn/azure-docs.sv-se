@@ -1,5 +1,5 @@
 ---
-title: Azure-Instance Metadata Service
+title: Azure Instance Metadata Service
 description: RESTful-gränssnitt för att få information om beräkning av virtuella datorer, nätverk och kommande underhålls händelser.
 services: virtual-machines
 author: KumariSupriya
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 5338f8b29f2328cec02e44185903eb2581226eff
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 195d9f6da88639cc3b4299519e90bf682bc743d9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635279"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888596"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -178,7 +178,7 @@ API | Standard data format | Andra format
 /instance | json | text
 /scheduledevents | json | inget
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Ett exempel:
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -828,7 +828,7 @@ Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="error-and-debugging"></a>Fel och fel sökning
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Ett exempel:
 
 HTTP-statuskod | Anledning
 -----------------|-------
@@ -858,6 +858,55 @@ metoden 405 tillåts inte | Endast `GET` begär Anden stöds
    * För närvarande används taggar för skalnings uppsättningar bara på den virtuella datorn vid omstart, avbildning eller disk ändring till instansen.
 1. Jag får en timeout för mitt samtal till tjänsten?
    * Metadata-anrop måste göras från den primära IP-adress som tilldelats till det primära nätverkskortet på den virtuella datorn. Om du har ändrat dina vägar måste du dessutom ha en väg för 169.254.169.254-/32-adressen i den virtuella datorns lokala routningstabell.
+   * <details>
+        <summary>Verifierar routningstabellen</summary>
+
+        1. Dumpa din lokala routningstabell och leta efter IMDS-posten (t. ex.):
+            ```console
+            > route print
+            IPv4 Route Table
+            ===========================================================================
+            Active Routes:
+            Network Destination        Netmask          Gateway       Interface  Metric
+                      0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                    127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                    127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+              127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+                168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+              169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+            ... (continues) ...
+            ```
+        1. Kontrol lera att det finns en väg för `169.254.169.254` och notera motsvarande nätverks gränssnitt (t. ex. `172.16.69.7` ).
+        1. Dumpa gränssnitts konfigurationen och hitta det gränssnitt som motsvarar den som refereras i routningstabellen, som anger MAC-adressen (fysisk).
+            ```console
+            > ipconfig /all
+            ... (continues) ...
+            Ethernet adapter Ethernet:
+
+               Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+               Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+               Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+               DHCP Enabled. . . . . . . . . . . : Yes
+               Autoconfiguration Enabled . . . . : Yes
+               Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+               IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+               Subnet Mask . . . . . . . . . . . : 255.255.255.0
+            ... (continues) ...
+            ```
+        1. Bekräfta att gränssnittet motsvarar det primära NÄTVERKSKORTet för den virtuella datorn och den primära IP-adressen. Du hittar det primära NÄTVERKSKORTet/IP-adressen genom att titta på nätverks konfigurationen i Azure Portal eller genom att titta på det [med Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Observera offentliga och privata IP-adresser (och MAC-adressen om du använder CLI). PowerShell CLI-exempel:
+            ```powershell
+            $ResourceGroup = '<Resource_Group>'
+            $VmName = '<VM_Name>'
+            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+            foreach($NicName in $NicNames)
+            {
+                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+                Write-Host $NicName, $Nic.primary, $Nic.macAddress
+            }
+            # Output: wintest767 True 00-0D-3A-E5-1C-C0
+            ```
+        1. Om de inte matchar uppdaterar du routningstabellen så att det primära NÄTVERKSKORTet/IP-adressen är mål.
+    </details>
 
 ## <a name="support-and-feedback"></a>Support och feedback
 

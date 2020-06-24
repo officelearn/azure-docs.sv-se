@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271114"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688967"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-frågesyntaxen för meddelandedirigering
 
@@ -54,9 +54,9 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | -------- | ---- | ----------- |
 | Innehålls | sträng | Användaren anger meddelandets innehålls typ. Om du vill tillåta frågan på meddelande texten ska det här värdet ställas in Application/JSON. |
 | contentEncoding | sträng | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
-| iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga `$connectionDeviceId`använder du. |
-| iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga `enqueuedTime`använder du. |
-| iothub-gränssnitt-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga `$interfaceName`använder du. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga använder du `$connectionDeviceId` . |
+| iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga använder du `enqueuedTime` . |
+| iothub-gränssnitt-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga använder du `$interfaceName` . Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Förutom **ContentType**, **contentEncoding**och **enqueuedTime**kan **connectionDeviceId** och **connectionModuleId** också frågas.
 
@@ -66,7 +66,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper nås med sitt namn och bör inte föregås av `$`symbolen. Om ett program egenskaps namn börjar `$`med kommer IoT Hub att söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Ett exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper nås med sitt namn och bör inte föregås av `$` symbolen. Om ett program egenskaps namn börjar med `$` kommer IoT Hub att söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Ett exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 
@@ -90,7 +90,7 @@ En fullständig lista över operatörer och funktioner som stöds visas i [uttry
 
 ## <a name="message-routing-query-based-on-message-body"></a>Meddelande cirkulations fråga baserat på meddelande text
 
-Om du vill aktivera frågor i meddelande texten ska meddelandet vara i en JSON-kodad antingen UTF-8, UTF-16 eller UTF-32. `contentType` Måste anges till `application/JSON` och `contentEncoding` till en av de UTF-kodningar som stöds i system egenskapen. Om de här egenskaperna inte anges kommer IoT Hub inte att utvärdera frågeuttrycket i meddelande texten. 
+Om du vill aktivera frågor i meddelande texten ska meddelandet vara i en JSON-kodad antingen UTF-8, UTF-16 eller UTF-32. `contentType`Måste anges till `application/JSON` och `contentEncoding` till en av de UTF-kodningar som stöds i system egenskapen. Om de här egenskaperna inte anges kommer IoT Hub inte att utvärdera frågeuttrycket i meddelande texten. 
 
 I följande exempel visas hur du skapar ett meddelande med en korrekt utformad och kodad JSON-text: 
 
@@ -142,12 +142,12 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#, laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp Master. zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice*innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
+> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#, laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp master.zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice*innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
 
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande text måste föregås av `$body`. Du kan använda en Body-referens, en text mat ris referens eller flera text referenser i frågeuttrycket. Frågeuttrycket kan också kombinera en brödtext referens med meddelande system egenskaper och referens för meddelande program egenskaper. Till exempel är följande giltiga frågeuttryck: 
+En fråga om meddelande text måste föregås av `$body` . Du kan använda en Body-referens, en text mat ris referens eller flera text referenser i frågeuttrycket. Frågeuttrycket kan också kombinera en brödtext referens med meddelande system egenskaper och referens för meddelande program egenskaper. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -200,7 +200,7 @@ Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-devi
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelandets dubbla måste föregås av `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå `twin`från `$twin`att `body`använda, `$body`,, eller, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
+En fråga om meddelandets dubbla måste föregås av `$twin` . Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå från att använda `twin` , `$twin` , `body` , eller `$body` , som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

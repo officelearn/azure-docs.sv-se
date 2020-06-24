@@ -4,16 +4,16 @@ description: Så här skapar du en adresspool i det virtuella Windows-skrivborde
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c24e212f901f0af38a24ab203070f637de860fc7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615193"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204769"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Skapa en värdpool med en Azure Resource Manager-mall
 
@@ -46,7 +46,7 @@ Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de 
 
 1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
 2. Öppna en text redigerare som anteckningar och klistra in länken där.
-3. Höger efter "https://portal.azure.com/" och innan hashtagg (#) anger ett @-tecken följt av klient domän namnet. Här är ett exempel på det format som du bör använda `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`:.
+3. Höger efter " https://portal.azure.com/ " och innan hashtagg (#) anger ett @-tecken följt av klient domän namnet. Här är ett exempel på det format som du bör använda: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
 5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 
@@ -70,7 +70,7 @@ Efter det lägger du till användare i program gruppen Skriv bord med denna cmdl
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Användarens UPN ska matcha användarens identitet i Azure Active Directory (till exempel user1@contoso.com). Om du vill lägga till flera användare måste du köra denna cmdlet för varje användare.
+Användarens UPN ska matcha användarens identitet i Azure Active Directory (till exempel user1@contoso.com ). Om du vill lägga till flera användare måste du köra denna cmdlet för varje användare.
 
 När du har slutfört de här stegen kan användare som har lagts till i gruppen Skriv bord logga in på Windows Virtual Desktop med stöd för fjärr skrivbords klienter och se en resurs för en session.
 

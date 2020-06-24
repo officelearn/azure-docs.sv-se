@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396896"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203817"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
 
@@ -30,7 +30,7 @@ I följande diagram visas relationen mellan elementen:
 
 ## <a name="predicates"></a>Predikat
 
-**Predikatet predikat** definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks `true` typ `false`och returnerar eller. Verifieringen görs med hjälp av ett angivet **metod** element och en uppsättning **parameter** element som är relevanta för metoden. Ett predikat kan till exempel kontrol lera om längden på ett sträng anspråks värde ligger inom intervallet för de lägsta och högsta parametrarna som anges, eller om ett sträng anspråks värde innehåller en teckenuppsättning. **UserHelpText** -elementet ger ett fel meddelande för användare om kontrollen Miss lyckas. Värdet för **UserHelpText** -elementet kan lokaliseras med [språk anpassning](localization.md).
+**Predikatet predikat** definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks typ och returnerar `true` eller `false` . Verifieringen görs med hjälp av ett angivet **metod** element och en uppsättning **parameter** element som är relevanta för metoden. Ett predikat kan till exempel kontrol lera om längden på ett sträng anspråks värde ligger inom intervallet för de lägsta och högsta parametrarna som anges, eller om ett sträng anspråks värde innehåller en teckenuppsättning. **UserHelpText** -elementet ger ett fel meddelande för användare om kontrollen Miss lyckas. Värdet för **UserHelpText** -elementet kan lokaliseras med [språk anpassning](localization.md).
 
 **Predikat** -elementet måste visas direkt efter **ClaimsSchema** -elementet i [BuildingBlocks](buildingblocks.md) -elementet.
 
@@ -44,9 +44,9 @@ I följande diagram visas relationen mellan elementen:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
-| Metod | Ja | Den typ av metod som ska användas för verifiering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
-| HelpText | Inga | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
+| Id | Yes | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
+| Metod | Yes | Den typ av metod som ska användas för verifiering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
+| HelpText | No | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
 
 **Predikatet predikat** innehåller följande element:
 
@@ -75,13 +75,13 @@ Metoden IsLengthRange kontrollerar om längden på ett sträng anspråks värde 
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Maximal | Ja | Det maximala antalet tecken som kan anges. |
-| Minimum | Ja | Det minsta antal tecken som måste anges. |
+| Maximal | Yes | Det maximala antalet tecken som kan anges. |
+| Minimum | Yes | Det minsta antal tecken som måste anges. |
 
 
 I följande exempel visas en IsLengthRange-metod med parametrarna `Minimum` och `Maximum` som anger längd intervallet för strängen:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -96,11 +96,11 @@ MatchesRegex-metoden kontrollerar om ett sträng anspråks värde matchar ett re
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Reguljärt uttryck | Ja | Mönstret för reguljära uttryck som ska matchas. |
+| Reguljärt uttryck | Yes | Mönstret för reguljära uttryck som ska matchas. |
 
-I följande exempel visas en `MatchesRegex` Metod med parametern `RegularExpression` som anger ett reguljärt uttryck:
+I följande exempel visas en `MatchesRegex` metod med parametern `RegularExpression` som anger ett reguljärt uttryck:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -114,11 +114,11 @@ IncludesCharacters-metoden kontrollerar om ett sträng anspråks värde innehål
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| CharacterSet | Ja | Den uppsättning tecken som kan anges. Till exempel gemena tecken `a-z`, versaler `A-Z`, siffror `0-9`eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+| CharacterSet | Yes | Den uppsättning tecken som kan anges. Till exempel gemena tecken `a-z` , versaler, `A-Z` siffror `0-9` eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
-I följande exempel visas en `IncludesCharacters` Metod med parametern `CharacterSet` som anger en uppsättning tecken:
+I följande exempel visas en `IncludesCharacters` metod med parametern `CharacterSet` som anger en uppsättning tecken:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -132,12 +132,12 @@ IsDateRange-metoden kontrollerar om ett datum anspråks värde är mellan ett in
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Maximal | Ja | Det största möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller. `Today` |
-| Minimum | Ja | Det minsta möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller. `Today`|
+| Maximal | Yes | Det största möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` . |
+| Minimum | Yes | Det minsta möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` .|
 
-I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Maximum` och som anger datum intervallet med formatet `yyyy-mm-dd` och. `Today`
+I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och `Maximum` som anger datum intervallet med formatet `yyyy-mm-dd` och `Today` .
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Max
 
 **PredicateValidations** -elementet måste visas direkt efter **predikat** -elementet i [BuildingBlocks](buildingblocks.md) -elementet.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -180,7 +180,7 @@ I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Max
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för verifiering av predikat. Elementet **claimType** kan använda den här identifieraren i principen. |
+| Id | Yes | En identifierare som används för verifiering av predikat. Elementet **claimType** kan använda den här identifieraren i principen. |
 
 **PredicateValidation** -elementet innehåller följande element:
 
@@ -198,7 +198,7 @@ I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Max
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för gruppen predikat.  |
+| Id | Yes | En identifierare som används för gruppen predikat.  |
 
 **PredicateGroup** -elementet innehåller följande element:
 
@@ -211,7 +211,7 @@ I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Max
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Inga | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
+| MatchAtLeast | No | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
 
 **PredicateReferences** -elementet innehåller följande element:
 
@@ -223,23 +223,23 @@ I följande exempel visas en `IsDateRange` `Minimum` metod med parametrarna `Max
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för verifiering av predikat.  |
+| Id | Yes | En identifierare som används för verifiering av predikat.  |
 
 
 ## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet
 
 Med **predikat** och **PredicateValidationsInput** kan du kontrol lera komplexitets kraven för lösen ord som tillhandahålls av en användare när du skapar ett konto. Som standard använder Azure AD B2C starka lösen ord. Azure AD B2C också stöd för konfigurations alternativ för att kontrol lera komplexiteten för lösen ord som kunder kan använda. Du kan definiera lösen ords komplexitet genom att använda dessa predikaa element:
 
-- **IsLengthBetween8And64** använder- `IsLengthRange` metoden för att validera att lösen ordet måste innehålla mellan 8 och 64 tecken.
+- **IsLengthBetween8And64** använder `IsLengthRange` -metoden för att validera att lösen ordet måste innehålla mellan 8 och 64 tecken.
 - **Gemener** med `IncludesCharacters` -metoden validerar att lösen ordet innehåller en gemen bokstav.
 - **Versaler** med `IncludesCharacters` -metoden validerar att lösen ordet innehåller en versal bokstav.
-- **Tal** med hjälp `IncludesCharacters` av-metoden kontrollerar att lösen ordet innehåller en siffra.
-- **Symbol** med hjälp `IncludesCharacters` av metoden validerar att lösen ordet innehåller ett av flera tecken.
+- **Tal** med hjälp av `IncludesCharacters` -metoden kontrollerar att lösen ordet innehåller en siffra.
+- **Symbol** med hjälp av `IncludesCharacters` metoden validerar att lösen ordet innehåller ett av flera tecken.
 - **PIN-kod** med hjälp av `MatchesRegex` metoden validerar att lösen ordet endast innehåller siffror.
-- **AllowedAADCharacters** använder- `MatchesRegex` metoden för att validera att lösen ordet endast ogiltigt Character angavs.
-- **DisallowedWhitespace** använder- `MatchesRegex` metoden för att validera att lösen ordet inte börjar eller slutar med ett blank stegs tecken.
+- **AllowedAADCharacters** använder `MatchesRegex` -metoden för att validera att lösen ordet endast ogiltigt Character angavs.
+- **DisallowedWhitespace** använder `MatchesRegex` -metoden för att validera att lösen ordet inte börjar eller slutar med ett blank stegs tecken.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -294,10 +294,10 @@ Med **predikat** och **PredicateValidationsInput** kan du kontrol lera komplexit
 När du har definierat de grundläggande valideringarna kan du kombinera dem tillsammans och skapa en uppsättning lösen ords principer som du kan använda i principen:
 
 - **SimplePassword** verifierar DisallowedWhitespace, AllowedAADCharacters och IsLengthBetween8And64
-- **StrongPassword** verifierar DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. Den sista gruppen `CharacterClasses` kör ytterligare en uppsättning predikat med `MatchAtLeast` värdet 3. Användarens lösen ord måste vara mellan 8 och 16 tecken och tre av följande tecken: gemener, versaler, siffror och symboler.
+- **StrongPassword** verifierar DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. Den sista gruppen `CharacterClasses` Kör ytterligare en uppsättning predikat med `MatchAtLeast` värdet 3. Användarens lösen ord måste vara mellan 8 och 16 tecken och tre av följande tecken: gemener, versaler, siffror och symboler.
 - **CustomPassword** validerar endast DisallowedWhitespace, AllowedAADCharacters. Användaren kan alltså ange alla lösen ord med valfri längd, förutsatt att tecknen är giltiga.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ När du har definierat de grundläggande valideringarna kan du kombinera dem til
 
 I anspråks typen lägger du till **PredicateValidationReference** -elementet och anger identifieraren som ett av predikat-valideringarna, till exempel SimplePassword, StrongPassword eller CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -384,9 +384,9 @@ Följande visar hur elementen ordnas när Azure AD B2C visar fel meddelandet:
 
 ## <a name="configure-a-date-range"></a>Konfigurera ett datum intervall
 
-Med **predikat** och **PredicateValidations** -element kan du styra de lägsta och högsta datum värdena för **UserInputType** med hjälp av en `DateTimeDropdown`. Det gör du genom att skapa ett **predikat** med- `IsDateRange` metoden och ange de lägsta och högsta parametrarna.
+Med **predikat** och **PredicateValidations** -element kan du styra de lägsta och högsta datum värdena för **UserInputType** med hjälp av en `DateTimeDropdown` . Det gör du genom att skapa ett **predikat** med- `IsDateRange` metoden och ange de lägsta och högsta parametrarna.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ Med **predikat** och **PredicateValidations** -element kan du styra de lägsta o
 
 Lägg till en **PredicateValidation** med en referens till `DateRange` predikatet.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -413,9 +413,9 @@ Lägg till en **PredicateValidation** med en referens till `DateRange` predikate
 </PredicateValidations>
 ```
 
-I anspråks typen lägger du till **PredicateValidationReference** -element och anger `CustomDateRange`identifieraren som.
+I anspråks typen lägger du till **PredicateValidationReference** -element och anger identifieraren som `CustomDateRange` .
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

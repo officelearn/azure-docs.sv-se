@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f01da074423a45b30e6c386852e88798e55938b
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632977"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888804"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal
 
@@ -86,7 +86,7 @@ Du kan flytta resurserna i gruppen till en annan resurs grupp. Mer information f
 
 Låsning förhindrar att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser, t. ex. Azure-prenumeration, resurs grupp eller resurs. 
 
-1. Öppna den resurs grupp som du vill ta bort.  Se [Öppna resurs grupper](#open-resource-groups).
+1. Öppna den resurs grupp som du vill låsa.  Se [Öppna resurs grupper](#open-resource-groups).
 2. I det vänstra fönstret väljer du **Lås**.
 3. Om du vill lägga till ett lås i resurs gruppen väljer du **Lägg till**.
 4. Ange **Lås namn**, **Lås typ**och **anteckningar**. Lås typerna är **skrivskyddade**och **ta bort**.

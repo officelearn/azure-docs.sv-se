@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d65d85d21521a6277a3ea823a8c9e83a34e3f42c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772105"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204634"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -67,7 +67,7 @@ Interaktionen syftar på att användaren ska göra en åtgärd. Några av dessa 
 
 MSAL exponerar ett `Classification` fält, som du kan läsa för att ge en bättre användar upplevelse, till exempel för att tala om för användaren att deras lösen ord har upphört att gälla eller att de måste ge medgivande till att använda vissa resurser. De värden som stöds är en del av `UiRequiredExceptionClassification` uppräkningen:
 
-| Klassificering    | Betydelse           | Rekommenderad hantering |
+| Klassificering    | Innebörd           | Rekommenderad hantering |
 |-------------------|-------------------|----------------------|
 | BasicAction | Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
 | AdditionalAction | Villkoret kan lösas med hjälp av ytterligare återställnings interaktion med systemet, utanför det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively () för att visa ett meddelande som förklarar åtgärds åtgärden. Anrops programmet kan välja att dölja flöden som kräver additional_action om användaren inte är klar med åtgärden för att åtgärda problemet. |
@@ -138,7 +138,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-MSAL. js innehåller fel objekt som kan vara abstrakta och klassificera de olika typerna av vanliga fel. Den innehåller också ett gränssnitt för att få åtkomst till information om felen, till exempel fel meddelanden, för att hantera dem på rätt sätt.
+MSAL.js innehåller fel objekt som kan vara abstrakta och klassificera de olika typerna av vanliga fel. Den innehåller också ett gränssnitt för att få åtkomst till information om felen, till exempel fel meddelanden, för att hantera dem på rätt sätt.
 
 ### <a name="error-object"></a>Fel objekt
 
@@ -162,7 +162,7 @@ Genom att utöka fel klassen har du åtkomst till följande egenskaper:
 
 Följande fel typer är tillgängliga:
 
-- `AuthError`: Bas Fels klass för MSAL. js-biblioteket, används också för oväntade fel.
+- `AuthError`: Bask lass klassen för MSAL.jss biblioteket, används också för oväntade fel.
 
 - `ClientAuthError`: Fel klass, som anger ett problem med klientautentisering. De flesta fel som kommer från biblioteket kommer att bli ClientAuthErrors. Dessa fel beror på saker som att anropa en inloggnings metod när inloggningen redan pågår, att användaren avbryter inloggningen och så vidare.
 
@@ -262,7 +262,7 @@ Vissa villkor som resulterar i detta fel är lätta för användarna att lösa. 
 
 MSAL visar ett `reason` fält som du kan använda för att ge en bättre användar upplevelse. Fältet kan till exempel `reason` leda till att användaren anger att deras lösen ord har upphört att gälla eller att de måste ge tillåtelse att använda vissa resurser. De värden som stöds är en del av `InteractionRequiredExceptionReason` uppräkningen:
 
-| Anledning | Betydelse | Rekommenderad hantering |
+| Anledning | Innebörd | Rekommenderad hantering |
 |---------|-----------|-----------------------------|
 | `BasicAction` | Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet | Anropa `acquireToken` med interaktiva parametrar |
 | `AdditionalAction` | Villkoret kan lösas med hjälp av ytterligare återställnings interaktion med systemet utanför det interaktiva autentiserings flödet. | Anropa `acquireToken` med interaktiva parametrar för att visa ett meddelande som förklarar vilken åtgärd som ska vidtas. Den anropande appen kan välja att dölja flöden som kräver ytterligare åtgärder om användaren inte är tvungen att slutföra åtgärden. |
@@ -518,21 +518,25 @@ För att hantera anspråks utmaningen måste du använda `.WithClaim()` metoden 
 
 ### <a name="javascript"></a>JavaScript
 
-När du hämtar token tyst (med hjälp av `acquireTokenSilent` ) med hjälp av MSAL. js kan programmet få fel meddelanden när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) som MFA-princip krävs av ett API som du försöker få åtkomst till.
+När du hämtar token tyst (med `acquireTokenSilent` ) med hjälp av MSAL.js kan ditt program få fel när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) , till exempel MFA-princip krävs av ett API som du försöker få åtkomst till.
 
-Mönstret för att hantera det här felet är att göra ett interaktivt anrop för att hämta token i MSAL. js som `acquireTokenPopup` eller `acquireTokenRedirect` som i följande exempel:
+Mönstret för att hantera det här felet är att göra ett interaktivt anrop för att hämta token i MSAL.js som `acquireTokenPopup` eller `acquireTokenRedirect` som i följande exempel:
 
 ```javascript
-myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
+myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // call API
-}).catch( function (error) {
+}).catch(function(error) {
     if (error instanceof InteractionRequiredAuthError) {
-        // Extract claims from error message
-        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
+    
+        // extract, if exists, claims from error message
+        if (error.ErrorMessage.claims) {
+            accessTokenRequest.claimsRequest = JSON.stringify(error.ErrorMessage.claims);
+        }
+        
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
-        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
             // call API
-        }).catch(function (error) {
+        }).catch(function(error) {
             console.log(error);
         });
     }

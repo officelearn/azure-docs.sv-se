@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497531"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689052"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
-## <a name="general-faq"></a>Vanliga frågor och svar
+## <a name="general-faq"></a>Allmänna vanliga frågor och svar
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>F: Jag registrerade enheten nyligen. Varför kan jag inte se enheten under min användar information i Azure Portal? Eller varför har enhets ägaren marker ATS som ej tillämpligt för Hybrid Azure Active Directory (Azure AD) anslutna enheter?
 
@@ -39,8 +39,8 @@ Endast följande enheter visas under **användar enheter**:
 
 **A:** I Azure Portal går du till **alla enheter**. Sök efter enheten med enhets-ID: t. Kontrol lera värdet under kolumnen kopplings typ. Ibland kan enheten återställas eller avbildas om. Det är därför viktigt att även kontrol lera enhetens registrerings status på enheten:
 
-- För Windows 10-och Windows Server 2016-enheter eller senare `dsregcmd.exe /status`kör du.
-- För äldre OS-versioner kör `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`du.
+- För Windows 10-och Windows Server 2016-enheter eller senare kör du `dsregcmd.exe /status` .
+- För äldre OS-versioner kör du `%programFiles%\Microsoft Workplace Join\autoworkplace.exe` .
 
 **A:** Information om fel sökning finns i följande artiklar:
 - [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md)
@@ -100,7 +100,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
       Utför följande steg för Azure AD-registrerade Windows 10-enheter:
 
-      1. Gå till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. 
+      1. Gå till **Inställningar**  >  **konton**  >  **åtkomst till arbete eller skola**. 
       1. Välj kontot och välj **Koppla från**.
       1. Klicka på "+ Anslut" och registrera enheten igen genom att gå igenom inloggnings processen.
 
@@ -148,7 +148,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>F: Hur gör jag för att koppla från en Azure AD-ansluten enhet lokalt på enheten?
 
-**A:** För rena Azure AD-anslutna enheter kontrollerar du att du har ett lokalt administratörs konto offline eller skapar ett. Du kan inte logga in med autentiseringsuppgifter för Azure AD-användare. Gå sedan till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du uppmanas till det. Slutför processen för att inte ansluta genom att starta om enheten.
+**A:** För rena Azure AD-anslutna enheter kontrollerar du att du har ett lokalt administratörs konto offline eller skapar ett. Du kan inte logga in med autentiseringsuppgifter för Azure AD-användare. Gå sedan till **Inställningar**  >  **konton**  >  **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du uppmanas till det. Slutför processen för att inte ansluta genom att starta om enheten.
 
 ---
 
@@ -175,6 +175,8 @@ Borttagna eller inaktiverade användare som inte har loggat in tidigare kan inte
 ### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>F: Varför har mina användare problem med Azure AD-anslutna enheter när de har ändrat sitt UPN?
 
 **A:** UPN-ändringar stöds för närvarande inte fullt ut på Azure AD-anslutna enheter. Därför Miss lyckas autentiseringen med Azure AD efter att deras UPN-ändringar ändrats. Det innebär att användare har SSO-och villkorliga åtkomst problem på sina enheter. För tillfället måste användarna logga in i Windows via panelen "annan användare" med hjälp av sitt nya UPN för att lösa det här problemet. Vi arbetar för närvarande med att lösa det här problemet. Användare som loggar in med Windows Hello för företag möter dock inte det här problemet. 
+
+UPN-ändringar stöds med Windows 10 2004 Update. Användare på enheter med den här uppdateringen får inga problem efter att ha ändrat sina UPN
 
 ---
 
@@ -232,7 +234,7 @@ Detta beteende:
 
 ### <a name="qwhat-are-the-ms-organization-p2p-access-certificates-present-on-our-windows-10-devices"></a>Q:What är MS-Organization-P2P-Access-certifikaten som finns på våra Windows 10-enheter?
 
-**A:** MS-Organization-P2P-Access-certifikat utfärdas av Azure AD till både Azure AD-anslutna och hybrid Azure AD-anslutna enheter. Dessa certifikat används för att aktivera förtroende mellan enheter i samma klient organisation för scenarier med fjärr skrivbord. Ett certifikat utfärdas till enheten och ett annat utfärdas till användaren. Enhets certifikatet finns i `Local Computer\Personal\Certificates` och är giltigt i en dag. Certifikatet förnyas (genom att utfärda ett nytt certifikat) om enheten fortfarande är aktiv i Azure AD. Användar certifikatet finns i `Current User\Personal\Certificates` och det här certifikatet är också giltigt i en dag, men det utfärdas på begäran när en användare försöker använda en fjärrskrivbordssession till en annan Azure AD-ansluten enhet. Den förnyas inte när den upphör att gälla. Båda dessa certifikat utfärdas med hjälp av certifikatet MS-Organization-P2P-Access som finns i `Local Computer\AAD Token Issuer\Certificates`. Certifikatet utfärdas av Azure AD vid enhets registrering. 
+**A:** MS-Organization-P2P-Access-certifikat utfärdas av Azure AD till både Azure AD-anslutna och hybrid Azure AD-anslutna enheter. Dessa certifikat används för att aktivera förtroende mellan enheter i samma klient organisation för scenarier med fjärr skrivbord. Ett certifikat utfärdas till enheten och ett annat utfärdas till användaren. Enhets certifikatet finns i `Local Computer\Personal\Certificates` och är giltigt i en dag. Certifikatet förnyas (genom att utfärda ett nytt certifikat) om enheten fortfarande är aktiv i Azure AD. Användar certifikatet finns i `Current User\Personal\Certificates` och det här certifikatet är också giltigt i en dag, men det utfärdas på begäran när en användare försöker använda en fjärrskrivbordssession till en annan Azure AD-ansluten enhet. Den förnyas inte när den upphör att gälla. Båda dessa certifikat utfärdas med hjälp av certifikatet MS-Organization-P2P-Access som finns i `Local Computer\AAD Token Issuer\Certificates` . Certifikatet utfärdas av Azure AD vid enhets registrering. 
 
 ---
 
@@ -246,7 +248,7 @@ Detta beteende:
 
 ### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>F: Hur gör jag för att koppla från en hybrid Azure AD-ansluten enhet lokalt på enheten?
 
-**A:** För Hybrid Azure AD-anslutna enheter ser du till att inaktivera automatisk registrering. Den schemalagda aktiviteten registrerar inte enheten igen. Öppna sedan en kommando tolk som administratör och ange `dsregcmd.exe /debug /leave`. Eller kör det här kommandot som ett skript över flera enheter för att koppla från i bulk.
+**A:** För Hybrid Azure AD-anslutna enheter ser du till att inaktivera automatisk registrering. Den schemalagda aktiviteten registrerar inte enheten igen. Öppna sedan en kommando tolk som administratör och ange `dsregcmd.exe /debug /leave` . Eller kör det här kommandot som ett skript över flera enheter för att koppla från i bulk.
 
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>F: var kan jag hitta felsöknings information för att diagnostisera problem med att ansluta till hybrid Azure AD?
 
@@ -267,6 +269,8 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 **A:** För närvarande stöds inte UPN-ändringar fullt ut med hybrid Azure AD-anslutna enheter. Användare kan logga in på enheten och komma åt sina lokala program, men autentisering med Azure AD Miss lyckas efter en UPN-ändring. Det innebär att användare har SSO-och villkorliga åtkomst problem på sina enheter. För tillfället måste du koppla från enheten från Azure AD (kör "dsregcmd/Leave" med utökade privilegier) och återansluta (sker automatiskt) för att lösa problemet. Vi arbetar för närvarande med att lösa det här problemet. Användare som loggar in med Windows Hello för företag möter dock inte det här problemet. 
 
+UPN-ändringar stöds med Windows 10 2004 Update. Användare på enheter med den här uppdateringen får inga problem efter att ha ändrat sina UPN
+
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>F: gör Windows 10 hybrid Azure AD-anslutna enheter kräver detaljerad information till domänkontrollanten för att få åtkomst till moln resurser?
@@ -286,8 +290,8 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>F: Hur gör jag för att ta bort ett registrerat Azure AD-tillstånd för en enhet lokalt?
 
 **En** 
-- För registrerade enheter med Windows 10 Azure AD går du till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Enhets registrering är per användar profil i Windows 10.
-- För iOS och Android kan du använda Microsoft Authenticator program **Inställningar** > **enhets registrering** och välja **avregistrera enheten**.
+- För registrerade enheter med Windows 10 Azure AD går du till **Inställningar**  >  **konton**  >  **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Enhets registrering är per användar profil i Windows 10.
+- För iOS och Android kan du använda Microsoft Authenticator program **Inställningar**  >  **enhets registrering** och välja **avregistrera enheten**.
 - För macOS kan du använda Microsoft Intune Företagsportal programmet för att avregistrera enheten från hanteringen och ta bort eventuell registrering. 
 
 ---
@@ -307,7 +311,7 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 **A:** Utför följande steg:
 
-1.    [Skapa en efterlevnadsprincip](/intune/compliance-policy-create-mac-os)
+1.    [Skapa en policy för efterlevnad](/intune/compliance-policy-create-mac-os)
 1.    [Definiera en princip för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
 
 **!**

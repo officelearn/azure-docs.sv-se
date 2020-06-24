@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 26559adf183a5e008d77b87654a1bd4dabebbca0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253840"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888544"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Acceleration av dynamisk webbplats via Azure CDN
 
@@ -117,7 +117,7 @@ TCP *långsam start* är en algoritm för TCP-protokollet som förhindrar överb
 
 Med hjälp av en CDN ansluter färre unika datorer till din ursprungs Server direkt jämfört med användare som ansluter direkt till ditt ursprung. Azure CDN också pooler för användar förfrågningar för att upprätta färre anslutningar med ursprunget.
 
-Som tidigare nämnts krävs flera hand skaknings begär Anden för att upprätta en TCP-anslutning. Beständiga anslutningar, som implementeras av `Keep-Alive` HTTP-huvudet, återanvänd befintliga TCP-anslutningar för flera HTTP-förfrågningar för att spara svars tider och påskynda leveransen. 
+Som tidigare nämnts krävs flera hand skaknings begär Anden för att upprätta en TCP-anslutning. Beständiga anslutningar, som implementeras av `Keep-Alive` http-huvudet, återanvänd befintliga TCP-anslutningar för flera HTTP-förfrågningar för att spara svars tider och påskynda leveransen. 
 
 **Azure CDN från Verizon** skickar även regelbundet Keep-Alive-paket över TCP-anslutningen för att förhindra att en öppen anslutning stängs.
 
@@ -149,7 +149,7 @@ JPEG-komprimering | . jpg,. jpeg,. jpe,. jig,. jgig,. JGI
 
 ## <a name="caching"></a>Caching
 
-Med DSA är cachelagring inaktiverat som standard på CDN, även när ursprunget innehåller `Cache-Control` eller `Expires` innehåller rubriker i svaret. DSA används vanligt vis för dynamiska till gångar som inte ska cachelagras eftersom de är unika för varje klient. Cachelagring kan avbryta detta beteende.
+Med DSA är cachelagring inaktiverat som standard på CDN, även när ursprunget innehåller `Cache-Control` eller innehåller `Expires` rubriker i svaret. DSA används vanligt vis för dynamiska till gångar som inte ska cachelagras eftersom de är unika för varje klient. Cachelagring kan avbryta detta beteende.
 
 Om du har en webbplats med en blandning av statiska och dynamiska till gångar, är det bäst att ta en hybrid metod för att få bästa möjliga prestanda. 
 
@@ -183,7 +183,7 @@ För att komma åt regel motorn:
 
 Du kan också använda två CDN-slutpunkter: en slut punkt som är optimerad med DSA för att leverera dynamiska till gångar och en annan slut punkt som är optimerad med en statisk optimerings typ, t. ex. allmän webb leverans, för att leverera till gångar Ändra webb sidans webb adresser så att de länkar direkt till till gången på den CDN-slutpunkt som du planerar att använda. 
 
-Exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och läses in från DSA-slutpunkten.HTML-sidan hänvisar till flera statiska till gångar, till exempel JavaScript-bibliotek eller avbildningar som läses in från den statiska `mystatic.azureedge.net/banner.jpg` CDN `mystatic.azureedge.net/scripts.js`-slutpunkten, till exempel och. 
+Exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och läses in från DSA-slutpunkten.HTML-sidan hänvisar till flera statiska till gångar, till exempel JavaScript-bibliotek eller avbildningar som läses in från den statiska CDN-slutpunkten, till exempel `mystatic.azureedge.net/banner.jpg` och `mystatic.azureedge.net/scripts.js` . 
 
 
 

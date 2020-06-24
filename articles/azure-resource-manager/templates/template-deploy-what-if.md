@@ -3,14 +3,14 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: tomfitz
-ms.openlocfilehash: abe834670c5df461b523bd48717f20093bdef0a3
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457294"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888737"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
@@ -100,6 +100,9 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
 Resource changes: 1 to modify.
 ```
+
+> [!NOTE]
+> Konsekvens åtgärden kan inte lösa [referens funktionen](template-functions-resource.md#reference). Varje gång du ställer in en egenskap till ett mall-uttryck som innehåller referens funktionen, vad-om-rapporter som egenskapen kommer att ändras i. Detta beror på att konsekvensen jämför det aktuella värdet för egenskapen (till exempel `true` eller `false` ett booleskt värde) med det omatchade mallnamnet. Dessa värden stämmer inte överens. När du distribuerar mallen kommer egenskapen endast att ändras när frågeuttrycket matchar ett annat värde.
 
 ## <a name="what-if-commands"></a>Vad händer om-kommandon
 

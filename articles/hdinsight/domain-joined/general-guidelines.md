@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77463211"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887900"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Allmän information och rikt linjer för företags säkerhet i Azure HDInsight
 
@@ -43,9 +43,9 @@ När du distribuerar ett säkert HDInsight-kluster finns det några metod tips s
 
 * När data åtkomst görs via en tjänst där auktorisering har Aktiver ATS:
   * Plugin-programmet för Range-autentisering anropas och tilldelas kontexten för begäran.
-  * Ranger tillämpar de principer som kon figurer ATS för tjänsten. Om Ranger-principerna inte fungerar uppskjuts åtkomst kontrollen till fil systemet. Vissa tjänster som MapReduce kontrollerar bara om filen/mappen ägs av samma användare som skickar begäran. Tjänster som Hive, kontrol lera antingen ägarskaps matchning eller lämpliga fil Systems`rwx`behörigheter ().
+  * Ranger tillämpar de principer som kon figurer ATS för tjänsten. Om Ranger-principerna inte fungerar uppskjuts åtkomst kontrollen till fil systemet. Vissa tjänster som MapReduce kontrollerar bara om filen/mappen ägs av samma användare som skickar begäran. Tjänster som Hive, kontrol lera antingen ägarskaps matchning eller lämpliga fil Systems behörigheter ( `rwx` ).
 
-* För Hive, förutom att ha behörighet att skapa/uppdatera/ta bort, bör användaren ha `rwx`behörighet till katalogen på lagrings platsen och alla under kataloger.
+* För Hive, förutom att ha behörighet att skapa/uppdatera/ta bort, bör användaren ha `rwx` behörighet till katalogen på lagrings platsen och alla under kataloger.
 
 * Principer kan tillämpas på grupper (hellre) i stället för individer.
 
@@ -67,13 +67,13 @@ När hierarkiskt namn område inte är aktiverat:
 ### <a name="default-hdfs-permissions"></a>Standard HDFS-behörigheter
 
 * Som standard har användarna inte åtkomst till **/** mappen på HDFS (de måste finnas i rollen Storage BLOB-ägare för att åtkomsten ska lyckas).
-* För uppsamlings katalogen för MapReduce och andra skapas en användarspecifik katalog som `sticky _wx` har behörigheter. Användare kan skapa filer och mappar under, men kan inte titta på andra objekt.
+* För uppsamlings katalogen för MapReduce och andra skapas en användarspecifik katalog som har `sticky _wx` behörigheter. Användare kan skapa filer och mappar under, men kan inte titta på andra objekt.
 
 ### <a name="url-auth"></a>URL-autentisering
 
 Om URL-autentisering är aktiverat:
 
-* Config kommer att innehålla vilka prefix som beskrivs i URL-autentiseringen (t `adl://`. ex.).
+* Config kommer att innehålla vilka prefix som beskrivs i URL-autentiseringen (t `adl://` . ex.).
 * Om åtkomsten är för denna URL, kontrollerar Ranger om användaren finns i listan över tillåtna.
 * Ranger kontrollerar inte några detaljerade principer.
 
@@ -119,7 +119,7 @@ HDInsight kan inte vara beroende av lokala domänkontrollanter eller anpassade d
 
 ### <a name="azure-ad-ds-instance"></a>Azure AD DS-instans
 
-* Skapa instansen med `.onmicrosoft.com domain`. På så sätt kommer det inte att finnas flera DNS-servrar som betjänar domänen.
+* Skapa instansen med `.onmicrosoft.com domain` . På så sätt kommer det inte att finnas flera DNS-servrar som betjänar domänen.
 * Skapa ett självsignerat certifikat för LDAPs och överför det till Azure AD DS.
 * Använd ett peer-kopplat virtuellt nätverk för att distribuera kluster (om du har ett antal team som distribuerar HDInsight ESP-kluster, är detta användbart). Detta säkerställer att du inte behöver öppna portar (NSG: er) på det virtuella nätverket med domänkontrollanten.
 * Konfigurera DNS för det virtuella nätverket korrekt (namnet på Azure AD DS-domänen bör matcha utan några värd fil poster).
@@ -159,6 +159,17 @@ Vanligaste orsaker:
 * NSG: er är för begränsade och förhindrar domän anslutning.
 * Den hanterade identiteten har inte tillräcklig behörighet.
 * Kluster namnet är inte unikt på de första sex tecknen (antingen med ett annat Live-kluster eller med ett borttaget kluster).
+
+## <a name="authentication-setup-and-configuration"></a>Konfigurera autentisering och konfiguration
+
+### <a name="user-principal-name-upn"></a>Användarens huvud namn (UPN)
+
+* Använd gemener för alla tjänster – UPN är inte Skift läges känsliga i ESP-kluster, men
+* UPN-prefixet ska matcha både SAMAccountName i Azure AD-DS. Matchning med e-postfältet är inte obligatoriskt.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>LDAP-egenskaper i Ambari-konfiguration
+
+En fullständig lista över Ambari-egenskaper som påverkar konfigurationen av HDInsight-klustret finns i [installation av LDAP-autentisering i Ambari](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

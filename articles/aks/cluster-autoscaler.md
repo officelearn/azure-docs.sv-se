@@ -4,12 +4,12 @@ description: Lär dig hur du använder kluster autoskalning för att automatiskt
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683557"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730024"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 Exemplet ovan uppdaterar kluster autoskalning på den enskild Node-poolen i *myAKSCluster* till minst *1* och högst *5* noder.
 
 > [!NOTE]
-Den automatiska skalnings tjänsten för klustret kommer att fatta beslut baserat på de lägsta och högsta antal som angetts för varje nod, men den tillämpar inte dem. Om du till exempel anger ett minsta antal på 5 när det aktuella antalet noder är 3, skalar inte automatiskt poolen upp till 5. Om du ändrar det lägsta antalet i Node-poolen till ett värde som är högre än det aktuella antalet noder, kommer den här nya gränsen att respekteras när det finns tillräckligt många unschedulable-poddar som skulle kräva 2 nya ytterligare noder och utlösa en autoskalning-händelse. När detta inträffar kommer den nya minsta antalet att respekteras för klustrets autoskalning.
+> Med automatisk skalning i klustret kan du skala beslut baserat på de lägsta och högsta antal som angetts för varje nod, men det tvingar inte dem efter uppdatering av minsta eller högsta antal. Om du till exempel anger ett minsta antal på 5 när det aktuella antalet noder är 3, skalar inte den poolen direkt till upp till 5. Om det minsta antalet i Node-poolen har ett värde som är högre än det aktuella antalet noder, kommer de nya inställningarna för min eller Max att respekteras när det finns tillräckligt många unschedulable-poddar som skulle kräva 2 nya ytterligare noder och utlösa en autoskalning-händelse. Efter skalnings händelsen respekteras de nya antal gränserna.
 
 Övervaka prestanda för dina program och tjänster och justera antalet noder i den automatiska skalnings tjänsten för klustret så att de matchar de nödvändiga prestanda.
 
@@ -145,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Till exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Ett exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -162,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Till exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Ett exempel:
 
 ```azurecli-interactive
 az aks create \

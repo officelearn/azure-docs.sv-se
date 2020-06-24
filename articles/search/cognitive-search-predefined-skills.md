@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618020"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080040"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Inbyggda kognitiva färdigheter för text-och bild bearbetning under indexering (Azure Kognitiv sökning)
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig om kognitiva färdigheter som medföljer A
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://azure.microsoft.com/pricing/details/search/).
 >
 > Med funktionen för [förhands granskning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) kan du tillhandahålla ett cacheminne som gör det möjligt för indexeraren att vara mer effektivt när du bara kör de kognitiva färdigheter som behövs om du ändrar din färdigheter i framtiden, vilket sparar tid och pengar.
 
@@ -38,16 +38,17 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 | [Microsoft. färdigheter. text. LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Den här kunskapen använder en förtränad modell för att identifiera vilket språk som används (ett språk-ID per dokument). När flera språk används i samma text segment, är utdata LCID för det mest använda språket.|
 | [Microsoft. färdigheter. text. MergeSkill](cognitive-search-skill-textmerger.md) | Konsoliderar text från en samling fält till ett enda fält.  |
 | [Microsoft. färdigheter. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Den här kunskapen använder en förtränad modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation, e-post, URL: er, DateTime-fält. |
-| [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Den här kunskapen använder en förtränad modell för att extrahera personligt identifierbar information från en viss text. Kompetensen ger också olika alternativ för att maskera identifierade PII-enheter i texten.  |
+| [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Den här kunskapen använder en förtränad modell för att extrahera personligt identifierbar information från en viss text. Kompetensen ger också olika alternativ för att maskera identifierade personligt identifierbar information i texten.  |
 | [Microsoft. färdigheter. text. SentimentSkill](cognitive-search-skill-sentiment.md)  | Den här kunskapen använder en förtränad modell för att räkna upp positiva eller negativa sentiment på en post efter post. Poängen är mellan 0 och 1. Neutrala Poäng inträffar för både null-fall när sentiment inte kan identifieras och för text som betraktas som neutral.  |
 | [Microsoft. färdigheter. text. SplitSkill](cognitive-search-skill-textsplit.md) | Delar upp text i sidor så att du kan utöka eller utöka innehållet stegvis. |
 | [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md) | Den här kunskapen använder en förtränad modell för att översätta inmatad text till en rad olika språk för normalisering eller lokalisering av användnings fall. |
 | [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Den här kunskapen använder en algoritm för avbildnings avkänning för att identifiera innehållet i en bild och generera en text beskrivning. |
 | [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md) | Optisk typsnitts igenkänning. |
 | [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Tillåter filtrering, tilldelar ett standardvärde och sammanfogar data baserat på ett villkor.|
-| [Microsoft. färdigheter. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extraherar innehåll från en fil inom en pipeline för anrikning. |
+| [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extraherar innehåll från en fil inom en pipeline för anrikning. |
 | [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md) | Mappar utdata till en komplex typ (en data typ med flera delar, som kan användas för ett fullständigt namn, en rad med flera rader eller en kombination av efter namn och personligt ID.) |
 | [Microsoft. färdigheter. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md) | Tillåter utökning av en AI-rikare pipeline genom att göra ett HTTP-anrop till ett anpassat webb-API |
+| [Microsoft. färdigheter. Custom. AmlSkill](cognitive-search-aml-skill.md) | Tillåter utökning av en AI-rikare pipeline med en Azure Machine Learning modell |
 
 
 Information om hur du skapar en [anpassad färdighet](cognitive-search-custom-skill-web-api.md)finns i [så här definierar du ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md) och [exempel: skapa en anpassad färdighet för AI-berikning](cognitive-search-create-custom-skill-example.md).

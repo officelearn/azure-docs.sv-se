@@ -4,16 +4,16 @@ description: Så här konfigurerar du belastnings Utjämnings metoden för en Wi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612443"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204361"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
@@ -33,15 +33,15 @@ Bredd – första belastnings utjämning är standard konfigurationen för nya i
 Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra bredd-första belastnings utjämning utan att justera den högsta tillåtna sessionsgränsen:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-För att se till att du har ställt in den bredd-första belastnings Utjämnings metoden kör du följande cmdlet: 
+För att se till att du har ställt in den bredd-första belastnings Utjämnings metoden kör du följande cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ Djup – den första belastnings utjämningen distribuerar nya användarsessione
 Kör följande PowerShell-cmdlet för att konfigurera en adresspool för att utföra djup-första belastnings utjämning:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 Kör denna cmdlet för att se till att inställningen har uppdaterats:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,8 +77,8 @@ Du kan också konfigurera belastnings utjämning med Azure Portal.
 
 Konfigurera belastnings utjämning:
 
-1. Logga in på Azure Portal på https://portal.azure.com. 
-2. Sök efter och välj **Windows Virtual Desktop** under tjänster. 
+1. Logga in på Azure Portal på https://portal.azure.com .
+2. Sök efter och välj **Windows Virtual Desktop** under tjänster.
 3. På sidan Windows Virtual Desktop väljer du **värdar för pooler**.
 4. Välj namnet på den värddator som du vill redigera.
 5. Välj **Egenskaper**.

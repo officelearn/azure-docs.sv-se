@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 62bdb08d3627959b8985481c848db064149cf844
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382972"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100787"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar i Azure Portal
 
@@ -27,6 +27,9 @@ För att gå igenom den här instruktions guiden behöver du:
 - [Azure Database for MariaDB Server](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
+
+>[!NOTE]
+> Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
 
 Aktivera och konfigurera gransknings loggning.
 
@@ -53,7 +56,7 @@ Aktivera och konfigurera gransknings loggning.
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
 
-1. Klicka på "+ Lägg till diagnostisk inställning ![" Lägg till diagnostikinställningar](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Klicka på "+ Lägg till diagnostisk inställning" ![ Lägg till diagnostikinställningar](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Ange ett namn på en diagnostisk inställning.
 

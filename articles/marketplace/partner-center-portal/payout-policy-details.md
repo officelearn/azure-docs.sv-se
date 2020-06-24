@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6aa40d0914237a28c7bbd32b15bf0d8d02140192
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783557"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887931"
 ---
 # <a name="payout-policy-details"></a>Information om utbetalningsprincip
 
@@ -25,7 +25,7 @@ I Partner Center väljer du **utbetalning** längst upp till höger i portalen:
 ![Visar utbetalnings ikonen längst upp till höger i Partner Center-portalen.](./media/payout-overview.png)
 
 > [!TIP]
-> Alla konto roller har inte åtkomst till utbetalnings information. Mer information finns i [roller och behörigheter för att få åtkomst till utbetalnings rapporten](./payout-summary.md).
+> Alla konto roller har inte åtkomst till utbetalnings information. Mer information finns i [roller och behörigheter för att få åtkomst till utbetalnings rapporten](./payout-summary-overview.md#roles-and-permissions).
 
 ## <a name="payment-schedules"></a>Betalnings scheman
 
@@ -42,9 +42,9 @@ Från och med den 1 maj 2020 uppdaterar vi vår utlösare som är relaterad till
 
 | Händelse  | Date  | Partner synlighet: rapporten utbetalning för partner Center  |  Partner synlighet: Partner Center Analytics\* |
 | --- | --- | --- | --- |
-| Transaktion eller månad för användning | 8/1/2020 – 8/31/2020 | E.t. | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
-| Slut period (månad) | 8/31/2020 | E.t. | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
-| Order genererad | 9/3/2020 – 9/7/2020 | E.t. | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
+| Transaktion eller månad för användning | 8/1/2020 – 8/31/2020 | Ej tillämpligt | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
+| Slut period (månad) | 8/31/2020 | Ej tillämpligt | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
+| Order genererad | 9/3/2020 – 9/7/2020 | Ej tillämpligt | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Beräkna utbetalning | 9/4/2020 – 9/10/2020 | Markerat som **obearbetat** i transaktions historik på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Månatlig utbetalning | 10/5/2020 | Markerat som **kommande** i transaktions historik på instrument panelen för utbetalningar | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Utbetalnings datum | 10/15/2020 | Markerat som **skickat** i transaktions historik och i avsnittet betalningar på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
@@ -59,10 +59,10 @@ Alla inköp med ett kredit kort eller en månads faktura har en 30-dagars period
 
 | Händelse  | Date  | Partner synlighet: rapporten utbetalning för partner Center  |  Partner synlighet: Partner Center Analytics\*  |
 | --- | --- | --- | --- |
-| Transaktion eller månad för användning | 8/1/2019 - 8/31/2019 | E.t. | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
-| Slut period (månad) | 8/31/2019 | E.t. | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
-| Order genererad | 9/3/2019 – 9/7/2019 | E.t. | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
-| Kund faktura insamlad | 9/7/2019 – 9/10/2019 | E.t. | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
+| Transaktion eller månad för användning | 8/1/2019 - 8/31/2019 | Ej tillämpligt | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
+| Slut period (månad) | 8/31/2019 | Ej tillämpligt | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
+| Order genererad | 9/3/2019 – 9/7/2019 | Ej tillämpligt | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
+| Kund faktura insamlad | 9/7/2019 – 9/10/2019 | Ej tillämpligt | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Beräkna utbetalning | 9/8/2019 -9/12/2019 | Markerat som **obearbetat** i transaktions historiken på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Månatlig utbetalning | 11/5/2019\* | Markerat som **kommande** i transaktions historiken för utbetalnings instrument panelen | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Utbetalnings datum | 11/15/2019 | Markerat som **skickat** i transaktions historiken och i avsnittet betalningar på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
@@ -76,10 +76,10 @@ Alla köp som inträffar före detta datum bearbetas och betalas enligt schemat 
 
 | Händelse  | Date  | Partner synlighet: rapporten utbetalning för partner Center  |  Partner synlighet: Partner Center Analytics\*  |
 | --- | --- | --- | --- |
-| Transaktion eller månad för användning | 8/1/2019 – 8/31/2019 | E.t. | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
-| Slut period (månad) | 8/31/2019 | E.t. | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
-| Order genererad | 9/3/2019 – 9/7/2019 | E.t. | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
-| Kund faktura insamlad | 12/1/2019 | E.t. | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
+| Transaktion eller månad för användning | 8/1/2019 – 8/31/2019 | Ej tillämpligt | **Användnings rapport**: ny förbrukning som visas (uppdateras var fjärde timme)<br>**Order rapport**: ej tillämpligt |
+| Slut period (månad) | 8/31/2019 | Ej tillämpligt | **Användnings rapport**: slut på månads förbrukning som visas<br>**Order rapport**: ej tillämpligt |
+| Order genererad | 9/3/2019 – 9/7/2019 | Ej tillämpligt | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
+| Kund faktura insamlad | 12/1/2019 | Ej tillämpligt | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Beräkna utbetalning | 12/5/2019 – 12/7/2019 | Markerat som **obearbetat** i transaktions historiken på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Månatlig utbetalning | 1/5/2019 | Markerat som **kommande** i transaktions historiken för utbetalnings instrument panelen | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
 | Utbetalnings datum | 1/15/2019 | Markerat som **skickat** i transaktions historik och i avsnittet betalningar på instrument panelen för utbetalning | **Användnings rapport**: förbrukning som visas med Ordernr/OrderLineItemID<br>**Order rapport**: kund order visas som aktiva |
@@ -102,12 +102,12 @@ Följande är ett exempel schema:
 | Exempel på utbetalnings datum | 10/15/2020 | Markerat som **skickat** i transaktions historik och i avsnittet betalningar i instrument panelen för utbetalning |
 | <font color="red">Om kunden inte betalar Microsoft</font> | 12/2/2020 – 12/5/2020 | Ingen ändring, samma som ovan |
 | Kunden får ett e-postmeddelande om betalning för första sent | 12/6/2020 | Inga |
-| Kunden får regelbundna e-postmeddelanden med ökande angelägenhets grad | 12/7/2020 – 1/31/2020 | Inga |
-| Utgivaren har meddelats att skriva av är troligt vis | 1/7/2020 | E-postmeddelande som skickas till utgivaren om att deras kunder ännu inte har skickat någon betalning. Transaktions-ID och dollar belopp ingår. |
-| Kund mottar uppsägnings meddelande | 2/1/2020 | Inga |
-| Samlings processens slut/medel skrivs av | 2/15/2020 | E-postmeddelande som skickas till utgivare som fonder har skrivits av. Transaktions-ID och dollar belopp ingår. |
-| Utbetalningen dras av | 3/1/2020 | I Publisher visas en negativ transaktion i Partner Center utbetalnings instruktion |
-| Utbetalningen nekas | 3/15/2020 | Framtida utbetalningar visas i utbetalnings instruktionen för partner Center. Utgivare får ingen betalning förrän saldot inte längre är negativt.  |
+| Kunden får regelbundna e-postmeddelanden med ökande angelägenhets grad | 12/7/2020 – 1/31/2021 | Inga |
+| Utgivaren har meddelats att skriva av är troligt vis | 1/7/2021 | E-postmeddelande som skickas till utgivaren om att deras kunder ännu inte har skickat någon betalning. Transaktions-ID och dollar belopp ingår. |
+| Kund mottar uppsägnings meddelande | 2/1/2021 | Inga |
+| Samlings processens slut/medel skrivs av | 2/15/2021 | E-postmeddelande som skickas till utgivare som fonder har skrivits av. Transaktions-ID och dollar belopp ingår. |
+| Utbetalningen dras av | 3/1/2021 | I Publisher visas en negativ transaktion i Partner Center utbetalnings instruktion |
+| Utbetalningen nekas | 3/15/2021 | Framtida utbetalningar visas i utbetalnings instruktionen för partner Center. Utgivare får ingen betalning förrän saldot inte längre är negativt.  |
 |||
 
 ## <a name="next-step"></a>Nästa steg

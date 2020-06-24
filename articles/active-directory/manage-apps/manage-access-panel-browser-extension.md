@@ -3,25 +3,24 @@ title: Felsöka Azure Access panel-tillägget för IE | Microsoft Docs
 description: Så här använder du grup princip för att distribuera Internet Explorer-tillägget för My Apps-portalen.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67723918"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763269"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Felsöka åtkomst panel tillägget för Internet Explorer
 
@@ -40,7 +39,7 @@ Så här hämtar och installerar du diagnostikverktyget:
 
 1. [Välj den här länken för att ladda ned diagnostikverktyget.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 1. Öppna filen och extrahera innehållet till datorn.
-1. Om du vill köra verktyget högerklickar du på filen med namnet *AccessPanelExtensionDiagnosticTool. js* och väljer **Öppna med** > **Microsoft Windows-baserad skript värd**.
+1. Om du vill köra verktyget högerklickar du på filen med namnet *AccessPanelExtensionDiagnosticTool.js* och väljer **Öppna med**  >  **Microsoft Windows-baserad skript värd**.
 
     ![Öppna med > Microsoft Windows-baserad skript värd](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 

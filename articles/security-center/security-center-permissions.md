@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/12/2020
 ms.author: memildin
-ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: e0988c60629cab2c6d7312e5067c31153b24e2dc
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669791"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688729"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -44,7 +44,7 @@ I följande tabell visas roller och tillåtna åtgärder i Security Center.
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Redigera säkerhets princip|-|✔|-|-|✔|
 |Ändra pris nivå för prenumeration|-|✔|-|-|✔|
-|Aktivera/inaktivera automatisk etablering|-|✔|-|-|✔|
+|Aktivera/inaktivera automatisk etablering|-|✔|✔|-|✔|
 |Tillämpa säkerhets rekommendationer för en resurs</br> (och Använd [snabb korrigering!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Ignorera aviseringar|-|✔|-|✔|✔|
 |Visa aviseringar och rekommendationer|✔|✔|✔|✔|✔|

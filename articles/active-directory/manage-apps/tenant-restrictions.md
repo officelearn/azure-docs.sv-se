@@ -3,8 +3,8 @@ title: Använd klient begränsningar för att hantera åtkomst till SaaS-appar �
 description: Så här använder du klient begränsningar för att hantera vilka användare som kan komma åt appar baserade på deras Azure AD-klient.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680132"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763031"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -74,7 +74,7 @@ Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonli
 
 Rubrikerna måste innehålla följande element:
 
-- För att *begränsa åtkomst till klienter använder du*ett värde av \< listan över tillåtna klient organisationer \> , som är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som är registrerade med en klient kan användas för att identifiera klient organisationen i den här listan. Om du till exempel vill tillåta åtkomst till både Contoso-och Fabrikam-klienter ser namnet/värde-paret ut så här: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- För att *begränsa åtkomst till klienter*använder du ett värde av \<permitted tenant list\> , som är en kommaavgränsad lista över klienter som du vill att användarna ska kunna komma åt. Alla domäner som är registrerade med en klient kan användas för att identifiera klient organisationen i den här listan. Om du till exempel vill tillåta åtkomst till både Contoso-och Fabrikam-klienter ser namnet/värde-paret ut så här: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - För *begränsning av åtkomst kontexten*använder du ett värde för ett enda katalog-ID och anger vilken klient som ska ange innehavarens begränsningar. Om du till exempel vill deklarera contoso som den klient som anger principen för klient begränsningar, ser namn/värde-paret ut så här: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -113,13 +113,13 @@ Precis som med andra rapporter i Azure Portal kan du använda filter för att an
 - **Användare**
 - **Program**
 - **Status**
-- **Ikraftträdande**
+- **Datum**
 - **Datum (UTC)** (där UTC är UTC Universal Time)
 - **MFA auth-metod** (multifaktorautentisering)
 - **MFA auth-information** (information om multifaktorautentisering)
 - **MFA-resultat**
 - **IP-adress**
-- **Client**
+- **Klient**
 - **Användar**
 - **Position**
 - **Mål klient-ID**
@@ -155,7 +155,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
 
    1. I verktyget Fiddler Web-Felsökning väljer du menyn **regler** och väljer **Anpassa regler...** för att öppna CustomRules-filen.
 
-   2. Lägg till följande rader i början av `OnBeforeRequest` funktionen. Ersätt \< klient organisations domänen \> med en domän som är registrerad hos din klient organisation (till exempel `contoso.onmicrosoft.com` ). Ersätt \< katalog-ID \> med klient organisationens GUID-identifierare för Azure AD.
+   2. Lägg till följande rader i början av `OnBeforeRequest` funktionen. Ersätt \<tenant domain\> med en domän som är registrerad hos din klient (till exempel `contoso.onmicrosoft.com` ). Ersätt \<directory ID\> med klient organisationens GUID-identifierare för Azure AD.
 
       ```JScript.NET
       if (
@@ -169,7 +169,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
       }
       ```
 
-      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Till exempel:
+      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Ett exempel:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

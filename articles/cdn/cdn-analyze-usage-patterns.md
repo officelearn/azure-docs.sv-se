@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594164"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888442"
 ---
 # <a name="core-reports-from-verizon"></a>Kärn rapporter från Verizon
 
@@ -31,7 +31,7 @@ Med hjälp av Verizon Core-rapporter via hanterings portalen för Verizon-profil
 * Överförda data
 * Träffar
 * Cache status
-* Träff grad för cache
+* Cacheträffsförhållande
 * Överförda IPV4/IPV6-data
 
 ## <a name="accessing-verizon-core-reports"></a>Åtkomst till Verizon Core-rapporter
@@ -81,7 +81,7 @@ Om du vill minska cache-missar konfigurerar du din ursprungs server så att du k
  * Cachelagring av frågesträngar, såvida det inte är absolut nödvändigt  
  * Svars koder som inte är cache-cache
 
-Om du vill minska antalet utgångna cacheträffar ställer `max-age` du in en till gång till en lång period för att minimera antalet begär anden till ursprungs servern.
+Om du vill minska antalet utgångna cacheträffar ställer du in en till gång till `max-age` en lång period för att minimera antalet begär anden till ursprungs servern.
 
 ![Status rapport för cache](./media/cdn-reports/cdn-cache-statuses.png)
 
@@ -106,9 +106,9 @@ Om du vill minska antalet utgångna cacheträffar ställer `max-age` du in en ti
 * INGEN – denna status anger att det inte utfördes någon uppdaterings kontroll för cache-innehåll.
 * TCP_CLIENT_REFRESH_MISS: den här statusen rapporteras när en HTTP-klient, till exempel en webbläsare, tvingar fram en Edge-POP för att hämta en ny version av en inaktuell till gång från ursprungs servern. Som standard hindrar servrarna en HTTP-klient från att tvinga gräns servrarna att hämta en ny version av till gången från ursprungs servern.
 * TCP_PARTIAL_HIT: den här statusen rapporteras när ett byte Range-begäran resulterar i en träff för en delvis cachelagrad till gång. Det begärda byte-intervallet betjänas direkt från POP till klienten.
-* Det går inte att CACHELAGRA: den här statusen rapporteras när `Cache-Control` en `Expires` till gångs-och-rubriker anger att den inte ska CACHELAGRAS på en pop-eller http-klient. Dessa typer av begär Anden hanteras från ursprungs servern.
+* Det går inte att CACHELAGRA: den här statusen rapporteras när en till gångs- `Cache-Control` och `Expires` -rubriker anger att den inte ska cachelagras på en pop-eller http-klient. Dessa typer av begär Anden hanteras från ursprungs servern.
 
-## <a name="cache-hit-ratio"></a>Träff grad för cache
+## <a name="cache-hit-ratio"></a>Cacheträffsförhållande
 Den här rapporten anger procent andelen cachelagrade begär Anden som hanterades direkt från cachen.
 
 Rapporten innehåller följande information:
@@ -120,7 +120,7 @@ Rapporten innehåller följande information:
 Rapporten innehåller inte:
 
 * Begär Anden som nekas på grund av filtrerings alternativ för land/region.
-* Begär Anden för till gångar vars huvuden visar att de inte ska cachelagras. Till exempel `Cache-Control: private` `Cache-Control: no-cache`,, eller `Pragma: no-cache` -rubriker förhindrar att en till gång cachelagras.
+* Begär Anden för till gångar vars huvuden visar att de inte ska cachelagras. Till exempel, `Cache-Control: private` , `Cache-Control: no-cache` eller- `Pragma: no-cache` rubriker förhindrar att en till gång cachelagras.
 * Byte intervall begär Anden om delvis cachelagrat innehåll.
 
 Formeln är: (TCP_ träff/(TCP_ träff + TCP_MISS)) * 100

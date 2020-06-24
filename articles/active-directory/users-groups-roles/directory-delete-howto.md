@@ -8,18 +8,18 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5ea42f5196b2c4ffe06c139e595dd4641752d35
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816207"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729038"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
@@ -143,4 +143,4 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Active Directory-dokumentation](https://docs.microsoft.com/azure/active-directory/)
+[Dokumentation om Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38ac6400a882d98c68ea39ae359e20ed237cd5f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25c477d0d293e896bc92cd3bd6047135a56cb4ad
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340274"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105982"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -114,7 +114,7 @@ Användare med den här rollen kan skapa, läsa, uppdatera och ta bort alla anpa
 > [!IMPORTANT]
 > IEF princip administratör för B2 är en mycket känslig roll som bör tilldelas mycket begränsad till organisationer i produktion.Aktiviteter av dessa användare bör granskas noga, särskilt för organisationer i produktion.
 
-### <a name="billing-administrator"></a>[Faktureringsadministratör](#billing-administrator-permissions)
+### <a name="billing-administrator"></a>[Fakturerings administratör](#billing-administrator-permissions)
 
 Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
@@ -173,7 +173,7 @@ Hanterar [Customer lockbox begär Anden](https://docs.microsoft.com/office365/ad
 
 Användare med den här rollen kan hantera Desktop Analytics-och Office-anpassning & princip tjänster. För Skriv bords analys omfattar detta möjlighet att visa till gångs lager, skapa distributions planer, Visa distribution och hälso status. Den här rollen ger användare möjlighet att hantera Office-principer för tjänsten för anpassning av Office-&.
 
-### <a name="device-administrator"></a>[Enhets administratör](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Enhetsadministratörer](#device-administrators-permissions)
 
 Den här rollen är endast tillgänglig för tilldelning som en ytterligare lokal administratör i [enhets inställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala dator administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte möjlighet att hantera enheters objekt i Azure Active Directory.
 
@@ -209,7 +209,7 @@ Användare med den här rollen har globala behörigheter inom Microsoft Exchange
 
 ### <a name="external-id-user-flow-administrator"></a>[Användar flödes administratör för externt ID](#external-id-user-flow-administrator-permissions)
 
-Användare med den här rollen kan skapa och hantera B2C-Användarflöden (kallas även "inbyggda" principer) i Azure Portal.Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i Azure AD-organisationen. Å andra sidan omfattar den här rollen inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i organisationens schema.Ändringar av identitets miljö ramverk (även kallade anpassade) är också utanför den här rollens omfång.
+Användare med den här rollen kan skapa och hantera användar flöden (kallas även "inbyggda" principer) i Azure Portal. Dessa användare kan anpassa HTML/CSS/JavaScript-innehåll, ändra MFA-krav, välja anspråk i token, hantera API-kopplingar och konfigurera sessionsinställningar för alla användar flöden i Azure AD-organisationen. Den här rollen omfattar å andra sidan inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i organisationens schema. Ändringar av Identity Experience Framework-principer (även kallade anpassade principer) är också utanför den här rollens omfång.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[Administratör för externt ID-attribut för användar flöde](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -309,14 +309,14 @@ Användare med den här rollen kan övervaka alla meddelanden i meddelande centr
 Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
 ### <a name="modern-commerce-administrator"></a>[Modern Commerce-administratör](#modern-commerce-administrator-permissions)
-Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se information nedan.
+Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se informationen nedan.
 
 Rollen som modern Commerce-administratör ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering**och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
 
 Användare med rollen som modern Commerce-administratör har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
 
 **När tilldelas rollen modern Commerce-administratör?**
-* **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i Commerce-systemet och rollen som modern Commerce-administratör så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [vanliga frågor och svar om att köpa självbetjäning](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i Commerce-systemet och rollen som modern Commerce-administratör så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [Vanliga frågor och svar om självbetjäningsköp](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
 * **Köp från Microsofts kommersiella marknads platser** – som liknar självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas rollen som modern Commerce-administratör om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
 * **Förslag från Microsoft** – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och rollen som modern Commerce-administratör för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll. 
 * **Handelsrelaterade roller** – vissa användare har tilldelats handelsrelaterade roller. Om en användare inte är en global administratör eller fakturerings administratör får han eller hon rollen som modern Commerce-administratör så att de kan komma åt administrations centret.  
@@ -1922,7 +1922,7 @@ Följande roller ska inte användas. De är inaktuella och kommer att tas bort f
 
 Alla roller som returneras av PowerShell eller MS Graph API visas i Azure Portal. I följande tabell ordnas skillnaderna.
 
-API-namn | Azure Portal namn | Anteckningar
+API-namn | Azure Portal namn | Kommentarer
 -------- | ------------------- | -------------
 Företagsadministratör | Global administratör | [Namnet ändrades för bättre klarhet](directory-assign-admin-roles.md#role-template-ids)
 Administratör för CRM-tjänsten | Dynamics 365-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)

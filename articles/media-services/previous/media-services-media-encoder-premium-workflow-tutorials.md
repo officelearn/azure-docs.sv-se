@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251016"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712436"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Självstudier för avancerat Media Encoder Premium Workflow
 ## <a name="overview"></a>Översikt
@@ -601,7 +601,7 @@ Kör nu en lokal test körning. Efter den här körningen kontrollerar du (via f
 
 Node-objektet som vi kallar logg metoden på, refererar till vår aktuella "nod" eller komponenten som vi använder för att köra skript i. Varje komponent som sådan har möjlighet att skriva ut loggnings data, tillgängliga via fliken system. I det här fallet skriver vi strängen "Hello World". Viktigt att förstå här är att detta kan bevisa att det är ett användbart fel söknings verktyg, vilket ger dig information om vad skriptet faktiskt gör.
 
-I vår skript miljö har vi också till gång till egenskaper för andra komponenter. Testa det här:
+I vår skript miljö har vi också till gång till egenskaper för andra komponenter. Försök med följande:
 
 ```java
     //inspect current node:
@@ -761,7 +761,7 @@ Detta skedde genom vanliga sträng Manipulerings åtgärder. Den resulterande ä
 
 *Logga den resulterande klipp listan*
 
-Gör en test körning för att se hur video-och ljud strömmar har klippts av. Eftersom du ska göra mer än en test körning med olika värden för trimnings punkterna ser du till att de inte tas med i beräkningen. Orsaken till detta är att designern, till skillnad från Azure-körningsmiljön, inte åsidosätter XML-cliplist varje körning. Det innebär att endast första gången du har angett-och utgångs punkterna, gör att XML-transformeringen omvandlas, alla andra tidpunkter, vår Guard-`clipListXML.indexOf("<trim>") == -1`sats (IF ()) förhindrar att arbets flödet lägger till ett annat trimnings element när det redan finns ett.
+Gör en test körning för att se hur video-och ljud strömmar har klippts av. Eftersom du ska göra mer än en test körning med olika värden för trimnings punkterna ser du till att de inte tas med i beräkningen. Orsaken till detta är att designern, till skillnad från Azure-körningsmiljön, inte åsidosätter XML-cliplist varje körning. Det innebär att endast första gången du har angett-och utgångs punkterna, gör att XML-transformeringen omvandlas, alla andra tidpunkter, vår Guard-sats (IF ( `clipListXML.indexOf("<trim>") == -1` )) förhindrar att arbets flödet lägger till ett annat trimnings element när det redan finns ett.
 
 För att det ska vara enkelt att testa arbets flödet lokalt lägger vi till lite kod som kontrollerar om ett trimnings element redan finns. I så fall kan vi ta bort den innan du fortsätter genom att ändra XML med de nya värdena. I stället för att använda enkla sträng manipulationer är det förmodligen säkrare att göra detta genom parsning av faktiska XML-objektmodellen.
 

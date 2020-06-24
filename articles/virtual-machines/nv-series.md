@@ -1,18 +1,18 @@
 ---
 title: NV-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer med NV-serien.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: d6fef5726630ed04c0d0f4bec1189069b0ceb993
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: e7fdc232d698e3eb2038bb6ec7a4c47a9c49944a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674711"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726607"
 ---
 # <a name="nv-series"></a>NV-serien
 

@@ -3,14 +3,14 @@ title: Konfigurera en Windows-utvecklings miljö
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e51b224bdb91d8bce0f83088791cba8cd3b2d45
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449421"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888091"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 
@@ -69,7 +69,7 @@ Om du bara behöver SDK kan du installera det här paketet:
 De aktuella versionerna är:
 
 * Service Fabric SDK och verktyg 4.1.416
-* Service Fabric runtime-7.1.416
+* Service Fabric runtime-7.1.417
 
 En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 

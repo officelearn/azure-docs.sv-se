@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbadfb63b9f575053feca87bda2c3ad2e64e91eb
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926042"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204209"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en JWT-token-utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -26,11 +26,11 @@ Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstok
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `None`. Ange **OutputTokenFormat** -elementet till `JWT`.
+Namnattributet **för** **protokoll** elementet måste anges till `None` . Ange **OutputTokenFormat** -elementet till `JWT` .
 
-I följande exempel visas en teknisk profil för `JwtIssuer`:
+I följande exempel visas en teknisk profil för `JwtIssuer` :
 
-```XML
+```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="OpenIdConnect" />
@@ -56,16 +56,16 @@ I följande exempel visas en teknisk profil för `JwtIssuer`:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| issuer_refresh_token_user_identity_claim_type | Ja | Det anspråk som ska användas som användar identitets anspråk i OAuth2-auktoriseringskod och uppdateringstoken. Som standard bör du ställa in det på `objectId`, om du inte anger en annan SubjectNamingInfo-anspråks typ. |
-| SendTokenResponseBodyWithJsonNumbers | Inga | Ställ alltid in `true`på. För äldre format där numeriska värden anges som strängar i stället för JSON-tal, anges `false`till. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade sådana egenskaper som strängar. |
-| token_lifetime_secs | Inga | Livstid för åtkomsttoken. Livs längden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Det största (inklusive) är 86 400 sekunder (24 timmar). |
-| id_token_lifetime_secs | Inga | Livstid för ID-token. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Max (inklusive) är sekunder 86 400 (24 timmar). |
-| refresh_token_lifetime_secs | Inga | Livstid för token för uppdatering. Den längsta tids period innan en uppdateringstoken kan användas för att hämta en ny åtkomsttoken, om ditt program har beviljats offline_access omfattning. Standardvärdet är 120, 9600 sekunder (14 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 7 776 000 sekunder (90 dagar). |
-| rolling_refresh_token_lifetime_secs | Inga | Uppdatera token glidande fönster livs längd. När den här tids perioden har förflutit måste användaren autentiseras på nytt, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Om du inte vill framtvinga en glidande fönster livs längd ställer du in värdet för allow_infinite_rolling_refresh_token `true`. Standardvärdet är 7 776 000 sekunder (90 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 31 536 000 sekunder (365 dagar). |
-| allow_infinite_rolling_refresh_token | Inga | Om det är `true`inställt på, förfaller den glidande tidsintervallen för uppdateringstoken aldrig. |
-| IssuanceClaimPattern | Inga | Styr utfärdaren (ISS)-anspråket. Ett av värdena:<ul><li>AuthorityAndTenantGuid – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, och din klient-\/ID https:/login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, ditt klient-ID och namnet på den förlitande partens princip. https:\//login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-Sign-in/v2.0/</li></ul> Standardvärde: AuthorityAndTenantGuid |
-| AuthenticationContextReferenceClaimPattern | Inga | Kontrollerar `acr` anspråk svärdet.<ul><li>Ingen-Azure AD B2C utfärdar inte ACR-anspråket</li><li>PolicyId- `acr` anspråket innehåller princip namnet</li></ul>Alternativen för att ange det här värdet är TFP (Trust Framework policy) och ACR (Authentication context Reference). Vi rekommenderar att du ställer in värdet på TFP, för att ange värdet, se `<Item>` till att `Key="AuthenticationContextReferenceClaimPattern"` det finns och att värdet `None`är. Lägg till `<OutputClaims>` objekt i principen för den förlitande parten, Lägg `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`till det här elementet. Kontrol lera också att principen innehåller anspråks typen`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
-|RefreshTokenUserJourneyId| Inga | Identifieraren för en användar resa som ska utföras under [uppdateringen av en åtkomstbegäran](authorization-code-flow.md#4-refresh-the-token) post till `/token` slut punkten. |
+| issuer_refresh_token_user_identity_claim_type | Yes | Det anspråk som ska användas som användar identitets anspråk i OAuth2-auktoriseringskod och uppdateringstoken. Som standard bör du ställa in det på `objectId` , om du inte anger en annan SubjectNamingInfo-anspråks typ. |
+| SendTokenResponseBodyWithJsonNumbers | No | Ställ alltid in på `true` . För äldre format där numeriska värden anges som strängar i stället för JSON-tal, anges till `false` . Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade sådana egenskaper som strängar. |
+| token_lifetime_secs | No | Livstid för åtkomsttoken. Livs längden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Det största (inklusive) är 86 400 sekunder (24 timmar). |
+| id_token_lifetime_secs | No | Livstid för ID-token. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Max (inklusive) är sekunder 86 400 (24 timmar). |
+| refresh_token_lifetime_secs | No | Livstid för token för uppdatering. Den längsta tids period innan en uppdateringstoken kan användas för att hämta en ny åtkomsttoken, om ditt program har beviljats offline_access omfattning. Standardvärdet är 120, 9600 sekunder (14 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 7 776 000 sekunder (90 dagar). |
+| rolling_refresh_token_lifetime_secs | No | Uppdatera token glidande fönster livs längd. När den här tids perioden har förflutit måste användaren autentiseras på nytt, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Om du inte vill framtvinga en glidande fönster livs längd ställer du in värdet för allow_infinite_rolling_refresh_token `true` . Standardvärdet är 7 776 000 sekunder (90 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 31 536 000 sekunder (365 dagar). |
+| allow_infinite_rolling_refresh_token | No | Om det är inställt på `true` , förfaller den glidande tidsintervallen för uppdateringstoken aldrig. |
+| IssuanceClaimPattern | No | Styr utfärdaren (ISS)-anspråket. Ett av värdena:<ul><li>AuthorityAndTenantGuid – IIS-anspråket inkluderar ditt domän namn, till exempel `login.microsoftonline` eller `tenant-name.b2clogin.com` , och din klient-ID https: \/ /login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – IIS-anspråket inkluderar ditt domän namn, till exempel `login.microsoftonline` eller `tenant-name.b2clogin.com` , ditt klient-ID och namnet på den förlitande partens princip. https: \/ /login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-Sign-in/v2.0/</li></ul> Standardvärde: AuthorityAndTenantGuid |
+| AuthenticationContextReferenceClaimPattern | No | Kontrollerar `acr` anspråk svärdet.<ul><li>Ingen-Azure AD B2C utfärdar inte ACR-anspråket</li><li>PolicyId- `acr` anspråket innehåller princip namnet</li></ul>Alternativen för att ange det här värdet är TFP (Trust Framework policy) och ACR (Authentication context Reference). Vi rekommenderar att du ställer in värdet på TFP, för att ange värdet, se till att det `<Item>` `Key="AuthenticationContextReferenceClaimPattern"` finns och att värdet är `None` . Lägg till objekt i principen för den förlitande parten, `<OutputClaims>` Lägg till det här elementet `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />` . Kontrol lera också att principen innehåller anspråks typen`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| No | Identifieraren för en användar resa som ska utföras under [uppdateringen av en åtkomstbegäran](authorization-code-flow.md#4-refresh-the-token) post till `/token` slut punkten. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -73,8 +73,8 @@ CryptographicKeys-elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| issuer_secret | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera JWT-token. Detta är den `B2C_1A_TokenSigningKeyContainer` nyckel som du konfigurerar i [komma igång med anpassade principer](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att kryptera uppdateringstoken. Du konfigurerade `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](custom-policy-get-started.md) |
+| issuer_secret | Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera JWT-token. Detta är den `B2C_1A_TokenSigningKeyContainer` nyckel som du konfigurerar i [komma igång med anpassade principer](custom-policy-get-started.md). |
+| issuer_refresh_token_key | Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att kryptera uppdateringstoken. Du konfigurerade `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](custom-policy-get-started.md) |
 
 ## <a name="session-management"></a>Sessionshantering
 

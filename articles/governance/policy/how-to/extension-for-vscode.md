@@ -1,14 +1,14 @@
 ---
 title: Azure Policy tillägg för Visual Studio Code
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Resource Manager-alias.
-ms.date: 03/07/2020
+ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94d865e4a810fbebd8495153f97f9d1e3227e8af
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182573"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888511"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -25,7 +25,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
@@ -34,7 +34,7 @@ När du uppfyller kraven kan du installera Azure Policy tillägget för Visual S
 
 1. Öppna Visual Studio Code.
 
-1. Gå till **Visa** > **tillägg**i meny raden.
+1. Gå till **Visa**  >  **tillägg**i meny raden.
 
 1. I rutan Sök anger du **Azure policy**.
 
@@ -68,7 +68,7 @@ Om du vill utvärdera resurser och uppslags-alias måste du ansluta till ditt Az
 
    - Kommando palett
 
-     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Logga**in.
+     I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Logga**in.
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Azure Cloud-inloggning för Visual Studio Code från kommando paletten" border="false":::
 
@@ -82,11 +82,11 @@ Första gången du loggar in, läses endast standard prenumerations resurser och
 
    - Kommando palett: 
 
-     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Välj prenumerationer**.
+     I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Välj prenumerationer**.
 
    - Fönster fot
 
-     I fönster foten längst ned på skärmen väljer du det segment som matchar **Azure: \<ditt konto\>**.
+     I fönster foten längst ned på skärmen väljer du det segment som matchar **Azure: \<your account\> **.
 
 1. Använd filter rutan för att snabbt hitta prenumerationer efter namn. Markera eller ta bort kontrollen från varje prenumeration för att ange de prenumerationer som visas i Azure Policy tillägget. När du har lagt till eller tagit bort prenumerationer som ska visas väljer du **OK**.
 
@@ -99,7 +99,7 @@ I Azure Policy-tillägget visas resurser i de valda prenumerationerna per resurs
 - **Resurs grupper**
   - Alla resurser av resurs gruppen som de befinner sig i
 
-Som standard filtrerar tillägget "Resource Provider"-delen av befintliga resurser och resurser som har princip-alias. Ändra det här beteendet i **Inställningar** > **tillägg** > **Azure policy** om du vill se alla resurs leverantörer utan att filtrera.
+Som standard filtrerar tillägget "Resource Provider"-delen av befintliga resurser och resurser som har princip-alias. Ändra det här beteendet i **Inställningar**  >  **tillägg**  >  **Azure policy** om du vill se alla resurs leverantörer utan att filtrera.
 
 Kunder med hundratals eller tusentals resurser i en enda prenumeration kan föredra ett sökbart sätt att hitta sina resurser. Med Azure Policy-tillägget kan du söka efter en speciell resurs med följande steg:
 
@@ -123,9 +123,12 @@ Kunder med hundratals eller tusentals resurser i en enda prenumeration kan före
 
 När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess egenskaps värden för Resource Manager.
 
-När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. storageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
+När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. StorageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy förlängnings hovring visar resurs hanterarens egenskaps-alias" border="false":::
+
+> [!NOTE]
+> VS Code-tillägget visar endast Resource Manager-läges egenskaper och visar inga egenskaper för [resurs leverantörs läge](../concepts/definition-structure.md#mode) .
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Sök efter och Visa principer och tilldelningar
 
@@ -151,7 +154,7 @@ När du väljer en princip eller tilldelning, oavsett om du väljer att använda
 
 ## <a name="sign-out"></a>Logga ut
 
-I meny raden går du till **Visa** > **kommando-palett**och anger sedan **Azure: Logga ut**.
+I meny raden går du till **Visa**  >  **kommando-palett**och anger sedan **Azure: Logga ut**.
 
 ## <a name="next-steps"></a>Nästa steg
 

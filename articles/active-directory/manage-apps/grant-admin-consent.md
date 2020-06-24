@@ -2,24 +2,24 @@
 title: Bevilja administratörs medgivande för hela klienten till ett program – Azure AD
 description: Lär dig hur du beviljar ett programs medgivande till ett program så att slutanvändare inte tillfrågas om medgivande vid inloggning till ett program.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c515fef4997720435c64bd5f3ae7b18f8921fc5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d31f03d8e6138829bbf57003b504f68f5c2315b2
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75480923"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763371"
 ---
-# <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja ett program administratörs medgivande för hela klienten
+# <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
 Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients administratörs medgivande till ett program. Den här artikeln innehåller olika sätt att åstadkomma detta. Metoderna gäller för alla slutanvändare i din Azure Active Directory (Azure AD)-klient.
 

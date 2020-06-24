@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634941"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079393"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Snabb start: skapa ett Sök index i .NET
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "84634941"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Skapa ett .NET Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med hjälp av Visual Studio och [Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk). 
+Skapa ett .NET Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med hjälp av Visual Studio och [Azure kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). 
 
 Den här artikeln beskriver hur du skapar programmet steg för steg. Du kan också [Hämta och köra hela programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) om du vill gå vidare till koden.
 
@@ -64,7 +64,7 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-[Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk) består av ett par klient bibliotek som distribueras som NuGet-paket.
+[Azure kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) består av ett par klient bibliotek som distribueras som NuGet-paket.
 
 För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet-paketet och det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
@@ -85,9 +85,9 @@ För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet
 
 1. I Lägg till nytt objekt söker du efter "JSON" för att returnera en JSON-relaterad lista med objekt typer.
 
-1. Välj **JSON-fil**, namnge filen "appSettings. JSON" och klicka på **Lägg till**. 
+1. Välj **JSON-fil**, ge filen namnet "appsettings.jspå" och klicka på **Lägg till**. 
 
-1. Lägg till filen i utmatnings katalogen. Högerklicka på appSettings. JSON och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
+1. Lägg till filen i utmatnings katalogen. Högerklicka på appsettings.jspå och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
 
 1. Kopiera följande JSON till din nya JSON-fil. 
 
@@ -204,7 +204,7 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
 
     I det här indexet använder beskrivnings fälten den valfria [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) egenskapen som anges när du vill åsidosätta standard standard Lucene Analyzer. I `description_fr` fältet används den franska Lucene Analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) eftersom den innehåller fransk text. `description`Använder den valfria Microsoft Language Analyzer (Microsoft)[EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet).
 
-1. I Program.cs skapar du en instans av [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klassen för att ansluta till tjänsten med hjälp av värden som lagras i programmets konfigurations fil (appSettings. JSON). 
+1. I Program.cs skapar du en instans av [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klassen för att ansluta till tjänsten med hjälp av värden som lagras i programmets konfigurations fil (appsettings.jspå). 
 
    `SearchServiceClient`har en [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) egenskap som ger alla metoder som du behöver för att skapa, Visa, uppdatera eller ta bort Azure kognitiv sökning-index. 
 

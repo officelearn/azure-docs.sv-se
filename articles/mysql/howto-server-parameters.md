@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: c6e4ff494ee79428f7d9e6a55d184b877c0d58e4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 6/11/2020
+ms.openlocfilehash: ba473942eea35ebcd5991b9b0dee4138d4963e16
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554945"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099134"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MySQL med hjälp av Azure Portal
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MySQL att använda Azure Portal
 
 Azure Database for MySQL stöder konfiguration av vissa Server parametrar. I den här artikeln beskrivs hur du konfigurerar dessa parametrar med hjälp av Azure Portal. Det går inte att justera alla Server parametrar.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navigera till Server parametrar på Azure Portal
+## <a name="configure-server-parameters"></a>Konfigurera serverparametrar
 
 1. Logga in på Azure Portal och leta sedan upp Azure Database for MySQL-servern.
 2. Under avsnittet **Inställningar** klickar du på **Server parametrar** för att öppna sidan Server parametrar för Azure Database for MySQL-servern.
@@ -28,6 +28,17 @@ Azure Database for MySQL stöder konfiguration av vissa Server parametrar. I den
 ![Spara eller ta bort ändringar](./media/howto-server-parameters/4-save_parameters.png)
 5. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
 ![Återställ alla till standard](./media/howto-server-parameters/5-reset_parameters.png)
+
+## <a name="setting-parameters-not-listed"></a>Ange parametrar som inte listas
+
+Om den server parameter som du vill uppdatera inte visas i Azure Portal, kan du välja att ange parametern på anslutnings nivå med `init_connect` . Detta anger Server parametrarna för varje klient som ansluter till servern. 
+
+1. Under avsnittet **Inställningar** klickar du på **Server parametrar** för att öppna sidan Server parametrar för Azure Database for MariaDB-servern.
+2. Sök efter`init_connect`
+3. Lägg till Server parametrarna i formatet: `SET parameter_name=YOUR_DESIRED_VALUE` i värde kolumnen värde.
+
+    Du kan till exempel ändra teckenuppsättningen för servern genom att ställa in på `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+4. Klicka på **Spara** för att spara dina ändringar.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 

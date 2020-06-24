@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74900914"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728902"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visa och tilldela administratörs roller i Azure Active Directory
 
@@ -49,7 +49,6 @@ Om du är global administratör eller administratör för privilegierade roller 
 När du visar en Rolls medlemmar väljer du **Beskrivning** för att se en fullständig lista över behörigheter som beviljats av roll tilldelningen. Sidan innehåller länkar till relevant dokumentation för att hjälpa dig att hantera katalog roller.
 
 ![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/role-description.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

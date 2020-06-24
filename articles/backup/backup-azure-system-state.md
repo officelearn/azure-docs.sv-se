@@ -5,11 +5,11 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128176"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712317"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera Windows system State i Resource Manager-distribution
 

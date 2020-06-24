@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du konfigurerar väg filter för Mi
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5a294a051350c4b08b34356abcd883b7580164e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618604"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729310"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera väg filter för Microsoft-peering: PowerShell
 > [!div class="op_single_selector"]
@@ -199,6 +199,6 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

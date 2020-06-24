@@ -4,11 +4,11 @@ description: Introduktion till viktiga begrepp för Azure Container register,-da
 ms.topic: article
 ms.date: 09/10/2019
 ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247064"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711994"
 ---
 # <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
@@ -118,7 +118,7 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Manifest Sammanfattning
 
-Manifest identifieras av en unik SHA-256-hash eller *manifest sammandrag*. Varje bild eller artefakt – om Taggad eller inte--har identifierats av sammanfattningen. Digest-värdet är unikt även om avbildningens lager data är identiska med en annan bild. Den här metoden gör det möjligt att upprepade gånger skicka identiska märkta bilder till ett register. Du kan t. ex. skicka `myimage:latest` flera gånger till registret utan fel eftersom varje avbildning identifieras med en unik Sammanfattning.
+Manifest identifieras av en unik SHA-256-hash eller *manifest sammandrag*. Varje bild eller artefakt – om Taggad eller inte--har identifierats av sammanfattningen. Digest-värdet är unikt även om avbildningens lager data är identiska med en annan bild. Den här metoden gör det möjligt att upprepade gånger skicka identiska märkta bilder till ett register. Du kan t. ex. skicka flera gånger `myimage:latest` till registret utan fel eftersom varje avbildning identifieras med en unik Sammanfattning.
 
 Du kan hämta en avbildning från ett register genom att ange dess Digest i pull-åtgärden. Vissa system kan konfigureras att hämta genom sammandrag eftersom det garanterar att avbildnings versionen hämtas, även om en identiskt taggad bild sedan skickas till registret.
 

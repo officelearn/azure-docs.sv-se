@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561057"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100754"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Vad är Azure Data Box Gateway?
 
@@ -89,7 +89,7 @@ Data Box Gateway-lösningen består av Data Box Gateway-resurs, virtuell Data Bo
 
 Data Box Gateway fysisk enhet, Azure-resurs och mål lagrings konto som du överför data till, behöver inte alla finnas i samma region.
 
-- **Resurs tillgänglighet** – för en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig går du till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resurs tillgänglighet** – en lista över alla regioner där Azure Data Box gateways resursen är tillgänglig finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner.
 

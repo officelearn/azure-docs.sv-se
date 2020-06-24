@@ -3,12 +3,12 @@ title: Check lista för Azure Service Fabric Production readiness
 description: Förbered din Service Fabric program-och kluster produktion genom att följa bästa praxis.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e12e07a4446af46bc1979bd8bd4ab3987a3fd8ad
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376808"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081049"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
@@ -17,7 +17,7 @@ ms.locfileid: "75376808"
 
 ## <a name="prerequisites-for-production"></a>Krav för produktion
 1. Metod tips för Azure Service Fabric: [program design](./service-fabric-best-practices-applications.md), [säkerhet](./service-fabric-best-practices-security.md), [nätverk](./service-fabric-best-practices-networking.md), [kapacitets planering och skalning](./service-fabric-best-practices-capacity-scaling.md), [infrastruktur som kod](./service-fabric-best-practices-infrastructure-as-code.md)och [övervakning och diagnostik](./service-fabric-best-practices-monitoring.md). 
-1. Implementera Reliable Actors säkerhets konfiguration om du använder programmerings modellen för aktörer
+1. [Konfigurera FabricTransport-inställningar](./service-fabric-reliable-actors-fabrictransportsettings.md) om du använder programmerings modellen för Reliable Actors och kräver säker kommunikation mellan tjänster.
 1. För kluster med fler än 20 kärnor eller 10 noder skapar du en dedikerad typ av primär nod för system tjänster. Lägg till [placerings begränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) för att reservera den primära nodtypen för system tjänster.
 1. Använd en virtuella d2v2 eller en högre SKU för den primära nodtypen. Vi rekommenderar att du väljer en SKU med minst 50 GB hård disk kapacitet.
 1. Produktions kluster måste vara [skyddade](service-fabric-cluster-security.md). Ett exempel på hur du konfigurerar ett säkert kluster finns i den här [kluster mal len](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Använd egna namn för certifikat och Undvik att använda självsignerade certifikat.
@@ -41,7 +41,7 @@ ms.locfileid: "75376808"
 
 
 Om du använder Service Fabric Reliable Services-eller Reliable Actors programmerings modellen måste följande objekt vara markerade:
-1. Uppgradera program under lokal utveckling för att kontrol lera att din tjänst kod följer den token för uppsägning `RunAsync` i-metoden och stänger anpassade kommunikations lyssnare.
+1. Uppgradera program under lokal utveckling för att kontrol lera att din tjänst kod följer den token för uppsägning i- `RunAsync` metoden och stänger anpassade kommunikations lyssnare.
 1. Undvik [vanliga fall GRO par](service-fabric-work-with-reliable-collections.md) när du använder pålitliga samlingar.
 1. Övervaka prestanda räknarna för .NET CLR-minne vid körning av belastnings test och kontrol lera om det finns höga hastigheter för skräp insamlingen eller utökning av heap.
 1. Underhåll offline-säkerhetskopiering av [Reliable Services och Reliable Actors](service-fabric-reliable-services-backup-restore.md) och testa återställnings processen.

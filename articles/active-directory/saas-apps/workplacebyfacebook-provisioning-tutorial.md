@@ -15,34 +15,16 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231738"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718633"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
 I den här självstudien beskrivs de steg du behöver utföra i båda arbets platserna av Facebook och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [arbets ytan efter Facebook](https://work.workplace.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
-
-## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrera till den nya arbets ytan efter Facebook-program
-Om du har en befintlig integrering med arbets ytan av Facebook kan du läsa avsnittet nedan om vilka ändringar som kommer. Om du konfigurerar arbets ytan efter Facebook för första gången kan du hoppa över det här avsnittet och flytta till de funktioner som stöds. 
-
-#### <a name="whats-changing"></a>Vad förändras?
-* Ändringar på Azure AD-sidan: autentiseringsmetoden för att etablera användare i arbets platsen har tidigare varit en hemlig hemlig token. Snart kommer du att se den auktoriseringsregler som ändrades till beviljande av OAuth-auktorisering. 
-* Ändringar på arbets plats sidan: tidigare var Azure AD-appen en anpassad integrering på arbets platsen av Facebook. Nu kommer du att se Azure AD i katalogen för arbets plats integrering som ett program från tredje part. 
-
-#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Vad behöver jag för att migrera min befintliga anpassade integrering till det nya programmet?
-Om du har en befintlig arbets plats integration med en giltig token krävs ingen åtgärd. **Från och med 04/28/2020 har vi automatiskt migrerat alla program som inte finns i karantän på grund av ogiltiga autentiseringsuppgifter.**
- 
-#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Hur ser jag om mitt program har migrerats? 
-* I Azure Portal: när ditt program migreras tas banderollen i avsnittet Authorization om kommande ändringar bort och fältet hemligt token ersätts med en blå behörighets knapp. 
-* På arbets ytan av Facebook-portalen: granska Azure AD-appen för att kontrol lera att den är godkänd.  
-
-#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Avsnittet admin credentials är nedtonat i mitt program och jag kan inte spara. Varför det?
-Vi har låst avsnittet admin credentials för arbets plats kunder som inte har migrerats. Använd följande URL om avsnittet admin-autentiseringsuppgifter är nedtonat och du måste auktorisera åtkomsten igen. **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = sant** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
-
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
@@ -129,7 +111,7 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
    |userName|Sträng|
    |displayName|Sträng|
    |aktiv|Boolesk|
-   |title|Boolesk|
+   |rubrik|Boolesk|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |Name. givenName|Sträng|
    |Name. familyName|Sträng|

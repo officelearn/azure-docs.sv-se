@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2b49598d51fb785872fccec966ac11a95ef3cede
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 62b3a5ca772e21515fadf0397b294e93d77f96a6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657726"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711841"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -342,12 +342,12 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 Cmdleten utför dessa kontroller nedan i följd och ger vägledning för felen:
 1. CheckPort445Connectivity: kontrol lera att port 445 är öppen för SMB-anslutning
 2. CheckDomainJoined: verifiera att klient datorn är domänansluten till AD
-3. CheckADObject: bekräfta att den inloggade användaren har en giltig representation i den AD-domän som lagrings kontot är associerat med
+3. CheckADObject: bekräfta att det finns ett objekt i Active Directory som representerar lagrings kontot och har rätt SPN (tjänstens huvud namn).
 4. CheckGetKerberosTicket: försöker hämta en Kerberos-biljett för att ansluta till lagrings kontot 
-5. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb-nyckel
+5. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb1-eller kerb2-nyckel
 6. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD. Om du vill se om en särskild AD-användare är synkroniserad med Azure AD kan du ange parametern-UserName och-Domain i indataparametrarna.
-7. CheckAadUserHasSid: kontrol lera om en Azure AD-användare har ett SID i AD, kräver användaren att ange objekt-ID: t för Azure AD-användaren med-ObjectId. 
-8. CheckStorageAccountDomainJoined: kontrol lera om du har registrerat en identitet i AD som representerar lagrings kontot. 
+7. CheckAadUserHasSid: kontrol lera om en Azure AD-användare har ett SID i AD. den här kontrollen kräver att användaren har indata-ID för Azure AD-användaren med parametern-ObjectId. 
+8. CheckStorageAccountDomainJoined: kontrol lera lagrings kontots Egenskaper för att se att AD-autentisering har Aktiver ATS och att kontots AD-egenskaper är ifyllda.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Det gick inte att konfigurera katalog-/fil nivå behörigheter (Windows ACL: er) med Utforskaren i Windows
 

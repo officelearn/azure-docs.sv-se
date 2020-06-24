@@ -4,11 +4,11 @@ description: I den här artikeln beskrivs vanliga uppgifter för att hantera och
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247662"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712096"
 ---
 # <a name="manage-azure-file-share-backups"></a>Hantera säkerhetskopior av Azure-filresurser
 
@@ -83,7 +83,7 @@ Sluta skydda en Azure-filresurs:
 
 1. Öppna Recovery Services-valvet som innehåller fil resurs återställnings punkterna. Välj **säkerhets kopierings objekt** under avsnittet **skyddade objekt** . Listan över typer av säkerhets kopierings objekt visas.
 
-   ![Säkerhetskopiera objekt](./media/manage-afs-backup/backup-items.png)
+   ![Säkerhetskopieringsobjekt](./media/manage-afs-backup/backup-items.png)
 
 1. I listan **Typ av säkerhetskopieringshantering** väljer du **Azure Storage (Azure Files)**. Listan **säkerhets kopierings objekt (Azure Storage Azure Files)** visas.
 

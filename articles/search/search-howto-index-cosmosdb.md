@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283009"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688882"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
@@ -71,7 +71,7 @@ På sidan **data källa** måste källan vara **Cosmos DB**, med följande speci
 
 + **Namn** är namnet på objektet i data källan. När du har skapat kan du välja den för andra arbets belastningar.
 
-+ **Cosmos DB konto** ska vara den primära eller sekundära anslutnings strängen från Cosmos DB, med en `AccountEndpoint` och en `AccountKey`. För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i slutet av anslutnings strängen och avgränsar den från anslutnings strängen med ett semikolon. För Gremlin-API och API för Cassandra använder du instruktionerna för [REST API](#cosmosdb-indexer-rest).
++ **Cosmos DB konto** ska vara den primära eller sekundära anslutnings strängen från Cosmos DB, med en `AccountEndpoint` och en `AccountKey` . För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i slutet av anslutnings strängen och avgränsar den från anslutnings strängen med ett semikolon. För Gremlin-API och API för Cassandra använder du instruktionerna för [REST API](#cosmosdb-indexer-rest).
 
 + **Databasen** är en befintlig databas från kontot. 
 
@@ -128,7 +128,7 @@ Du kan använda REST API för att indexera Azure Cosmos DB data, efter ett arbet
 Tidigare i den här artikeln beskrivs att [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure kognitiv sökning indexerings](search-what-is-an-index.md) indexering är distinkta åtgärder. För Cosmos DB indexering indexeras som standard alla dokument automatiskt utom med API för Cassandra. Om du inaktiverar automatisk indexering kan dokument endast nås via sina egna länkar eller via frågor med hjälp av dokument-ID: t. Azure Kognitiv sökning indexering kräver att Cosmos DB automatisk indexering aktive ras i samlingen som ska indexeras av Azure-Kognitiv sökning. När du registrerar dig för för hands versionen av Cosmos DB API för Cassandra indexeraren får du instruktioner om hur du konfigurerar Cosmos DB indexering.
 
 > [!WARNING]
-> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API version **2017-11-11** kan du använda `documentdb` syntaxen. Detta innebar att du kan ange typ av data källa `cosmosdb` som `documentdb`eller. Från och med API version **2019-05-06** har båda Azure kognitiv sökning-API: erna och `cosmosdb` portalen endast stöd för syntaxen enligt anvisningarna i den här artikeln. Det innebär att data källans typ måste `cosmosdb` anges om du vill ansluta till en Cosmos DB-slutpunkt.
+> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API version **2017-11-11** kan du använda `documentdb` syntaxen. Detta innebar att du kan ange typ av data källa som `cosmosdb` eller `documentdb` . Från och med API version **2019-05-06** har båda Azure kognitiv sökning-API: erna och portalen endast stöd för `cosmosdb` syntaxen enligt anvisningarna i den här artikeln. Det innebär att data källans typ måste anges `cosmosdb` om du vill ansluta till en Cosmos DB-slutpunkt.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
 
@@ -173,10 +173,10 @@ Formulera en POST-begäran för att skapa en data Källa:
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Field   | Beskrivning |
+| Fält   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
-|**bastyp**| Krävs. Måste vara `cosmosdb`. |
+|**bastyp**| Krävs. Måste vara `cosmosdb` . |
 |**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/>För SQL-samlingar är anslutnings strängar i följande format:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av Gremlin-diagram och Cassandra-tabeller för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
 | **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
 | **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
@@ -247,9 +247,9 @@ Fråga för mat ris förenkling:
 Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSON-dokumenten eller utdata för din anpassade fråga-projektion.
 
 > [!NOTE]
-> För partitionerade samlingar är standard dokument nyckeln Azure Cosmos DB `_rid` egenskapen, som Azure kognitiv sökning byter namn automatiskt till `rid` eftersom fält namn inte får börja med ett under streck. Azure Cosmos DB `_rid` värden innehåller också tecken som är ogiltiga i Azure kognitiv sökning-nycklar. Därför är `_rid` värdena base64-kodade.
+> För partitionerade samlingar är standard dokument nyckeln Azure Cosmos DB `_rid` egenskapen, som Azure kognitiv sökning byter namn automatiskt till `rid` eftersom fält namn inte får börja med ett under streck. Azure Cosmos DB `_rid` värden innehåller också tecken som är ogiltiga i Azure kognitiv sökning-nycklar. Därför `_rid` är värdena base64-kodade.
 > 
-> För MongoDB-samlingar byter Azure Kognitiv sökning automatiskt namn på `_id` egenskapen till. `id`  
+> För MongoDB-samlingar byter Azure Kognitiv sökning automatiskt namn på `_id` egenskapen till `id` .  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Kognitiv sökning data typer
 | Data typen JSON | Kompatibla fält typer för mål index |
@@ -297,7 +297,7 @@ Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt til
 
 ## <a name="indexing-changed-documents"></a>Indexera ändrade dokument
 
-Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) att använda `_ts` egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
+Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds att [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) använda `_ts` egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -314,9 +314,9 @@ Om du använder en anpassad fråga ska du kontrol lera att `_ts` egenskapen har 
 
 Stegvis förlopp under indexeringen säkerställer att om körningen av Indexer avbryts vid tillfälliga haverier eller körnings tids gräns, kan indexeraren Hämta var den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när du indexerar stora samlingar. 
 
-Om du vill aktivera stegvisa förloppet när du använder en anpassad fråga måste du se till att frågan `_ts` beställer resultatet efter kolumnen. Detta möjliggör regelbunden kontroll som pekar på att Azure Kognitiv sökning använder för att ge stegvisa framsteg i närvaro av problem.   
+Om du vill aktivera stegvisa förloppet när du använder en anpassad fråga måste du se till att frågan beställer resultatet efter `_ts` kolumnen. Detta möjliggör regelbunden kontroll som pekar på att Azure Kognitiv sökning använder för att ge stegvisa framsteg i närvaro av problem.   
 
-I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts` -sats, kanske inte Azure kognitiv sökning härleda att frågan beställs av `_ts`. Du kan berätta för Azure Kognitiv sökning att resultatet sorteras med hjälp `assumeOrderByHighWaterMarkColumn` av konfigurations egenskapen. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren enligt följande: 
+I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts` -sats, kanske inte Azure kognitiv sökning härleda att frågan beställs av `_ts` . Du kan berätta för Azure Kognitiv sökning att resultatet sorteras med hjälp av `assumeOrderByHighWaterMarkColumn` konfigurations egenskapen. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren enligt följande: 
 
     {
      ... other indexer definition properties
@@ -336,7 +336,7 @@ När rader tas bort från samlingen vill du normalt även ta bort dessa rader fr
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-Om du använder en anpassad fråga ser du till att den egenskap som har refererats `softDeleteColumnName` av är beräknad av frågan.
+Om du använder en anpassad fråga ser du till att den egenskap som har refererats av `softDeleteColumnName` är beräknad av frågan.
 
 I följande exempel skapas en data källa med en princip för mjuk borttagning:
 

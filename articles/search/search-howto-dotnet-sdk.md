@@ -9,21 +9,21 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd89e3366fbaa60109be9ef3552970936f0a6715
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283074"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080569"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Använda Azure Kognitiv sökning från ett .NET-program
 
-Den här artikeln är en genom gång för att komma igång med [Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk). Du kan använda .NET SDK för att implementera en omfattande Sök funktion i ditt program med hjälp av Azure Kognitiv sökning.
+Den här artikeln är en genom gång för att komma igång med [Azure kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Du kan använda .NET SDK för att implementera en omfattande Sök funktion i ditt program med hjälp av Azure Kognitiv sökning.
 
 ## <a name="whats-in-the-azure-cognitive-search-sdk"></a>Vad finns i Azure Kognitiv sökning SDK
 SDK består av ett fåtal klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och synonyma kartor, samt överföra och hantera dokument och köra frågor, allt utan att behöva hantera informationen om HTTP och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
 
-Det huvudsakliga NuGet-paketet `Microsoft.Azure.Search`är, som är ett meta-paket som innehåller alla andra paket som beroenden. Använd det här paketet om du precis har kommit igång eller om du vet att programmet behöver alla funktioner i Azure Kognitiv sökning.
+Det huvudsakliga NuGet-paketet är `Microsoft.Azure.Search` , som är ett meta-paket som innehåller alla andra paket som beroenden. Använd det här paketet om du precis har kommit igång eller om du vet att programmet behöver alla funktioner i Azure Kognitiv sökning.
 
 De andra NuGet-paketen i SDK: n är:
  
@@ -31,7 +31,7 @@ De andra NuGet-paketen i SDK: n är:
   - `Microsoft.Azure.Search.Service`: Använd det här paketet om du utvecklar automatisering i .NET för att hantera Azure Kognitiv sökning-index, synonym kartor, indexerare, data källor eller andra resurser på tjänst nivå. Om du bara behöver fråga eller uppdatera dokument i dina index använder du `Microsoft.Azure.Search.Data` paketet i stället. Om du behöver alla funktioner i Azure Kognitiv sökning använder du `Microsoft.Azure.Search` paketet i stället.
   - `Microsoft.Azure.Search.Common`: Vanliga typer som krävs av Azure Kognitiv sökning .NET-biblioteken. Du behöver inte använda det här paketet direkt i ditt program. Den är endast avsedd att användas som ett beroende.
 
-De olika klient biblioteken definierar klasser `Index`som `Field`, och `Document`, samt åtgärder `Indexes.Create` som och `Documents.Search` i klasserna `SearchServiceClient` och. `SearchIndexClient` Dessa klasser är indelade i följande namn rymder:
+De olika klient biblioteken definierar klasser som `Index` , `Field` och `Document` , samt åtgärder som `Indexes.Create` och `Documents.Search` i `SearchServiceClient` `SearchIndexClient` klasserna och. Dessa klasser är indelade i följande namn rymder:
 
 * [Microsoft. Azure. search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft. Azure. search. Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
@@ -100,7 +100,7 @@ static void Main(string[] args)
 > 
 >
 
-Vi går igenom det här steget genom att gå igenom det här steget. Först måste vi skapa en ny `SearchServiceClient`. Med det här objektet kan du hantera index. För att kunna skapa en måste du ange namnet på din Azure Kognitiv sökning-tjänst och en administratörs-API-nyckel. Du kan ange den här informationen i `appsettings.json` filen i [exempel programmet](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+Vi går igenom det här steget genom att gå igenom det här steget. Först måste vi skapa en ny `SearchServiceClient` . Med det här objektet kan du hantera index. För att kunna skapa en måste du ange namnet på din Azure Kognitiv sökning-tjänst och en administratörs-API-nyckel. Du kan ange den här informationen i `appsettings.json` filen i [exempel programmet](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -114,7 +114,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 ```
 
 > [!NOTE]
-> Om du anger en felaktig nyckel (till exempel en frågegrupp där en administratörs nyckel krävdes) `SearchServiceClient` kommer `CloudException` att orsaka fel meddelandet "förbjuden" första gången du anropar en åtgärds metod, till exempel. `Indexes.Create` Om det händer kan du kontrol lera vår API-nyckel.
+> Om du anger en felaktig nyckel (till exempel en frågegrupp där en administratörs nyckel krävdes) kommer att orsaka `SearchServiceClient` `CloudException` fel meddelandet "förbjuden" första gången du anropar en åtgärds metod, till exempel `Indexes.Create` . Om det händer kan du kontrol lera vår API-nyckel.
 > 
 > 
 
@@ -128,25 +128,25 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, serviceClient);
 ```
 
-Sedan måste indexet fyllas i. För att kunna fylla i indexet behöver vi en `SearchIndexClient`. Det finns två sätt att hämta ett: genom att konstruera det eller genom att `Indexes.GetClient` `SearchServiceClient`anropa. Vi använder det senare för enkelhetens skull.
+Sedan måste indexet fyllas i. För att kunna fylla i indexet behöver vi en `SearchIndexClient` . Det finns två sätt att hämta ett: genom att konstruera det eller genom att anropa `Indexes.GetClient` `SearchServiceClient` . Vi använder det senare för enkelhetens skull.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> I ett typiskt sökprogram kan index hantering och ifyllning hanteras av en separat komponent från Sök frågor. `Indexes.GetClient`är praktiskt för att fylla ett index eftersom det sparar problem med att tillhandahålla ytterligare `SearchCredentials`. Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor, är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka in en frågegrupp, som bara tillåter att du läser data, i stället för en administratörs nyckel. Den här riktlinjen följer principen om lägsta behörighet och hjälper till att göra programmet säkrare. Du kan läsa mer om administratörs nycklar och frågeinställningar [här](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
+> I ett typiskt sökprogram kan index hantering och ifyllning hanteras av en separat komponent från Sök frågor. `Indexes.GetClient`är praktiskt för att fylla ett index eftersom det sparar problem med att tillhandahålla ytterligare `SearchCredentials` . Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor, är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka in en frågegrupp, som bara tillåter att du läser data, i stället för en administratörs nyckel. Den här riktlinjen följer principen om lägsta behörighet och hjälper till att göra programmet säkrare. Du kan läsa mer om administratörs nycklar och frågeinställningar [här](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
 > 
 > 
 
-Nu när vi har en `SearchIndexClient`kan vi fylla i indexet. Index ifyllning görs med en annan metod som vi kommer att gå igenom senare.
+Nu när vi har en kan `SearchIndexClient` vi fylla i indexet. Index ifyllning görs med en annan metod som vi kommer att gå igenom senare.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
 UploadDocuments(indexClient);
 ```
 
-Slutligen kör vi några Sök frågor och visar resultatet. Den här gången använder vi en `SearchIndexClient`annan:
+Slutligen kör vi några Sök frågor och visar resultatet. Den här gången använder vi en annan `SearchIndexClient` :
 
 ```csharp
 ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
@@ -154,7 +154,7 @@ ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, co
 RunQueries(indexClientForQueries);
 ```
 
-Vi tar en närmare titt på `RunQueries` metoden senare. Här är koden för att skapa den nya `SearchIndexClient`:
+Vi tar en närmare titt på `RunQueries` metoden senare. Här är koden för att skapa den nya `SearchIndexClient` :
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
@@ -214,10 +214,10 @@ Om du kör det här programmet med ett giltigt tjänst namn och API-nycklar bör
 
 Den fullständiga käll koden för programmet finns i slutet av den här artikeln.
 
-Därefter tar vi en närmare titt på var och en av de metoder som anropas av `Main`.
+Därefter tar vi en närmare titt på var och en av de metoder som anropas av `Main` .
 
 ### <a name="creating-an-index"></a>Skapa ett index
-När du har `SearchServiceClient` `Main` skapat en tar bort indexet "Hotels" om det redan finns. Borttagningen görs på följande sätt:
+När `SearchServiceClient` du har skapat en `Main` tar bort indexet "Hotels" om det redan finns. Borttagningen görs på följande sätt:
 
 ```csharp
 private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
@@ -229,10 +229,10 @@ private static void DeleteIndexIfExists(string indexName, SearchServiceClient se
 }
 ```
 
-I den här metoden används `SearchServiceClient` det för att kontrol lera om indexet finns och ta bort det.
+I den här metoden används det `SearchServiceClient` för att kontrol lera om indexet finns och ta bort det.
 
 > [!NOTE]
-> I exempel koden i den här artikeln används de synkrona metoderna i Azure Kognitiv sökning .NET SDK för enkelhetens skull. Vi rekommenderar att du använder asynkrona metoder i dina egna program så att de blir skalbara och responsiva. I metoden ovan kan du till exempel `ExistsAsync` använda och `DeleteAsync` i stället för `Exists` och. `Delete`
+> I exempel koden i den här artikeln används de synkrona metoderna i Azure Kognitiv sökning .NET SDK för enkelhetens skull. Vi rekommenderar att du använder asynkrona metoder i dina egna program så att de blir skalbara och responsiva. I metoden ovan kan du till exempel använda och i `ExistsAsync` `DeleteAsync` stället för `Exists` och `Delete` .
 > 
 > 
 
@@ -251,10 +251,10 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 }
 ```
 
-Den här metoden skapar ett `Index` nytt objekt med en lista `Field` med objekt som definierar schemat för det nya indexet. Varje fält har ett namn, en datatyp och flera attribut som definierar Sök beteendet. `FieldBuilder` Klassen använder reflektion för att skapa en lista med `Field` objekt för indexet genom att undersöka de offentliga egenskaperna och attributen för den `Hotel` aktuella modell klassen. Vi tar en närmare titt på `Hotel` klassen senare.
+Den här metoden skapar ett nytt `Index` objekt med en lista med `Field` objekt som definierar schemat för det nya indexet. Varje fält har ett namn, en datatyp och flera attribut som definierar Sök beteendet. `FieldBuilder`Klassen använder reflektion för att skapa en lista med `Field` objekt för indexet genom att undersöka de offentliga egenskaperna och attributen för den aktuella `Hotel` modell klassen. Vi tar en närmare titt på `Hotel` klassen senare.
 
 > [!NOTE]
-> Du kan alltid skapa en lista med `Field` objekt direkt i stället för `FieldBuilder` att använda vid behov. Till exempel kanske du inte vill använda en modell klass eller så kan du behöva använda en befintlig modell klass som du inte vill ändra genom att lägga till attribut.
+> Du kan alltid skapa en lista med `Field` objekt direkt i stället för att använda `FieldBuilder` vid behov. Till exempel kanske du inte vill använda en modell klass eller så kan du behöva använda en befintlig modell klass som du inte vill ändra genom att lägga till attribut.
 >
 > 
 
@@ -377,23 +377,23 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-Den här metoden har fyra delar. Den första skapar en matris med 3 `Hotel` objekt var och en `Room` med 3 objekt som fungerar som vår indata för överföring till indexet. Dessa data är hårdkodade för enkelhetens skull. I ditt eget program kommer dina data troligen att komma från en extern data källa, till exempel en SQL-databas.
+Den här metoden har fyra delar. Den första skapar en matris med 3 `Hotel` objekt var och en med 3 `Room` objekt som fungerar som vår indata för överföring till indexet. Dessa data är hårdkodade för enkelhetens skull. I ditt eget program kommer dina data troligen att komma från en extern data källa, till exempel en SQL-databas.
 
-Den andra delen skapar en `IndexBatch` som innehåller dokumenten. Du anger den åtgärd som du vill använda för batchen vid den tidpunkt då du skapar den, i det här fallet `IndexBatch.Upload`genom att anropa. Gruppen överförs sedan till Azure Kognitiv sökning-indexet med `Documents.Index` metoden.
+Den andra delen skapar en `IndexBatch` som innehåller dokumenten. Du anger den åtgärd som du vill använda för batchen vid den tidpunkt då du skapar den, i det här fallet genom att anropa `IndexBatch.Upload` . Gruppen överförs sedan till Azure Kognitiv sökning-indexet med `Documents.Index` metoden.
 
 > [!NOTE]
-> I det här exemplet laddar vi bara upp dokument. Om du vill sammanfoga ändringar i befintliga dokument eller ta bort dokument kan du skapa batchar genom att anropa `IndexBatch.Merge`, `IndexBatch.MergeOrUpload`eller `IndexBatch.Delete` i stället. Du kan också blanda olika åtgärder i en enda batch genom att `IndexBatch.New`anropa, som tar en samling `IndexAction` med objekt, där vart och ett meddelar Azure kognitiv sökning att utföra en viss åtgärd på ett dokument. Du kan skapa var `IndexAction` och en med en egen åtgärd genom att anropa motsvarande metod `IndexAction.Merge`som `IndexAction.Upload`, och så vidare.
+> I det här exemplet laddar vi bara upp dokument. Om du vill sammanfoga ändringar i befintliga dokument eller ta bort dokument kan du skapa batchar genom att anropa `IndexBatch.Merge` , `IndexBatch.MergeOrUpload` eller `IndexBatch.Delete` i stället. Du kan också blanda olika åtgärder i en enda batch genom att anropa `IndexBatch.New` , som tar en samling med `IndexAction` objekt, där vart och ett meddelar Azure kognitiv sökning att utföra en viss åtgärd på ett dokument. Du kan skapa var `IndexAction` och en med en egen åtgärd genom att anropa motsvarande metod som `IndexAction.Merge` , `IndexAction.Upload` och så vidare.
 > 
 > 
 
-Den tredje delen av den här metoden är ett catch-block som hanterar ett viktigt fel fall för indexering. Om din Azure Kognitiv sökning-tjänst inte kan indexera vissa av dokumenten i batchen, `IndexBatchException` genereras en av `Documents.Index`. Detta undantag kan inträffa om du indexerar dokument medan tjänsten är hårt belastad. **Vi rekommenderar starkt att du uttryckligen hanterar den här situationen i din kod.** Du kan fördröja och sedan försöka indexera dokumentet som misslyckades igen eller så kan du logga och fortsätta som i exemplet, eller göra något annat beroende på programmets krav på datakonsekvens.
+Den tredje delen av den här metoden är ett catch-block som hanterar ett viktigt fel fall för indexering. Om din Azure Kognitiv sökning-tjänst inte kan indexera vissa av dokumenten i batchen, `IndexBatchException` genereras en av `Documents.Index` . Detta undantag kan inträffa om du indexerar dokument medan tjänsten är hårt belastad. **Vi rekommenderar starkt att du uttryckligen hanterar den här situationen i din kod.** Du kan fördröja och sedan försöka indexera dokumentet som misslyckades igen eller så kan du logga och fortsätta som i exemplet, eller göra något annat beroende på programmets krav på datakonsekvens.
 
 > [!NOTE]
-> Du kan använda [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) metoden för att skapa en ny batch som bara innehåller de åtgärder som misslyckats i ett tidigare anrop `Index`till. Det finns en diskussion om hur du använder den korrekt [på StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
+> Du kan använda [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) metoden för att skapa en ny batch som bara innehåller de åtgärder som misslyckats i ett tidigare anrop till `Index` . Det finns en diskussion om hur du använder den korrekt [på StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
-Slutligen fördröjs `UploadDocuments` metoden i två sekunder. Indexering sker asynkront i Azure Kognitiv sökning-tjänsten, så exempel programmet måste vänta en kort stund för att se till att dokumenten är tillgängliga för sökning. Fördröjningar som den här är normalt endast nödvändiga i demonstrationer, tester och exempelprogram.
+Slutligen `UploadDocuments` fördröjs metoden i två sekunder. Indexering sker asynkront i Azure Kognitiv sökning-tjänsten, så exempel programmet måste vänta en kort stund för att se till att dokumenten är tillgängliga för sökning. Fördröjningar som den här är normalt endast nödvändiga i demonstrationer, tester och exempelprogram.
 
 <a name="how-dotnet-handles-documents"></a>
 
@@ -462,9 +462,9 @@ Det första du ska märka är att namnet på varje offentlig egenskap i `Hotel` 
 > 
 > 
 
-Det andra är att märka att varje egenskap är dekorerad med attribut som `IsFilterable`, `IsSearchable` `Key`, och `Analyzer`. Dessa attribut mappar direkt till [motsvarande fältattribut i ett Azure kognitiv sökning-index](/rest/api/searchservice/create-index). `FieldBuilder` Klassen använder dessa egenskaper för att skapa fält definitioner för indexet.
+Det andra är att märka att varje egenskap är dekorerad med attribut som `IsFilterable` , `IsSearchable` , `Key` och `Analyzer` . Dessa attribut mappar direkt till [motsvarande fältattribut i ett Azure kognitiv sökning-index](/rest/api/searchservice/create-index). `FieldBuilder`Klassen använder dessa egenskaper för att skapa fält definitioner för indexet.
 
-Den tredje viktiga informationen om `Hotel` klassen är data typerna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typ mappningar mellan `bool?`, `Edm.Boolean` `DateTimeOffset?`, och `Edm.DateTimeOffset` så vidare. De speciella reglerna för typ mappningen finns dokumenterade med `Documents.Get` -metoden i [Azure kognitiv sökning .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). `FieldBuilder` Klassen tar hand om den här mappningen åt dig, men det kan fortfarande vara bra att förstå om du behöver felsöka eventuella problem med serialisering.
+Den tredje viktiga `Hotel` informationen om klassen är data typerna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typ mappningar mellan `bool?` , `Edm.Boolean` , `DateTimeOffset?` och `Edm.DateTimeOffset` så vidare. De speciella reglerna för typ mappningen finns dokumenterade med- `Documents.Get` metoden i [Azure KOGNITIV sökning .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). `FieldBuilder`Klassen tar hand om den här mappningen åt dig, men det kan fortfarande vara bra att förstå om du behöver felsöka eventuella problem med serialisering.
 
 Har du meddelat `SmokingAllowed` egenskapen?
 
@@ -473,11 +473,11 @@ Har du meddelat `SmokingAllowed` egenskapen?
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-`JsonIgnore` Attributet i den här egenskapen instruerar `FieldBuilder` att inte serialisera det till indexet som ett fält.  Detta är ett bra sätt att skapa beräknade egenskaper på klient sidan som du kan använda som hjälp program i ditt program.  I det här fallet visar `SmokingAllowed` egenskapen om någon `Room` i `Rooms` samlingen tillåter rökning.  Om alla är falskt anger det att hela hotellet inte tillåter rökning.
+`JsonIgnore`Attributet i den här egenskapen instruerar `FieldBuilder` att inte serialisera det till indexet som ett fält.  Detta är ett bra sätt att skapa beräknade egenskaper på klient sidan som du kan använda som hjälp program i ditt program.  I det här fallet `SmokingAllowed` Visar egenskapen om någon `Room` i `Rooms` samlingen tillåter rökning.  Om alla är falskt anger det att hela hotellet inte tillåter rökning.
 
 Vissa egenskaper som `Address` och `Rooms` är instanser av .NET-klasser.  Dessa egenskaper representerar mer komplexa data strukturer och kräver därför fält med en [komplex datatyp](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) i indexet.
 
-`Address` Egenskapen representerar en uppsättning med flera värden i `Address` klassen, som definieras nedan:
+`Address`Egenskapen representerar en uppsättning med flera värden i `Address` klassen, som definieras nedan:
 
 ```csharp
 using System;
@@ -509,7 +509,7 @@ namespace AzureSearch.SDKHowTo
 
 Den här klassen innehåller de standardvärden som används för att beskriva adresser i USA eller Kanada. Du kan använda typer som detta för att gruppera logiska fält tillsammans i indexet.
 
-`Rooms` Egenskapen representerar en matris med `Room` objekt:
+`Rooms`Egenskapen representerar en matris med `Room` objekt:
 
 ```csharp
 using System;
@@ -556,13 +556,13 @@ Din data modell i .NET och dess motsvarande index schema bör utformas för att 
 Den här möjligheten att använda egna klasser för att interagera med dokument i indexet fungerar i båda riktningarna. Du kan också hämta Sök Resultat och låta SDK: n deserialisera dem automatiskt till en typ som du väljer. vi kommer att se i nästa avsnitt.
 
 > [!NOTE]
-> Azure Kognitiv sökning .NET SDK stöder också dynamiskt skrivna dokument med hjälp av `Document` klassen, som är en nyckel/värde-mappning av fält namn till fält värden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempel koden i den här självstudien. Klassen ärver från. [ `Document` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) `Dictionary<string, object>`
+> Azure Kognitiv sökning .NET SDK stöder också dynamiskt skrivna dokument med hjälp av `Document` klassen, som är en nyckel/värde-mappning av fält namn till fält värden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempel koden i den här självstudien. [ `Document` Klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) ärver från `Dictionary<string, object>` .
 > 
 >
 
 **Varför du bör använda datatyper som kan ha värdet null**
 
-När du skapar egna modell klasser som ska mappas till ett Azure Kognitiv sökning-index rekommenderar vi att du deklarerar egenskaper `bool` för `int` värde typer som och kan ha värdet null `bool?` (t `bool`. ex. i stället för). Om du använder en icke-nullbar egenskap måste du **se till** att inga dokument i indexet innehåller ett null-värde för motsvarande fält. Varken SDK eller Azure Kognitiv sökning service hjälper dig att genomdriva detta.
+När du skapar egna modell klasser som ska mappas till ett Azure Kognitiv sökning-index rekommenderar vi att du deklarerar egenskaper för värde typer som `bool` och kan `int` ha värdet null (t. ex. `bool?` i stället för `bool` ). Om du använder en icke-nullbar egenskap måste du **se till** att inga dokument i indexet innehåller ett null-värde för motsvarande fält. Varken SDK eller Azure Kognitiv sökning service hjälper dig att genomdriva detta.
 
 Detta är inte bara ett hypotetiskt problem. Tänk dig ett scenario där du lägger till ett nytt fält till ett befintligt index som är av typen `Edm.Int32`. När index definitionen har uppdaterats har alla dokument ett null-värde för det nya fältet (eftersom alla typer kan ha värdet null i Azure Kognitiv sökning). Om du sedan använder en modellklass med en icke-nullbar `int`-egenskap för det fältet returneras ett `JsonSerializationException` som detta när du försöker hämta dokument:
 
@@ -573,7 +573,7 @@ Av den anledningen rekommenderar vi att du använder nullbara typer i dina model
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Anpassad serialisering med JSON.NET
-SDK använder JSON.NET för serialisering och avserialisering av dokument. Du kan anpassa serialisering och deserialisering om det behövs genom att definiera egna `JsonConverter` eller. `IContractResolver` Mer information finns i JSON.NET- [dokumentationen](https://www.newtonsoft.com/json/help/html/Introduction.htm). Detta kan vara användbart när du vill anpassa en befintlig modell klass från programmet för användning med Azure Kognitiv sökning och andra fler avancerade scenarier. Med anpassad serialisering kan du till exempel:
+SDK använder JSON.NET för serialisering och avserialisering av dokument. Du kan anpassa serialisering och deserialisering om det behövs genom att definiera egna `JsonConverter` eller `IContractResolver` . Mer information finns i JSON.NET- [dokumentationen](https://www.newtonsoft.com/json/help/html/Introduction.htm). Detta kan vara användbart när du vill anpassa en befintlig modell klass från programmet för användning med Azure Kognitiv sökning och andra fler avancerade scenarier. Med anpassad serialisering kan du till exempel:
 
 * Ta med eller utelämna vissa egenskaper för din modell klass från att lagras som dokument fält.
 * Mappa mellan egenskaps namn i kod-och fält namnen i ditt index.
@@ -641,9 +641,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Varje gången den kör en fråga skapar den här metoden först ett nytt `SearchParameters` objekt. Det här objektet används för att ange ytterligare alternativ för frågan, till exempel sortering, filtrering, växling och fasettering. I den här metoden ställer vi in egenskapen `Filter`, `Select`, `OrderBy`, och `Top` för olika frågor. Alla `SearchParameters` egenskaper beskrivs [här](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Varje gången den kör en fråga skapar den här metoden först ett nytt `SearchParameters` objekt. Det här objektet används för att ange ytterligare alternativ för frågan, till exempel sortering, filtrering, växling och fasettering. I den här metoden ställer vi in `Filter` egenskapen, `Select` , `OrderBy` , och `Top` för olika frågor. Alla `SearchParameters` egenskaper beskrivs [här](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
 
-Nästa steg är att köra Sök frågan. Att köra sökningen görs med hjälp av `Documents.Search` metoden. För varje fråga skickar vi Sök texten som ska användas som en sträng (eller `"*"` om det inte finns någon söktext) plus de Sök parametrar som skapades tidigare. Vi anger `Hotel` också som typ parameter för `Documents.Search`, vilket instruerar SDK att deserialisera dokument i Sök resultaten till objekt av typen. `Hotel`
+Nästa steg är att köra Sök frågan. Att köra sökningen görs med hjälp av `Documents.Search` metoden. För varje fråga skickar vi Sök texten som ska användas som en sträng (eller `"*"` om det inte finns någon söktext) plus de Sök parametrar som skapades tidigare. Vi anger också `Hotel` som typ parameter för `Documents.Search` , vilket instruerar SDK att deserialisera dokument i Sök resultaten till objekt av typen `Hotel` .
 
 > [!NOTE]
 > Du hittar mer information om syntaxen för Sökfrågans uttryck [här](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
@@ -699,7 +699,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Frågan använder ett OData `$filter` - `Rooms/any(r: r/BaseRate lt 100)`uttryck för att filtrera dokumenten i indexet. Detta använder [valfri operator](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) för att tillämpa "BaseRate lt 100" för alla objekt i samlingen rummen. Du kan läsa mer om OData-syntaxen som Azure Kognitiv sökning stöder [här](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
+Frågan använder ett OData `$filter` -uttryck `Rooms/any(r: r/BaseRate lt 100)` för att filtrera dokumenten i indexet. Detta använder [valfri operator](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) för att tillämpa "BaseRate lt 100" för alla objekt i samlingen rummen. Du kan läsa mer om OData-syntaxen som Azure Kognitiv sökning stöder [här](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Här är resultatet av frågan:
 
@@ -725,7 +725,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-I det här fallet använder vi OData-syntaxen för att `OrderBy` ange parametern `lastRenovationDate desc`som. Vi har också `Top` angett till 2 för att se till att vi bara får de översta två dokumenten. Som tidigare angav `Select` vi för att ange vilka fält som ska returneras.
+I det här fallet använder vi OData-syntaxen för att ange `OrderBy` parametern som `lastRenovationDate desc` . Vi har också angett `Top` till 2 för att se till att vi bara får de översta två dokumenten. Som tidigare angav vi `Select` för att ange vilka fält som ska returneras.
 
 Här är resultaten:
 

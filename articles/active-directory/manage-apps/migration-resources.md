@@ -2,26 +2,26 @@
 title: Resurser för att migrera appar till Azure Active Directory | Microsoft Docs
 description: Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968733"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763116"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resurser för att migrera program till Azure Active Directory
 
-Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD). Ta den här korta undersökningenhttps://aka.ms/AppsMigrationFeedback) (om du vill ge feedback om hur du migrerar appar till Azure AD (inklusive Blocker för migrering, behov av verktyg, vägledning eller orsaker till att du behåller din lokala IDP). 
+Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD). Ta den här korta undersökningen ( https://aka.ms/AppsMigrationFeedback) om du vill ge feedback om hur du migrerar appar till Azure AD (inklusive Blocker för migrering, behov av verktyg, vägledning eller orsaker till att du behåller din lokala IDP). 
 
 | Resurs  | Beskrivning  |
 |:-----------|:-------------|

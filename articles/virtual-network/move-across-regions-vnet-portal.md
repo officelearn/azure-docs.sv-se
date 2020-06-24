@@ -3,15 +3,15 @@ title: Flytta ett virtuellt Azure-nätverk till en annan Azure-region med hjälp
 description: Flytta ett virtuellt Azure-nätverk från en Azure-region till en annan med hjälp av en Resource Manager-mall och Azure Portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75640796"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711450"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure Portal
 
@@ -42,9 +42,9 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och välj sedan **resurs grupper**.
 1. Leta upp resurs gruppen som innehåller det virtuella käll nätverket och markera den.
-1. Välj **Inställningar** > **Exportera mall**.
+1. Välj **Inställningar**  >  **Exportera mall**.
 1. I fönstret **Exportera mall** väljer du **distribuera**.
-1. Öppna filen *Parameters. JSON* i online-redigeraren genom att välja **mall** > **Redigera parametrar**.
+1. Om du vill öppna *parameters.js* filen i redigerings programmet för online väljer du **mall**  >  **Redigera parametrar**.
 1. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **Value** under **parametrar**:
 
     ```json
@@ -63,7 +63,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 1. Välj **Spara** i redigeraren.
 
-1. Öppna filen *Template. JSON* i online-redigeraren genom att välja **mall** > **Redigera mall**.
+1. Om du vill öppna *template.js* filen i redigerings programmet för online väljer du **mall**  >  **Redigera mall**.
 
 1. I online-redigeraren kan du redigera mål regionen där det virtuella nätverket ska flyttas, ändra **plats** egenskapen under **resurser**:
 
@@ -85,11 +85,11 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
     ```
 
-1. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Koden för en region är region namnet, utan blank steg (till exempel **centrala USA** = ,**centrala**).
+1. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/). Koden för en region är region namnet, utan blank steg (till exempel **centrala USA**,  =  **centrala**).
 
 1. Valfritt Du kan också ändra andra parametrar i mallen, beroende på dina krav:
 
-    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **Resources** > **addressSpace** och ändra egenskapen **addressPrefixes** :
+    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **Resources**  >  **addressSpace** och ändra egenskapen **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -140,7 +140,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
                 ]
         ```
 
-        Ändra adressprefixet i filen *Template. JSON* genom att redigera den på två platser: i koden i föregående avsnitt och i avsnittet **typ** i följande kod. Ändra egenskapen **addressPrefix** i följande kod så att den matchar egenskapen **addressPrefix** i koden i föregående avsnitt.
+        Om du vill ändra adressprefixet i *template.js* filen, redigerar du det på två platser: i koden i föregående avsnitt och i avsnittet **typ** i följande kod. Ändra egenskapen **addressPrefix** i följande kod så att den matchar egenskapen **addressPrefix** i koden i föregående avsnitt.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -178,13 +178,13 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 1. I redigeraren för online väljer du **Spara**.
 
-1. Om du vill välja den prenumeration där det virtuella mål nätverket ska distribueras väljer du **grundläggande** > **prenumeration**.
+1. Om du vill välja den prenumeration där det virtuella mål nätverket ska distribueras väljer du **grundläggande**  >  **prenumeration**.
 
-1. Välj**resurs gruppen** **grundläggande** > om du vill välja resurs grupp där det virtuella mål nätverket ska distribueras. 
+1. Välj resurs gruppen **grundläggande**om du vill välja resurs grupp där det virtuella mål nätverket ska distribueras  >  **Resource group**. 
 
     Om du behöver skapa en ny resurs grupp för det virtuella mål nätverket väljer du **Skapa ny**. Kontrol lera att namnet inte är detsamma som käll resurs gruppens namn i det befintliga virtuella nätverket.
 
-1. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att det virtuella nätverket ska distribueras.
+1. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att det virtuella nätverket ska distribueras.
 
 1. Under **Inställningar**kontrollerar du att namnet stämmer överens med det namn som du angav tidigare i parameter redigeraren.
 

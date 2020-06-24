@@ -11,20 +11,20 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref
-ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 20db31b63a82431b7dd59c6c5c92a1fb756c5c06
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611474"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888425"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
-> * [Node. js](cdn-app-dev-node.md)
+> * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 >
 >
@@ -74,7 +74,7 @@ Låt oss få den grundläggande strukturen i vårt program skrivet.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Vi måste definiera vissa konstanter som metoderna kommer att använda.  I- `Program` klassen, men före- `Main` metoden lägger du till följande.  Se till att ersätta plats hållarna, inklusive ** &lt;vinkel paren tes&gt;**, med dina egna värden efter behov.
+2. Vi måste definiera vissa konstanter som metoderna kommer att använda.  I `Program` -klassen, men före `Main` -metoden lägger du till följande.  Se till att ersätta plats hållarna, inklusive ** &lt; vinkel paren tes &gt; **, med dina egna värden efter behov.
 
     ```csharp
     //Tenant app constants
@@ -171,7 +171,7 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Om du använder individuell användarautentisering ser `GetAccessToken` metoden annorlunda ut.
+Om du använder individuell användarautentisering `GetAccessToken` ser metoden annorlunda ut.
 
 > [!IMPORTANT]
 > Använd bara det här kod exemplet om du väljer att ha individuell användarautentisering i stället för ett huvud namn för tjänsten.
@@ -271,7 +271,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Exemplet ovan tilldelar slut punkten ett ursprung med namnet *contoso* med ett värdnamn `www.contoso.com`.  Du bör ändra detta så att det pekar på ditt eget ursprungs namn.
+> Exemplet ovan tilldelar slut punkten ett ursprung med namnet *contoso* med ett värdnamn `www.contoso.com` .  Du bör ändra detta så att det pekar på ditt eget ursprungs namn.
 >
 >
 
@@ -292,7 +292,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> I exemplet ovan noterar strängen `/*` att jag vill rensa allt i roten för slut punkts Sök vägen.  Det motsvarar att kontrol lera **Rensa alla** i dialog rutan för Azure Portal rensa. I- `CreateCdnProfile` metoden skapade jag vår profil som en **Azure CDN från Verizon** -profilen med hjälp av `Sku = new Sku(SkuName.StandardVerizon)`koden, så det kommer att lyckas.  **Azure CDN från Akamai** -profiler stöder dock inte **Rensa alla**, så om jag använde en Akamai-profil för den här själv studie kursen skulle jag behöva inkludera vissa sökvägar för att rensa.
+> I exemplet ovan `/*` noterar strängen att jag vill rensa allt i roten för slut punkts Sök vägen.  Det motsvarar att kontrol lera **Rensa alla** i dialog rutan för Azure Portal rensa. I- `CreateCdnProfile` metoden skapade jag vår profil som en **Azure CDN från Verizon** -profilen med hjälp av koden `Sku = new Sku(SkuName.StandardVerizon)` , så det kommer att lyckas.  **Azure CDN från Akamai** -profiler stöder dock inte **Rensa alla**, så om jag använde en Akamai-profil för den här själv studie kursen skulle jag behöva inkludera vissa sökvägar för att rensa.
 >
 >
 
@@ -336,7 +336,7 @@ Vi kan sedan bekräfta prompterna för att köra resten av programmet.
 
 ![Programmet slutförs](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 [Hämta exemplet](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)för att se det slutförda projektet från den här genom gången.
 
 Om du vill ha mer dokumentation om Azure CDN hanterings bibliotek för .NET kan du läsa [referens på MSDN](/dotnet/api/overview/azure/cdn).

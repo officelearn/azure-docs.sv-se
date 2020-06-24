@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 81a3d8e08486f76fc23a489acd3138d7b9fe8134
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125122"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711637"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -136,7 +136,7 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 ## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Fel: register posten Windows Virtual Desktop agent IsRegistered visar värdet 0
 
-**Orsak:** Registrerings-token har upphört att gälla eller har genererats med ett förfallo värde på 999999.
+**Orsak:** Registrerings-token har upphört att gälla.
 
 **KORRIGERA:** Följ de här anvisningarna för att åtgärda agentens register fel.
 
@@ -182,7 +182,7 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Fel sökning av problem med Windows Virtual Desktop sida vid sida
 
-Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är stacken för Windows Virtual Desktop sida vid sida aktive rad med **enablesxstackrs. ps1**.
+Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är Windows Virtual Desktop sida vid sida aktive rad med **enablesxstackrs.ps1**.
 
 Det finns tre sätt att placera stacken sida vid sida som är installerad eller aktive rad på virtuella datorer för fjärrskrivbordssessioner:
 
@@ -224,8 +224,8 @@ Det finns kända omständigheter som kan orsaka att stacken sida vid sida inte f
 - Följer inte rätt ordning på stegen för att aktivera stack sida vid sida
 - Automatisk uppdatering till Windows 10 Enhanced mångsidig disk (EVD)
 - RDSH-rollen värd för fjärrskrivbordssession saknas
-- Kör enablesxsstackrc. ps1 flera gånger
-- Kör enablesxsstackrc. ps1 i ett konto som inte har lokal administratörs behörighet
+- Köra enablesxsstackrc.ps1 flera gånger
+- Köra enablesxsstackrc.ps1 i ett konto som inte har lokal administratörs behörighet
 
 Anvisningarna i det här avsnittet kan hjälpa dig att avinstallera Windows Virtual Desktop sida vid sida-stack. När du har avinstallerat stacken sida vid sida går du till "registrera den virtuella datorn med Windows-adresspoolen för virtuella skriv bord" i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) för att installera om stacken sida vid sida.
 
@@ -278,7 +278,7 @@ Följ de här anvisningarna för att köra reparationen från samma undernät oc
 
 Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna nedan:
 
-14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc. ps1 till den virtuella datorns systemen het med fel sida vid sida-stack.
+14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc.ps1 till den virtuella datorns systemen het med fel staplad sida vid sida.
 
     ```cmd
         \\<VMname>\c$\
@@ -287,7 +287,7 @@ Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna
     >[!NOTE]
     >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
-15. Den rekommenderade processen: starta PowerShell i PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc. ps1. Du kan också köra följande cmdlets:
+15. Den rekommenderade processen: starta PowerShell i PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc.ps1. Du kan också köra följande cmdlets:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force

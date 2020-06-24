@@ -1,5 +1,5 @@
 ---
-title: Händelse vägar
+title: Händelsevägar
 titleSuffix: Azure Digital Twins
 description: Förstå hur du dirigerar händelser i Azure Digitals dubbla och till andra Azure-tjänster.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4ba931555b8e6fa146b68ff2db0bee9c774d1a1b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: be5709c8ccf8626ac3a48fdf7cad1c61dbfbf628
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613035"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729529"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digitals dubbla använder **händelse vägar** för att skicka data till konsumenter utanför tjänsten. 
 

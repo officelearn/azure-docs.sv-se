@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603764"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718707"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Förbättra din säkerhetshållning med Azure Security Center
 Den här artikeln hjälper dig att förstärka din säkerhets position. Använd övervaknings funktionerna i Azure Security Center för att se till att resurs säkerheten är så tätt som möjligt och övervaka efterlevnaden av principer.
@@ -34,7 +34,7 @@ Du kan visa säkerhets status för dina resurser och eventuella problem per resu
 - För att övervaka dina nätverks resurser, till exempel virtuella datorer, nätverks säkerhets grupper och slut punkter och få rekommendationer för att förbättra säkerheten, se [skydda nätverket i Azure Security Center](security-center-network-recommendations.md) för mer information. 
 - För att övervaka dina data och lagrings resurser, till exempel SQL-servrar och lagrings konton, samt få rekommendationer för att förbättra säkerheten, se [skydda Azure SQL-tjänsten och data i Azure Security Center](security-center-sql-service-recommendations.md) för mer information. 
 - För att övervaka dina identitets-och åtkomst resurser, inklusive MFA-och konto behörigheter, och få rekommendationer för att förbättra säkerheten, se [övervaka identitet och åtkomst i Azure Security Center](security-center-identity-access.md) för mer information. 
-- Information om hur du övervakar just-in-Time-åtkomst till dina resurser finns i [Hantera åtkomst till virtuella datorer med just-in-Time](security-center-just-in-time.md) för mer information. 
+- Information om hur du övervakar just-in-Time-åtkomst till dina resurser finns i [Hantera åtkomst till virtuella datorer med just-in-Time](security-center-just-in-time.md) för mer information.
 
 
 Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).

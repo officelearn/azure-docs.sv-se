@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250314"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711603"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
@@ -19,7 +19,7 @@ I det här avsnittet beskrivs hur du använder Azure CLI för att hitta VM-avbil
 
 Du kan också hitta tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Se till att du har installerat den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på`az login`ett Azure-konto ().
+Se till att du har installerat den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -49,7 +49,7 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Söka efter specifika avbildningar
 
-Om du vill hitta en speciell VM-avbildning på Marketplace använder `az vm image list` du kommandot med `--all` alternativet. Den här versionen av kommandot tar lite tid att slutföra och kan returnera långa utdata, så du filtrerar vanligt vis listan efter `--publisher` eller en annan parameter. 
+Om du vill hitta en speciell VM-avbildning på Marketplace använder du `az vm image list` kommandot med `--all` alternativet. Den här versionen av kommandot tar lite tid att slutföra och kan returnera långa utdata, så du filtrerar vanligt vis listan efter `--publisher` eller en annan parameter. 
 
 Till exempel visar följande kommando alla Debian-erbjudanden (kom ihåg att utan `--all` växeln söker det bara i det lokala cacheminnet av vanliga avbildningar):
 
@@ -98,9 +98,9 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 ...
 ```
 
-Använd liknande filter med alternativen `--location`, `--publisher`och `--sku` . Du kan utföra partiella matchningar i ett filter, till exempel `--offer Deb` söka efter för att hitta alla Debian-avbildningar.
+Använd liknande filter med `--location` alternativen, `--publisher` och `--sku` . Du kan utföra partiella matchningar i ett filter, till exempel söka efter för `--offer Deb` att hitta alla Debian-avbildningar.
 
-Om du inte anger en viss plats med `--location` alternativet returneras värdena för standard platsen. (Ange en annan standard plats genom att `az configure --defaults location=<location>`köra.)
+Om du inte anger en viss plats med `--location` alternativet returneras värdena för standard platsen. (Ange en annan standard plats genom att köra `az configure --defaults location=<location>` .)
 
 Följande kommando visar till exempel alla Debian 8 SKU: er på platsen Västeuropa:
 
@@ -186,7 +186,7 @@ westus      akumina
 ...
 ```
 
-Använd den här informationen för att hitta erbjudanden från en speciell utgivare. Till exempel för den *kanoniska* utgivaren på platsen västra USA hittar du erbjudanden genom att `azure vm image list-offers`köra. Skicka platsen och utgivaren som i följande exempel:
+Använd den här informationen för att hitta erbjudanden från en speciell utgivare. Till exempel för den *kanoniska* utgivaren på platsen västra USA hittar du erbjudanden genom att köra `azure vm image list-offers` . Skicka platsen och utgivaren som i följande exempel:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -270,15 +270,15 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 
 Nu kan du välja exakt den avbildning som du vill använda genom att anteckna värdet för URN. Skicka det här värdet med `--image` parametern när du skapar en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm) . Kom ihåg att du kan välja att ersätta versions numret i URN med "senaste". Den här versionen är alltid den senaste versionen av avbildningen. 
 
-Om du distribuerar en virtuell dator med en Resource Manager-mall ställer du in avbildnings parametrarna individuellt `imageReference` i egenskaperna. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
+Om du distribuerar en virtuell dator med en Resource Manager-mall ställer du in avbildnings parametrarna individuellt i `imageReference` egenskaperna. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
 ### <a name="view-plan-properties"></a>Visa plan egenskaper
 
-Om du vill visa information om inköps planen för en bild kör du kommandot [AZ VM Image show](/cli/azure/image) . Om `plan` egenskapen i utdata inte `null`är så har bilden de termer som du behöver acceptera innan du programmerar distributionen.
+Om du vill visa information om inköps planen för en bild kör du kommandot [AZ VM Image show](/cli/azure/image) . Om `plan` egenskapen i utdata inte är `null` så har bilden de termer som du behöver acceptera innan du programmerar distributionen.
 
-Till exempel har den kanoniska Ubuntu Server 18,04 LTS-avbildningen inga ytterligare villkor, `plan` eftersom informationen `null`är:
+Till exempel har den kanoniska Ubuntu Server 18,04 LTS-avbildningen inga ytterligare villkor, eftersom `plan` informationen är `null` :
 
 ```azurecli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
@@ -300,7 +300,7 @@ Resultat:
 }
 ```
 
-Om du kör ett liknande kommando för rabbitmq-certifierad av Bitnami-bilden `plan` visas följande `name`egenskaper `product`:, `publisher`och. (Vissa bilder har också en `promotion code` egenskap.) Information om hur du distribuerar den här avbildningen finns i följande avsnitt för att acceptera villkoren och aktivera programmerings distribution.
+Om du kör ett liknande kommando för RabbitMQ-certifierad av Bitnami-bilden visas följande `plan` Egenskaper: `name` , `product` och `publisher` . (Vissa bilder har också en `promotion code` egenskap.) Information om hur du distribuerar den här avbildningen finns i följande avsnitt för att acceptera villkoren och aktivera programmerings distribution.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -333,7 +333,7 @@ Om du vill visa och godkänna licens villkoren använder du kommandot [AZ VM Ima
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-Utdata innehåller en `licenseTextLink` till licens villkoren och anger att värdet för `accepted` är: `true`
+Utdata innehåller en `licenseTextLink` till licens villkoren och anger att värdet för `accepted` är `true` :
 
 ```
 {
@@ -354,7 +354,7 @@ Utdata innehåller en `licenseTextLink` till licens villkoren och anger att vär
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med parametrar för inköps plan
 
-När du har accepterat villkoren för avbildningen kan du distribuera en virtuell dator i prenumerationen. Om du vill distribuera avbildningen med `az vm create` hjälp av kommandot anger du parametrar för inköps planen förutom en URN för avbildningen. Till exempel för att distribuera en virtuell dator med RabbitMQ-certifierad av Bitnami-avbildningen:
+När du har accepterat villkoren för avbildningen kan du distribuera en virtuell dator i prenumerationen. Om du vill distribuera avbildningen med hjälp av `az vm create` kommandot anger du parametrar för inköps planen förutom en URN för avbildningen. Till exempel för att distribuera en virtuell dator med RabbitMQ-certifierad av Bitnami-avbildningen:
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus

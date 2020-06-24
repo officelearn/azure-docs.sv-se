@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9279622ee54a9fdaa6617cfe2758cfb563fdbffa
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113301"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080597"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL Database innehåll med hjälp av en Azure Kognitiv sökning-indexerare
 
@@ -140,7 +140,7 @@ Svaret bör se ut ungefär så här:
     }
 
 Körnings historiken innehåller upp till 50 av de senaste slutförda körningarna, som sorteras i omvänd kronologisk ordning (så att den senaste körningen kommer först i svaret).
-Ytterligare information om svaret finns i [Hämta index status](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Ytterligare information om svaret finns i [Hämta index status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Köra indexerare enligt ett schema
 Du kan också ordna indexeraren så att den körs regelbundet enligt ett schema. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar indexeraren. I exemplet nedan visas en skicka-begäran om att uppdatera indexeraren:
@@ -155,7 +155,7 @@ Du kan också ordna indexeraren så att den körs regelbundet enligt ett schema.
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
+Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))` . Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
@@ -228,11 +228,32 @@ Om du vill använda en hög vatten märkes princip skapar eller uppdaterar du di
     }
 
 > [!WARNING]
-> Om käll tabellen inte har något index för kolumnen med hög vatten märke kan det hända att frågor som används av SQL-indexeraren har nått sin tids gräns. I synnerhet kräver `ORDER BY [High Water Mark Column]` satsen att ett index körs effektivt när tabellen innehåller många rader.
+> Om käll tabellen inte har något index för kolumnen med hög vatten märke kan det hända att frågor som används av SQL-indexeraren har nått sin tids gräns. I synnerhet `ORDER BY [High Water Mark Column]` kräver satsen att ett index körs effektivt när tabellen innehåller många rader.
 >
 >
 
-Om du råkar ut för tids gräns fel kan `queryTimeout` du använda konfigurations inställningen indexeraren för att ange ett värde som är högre än standardvärdet på 5 minuter. Om du till exempel vill ställa in tids gränsen på 10 minuter skapar eller uppdaterar du indexeraren med följande konfiguration:
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
+
+Om du använder data typen [ROWVERSION](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) för den övre vatten märkes kolumnen, bör du överväga att använda `convertHighWaterMarkToRowVersion` konfigurations inställningen indexeraren. `convertHighWaterMarkToRowVersion`gör två saker:
+
+* Använd data typen ROWVERSION för kolumnen hög vatten märke i SQL-frågan Indexer. Genom att använda rätt datatyp får du bättre prestanda för indexerings frågor.
+* Subtrahera 1 från ROWVERSION-värdet innan frågan körs i indexet. Vyer med 1 till många kopplingar kan ha rader med dubbla ROWVERSION-värden. Om man subtraherar 1 bevaras inte de här raderna i indexerings frågan.
+
+Om du vill aktivera den här funktionen skapar eller uppdaterar du indexeraren med följande konfiguration:
+
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+
+<a name="queryTimeout"></a>
+
+##### <a name="querytimeout"></a>queryTimeout
+
+Om du råkar ut för tids gräns fel kan du använda `queryTimeout` konfigurations inställningen indexeraren för att ange ett värde som är högre än standardvärdet på 5 minuter. Om du till exempel vill ställa in tids gränsen på 10 minuter skapar eller uppdaterar du indexeraren med följande konfiguration:
 
     {
       ... other indexer definition properties
@@ -240,7 +261,11 @@ Om du råkar ut för tids gräns fel kan `queryTimeout` du använda konfiguratio
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-Du kan också inaktivera- `ORDER BY [High Water Mark Column]` satsen. Detta rekommenderas dock inte eftersom körningen av indexeraren avbryts av ett fel, men indexeraren måste bearbeta alla rader på nytt om den körs senare – även om indexeraren redan har bearbetat nästan alla rader efter den tid som den avbröts. Om du vill `ORDER BY` inaktivera satsen använder `disableOrderByHighWaterMarkColumn` du inställningen i index definitions definitionen:  
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### <a name="disableorderbyhighwatermarkcolumn"></a>disableOrderByHighWaterMarkColumn
+
+Du kan också inaktivera- `ORDER BY [High Water Mark Column]` satsen. Detta rekommenderas dock inte eftersom körningen av indexeraren avbryts av ett fel, men indexeraren måste bearbeta alla rader på nytt om den körs senare – även om indexeraren redan har bearbetat nästan alla rader efter den tid som den avbröts. Om du vill inaktivera `ORDER BY` satsen använder du `disableOrderByHighWaterMarkColumn` inställningen i index definitions definitionen:  
 
     {
      ... other indexer definition properties
@@ -264,12 +289,12 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
         }
     }
 
-**SoftDeleteMarkerValue** måste vara en sträng – Använd sträng representationen för det faktiska värdet. Om du till exempel har en heltals kolumn där borttagna rader är markerade med värdet 1, använder `"1"`du. Om du har en BIT-kolumn där borttagna rader har marker ATS med det booleska sanna värdet, använder `True` du `true`sträng literalen eller så spelar det ingen roll.
+**SoftDeleteMarkerValue** måste vara en sträng – Använd sträng representationen för det faktiska värdet. Om du till exempel har en heltals kolumn där borttagna rader är markerade med värdet 1, använder du `"1"` . Om du har en BIT-kolumn där borttagna rader har marker ATS med det booleska sanna värdet, använder du sträng literalen `True` eller `true` så spelar det ingen roll.
 
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
-| SQL-datatyp | Tillåtna fält typer för mål index | Anteckningar |
+| SQL-datatyp | Tillåtna fält typer för mål index | Kommentarer |
 | --- | --- | --- |
 | bit |EDM. Boolean, EDM. String | |
 | int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
@@ -286,10 +311,10 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 ## <a name="configuration-settings"></a>Konfigurations inställningar
 SQL-indexeraren visar flera konfigurations inställningar:
 
-| Inställning | Datatyp | Syfte | Standardvärde |
+| Inställningen | Datatyp | Syfte | Standardvärde |
 | --- | --- | --- | --- |
 | queryTimeout |sträng |Anger tids gränsen för körning av SQL-fråga |5 minuter ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |boolesk |Gör att SQL-frågan som används av den övre vatten märkes principen utesluter ORDER BY-satsen. Se [hög vatten märkes princip](#HighWaterMarkPolicy) |false |
+| disableOrderByHighWaterMarkColumn |boolesk |Gör att SQL-frågan som används av den övre vatten märkes principen utesluter ORDER BY-satsen. Se [hög vatten märkes princip](#HighWaterMarkPolicy) |falskt |
 
 De här inställningarna används i `parameters.configuration` objektet i index definitions definitionen. Om du till exempel vill ange tids gräns för frågan till 10 minuter skapar eller uppdaterar du indexeraren med följande konfiguration:
 
@@ -329,7 +354,7 @@ För stegvis indexering stöder Azure Kognitiv sökning två principer för änd
 
 SQL Database stöder inte integrerad ändrings spårning på skrivskyddade repliker. Därför måste du använda en hög vatten märknings princip. 
 
-Vår standard rekommendation är att använda data typen ROWVERSION för den övre vatten märkes kolumnen. Men att använda ROWVERSION förlitar sig på `MIN_ACTIVE_ROWVERSION` SQL Databases funktion som inte stöds på skrivskyddade repliker. Därför måste du peka indexeraren till en primär replik om du använder ROWVERSION.
+Vår standard rekommendation är att använda data typen ROWVERSION för den övre vatten märkes kolumnen. Men att använda ROWVERSION förlitar sig på SQL Databases `MIN_ACTIVE_ROWVERSION` funktion som inte stöds på skrivskyddade repliker. Därför måste du peka indexeraren till en primär replik om du använder ROWVERSION.
 
 Om du försöker använda ROWVERSION på en skrivskyddad replik visas följande fel: 
 

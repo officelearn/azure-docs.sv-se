@@ -4,17 +4,16 @@ description: Den här artikeln hjälper dig att förstå hur Traffic Manager öv
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
-ms.topic: article
+ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
-ms.openlocfilehash: 818b692884bd9d31efd08663a582ebcfec2032e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33fdc2875d8d766f212301ddfecf9dbb734b876a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938475"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689749"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Traffic Manager under näts Åsidosätt med Azure CLI
 
@@ -76,7 +75,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 
 ```
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Läs mer om hur du Traffic Manager [metoder för trafik cirkulation](traffic-manager-routing-methods.md).
 
 Lär dig mer om [routningsmetod för under näts trafik](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

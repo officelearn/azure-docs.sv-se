@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247363"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711297"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -89,7 +89,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
    ![Lägg till nytt steg i Logic app-arbetsflöde](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet (**+**) som visas och välj **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd**.
 
 3. I rutan Sök anger du "Azure Blob" som filter. Välj den åtgärd du vill använda i listan åtgärder.
 
@@ -123,8 +123,8 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Anslutnings namn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
-   | **Lagrings konto** | Ja | <*lagring – konto*> | Välj ditt lagrings konto i listan. |
+   | **Anslutnings namn** | Yes | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
+   | **Lagrings konto** | Yes | <*lagring – konto*> | Välj ditt lagrings konto i listan. |
    ||||
 
    Ett exempel:
@@ -194,7 +194,7 @@ Följ dessa allmänna steg om du vill ställa in undantag och hanterad identitet
 1. I din Logic app-arbetsflöde lägger du till och konfigurerar HTTP-åtgärden eller utlösaren för åtkomst till lagrings kontot eller entiteten.
 
    > [!IMPORTANT]
-   > För utgående HTTP-åtgärder eller utlösnings anrop till Azure Storage konton, se till att rubriken för `x-ms-version` begäran innehåller egenskapen och API-versionen för den åtgärd som du vill köra på lagrings kontot. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) och [versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > För utgående HTTP-åtgärder eller utlösnings anrop till Azure Storage konton, se till att rubriken för begäran innehåller `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra på lagrings kontot. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) och [versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. [Välj den hanterade identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) som ska användas för autentisering på den åtgärden.
 

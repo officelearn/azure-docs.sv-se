@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4ae15d0898cedb0ed17dc308584769395aa819c2
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014935"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079474"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -35,6 +35,9 @@ NAT-regler används för att ange en server dels resurs som trafik ska skickas t
 
 ## <a name="what-is-ip-1686312916"></a>Vad är IP-168.63.129.16?
 Den virtuella IP-adressen för värden som taggats som Azure-infrastruktur Load Balancer där Azures hälso avsökningen kommer. När du konfigurerar Server dels instanser måste de tillåta trafik från den här IP-adressen att kunna svara på hälso avsökningar. Den här regeln samverkar inte med åtkomst till din Load Balancer-frontend. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. Du kan lära dig mer om service märken [här](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-blancer"></a>Kan jag använda global VNET-peering med Basic load Blancer?
+Nej. Basic Load Balancer stöder inte global VNET-peering. Du kan använda en Standard Load Balancer i stället. Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för sömlös uppgradering.
 
 ## <a name="next-steps"></a>Efterföljande moment
 Om din fråga inte visas ovan kan du skicka feedback om den här sidan med din fråga. Detta skapar ett GitHub-problem för produkt teamet för att se till att alla våra värdefulla kund frågor besvaras.

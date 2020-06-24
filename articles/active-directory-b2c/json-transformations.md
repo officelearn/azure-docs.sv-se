@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756753"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204378"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du använder JSON-anspråks omvand
 
 Använd antingen anspråks värden eller konstanter för att generera en JSON-sträng. Sök vägs strängen följande punkt notation används för att ange var data ska infogas i en JSON-sträng. Efter delning med punkter tolkas alla heltal som index för en JSON-matris och icke-heltal tolkas som index för ett JSON-objekt.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där anspråks värde ska infogas i. |
 | InputParameter | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där det konstanta strängvärdet ska infogas i. |
@@ -36,7 +36,7 @@ Använd antingen anspråks värden eller konstanter för att generera en JSON-st
 
 I följande exempel genereras en JSON-sträng baserat på anspråks värdet "email" och "eng ång slö sen" samt konstanta strängar.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -58,16 +58,16 @@ I följande exempel genereras en JSON-sträng baserat på anspråks värdet "ema
 Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att bli bröd texten i begäran som skickas till SendGrid (en tredjeparts e-postprovider). JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar.
 
 - Inmatade anspråk:
-  - **e-post**, typ **anpassningar av omvandlings anspråk. 0. till. 0. e-post**: "someone@example.com"
+  - **e-post**, typ **anpassningar av omvandlings anspråk. 0. till. 0. e-post**: " someone@example.com "
   - **eng ång slö sen ord**, typ anpassningar av omvandlings anspråk **. 0. dynamic_template_data. eng ång slö 346349 sen ord**
 - Indataparameter:
   - **TEMPLATE_ID**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **från. e-post**: "service@contoso.com"
+  - **från. e-post**: " service@contoso.com "
   - **anpassningar. 0. Subject** "e-postverifierings kod för Contoso-konto"
 - Utgående anspråk:
   - **requestBody**: JSON-värde
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -94,15 +94,15 @@ Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att
 
 Hämta ett angivet element från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | InputParameter | claimToExtract | sträng | namnet på det JSON-element som ska extraheras. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, det element värde som anges i indataparametern _claimToExtract_ . |
 
-I följande exempel extraherade anspråks omvandlingen `emailAddress` ELEMENTET från JSON-data:`{"emailAddress": "someone@example.com", "displayName": "Someone"}`
+I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet från JSON-data:`{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -119,7 +119,7 @@ I följande exempel extraherade anspråks omvandlingen `emailAddress` ELEMENTET 
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputJson**: {"EmailAddress": "someone@example.com", "DisplayName": "någon"}
+  - **inputJson**: {"EmailAddress": " someone@example.com ", "DisplayName": "någon"}
 - Indataparameter:
     - **claimToExtract**: EmailAddress
 - Utgående anspråk:
@@ -130,7 +130,7 @@ I följande exempel extraherade anspråks omvandlingen `emailAddress` ELEMENTET 
 
 Hämta en lista med angivna element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråk. |
 | InputParameter | errorOnMissingClaims | boolean | Anger om ett fel ska genereras om en av anspråken saknas. |
@@ -141,11 +141,11 @@ Hämta en lista med angivna element från JSON-data.
 
 I följande exempel extraherar anspråks omvandlingen följande anspråk: email (sträng), displayName (sträng), membershipNum (int), Active (Boolean) och födelse datum (datetime) från JSON-data.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -167,14 +167,14 @@ I följande exempel extraherar anspråks omvandlingen följande anspråk: email 
 ```
 
 - Inmatade anspråk:
-  - **jsonSourceClaim**: [{"Key": "e-post", "value"someone@example.com: ""}, {"Key": "DisplayName", "värde": "någon"}, {"Key": "membershipNum", "värde": 6353399}, {"Key": "Active", "värde": true}, {"Key": "födelse datum", "värde": "1980-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**: [{"Key": "e-post", "value": " someone@example.com "}, {"Key": "DisplayName", "värde": "någon"}, {"Key": "membershipNum", "värde": 6353399}, {"Key": "Active", "värde": true}, {"Key": "födelse datum", "värde": "1980-09-23T00:00:00Z"}]
 - Indataparametrar:
     - **errorOnMissingClaims**: falskt
     - **includeEmptyClaims**: falskt
     - **jsonSourceKeyName**: nyckel
     - **jsonSourceValueName**: värde
 - Utgående anspråk:
-  - **e-post**: "someone@example.com"
+  - **e-post**: " someone@example.com "
   - **DisplayName**: "någon"
   - **membershipNum**: 6353399
   - **aktiv**: true
@@ -184,15 +184,15 @@ I följande exempel extraherar anspråks omvandlingen följande anspråk: email 
 
 Hämtar ett angivet numeriskt (långt) element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråket. |
 | InputParameter | claimToExtract | sträng | Namnet på det JSON-element som ska extraheras. |
 | OutputClaim | extractedClaim | long | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, elementets värde som anges i indataparametrarna för _claimToExtract_ . |
 
-I följande exempel extraherar anspråks omvandlingen `id` ELEMENTET från JSON-data.
+I följande exempel extraherar anspråks omvandlingen `id` elementet från JSON-data.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -200,7 +200,7 @@ I följande exempel extraherar anspråks omvandlingen `id` ELEMENTET från JSON-
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -217,7 +217,7 @@ I följande exempel extraherar anspråks omvandlingen `id` ELEMENTET från JSON-
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputJson**: {"EmailAddress": "someone@example.com", "DisplayName": "någon", "ID": 6353399}
+  - **inputJson**: {"EmailAddress": " someone@example.com ", "DisplayName": "någon", "id": 6353399}
 - Indataparametrar
     - **claimToExtract**: ID
 - Utgående anspråk:
@@ -227,15 +227,15 @@ I följande exempel extraherar anspråks omvandlingen `id` ELEMENTET från JSON-
 
 Hämtar det första elementet från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-data. |
-| OutputClaim | key | sträng | Den första element nyckeln i JSON. |
+| OutputClaim | nyckel | sträng | Den första element nyckeln i JSON. |
 | OutputClaim | värde | sträng | Det första elementets värde i JSON. |
 
 I följande exempel extraherar anspråks omvandlingen det första elementet (tilldelat namn) från JSON-data.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -260,14 +260,14 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (til
 
 Hämtar det första elementet från en JSON-datamatris.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-matrisen. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, det första elementet i JSON-matrisen. |
 
-I följande exempel extraherar anspråks omvandlingen det första elementet (e-postadress) från JSON- `["someone@example.com", "Someone", 6353399]`matrisen.
+I följande exempel extraherar anspråks omvandlingen det första elementet (e-postadress) från JSON-matrisen `["someone@example.com", "Someone", 6353399]` .
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -281,7 +281,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (e-p
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputJsonClaim**: ["someone@example.com", "någon", 6353399]
+  - **inputJsonClaim**: [" someone@example.com ", "någon", 6353399]
 - Utgående anspråk:
   - **extractedClaim**:someone@example.com
 
@@ -289,12 +289,12 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (e-p
 
 Konverterar XML-data till JSON-format.
 
-| Objekt | TransformationClaimType | Datatyp | Obs! |
+| Objekt | TransformationClaimType | Datatyp | Kommentarer |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | xml | sträng | ClaimTypes som används av anspråks omvandlingen för att konvertera data från XML till JSON-format. |
 | OutputClaim | json | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, data i JSON-format. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -310,7 +310,7 @@ I följande exempel konverterar anspråks omvandlingen följande XML-data till J
 #### <a name="example"></a>Exempel
 Indatamängds anspråk:
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -319,7 +319,7 @@ Indatamängds anspråk:
 
 Utgående anspråk:
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",

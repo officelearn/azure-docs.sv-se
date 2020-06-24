@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 46fdd72842db790a8f4ecadfc875069962dcf449
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582858"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728154"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Office 365-grupper i Azure Active Directory
 
@@ -36,23 +36,23 @@ När en grupp namngivnings princip har kon figurer ATS, kommer principen att til
 
 Du kan tillämpa namngivnings princip för grupper på två olika sätt:
 
-- **Prefix-namngivnings princip för suffix** Du kan definiera prefix eller suffix som sedan läggs till automatiskt för att genomdriva en namngivnings konvention i dina grupper (till exempel\_i grupp namnet "GRP Japan\_My Group\_Engineering", GRP\_Japan\_ är prefixet och \_teknik är suffixet). 
+- **Prefix-namngivnings princip för suffix** Du kan definiera prefix eller suffix som sedan läggs till automatiskt för att genomdriva en namngivnings konvention i dina grupper (till exempel i grupp namnet "GRP \_ Japan \_ My Group \_ Engineering", GRP \_ Japan \_ är prefixet och \_ teknik är suffixet). 
 
 - **Anpassade blockerade ord** Du kan ladda upp en uppsättning blockerade ord som är särskilt för din organisation att blockeras i grupper som skapats av användare (till exempel "VD, löner, HR").
 
 ### <a name="prefix-suffix-naming-policy"></a>Prefix-namngivnings princip för suffix
 
-Den allmänna strukturen i namngivnings konventionen är prefix [GroupName] suffix. Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar eller användarattribut, till exempel \[avdelning\] som ersätts av den användare som skapar gruppen. Det totala antalet tecken som tillåts för prefix-och suffix-strängar, inklusive grupp namn är 53 tecken. 
+Den allmänna strukturen i namngivnings konventionen är prefix [GroupName] suffix. Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar eller användarattribut, till exempel \[ avdelning \] som ersätts av den användare som skapar gruppen. Det totala antalet tecken som tillåts för prefix-och suffix-strängar, inklusive grupp namn är 53 tecken. 
 
 Prefix och suffix kan innehålla specialtecken som stöds i grupp namn och grupp Ali Aset. Alla tecken i prefixet eller suffixet som inte stöds i grupp Ali Aset används fortfarande i grupp namnet, men tas bort från grupp Ali Aset. På grund av den här begränsningen kan prefix och suffix som tillämpas på grupp namnet skilja sig från de som tillämpas på grupp Ali Aset. 
 
 #### <a name="fixed-strings"></a>Fasta strängar
 
-Du kan använda strängar för att göra det enklare att söka igenom och särskilja grupper i den globala adress listan och i de vänstra navigerings länkarna i grupp arbets belastningar. Några av de vanliga prefixen är nyckelord som "GRP\_Name", "\#Name", "\_Name"
+Du kan använda strängar för att göra det enklare att söka igenom och särskilja grupper i den globala adress listan och i de vänstra navigerings länkarna i grupp arbets belastningar. Några av de vanliga prefixen är nyckelord som "GRP \_ Name", " \# Name", " \_ Name"
 
 #### <a name="user-attributes"></a>Användarattribut
 
-Du kan använda attribut som kan hjälpa dig och dina användare att identifiera vilken avdelning, vilket kontor eller vilken region som gruppen skapades för. Om du till exempel definierar din namngivnings princip som `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`och `User’s department = Engineering`, kan ett framtvingat grupp namn vara "GRP My Group Engineering". Azure AD-attribut som \[stöds\]är \[avdelning\], \[företag\], \[kontor\], \[StateOrProvince\], \[CountryorRegion\], title. Användarattribut som inte stöds behandlas som fasta strängar. till exempel "\[post nummer\]". Attribut för tillägg och anpassade attribut stöds inte.
+Du kan använda attribut som kan hjälpa dig och dina användare att identifiera vilken avdelning, vilket kontor eller vilken region som gruppen skapades för. Om du till exempel definierar din namngivnings princip som `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` och `User’s department = Engineering` , kan ett framtvingat grupp namn vara "GRP My Group Engineering". Azure AD-attribut som stöds är \[ avdelning \] , \[ företag \] , \[ kontor \] , \[ StateOrProvince \] , \[ CountryorRegion \] , \[ title \] . Användarattribut som inte stöds behandlas som fasta strängar. till exempel " \[ post nummer \] ". Attribut för tillägg och anpassade attribut stöds inte.
 
 Vi rekommenderar att du använder attribut som har ifyllda värden för alla användare i din organisation och inte använder attribut som har långa värden.
 
@@ -72,14 +72,14 @@ Blockerade ord List regler:
 Om du vill konfigurera en namngivnings princip krävs en av följande roller:
 - Global administratör
 - Grupp administratör
-- Användar administratör
+- Användaradministratör
 
 De valda administratörerna kan undantas från dessa principer, i alla grupp arbets belastningar och slut punkter, så att de kan skapa grupper med hjälp av blockerade ord och med egna namngivnings konventioner. Följande är en lista över administratörs roller som är undantagna från grupp namngivnings principen.
 
 - Global administratör
 - Support på partner nivå 1
 - Support på partner nivå 2
-- Användar administratör
+- Användaradministratör
 - Katalog skrivare
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurera namngivnings princip i Azure Portal
@@ -174,7 +174,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Klart! Du har angett en namngivnings princip och lagt till dina blockerade ord.
+Och sedan är du klar. Du har angett en namngivnings princip och lagt till dina blockerade ord.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportera eller importera anpassade blockerade ord
 

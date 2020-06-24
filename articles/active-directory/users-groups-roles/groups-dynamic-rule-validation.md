@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e081f62949f4cf3f7ae375b2c60ee5b032d974
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbbe37938249ee02c7deb4081a96aa1be2d8b7cb
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115526"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728512"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Verifiera en regel för dynamisk grupp medlemskap (förhands granskning) i Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) ger nu möjlighet att verifiera dynamiska grup
 
 ## <a name="step-by-step-walk-through"></a>Steg för steg-anvisningar
 
-Kom igång genom att gå till **Azure Active Directory** > **grupper**. Välj en befintlig dynamisk grupp eller skapa en ny dynamisk grupp och klicka på regler för dynamiskt medlemskap. Sedan kan du se fliken **validera regler** .
+Kom igång genom att gå till **Azure Active Directory**  >  **grupper**. Välj en befintlig dynamisk grupp eller skapa en ny dynamisk grupp och klicka på regler för dynamiskt medlemskap. Sedan kan du se fliken **validera regler** .
 
 ![Leta upp fliken validera regler och börja med en befintlig regel](./media/groups-dynamic-rule-validation/validate-tab.png)
 

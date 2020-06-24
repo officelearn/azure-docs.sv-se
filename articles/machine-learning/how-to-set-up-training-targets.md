@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 53a80a25f4694734c931acffe686813456ea92f9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: aa11f7e964f66d0a345e25f307127d75838f872f
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556691"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718724"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,13 +156,6 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
                                                    username='<username>',
                                                    password="<password>")
 
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
-
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
@@ -193,7 +186,7 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
 
 1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange resurs-ID, användar namn och lösen ord för HDInsight-klustret. Resurs-ID för HDInsight-klustret kan konstrueras med prenumerations-ID, resurs grupp namn och HDInsight-kluster namn med följande sträng format:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

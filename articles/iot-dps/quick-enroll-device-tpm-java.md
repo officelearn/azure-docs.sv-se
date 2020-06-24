@@ -10,11 +10,11 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241698"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711229"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Java-tjänst-SDK
 
@@ -130,7 +130,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
     mvn install -DskipTests
     ```
 
-   Det här kommandot laddar ned maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) -paketet till din dator. Det här paketet innehåller binärfilerna för [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/), som exempel koden måste bygga. 
+   Det här kommandot laddar ned maven-paketet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) till din dator. Det här paketet innehåller binärfilerna för [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/), som exempel koden måste bygga. 
 
 3. Kör exemplet genom att använda de här kommandona i kommandofönstret:
 

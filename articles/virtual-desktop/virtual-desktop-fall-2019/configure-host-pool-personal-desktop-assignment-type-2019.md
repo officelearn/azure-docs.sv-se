@@ -4,16 +4,16 @@ description: Så här konfigurerar du tilldelnings typen för en virtuell Window
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827479"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204871"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
 
@@ -31,7 +31,7 @@ Automatisk tilldelning är standard tilldelnings typen för nya personliga Skriv
 
 Om du vill tilldela användare automatiskt måste du först tilldela dem till den personliga Skriv bords värds adresspoolen så att de kan se Skriv bordet i deras flöde. När en tilldelad användare startar Skriv bordet i sitt flöde ansluts de till en tillgänglig sessionsgräns om de inte redan har anslutit till den, vilket slutför tilldelnings processen.
 
-Innan du börjar kan du [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) om du inte redan har gjort det. 
+Innan du börjar kan du [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) om du inte redan har gjort det.
 
 > [!NOTE]
 > Kontrol lera att du har installerat PowerShell-modulen version 1.0.1534.2001 eller senare av Windows Virtual Desktop innan du följer dessa anvisningar.

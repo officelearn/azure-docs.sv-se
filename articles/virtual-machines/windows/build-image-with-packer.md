@@ -8,17 +8,17 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 219685b1f82cea3e85a6d45023e913141345e685
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773329"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106514"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Använda Packer för att skapa avbildningar av virtuella Windows-datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distribution och operativ system version. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga operativ system och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyget med](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
 
-Den här artikeln testades senast 2/21/2019 med hjälp av [AZ PowerShell-modul](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 och [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
+Den här artikeln testades senast 2/21/2019 med hjälp av [AZ PowerShell-modul](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 och [Packer](https://www.packer.io/docs/install) version 1.3.4.
 
 > [!NOTE]
 > Nu har Azure en tjänst, Azure Image Builder (för hands version), för att definiera och skapa egna anpassade avbildningar. Azure Image Builder bygger på Packer, så du kan till och med använda dina befintliga Packers Shell-Provisioning-skript med det. Information om hur du kommer igång med Azure Image Builder finns i [skapa en virtuell Windows-dator med Azure Image Builder](image-builder.md).
@@ -64,7 +64,7 @@ Get-AzSubscription
 ## <a name="define-packer-template"></a>Definiera Packer-mall
 För att skapa avbildningar skapar du en mall som en JSON-fil. I mallen definierar du skapare och provisioner som utför den faktiska Bygg processen. Packer har ett [verktyg för Azure](https://www.packer.io/docs/builders/azure.html) som gör att du kan definiera Azure-resurser, till exempel de autentiseringsuppgifter för tjänstens huvud namn som skapades i föregående steg.
 
-Skapa en fil med namnet *Windows. JSON* och klistra in följande innehåll. Ange dina egna värden för följande:
+Skapa en fil med namnet *windows.jspå* och klistra in följande innehåll. Ange dina egna värden för följande:
 
 | Parameter                           | Var du kan hämta |
 |-------------------------------------|----------------------------------------------------|

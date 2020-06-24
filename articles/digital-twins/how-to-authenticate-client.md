@@ -1,5 +1,5 @@
 ---
-title: Autentisera ett klient program
+title: Autentisera ett klientprogram
 titleSuffix: Azure Digital Twins
 description: Se så här autentiserar du ett klient program mot tjänsten Azure Digitals dubbla.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8390ed8777c2c15940bef5838890e49396404052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613273"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726164"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autentisera ett klient program med Azure Digitals dubbla
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 När du har [skapat en Azure Digitals-instans](how-to-set-up-instance.md)kan du skapa ett klient program som ska användas för att interagera med instansen. När du har konfigurerat ett start klient projekt visar den här artikeln hur du korrekt autentiserar klient programmet med Azure Digitals-instansen.
 
@@ -44,7 +47,7 @@ Om du vill skapa en app-registrering måste du ange resurs-ID: n för Azure Digi
 }]
 ``` 
 
-Spara filen som *manifest. JSON*.
+Spara filen som *manifest.jspå*.
 
 > [!NOTE] 
 > Det finns vissa platser där en "läsvänlig", läsbar sträng `https://digitaltwins.azure.net` kan användas för resurs-ID: t för Azure Digital tillsammans i stället för GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Till exempel använder många exempel i den här dokumentationen autentisering med MSAL-biblioteket och den egna strängen kan användas för det. Men under det här steget för att skapa appens registrering krävs GUID-formatet för ID: t som visas ovan. 
@@ -52,7 +55,7 @@ Spara filen som *manifest. JSON*.
 I Cloud Shell-fönstret klickar du på ikonen Ladda upp/ladda ned filer och väljer överför.
 
 :::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Cloud Shell fönster som visar val av överförings alternativ":::
-Navigera till *manifest. JSON* som du precis skapade och tryck på "öppna".
+Navigera till *manifest.jspå* du nyss skapade och tryck på "öppna".
 
 Kör sedan följande kommando för att skapa en app-registrering (ersätter plats hållare vid behov):
 

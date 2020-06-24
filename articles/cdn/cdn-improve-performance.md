@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253772"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887698"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestandan genom att komprimera filer i Azure CDN
 Fil komprimering är en enkel och effektiv metod för att förbättra fil överförings hastigheten och öka sid inläsnings prestandan genom att minska fil storleken innan den skickas från servern. Fil komprimering kan minska bandbredds kostnaderna och ge användarna ett mer svars upplevelser.
@@ -127,7 +127,7 @@ Dessa profiler stöder följande komprimerings kodningar:
 
 Om begäran stöder fler än en komprimerings typ prioriteras dessa komprimerings typer framför brotli-komprimering.
 
-När en begäran för en till gång anger brotli-komprimering (HTTP `Accept-Encoding: br`-huvud) och begäran resulterar i ett cacheminne missar Azure CDN utföra brotli-komprimering av till gången direkt på pop-servern. Efteråt hanteras den komprimerade filen från cachen.
+När en begäran för en till gång anger brotli-komprimering (HTTP-huvud `Accept-Encoding: br` ) och begäran resulterar i ett cacheminne missar Azure CDN utföra brotli-komprimering av till gången direkt på pop-servern. Efteråt hanteras den komprimerade filen från cachen.
 
 ### <a name="azure-cdn-standard-from-akamai-profiles"></a>Azure CDN Standard från Akamai-profiler
 
@@ -139,7 +139,7 @@ Dessa profiler stöder endast gzip-komprimerings kodning. När en profil slut pu
 I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenario:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Komprimering är inaktiverat eller så är filen inte giltig för komprimering
-| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svaret till klienten | &nbsp; &nbsp; Anteckningar&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svaret till klienten | &nbsp; &nbsp; &nbsp; &nbsp; Anteckningar &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade | |
 | Komprimerade |Okomprimerade |Okomprimerade | |
@@ -149,7 +149,7 @@ I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenar
 | Okomprimerade |Inte cachelagrad |Okomprimerade | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Komprimering är aktiverat och filen är tillgänglig för komprimering
-| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Obs! |
+| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Kommentarer |
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade |CDN-omkodningar mellan format som stöds. |
 | Komprimerade |Okomprimerade |Komprimerade |CDN utför en komprimering. |
@@ -162,7 +162,7 @@ I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenar
 För slut punkter som Aktiver ATS för Media Services CDN-direktuppspelning är komprimering aktiverat som standard för följande MIME-typer: 
 - Application/VND. MS-sstr + XML 
 - program/bindestreck + XML
-- Application/VND. Apple. mpegurl
+- URL för program/vnd.apple.mpeg
 - Application/f4m + XML 
 
 ## <a name="see-also"></a>Se även

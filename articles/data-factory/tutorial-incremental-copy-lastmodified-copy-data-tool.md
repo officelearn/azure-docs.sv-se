@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
-ms.openlocfilehash: 3098ca0d3d5e41c298d3058ffa84fcf129648281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399493"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730160"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 
@@ -25,7 +25,7 @@ ms.locfileid: "81399493"
 
 I den här självstudien använder du Azure Portal för att skapa en data fabrik. Sedan använder du Kopiera data-verktyget för att skapa en pipeline som stegvis kopierar nya och ändrade filer, från Azure Blob Storage till Azure Blob Storage. Den används `LastModifiedDate` för att avgöra vilka filer som ska kopieras.
 
-När du har slutfört stegen här kommer Azure Data Factory att söka igenom alla filer i käll arkivet, använda fil filtret av `LastModifiedDate`och kopiera till mål arkivet endast filer som är nya eller som har uppdaterats sedan senaste gången. Observera att om Data Factory skannar ett stort antal filer, bör du fortfarande förvänta dig långa varaktigheter. Det tar lång tid att genomsöka filer, även när mängden data som kopieras minskar.
+När du har slutfört stegen här kommer Azure Data Factory att söka igenom alla filer i käll arkivet, använda fil filtret av `LastModifiedDate` och kopiera till mål arkivet endast filer som är nya eller som har uppdaterats sedan senaste gången. Observera att om Data Factory skannar ett stort antal filer, bör du fortfarande förvänta dig långa varaktigheter. Det tar lång tid att genomsöka filer, även när mängden data som kopieras minskar.
 
 > [!NOTE]
 > Om du inte har använt datafabriken tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
@@ -52,7 +52,7 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Välj **Skapa en resurs** i fönstret till vänster. Välj **analys** > **Data Factory**:
+1. Välj **Skapa en resurs** i fönstret till vänster. Välj **analys**  >  **Data Factory**:
 
    ![Välj Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -128,7 +128,7 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
      ![Välj sidan indatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. På sidan **mål data lager** väljer du den **AzureBlobStorage** -tjänst som du har skapat. Det här är samma lagrings konto som käll data lagret. Välj sedan **Nästa**.
+5. På sidan **mål data lager** väljer du den **AzureBlobStorage** -tjänst som du har skapat. Det här är samma lagrings konto som käll data lagret. Välj **Nästa**.
 
 6. Gör följande på sidan **Choose the output file or folder** (Välj utdatafil eller -mapp):
 
@@ -150,7 +150,7 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
 10. Observera att fliken **Övervaka** till vänster väljs automatiskt. Programmet växlar till fliken **övervakare** . Du ser status för pipelinen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). Välj länken under **pipeline-namn** om du vill visa aktivitets körnings information eller köra pipelinen igen.
 
-    ![Uppdatera listan och Visa aktivitets körnings information](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Uppdatera listan och Visa aktivitets körnings information](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. Det finns bara en aktivitet (kopierings aktiviteten) i pipelinen, så att du bara ser en post. Om du vill ha mer information om kopierings åtgärden väljer du länken **information** (glasögon ikonen) i kolumnen **aktivitets namn** . Mer information om egenskaperna finns i [Översikt över kopierings aktivitet](copy-activity-overview.md).
 
@@ -160,23 +160,21 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
     ![Inga filer i käll containern eller mål behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Skapa en tom textfil och ge den namnet **fil1. txt**. Ladda upp text filen till käll behållaren i ditt lagrings konto. Du kan använda olika verktyg för att utföra dessa uppgifter, t. ex. [Azure Storage Explorer](https://storageexplorer.com/).
+12. Skapa en tom textfil och ge den namnet **file1.txt**. Ladda upp text filen till käll behållaren i ditt lagrings konto. Du kan använda olika verktyg för att utföra dessa uppgifter, t. ex. [Azure Storage Explorer](https://storageexplorer.com/).
 
-    ![Skapa fil1. txt och ladda upp den till käll behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![Skapa file1.txt och ladda upp den till käll behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. Gå tillbaka till vyn **pipeline-körningar** genom att välja **alla pipelines-körningar**och vänta tills samma pipelines automatiskt utlöses igen.  
 
-    ![Välj alla pipeline-körningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
-
 14. När den andra pipeline-körningen är klar följer du samma steg som tidigare för att granska aktivitets körnings informationen.  
 
-    Du ser att en fil (fil1. txt) har kopierats från käll behållaren till mål behållaren för ditt Blob Storage-konto:
+    Du ser att en fil (file1.txt) har kopierats från käll behållaren till mål behållaren för ditt Blob Storage-konto:
 
-    ![fil1. txt har kopierats från käll behållaren till mål behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![file1.txt har kopierats från käll behållaren till mål behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
-15. Skapa en annan tom textfil och ge den namnet **fil2. txt**. Ladda upp text filen till käll behållaren i ditt Blob Storage-konto.
+15. Skapa en annan tom textfil och ge den namnet **file2.txt**. Ladda upp text filen till käll behållaren i ditt Blob Storage-konto.
 
-16. Upprepa steg 13 och 14 för den andra text filen. Du ser att endast den nya filen (fil2. txt) har kopierats från käll behållaren till mål behållaren för ditt lagrings konto under den här pipeline-körningen.  
+16. Upprepa steg 13 och 14 för den andra text filen. Du ser att endast den nya filen (file2.txt) har kopierats från käll behållaren till mål behållaren för ditt lagrings konto under den här pipeline-körningen.  
 
     Du kan också kontrol lera att endast en fil har kopierats med hjälp av [Azure Storage Explorer](https://storageexplorer.com/) för att genomsöka filerna:
 

@@ -4,16 +4,16 @@ description: Den här sidan innehåller instruktioner om fel sökning och valide
 services: expressroute
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 827d68a5f0f35e42acae1fa225646eb509f69c89
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78330965"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729327"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som ofta fören klar av en anslutnings leverantör. ExpressRoute-anslutningen omfattar vanligt vis tre olika nätverks zoner, enligt följande:
@@ -288,7 +288,7 @@ Ett exempel på utdata från kommandot för en icke-befintlig peering är:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]

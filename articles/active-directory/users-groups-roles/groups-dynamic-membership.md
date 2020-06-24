@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbdf4c57e1bf6e7f3f581b9a6186567e10743d52
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221173"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728375"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -390,7 +390,7 @@ Följande enhets egenskaper kan användas.
  deviceId | ett giltigt ID för Azure AD-enhet | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
  devicePhysicalIds | ett sträng värde som används av autopilot, till exempel alla autopilot-enheter, Ordernr eller PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[Ordernr]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
- systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (Device. systemLabels-innehåller "M365Managed")
+ systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (device.systemLabels-innehåller "M365Managed")
 
 > [!Note]  
 > För deviceOwnership när du skapar dynamiska grupper för enheter måste du ange värdet till "företag". I Intune representeras enhetens ägarskap i stället för företag. Mer information finns på [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) . 

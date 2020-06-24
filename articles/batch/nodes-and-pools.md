@@ -2,13 +2,13 @@
 title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/16/2020
+ms.openlocfilehash: 46c78fe1c45d2effe03008667dd424d943d75ec4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791157"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888376"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -27,6 +27,8 @@ Alla beräkningsnoder i Batch innehåller också:
 - En fördefinierad [mappstruktur](files-and-directories.md) och associerade [miljövariabler](jobs-and-tasks.md) som är tillgängliga som referens för aktiviteterna.
 - **Brandväggsinställningar** som konfigureras för att styra åtkomsten.
 - [Fjärråtkomst](error-handling.md#connect-to-compute-nodes) till både Windows-noder (RDP, Remote Desktop Protocol) och Linux-noder (SSH, Secure Shell).
+
+Som standard kan noder kommunicera med varandra, men de kan inte kommunicera med virtuella datorer som inte ingår i samma pool. Om noderna ska kunna kommunicera säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen [i ett undernät för ett virtuellt Azure-nätverk (VNet)](batch-virtual-network.md). När du gör det kan noderna nås via offentliga IP-adresser. Dessa offentliga IP-adresser skapas av batch och kan ändras under poolens livstid. Du kan också [skapa en pool med statiska offentliga IP-adresser](create-pool-public-ip.md) som du kontrollerar, vilket säkerställer att de inte ändras.
 
 ## <a name="pools"></a>Pooler
 
@@ -162,13 +164,16 @@ Mer information om hur du använder programpaket för att distribuera program ti
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguration av virtuella nätverk (VNet) och brandväggar
 
-När du etablerar en pool av beräkningsnoder i Batch kan du associera poolen med ett undernät för ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).  
+När du etablerar en pool av beräkningsnoder i Batch kan du associera poolen med ett undernät för ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
 ### <a name="vnet-requirements"></a>VNet-krav
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Läs mer om hur du konfigurerar en Batch-pool i ett VNet i [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Skapa en pool av virtuella datorer med det virtuella nätverket).
+
+> [!TIP]
+> För att säkerställa att de offentliga IP-adresserna som används för att komma åt noderna inte ändras, kan du [skapa en pool med angivna offentliga IP-adresser som du styr](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Livslängd för pooler och beräkningsnoder
 

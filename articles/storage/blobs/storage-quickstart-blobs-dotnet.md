@@ -8,11 +8,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240508"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711875"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET
 
@@ -29,7 +29,7 @@ Använd Azure Blob Storage-V12 för .NET för att:
 * Ladda ned blobben till den lokala datorn
 * Ta bort en container
 
-[API Reference dokumentation](/dotnet/api/azure.storage.blobs) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API-referens dokumentation](/dotnet/api/azure.storage.blobs)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -67,7 +67,7 @@ Skapa ett .NET Core-program med namnet *BlobQuickstartV12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för .NET-paketet med `dotnet add package` hjälp av kommandot.
+När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för .NET-paketet med hjälp av `dotnet add package` kommandot.
 
 ```console
 dotnet add package Azure.Storage.Blobs
@@ -79,8 +79,8 @@ Från projekt katalogen:
 
 1. Öppna filen *program.cs* i redigeraren
 1. Ta bort `Console.WriteLine("Hello World!");` instruktionen
-1. Lägg `using` till direktiv
-1. Uppdatera `Main` Metod deklarationen för att stödja asynkron kod
+1. Lägg till `using` direktiv
+1. Uppdatera `Main` metod deklarationen för att stödja asynkron kod
 
 Här är koden:
 
@@ -138,7 +138,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `Main` i-metoden:
+Lägg till den här koden i- `Main` metoden:
 
 ```csharp
 Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
@@ -248,7 +248,7 @@ using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
 
 Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med hjälp av [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Den tar också bort de lokala filer som skapats av appen.
 
-Appen pausar indata från användaren genom att `Console.ReadLine` anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
+Appen pausar indata från användaren genom `Console.ReadLine` att anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
 
 Lägg till den här koden i slutet av `Main` metoden:
 

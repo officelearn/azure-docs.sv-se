@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 40b3ebf9193ad2d167cb36792900746201605298
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022205"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106465"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -37,7 +37,7 @@ Här följer några viktiga uppgifter om privata slut punkter:
  
 - Nätverks anslutningar kan endast initieras av klienter som ansluter till den privata slut punkten. tjänst leverantörer har ingen konfiguration för routning för att initiera anslutningar till tjänst konsumenter. Anslutningar kan bara upprättas i en enda riktning.
 
-- När du skapar en privat slut punkt skapas även ett skrivskyddat nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas dynamiskt privata IP-adresser från under nätet som mappar till den privata länk resursen. värdet för den privata IP-adressen förblir oförändrat för hela livs cykeln för den privata slut punkten.
+- När du skapar en privat slut punkt skapas även ett skrivskyddat nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas dynamiskt privata IP-adresser från under nätet som mappar till den privata länk resursen. Värdet för den privata IP-adressen förblir oförändrat för hela livs cykeln för den privata slut punkten.
  
 - Den privata slut punkten måste distribueras i samma region som det virtuella nätverket. 
  
@@ -55,6 +55,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |Resurs namn för privat länk  |Resurstyp   |Under resurser  |
 |---------|---------|---------|
 |**Privat länk tjänst** (din egen tjänst)   |  Microsoft. Network/privateLinkServices       | tomt |
+|**Azure Automation** |  Microsoft. Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft. Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |

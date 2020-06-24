@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252550"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689903"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -68,7 +68,7 @@ Det här steget behöver bara utföras en gång per prenumeration.
 
 Så här godkänner du program varu villkoren i förväg:
 
-1. Öppna ett Cloud Shell i Azure Portal eller genom att bläddra till <https://shell.azure.com>. Logga in med ditt prenumerations-ID.
+1. Öppna ett Cloud Shell i Azure Portal eller genom att bläddra till <https://shell.azure.com> . Logga in med ditt prenumerations-ID.
 
    ```azurecli
     az login
@@ -98,7 +98,7 @@ Skapa lagrings tjänstens slut punkt från Azure Portal.
 1. Välj det virtuella nätverket för klustret.
 1. Klicka på **tjänst slut punkter** på den vänstra menyn.
 1. Klicka på **Lägg till** längst upp.
-1. Välj tjänsten ``Microsoft.Storage``.
+1. Välj tjänsten ``Microsoft.Storage`` .
 1. Välj klustrets undernät.
 1. Klicka på **Lägg till**längst ned på sidan.
 

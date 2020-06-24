@@ -3,25 +3,25 @@ title: Inaktivera användar inloggningar för en Enterprise-App i Azure AD
 description: Så här inaktiverar du ett företags program så att inga användare kan logga in på det i Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274097"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763388"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Inaktivera användar inloggningar för en företags app i Azure Active Directory
 
@@ -31,10 +31,10 @@ Det är enkelt att inaktivera ett företags program så att inga användare kan 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 1. Välj **alla tjänster**, ange **Azure Active Directory** i text rutan och välj sedan **RETUR**.
-1. I fönstret **Azure Active Directory** -  ***DirectoryName*** (det vill säga Azure AD-fönstret för den katalog som du hanterar) väljer du **företags program**.
+1. I fönstret **Azure Active Directory**  -   ***DirectoryName*** (det vill säga Azure AD-fönstret för den katalog som du hanterar) väljer du **företags program**.
 1. I fönstret **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.
 1. I fönstret ***APPNAME*** (det vill säga fönstret med namnet på den valda appen i rubriken) väljer du **Egenskaper**.
-1. I fönstret ***appname*** - **Egenskaper** för APPNAME väljer du **Nej** för **aktiverade användare för inloggning?**.
+1. I fönstret ***appname***  -  **Egenskaper** för APPNAME väljer du **Nej** för **aktiverade användare för inloggning?**.
 1. Välj kommandot **Spara** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Använd Azure AD PowerShell för att inaktivera en app som inte är listad

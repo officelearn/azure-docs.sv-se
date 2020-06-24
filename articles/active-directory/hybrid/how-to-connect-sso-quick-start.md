@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef603141129be6a73e018fb3e3dcabf9c5d7961f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 503fc3c9ce566e9b3d90062709222bf27d88fa01
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993498"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106055"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -100,9 +100,8 @@ Följ dessa anvisningar för att kontrol lera att du har aktiverat sömlös SSO 
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Distribuera funktionen
 
-Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvisningarna nedan. Du börjar med att lägga till följande Azure AD-URL: er till alla eller valda användares intranät zons inställningar genom att använda grupprincip i Active Directory:
+Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvisningarna nedan. Du börjar med att lägga till följande Azure AD-URL till alla eller valda användares intranät zons inställningar med hjälp av grupprincip i Active Directory:
 
-- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 Dessutom måste du aktivera en princip inställning för intranät zon som kallas **Tillåt uppdateringar till statusfältet via skript** genom att Grupprincip. 

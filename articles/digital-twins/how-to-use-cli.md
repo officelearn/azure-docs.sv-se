@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Digitals flätat CLI
+title: Använda Azure Digital Twins CLI
 titleSuffix: Azure Digital Twins
 description: Se hur du kommer igång med och använder Azure Digitals flätade CLI.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 53b20ded8e4b4a003beff1ef8489ecd9ff3451ac
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 595ab06e618fd977b75a15d3acb9a9a339b6edce
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612805"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725313"
 ---
-# <a name="use-the-azure-digital-twins-cli"></a>Använd Azure Digitals flätat CLI
+# <a name="use-the-azure-digital-twins-cli"></a>Använda Azure Digital Twins CLI
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Förutom att hantera Azure Digitals-instansen i Azure Portal, har Azure Digitals-dubbla, ett **kommando rads gränssnitt (CLI)** som du kan använda för att utföra de flesta större åtgärder med tjänsten, inklusive:
 * Hantera en digital Azure-instans

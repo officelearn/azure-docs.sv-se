@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559880"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100017"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -124,7 +124,7 @@ cd LocalFunctionProj
 cd fabrikam-functions
 ```
 ::: zone-end  
-Den här mappen innehåller olika filer för projektet, inklusive konfigurationsfiler som heter [Local. Settings. JSON](functions-run-local.md#local-settings-file) och [Host. JSON](functions-host-json.md). Eftersom *Local. Settings. JSON* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
+Den här mappen innehåller olika filer för projektet, inklusive konfigurationsfiler som heter [local.settings.jspå](functions-run-local.md#local-settings-file) och [host.js](functions-host-json.md). Eftersom *local.settings.jspå* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
 
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
@@ -150,9 +150,9 @@ Returvärdet är en [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionre
 
 Svarsmeddelandet genereras av [HttpResponseMessage. Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) -API: et.
 
-#### <a name="pomxml"></a>Pom. XML
+#### <a name="pomxml"></a>pom.xml
 
-Inställningarna för de Azure-resurser som skapats som värd för din app definieras i konfigurations elementet i plugin-programmet **med ett** **konfigurations** exempel `com.microsoft.azure` i den genererade Pom. XML-filen. Konfigurations elementet nedan instruerar till exempel en maven-baserad distribution för att skapa en Function-app i `java-functions-group` resurs gruppen i `westus` regionen. Själva funktions programmet körs i Windows som finns i `java-functions-app-service-plan` planen, vilket som standard är en server lös förbruknings plan.    
+Inställningarna för de Azure-resurser som skapats som **värd för din** app definieras i konfigurations elementet i plugin-programmet med ett **konfigurations** exempel `com.microsoft.azure` i den genererade pom.xmls filen. Konfigurations elementet nedan instruerar till exempel en maven-baserad distribution för att skapa en Function-app i `java-functions-group` resurs gruppen i `westus` regionen. Själva funktions programmet körs i Windows som finns i `java-functions-app-service-plan` planen, vilket som standard är en server lös förbruknings plan.    
 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
@@ -165,47 +165,47 @@ Archetype genererar också ett enhets test för din funktion. När du ändrar di
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init \_ \_ . py
 
-* \_ \_ init \_ \_ . py* innehåller en `main()` python-funktion som utlöses enligt konfigurationen i *Function. JSON*.
+* \_ \_ init \_ \_ . py* innehåller en `main()` python-funktion som utlöses enligt konfigurationen i *function.jspå*.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *Function. JSON*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *function.jspå*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-#### <a name="indexjs"></a>index. js
+#### <a name="indexjs"></a>index.js
 
-*index. js* exporterar en funktion som utlöses enligt konfigurationen i *Function. JSON*.
+*index.js* exporterar en funktion som utlöses enligt konfigurationen i *function.jspå*.
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *Function. JSON*. Returvärdet, som definieras som `$return` i *Function. JSON*, är svaret. Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. Returvärdet, som definieras som `$return` i *function.jspå*, är svaret. Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 #### <a name="indexts"></a>index. TS
 
-*index. TS* exporterar en funktion som utlöses enligt konfigurationen i *Function. JSON*.
+*index. TS* exporterar en funktion som utlöses enligt konfigurationen i *function.jspå*.
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` av typen **HttpRequest** enligt definitionen i *Function. JSON*. Returvärdet, som definieras som `$return` i *Function. JSON*, är svaret. 
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` av typen **HttpRequest** som definieras i *function.jspå*. Returvärdet, som definieras som `$return` i *function.jspå*, är svaret. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-#### <a name="runps1"></a>Kör. ps1
+#### <a name="runps1"></a>run.ps1
 
-*Run. ps1* definierar ett funktions skript som utlöses enligt konfigurationen i *Function. JSON*.
+*run.ps1* definierar ett funktions skript som utlöses enligt konfigurationen i *function.jspå*.
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data som skickas till den `$Request` param som definierats i *Function. JSON*. Objektet Return, som definieras som `Response` i *Function. JSON*, skickas till `Push-OutputBinding` cmdleten som svar. 
+För en HTTP-utlösare tar funktionen emot begär ande data som skickas till den `$Request` param som definierats i *function.js*. Returvärdet, som definieras som `Response` i *function.jspå*, skickas till `Push-OutputBinding` cmdleten som svar. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 #### <a name="functionjson"></a>function.json
 
-*Function. JSON* är en konfigurations fil som definierar indata och utdata `bindings` för funktionen, inklusive utlösnings typen. 
+*function.jspå* är en konfigurations fil som definierar indata och utdata `bindings` för funktionen, inklusive utlösnings typen. 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -277,7 +277,7 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Lin
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Om du använder Node. js 8 ändras även `--runtime-version` till `8` .
+Om du använder Node.js 8 ändrar du också `--runtime-version` till `8` .
 
 
 ```azurecli
@@ -345,10 +345,10 @@ Functions in msdocs-azurefunctions-qs:
 ::: zone pivot="programming-language-java"  
 ## <a name="deploy-the-function-project-to-azure"></a>Distribuera funktions projektet till Azure
 
-En Function-app och relaterade resurser skapas i Azure när du först distribuerar ditt Functions-projekt. Inställningarna för de Azure-resurser som skapats som värd för din app definieras i [filen Pom. XML](#pomxml). I den här artikeln godkänner du standardvärdena.
+En Function-app och relaterade resurser skapas i Azure när du först distribuerar ditt Functions-projekt. Inställningarna för de Azure-resurser som skapats som värd för din app definieras i [pom.xml-filen](#pomxml). I den här artikeln godkänner du standardvärdena.
 
 > [!TIP]
-> Om du vill skapa en Function-app som körs i Linux i stället för Windows, ändrar du `runtime.os` elementet i filen Pom. XML från `windows` till `linux` . Att köra Linux i en förbruknings plan stöds i [dessa regioner](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Du kan inte ha appar som körs på Linux och appar som körs i Windows i samma resurs grupp.
+> Om du vill skapa en Function-app som körs på Linux i stället för Windows, ändrar du `runtime.os` elementet i pom.xml-filen från `windows` till `linux` . Att köra Linux i en förbruknings plan stöds i [dessa regioner](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Du kan inte ha appar som körs på Linux och appar som körs i Windows i samma resurs grupp.
 
 Innan du kan distribuera använder du kommandot [AZ login](/cli/azure/authenticate-azure-cli) Azure CLI för att logga in på din Azure-prenumeration. 
 
@@ -393,6 +393,11 @@ Kör [`curl`](https://curl.haxx.se/) med **anrops-URL: en**och Lägg till parame
 
 > [!TIP]
 > Om du vill visa nära real tids loggar för en publicerad Function-app använder du [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
+>
+> Kör följande kommando för att öppna Live Metrics-dataströmmen i en webbläsare.
+>   ```
+>   func azure functionapp logstream <APP_NAME> --browser
+>   ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -2,13 +2,13 @@
 title: Data kvarhållning och lagring i Azure Application Insights | Microsoft Docs
 description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
-ms.date: 09/29/2019
-ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/11/2020
+ms.openlocfilehash: d77eaa32c8487d1aa87626683b4c29bf1cee0e75
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276002"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718690"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -52,10 +52,10 @@ Huvud kategorierna är:
 * [Webb sidor](../../azure-monitor/app/javascript.md) – antal sidor, användare och sessioner. Sid inläsnings tider. Undantag. AJAX-anrop.
 * Prestanda räknare – minne, CPU, i/o, nätverks användning.
 * Klient-och Server kontext – operativ system, språk, enhets typ, webbläsare, skärmupplösning.
-* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id`, CPU-typ. 
+* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id` , CPU-typ. 
 * [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
 * [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) – varaktighet för test och steg, svar.
-* [Spåra loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) - **allt du kodar till dina loggar eller telemetri**.
+* [Spåra loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)  -  **allt du kodar till dina loggar eller telemetri**.
 
 [Mer information](#data-sent-by-application-insights).
 
@@ -132,7 +132,7 @@ Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav
 
 ###  <a name="net"></a>.Net
 
-Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data- `%localAppData%\Microsoft\ApplicationInsights` mapp eller Temp `%TMP%`-mappen. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.)
+Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%` . (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.)
 
 
 Via konfigurations fil:
@@ -155,7 +155,7 @@ Via kod:
 
 ### <a name="netcore"></a>NetCore
 
-Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data- `%localAppData%\Microsoft\ApplicationInsights` mapp eller Temp `%TMP%`-mappen. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) I en Linux-miljö kommer lokal lagring att inaktive ras om inte en lagringsmapp anges.
+Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%` . (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) I en Linux-miljö kommer lokal lagring att inaktive ras om inte en lagringsmapp anges.
 
 Följande kodfragment visar hur du ställer in `ServerTelemetryChannel.StorageFolder` i- `ConfigureServices()` metoden för `Startup.cs` klassen:
 
@@ -169,17 +169,17 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 Som standard `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` används för att spara data. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) här.)
 
-Du `appInsights-node` kan åsidosätta mappsökvägen genom att ändra körnings värdet för den statiska variabeln `Sender.TEMPDIR_PREFIX` som finns i [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+Du `appInsights-node` kan åsidosätta mappsökvägen genom att ändra körnings värdet för den statiska variabeln som `Sender.TEMPDIR_PREFIX` finns i [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
 ### <a name="javascript-browser"></a>Java Script (webbläsare)
 
-[HTML5-session lagring](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) används för att bevara data. Två separata buffertar används: `AI_buffer` och. `AI_sent_buffer` Telemetri som är batch-och väntar på att skickas lagras i `AI_buffer`. Telemetri som precis har skickats placeras `AI_sent_buffer` tills inmatnings servern svarar på att den har tagits emot. När telemetri har tagits emot tas den bort från alla buffertar. När ett tillfälligt fel (till exempel en användare förlorar nätverks anslutningen) är telemetri kvar `AI_buffer` tills det har tagits emot eller så svarar inmatnings servern att telemetri är ogiltigt (felaktigt schema eller för gammalt, till exempel).
+[HTML5-session lagring](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) används för att bevara data. Två separata buffertar används: `AI_buffer` och `AI_sent_buffer` . Telemetri som är batch-och väntar på att skickas lagras i `AI_buffer` . Telemetri som precis har skickats placeras tills inmatnings `AI_sent_buffer` servern svarar på att den har tagits emot. När telemetri har tagits emot tas den bort från alla buffertar. När ett tillfälligt fel (till exempel en användare förlorar nätverks anslutningen) är telemetri kvar `AI_buffer` tills det har tagits emot eller så svarar inmatnings servern att telemetri är ogiltigt (felaktigt schema eller för gammalt, till exempel).
 
-Telemetri-buffertar kan inaktive [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) ras `false`genom att ställa in på. När session Storage är inaktiverat, används en lokal matris i stället som beständig lagring. Eftersom JavaScript SDK körs på en klient enhet har användaren åtkomst till den här lagrings platsen via deras utvecklarverktyg.
+Telemetri-buffertar kan inaktive ras genom att ställa in [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) på `false` . När session Storage är inaktiverat, används en lokal matris i stället som beständig lagring. Eftersom JavaScript SDK körs på en klient enhet har användaren åtkomst till den här lagrings platsen via deras utvecklarverktyg.
 
 ### <a name="opencensus-python"></a>Python-räkningar
 
-Som standard använder du python SDK för den aktuella användaren `%username%/.opencensus/.azure/`. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina sparade data kommer att namnges efter den python-fil som skapade Telemetrin.
+Som standard använder du python SDK för den aktuella användaren `%username%/.opencensus/.azure/` . Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina sparade data kommer att namnges efter den python-fil som skapade Telemetrin.
 
 Du kan ändra platsen för lagrings filen genom att skicka i `storage_path` parametern i konstruktorn för den exportör som du använder.
 
@@ -202,11 +202,11 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
-| Azure App Services  | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure-funktionsappar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure App Services  | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| Azure-funktionsappar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Konfigurationen varierar beroende på version. | Detaljerad konfigurations information för .NET 4,7 och tidigare versioner finns i [de här anvisningarna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + av[.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
-|Node.js |  Konfigurationen kan krävas i v-10.5.0. | Använd den [officiella Node. js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för valfri programspecifik konfiguration. |
+|Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)av  +  [.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
+|Node.js |  Konfigurationen kan krävas i v-10.5.0. | Använd den [officiella Node.js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för valfri programspecifik konfiguration. |
 |Java | Stöd för JDK-stöd för TLS 1,2 har lagts till i [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1,2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
 | Windows 8,0-10 | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
@@ -277,19 +277,19 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 | Begäranden |URL, varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutnings sträng eller URI, Sync/async, varaktighet, lyckades, SQL-uttryck (med Statusövervakare) |
 | **Undantag** |Typ, **meddelande**, anrops stackar, käll fil, rad nummer,`thread id` |
-| Krascher |`Process id`, `parent process id`, `crash thread id`; program korrigering, `id`, build;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
+| Krascher |`Process id`, `parent process id` , `crash thread id` ; program korrigering, `id` , bygge;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
 | Spårning |**Meddelande** -och allvarlighets nivå |
 | Prestandaräknare |Processor tid, tillgängligt minne, begär ande frekvens, undantags frekvens, processens privata byte, i/o-hastighet, varaktighet för begäran, Kölängd för begäran |
 | Tillgänglighet |Svars kod för webbtest, varaktighet för varje test steg, testnamn, tidsstämpel, framgång, svars tid, test plats |
 | SDK-diagnostik |Spårnings meddelande eller undantag |
 
-Du kan [stänga av vissa data genom att redigera ApplicationInsights. config][config]
+Du kan [stänga av vissa data genom att redigera ApplicationInsights.config][config]
 
 > [!NOTE]
 > Klientens IP-adress används för att härleda geografisk plats, men som standard är IP-data inte längre lagrade och alla nollor skrivs till det associerade fältet. Om du vill veta mer om personlig data hantering rekommenderar vi den här [artikeln](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Om du behöver lagra IP-Datadata kommer vår [artikel för IP-adresser](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) att vägleda dig genom dina alternativ.
 
 ## <a name="credits"></a>Krediter
-Den här produkten innehåller GeoLite2-data som skapats av MaxMind [https://www.maxmind.com](https://www.maxmind.com), som är tillgängliga från.
+Den här produkten innehåller GeoLite2-data som skapats av MaxMind, som är tillgängliga från [https://www.maxmind.com](https://www.maxmind.com) .
 
 
 

@@ -8,18 +8,18 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92674ed9d39ea9e84d477d19aadbaeda6da6f32c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206120"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728273"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Sök efter grupper och medlemmar (förhands granskning) i Azure Active Directory
 

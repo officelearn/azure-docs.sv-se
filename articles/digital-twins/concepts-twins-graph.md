@@ -1,5 +1,5 @@
 ---
-title: Digitala garn och det dubbla diagrammet
+title: Digitala tvillingenheter och tvillingdiagrammet
 titleSuffix: Azure Digital Twins
 description: Förstå begreppet digital, och hur deras relationer gör en graf.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05c0c66e7b6d301a749b301178c1f666a48d434b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 4e2b223337bbe5d46f314a8d2126ab562b937445
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613007"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726089"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 I en Azure digital-lösning för dubbla lösningar representeras entiteterna i din miljö av Azures **digitala dubbla**. En digital, dubbel är en instans av en av dina anpassade [modeller](concepts-models.md). Det kan anslutas till andra digitala dubbla nätverk via **relationer** för att bilda ett sammanslaget **diagram**: det här dubbla diagrammet är en representation av hela miljön.
 
